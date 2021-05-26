@@ -1,0 +1,58 @@
+# Meta Data for SEO
+
+## Homepage
+title = "Jitsuin RKVST"
+titleSeparator = "-"
+titleAddition = "Multi-Party Trust Automation"
+description = "Jitsuin RKVST is a Multi-Party Trust Platform powered by the Blockchain"
+
+## Open Graph + Twitter Cards
+images = ["Jitsuin_Logo_RGB.png"]
+twitterSite = ""
+twitterCreator = ""
+facebookAuthor = ""
+facebookPublisher = ""
+ogLocale = "en_US"
+
+## JSON-LD
+schemaType = "Organization"
+schemaLogo = "Jitsuin_Logo_RGB_Spot.png"
+schemaTwitter = ""
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/jitsuin-inc"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 100
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 500, 200]
+portraitPhotoWidths = [900, 800, 500]
+lqipWidth = "100x"
+
+# Footer
+footer = "Powered by <a href=\"https://gohugo.io/\">Hugo</a> and <a href=\"https://getdoks.org/\">Doks</a>"
+
+# Alert
+alert = false
+alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
+
+# Edit Page
+docsRepo = "https://www.github.com/jitsuin-inc/rkvst-docs"
+editPage = true
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = true
+  highLight = true
+  kaTex = false

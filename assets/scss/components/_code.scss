@@ -1,0 +1,81 @@
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  border-radius: $border-radius;
+}
+
+code {
+  background: $beige;
+  color: $jitsuin-red;
+  padding: 0.25rem 0.5rem;
+}
+
+pre {
+  margin: 2rem 0rem;
+  position: relative;
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  line-height: $line-height-base;
+  padding: 1rem 1.5rem;
+  tab-size: 4;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.hljs {
+  padding: 1rem 1.5rem;
+}
+
+@include media-breakpoint-down(sm) {
+  pre,
+  code,
+  kbd,
+  samp {
+    border-radius: 0;
+  }
+
+  pre {
+    margin: 2rem 1.5rem;
+  }
+}
+
+pre code::-webkit-scrollbar {
+  height: 5px;
+}
+
+pre code::-webkit-scrollbar-thumb {
+  background: $gray-200;
+}
+
+pre code:hover {
+  scrollbar-width: thin;
+  scrollbar-color: $gray-200 transparent;
+}
+
+pre code::-webkit-scrollbar-thumb:hover {
+  background: $gray-200;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.td-content .tab-content .highlight {
+  margin: 0;
+}
+
+.tab-pane {
+  border-radius: 0.25rem;
+  padding: 0 8px 8px;
+
+  border: 1px solid $gray-300;
+  &:first-of-type.active {
+    border-top-left-radius: 0;
+  }
+}

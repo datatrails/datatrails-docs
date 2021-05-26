@@ -1,0 +1,94 @@
+.comment-list {
+  @extend .list-unstyled;
+}
+
+.comment-list ol {
+  list-style: none;
+}
+
+.comment-form p {
+  @extend .form-group !optional;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  @extend .form-control;
+}
+
+.comment-form input[type="submit"] {
+  @extend .btn;
+  @extend .btn-secondary;
+}
+
+blockquote {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-left: 3px solid $gray-300;
+  padding-left: 1rem;
+}
+
+.td-content, body {
+  blockquote.callout {
+    padding: 0.4rem 0.4rem 0.4rem 1rem;
+    border: 1px solid $gray-300;
+    border-left-width: 0.5em;
+    background: #fff;
+    color: #000;
+    font-size: 1.05rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  blockquote.callout {
+    border-radius: calc(1em/3);
+  }
+  .callout.caution {
+    border-left-color: $jitsuin-yellow;
+  }
+
+  .callout.note {
+    border-left-color: $jitsuin-purple;
+  }
+
+  .callout.warning {
+    border-left-color: $jitsuin-red;
+  }
+
+  h1:first-of-type + blockquote.callout {
+    margin-top: 1.5em;
+  }
+}
+
+.td-content, body.dark {
+  blockquote.callout {
+    padding: 0.4rem 0.4rem 0.4rem 1rem;
+    border: 1px solid $gray-300;
+    border-left-width: 0.5em;
+    background: $body-bg-dark;
+    color: $gray-300;
+    font-size: 1.05rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  blockquote.callout {
+    border-radius: calc(1em/3);
+  }
+
+  .callout.caution {
+    border-left-color: #ffaf09;
+  }
+
+  .callout.note {
+    border-left-color: #a112ff;
+  }
+
+  .callout.warning {
+    border-left-color: $jitsuin-red;
+  }
+
+  h1:first-of-type + blockquote.callout {
+    margin-top: 1.5em;
+  }
+}

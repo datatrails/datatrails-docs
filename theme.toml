@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/h-enk/doks/blob/master/LICENSE"
 description = "Multi-Party Trust Automation API, Powered by Blockchain "
 homepage = "https://jitsuin.com/"
-tags = ["landing page", "documentation", "jitsuin", "blockchain", "multiparty", "customizable", "search", "dark mode", "bootstrap"]
-features = ["security aware", "fast by default", "seo-ready", "development tools", "bootstrap framework", "netlify-ready", "full text search", "page layouts", "dark mode"]
+tags = ["landing page", "documentation", "jitsuin", "blockchain", "multi-party", "trust", "data-assurance""]
+features = ["landing page", "documentation", "jitsuin", "blockchain", "multi-party", "trust", "data-assurance"]
 min_version = "0.75.0"
 
 [author]

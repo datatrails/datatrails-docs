@@ -57,34 +57,35 @@ where fileName is the file's name with `.json` removed from the end
                               </h3>
                               <div id='collapserequest{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='headerrequest{{ $.Scratch.Get "id" }}' data-parent="#accordion">
                                 <div class="accordion-body">
-                                  <div style="width: 100%;"></div>
+                                  <div style="width: 100%;">
                                     <pre><code>{{$parameterExample.example | jsonify (dict "indent" "  ") }}</code></pre>
+                                  </div>
                                   </div>
                                 </div>
                               </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {{range $requestParameter, $requestParameterDetails := $parameterExample.properties }}
-                                <tr>
-                                  <th>{{ $requestParameter | markdownify}}</th>
-                                  <td>{{ $requestParameterDetails.type | markdownify }}</td>
-                                  {{ if isset $requestParameterDetails.items "$ref" }}
-                                    {{ $requestSubReference := index $requestParameterDetails.items "$ref"}}
-                                    {{ $requestSubComponent := ( split $requestSubReference "#/definitions/" ) }}
-                                    {{ $requestSubExample := index $openapi.definitions ( index $requestSubComponent 1 ) }}
-                                    <td>{{$requestSubExample.description | markdownify}}</td>
-                                  {{ else }}
-                                    <td>{{ $requestParameterDetails.description | markdownify }}</td>
-                                  {{ end }}                     
-                                {{ end }}
-                              </tbody> 
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {{range $requestParameter, $requestParameterDetails := $parameterExample.properties }}
+                                  <tr>
+                                    <th>{{ $requestParameter | markdownify}}</th>
+                                    <td>{{ $requestParameterDetails.type | markdownify }}</td>
+                                    {{ if isset $requestParameterDetails.items "$ref" }}
+                                      {{ $requestSubReference := index $requestParameterDetails.items "$ref"}}
+                                      {{ $requestSubComponent := ( split $requestSubReference "#/definitions/" ) }}
+                                      {{ $requestSubExample := index $openapi.definitions ( index $requestSubComponent 1 ) }}
+                                      <td>{{$requestSubExample.description | markdownify}}</td>
+                                    {{ else }}
+                                      <td>{{ $requestParameterDetails.description | markdownify }}</td>
+                                    {{ end }}                     
+                                  {{ end }}
+                                </tbody> 
                               </table>
                             {{ else }}
                             <table class="table table-striped table-bordered">
@@ -110,8 +111,6 @@ where fileName is the file's name with `.json` removed from the end
                         {{ end }}
                       {{ end }}
 
-
-
                       {{ range $responseCode, $responseDetails := $pathDetails.responses }}
                         {{ if eq $responseCode "200" }}
                           {{ if isset $responseDetails.schema "$ref"}}
@@ -131,30 +130,31 @@ where fileName is the file's name with `.json` removed from the end
                                   </div>
                                 </div>
                               </div>
-                          <table class="table table-striped table-bordered">
-                            <thead>
-                              <tr>
-                                <th scope="col">Response Parameter</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Description</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {{range $responseParameter, $responseParameterDetails := $responseExample.properties }}
-                              <tr>
-                                <th>{{ $responseParameter | markdownify}}</th>
-                                <td>{{ $responseParameterDetails.type | markdownify }}</td>
-                                {{ if isset $responseParameterDetails.items "$ref" }}
-                                  {{ $responseSubReference := index $responseParameterDetails.items "$ref"}}
-                                  {{ $responseSubComponent := (split $responseSubReference "#/definitions/") }}
-                                  {{ $responseSubExample := index $openapi.definitions (index $responseSubComponent 1) }}
-                                  <td>{{$responseSubExample.description | markdownify}}</td>
-                                {{ else }}
-                                  <td>{{ $responseParameterDetails.description | markdownify }}</td>
-                                {{ end }}             
-                              {{ end }}
-                            </tbody>
-                          </table>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {{range $responseParameter, $responseParameterDetails := $responseExample.properties }}
+                                <tr>
+                                  <th>{{ $responseParameter | markdownify}}</th>
+                                  <td>{{ $responseParameterDetails.type | markdownify }}</td>
+                                  {{ if isset $responseParameterDetails.items "$ref" }}
+                                    {{ $responseSubReference := index $responseParameterDetails.items "$ref"}}
+                                    {{ $responseSubComponent := (split $responseSubReference "#/definitions/") }}
+                                    {{ $responseSubExample := index $openapi.definitions (index $responseSubComponent 1) }}
+                                    <td>{{$responseSubExample.description | markdownify}}</td>
+                                  {{ else }}
+                                    <td>{{ $responseParameterDetails.description | markdownify }}</td>
+                                  {{ end }}             
+                                {{ end }}
+                              </tbody>
+                            </table>
                           {{ end }} 
                         {{ end }}
                       {{ end }}

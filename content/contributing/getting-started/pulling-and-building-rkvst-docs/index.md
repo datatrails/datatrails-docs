@@ -15,7 +15,7 @@ toc: true
 1. To begin pull the latest RKVST docs from Github.
 
 ```bash
-git clone <the final resting place>
+git clone git@github.com:jitsuin-inc/rkvst-docs.git
 ```
 
 2. Move into the directory.

@@ -14,9 +14,11 @@ toc: true
 ---
 
 
-RKVST offers a simple platform of trust-based, multi-party evidence sharing that can augment and boost existing decision making processes, whether your system or supply chain has already been digitized or still needs paper to be processed.
+Enterprise developers are challenged to build apps that track usage and build trust in multi-party data while meeting assurance, governance and compliance needs of the business. 
 
-RKVST provides a golden thread of traceable, unshreddable evidence and make it available to the right people at the right time; trusted by everyone.
+The Jitsuin RKVST is a Data Assurance Hub which stores shared asset evidence that proves when who did what to reduce risk, authenticates provenance in data for confident decisions, while governing complex data sharing controls. 
+
+Unlike forming your own blockchain consortium, committing to expensive integrations or managing spreadsheets, RKVST brings the right level of trust to data with a single line of code integration at a fraction of cost and time to value.
 
 This guide will get you started quickly with the Archivist UI and provide an understanding of core RKVST concepts.  
 

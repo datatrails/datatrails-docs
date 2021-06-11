@@ -19,22 +19,22 @@ where fileName is the file's name with `.json` removed from the end
  {{ $.Scratch.Set "id" 0 }}
  {{ with $.Params.url }}
   {{ $openapi := getJSON $.Params.url }}
+  {{ $componentID := index (split $openapi.info.title " API") 0 }}
   <div class="$openapi-spec-content">
-    <h2>{{ $openapi.info.title }} version {{ $openapi.info.version }}</h2>
     <div class="description">
       <p>{{ $openapi.info.description }}</p>
     </div>
-      <div class="accordion" id='{{ $.Scratch.Get "id" }}'></div>
+      <div class="accordion" id='{{ $componentID }}{{ $.Scratch.Get "id" }}'></div>
       {{ range $path, $pathMethods := $openapi.paths }}
         {{ range $pathMethod, $pathDetails := $pathMethods }}
           {{ $.Scratch.Set "id" (add ($.Scratch.Get "id") 1) }}
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='header{{ $.Scratch.Get "id" }}'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapse{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapse{{ $.Scratch.Get "id" }}'>
+                  <h3 class="accordion-header" id='header{{ $componentID }}{{ $.Scratch.Get "id" }}'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapse{{ $componentID }}{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapse{{ $componentID }}{{ $.Scratch.Get "id" }}'>
                         <span style="text-transform: uppercase; color: #ed1c24;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span style="width: 100%;">{{ $path }}</span>
                       </button>
                   </h3>
-                  <div id='collapse{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='header{{ $.Scratch.Get "id" }}' data-parent="#accordion">
+                  <div id='collapse{{ $componentID }}{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='header{{ $componentID }}{{ $.Scratch.Get "id" }}' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <h4><span style="color: #ed1c24; text-transform: uppercase;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span>{{ $path }}</span></h4>
@@ -50,12 +50,12 @@ where fileName is the file's name with `.json` removed from the end
                             {{ $parameterComponent := (split $parameterReference "#/definitions/") }}
                             {{ $parameterExample := index $openapi.definitions (index $parameterComponent 1)  }}
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequest{{ $.Scratch.Get "id" }}'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequest{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapserequest{{ $.Scratch.Get "id" }}'>
+                              <h3 class="accordion-header" id='headerrequest{{ $componentID }}{{ $.Scratch.Get "id" }}'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequest{{ $componentID }}{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapserequest{{ $componentID }}{{ $.Scratch.Get "id" }}'>
                                     <span>Example Request</span>
                                   </button>
                               </h3>
-                              <div id='collapserequest{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='headerrequest{{ $.Scratch.Get "id" }}' data-parent="#accordion">
+                              <div id='collapserequest{{ $componentID }}{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='headerrequest{{ $componentID }}{{ $.Scratch.Get "id" }}' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{{$parameterExample.example | jsonify (dict "indent" "  ") }}</code></pre>
@@ -118,12 +118,12 @@ where fileName is the file's name with `.json` removed from the end
                             {{ $component := (split $example "#/definitions/") }}
                             {{ $responseExample := index $openapi.definitions (index $component 1)  }}
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponse{{ $.Scratch.Get "id" }}'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponse{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapserequest{{ $.Scratch.Get "id" }}'>
+                              <h3 class="accordion-header" id='headerresponse{{ $componentID }}{{ $.Scratch.Get "id" }}'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponse{{ $componentID }}{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapserequest{{ $componentID }}{{ $.Scratch.Get "id" }}'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponse{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='headerresponse{{ $.Scratch.Get "id" }}' data-parent="#accordion">
+                              <div id='collapseresponse{{ $componentID }}{{ $.Scratch.Get "id" }}' class="accordion-collapse collapse" aria-labelledby='headerresponse{{ $componentID }}{{ $.Scratch.Get "id" }}' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{{$responseExample.example | jsonify (dict "indent" "  ") }}</code></pre>
@@ -182,4 +182,4 @@ where fileName is the file's name with `.json` removed from the end
     {{ end }}
 
   </div>
-</div>
+

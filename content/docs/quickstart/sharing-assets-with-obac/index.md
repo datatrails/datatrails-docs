@@ -25,12 +25,12 @@ toc: true
 
 ABAC and OBAC have a lot in common; they apply the same controls with two different classes of Actor.
 
-Where they differ is that OBAC shares only with Root Users of an External Organization; an External Root User will then apply ABAC to establish appropriate access for their own organization Non-Root Users.
+Where they differ is that OBAC shares only with Root Users of an External Organization; an External Root User must then apply ABAC to establish appropriate access for their own organization's Non-Root Users.
 
 Adding External Organizations
 -----------------------------
 
-In order to share Assets and their details with another Organization or Tenant we must first import them as Subjects
+In order to share Assets and their details with another Organization or Tenant we must first import the organizational Subject ID
 
 Creating an OBAC Policy
 -----------------------

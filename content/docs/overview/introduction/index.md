@@ -13,13 +13,16 @@ weight: 1
 toc: true
 ---
 
-Jitsuin RKVST is an asset lifecycle assurance system built to lower business risk. 
+Jitsuin RKVST is a Data Assurance Hub that proves When Who Did What to Assets. 
 
-It enables enterprises to reveal, reduce and report risks introduced through connected devices and Digital Transformation. 
+It enables enterprises to build trust in Multi-Party data through greater transparency. 
 
-RKVST maintains a Full Service History for assets by keeping a permanent shared record of When Who Did What to a Thing. Following the principle that you can’t secure what you can’t see, this level of visibility and traceability is key to lowering the risk of business transformation.
+RKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:
 
-RKVST makes recording and auditing the full lifecycle of an asset simple: any authorized participant (including an agent or endpoint on the device itself) can register the events they know about, from which all participants can see a relevant aggregate picture of the asset’s maintenance and operational history. 
+**Metadata Governance** - Empower the right people in organizations to set, enforce and execute complex data sharing policies.
 
-By knowing When Who Did What to a Thing human actors and connected systems can make stronger judgments about the trustworthiness of a device and the data it produces.
+**Authenticated Provenance** - Deliver full traceability on all internal and external data sources to speed and assure critical decisions.
 
+**Continuous Accountability** - Instantly auditable evidence “Proves When Who Did What” for any shared asset to delight your GRC team.
+
+RKVST delivers assured metadata in a single line of code.

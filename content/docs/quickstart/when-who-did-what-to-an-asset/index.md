@@ -1,5 +1,5 @@
 ---
-title: "When Who Did What to a Thing?"
+title: "When Who Did What to an Asset?"
 description: "Understanding the Core Principles of RKVST"
 lead: "Understanding the Core Principles of RKVST"
 date: 2020-11-12T13:26:54+01:00
@@ -24,14 +24,14 @@ This guide will get you started quickly with the Archivist UI and provide an und
 
 Before we begin with RKVST we need to understand one key piece of information: 
 
-***When who did what to a thing.***
+***When who did what to an Asset.***
 
-{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>When who did what to a thing</em>" class="border-0" >}}
+{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>When who did what to Assets</em>" class="border-0" >}}
 
-What is a Thing?
+What is an Asset?
 ----------------
 
-A thing can be anything; a weather station sensor, an invoice or even a shipping container. Whatever this thing may be, in RKVST it would be considered ***An Asset***.
+A asset can be anything; a weather station sensor, an invoice or even a shipping container. 
 
 At its core an Asset is an object, physical or otherwise, that has an identity, a description and a set of attributes. 
 
@@ -97,7 +97,7 @@ You can also mix and match ABAC and OBAC into the same policy, for example:
 
 {{< img src="IAMPolicyExample.png" alt="Rectangle" caption="<em>Example IAM Policy</em>" class="border-0" >}}
 
-Here we can see an access policy that allows specific members of the Internal Organization, and an External Organisation to read all of the event attributes as well as the Height, Width and Length of Assets. The Users can also create "Dispose" Events as well but they cannot cannot change the attribute of an Asset itself.
+Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the Height, Width and Length of Assets. The Users can also create "Dispose" Events as well but they cannot cannot change the attribute of an Asset itself.
 
 We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section.]()
 
@@ -108,7 +108,7 @@ Now we understand "Who did What to a Thing" we can bring it all together, creati
 
 {{< img src="TheGoldenThread.png" alt="Rectangle" caption="<em>The Golden Thread</em>" class="border-0" >}}
 
-We can ensure the data that is recorded is only accessible by the people who need it and those users and organisations can only see what they need to see, when they need to see it.
+We can ensure the data that is recorded is only accessible by the people who need it and those users and organizations can only see what they need to see, when they need to see it.
 
 This provides a strong and compelling platform for cross-organizational, multi-party trust.
 

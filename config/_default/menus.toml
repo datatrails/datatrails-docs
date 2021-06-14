@@ -69,7 +69,7 @@
 
 [[main]]
   name = "Docs"
-  url = "/docs/quickstart/when-who-did-what-to-a-thing"
+  url = "/docs/quickstart/when-who-did-what-to-an-asset"
   weight = 10
 
 [[social]]

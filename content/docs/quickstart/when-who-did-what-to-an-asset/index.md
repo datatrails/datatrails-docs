@@ -26,10 +26,9 @@ Before we begin with RKVST we need to understand one key piece of information:
 
 ***When who did what to an Asset.***
 
-{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>When who did what to Assets</em>" class="border-0" >}}
+{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>When who did what to an Asset</em>" class="border-0" >}}
 
-What is an Asset?
-----------------
+## What is an Asset?
 
 A asset can be anything; a weather station sensor, an invoice or even a shipping container. 
 
@@ -38,7 +37,6 @@ At its core an Asset is an object, physical or otherwise, that has an identity, 
 In most cases attributes are fairly simple Key-Value pairs, however RKVST can also store more detailed information including associated binaries such as PDFs or Pictures.
 
 Take the following example:
-
 
 {{< img src="AssetExample.png" alt="Rectangle" caption="<em>Example Asset</em>" class="border-0" >}}
 
@@ -54,8 +52,7 @@ In both of these cases it may be necessary to track more detailed information sp
 
 [For more detailed information on Assets and how to implement them please click here]()
 
-What can happen to an Asset?
------------------------------
+## What can happen to an Asset?
 
 Over the lifecycle of an Asset many actions may happen against it, say if an Asset Attribute is changed or there is a noteworthy decision against an Asset, RKVST considers this ***An Event***.
 
@@ -69,12 +66,11 @@ Here we can see a single event against our Shipping Crate Asset. We can see that
 
 We can also see that this event belongs to a specific asset. As more events happen to an asset the richer the information on it becomes, over time your asset will not just be the attributes it is described by but also the sum of it's entire history. 
 
-Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see a very basic step by step guide on how to record an event but, [for details on how to implement more comprehnsive Events please refer to this Section]().
+Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see a very basic step by step guide on how to record an event but, [for details on how to implement more comprehnsive Events please refer to this Section](../../events/events-overview).
 
-Who can perform an Event against an Asset?
--------------------------------------------
+## Who can perform an Event against an Asset?
 
-Now we understand an Asset is and what sort of Event can happen to it. It is important to understand who can perform an event.
+Now we understand an Asset is and what sort of Event can happen to it, it is important to understand who can perform an event.
 
 Access to events, assets and their attributes are controlled by two different sets of policies:
 
@@ -83,28 +79,27 @@ Access to events, assets and their attributes are controlled by two different se
 
 Specifically in the case of OBAC you share access to the root users of the external organization and then those organizations apply ABAC themselves to further share assets and events within their own organization.
 
-To understand more about Root Users and non-Root users, [please refer to the section on Tenancies.]()
+To understand more about Root Users and non-Root users, [please refer to the section on Tenancies.](../../tenancies/tenancies-overview)
 
 Both ABAC and OBAC use the same format for controlling accesses, they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
 
-* Subject
-* Attribute Read
-* Attribute Write
-* Event Read
-* Event Write
+* `Subject`
+* `Attribute Read`
+* `Attribute Write`
+* `Event Read`
+* `Event Write`
 
 You can also mix and match ABAC and OBAC into the same policy, for example:
 
 {{< img src="IAMPolicyExample.png" alt="Rectangle" caption="<em>Example IAM Policy</em>" class="border-0" >}}
 
-Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the Height, Width and Length of Assets. The Users can also create "Dispose" Events as well but they cannot cannot change the attribute of an Asset itself.
+Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the `Height`, `Width` and `Length` of Assets. The Users can also create `Dispose` Events as well but they cannot cannot change the attribute of an Asset itself.
 
-We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section.]()
+We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section](../../iam-policies/iam-policies-overview).
 
-The Golden Thread
------------------
+## The Golden Thread
 
-Now we understand "Who did What to a Thing" we can bring it all together, creating a stream of untamperable, assured and trusted events against an asset to track and follow the key information that is needed. 
+Now we understand 'Who did What to an Asset' we can bring it all together, creating a stream of untamperable, assured and trusted events against an asset to track and follow the key information that is needed. 
 
 {{< img src="TheGoldenThread.png" alt="Rectangle" caption="<em>The Golden Thread</em>" class="border-0" >}}
 
@@ -112,7 +107,5 @@ We can ensure the data that is recorded is only accessible by the people who nee
 
 This provides a strong and compelling platform for cross-organizational, multi-party trust.
 
-To see how this can be applied please check the process modelling section.
-
-To follow continue with the Quickstart guide and create your first asset, [please click here.]()
+If you'd like to understand more about the application of RKVST to specific Usecases please see our [User Patterns Section](../../user-patterns).
 

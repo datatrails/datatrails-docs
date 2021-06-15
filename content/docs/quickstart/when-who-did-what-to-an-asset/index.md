@@ -64,15 +64,15 @@ For example:
 
 Here we can see a single event against our Shipping Crate Asset. We can see that after a physical inspection the Container has an Event explaining it was unsealed at a factory. This Event has been automatically reported by a sensor on the crate and the Event was completed on the 12th March 2020.
 
-We can also see that this Event belongs to a specific Asset. As more events happen to an Asset the richer the information on it becomes, over time your Asset will not just be the attributes it is described by but also the sum of its entire history. 
+We can also see that this Event belongs to a specific Asset. As more Events happen to an Asset the richer the information on it becomes, over time your Asset will not just be the attributes it is described by but also the sum of its entire shared Event history. 
 
 Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see step-by-step example on how to record an event but, [for details on how to implement more comprehensive Events please refer to this Section](../../events/events-overview).
 
 ## Who can perform an Event against an Asset?
 
-Now we understand an Asset is and what sort of Event can happen to it, it is important to understand who can perform an Event.
+Now we understand what an Asset is and what sort of Event can happen to it, it is important to understand who can perform an Event.
 
-Access to Events, Assets and their attributes are controlled by two different sets of policies:
+Access to Events, Assets and their Attributes are controlled by two different sets of policies:
 
 * ***ABAC*** (Attribute Based Access Control) - controls access for non-root users of your internal organization to Assets and Events based on specific attributes
 * ***OBAC*** (Organization Based Access Control) - controls access for external organizations to specific Assets and Events based on specific attributes 
@@ -81,7 +81,7 @@ Specifically in the case of OBAC you share access to the root users of the exter
 
 To understand more about Root Users and non-Root users, [please refer to the section on Tenancies.](../../tenancies/tenancies-overview)
 
-Both ABAC and OBAC use the same format for controlling accesses, they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
+Both ABAC and OBAC use the same format for controlling accesses; they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
 
 * `Subject`
 * `Attribute Read`
@@ -93,9 +93,9 @@ You can also mix and match ABAC and OBAC into the same policy, for example:
 
 {{< img src="IAMPolicyExample.png" alt="Rectangle" caption="<em>Example IAM Policy</em>" class="border-0" >}}
 
-Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the `Height`, `Width` and `Length` of Assets. The Users can also create `Dispose` Events as well but they cannot cannot change the attribute of an Asset itself.
+Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the `Height`, `Width` and `Length` of Assets. The Users can also create `Dispose` Events but they cannot change the attribute of an Asset itself.
 
-We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section](../../iam-policies/iam-policies-overview).
+We can then define filters for the Asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section](../../iam-policies/iam-policies-overview).
 
 ## The Golden Thread
 

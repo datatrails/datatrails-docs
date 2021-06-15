@@ -52,7 +52,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 
-3. You will be presented with a form, the `Subject String` is the ID of the Organization you wish to add and share data with and the `Name` is a Friendly Name which you can use to label the imported organization.
+3. You will be presented with a form, the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
 

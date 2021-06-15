@@ -17,7 +17,7 @@ An Asset can be anything: a Connected Machine, a Shipping Container or even a Da
 
 Each Asset will have a history of any actions performed upon it by any actor. 
 
-The creation of an Asset is the first event in its lifecycle. The following steps will guide you in creating your first Asset.
+The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
 ## Creating an Asset
 
@@ -36,7 +36,7 @@ The creation of an Asset is the first event in its lifecycle. The following step
 
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
-4. At this point you may wish to add other details to your Asset, including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
+4. At this point, you may wish to add other details to your Asset including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
 
 Extended Attributes are user-defined and can be added to each unique Asset. 
 
@@ -56,11 +56,11 @@ For Example:
 
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
-7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the manage view. You will see the detailed history of your Asset.
+7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
 
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
-Here we see all details entered: The custom attributes and a history of Events recorded on the Asset.
+Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 
 The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
 

@@ -17,11 +17,11 @@ toc: true
 **Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your Organization.
 {{< /caution >}}
 
-Attribute Based Access Control (ABAC) policies can be used to control access to Assets, their attributes and events within a single Organization. 
+Attribute Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes and Events within a single Organization. 
 
 Specifically, ABAC policies are created by Root Users to then share information with Non-Root Users in the same Tenancy.
 
-ABAC policies can be granular, with users allowed to see only single attributes at a time if wished. 
+ABAC policies can be granular, with users allowed to see only single Attributes at a time if wished. 
 
 It is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.
 
@@ -29,9 +29,9 @@ By default, all Non-Root Users will not see any existing Assets and Events unles
 
 ## Creating an ABAC Policy
 
-Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.
+Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.
 
-We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo and create `Inspect` events.
+We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo and create `Inspect` Events.
 
 1. Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
 
@@ -55,15 +55,15 @@ In this case, we shall apply the policy to any Asset in the `UK Factory` Locatio
 
 {{< img src="PolicyABACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-6. In this example, the `User` actor implies an ABAC policy, identified by email. We type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.
+6. In this example, the `User` actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.
 
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. Once all of relevant details are complete, we then add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+7. Once all relevant details are complete, then add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
 
 Note we have included RKVST-sigificant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`.
 
-`arc_*` attributes have special significance in RKVST; in this case allowing visibility to the Name, Description, and Location of the Asset respectively. Other `arc_*` attributes are also available.
+`arc_*` attributes have special significance in RKVST; in this case respectively allowing visibility to the Name, Description, and Location of the Asset. Other `arc_*` attributes are also available.
 
 {{< img src="PolicyABACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 

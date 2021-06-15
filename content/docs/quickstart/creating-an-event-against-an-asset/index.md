@@ -21,7 +21,7 @@ Events track key moments of an Asset's lifecycle; details of When Who Did What t
 
 ## Creating Events
 
-1. When viewing your Asset select the `Record Event` button.
+1. When viewing your Asset click the `Record Event` button.
 
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
@@ -44,15 +44,15 @@ For example:
 
 Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
-Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records when who performed what as submitted to RKVST.
+Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records when who performed what, as submitted to RKVST.
 
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example if the Event happened offline or is reported by a third party, which helps to create a detailed record.
+There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
 
 PDFs or images can be recorded with an Event in the same way as an Asset. 
 
 This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
-4. Once you have entered all data, select the `Record Event` Button, to add to your Asset.
+4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
 
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 

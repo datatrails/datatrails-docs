@@ -72,25 +72,25 @@ It is possible to mix-and-match ABAC and OBAC in the same policy if you so wish.
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets, in this case we're going to set Policy for any Assets in the `UK Factory` Location we created earlier.
+4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to set Policy for any Assets in the `UK Factory` Location created earlier.
 
 {{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 
-5. Next we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Events visibility.
+5. Next we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.
 
 {{< img src="PolicyOBACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-6. In our case we want the `Organization` actor to imply OBAC then we can type into the box the name of the Organization we wish to share with and we should have a drop-down search prepopulated.
+6. In our case we want the `Organization` actor to imply OBAC. Type the name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.
 
 {{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization {{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. When the relevant controls are in place we then add the Permisson Group to the policy, note we have included the values `arc_display_name` and `arc_display_type`; `arc_` values are special value in RKVST, in this case they refer to the Name and Type of Asset,which will not be visible otherwise 
+7. When the relevant controls are in place we then add the Permisson Group to the policy. Note we have included special values in RKVST: `arc_display_name`, `arc_description` and `arc_home_location_identity`; `arc_` which bring visibility to the Name and Description of the Asset. 
 
 {{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
-8. Once complete we submit the policy and check the Asset is shared appropriately; Mandy should only be able to see only the Asset's `Weight` attribute.
+8. Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see only the Asset's `Weight` attribute.
 
 {{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 
@@ -98,6 +98,6 @@ By comparison our Root User, Jill, can see the full details of the Asset:
 
 {{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 
-9. If Mandy wished to then share what she could see as a Root User within her organization to Non-Root Users, it is her responsibility to create an ABAC Policy as she would any other asset.
+9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset.
 
-ABAC and OBAC Policy Creation is an extensive topic, there are many possible fine-grained controls. To find out more, head over to the IAM Policies Section.
+There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the IAM Policies Section.

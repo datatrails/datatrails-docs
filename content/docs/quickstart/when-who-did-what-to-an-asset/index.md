@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 1
+weight: 2
 toc: true
 ---
 
@@ -50,7 +50,7 @@ In this example our Asset describes the smart lock on a building, this asset has
 
 In both of these cases it may be necessary to track more detailed information specific to that class of Asset. RKVST allows you to enter as many custom attributes as you need to describe an Asset, allowing you the freedom to record your needs with ease and accessibility.
 
-[For more detailed information on Assets and how to implement them please click here]()
+For more detailed information on Assets and how to implement them, [please refer to the Assets API Reference](../../api-reference/assets-api/).
 
 ## What can happen to an Asset?
 
@@ -66,7 +66,7 @@ Here we can see a single event against our Shipping Crate Asset. We can see that
 
 We can also see that this Event belongs to a specific Asset. As more events happen to an Asset the richer the information on it becomes, over time your Asset will not just be the attributes it is described by but also the sum of its entire history. 
 
-Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see step-by-step example on how to record an event but, [for details on how to implement more comprehensive Events please refer to this Section](../../events/events-overview).
+Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see step-by-step example on how to record an event but, for details and examples on how to implement more comprehensive Events [please refer to the Events API Reference](../../api-reference/events-api/).
 
 ## Who can perform an Event against an Asset?
 
@@ -78,8 +78,6 @@ Access to Events, Assets and their attributes are controlled by two different se
 * ***OBAC*** (Organization Based Access Control) - controls access for external organizations to specific Assets and Events based on specific attributes 
 
 Specifically in the case of OBAC you share access to the root users of the external organization and then those organizations apply ABAC themselves to further share Assets and Events within their own organization.
-
-To understand more about Root Users and non-Root users, [please refer to the section on Tenancies.](../../tenancies/tenancies-overview)
 
 Both ABAC and OBAC use the same format for controlling accesses, they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
 
@@ -95,7 +93,7 @@ You can also mix and match ABAC and OBAC into the same policy, for example:
 
 Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the `Height`, `Width` and `Length` of Assets. The Users can also create `Dispose` Events as well but they cannot cannot change the attribute of an Asset itself.
 
-We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies Section](../../iam-policies/iam-policies-overview).
+We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies API Reference](../../api-reference/iam-policies-api/).
 
 ## The Golden Thread
 
@@ -107,5 +105,5 @@ We can ensure the data that is recorded is only accessible by the people who nee
 
 This provides a strong and compelling platform for building cross-organizational, multi-party trust.
 
-If you'd like to understand more about the application of RKVST to specific Usecases please see our [User Patterns Section](../../user-patterns).
+If you'd like to understand more about the application of RKVST to specific Usecases please see our [User Patterns Section](../../user-patterns/).
 

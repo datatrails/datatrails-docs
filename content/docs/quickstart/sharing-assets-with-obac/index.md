@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 6
+weight: 7
 toc: true
 ---
 
@@ -104,4 +104,4 @@ By comparison our Root User, Jill, can see the full details of the Asset:
 
 9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
-There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies Section](../../iam-policies/iam-policies-overview/).
+There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).

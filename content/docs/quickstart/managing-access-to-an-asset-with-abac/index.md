@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 5
+weight: 6
 toc: true
 ---
 

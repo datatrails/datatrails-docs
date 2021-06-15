@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 3
+weight: 4
 toc: true
 ---
 
@@ -66,5 +66,5 @@ Here we see the details entered earlier and also a tab that will show both the E
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
-In the next section we will learn about using [Locations](../../locations/locations-overview) to group items together for both logical grouping and better access management using [ABAC and OBAC Policies](../../iam-policies/iam-policies-overview).
+In the next section we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
 

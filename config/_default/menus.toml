@@ -41,12 +41,6 @@
   url = "/docs/quickstart/"
 
 [[docs]]
-  name = "Setup and Administration"
-  weight = 2
-  identifier = "setup-and-administration"
-  url = "/docs/setup-and-administration/"
-
-[[docs]]
   name = "Overview"
   weight = 1
   identifier = "overview"

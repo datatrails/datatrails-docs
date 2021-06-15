@@ -13,9 +13,9 @@ weight: 4
 toc: true
 ---
 
-Locations associate an Asset with a "home" that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building or other logical grouping.
+Locations associate an Asset with a 'home' that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building or other logical grouping.
 
-It may still be useful to indicate a mobile Asset's origin. For example, if tracking traveling consultant's Laptops, you may still wish to associate them with a "home" office.
+It may still be useful to indicate an Asset's origin. For example, if tracking traveling consultant's Laptops, you may still wish to associate them with a 'home' office.
 
 
 ## Creating a Location
@@ -71,7 +71,7 @@ This is found by viewing the Location once complete using the (![](EyeSymbol.png
 {{< img src="LocationAssetUpdate.png" alt="Rectangle" caption="<em>Updating an Existing Asset with a new Location</em>" class="border-0" >}}
 
 {{< note >}}
-Note - you need to include the full `locations/<UUID>` reference as using only the `UUID` will not be recognized.
+**Note** - You need to include the full `locations/<UUID>` reference as using only the `UUID` will not be recognized.
 {{< /note >}}
 
 3. In the following screenshot note the Location of our Asset has been updated.

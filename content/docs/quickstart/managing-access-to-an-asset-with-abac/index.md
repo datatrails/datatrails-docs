@@ -17,13 +17,15 @@ toc: true
 **Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your Organization.
 {{< /caution >}}
 
-Attribute Based Access Control can be used to control access to Assets, their attributes and events within an Organization. 
+Attribute Based Access Control (ABAC) policies can be used to control access to Assets, their attributes and events within a single Organization. 
 
 Specifically, ABAC policies are created by Root Users to then share information with Non-Root Users in the same Tenancy.
 
-ABAC policies can be granular, with users allowed to see only single attributes at a time if wished. It is possible to control policies on types of Assets, their Location, and whether Users can read or write any information in an Asset.
+ABAC policies can be granular, with users allowed to see only single attributes at a time if wished. 
 
-By default, all Non-Root Users will not see any existing Assets and Events unless a Root User explicitly allows.
+It is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.
+
+By default, all Non-Root Users will not see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
 
 ## Creating an ABAC Policy
 
@@ -57,7 +59,11 @@ In this case, we shall apply the policy to any Asset in the `UK Factory` Locatio
 
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. Once all of relevant details are complete, we then add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. Note we have included special values in RKVST: `arc_display_name`, `arc_description` and `arc_home_location_identity`; `arc_` which bring visibility to the Name and Description of the Asset.
+7. Once all of relevant details are complete, we then add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+
+Note we have included RKVST-sigificant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`.
+
+`arc_*` attributes have special significance in RKVST; in this case allowing visibility to the Name, Description, and Location of the Asset respectively. Other `arc_*` attributes are also available.
 
 {{< img src="PolicyABACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
@@ -65,7 +71,7 @@ In this case, we shall apply the policy to any Asset in the `UK Factory` Locatio
 
 {{< img src="PolicyABACSubmit.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
 
-Bill should only be allowed to see the Asset's Name, Location, `Length` and `Weight` Attributes.
+Bill should only be allowed to see the Asset's Name, Location, Length, and Weight Attributes.
 
 {{< img src="PolicyABACBillView.png" alt="Rectangle" caption="<em>Bill's view as a Non-Root User</em>" class="border-0" >}}
 

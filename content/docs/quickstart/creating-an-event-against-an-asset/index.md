@@ -42,7 +42,7 @@ For example:
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 
-Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo has changed the Asset weight attribute.
+Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records when who performed what as submitted to RKVST.
 
@@ -50,7 +50,7 @@ There is an option to append `timestamp_declared` and `principal_declared` attri
 
 PDFs or images can be recorded with an Event in the same way as an Asset. 
 
-This is useful for storing associated material for posterity. For example, each inspection Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
 4. Once you have entered all data, select the `Record Event` Button, to add to your Asset.
 

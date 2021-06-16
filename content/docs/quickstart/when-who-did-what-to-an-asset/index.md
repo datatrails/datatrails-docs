@@ -14,15 +14,15 @@ toc: true
 ---
 
 
-Enterprise developers are challenged to build apps that track usage and build trust in multi-party data while meeting assurance, governance and compliance needs of the business. 
+Enterprise developers are challenged to build apps that track usage and build trust in multi-party data while meeting assurance, governance, and compliance needs of the business. 
 
 The Jitsuin RKVST is a Data Assurance Hub which stores shared asset evidence that proves when who did what to reduce risk, authenticates provenance in data for confident decisions, while governing complex data sharing controls. 
 
 Unlike forming your own blockchain consortium, committing to expensive integrations or managing spreadsheets, RKVST brings the right level of trust to data with a single line of code integration at a fraction of cost and time to value.
 
-This guide will get you started quickly with the Archivist UI and provide an understanding of core RKVST concepts.  
+This guide will get you started quickly with the RKVST UI and provide an understanding of core RKVST concepts.  
 
-Before we begin with RKVST we need to understand one key piece of information: 
+Before you begin with RKVST there's one key model to use when mapping to business process:
 
 ***When who did what to an Asset.***
 
@@ -32,7 +32,7 @@ Before we begin with RKVST we need to understand one key piece of information:
 
 An Asset can be anything; a weather station sensor, an invoice or even a shipping container. 
 
-At its core an Asset is an object, physical or otherwise, that has an identity, a description and a set of attributes. 
+An Asset is an object, physical or otherwise, that has an Identity, a Description, and a set of Attributes. 
 
 In most cases, attributes are fairly simple Key-Value pairs, however RKVST can also store more detailed information including associated binaries such as PDFs or Pictures.
 
@@ -40,23 +40,23 @@ Take the following example:
 
 {{< img src="AssetExample.png" alt="Rectangle" caption="<em>Example Asset</em>" class="border-0" >}}
 
-Here our Asset represents a specific Shipping Crate, it has basic attributes that describe it including capacity, more specific qualities like internal tracking IDs and even a picture to show us its last recorded physical state.
+Here our Asset represents a specific shipping crate, it has basic Attributes that describe its capacity, more specific Attributes such as internal tracking IDs and even a picture to show us its last recorded physical state.
 
 Here is an example of another Asset:
 
 {{< img src="SecondAssetExample.png" alt="Rectangle" caption="<em>Example Asset 2</em>" class="border-0" >}}
 
-In this example our Asset describes the smart lock on a building, this asset has attributes which describe the building it belongs to, the firmware of the lock and even who last used it.
+In this example, our Asset describes a smart-lock on a building. This Asset has Attributes that describe on which building it is installed, its firmware version, and which key last opened it.
 
-In both of these cases it may be necessary to track more detailed information specific to that class of Asset. RKVST allows you to enter as many custom attributes as you need to describe an Asset, allowing you the freedom to record your needs with ease and accessibility.
+RKVST allows you to enter as many custom attributes as you need to describe an Asset, allowing you the freedom to record your needs with ease and accessibility.
 
 For more detailed information on Assets and how to implement them, [please refer to the Assets API Reference](../../api-reference/assets-api/).
 
 ## What can happen to an Asset?
 
-Over the lifecycle of an Asset many actions may happen against it, say if an Asset Attribute is changed or there is a noteworthy decision against an Asset, RKVST considers this ***An Event***.
+Many things may happen to an Asset over its entire lifecycle, either directly affecting its state or decisions about what should happen to it. If an Asset Attribute is changed or if there is a noteworthy decision made about it, RKVST considers this an ***Event***.
 
-Similarly to an Asset, Events also have an identity, a description and their own set of attributes. Importantly a key attribute of Events is tracking both ***when*** an action happens, ***what*** that action affects and ***who*** acted upon it.
+Similar to an Asset, Events also have Identities, Descriptions and their own set of Attributes. Importantly, a key attribute of Events is tracking ***when*** an action happens, ***what*** that action is and ***who*** acted upon it.
 
 For example:
 
@@ -79,7 +79,7 @@ Access to Events, Assets and their Attributes are controlled by two different se
 
 Specifically in the case of OBAC you share access to the root users of the external organization and then those organizations apply ABAC themselves to further share Assets and Events within their own organization.
 
-Both ABAC and OBAC use the same format for controlling accesses, they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
+Both ABAC and OBAC use the same format for controlling access; they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
 
 * `Subject`
 * `Attribute Read`

@@ -86,6 +86,10 @@ echo "This is a Bash Example."
 echo "This is a Bash Example."
 ```
 
+{{< note >}}
+To format HTML content use `xml` as a language instead
+{{< /note >}}
+
 ### Tabbed Codeblock
 
 Tabbed Codeblocks are not built into either Doks or Markdown, we instead use a customised HTML template that can perform the same function using Hugo Shortcodes.

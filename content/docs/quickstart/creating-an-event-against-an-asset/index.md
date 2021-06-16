@@ -9,33 +9,32 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 3
+weight: 4
 toc: true
 ---
 
-If you wish to begin tracking actions against your asset you need to create events.
+If you wish to begin tracking your Asset history, you need to create Events.
 
-While the Asset Creation phase is important it is only the first event in an Asset's history. The more events you create against an asset, the richer and deeper its' history becomes.
+Asset Creation is the first Event and the more Events recorded against an Asset, the richer and deeper its history becomes.
 
-Events are where we track many of the key features of the Asset's lifecycle; this is where we track in closer detail the When, the Who and the What happens to the Asset.
+Events track key moments of an Asset's lifecycle; details of When Who Did What to an Asset.
 
-Creating Events
----------------
+## Creating Events
 
-1. When viewing your Asset select the 'Record Event' button
+1. When viewing your Asset click the `Record Event` button.
 
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
-2. This will open up the following screen, where you can record the type of event that occured and a description
+2. You will see the following screen, where you can enter an Event type and description.
 
 {{< img src="EventInformation.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
 
-3. You will also have tabs available to add both event attributes and asset attributes
+3. Tabs enable you to enter both Event and Asset attributes.
 
-* Event Attributes - Attributes specific to an event e.g. which device was used to record the event
-* Asset Attributes - Attributes of the Asset that may change as a result of the event e.g. overall weight of the container
+* `Event Attributes` - Attributes specific to an Event e.g. which device recorded the Event
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. overall weight of a container
 
-Similar to Asset Creation you would select the 'Add Attribute' button on each and then add your Key-Value pairs.
+Select the `Add Attribute` button on each field to add your Key-Value pairs.
 
 For example:
 
@@ -43,25 +42,29 @@ For example:
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 
-Here we can see that someone has noted down the type of cargo being loaded at the time in the Event but has marked the overall weght of the cargo against the asset itself.
+Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
-We could have optionally set the timestamp_declared and principal_declared attributes on the event if we were not the ones who performed the inspection, or had done it a significant time ago, which helps to create a more obvious and compelling source of truth on events.
+Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records when who performed what, as submitted to RKVST.
 
-You can also optionally upload a pdf or image with an event in the same way you would an Asset. This is useful for when associated material should be uploaded for posterity. For example if a container is inspected against one set of standards a PDF of those standards can be stored with the inspection so that people can see what criteria was being used at the time.
+There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
 
-4. Once complete you can select the Record Event Button, the event should then be recorded against you specific asset.
+PDFs or images can be recorded with an Event in the same way as an Asset. 
 
-You should also see the Asset Attribute we changed has also been recorded in the Asset View also.
+This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+
+4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
+
+You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
 {{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
-5. We can then use the same eye symbol ( ![](EyeSymbol.png) ) we used to inspect the Asset to dig deeper in to the Event like so:
+5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
 
 {{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here we can see the details we filled out earlier and we can also see we have a tab available that will show us both the Event Attributes and Asset Attributes we added like so:
+Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
-In the next section we will learn about using [Locations]() to group items together for both logical grouping and better access management using [ABAC]() and [OBAC]().
+In the next section we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
 

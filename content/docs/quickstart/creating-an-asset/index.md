@@ -9,54 +9,58 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 2
+weight: 3
 toc: true
 ---
 
-As discussed in the previous section, An Asset can be anything: an IOT Sensor, a Shipping Container or even a Purchase Order. Any kind of object, physical or otherwise, which has a Name, Description and Attributes associated with it.
+An Asset can be anything: a Connected Machine, a Shipping Container or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.
 
-More than this though an Asset is also the sum of it's history, any change it has been through and any action against it.
+Each Asset will have a history of any actions performed upon it by any actor. 
 
-In that regard you may consider the creation of an Asset to be the first event in its lifecycle, the following steps will walk you through creating your first asset.
+The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
-Creating an Asset
---------------
+## Creating an Asset
 
-1. In the UI, using the Sidebar, select 'Add Asset'
+1. Using the Sidebar, select `Add Asset`.
 
 {{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 
-
-2. You will be presented with the following screen, where you can provide the details of your Asset:
+2. You will see an Asset Creation form, where you provide details of your new Asset:
 
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 
-3. You will need to at least add the Asset Name and Asset Type when using the UI to create an Asset
+3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
 
-* Asset Name - This is the unique name of the Asset i.e. 'My First Container'
-* Asset Type - This is the class of object, while this is arbitrary it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container the type could be 'Shipping Container' which will then be prepopulated for future Assets to use as their own types
+* `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
+* `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
 
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
-4. It is at this point you may wish to add any other details to your Asset, including attaching any kind of PDF or maybe Image an image to show the asset. You may even wish to add some Extended Attributes. 
+4. At this point, you may wish to add other details to your Asset including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
 
-Extended Attributes are Custom Attributes that can be added per Unique Asset. Not all Assets of a specific type need to have the exact same Extended Attributes but in most cases it is better to do so for posterity. To add a new attribute to an asset you just need to select 'Add Attribute' and then type in your key-value pair.
+Extended Attributes are user-defined and can be added to each unique Asset. 
+
+Not all Assets of a specific type need to have the same Extended Attributes, but in most cases it is better to do so for consistency. 
+
+To add a new Attribute to an Asset select `Add Attribute` then enter your key-value pair.
 
 For Example:
 
 {{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 
-5. Once complete you can then hit 'Create Asset'
+5. Once complete, click `Create Asset`
 
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 
-6. Now if you navigate to Manage Assets you should be able to see your Asset in the UI
+6. Navigate to `Manage Assets` to see your Asset in the UI.
 
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
-7. If you wish to view your Asset you can click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the manage view, this will show you the detailed history of your asset.
+7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
 
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
-Here we can see all of the details we filled out earlier, we can also see the custom attributes we added and a history of the events against the asset, the first event should always be the Asset Creation event, in the next section we will cover how to create your own events against your asset.
+Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
+
+The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
 

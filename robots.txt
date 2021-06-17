@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jitsuin-inc.github.io/rkvst-docs/sitemap.xml
+Sitemap: https://docs.jitsuin.com/sitemap.xml

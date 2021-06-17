@@ -1,7 +1,7 @@
 ---
 title: "Creating an Event Against an Asset"
-description: ""
-lead: ""
+description: "Creating your first Event"
+lead: "Creating your first Event"
 date: 2021-05-18T15:32:01+01:00
 lastmod: 2021-05-18T15:32:01+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 4
+weight: 22
 toc: true
 ---
 

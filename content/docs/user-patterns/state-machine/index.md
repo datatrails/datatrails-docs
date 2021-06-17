@@ -1,7 +1,7 @@
 ---
 title: "State Machine and Supply Chains"
-description: ""
-lead: ""
+description: "Using RKVST to map a process"
+lead: "Using RKVST to map a process"
 date: 2021-05-31T15:18:01+01:00
 lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "user-patterns"
-weight: 6
+weight: 32
 toc: true
 ---
 

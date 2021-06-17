@@ -1,7 +1,7 @@
 ---
 title: "Assets API"
-description: ""
-lead: ""
+description: "Assets API Reference"
+lead: "Assets API Reference"
 date: 2021-06-09T11:39:03+01:00
 lastmod: 2021-06-09T11:39:03+01:00
 draft: false

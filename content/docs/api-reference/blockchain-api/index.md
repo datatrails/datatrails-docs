@@ -1,7 +1,7 @@
 ---
 title: "Blockchain API (v1alpha1)"
-description: ""
-lead: ""
+description: "Blockchain API Reference"
+lead: "Blockchain API Reference"
 date: 2021-06-09T13:57:04+01:00
 lastmod: 2021-06-09T13:57:04+01:00
 draft: false

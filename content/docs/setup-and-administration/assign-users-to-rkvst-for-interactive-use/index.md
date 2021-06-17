@@ -1,7 +1,7 @@
 ---
 title: "Assign Users to RKVST for Interactive Use"
-description: ""
-lead: ""
+description: "Giving Users access to RKVST"
+lead: "Giving Users access to RKVST"
 date: 2021-06-16T11:11:21+01:00
 lastmod: 2021-06-16T11:11:21+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "setup-and-administration"
-weight: 3
+weight: 11
 toc: true
 ---
 

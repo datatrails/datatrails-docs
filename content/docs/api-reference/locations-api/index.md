@@ -1,7 +1,7 @@
 ---
 title: "Locations API"
-description: ""
-lead: ""
+description: "Locations API Reference"
+lead: "Locations API Reference"
 date: 2021-06-09T11:56:23+01:00
 lastmod: 2021-06-09T11:56:23+01:00
 draft: false

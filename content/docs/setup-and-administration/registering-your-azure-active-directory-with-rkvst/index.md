@@ -1,7 +1,7 @@
 ---
 title: "Registering Your Azure Active Directory With RKVST"
-description: ""
-lead: ""
+description: "Signing up with RKVST"
+lead: "Signing up with RKVST"
 date: 2021-06-16T11:10:41+01:00
 lastmod: 2021-06-16T11:10:41+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "setup-and-administration"
-weight: 2
+weight: 10
 toc: true
 ---
 

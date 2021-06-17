@@ -1,7 +1,7 @@
 ---
 title: "TLS CA Certificates API"
-description: ""
-lead: ""
+description: "TLS CA Certificates API Reference"
+lead: "TLS CA Certificates API Reference"
 date: 2021-06-09T13:53:24+01:00
 lastmod: 2021-06-09T13:53:24+01:00
 draft: false

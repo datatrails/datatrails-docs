@@ -1,7 +1,7 @@
 ---
 title: "Creating an Asset"
-description: ""
-lead: ""
+description: "Creating your first Asset"
+lead: "Creating your first Asset"
 date: 2021-05-18T14:52:25+01:00
 lastmod: 2021-05-18T14:52:25+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 3
+weight: 21
 toc: true
 ---
 

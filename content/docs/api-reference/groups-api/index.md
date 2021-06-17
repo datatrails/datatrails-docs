@@ -1,7 +1,7 @@
 ---
 title: "Groups API"
-description: ""
-lead: ""
+description: "Groups API Reference"
+lead: "Groups API Reference"
 date: 2021-06-09T13:27:37+01:00
 lastmod: 2021-06-09T13:27:37+01:00
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: "Grouping Assets by Location"
-description: ""
-lead: ""
+description: "Adding a Location"
+lead: "Adding a Location"
 date: 2021-05-18T15:32:27+01:00
 lastmod: 2021-05-18T15:32:27+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 5
+weight: 23
 toc: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
-description: ""
-lead: ""
+description: "Welcome to RKVST!"
+lead: "Welcome to RKVST!"
 date: 2021-06-14T10:57:58+01:00
 lastmod: 2021-06-14T10:57:58+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "overview"
-weight: 1
+weight: 2
 toc: true
 ---
 

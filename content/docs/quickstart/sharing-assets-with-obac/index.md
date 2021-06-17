@@ -1,7 +1,7 @@
 ---
 title: "Sharing Assets With OBAC"
-description: ""
-lead: ""
+description: "Sharing Access outside your Tenant"
+lead: "Sharing Access outside your Tenant"
 date: 2021-05-18T15:33:31+01:00
 lastmod: 2021-05-18T15:33:31+01:00
 draft: false
@@ -9,10 +9,9 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 7
+weight: 25
 toc: true
 ---
-
 
 {{< caution >}}
 **Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your organization.

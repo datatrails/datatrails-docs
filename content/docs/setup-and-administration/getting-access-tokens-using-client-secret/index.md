@@ -1,7 +1,7 @@
 ---
 title: "Getting Access Tokens Using Client Secret"
-description: ""
-lead: ""
+description: "Generating Tokens for RKVST"
+lead: "Generating Tokens for RKVST"
 date: 2021-06-16T11:13:48+01:00
 lastmod: 2021-06-16T11:13:48+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "setup-and-administration"
-weight: 5
+weight: 13
 toc: true
 ---
 

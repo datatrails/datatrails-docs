@@ -1,7 +1,7 @@
 ---
 title: "Managing Access to an Asset With ABAC"
-description: ""
-lead: ""
+description: "Sharing Access within your Tenant"
+lead: "Sharing Access within your Tenant"
 date: 2021-05-18T15:33:03+01:00
 lastmod: 2021-05-18T15:33:03+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "quickstart"
-weight: 6
+weight: 24
 toc: true
 ---
 

@@ -6,11 +6,8 @@ date: 2021-05-20T17:42:10+01:00
 lastmod: 2021-05-20T17:42:10+01:00
 draft: false
 images: []
-menu: 
-  docs:
-    parent: ""
 weight: 999
-toc: true
+toc: false
 ---
 
 RKVST is a very flexible system, and enables users to record When Who Did almost anything to anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.

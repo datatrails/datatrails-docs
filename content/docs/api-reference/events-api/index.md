@@ -1,7 +1,7 @@
 ---
 title: "Events API"
-description: ""
-lead: ""
+description: "Events API Reference"
+lead: "Events API Reference"
 date: 2021-06-09T11:48:40+01:00
 lastmod: 2021-06-09T11:48:40+01:00
 draft: false

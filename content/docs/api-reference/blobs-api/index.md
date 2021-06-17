@@ -1,7 +1,7 @@
 ---
 title: "Blobs API"
-description: ""
-lead: ""
+description: "Blobs API Reference"
+lead: "Blobs API Reference"
 date: 2021-06-09T13:32:57+01:00
 lastmod: 2021-06-09T13:32:57+01:00
 draft: false

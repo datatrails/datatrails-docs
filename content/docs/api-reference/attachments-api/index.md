@@ -1,7 +1,7 @@
 ---
 title: "Attachments API"
-description: ""
-lead: ""
+description: "Attachments API Reference"
+lead: "Attachments API Reference"
 date: 2021-06-09T12:05:02+01:00
 lastmod: 2021-06-09T12:05:02+01:00
 draft: false

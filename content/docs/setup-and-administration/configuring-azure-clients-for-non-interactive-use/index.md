@@ -1,7 +1,7 @@
 ---
 title: "Configuring Azure Clients for Non-Interactive Use"
-description: ""
-lead: ""
+description: "Creating Azure Clients for RKVST"
+lead: "Creating Azure Clients for RKVST"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2021-06-16T11:12:25+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "setup-and-administration"
-weight: 4
+weight: 12
 toc: true
 ---
 

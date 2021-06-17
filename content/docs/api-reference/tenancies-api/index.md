@@ -1,7 +1,7 @@
 ---
 title: "Tenancies API"
-description: ""
-lead: ""
+description: "Tenancies API Reference"
+lead: "Tenancies API Reference"
 date: 2021-06-09T13:29:57+01:00
 lastmod: 2021-06-09T13:29:57+01:00
 draft: false

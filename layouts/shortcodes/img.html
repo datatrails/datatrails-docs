@@ -1,6 +1,8 @@
 {{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
 {{ $lqip := $image.Resize $.Site.Params.lqipWidth -}}
 
+{{ $exampleModal := index (split (.Get "src") ".png") 0 }}
+
 {{ $imgSrc := "" -}}
 {{ $imgSrcSet := slice -}}
 
@@ -17,7 +19,23 @@
 {{ $imgSrcSet = (delimit $imgSrcSet ",") -}}
 
 <figure{{ with .Get "class" }} class="{{.}}"{{ end }}>
-  <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+  <!-- <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}> -->
+  <input type="image" data-bs-toggle="modal" data-bs-target="#{{ $exampleModal }}" img class="img-fluid responsive" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" data-sizes="auto" data-srcset="{{ $imgSrcSet }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
   <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
   {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
 </figure>
+
+!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="{{ $exampleModal }}" tabindex="-1" aria-labelledby="{{ $exampleModal }}" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <!-- <div class="modal-content"> -->
+      <div class="modal-body">
+        <!-- <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}> -->
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+      </div>
+  <!-- </div> -->
+  </div>
+</div>

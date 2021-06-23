@@ -20,7 +20,7 @@ To enable non-interactive access to Jitsuin RKVST APIs:
 * Create a Client Secret
 
 {{< note >}}
-**Note:** Certificate based assertion of identity is fully supported. See `client_assertion_type` and `client_assertion` in the official [Azure Documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow>).
+**Note:** Certificate based assertion of identity is fully supported. See `client_assertion_type` and `client_assertion` in the official [Azure Documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
 {{< /note >}}
 
 ## Create an Application Registration

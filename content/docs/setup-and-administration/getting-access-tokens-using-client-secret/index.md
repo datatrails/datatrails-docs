@@ -13,11 +13,11 @@ weight: 13
 toc: true
 ---
 
-Having completed the steps at [Application Registration](../configuring-azure-clients-for-non-interactive-access/), and taken note of the `Application ID` and the secret, a token can be obtained with the following command. 
+Having completed the steps at [Application Registration](../configuring-azure-clients-for-non-interactive-use/), and taken note of the `Application ID` and the secret, a token can be obtained with the following command. 
 
 Replace `${API_APP_ID}` with the application id, and `${API_APP_SECRET}` with your secret from the application registration; `${FQDN}` is the FQDN for your Jitsuin RKVST. 
 
-`${TENANT}` is your directory id, see [how to locate your Tenant here](..registering-your-azure-active-directory-with-rkvst/#finding-your-tenant-id).
+`${TENANT}` is your directory id, see [how to locate your Tenant here](../registering-your-azure-active-directory-with-rkvst/#finding-your-tenant-id).
 
 ```bash
 $ RESPONSE=$(curl \

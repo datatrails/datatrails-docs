@@ -20,7 +20,7 @@ To obtain access to your Jitsuin RKVST Instance you need to:
 
 ## Finding Your Tenant ID
 
-Browse to [portal.azure.com](portal.azure.com) and open the Azure Active Directory service from the portal menu.
+Browse to [portal.azure.com](https://portal.azure.com/) and open the Azure Active Directory service from the portal menu.
 
 {{< img src="userdocs_aad_open_active_directory.png" alt="Rectangle" caption="<em>Azure Portal</em>" class="border-0" >}}
 

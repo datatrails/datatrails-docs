@@ -32,8 +32,18 @@
         <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgDrkSrcSet }}" src="{{ $imgDrk.RelPermalink }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
         {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
   </figure>
-</span>
+</span>  
 
+
+<div class="modal fade" id="{{ $exampleModal }}" tabindex="-1" aria-labelledby="{{ $exampleModal }}" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <!-- <div class="modal-content"> -->
+      <div class="modal-body">
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqipDrk.RelPermalink }}" data-srcset="{{ $imgDrkSrcSet }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+      </div>
+  <!-- </div> -->
+  </div>
+</div>
 
 
 {{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
@@ -67,7 +77,8 @@
      <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
      {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
    </figure>
-</span>
+</span>  
+
 
 <div class="modal fade" id="{{ $exampleModal }}" tabindex="-1" aria-labelledby="{{ $exampleModal }}" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -79,6 +90,7 @@
   <!-- </div> -->
   </div>
 </div>
+
 
 
 

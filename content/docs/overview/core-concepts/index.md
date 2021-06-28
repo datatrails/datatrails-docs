@@ -19,11 +19,11 @@ Central to all RKVST operations are _Assets_. These are the records that represe
 
 RKVST Assets are essentially very simple: a collection of *attributes* that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
 
-RKVST is unopinionated about Asset content meaning that Attributes can trace anything deemed important to participants. Much like #hashtags on Twitter they can be invented by anyone at any time, but once an Attribute has been seen once it will be fully traced from that point on.
+RKVST is not opinionated about Asset content meaning that Attributes can trace anything deemed important to participants. Much like #hashtags on Twitter they can be invented by anyone at any time, but once an Attribute has been seen once it will be fully traced from that point on.
 
 A simple Asset might look like this:
 
-{{< highlight json >}}
+```json
    {
       // Fixed global identity for this Asset
       "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -68,10 +68,10 @@ A simple Asset might look like this:
       "owner": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "storage_integrity": "LEDGER"
     }
-{{< /highlight >}}
+```
 
 {{< note >}}
-**Note** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easily traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
+**Note:** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easily traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
 {{< /note >}}
 
 ### Deleting Assets
@@ -92,7 +92,7 @@ Any interaction with a device can be significant: from user logins to unexpected
 
 Knowing the current state of an Asset isn't enough: sure, it has software version 3.0 now but when was that installed? Before the major incident? After the major incident? This morning before the support call?
 
-Jitsuin RKVST ensures complete and unforgeable lineage and provenance for all Asset attributes by enforcing a simple rule:
+Jitsuin RKVST ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
 **The only way to change an Asset attribute is through an Event that records When Who Did What to make that change.**
 
 ### Timestamps on Events
@@ -151,7 +151,7 @@ Archivist Access Policies comprise 2 main parts:
 
 A simple access policy may look like this:
 
-{{< highlight json >}}
+```json
 
     {
       // identity and tenant are non-modifiable system info
@@ -227,20 +227,20 @@ A simple access policy may look like this:
         }
       ]
     }
-{{< / highlight >}}
+```
 
 {{< note >}}
 **Note:** Observe that there are 2 lists in the `filters` which concern different attributes. The effect of this is to say that an Asset matches the filters if it matches _at least one_ entry from _every list_. Or in other words, inner lists are OR, while outer lists are AND. 
 
 For example:
 
-{{< highlight json >}}
+```json
 Filters = [
   { "or": [type=Pump, type=Valve] },
   { "or": [vendor=SynsationIndustries] },
   { "or": [location=ChicagoWest,location=ChicagoEast] }
 ]
-{{< / highlight >}}
+```
 
 In the above simplified example, the policy would apply to any Pump or Valve from SynsationIndustries installed in either the ChicagoWest or ChicagoEast sites, but it would not match:
 * Other device types from SynsationIndustries;
@@ -286,7 +286,7 @@ Adding an Attachment to an Event allows recording and communication of evidence 
 To add Attachments to an Event simply specify an `arc_attachments` list in the `event_attributes` of the request when posting an event.
 
 {{< note >}}
-**Note** Attachments cannot be searched or listed as a collection in their own right: they must always be associated an Asset or Event and can only be downloaded by users with appropriate access rights to that Asset or Event.
+**Note:** Attachments cannot be searched or listed as a collection in their own right: they must always be associated an Asset or Event and can only be downloaded by users with appropriate access rights to that Asset or Event.
 {{< /note >}}
 
 For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments API Reference](../../api-reference/assets-api/)
@@ -298,7 +298,7 @@ Assets in RKVST are arranged into locations, which allows logical assets (eg dig
 This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. As with all Jitsuin Archivist data types, locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
 
 {{< note >}}
-**Note** If your use case does not concern physical sites like factory plant locations orr offices it is still possible to use Locations to logically group related Assets together. However it is likely to be more scalable to use a custom attribute to link them together.
+**Note:** If your use case does not concern physical sites like factory plant locations orr offices it is still possible to use Locations to logically group related Assets together. However it is likely to be more scalable to use a custom attribute to link them together.
 {{< /note >}}
 
 {{< caution >}}
@@ -341,21 +341,21 @@ As with Assets and Events, Compliance Policies are very flexible and can be conf
 
 * *COMPLIANCE_PERIOD_OUTSTANDING*: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours
 
-* *COMPLIANCE_DYNAMIC_TOLERANCE*: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribbute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
+* *COMPLIANCE_DYNAMIC_TOLERANCE*: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
 
 {{< note >}}
-**Note** To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
+**Note:** To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 {{< /note >}}
 
 ## Perspectives 
 
 In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time but with RKVST it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.
 
-To do this, simply add `at_time=TIMESTAMP` to your query. For example, to heck tthe state an asset was in at 15:30 UTC on 23rd June:
+To do this, simply add `at_time=TIMESTAMP` to your query. For example, to check the state an asset was in at 15:30 UTC on 23rd June:
 
-{{< highlight shell >}}
+```bash
 curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application/json" https://rkvst.poc.jitsuin.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-06-23T15:30:00Z | jq 
-{{< / highlight >}}
+```
 
 Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.
 

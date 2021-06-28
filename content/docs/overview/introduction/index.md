@@ -25,4 +25,4 @@ RKVST permanently records shared asset evidence to bring the right level of trus
 
 **Continuous Accountability** - Instantly auditable evidence “Proves When Who Did What” for any shared asset to delight your GRC team.
 
-RKVST delivers assured metadata in a single line of code.
+RKVST delivers assured metadata in a single line of code and makes recording and auditing the full lifecycle of an asset simple: any authorized participant (including an agent or endpoint on a connected device) can register the events they know about, from which all participants can see a relevant aggregate picture of the asset’s maintenance and operational history. By understanding When Who Did What, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of a device and the data it produces.

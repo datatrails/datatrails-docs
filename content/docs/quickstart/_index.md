@@ -8,6 +8,11 @@ images: []
 toc: false
 ---
 
-This Quickstart Guide is a brief introduction to the core concepts of RKVST that includes: Creating your first Asset; Recording lifecycle Events on your Asset; and creating data sharing policies to govern data access rights. 
+This Quickstart Guide will quickly get you up and running by guiding you through:
+* Creating your first Asset
+* Recording lifecycle Events on your Asset
+* creating data sharing policies to govern data access rights
+
+It gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to [the concepts section]({{< ref "/content/docs/overview/core-concepts/index.md" >}} "Core Concepts")
 
 To go to a specific section in the Quickstart Guide click on any of the following:

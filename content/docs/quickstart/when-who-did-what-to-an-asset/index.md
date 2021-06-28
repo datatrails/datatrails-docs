@@ -1,7 +1,7 @@
 ---
 title: "When Who Did What to an Asset?"
-description: "Understanding the Core Principles of RKVST"
-lead: "Understanding the Core Principles of RKVST"
+description: "Understanding Shared Evidence"
+lead: "Understanding Shared Evidence"
 date: 2020-11-12T13:26:54+01:00
 lastmod: 2020-11-12T13:26:54+01:00
 draft: false
@@ -20,7 +20,7 @@ The Jitsuin RKVST is a Data Assurance Hub which stores shared asset evidence tha
 
 Unlike forming your own blockchain consortium, committing to expensive integrations or managing spreadsheets, RKVST brings the right level of trust to data with a single line of code integration at a fraction of cost and time to value.
 
-This guide will get you started quickly with the RKVST UI and provide an understanding of core RKVST concepts.  
+This guide will give a basic overview of RKVST concepts and get you started quickly with the RKVST UI.  
 
 Before you begin with RKVST there's one key model to use when mapping to business process:
 

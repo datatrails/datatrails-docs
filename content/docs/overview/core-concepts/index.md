@@ -97,22 +97,22 @@ Jitsuin RKVST ensures complete and tamper-proof lineage and provenance for all A
 
 ### Timestamps on Events
 
-Lifecycle events in the Archivist system give stakeholders a shared view of “When Who did What to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
+Lifecycle events in RKVST give stakeholders a shared view of “When Who did What to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
 
-Once committed to the Jitsuin Archivist system, each lifecycle event record carries 3 separate timestamps:
+Once committed to the RKVST system, each lifecycle event record carries 3 separate timestamps:
 * `timestamp_declared` - an optional user-supplied value that tells when an event happened. This is useful for cases where the client system is off-line for a period but the user still wishes to record the accurate time and order of activities (eg inspection rounds in an air-gapped facility). If unspecified, the system sets timestamp_declared equal to timestamp_accepted (see below).
-* `timestamp_accepted` - the time the event was actually received on the Jitsuin Archivist node’s REST interface. Set by the system, cannot be changed by the client.
+* `timestamp_accepted` - the time the event was actually received on the RKVST REST interface. Set by the system, cannot be changed by the client.
 * `timestamp_committed` - the time the event was confirmed distributed to all DLT nodes in the value chain. Set by the system, cannot be changed by the client.
 
-Having these 3 fields enables users of Jitsuin Archivist to accurately reflect what is claimed, whilst also preventing tampering and backdating of entries.
+Having these 3 fields enables users of RKVST to accurately reflect what is claimed, whilst also preventing tampering and backdating of entries.
 
 ### User Principals on Events
 
 Just as with the "When", the "Who" of “When Who did What to an Asset" is potentially complicated if, for example, an application or gateway is acting on behalf of some other real-world user.
 
-Once committed to the Jitsuin Archivist system, each lifecycle event record carries 2 separate user identities:
-* `principal_declared` - an optional user-supplied value that tells who performed an event. This is useful for cases where the user principal/ credential used to connect to the Archivist system does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
-* `principal_accepted` - the actual user principal information belonging to the credential used to access the Jitsuin Archivist node’s REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
+Once committed to the RKVST system, each lifecycle event record carries 2 separate user identities:
+* `principal_declared` - an optional user-supplied value that tells who performed an event. This is useful for cases where the user principal/ credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
+* `principal_accepted` - the actual user principal information belonging to the credential used to access the RKVST REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
 
 For more detailed information on Assets and how to implement them, please refer to [the Events API Reference](../../api-reference/events-api/).
 
@@ -122,7 +122,7 @@ Sharing the right amount of information with your value chain partners is critic
 
 In other scenarios, it is desirable to share basic maintenance information with a vendor or external maintenance company, whilst restricting critical operating information such as run cycles and cyber SLAs to a much smaller group.
 
-RKVST Access Policies are the method through which this access is defined, allowing Asset owners to collaborate with just the right partners at the right time, sharing as much or as little access to Asses as the needs of the value chain partners dictate. All transactions are private by default, meaning that only the asset owner can see and update asset histories until a sharing policy has been set up. This ensures ready compliance with important regimes such as GDPR and antitrust regulations, as well as allowing safe and ready collaboration with a large and diverse range of value chain partners in the RKVST network when required.
+RKVST Access Policies are the method through which this access is defined, allowing Asset owners to collaborate with just the right partners at the right time, sharing as much or as little access to Assets as the needs of the value chain partners dictate. All transactions are private by default, meaning that only the asset owner can see and update asset histories until a sharing policy has been set up. This ensures ready compliance with important regimes such as GDPR and antitrust regulations, as well as allowing safe and ready collaboration with a large and diverse range of value chain partners in the RKVST network when required.
 
 {{< note >}}
 **Note:** To collaborate with a value chain partner you first need to enrol them as a partner in your RKVST tenancy by exchanging your RKVST public Subject Identity with each other, a little like making a new LinkedIn connection or Facebook friend.
@@ -145,7 +145,7 @@ RKVST employs a principle called Attribute-Based Access Control for users within
 
 Rather than applying a specific fixed policy to each asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied. This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems. 
 
-Archivist Access Policies comprise 2 main parts:
+RKVST Access Policies comprise 2 main parts:
 * Filters: A list of attributes to match on Assets (this defines the scope of the Policy)
 * Access Permissions: A list of access rights to be granted to users on those matching Assets
 
@@ -277,11 +277,11 @@ If an asset has an attachment named `arc_primary_image` then this will be used b
 
 ### Attachments on Events
 
-Adding an Attachment to an Event allows recording and communication of evidence that is difficult to capture in the rigid structured dat of Event attributes. For example:
-* a photograph of physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection.
+Adding an Attachment to an Event allows recording and communication of evidence that is difficult to capture in the rigid structured data of Event attributes. For example:
+* a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection.
 * a PDF of a safety conformance report to support a maintenance event.
 * a software manifest to support an update.
-* an x-ray image
+* an x-ray image.
 
 To add Attachments to an Event simply specify an `arc_attachments` list in the `event_attributes` of the request when posting an event.
 
@@ -293,9 +293,9 @@ For more detailed information on Attachments and how to implement them, please r
 
 ## Locations
 
-Assets in RKVST are arranged into locations, which allows logical assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.
+Assets in RKVST are arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.
 
-This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. As with all Jitsuin Archivist data types, locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
+This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
 
 {{< note >}}
 **Note:** If your use case does not concern physical sites like factory plant locations orr offices it is still possible to use Locations to logically group related Assets together. However it is likely to be more scalable to use a custom attribute to link them together.

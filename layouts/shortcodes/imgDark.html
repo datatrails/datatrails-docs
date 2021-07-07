@@ -1,6 +1,8 @@
 {{ $imgDrk := .Page.Resources.GetMatch (printf "*%s*" (.Get "srcDrk")) -}}
 {{ $lqipDrk := $imgDrk.Resize $.Site.Params.lqipWidth -}}
 
+{{ $exampleModal := index (split (.Get "src") ".png") 0 }}
+
 {{ $imgDrkSrc := "" -}}
 {{ $imgDrkSrcSet := slice -}}
 
@@ -15,13 +17,34 @@
   {{ $imgDrkSrcSet = $imgDrkSrcSet | append (printf "%s %dw" $srcDrkUrl .) -}}
 {{ end -}}
 {{ $imgDrkSrcSet = (delimit $imgDrkSrcSet ",") -}}
-<span class="toggle-light">
+<!-- <span class="toggle-light">
   <figure{{ with .Get "class" }} class="{{.}}"{{ end }}></figure>
   <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqipDrk.RelPermalink }}" data-srcset="{{ $imgDrkSrcSet }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
   <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgDrkSrcSet }}" src="{{ $imgDrk.RelPermalink }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
   {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
  </figure>
-</span>
+</span> -->
+
+<span class="toggle-light">
+   <figure{{ with .Get "class" }} class="{{.}}"{{ end }}>
+        <!-- <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqipDrk.RelPermalink }}" data-srcset="{{ $imgDrkSrcSet }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}> -->
+        <input type="image" data-bs-toggle="modal" data-bs-target="#{{ $exampleModal }}" img class="img-fluid responsive" src="{{ $lqipDrk.RelPermalink }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" data-sizes="auto" data-srcset="{{ $imgDrkSrcSet }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+        <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgDrkSrcSet }}" src="{{ $imgDrk.RelPermalink }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
+        {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
+  </figure>
+</span>  
+
+
+<div class="modal fade" id="{{ $exampleModal }}" tabindex="-1" aria-labelledby="{{ $exampleModal }}" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <!-- <div class="modal-content"> -->
+      <div class="modal-body">
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqipDrk.RelPermalink }}" data-srcset="{{ $imgDrkSrcSet }}" width="{{ $imgDrk.Width }}" height="{{ $imgDrk.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+      </div>
+  <!-- </div> -->
+  </div>
+</div>
+
 
 {{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) -}}
 {{ $lqip := $image.Resize $.Site.Params.lqipWidth -}}
@@ -39,13 +62,34 @@
   {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $srcUrl .) -}}
 {{ end -}}
 {{ $imgSrcSet = (delimit $imgSrcSet ",") -}}
-<span class="toggle-dark">
+<!-- <span class="toggle-dark">
   <figure{{ with .Get "class" }} class="{{.}}"{{ end }}>
     <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
     <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
     {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
   </figure>
-</span>
+</span> -->
+
+<span class="toggle-dark"></span>
+   <figure{{ with .Get "class" }} class="{{.}}"{{ end }}>
+     <!-- <img class="img-fluid lazyload blur-up" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}> -->
+     <input type="image" data-bs-toggle="modal" data-bs-target="#{{ $exampleModal }}" img class="img-fluid responsive" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" data-sizes="auto" data-srcset="{{ $imgSrcSet }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+     <noscript><img class="img-fluid" sizes="100vw" srcset="{{ $imgSrcSet }}" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}></noscript>
+     {{ with .Get "caption" }}<figcaption class="figure-caption">{{ . | safeHTML }}</figcaption>{{ end }}
+   </figure>
+</span>  
+
+
+<div class="modal fade" id="{{ $exampleModal }}" tabindex="-1" aria-labelledby="{{ $exampleModal }}" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <!-- <div class="modal-content"> -->
+      <div class="modal-body">
+        <!-- <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}> -->
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="{{ $lqip.RelPermalink }}" data-srcset="{{ $imgSrcSet }}" width="{{ $image.Width }}" height="{{ $image.Height }}" {{ with .Get "alt" }}alt="{{.}}"{{ end }}>
+      </div>
+  <!-- </div> -->
+  </div>
+</div>
 
 
 

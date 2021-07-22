@@ -1,15 +1,227 @@
-<!doctype html><html lang=en-gb><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><link rel=stylesheet href=https://docs.jitsuin.com/main.46e92a34aa47a779aed43b0131bf927ce078107d0e21b733be6403c953f096b8365123c92c570bdda6be3e6a66a32799384878afa7b7a027b4bc9f23549eb61d.css integrity="sha512-RukqNKpHp3mu1DsBMb+SfOB4EH0OIbczvmQDyVPwlrg2USPJLFcL3aa+PmpmoyeZOEh4r6e3oCe0vJ8jVJ62HQ==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>Events API - Jitsuin RKVST</title><meta name=description content="Events API Reference"><link rel=canonical href=https://docs.jitsuin.com/docs/api-reference/events-api/><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/Jitsuin_Logo_RGB.png"><meta name=twitter:title content="Events API"><meta name=twitter:description content="Events API Reference"><meta name=twitter:site content="@"><meta name=twitter:creator content="@"><meta property="og:title" content="Events API"><meta property="og:description" content="Events API Reference"><meta property="og:type" content="article"><meta property="og:url" content="/docs/api-reference/events-api/"><meta property="og:image" content="/Jitsuin_Logo_RGB.png"><meta property="article:published_time" content="2021-06-09T11:48:40+01:00"><meta property="article:modified_time" content="2021-06-09T11:48:40+01:00"><meta property="og:site_name" content="Jitsuin RKVST"><meta property="article:publisher" content="https://www.facebook.com/"><meta property="article:author" content="https://www.facebook.com/"><meta property="og:locale" content="en_US"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/docs.jitsuin.com"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/docs.jitsuin.com\/docs\/"},{"@type":"ListItem","position":4,"name":"API Reference","item":"https:\/\/docs.jitsuin.com\/docs\/api-reference\/"},{"@type":"ListItem","position":5,"name":"Events API","item":"https:\/\/docs.jitsuin.com\/docs\/api-reference\/events-api\/"}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://docs.jitsuin.com/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://docs.jitsuin.com/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://docs.jitsuin.com/favicon-16x16.png><link rel=manifest href=https://docs.jitsuin.com/site.webmanifest><script type=text/javascript id=hs-script-loader async defer src=//js.hs-scripts.com/9491266.js></script></head><body class="docs single"><div class="header-bar fixed-top"></div><header class="navbar fixed-top navbar-expand-md navbar-light"><div class=container><input class="menu-btn order-0" type=checkbox id=menu-btn>
-<label class="menu-icon d-md-none" for=menu-btn><span class=navicon></span></label><a class="navbar-brand order-1 order-md-0 me-auto" href=https://docs.jitsuin.com/>Jitsuin RKVST</a>
+<!doctype html><html lang=en-gb>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
+<link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
+<link rel=stylesheet href=https://docs.jitsuin.com/main.46e92a34aa47a779aed43b0131bf927ce078107d0e21b733be6403c953f096b8365123c92c570bdda6be3e6a66a32799384878afa7b7a027b4bc9f23549eb61d.css integrity="sha512-RukqNKpHp3mu1DsBMb+SfOB4EH0OIbczvmQDyVPwlrg2USPJLFcL3aa+PmpmoyeZOEh4r6e3oCe0vJ8jVJ62HQ==" crossorigin=anonymous>
+<noscript><style>img.lazyload{display:none}</style></noscript>
+<meta name=robots content="index, follow">
+<meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>Events API - Jitsuin RKVST</title>
+<meta name=description content="Events API Reference">
+<link rel=canonical href=https://docs.jitsuin.com/docs/api-reference/events-api/>
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="/Jitsuin_Logo_RGB.png">
+<meta name=twitter:title content="Events API">
+<meta name=twitter:description content="Events API Reference">
+<meta name=twitter:site content="@">
+<meta name=twitter:creator content="@">
+<meta property="og:title" content="Events API">
+<meta property="og:description" content="Events API Reference">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/docs/api-reference/events-api/">
+<meta property="og:image" content="/Jitsuin_Logo_RGB.png">
+<meta property="article:published_time" content="2021-06-09T11:48:40+01:00">
+<meta property="article:modified_time" content="2021-06-09T11:48:40+01:00">
+<meta property="og:site_name" content="Jitsuin RKVST">
+<meta property="article:publisher" content="https://www.facebook.com/">
+<meta property="article:author" content="https://www.facebook.com/">
+<meta property="og:locale" content="en_US">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/docs.jitsuin.com"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/docs.jitsuin.com\/docs\/"},{"@type":"ListItem","position":4,"name":"API Reference","item":"https:\/\/docs.jitsuin.com\/docs\/api-reference\/"},{"@type":"ListItem","position":5,"name":"Events API","item":"https:\/\/docs.jitsuin.com\/docs\/api-reference\/events-api\/"}]}</script>
+<meta name=theme-color content="#fff">
+<link rel=apple-touch-icon sizes=180x180 href=https://docs.jitsuin.com/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://docs.jitsuin.com/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://docs.jitsuin.com/favicon-16x16.png>
+<link rel=manifest href=https://docs.jitsuin.com/site.webmanifest>
+<script type=text/javascript id=hs-script-loader async defer src=//js.hs-scripts.com/9491266.js></script>
+</head>
+<body class="docs single">
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+<div class=container>
+<input class="menu-btn order-0" type=checkbox id=menu-btn>
+<label class="menu-icon d-md-none" for=menu-btn><span class=navicon></span></label>
+<a class="navbar-brand order-1 order-md-0 me-auto" href=https://docs.jitsuin.com/>Jitsuin RKVST</a>
 <button id=mode class="btn btn-link order-2 order-md-4" type=button aria-label="Toggle mode">
-<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button><ul class="navbar-nav social-nav order-3 order-md-5"><li class=nav-item><a class=nav-link href=https://twitter.com/jitsuin_inc><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg><span class="ms-2 visually-hidden">Twitter</span></a></li><li class=nav-item><a class=nav-link href=https://github.com/jitsuin-inc/rkvst-docs><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><span class="ms-2 visually-hidden">GitHub</span></a></li></ul><div class="collapse navbar-collapse order-4 order-md-1"><ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item active"><a class=nav-link href=https://docs.jitsuin.com/docs/overview/introduction>Docs</a></li><li class=nav-item><a class=nav-link href=https://docs.jitsuin.com/support/contactus>Support</a></li><li class=nav-item><a class=nav-link href=https://info.jitsuin.com/demo-request>Sales</a></li><li class=nav-item><a class=nav-link href=https://docs.jitsuin.com/contributing/getting-started/pulling-and-building-rkvst-docs>Contributing</a></li></ul><div class="break order-6 d-md-none"></div><form class="navbar-form flex-grow-1 order-7 order-md-3"><input id=userinput class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded"></div></form></div></div></header><div class="wrap container" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#overview aria-expanded=false>
-Overview</button><div class=collapse id=overview><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/overview/introduction/>Introduction</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/overview/core-concepts/>Core Concepts</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#setup-and-administration aria-expanded=false>
-Setup and Administration</button><div class=collapse id=setup-and-administration><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/registering-your-azure-active-directory-with-rkvst/>Registering Your Azure Active Directory With RKVST</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/assign-users-to-rkvst-for-interactive-use/>Assign Users to RKVST for Interactive Use</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/configuring-azure-clients-for-non-interactive-use/>Configuring Azure Clients for Non-Interactive Use</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/getting-access-tokens-using-client-secret/>Getting Access Tokens Using Client Secret</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#quickstart aria-expanded=false>
-Quickstart</button><div class=collapse id=quickstart><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/when-who-did-what-to-an-asset/>When Who Did What to an Asset?</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/creating-an-asset/>Creating an Asset</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/creating-an-event-against-an-asset/>Creating an Event Against an Asset</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/grouping-assets-by-location/>Grouping Assets by Location</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/managing-access-to-an-asset-with-abac/>Managing Access to an Asset With ABAC</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/sharing-assets-with-obac/>Sharing Assets With OBAC</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#user-patterns aria-expanded=false>
-User Patterns</button><div class=collapse id=user-patterns><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/authenticity-and-attestation/>Authenticity and Attestation</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/bill-of-materials/>Bill of Materials</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/state-machine/>State Machine and Supply Chains</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#api-reference aria-expanded=true>
-API Reference</button><div class="collapse show" id=api-reference><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/assets-api/>Assets API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/attachments-api/>Attachments API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/blobs-api/>Blobs API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/blockchain-api/>Blockchain API (v1alpha1)</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/compliance-api/>Compliance API</a></li><li><a class="docs-link rounded active" href=https://docs.jitsuin.com/docs/api-reference/events-api/>Events API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/iam-policies-api/>IAM Policies API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/locations-api/>Locations API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/microsoft-iothub-api/>Microsoft IoTHub API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/svc-buses-api/>Service Bus API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/system-api/>System API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/tenancies-api/>Tenancies API</a></li><li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/tls-ca-certificates-api/>TLS CA Certificates API</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#help aria-expanded=false>
-Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links><h3>On this page</h3><nav id=TableOfContents><ul><li><a href=#attachments-example>Attachments Example</a></li><li><a href=#builtin-operations-example>Builtin Operations Example</a></li><li><a href=#firmware-update-example>Firmware Update Example</a></li><li><a href=#location-update-example>Location Update Example</a></li><li><a href=#maintenance-example>Maintenance Example</a></li><li><a href=#record-evidence-example>Record Evidence Example</a></li></ul></nav></div></nav><main class="docs-content col-lg-11 col-xl-9"><nav aria-label=breadcrumb><ol class=breadcrumb><li class=breadcrumb-item><a href=https://docs.jitsuin.com/>Home</a></li><li class=breadcrumb-item><a href=https://docs.jitsuin.com/docs/>Docs</a></li><li class=breadcrumb-item><a href=https://docs.jitsuin.com/docs/api-reference/>Api Reference</a></li><li class="breadcrumb-item active" aria-current=page>Events API</li></ol></nav><div class=my-n3></div><h1>Events API</h1><p class=lead>Events API Reference</p><h2 id=attachments-example>Attachments Example<a href=#attachments-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=Attachments0></div><div class=accordion-item><h3 class=accordion-header id=headerAttachments1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseAttachments1 aria-expanded=true aria-controls=collapseAttachments1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseAttachments1 class="accordion-collapse collapse" aria-labelledby=headerAttachments1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestAttachments1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestAttachments1 aria-expanded=true aria-controls=collapserequestAttachments1>
-<span>Example Request</span></button></h3><div id=collapserequestAttachments1 class="accordion-collapse collapse" aria-labelledby=headerrequestAttachments1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+<span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+</button>
+<ul class="navbar-nav social-nav order-3 order-md-5">
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/jitsuin_inc><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://github.com/jitsuin-inc/rkvst-docs><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+</li>
+</ul>
+<div class="collapse navbar-collapse order-4 order-md-1">
+<ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item active">
+<a class=nav-link href=https://docs.jitsuin.com/docs/overview/introduction>Docs</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://docs.jitsuin.com/support/contactus>Support</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://info.jitsuin.com/demo-request>Sales</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://docs.jitsuin.com/contributing/getting-started/pulling-and-building-rkvst-docs>Contributing</a>
+</li>
+</ul>
+<div class="break order-6 d-md-none"></div>
+<form class="navbar-form flex-grow-1 order-7 order-md-3">
+<input id=userinput class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off>
+<div id=suggestions class="shadow bg-white rounded"></div>
+</form>
+</div>
+</div>
+</header>
+<div class="wrap container" role=document>
+<div class=content>
+<div class="row flex-xl-nowrap">
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+<nav class=docs-links aria-label="Main navigation">
+<ul class="list-unstyled collapsible-sidebar">
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#overview aria-expanded=false>
+Overview
+</button>
+<div class=collapse id=overview>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/overview/introduction/>Introduction</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/overview/core-concepts/>Core Concepts</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#setup-and-administration aria-expanded=false>
+Setup and Administration
+</button>
+<div class=collapse id=setup-and-administration>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/registering-your-azure-active-directory-with-rkvst/>Registering Your Azure Active Directory With RKVST</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/assign-users-to-rkvst-for-interactive-use/>Assign Users to RKVST for Interactive Use</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/configuring-azure-clients-for-non-interactive-use/>Configuring Azure Clients for Non-Interactive Use</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/setup-and-administration/getting-access-tokens-using-client-secret/>Getting Access Tokens Using Client Secret</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#quickstart aria-expanded=false>
+Quickstart
+</button>
+<div class=collapse id=quickstart>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/when-who-did-what-to-an-asset/>When Who Did What to an Asset?</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/creating-an-asset/>Creating an Asset</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/creating-an-event-against-an-asset/>Creating an Event Against an Asset</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/grouping-assets-by-location/>Grouping Assets by Location</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/managing-access-to-an-asset-with-abac/>Managing Access to an Asset With ABAC</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/quickstart/sharing-assets-with-obac/>Sharing Assets With OBAC</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#user-patterns aria-expanded=false>
+User Patterns
+</button>
+<div class=collapse id=user-patterns>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/authenticity-and-attestation/>Authenticity and Attestation</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/bill-of-materials/>Bill of Materials</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/user-patterns/state-machine/>State Machine and Supply Chains</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#api-reference aria-expanded=true>
+API Reference
+</button>
+<div class="collapse show" id=api-reference>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/assets-api/>Assets API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/attachments-api/>Attachments API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/blobs-api/>Blobs API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/blockchain-api/>Blockchain API (v1alpha1)</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/compliance-api/>Compliance API</a></li>
+<li><a class="docs-link rounded active" href=https://docs.jitsuin.com/docs/api-reference/events-api/>Events API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/iam-policies-api/>IAM Policies API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/locations-api/>Locations API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/microsoft-iothub-api/>Microsoft IoTHub API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/svc-buses-api/>Service Bus API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/system-api/>System API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/tenancies-api/>Tenancies API</a></li>
+<li><a class="docs-link rounded" href=https://docs.jitsuin.com/docs/api-reference/tls-ca-certificates-api/>TLS CA Certificates API</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#help aria-expanded=false>
+Help
+</button>
+</li>
+</ul>
+</nav>
+</div>
+<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+<div class=page-links>
+<h3>On this page</h3>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#attachments-example>Attachments Example</a></li>
+<li><a href=#builtin-operations-example>Builtin Operations Example</a></li>
+<li><a href=#firmware-update-example>Firmware Update Example</a></li>
+<li><a href=#location-update-example>Location Update Example</a></li>
+<li><a href=#maintenance-example>Maintenance Example</a></li>
+<li><a href=#record-evidence-example>Record Evidence Example</a></li>
+</ul>
+</nav>
+</div>
+</nav>
+<main class="docs-content col-lg-11 col-xl-9">
+<nav aria-label=breadcrumb>
+<ol class=breadcrumb>
+<li class=breadcrumb-item><a href=https://docs.jitsuin.com/>Home</a></li>
+<li class=breadcrumb-item><a href=https://docs.jitsuin.com/docs/>Docs</a></li>
+<li class=breadcrumb-item><a href=https://docs.jitsuin.com/docs/api-reference/>Api Reference</a></li>
+<li class="breadcrumb-item active" aria-current=page>Events API</li>
+</ol>
+</nav>
+<div class=my-n3></div>
+<h1>Events API</h1>
+<p class=lead>Events API Reference</p>
+<h2 id=attachments-example>Attachments Example<a href=#attachments-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=Attachments0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerAttachments1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseAttachments1 aria-expanded=true aria-controls=collapseAttachments1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseAttachments1 class="accordion-collapse collapse" aria-labelledby=headerAttachments1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestAttachments1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestAttachments1 aria-expanded=true aria-controls=collapserequestAttachments1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestAttachments1 class="accordion-collapse collapse" aria-labelledby=headerrequestAttachments1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -31,8 +243,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseAttachments1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseAttachments1 aria-expanded=true aria-controls=collapserequestAttachments1>
-<span>Example Response</span></button></h3><div id=collapseresponseAttachments1 class="accordion-collapse collapse" aria-labelledby=headerresponseAttachments1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseAttachments1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseAttachments1 aria-expanded=true aria-controls=collapserequestAttachments1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseAttachments1 class="accordion-collapse collapse" aria-labelledby=headerresponseAttachments1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -66,9 +330,132 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response.</td></tbody></table></div></div></div></div></div><h2 id=builtin-operations-example>Builtin Operations Example<a href=#builtin-operations-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=Builtin0></div><div class=accordion-item><h3 class=accordion-header id=headerBuiltin1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseBuiltin1 aria-expanded=true aria-controls=collapseBuiltin1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerBuiltin1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestBuiltin1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestBuiltin1 aria-expanded=true aria-controls=collapserequestBuiltin1>
-<span>Example Request</span></button></h3><div id=collapserequestBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerrequestBuiltin1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id=builtin-operations-example>Builtin Operations Example<a href=#builtin-operations-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=Builtin0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerBuiltin1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseBuiltin1 aria-expanded=true aria-controls=collapseBuiltin1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerBuiltin1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestBuiltin1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestBuiltin1 aria-expanded=true aria-controls=collapserequestBuiltin1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerrequestBuiltin1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -90,8 +477,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseBuiltin1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseBuiltin1 aria-expanded=true aria-controls=collapserequestBuiltin1>
-<span>Example Response</span></button></h3><div id=collapseresponseBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerresponseBuiltin1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseBuiltin1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseBuiltin1 aria-expanded=true aria-controls=collapserequestBuiltin1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseBuiltin1 class="accordion-collapse collapse" aria-labelledby=headerresponseBuiltin1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -125,9 +564,132 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response.</td></tbody></table></div></div></div></div></div><h2 id=firmware-update-example>Firmware Update Example<a href=#firmware-update-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=Firmware0></div><div class=accordion-item><h3 class=accordion-header id=headerFirmware1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseFirmware1 aria-expanded=true aria-controls=collapseFirmware1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseFirmware1 class="accordion-collapse collapse" aria-labelledby=headerFirmware1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestFirmware1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestFirmware1 aria-expanded=true aria-controls=collapserequestFirmware1>
-<span>Example Request</span></button></h3><div id=collapserequestFirmware1 class="accordion-collapse collapse" aria-labelledby=headerrequestFirmware1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id=firmware-update-example>Firmware Update Example<a href=#firmware-update-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=Firmware0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerFirmware1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseFirmware1 aria-expanded=true aria-controls=collapseFirmware1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseFirmware1 class="accordion-collapse collapse" aria-labelledby=headerFirmware1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestFirmware1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestFirmware1 aria-expanded=true aria-controls=collapserequestFirmware1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestFirmware1 class="accordion-collapse collapse" aria-labelledby=headerrequestFirmware1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -149,8 +711,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseFirmware1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseFirmware1 aria-expanded=true aria-controls=collapserequestFirmware1>
-<span>Example Response</span></button></h3><div id=collapseresponseFirmware1 class="accordion-collapse collapse" aria-labelledby=headerresponseFirmware1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseFirmware1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseFirmware1 aria-expanded=true aria-controls=collapserequestFirmware1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseFirmware1 class="accordion-collapse collapse" aria-labelledby=headerresponseFirmware1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -184,9 +798,132 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response.</td></tbody></table></div></div></div></div></div><h2 id=location-update-example>Location Update Example<a href=#location-update-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=LocationUpdate0></div><div class=accordion-item><h3 class=accordion-header id=headerLocationUpdate1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseLocationUpdate1 aria-expanded=true aria-controls=collapseLocationUpdate1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerLocationUpdate1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestLocationUpdate1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestLocationUpdate1 aria-expanded=true aria-controls=collapserequestLocationUpdate1>
-<span>Example Request</span></button></h3><div id=collapserequestLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerrequestLocationUpdate1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id=location-update-example>Location Update Example<a href=#location-update-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=LocationUpdate0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerLocationUpdate1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseLocationUpdate1 aria-expanded=true aria-controls=collapseLocationUpdate1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerLocationUpdate1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestLocationUpdate1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestLocationUpdate1 aria-expanded=true aria-controls=collapserequestLocationUpdate1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerrequestLocationUpdate1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -208,8 +945,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>map of asset attributes. Specific behaviours define required and optional asset attributes. These attributes cause the corresponding attributes on the asset to be updated.</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>map of event attributes. Specific behaviours define required and optional event attributes for each supported operation.</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseLocationUpdate1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseLocationUpdate1 aria-expanded=true aria-controls=collapserequestLocationUpdate1>
-<span>Example Response</span></button></h3><div id=collapseresponseLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerresponseLocationUpdate1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>map of asset attributes. Specific behaviours define required and optional asset attributes. These attributes cause the corresponding attributes on the asset to be updated.</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>map of event attributes. Specific behaviours define required and optional event attributes for each supported operation.</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseLocationUpdate1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseLocationUpdate1 aria-expanded=true aria-controls=collapserequestLocationUpdate1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseLocationUpdate1 class="accordion-collapse collapse" aria-labelledby=headerresponseLocationUpdate1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -243,9 +1032,132 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>map of asset attributes. Specific behaviours define required and optional asset attributes. These attributes cause the corresponding attributes on the asset to be updated.</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>map of event attributes. Specific behaviours define required and optional event attributes for each supported operation.</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response</td></tbody></table></div></div></div></div></div><h2 id=maintenance-example>Maintenance Example<a href=#maintenance-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=Maintenance0></div><div class=accordion-item><h3 class=accordion-header id=headerMaintenance1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseMaintenance1 aria-expanded=true aria-controls=collapseMaintenance1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerMaintenance1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestMaintenance1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestMaintenance1 aria-expanded=true aria-controls=collapserequestMaintenance1>
-<span>Example Request</span></button></h3><div id=collapserequestMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerrequestMaintenance1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>map of asset attributes. Specific behaviours define required and optional asset attributes. These attributes cause the corresponding attributes on the asset to be updated.</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>map of event attributes. Specific behaviours define required and optional event attributes for each supported operation.</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id=maintenance-example>Maintenance Example<a href=#maintenance-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=Maintenance0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerMaintenance1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseMaintenance1 aria-expanded=true aria-controls=collapseMaintenance1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerMaintenance1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestMaintenance1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestMaintenance1 aria-expanded=true aria-controls=collapserequestMaintenance1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerrequestMaintenance1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -267,8 +1179,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseMaintenance1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseMaintenance1 aria-expanded=true aria-controls=collapserequestMaintenance1>
-<span>Example Response</span></button></h3><div id=collapseresponseMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerresponseMaintenance1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseMaintenance1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseMaintenance1 aria-expanded=true aria-controls=collapserequestMaintenance1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseMaintenance1 class="accordion-collapse collapse" aria-labelledby=headerresponseMaintenance1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -302,9 +1266,132 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response.</td></tbody></table></div></div></div></div></div><h2 id=record-evidence-example>Record Evidence Example<a href=#record-evidence-example class=anchor aria-hidden=true>#</a></h2><div class=$openapi-spec-content><div class=description><p></p></div><div class=accordion id=RecordEvidence0></div><div class=accordion-item><h3 class=accordion-header id=headerRecordEvidence1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseRecordEvidence1 aria-expanded=true aria-controls=collapseRecordEvidence1>
-<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span></button></h3><div id=collapseRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerRecordEvidence1 data-parent=#accordion><div class=accordion-body><div style=width:100%><h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4><h5></h5><p><a href></a></p><p>Description:</p><div class=accordion-item><h3 class=accordion-header id=headerrequestRecordEvidence1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestRecordEvidence1 aria-expanded=true aria-controls=collapserequestRecordEvidence1>
-<span>Example Request</span></button></h3><div id=collapserequestRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerrequestRecordEvidence1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id=record-evidence-example>Record Evidence Example<a href=#record-evidence-example class=anchor aria-hidden=true>#</a> </h2>
+<div class=$openapi-spec-content>
+<div class=description>
+<p></p>
+</div>
+<div class=accordion id=RecordEvidence0></div>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerRecordEvidence1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseRecordEvidence1 aria-expanded=true aria-controls=collapseRecordEvidence1>
+<span style=text-transform:uppercase;color:#ed1c24>post</span>&nbsp;&nbsp;<span style=width:100%>/archivist/v2/{asset_identity}/events</span>
+</button>
+</h3>
+<div id=collapseRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerRecordEvidence1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<h4><span style=color:#ed1c24;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v2/{asset_identity}/events</span></h4>
+<h5></h5>
+<p><a href></a></p>
+<p>Description: </p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerrequestRecordEvidence1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestRecordEvidence1 aria-expanded=true aria-controls=collapserequestRecordEvidence1>
+<span>Example Request</span>
+</button>
+</h3>
+<div id=collapserequestRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerrequestRecordEvidence1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -326,8 +1413,60 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
     "subject": "bob@job"
   },
   "timestamp_declared": "2019-11-27T14:44:19Z"
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td></td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>operation</th><td>string</td><td></td><tr><th>principal_declared</th><td></td><td></td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td></tbody></table><div class=accordion-item><h3 class=accordion-header id=headerresponseRecordEvidence1><button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseRecordEvidence1 aria-expanded=true aria-controls=collapserequestRecordEvidence1>
-<span>Example Response</span></button></h3><div id=collapseresponseRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerresponseRecordEvidence1 data-parent=#accordion><div class=accordion-body><div style=width:100%><pre><code>{
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td></td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td></td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+</tbody>
+</table>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseRecordEvidence1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseRecordEvidence1 aria-expanded=true aria-controls=collapserequestRecordEvidence1>
+<span>Example Response</span>
+</button>
+</h3>
+<div id=collapseresponseRecordEvidence1 class="accordion-collapse collapse" aria-labelledby=headerresponseRecordEvidence1 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<pre><code>{
   "asset_attributes": {
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
@@ -361,4 +1500,142 @@ Help</button></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "transaction_id": "0x07569",
   "transaction_index": 5
-}</code></pre></div></div></div></div><table class="table table-striped table-bordered"><thead><tr><th scope=col>Response Parameter</th><th scope=col>Type</th><th scope=col>Description</th></tr></thead><tbody><tr><th>asset_attributes</th><td>object</td><td>key value mapping of asset attributes</td><tr><th>asset_identity</th><td>string</td><td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td><tr><th>behaviour</th><td>string</td><td>The behaviour used to create event. <code>Firmware</code></td><tr><th>block_number</th><td>string</td><td>number of block event was commited on</td><tr><th>confirmation_status</th><td></td><td>indicates if the event has been succesfully committed to the blockchain</td><tr><th>event_attributes</th><td>object</td><td>key value mapping of event attributes</td><tr><th>from</th><td>string</td><td>wallet address for the creator of this event</td><tr><th>identity</th><td>string</td><td>identity of a event resource</td><tr><th>operation</th><td>string</td><td>The operation represented by the event. <code>Update</code></td><tr><th>principal_accepted</th><td></td><td>principal recorded by the server</td><tr><th>principal_declared</th><td></td><td>principal provided by the user</td><tr><th>timestamp_accepted</th><td>string</td><td>time of event as recorded by the server</td><tr><th>timestamp_committed</th><td>string</td><td>time of event as recorded on blockchain</td><tr><th>timestamp_declared</th><td>string</td><td>time of event as declared by the user</td><tr><th>transaction_id</th><td>string</td><td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td><tr><th>transaction_index</th><td>string</td><td>index of event within commited block</td></tbody></table><table class="table table-striped table-bordered"><thead><tr><th scope=col>Responses</th><th scope=col>Description</th></tr></thead><tbody><tr><th>200</th><td>A successful response.</td><tr><th>default</th><td>An unexpected error response.</td></tbody></table></div></div></div></div></div><p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/api-reference/events-api/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p><div class="docs-navigation d-flex justify-content-between"><a href=https://docs.jitsuin.com/docs/api-reference/compliance-api/><div class="card my-1"><div class="card-body py-2">&larr; Compliance API</div></div></a><a class=ms-auto href=https://docs.jitsuin.com/docs/api-reference/iam-policies-api/><div class="card my-1"><div class="card-body py-2">IAM Policies API &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=https://docs.jitsuin.com/js/bootstrap.min.cbaee2816010a63a735cbb17bed5167de6a92ca43f3341a277d1f6e31b4ec302aaef81062425daab54e7e973d9a8fe039f9d2caba6883d27f6a69ed6e58e83e1.js integrity="sha512-y67igWAQpjpzXLsXvtUWfeapLKQ/M0Gid9H24xtOwwKq74EGJCXaq1Tn6XPZqP4Dn50sq6aIPSf2pp7W5Y6D4Q==" crossorigin=anonymous defer></script><script src=https://docs.jitsuin.com/js/highlight.min.5c0179fa04bcba2846c7bf54e92e6bc1816017ad23670e8c82067727dadce9c63f6a47abf6fdb83de2421cab7351db9ee2e4af4ba3669823d48ac0a542fc7eaf.js integrity="sha512-XAF5+gS8uihGx79U6S5rwYFgF60jZw6MggZ3J9rc6cY/aker9v24PeJCHKtzUdue4uSvS6NmmCPUisClQvx+rw==" crossorigin=anonymous defer></script><script src=https://docs.jitsuin.com/main.min.ba88a0e932e7904eb51c7f05256894156511dadcd6c65e3f084ae75bd8ee090284e92e46a0da723f8d5a3ab21e7ba74af1fec1a5bee22ac3b170a46b0a15bed3.js integrity="sha512-uoig6TLnkE61HH8FJWiUFWUR2tzWxl4/CErnW9juCQKE6S5GoNpyP41aOrIee6dK8f7Bpb7iKsOxcKRrChW+0w==" crossorigin=anonymous defer></script><script src=https://docs.jitsuin.com/index.min.797d4d9909e79e8e202364657437ac6d7328ea325e6b7390d906d777bc6fd6f7d404fe30347bcd20cc0d2748e101ccd3f1a22ed44fbf0692395882c34185603e.js integrity="sha512-eX1NmQnnno4gI2RldDesbXMo6jJea3OQ2QbXd7xv1vfUBP4wNHvNIMwNJ0jhAczT8aIu1E+/BpI5WILDQYVgPg==" crossorigin=anonymous defer></script></body></html>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Response Parameter</th>
+<th scope=col>Type</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>asset_attributes</th>
+<td>object</td>
+<td>key value mapping of asset attributes</td>
+<tr>
+<th>asset_identity</th>
+<td>string</td>
+<td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+<tr>
+<th>behaviour</th>
+<td>string</td>
+<td>The behaviour used to create event. <code>Firmware</code></td>
+<tr>
+<th>block_number</th>
+<td>string</td>
+<td>number of block event was commited on</td>
+<tr>
+<th>confirmation_status</th>
+<td></td>
+<td>indicates if the event has been succesfully committed to the blockchain</td>
+<tr>
+<th>event_attributes</th>
+<td>object</td>
+<td>key value mapping of event attributes</td>
+<tr>
+<th>from</th>
+<td>string</td>
+<td>wallet address for the creator of this event</td>
+<tr>
+<th>identity</th>
+<td>string</td>
+<td>identity of a event resource</td>
+<tr>
+<th>operation</th>
+<td>string</td>
+<td>The operation represented by the event. <code>Update</code></td>
+<tr>
+<th>principal_accepted</th>
+<td></td>
+<td>principal recorded by the server</td>
+<tr>
+<th>principal_declared</th>
+<td></td>
+<td>principal provided by the user</td>
+<tr>
+<th>timestamp_accepted</th>
+<td>string</td>
+<td>time of event as recorded by the server</td>
+<tr>
+<th>timestamp_committed</th>
+<td>string</td>
+<td>time of event as recorded on blockchain</td>
+<tr>
+<th>timestamp_declared</th>
+<td>string</td>
+<td>time of event as declared by the user</td>
+<tr>
+<th>transaction_id</th>
+<td>string</td>
+<td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
+<tr>
+<th>transaction_index</th>
+<td>string</td>
+<td>index of event within commited block</td>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/api-reference/events-api/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p>
+<div class="docs-navigation d-flex justify-content-between">
+<a href=https://docs.jitsuin.com/docs/api-reference/compliance-api/>
+<div class="card my-1">
+<div class="card-body py-2">
+&larr; Compliance API
+</div>
+</div>
+</a>
+<a class=ms-auto href=https://docs.jitsuin.com/docs/api-reference/iam-policies-api/>
+<div class="card my-1">
+<div class="card-body py-2">
+IAM Policies API &rarr;
+</div>
+</div>
+</a>
+</div>
+</main>
+</div>
+</div>
+</div>
+<footer class="footer text-muted">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 order-last order-lg-first">
+<ul class=list-inline>
+<li class=list-inline-item>Powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a></li>
+</ul>
+</div>
+<div class="col-lg-8 order-first order-lg-last text-lg-end">
+<ul class=list-inline>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src=https://docs.jitsuin.com/js/bootstrap.min.cbaee2816010a63a735cbb17bed5167de6a92ca43f3341a277d1f6e31b4ec302aaef81062425daab54e7e973d9a8fe039f9d2caba6883d27f6a69ed6e58e83e1.js integrity="sha512-y67igWAQpjpzXLsXvtUWfeapLKQ/M0Gid9H24xtOwwKq74EGJCXaq1Tn6XPZqP4Dn50sq6aIPSf2pp7W5Y6D4Q==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/js/highlight.min.5c0179fa04bcba2846c7bf54e92e6bc1816017ad23670e8c82067727dadce9c63f6a47abf6fdb83de2421cab7351db9ee2e4af4ba3669823d48ac0a542fc7eaf.js integrity="sha512-XAF5+gS8uihGx79U6S5rwYFgF60jZw6MggZ3J9rc6cY/aker9v24PeJCHKtzUdue4uSvS6NmmCPUisClQvx+rw==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/main.min.ba88a0e932e7904eb51c7f05256894156511dadcd6c65e3f084ae75bd8ee090284e92e46a0da723f8d5a3ab21e7ba74af1fec1a5bee22ac3b170a46b0a15bed3.js integrity="sha512-uoig6TLnkE61HH8FJWiUFWUR2tzWxl4/CErnW9juCQKE6S5GoNpyP41aOrIee6dK8f7Bpb7iKsOxcKRrChW+0w==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/index.min.06c557e6c7758f7e0e8677e28185b12bf43818767e6572034fd002e22190cb15ec7a259db8487c2870f9f26b0f6853abf5c067d909ea6e9827714cb30ce459d5.js integrity="sha512-BsVX5sd1j34OhnfigYWxK/Q4GHZ+ZXIDT9AC4iGQyxXseiWduEh8KHD58msPaFOr9cBn2QnqbpgncUyzDORZ1Q==" crossorigin=anonymous defer></script>
+</body>
+</html>

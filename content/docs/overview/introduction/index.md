@@ -13,9 +13,9 @@ weight: 2
 toc: true
 ---
 
-Jitsuin RKVST is a Data Assurance Hub that proves When Who Did What to Assets. 
+Jitsuin RKVST is a Data Assurance Service that continuously proves When Who Did What to an Asset. 
 
-It enables enterprises to build trust in Multi-Party data through greater transparency. 
+RKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.
 
 RKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:
 

@@ -21,12 +21,6 @@
   weight = 1
   identifier = "getting-started"
   url = "/contributing/getting-started/"
-
-[[docs]]
-  name = "Help"
-  weight = 60
-  identifier = "help"
-  url = "/docs/help/"
   
 [[docs]]
   name = "API Reference"

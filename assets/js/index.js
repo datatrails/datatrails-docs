@@ -64,29 +64,23 @@ Source:
 
 (function(){
 
-  var index = new FlexSearch({
-    preset: 'score',
-    cache: true,
-    doc: {
-        id: 'id',
-        field: [
-          'title',
-          'description',
-          'content',
-        ],
-        store: [
-          'href',
-          'title',
-          'description',
-        ],
-    },
+  var index = new FlexSearch.Document({
+    tokenize: "forward",
+    cache: 100,
+    document: {
+      id: 'id',
+      store: [
+        "href", "title", "description"
+      ],
+      index: ["title", "description", "content"]
+    }
   });
 
   var docs = [
     {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
       {
         id: {{ $index }},
-        href: "{{ .RelPermalink | relURL }}",
+        href: "{{ .Permalink }}",
         title: {{ .Title | jsonify }},
         description: {{ .Params.description | jsonify }},
         content: {{ .Content | jsonify }}
@@ -94,7 +88,23 @@ Source:
     {{ end -}}
   ];
 
-  index.add(docs);
+  {{ $list := (where .Site.Pages "Section" "docs") -}}
+  {{ $len := (len $list) -}}
+
+  index.add(
+    {{ range $index, $element := $list -}}
+      {
+        id: {{ $index }},
+        href: "{{ .Permalink }}",
+        title: {{ .Title | jsonify }},
+        description: {{ .Params.description | jsonify }},
+        content: {{ .Content | jsonify }}
+      })
+      {{ if ne (add $index 1) $len -}}
+        .add(
+      {{ end -}}
+    {{ end -}}
+  ;
 
   userinput.addEventListener('input', show_results, true);
   suggestions.addEventListener('click', accept_suggestion, true);
@@ -102,13 +112,13 @@ Source:
   function show_results(){
 
     var value = this.value;
-    var results = index.search(value, 5);
+    var results = index.search(value, { limit: 5, index: ["content"], enrich: true });
     var entry, childs = suggestions.childNodes;
     var i = 0, len = results.length;
 
     suggestions.classList.remove('d-none');
 
-    results.forEach(function(page) {
+    results.forEach(function(results) {
 
       entry = document.createElement('div');
 
@@ -118,9 +128,9 @@ Source:
       t = entry.querySelector('span:first-child'),
       d = entry.querySelector('span:nth-child(2)');
 
-      a.href = page.href;
-      t.textContent = page.title;
-      d.textContent = page.description;
+      a.href = results.result[i].doc.href;
+      t.textContent = results.result[i].doc.title;
+      d.textContent = results.result[i].doc.description;
 
       suggestions.appendChild(entry);
 

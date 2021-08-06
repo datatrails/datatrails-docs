@@ -14,4 +14,3 @@ toc: true
 ---
 
 {{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/access_policies.swagger.json" >}}
-

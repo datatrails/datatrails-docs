@@ -18,7 +18,7 @@ toc: true
 Upload the blob stored at /path/to/file:
 
 ```bash
-$ curl -v -X POST \
+curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
@@ -45,7 +45,7 @@ The response is:
 Retrieve a specific Attachment
 
 ```bash
-$ curl -v \
+curl -v \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \

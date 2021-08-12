@@ -25,7 +25,7 @@ export URL=https://synsation.1234-5678.nodes.archivist.jitsuin.io
 
 ### Asset Record Creation
 
-Define the asset parameters and store in /path/to/jsonfile:
+Define the asset parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -53,7 +53,7 @@ Define the asset parameters and store in /path/to/jsonfile:
 Create the asset:
 
 ```bash
-$ curl -v -X POST \
+curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
@@ -101,76 +101,76 @@ assets/12345678-90ab-cdef-1234-567890abcdef
 
 If you do not know the asset’s identity you can fetch asset records using other information you do know.
 
-#### Fetch all assets
+#### Fetch All Assets
 
 To fetch all asset records, simply `GET` the assets resource:
 
 ```bash
-$ curl -v -X GET \
+curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets
 ```
 
-#### Fetch specific asset by identity
+#### Fetch Specific Asset by Identity
 
 If you know the unique identity of the Asset Record simply `GET` the resource:
 
 ```bash
-$ curl -v -X GET \
+curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
-#### Fetch specific asset at given point in time by identity
+#### Fetch Specific Asset at Given Point in Time by Identity
 
 If you know the unique identity of an Asset Record and want to show its state at any given point in the past, simply `GET` with following query parameter
 
 ```bash
-$ curl -v -X GET \
+curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z
 ```
 
 This will return the Asset Record with the values it had on `2021-01-13T12:34:21Z`
 
-#### Fetch assets by name
+#### Fetch Assets by Name
 
 To fetch all assets with a specific name, GET the assets resource and filter on `arc_display_name`:
 
 ```bash
-$ curl -g -v -X GET \
+curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003
 ```
 
-#### Fetch assets by type
+#### Fetch Assets by Type
 
 To fetch all assets of a specific type, `GET` the assets resource and filter on `arc_display_type`:
 
 ```bash
-$ curl -g -v -X GET \
+curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets?attributes.arc_display_type=Traffic%20light
 ```
 
-#### Fetch assets by filtering for presence of a field
+#### Fetch Assets by Filtering for Presence of a Field
 
 To fetch all assets with a field set to any value, `GET` the assets resource and filter on most available fields. For example:
 
 ```bash
-$ curl -g -v -X GET \
+curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets?attributes.arc_display_name=*
 ```
 
 Returns all assets which have `arc_display_name` that is not empty.
 
-#### Fetch assets which are missing a field
+#### Fetch Assets Which are Missing a Field
 
 To fetch all assets with a field which is not set to any value, `GET` the assets resource and filter on most available fields. For example:
 
 ```bash
-$ curl -g -v -X GET \
+curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      $URL/archivist/v2/assets?attributes.arc_display_name!=*
 ```

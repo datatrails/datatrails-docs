@@ -13,12 +13,22 @@ weight: 103
 toc: true
 ---
 
-## Upload a Blob
+## Blob API Examples
+
+Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
+
+Set the URL (for example):
+
+```bash
+export URL=https://app.rkvst.io 
+```
+
+### Upload a Blob
 
 Upload the blob stored at /path/to/file:
 
 ```bash
-$ curl -v -X POST \
+curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
@@ -40,12 +50,12 @@ The response is:
 }
 ```
 
-## Retrieve a Blob
+### Retrieve a Blob
 
 Retrieve a specific Attachment
 
 ```bash
-$ curl -v \
+curl -v \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \

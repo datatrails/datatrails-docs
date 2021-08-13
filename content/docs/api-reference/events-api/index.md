@@ -15,7 +15,7 @@ toc: true
 
 ## Attachments Behaviour
 
-The following operations assume that an attachment has been uploaded to Archivist node using the [Blob API](../blobs-api). 
+The following operations assume that an attachment has been uploaded to RKVST node using the [Blob API](../blobs-api). 
 
 This attachment uuid is generically referred to as:
 

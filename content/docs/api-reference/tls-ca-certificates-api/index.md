@@ -34,8 +34,9 @@ Define the TLS CA certificate parameters and store in `/path/to/jsonfile` (certi
 }
 ```
 
-To include the PEM file content in a JSON string it must be flattened to a single line. 
-To create a single line representation of a PEM file for the archivist api, you must replace new lines with the literal string “\n”. 
+To include the PEM file content in a JSON string it must be flattened to a single line.
+
+To create a single line representation of a PEM file for the RKVST API, you must replace new lines with the literal string “\n”. 
 
 The following unix command could be used:
 

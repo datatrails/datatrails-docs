@@ -20,7 +20,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 Set the URL (for example):
 
 ```bash
-export URL=https://synsation.1234-5678.nodes.archivist.jitsuin.io 
+export URL=https://app.rkvst.io 
 ```
 
 ### Asset Record Creation
@@ -93,7 +93,7 @@ The response is:
 
 ### Asset Record Retrieval
 
-Asset records in Jitsuin Archivist are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 assets/12345678-90ab-cdef-1234-567890abcdef

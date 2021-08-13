@@ -32,7 +32,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 Set the URL (for example):
 
 ```bash
-export URL=https://synsation.1234-5678.nodes.archivist.jitsuin.io 
+export URL=https://app.rkvst.io 
 ```
 
 Define the event parameters and store in `/path/to/jsonfile`:
@@ -150,7 +150,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 Set the URL (for example):
 
 ```bash
-export URL=https://synsation.1234-5678.nodes.archivist.jitsuin.io 
+export URL=https://app.rkvst.io 
 ```
 
 Define the event parameters and store in `/path/to/jsonfile`:

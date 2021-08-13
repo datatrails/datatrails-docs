@@ -20,7 +20,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 Set the URL (for example):
 
 ```bash
-export URL=https://synsation.1234-5678.nodes.archivist.jitsuin.io 
+export URL=https://app.rkvst.io 
 ```
 
 ### TLS CA Certificate Upload
@@ -35,7 +35,7 @@ Define the TLS CA certificate parameters and store in `/path/to/jsonfile` (certi
 ```
 
 To include the PEM file content in a JSON string it must be flattened to a single line. 
-To create a single line representation of a PEM file for the archivist api, you must replace new lines with the literal string “n”. 
+To create a single line representation of a PEM file for the archivist api, you must replace new lines with the literal string “\n”. 
 
 The following unix command could be used:
 
@@ -65,7 +65,7 @@ The response is (certificate field shortened for brevity):
 
 ### TLS CA Certificate Retrieval
 
-TLS CA Certificate records in Jitsuin Archivist are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+TLS CA Certificate records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 tlscacertificates/12345678-90ab-cdef-1234-567890abcdef

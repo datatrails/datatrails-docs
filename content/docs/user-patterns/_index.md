@@ -10,7 +10,7 @@ weight: 999
 toc: false
 ---
 
-RKVST is a very flexible system, and enables users to record Who Did What When almost anything to anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.
+RKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.
 
 The three most common patterns are:
 * Authenticity and Attestation: proving the state of documents and data at a point in time. Also known as 'Provenance'.

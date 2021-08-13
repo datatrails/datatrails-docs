@@ -17,9 +17,9 @@ It is important in any documentation to have a readable, sane and consistent exp
 
 ## Documentation Structure
 
-Content is organised at a directory level using the standard Hugo format, we then have four seperate areas of content.
+Content is organized at a directory level using the standard Hugo format, we then have four separate areas of content.
 
-Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by Jitsuin Emplyees and Organizational Reviewers.
+Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by Jitsuin Employees and Organizational Reviewers.
 
 {{< tabs name="directory_structure" >}}
 {{< tab name="Root" codelang="bash" >}}
@@ -66,7 +66,7 @@ Typically, only Docs should be edited but permission to add to the other section
 
 ### Articles and Sections
 
-The Jitsuin Docs are primarily written in `Articles`, individual bodies of text, which are then organised by `Sections` that belong to an `Area` such as Docs or Contributing.
+The documentation is primarily written in `Articles`, individual bodies of text, which are then organized by `Sections` that belong to an `Area` such as Docs or Contributing.
 
 At a directory level this looks like this:
 
@@ -87,7 +87,7 @@ Both of these may be prefilled using a template described in the `Archetypes` fo
 
 In terms of naming convention, at the directory level you should always use a sluggified name that represents the title of the Article or Section you are creating.
 
-For example, `When Who Did What to a Thing` becomes `when-who-did-what-to-a-thing`.
+For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
 This is important as not only will that be represented at a URL level when accessing the docs; the `jitsuin-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates. 
 
@@ -95,7 +95,7 @@ This is important as not only will that be represented at a URL level when acces
 **Caution:** Title rendering in templates is not perfect, you should always verify the title of an Article or Section is correct in the metadata manually.
 {{< /caution >}}
 
-Follow these links for more information on adding [Articles](../../adding-content/adding-articles-to-jitsuin-docs/) or [Sections](../../adding-content/adding-content-sections-to-jitsuin-docs/) to Jitsuin Docs.
+Follow these links for more information on adding [Articles](../../adding-content/adding-articles-to-rkvst-docs/) or [Sections](../../adding-content/adding-content-sections-to-rkvst-docs/) to RKvST Docs.
 
 ### Article Metadata
 
@@ -302,7 +302,7 @@ Other unordered list styles including `+` and `-` are available in markdown but 
 
 ## Code and Codeblocks
 
-There are many ways to use Inline Code and Codeblock references within the Jitsuin Docs.
+There are many ways to use Inline Code and Codeblock references within the docs.
 
 ### Inline Code
 
@@ -418,7 +418,7 @@ println "This is a Go Example."
 {{< /tab >}}
 {{< /tabs >}}
 
-As Jitsuin RKVST is primarily an API there are different requirements for each type of example:
+As RKVST is primarily accessed via APIs there are different requirements for each type of example:
 
 {{< tabs name="tabbed_api_requirements" >}}
 {{< tab name="GET" codelang="md" >}}
@@ -615,7 +615,7 @@ While it is permitted to only specify the article name and not include a `#` ref
 
 ### External Links
 
-External Links are not generally permitted as Jitsuin has little to no control on the content being presented and if it is change dor moved in future.
+External Links are not generally permitted as Jitsuin has little to no control on the content being presented and if it is changed or moved in future.
 
 If you would like to include an external link then it will be decided on a case by case basis.
 
@@ -651,7 +651,7 @@ All images should use the `Rectangular` alt value, `border-0` class and captions
 
 ### Inserting Example Screenshots
 
-Screenshots in Jitsuin are generated using the Robot Framework and are generated automatically so that they can be maintained and kept up to date with as little human involvement as possible.
+Screenshots are generated using the Robot Framework and are generated automatically so that they can be maintained and kept up to date with as little human involvement as possible.
 
 Any screenshots that accompany steps in a process to follow should be generated using Robot, you should also accompany steps like this with example code using the [Tabbed Codeblocks](./#tabbed-codeblocks).
 

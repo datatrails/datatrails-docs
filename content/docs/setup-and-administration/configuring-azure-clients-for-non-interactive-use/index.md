@@ -13,10 +13,10 @@ weight: 12
 toc: true
 ---
 
-To enable non-interactive access to Jitsuin RKVST APIs:
+To enable non-interactive access to RKVST APIs:
 
 * Create an Application Registration in your Azure Active Directory.
-* Grant an API access permission for the registration referring to the Jitsuin RKVST API
+* Grant an API access permission for the registration referring to the RKVST API
 * Create a Client Secret
 
 {{< note >}}
@@ -37,17 +37,17 @@ The [Microsoft Quickstart Register App](https://docs.microsoft.com/bs-latn-ba/az
 
 ## Add an API Permission to the Application registration
 
-Your app registration must be granted access to the Jitsuin RKVST API.
+Your app registration must be granted access to the RKVST API.
 
 {{< img src="api-app-permissions-apis-my-org-uses.png" alt="Rectangle" caption="<em>Adding an App Permission from 'APIs my Organization uses'</em>" class="border-0" >}}
 
-`Application Permissions` will enable access to the Jitsuin RKVST API using client secrets or certificates.
+`Application Permissions` will enable access to the RKVST API using client secrets or certificates.
 
 {{< img src="api-app-permissions-request-apis.png" alt="Rectangle" caption="<em>Selecting 'App Permissions'</em>" class="border-0" >}}
 
 The [Microsoft Quickstart Configure Web App Access](https://docs.microsoft.com/bs-latn-ba/azure/active-directory/develop/quickstart-configure-app-access-web-apis) guide covers the general process; For non-interactive use see `Application Permissions`.
 
-## Enable the desired Jitsuin RKVST roles
+## Enable the desired RKVST roles
 
 {{< img src="api-app-permissions-roles.png" alt="Rectangle" caption="<em>Assigning the Permission Roles</em>" class="border-0" >}}
 
@@ -66,6 +66,6 @@ If successful you should see the following:
 Take note of the client secret and the application object id (`UUID`).
 
 {{< note >}}
-**Note:** If you need to have different secrets for different Jitsuin RKVST roles create an application registration for each distinct set of roles.
+**Note:** If you need to have different secrets for different RKVST roles create an application registration for each distinct set of roles.
 {{< /note >}}
 

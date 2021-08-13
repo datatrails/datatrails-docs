@@ -23,7 +23,7 @@ This pattern uses a purely virtual Asset to represent a policy or process and co
 
 ### Considerations
 
-_Keep the Asset simple:_ This model typically uses mostly non-modifying events: "what happened" is more important than "what does this Asset look like?". Use Asset Attributes only to clearly identify the business process and store its current state. Otherwise concentrate on recording the When Who Did What in detailed Event attributes at attachments. 
+_Keep the Asset simple:_ This model typically uses mostly non-modifying events: "what happened" is more important than "what does this Asset look like?". Use Asset Attributes only to clearly identify the business process and store its current state. Otherwise concentrate on recording the Who Did What When in detailed Event attributes at attachments. 
 
 _Map the business process:_ RKVST is here to support business operations, not disturb them. Try as far as possible to define one Event type for each stage of the process so that decisions and artifacts can be recorded naturally and completely during normal operations. In a mature business there may be formal documents such as a Process Map (PM), Business Process Model (BPM) or Universal Modeling Language description of the process, its steps and its approvers. Use this ads a base if it is available.
 
@@ -53,7 +53,7 @@ The 'State Machine' and 'Lifecycle Tracing' pattens are very similar, but the fo
 
 ### Considerations
 
-_GIS position information_: Make good use of the =arc_gic_*= attributes of Events in order to trace *Where* When Who Did What. Remember that physical environment can make a lot of difference to the virtual security of your Assets.
+_GIS position information_: Make good use of the =arc_gic_*= attributes of Events in order to trace *Where* Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.
 
 _Access Policies 1:_ Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody. 
 

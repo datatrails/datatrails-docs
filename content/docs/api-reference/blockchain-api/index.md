@@ -25,7 +25,7 @@ export URL=https://app.rkvst.io
 
 ### Fetch Transactions for an event (v1alpha1)
 
-Blockchain transactions in Jitsuin are available from the blockchain endpoint using the asset's Event ID as a parameter:
+Blockchain transactions can be fetched from the blockchain endpoint using the asset's Event ID as a parameter:
 
 ```bash
 assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000

@@ -1,10 +1,10 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "Jitsuin RKVST"
+title = "RKVST"
 titleSeparator = "-"
-titleAddition = "Multi-Party Trust Automation"
-description = "Jitsuin RKVST is a Multi-Party Trust Platform powered by the Blockchain"
+titleAddition = "Continuous Assurance to boost confidence in critical decisions."
+description = "RKVST provides Continuous Assurance as a Service to attest trustworthiness of assets, and boost confidence in critical decisions.  Find out more on our [website](https://jitsuin.com)."
 
 ## Open Graph + Twitter Cards
 images = ["Jitsuin_Logo_RGB.png"]

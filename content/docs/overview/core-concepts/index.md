@@ -92,12 +92,12 @@ Any interaction with a device can be significant: from user logins to unexpected
 
 Knowing the current state of an Asset isn't enough: sure, it has software version 3.0 now but when was that installed? Before the major incident? After the major incident? This morning before the support call?
 
-Jitsuin RKVST ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
-**The only way to change an Asset attribute is through an Event that records When Who Did What to make that change.**
+RKVST ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
+**The only way to change an Asset attribute is through an Event that records Who Did What When to make that change.**
 
 ### Timestamps on Events
 
-Lifecycle events in RKVST give stakeholders a shared view of “When Who did What to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
+Lifecycle events in RKVST give stakeholders a shared view of “Who did What When to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
 
 Once committed to the RKVST system, each lifecycle event record carries 3 separate timestamps:
 * `timestamp_declared` - an optional user-supplied value that tells when an event happened. This is useful for cases where the client system is off-line for a period but the user still wishes to record the accurate time and order of activities (eg inspection rounds in an air-gapped facility). If unspecified, the system sets timestamp_declared equal to timestamp_accepted (see below).
@@ -108,7 +108,7 @@ Having these 3 fields enables users of RKVST to accurately reflect what is claim
 
 ### User Principals on Events
 
-Just as with the "When", the "Who" of “When Who did What to an Asset" is potentially complicated if, for example, an application or gateway is acting on behalf of some other real-world user.
+Just as with the "When", the "Who" of “Who Did What When to an Asset" is potentially complicated if, for example, an application or gateway is acting on behalf of some other real-world user.
 
 Once committed to the RKVST system, each lifecycle event record carries 2 separate user identities:
 * `principal_declared` - an optional user-supplied value that tells who performed an event. This is useful for cases where the user principal/ credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
@@ -272,8 +272,8 @@ Adding an attachment to an asset enables recording of characteristics of the ass
 
 #### The Primary Image
 
-Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the Jitsuin stack: `arc_primary_image`.
-If an asset has an attachment named `arc_primary_image` then this will be used by the user interface and other Jitsuin tools to represent the asset.
+Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the RKVST services: `arc_primary_image`.
+If an asset has an attachment named `arc_primary_image` then this will be used by the SaaS user interface and other tools to represent the asset.
 
 ### Attachments on Events
 
@@ -309,7 +309,7 @@ This enables users of the system to quickly identify the answers to questions su
 
 Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An asset that is safe in one context may not be in another.
 
-By maintaining a complete traceable record of When Who Did What to a Thing, RKVST makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance: missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.
+By maintaining a complete traceable record of Who Did What When to a Thing, RKVST makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance: missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.
 
 All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset Records, piece together the important parts, and analyse the meaning. 
 
@@ -354,7 +354,7 @@ In the Asset example above there is an `at_time` property, which reflects a date
 To do this, simply add `at_time=TIMESTAMP` to your query. For example, to check the state an asset was in at 15:30 UTC on 23rd June:
 
 ```bash
-curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application/json" https://rkvst.poc.jitsuin.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-06-23T15:30:00Z | jq 
+curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application/json" https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-06-23T15:30:00Z | jq 
 ```
 
 Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.

@@ -13,7 +13,7 @@ weight: 2
 toc: true
 ---
 
-Jitsuin RKVST is a Data Assurance Service that continuously proves When Who Did What to an Asset. 
+RKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset. 
 
 RKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.
 
@@ -23,8 +23,8 @@ RKVST permanently records shared asset evidence to bring the right level of trus
 
 **Authenticated Provenance** - Deliver full traceability on all internal and external data sources to speed and assure critical decisions.
 
-**Continuous Accountability** - Instantly auditable evidence “Proves When Who Did What” for any shared asset to delight your GRC team.
+**Continuous Accountability** - Instantly auditable evidence “Proves Who Did What When” for any shared asset to delight your GRC team.
 
 **Persistent Integrity** - Create a complete, unbroken, and permanent record of shared event transactions, delivering continuous assurance for faster critical decisions.
 
-RKVST delivers assured metadata in a single line of code and makes recording and auditing the full lifecycle of an asset simple: any authorized participant (including an agent or endpoint on a connected device) can register the events they know about, from which all participants can see a relevant aggregate picture of the asset’s maintenance and operational history. By understanding When Who Did What, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of a device and the data it produces.
+RKVST delivers assured metadata in a single line of code and makes recording and auditing the full lifecycle of an asset simple: any authorized participant (including an agent or endpoint on a connected device) can register the events they know about, from which all participants can see a relevant aggregate picture of the asset’s maintenance and operational history. By understanding Who Did What When, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of a device and the data it produces.

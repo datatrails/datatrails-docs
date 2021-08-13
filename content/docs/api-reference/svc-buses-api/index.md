@@ -37,9 +37,9 @@ Define the svcbussource parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
-    "display_name": "Jitsuin",
-    "connection_string": "Endpoint=sb://jitsuin-dev.servicebus.windows.net/;SharedAccessKeyName=jitsuin-listener;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "queue_name": "jitsuin-listener"
+    "display_name": "RKVST",
+    "connection_string": "Endpoint=sb://rkvst-dev.servicebus.windows.net/;SharedAccessKeyName=rkvst-listener;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "queue_name": "rkvst-listener"
 }
 ```
 
@@ -58,8 +58,8 @@ The response is:
 ```json
 {
     "identity": "svcbussources/08838336-c357-460d-902a-3aba9528dd22",
-    "display_name": "Jitsuin",
-    "queue_name": "jitsuin-listener"
+    "display_name": "RKVST",
+    "queue_name": "rkvst-listener"
 }
 ```
 
@@ -82,7 +82,7 @@ The response is:
 ```json
 {
     "identity": "svcbussources/08838336-c357-460d-902a-3aba9528dd22",
-    "display_name": "Jitsuin",
+    "display_name": "RKVST",
 
 }
 ```

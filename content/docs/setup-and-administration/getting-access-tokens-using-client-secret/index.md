@@ -15,7 +15,7 @@ toc: true
 
 Having completed the steps at [Application Registration](../configuring-azure-clients-for-non-interactive-use/), and taken note of the `Application ID` and the secret, a token can be obtained with the following command. 
 
-Replace `${API_APP_ID}` with the application id, and `${API_APP_SECRET}` with your secret from the application registration; `${FQDN}` is the FQDN for your Jitsuin RKVST. 
+Replace `${API_APP_ID}` with the application id, and `${API_APP_SECRET}` with your secret from the application registration; `${FQDN}` is the FQDN of the RKVST SaaS. 
 
 `${TENANT}` is your directory id, see [how to locate your Tenant here](../registering-your-azure-active-directory-with-rkvst/#finding-your-tenant-id).
 
@@ -135,7 +135,7 @@ def run():
     if args.tenant and args.tenant not in payload["iss"]:
         print("Unexepected directory id in issuer (iss)", file=sys.stderr)
 
-    # Check the Jitsuin RKVST roles are present
+    # Check the RKVST roles are present
     roles = payload["roles"]
     if "archivist_administrator" not in roles and "guest" not in roles:
         print("Token is missing the required roles", file=sys.stderr)

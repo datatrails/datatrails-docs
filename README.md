@@ -1,8 +1,8 @@
-# Jitsuin RKVST Documentation
+# RKVST Documentation
 
-This is the Home of the Jitsuin RKVST Documentation
+This is the Home of the RKVST Documentation
 
-Jitsuin RKVST is a Multi-Party Automation API powered by the Blockchain find out more on our [website](https://jitsuin.com) or read through our [Docs]()
+RKVST provides Continuous Assurance as a Service to attest trustworthiness of assets, and boost confidence in critical decisions.  Find out more on our [website](https://jitsuin.com).
 
 ## Contributing
 

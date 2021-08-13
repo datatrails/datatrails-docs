@@ -13,10 +13,10 @@ weight: 10
 toc: true
 ---
 
-To obtain access to your Jitsuin RKVST Instance you need to:
+To obtain access to your RKVST tenancy you need to:
 
-1. Share your Azure Directory ID to Jitsuin.
-2. You will then receive a link to your RKVST Instance.
+1. Share your Azure Directory ID with Jitsuin.
+2. You will then receive a link to access RKVST.
 
 ## Finding Your Tenant ID
 

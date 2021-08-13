@@ -31,7 +31,7 @@ Define the `iothubgdr` parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
-    "display_name": "Jitsuin",
+    "display_name": "RKVST",
     "secret": "Endpoint=sb://iothub-ns-test-org-1-1637462-0dd952fad8.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;EntityPath=test-org-1",
     "arc_home_location_identity": "locations/47b575c0-ff0f-11e9-8f0b-362b9e155667"
 }
@@ -56,7 +56,7 @@ You should see the following responses:
     "timestamp_accepted": "2019-11-07T15:31:49Z",
     "timestamp_finished": null,
     "result": {
-        "display_name": "Jitsuin",
+        "display_name": "RKVST",
         "number_assets_imported": 0,
         "arc_home_location_identity": "locations/47b575c0-ff0f-11e9-8f0b-362b9e155667",
         "status": "STATUS_PENDING"
@@ -73,7 +73,7 @@ Or in case of error:
     "timestamp_accepted": "2019-11-07T15:31:49Z",
     "timestamp_finished": "2019-11-07T15:31:55Z",
     "error": {
-        "display_name": "Jitsuin",
+        "display_name": "RKVST",
         "number_assets_imported": 0,
         "arc_home_location_identity": "locations/47b575c0-ff0f-11e9-8f0b-362b9e155667",
         "error_message": "invalid secret provided"

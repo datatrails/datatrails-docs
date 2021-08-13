@@ -17,7 +17,7 @@ If you wish to begin tracking your Asset history, you need to create Events.
 
 Asset Creation is the first Event and the more Events recorded against an Asset, the richer and deeper its history becomes.
 
-Events track key moments of an Asset's lifecycle; details of When Who Did What to an Asset.
+Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
 ## Creating Events
 
@@ -44,7 +44,7 @@ For example:
 
 Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
-Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records when who performed what, as submitted to RKVST.
+Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
 There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
 

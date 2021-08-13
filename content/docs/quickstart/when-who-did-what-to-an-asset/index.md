@@ -1,5 +1,5 @@
 ---
-title: "When Who Did What to an Asset?"
+title: "Who Did What When to an Asset?"
 description: "Understanding Shared Evidence"
 lead: "Understanding Shared Evidence"
 date: 2020-11-12T13:26:54+01:00
@@ -14,19 +14,17 @@ toc: true
 ---
 
 
-Enterprise developers are challenged to build apps that track usage and build trust in multi-party data while meeting assurance, governance, and compliance needs of the business. 
+Enterprise developers are challenged to build apps that track usage and build trust in multi-party data while meeting assurance, governance, and compliance needs of the business. Assurance needs to be _continuous_ and _system-wide_.
 
-The Jitsuin RKVST is a Data Assurance Hub which stores shared asset evidence that proves when who did what to reduce risk, authenticates provenance in data for confident decisions, while governing complex data sharing controls. 
-
-Unlike forming your own blockchain consortium, committing to expensive integrations or managing spreadsheets, RKVST brings the right level of trust to data with a single line of code integration at a fraction of cost and time to value.
+Unlike forming your own blockchain consortium, committing to expensive integrations or managing spreadsheets, RKVST brings the right level of trust in data and confidence in decisions with a single line of code integration at a fraction of cost and time to value.
 
 This guide will give a basic overview of RKVST concepts and get you started quickly with the RKVST UI.  
 
 Before you begin with RKVST there's one key model to use when mapping to business process:
 
-***When who did what to an Asset.***
+***Who Did What When to an Asset.***
 
-{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>When who did what to an Asset</em>" class="border-0" >}}
+{{< img src="WhenWhoDidWhattoAThing.png" alt="Rectangle" caption="<em>Who did What When to an Asset</em>" class="border-0" >}}
 
 ## What is an Asset?
 

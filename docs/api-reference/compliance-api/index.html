@@ -5,7 +5,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
-<link rel=stylesheet href=https://docs.jitsuin.com/main.032094dad73d3338ba0854d9640ad39bc64c6a93e903d29ea1d1ecd35a6a2d88c13c53116bd233df16f824950b13420e0cb9e40cd99506fea7eeeee13ea3d4c4.css integrity="sha512-AyCU2tc9Mzi6CFTZZArTm8ZMapPpA9KeodHs01pqLYjBPFMRa9Iz3xb4JJULE0IODLnkDNmVBv6n7u7hPqPUxA==" crossorigin=anonymous>
+<link rel=stylesheet href=https://docs.jitsuin.com/main.c37c038f2b11673cf06066f554753e568c01b6a7a5d7be01a92b3da1d74e6d5a97be96a554704c7269755fbe37fa308e367dd2ce7385ff0529178a8b6e56984a.css integrity="sha512-w3wDjysRZzzwYGb1VHU+VowBtqel174BqSs9oddObVqXvpalVHBMcml1X743+jCONn3SznOF/wUpF4qLblaYSg==" crossorigin=anonymous>
 <noscript><style>img.lazyload{display:none}</style></noscript>
 <meta name=robots content="index, follow">
 <meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -164,7 +164,18 @@ API Reference
 <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 <div class=page-links>
 <h3>On this page</h3>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#compliance-api-examples>Compliance API Examples</a>
+<ul>
+<li><a href=#types-of-compliance-policies>Types of Compliance Policies</a></li>
+<li><a href=#compliance-policy-creation>Compliance Policy Creation</a></li>
+<li><a href=#checking-compliance>Checking Compliance</a></li>
+</ul>
+</li>
+<li><a href=#compliance-openapi-docs>Compliance OpenAPI Docs</a></li>
+</ul>
+</nav>
 </div>
 </nav>
 <main class="docs-content col-lg-11 col-xl-9">
@@ -179,6 +190,240 @@ API Reference
 <div class=my-n3></div>
 <h1>Compliance API</h1>
 <p class=lead>Compliance API Reference</p>
+<h2 id=compliance-api-examples>Compliance API Examples<a href=#compliance-api-examples class=anchor aria-hidden=true>#</a> </h2>
+<p>Create the <a href=../../setup-and-administration/getting-access-tokens-using-client-secret>bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<p>Set the URL (for example):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>URL</span><span class=o>=</span>https://app.rkvst.io 
+</code></pre></div><h3 id=types-of-compliance-policies>Types of Compliance Policies<a href=#types-of-compliance-policies class=anchor aria-hidden=true>#</a> </h3>
+<p>Compliance Posture is measured against user-defined rule sets called Compliance Policies.</p>
+<p>Compliance policies are created once and then Assets can be tested against them at any point in time.</p>
+<p>For instance, a policy might state that “Maintenance Alarm Events must be answered with a Maintenance Report Event recorded in 72 hours”.</p>
+<p>This creates a Compliance Policy object in the system against which any asset can be tested as needed.</p>
+<p>RKVST allows users to define Compliance Policies of the following types:</p>
+<h4 id=compliance_since>COMPLIANCE_SINCE<a href=#compliance_since class=anchor aria-hidden=true>#</a> </h4>
+<p>This Compliance Policy checks if the time since the last occurence of a specific Event Type has elapsed a specified threshold.</p>
+<p>For example “Time since last Maintenance must be less than 72 hours”:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_SINCE&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance should be performed every 72h&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Regular Maintenance&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>]</span>
+    <span class=s2>&#34;event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Performed&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;time_period_seconds&#34;</span><span class=p>:</span> <span class=s2>&#34;259200&#34;</span>
+<span class=p>}</span>
+</code></pre></div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_display_type</code></td>
+<td>Type of event we want to check with this compliance policy</td>
+</tr>
+<tr>
+<td><code>time_period_seconds</code></td>
+<td>The maximum amount of time allowed since a specified event type last occurred in seconds</td>
+</tr>
+</tbody>
+</table>
+<h4 id=compliance_current_outstanding>COMPLIANCE_CURRENT_OUTSTANDING<a href=#compliance_current_outstanding class=anchor aria-hidden=true>#</a> </h4>
+<p>This Compliance Policy will only pass if there is an associated answering event addressing a specified outstanding event.</p>
+<p>To correlate events define the attribute <code>arc_correlation_id</code> in the Event Attributes and set it to the same value on each pair of events that are to be associated.</p>
+<p>For example defining pairs of Events like <code>Maintenance Request</code> and <code>Maintenance Performed</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;There should be no outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>]</span>
+    <span class=s2>&#34;event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;closing_event_display_type&#34;</span><span class=p>:</span>  <span class=s2>&#34;Maintenance Performed&#34;</span>
+<span class=p>}</span>
+</code></pre></div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_display_type</code></td>
+<td>Type of event that should be addressed by the event defined in <code>closing_event_display_type</code></td>
+</tr>
+<tr>
+<td><code>closing_event_display_type</code></td>
+<td>Type of event addressing the event defined in <code>event_display_type</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id=compliance_period_outstanding>COMPLIANCE_PERIOD_OUTSTANDING<a href=#compliance_period_outstanding class=anchor aria-hidden=true>#</a> </h4>
+<p>This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.</p>
+<p>To correlate events define the attribute <code>arc_correlation_id</code> in the Event Attributes and set it to the same value on each pair of events that are to be associated.</p>
+<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events does not exceed the maximum 72 hours:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_PERIOD_OUTSTANDING&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;There should be no outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>]</span>
+    <span class=s2>&#34;event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;closing_event_display_type&#34;</span><span class=p>:</span>  <span class=s2>&#34;Maintenance Performed&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;time_period_seconds&#34;</span><span class=p>:</span> <span class=s2>&#34;259200&#34;</span>
+<span class=p>}</span>
+</code></pre></div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_display_type</code></td>
+<td>Type of event that should be addressed by the event defined in <code>closing_event_display_type</code></td>
+</tr>
+<tr>
+<td><code>closing_event_display_type</code></td>
+<td>Type of event addressing the event defined in <code>event_display_type</code></td>
+</tr>
+<tr>
+<td><code>time_period_seconds</code></td>
+<td>Maximum amount of time that can elapse between associated events in seconds</td>
+</tr>
+</tbody>
+</table>
+<h4 id=compliance_dynamic_tolerance>COMPLIANCE_DYNAMIC_TOLERANCE<a href=#compliance_dynamic_tolerance class=anchor aria-hidden=true>#</a> </h4>
+<p>This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined variability.</p>
+<p>To correlate events define the attribute <code>arc_correlation_id</code> in the Event Attributes and set it to the same value on each pair of events that are to be associated.</p>
+<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_DYNAMIC_TOLERANCE&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Average time between Maintenance Requested/Performed&#34;</span>
+    <span class=s2>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;outlying Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>]</span>
+    <span class=s2>&#34;event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;closing_event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Performed&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;dynamic_window&#34;</span><span class=p>:</span> <span class=mi>604800</span><span class=p>,</span>
+    <span class=nt>&#34;dynamic_variability&#34;</span><span class=p>:</span> <span class=mf>0.5</span>
+<span class=p>}</span>
+</code></pre></div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>event_display_type</code></td>
+<td>Type of event that should be addressed by the event defined in <code>closing_event_display_type</code></td>
+</tr>
+<tr>
+<td><code>closing_event_display_type</code></td>
+<td>Type of event addressing the event defined in <code>event_display_type</code></td>
+</tr>
+<tr>
+<td><code>dynamic_window</code></td>
+<td>Number of seconds in the past - only events in this time window are considered.</td>
+</tr>
+<tr>
+<td><code>dynamic_variability</code></td>
+<td>Exceeding this number of standard deviations from the mean will cause compliance to fail for a particular pair of matching events.</td>
+</tr>
+</tbody>
+</table>
+<h4 id=compliance_richness>COMPLIANCE_RICHNESS<a href=#compliance_richness class=anchor aria-hidden=true>#</a> </h4>
+<p>This Compliance Policy will only pass if the assertions conducted on an attribute value pass.</p>
+<p>An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example <code>rad&lt;7</code>.</p>
+<p>The operator can be one of six relational operators: equal to, not equal to, greater than, less than, greater than or equal to, less than or equal to; <code>[=|!=|>|&lt;|>=|&lt;=]</code>.</p>
+<p>Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (<code>OR</code> logic). For example:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span><span class=err>“or”:</span> <span class=err>[“rad&lt;7”,</span> <span class=err>“rad=10”]</span><span class=p>}</span><span class=err>.</span> 
+</code></pre></div><p>The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (<code>AND</code> logic).</p>
+<p>Compliance is a signal, not a perfect answer. Therefore equivilence of floats is exact, not approximate.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_RICHNESS&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Rad level is less than 7&#34;</span>
+    <span class=s2>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Rad limit&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;richness_assertions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;rad&lt;7&#34;</span><span class=p>]}</span>
+    <span class=p>],</span>
+<span class=p>}</span>
+</code></pre></div>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>richness_assertions</code></td>
+<td>The assertions to be made, against asset attributes, to check if the asset is compliant.</td>
+</tr>
+</tbody>
+</table>
+<h3 id=compliance-policy-creation>Compliance Policy Creation<a href=#compliance-policy-creation class=anchor aria-hidden=true>#</a> </h3>
+<p>Create a Policy with:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X POST <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
+</span><span class=se></span>    -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/compliance_policies
+</code></pre></div><p>Using data from <code>/path/to/jsonfile</code> in the format described in <a href=./types-of-compliance-policies>Types of Compliance Policies</a>.</p>
+<p>Sample response:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;compliance_policies/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;compliance_type&#34;</span><span class=p>:</span> <span class=s2>&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;There should be no outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Outstanding Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;asset_filter&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class=p>]}</span>
+    <span class=p>]</span>
+    <span class=s2>&#34;event_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Maintenance Requests&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;closing_event_display_type&#34;</span><span class=p>:</span>  <span class=s2>&#34;Maintenance Performed&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;time_period_seconds&#34;</span><span class=p>:</span> <span class=s2>&#34;259200&#34;</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=checking-compliance>Checking Compliance<a href=#checking-compliance class=anchor aria-hidden=true>#</a> </h3>
+<p>The compliancev1 endpoint reports on the status of an Asset’s Compliance with Compliance Policies.</p>
+<p>Query the endpoint:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
+</code></pre></div><p>or if determining compliance at some historical date:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at<span class=o>=</span>2019-11-27T14:44:19Z
+</code></pre></div><p>The response is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;compliant&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+    <span class=nt>&#34;compliance&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;compliance_policy_identity&#34;</span><span class=p>:</span> <span class=s2>&#34;compliance_policies/0000-0000-000000000-00000000&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;compliant&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+            <span class=nt>&#34;reason&#34;</span><span class=p>:</span> <span class=s2>&#34;&#34;</span>
+        <span class=p>}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;compliant_at&#34;</span><span class=p>:</span> <span class=s2>&#34;2019-11-27T14:44:19Z&#34;</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=compliance-openapi-docs>Compliance OpenAPI Docs<a href=#compliance-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
 <div class=$openapi-spec-content>
 <div class=description>
 <p></p>
@@ -834,6 +1079,6 @@ Events API &rarr;
 <script src=https://docs.jitsuin.com/js/bootstrap.min.f4b5ab9236e63f92dac3d18c21f19cbb0492bfba5f64e9d346995468429d312d8cfa213b555bc3b18055a4e1a17c9ce378a67570b8d246051f853b96454536fd.js integrity="sha512-9LWrkjbmP5Law9GMIfGcuwSSv7pfZOnTRplUaEKdMS2M+iE7VVvDsYBVpOGhfJzjeKZ1cLjSRgUfhTuWRUU2/Q==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.jitsuin.com/index.min.80130ac6b0eb952161f6062b77926ffab361baa8dc79d57329ba19476210537f93c998dba6406d122ee444d6ccb49269ff3c65db41bd0ee6fd2209643e0e699a.js integrity="sha512-gBMKxrDrlSFh9gYrd5Jv+rNhuqjcedVzKboZR2IQU3+TyZjbpkBtEi7kRNbMtJJp/zxl20G9Dub9IglkPg5pmg==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/index.min.cf1c0dcefb53a0b6d5732061a1db1c77be6dec543563165cbc29d61266fd447ecc2c26a1d9f7c816cf273a0144cc94c584af3b083b286c198af15ac91a1da9a3.js integrity="sha512-zxwNzvtToLbVcyBhodscd75t7FQ1YxZcvCnWEmb9RH7MLCah2ffIFs8nOgFEzJTFhK87CDsobBmK8VrJGh2pow==" crossorigin=anonymous defer></script>
 </body>
 </html>

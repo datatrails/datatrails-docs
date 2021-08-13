@@ -5,7 +5,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
-<link rel=stylesheet href=https://docs.jitsuin.com/main.032094dad73d3338ba0854d9640ad39bc64c6a93e903d29ea1d1ecd35a6a2d88c13c53116bd233df16f824950b13420e0cb9e40cd99506fea7eeeee13ea3d4c4.css integrity="sha512-AyCU2tc9Mzi6CFTZZArTm8ZMapPpA9KeodHs01pqLYjBPFMRa9Iz3xb4JJULE0IODLnkDNmVBv6n7u7hPqPUxA==" crossorigin=anonymous>
+<link rel=stylesheet href=https://docs.jitsuin.com/main.c37c038f2b11673cf06066f554753e568c01b6a7a5d7be01a92b3da1d74e6d5a97be96a554704c7269755fbe37fa308e367dd2ce7385ff0529178a8b6e56984a.css integrity="sha512-w3wDjysRZzzwYGb1VHU+VowBtqel174BqSs9oddObVqXvpalVHBMcml1X743+jCONn3SznOF/wUpF4qLblaYSg==" crossorigin=anonymous>
 <noscript><style>img.lazyload{display:none}</style></noscript>
 <meta name=robots content="index, follow">
 <meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -164,7 +164,20 @@ API Reference
 <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 <div class=page-links>
 <h3>On this page</h3>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#iam-policies-api-examples>IAM Policies API Examples</a>
+<ul>
+<li><a href=#iam-policy-creation>IAM Policy Creation</a></li>
+<li><a href=#iam-policy-retrival>IAM Policy Retrival</a></li>
+<li><a href=#iam-policy-deletion>IAM Policy Deletion</a></li>
+<li><a href=#iam-policy-update>IAM Policy Update</a></li>
+<li><a href=#matching-assets-with-iam-policies>Matching Assets with IAM Policies</a></li>
+</ul>
+</li>
+<li><a href=#iam-policies-openapi-docs>IAM Policies OpenAPI Docs</a></li>
+</ul>
+</nav>
 </div>
 </nav>
 <main class="docs-content col-lg-11 col-xl-9">
@@ -179,6 +192,359 @@ API Reference
 <div class=my-n3></div>
 <h1>IAM Policies API</h1>
 <p class=lead>IAM Policies API Reference</p>
+<h2 id=iam-policies-api-examples>IAM Policies API Examples<a href=#iam-policies-api-examples class=anchor aria-hidden=true>#</a> </h2>
+<p>Create the <a href=../../setup-and-administration/getting-access-tokens-using-client-secret>bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<p>Set the URL (for example):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>URL</span><span class=o>=</span>https://app.rkvst.io 
+</code></pre></div><h3 id=iam-policy-creation>IAM Policy Creation<a href=#iam-policy-creation class=anchor aria-hidden=true>#</a> </h3>
+<p>Define the access_policies parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Friendly name of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Description of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+        <span class=p>]}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><p>Create the access policy:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X POST <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
+</span><span class=se></span>    -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/access_policies
+</code></pre></div><p>The response is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Friendly name of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Description of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+        <span class=p>]}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=iam-policy-retrival>IAM Policy Retrival<a href=#iam-policy-retrival class=anchor aria-hidden=true>#</a> </h3>
+<p>IAM access policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>access_policies/12345678-90ab-cdef-1234-567890abcdef
+</code></pre></div><p>If you do not know the <code>access_policy</code> identity you can fetch IAM access policy records using other information you do know, such as the <code>access_policy</code> name.</p>
+<h4 id=fetch-all-iam-access_policies-v1>Fetch all IAM access_policies (v1)<a href=#fetch-all-iam-access_policies-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>To fetch all IAM <code>access_policies</code> records, simply <code>GET</code> the <code>iam/access_policies</code> resource:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/access_policies
+</code></pre></div><h4 id=fetch-specific-iam-access-policy-by-identity-v1>Fetch specific IAM access Policy by identity (v1)<a href=#fetch-specific-iam-access-policy-by-identity-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>If you know the unique identity of the IAM access policy Record simply <code>GET</code> the resource:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
+</code></pre></div><h4 id=fetch-iam-access-policies-by-name-v1>Fetch IAM Access Policies by name (v1)<a href=#fetch-iam-access-policies-by-name-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>To fetch all IAM <code>access_policies</code> with a specific name, <code>GET</code> the <code>iam/access_policies</code> resource and filter on <code>display_name</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -g -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/access_policies?display_name<span class=o>=</span>Some%20description
+</code></pre></div><p>Each of these calls returns a list of matching IAM access_policies records in the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;access_policies&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Name to display&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Description of the policy&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+                    <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
+                <span class=p>]},</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+                    <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+                <span class=p>]},</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+                <span class=p>]}</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span>
+                    <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                        <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+                    <span class=p>],</span>
+                    <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some other description&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_display_type=door_access_reader&#34;</span><span class=p>]}</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span>
+                    <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+                    <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                        <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+                    <span class=p>],</span>
+                    <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=iam-policy-deletion>IAM Policy Deletion<a href=#iam-policy-deletion class=anchor aria-hidden=true>#</a> </h3>
+<p>To delete an IAM access policy, issue following request:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X DELETE <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+</code></pre></div><p>The response is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{}</span>
+</code></pre></div><h3 id=iam-policy-update>IAM Policy Update<a href=#iam-policy-update class=anchor aria-hidden=true>#</a> </h3>
+<p>Define the <code>access_policies</code> parameters to be changed and store in <code>/path/to/jsonfile</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+   <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+        <span class=p>]}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><p>Update the access policy:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X PATCH <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
+</span><span class=se></span>    -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+</code></pre></div><p>The response is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Friendly name of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Description of the policy&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+        <span class=p>]},</span>
+        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+        <span class=p>]}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_type&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:[</span><span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_type&#34;</span><span class=p>,</span> <span class=s2>&#34;toner_colour&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;toner_replacement&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+            <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h3 id=matching-assets-with-iam-policies>Matching Assets with IAM Policies<a href=#matching-assets-with-iam-policies class=anchor aria-hidden=true>#</a> </h3>
+<p>IAM access policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>access_policies/12345678-90ab-cdef-1234-567890abcdef
+</code></pre></div><p>If you do not know the <code>access_policy</code> identity you can fetch IAM access policy records using other information you do know, such as the <code>access_policy</code> name.</p>
+<h4 id=fetch-all-assets-matching-specific-iam-access_policy-v1>Fetch all Assets Matching Specific IAM access_policy (v1)<a href=#fetch-all-assets-matching-specific-iam-access_policy-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>If you know the unique identity of the IAM access policy Record simply GET the resource:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
+</code></pre></div><p>Each of these calls returns a list of matching Asset records in the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;assets&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+        <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;assets/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+        <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;RecordEvidence&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;LocationUpdate&#34;</span><span class=p>,</span>
+            <span class=s2>&#34;Attachments&#34;</span>
+        <span class=p>],</span>
+        <span class=nt>&#34;attributes&#34;</span><span class=p>:</span> <span class=p>{</span>
+            <span class=nt>&#34;arc_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Pump&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_firmware_version&#34;</span><span class=p>:</span> <span class=s2>&#34;1.0&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_home_location_identity&#34;</span><span class=p>:</span> <span class=s2>&#34;locations/866790d8-4ed6-4cc9-8f60-07672609b331&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_serial_number&#34;</span><span class=p>:</span> <span class=s2>&#34;vtl-x4-07&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_description&#34;</span><span class=p>:</span> <span class=s2>&#34;Pump at A603 North East&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;tcl.ccj.003&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;some_custom_attribute&#34;</span><span class=p>:</span> <span class=s2>&#34;value&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;arc_attachments&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span>
+                    <span class=nt>&#34;arc_display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;arc_primary_image&#34;</span><span class=p>,</span>
+                    <span class=nt>&#34;arc_attachment_identity&#34;</span><span class=p>:</span> <span class=s2>&#34;blobs/87b1a84c-1c6f-442b-923e-a97516f4d275&#34;</span><span class=p>,</span>
+                    <span class=nt>&#34;arc_hash_alg&#34;</span><span class=p>:</span> <span class=s2>&#34;SHA256&#34;</span><span class=p>,</span>
+                    <span class=nt>&#34;arc_hash_value&#34;</span><span class=p>:</span> <span class=s2>&#34;246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60&#34;</span>
+                <span class=p>}</span>
+        <span class=p>]</span>
+        <span class=p>},</span>
+        <span class=nt>&#34;confirmation_status&#34;</span><span class=p>:</span> <span class=s2>&#34;CONFIRMED&#34;</span><span class=p>,</span>
+        <span class=nt>&#34;tracked&#34;</span><span class=p>:</span> <span class=s2>&#34;TRACKED&#34;</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h4 id=fetch-all-iam-access_policies-matching-specific-asset-v1>Fetch all IAM access_policies Matching Specific Asset (v1)<a href=#fetch-all-iam-access_policies-matching-specific-asset-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>If you know the unique identity of the Asset Record simply GET matching policies:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
+</code></pre></div><p>Each of these calls returns a list of matching IAM <code>access_policies</code> records in the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;access_policies&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class=p>,</span>
+                    <span class=s2>&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span><span class=p>,</span>
+                <span class=p>]},</span>
+                <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.arc_display_type=Valve&#34;</span><span class=p>,</span>
+                    <span class=s2>&#34;attributes.arc_display_type=Pump&#34;</span>
+                <span class=p>]},</span>
+                <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+                    <span class=s2>&#34;attributes.ext_vendor_name=SynsationIndustries&#34;</span>
+                <span class=p>]}</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span>
+                    <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                        <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+                    <span class=p>],</span>
+                    <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span>  <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Firmware&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span>  <span class=p>],</span>
+                    <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_firmware_version&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some other description&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;attributes.arc_display_type=door_access_reader&#34;</span><span class=p>]}</span>
+            <span class=p>],</span>
+            <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+                <span class=p>{</span>
+                    <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+                        <span class=s2>&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
+                    <span class=p>],</span>
+                    <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;Attachments&#34;</span><span class=p>,</span> <span class=s2>&#34;Maintenance&#34;</span><span class=p>,</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span> <span class=s2>&#34;arc_display_type&#34;</span> <span class=p>],</span>
+                    <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span><span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;group:maintainers&#34;</span><span class=p>,</span> <span class=s2>&#34;group:supervisors&#34;</span><span class=p>]}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>]</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=iam-policies-openapi-docs>IAM Policies OpenAPI Docs<a href=#iam-policies-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
 <div class=$openapi-spec-content>
 <div class=description>
 <p></p>
@@ -1119,6 +1485,6 @@ Locations API &rarr;
 <script src=https://docs.jitsuin.com/js/bootstrap.min.f4b5ab9236e63f92dac3d18c21f19cbb0492bfba5f64e9d346995468429d312d8cfa213b555bc3b18055a4e1a17c9ce378a67570b8d246051f853b96454536fd.js integrity="sha512-9LWrkjbmP5Law9GMIfGcuwSSv7pfZOnTRplUaEKdMS2M+iE7VVvDsYBVpOGhfJzjeKZ1cLjSRgUfhTuWRUU2/Q==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.jitsuin.com/index.min.80130ac6b0eb952161f6062b77926ffab361baa8dc79d57329ba19476210537f93c998dba6406d122ee444d6ccb49269ff3c65db41bd0ee6fd2209643e0e699a.js integrity="sha512-gBMKxrDrlSFh9gYrd5Jv+rNhuqjcedVzKboZR2IQU3+TyZjbpkBtEi7kRNbMtJJp/zxl20G9Dub9IglkPg5pmg==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/index.min.cf1c0dcefb53a0b6d5732061a1db1c77be6dec543563165cbc29d61266fd447ecc2c26a1d9f7c816cf273a0144cc94c584af3b083b286c198af15ac91a1da9a3.js integrity="sha512-zxwNzvtToLbVcyBhodscd75t7FQ1YxZcvCnWEmb9RH7MLCah2ffIFs8nOgFEzJTFhK87CDsobBmK8VrJGh2pow==" crossorigin=anonymous defer></script>
 </body>
 </html>

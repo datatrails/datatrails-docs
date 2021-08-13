@@ -5,7 +5,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
-<link rel=stylesheet href=https://docs.jitsuin.com/main.032094dad73d3338ba0854d9640ad39bc64c6a93e903d29ea1d1ecd35a6a2d88c13c53116bd233df16f824950b13420e0cb9e40cd99506fea7eeeee13ea3d4c4.css integrity="sha512-AyCU2tc9Mzi6CFTZZArTm8ZMapPpA9KeodHs01pqLYjBPFMRa9Iz3xb4JJULE0IODLnkDNmVBv6n7u7hPqPUxA==" crossorigin=anonymous>
+<link rel=stylesheet href=https://docs.jitsuin.com/main.c37c038f2b11673cf06066f554753e568c01b6a7a5d7be01a92b3da1d74e6d5a97be96a554704c7269755fbe37fa308e367dd2ce7385ff0529178a8b6e56984a.css integrity="sha512-w3wDjysRZzzwYGb1VHU+VowBtqel174BqSs9oddObVqXvpalVHBMcml1X743+jCONn3SznOF/wUpF4qLblaYSg==" crossorigin=anonymous>
 <noscript><style>img.lazyload{display:none}</style></noscript>
 <meta name=robots content="index, follow">
 <meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -164,7 +164,16 @@ API Reference
 <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 <div class=page-links>
 <h3>On this page</h3>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#blockchain-api-examples>Blockchain API Examples</a>
+<ul>
+<li><a href=#fetch-transactions-for-an-event-v1alpha1>Fetch Transactions for an event (v1alpha1)</a></li>
+</ul>
+</li>
+<li><a href=#blockchain-openapi-docs>Blockchain OpenAPI Docs</a></li>
+</ul>
+</nav>
 </div>
 </nav>
 <main class="docs-content col-lg-11 col-xl-9">
@@ -179,6 +188,55 @@ API Reference
 <div class=my-n3></div>
 <h1>Blockchain API (v1alpha1)</h1>
 <p class=lead>Blockchain API Reference</p>
+<h2 id=blockchain-api-examples>Blockchain API Examples<a href=#blockchain-api-examples class=anchor aria-hidden=true>#</a> </h2>
+<p>Create the <a href=../../setup-and-administration/getting-access-tokens-using-client-secret>bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<p>Set the URL (for example):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>URL</span><span class=o>=</span>https://app.rkvst.io 
+</code></pre></div><h3 id=fetch-transactions-for-an-event-v1alpha1>Fetch Transactions for an event (v1alpha1)<a href=#fetch-transactions-for-an-event-v1alpha1 class=anchor aria-hidden=true>#</a> </h3>
+<p>Blockchain transactions in Jitsuin are available from the blockchain endpoint using the asset&rsquo;s Event ID as a parameter:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+</code></pre></div><p>To fetch all transactions for an asset event GET the blockchain resource:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+</code></pre></div><p>Each of these calls returns a list of matching blockchain transactions in the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;transactions&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;hash&#34;</span><span class=p>:</span> <span class=s2>&#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;nonce&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+            <span class=nt>&#34;blockHash&#34;</span><span class=p>:</span> <span class=s2>&#34;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;blockNumber&#34;</span><span class=p>:</span> <span class=mi>3</span><span class=p>,</span>
+            <span class=nt>&#34;transactionIndex&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+            <span class=nt>&#34;r&#34;</span><span class=p>:</span> <span class=s2>&#34;0x8912348621879462817634897216348712638941&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;s&#34;</span><span class=p>:</span> <span class=s2>&#34;0x1234689712638957682375682364892376487238&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=s2>&#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;to&#34;</span><span class=p>:</span> <span class=s2>&#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;value&#34;</span><span class=p>:</span> <span class=s2>&#34;123450000000000000&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;gas&#34;</span><span class=p>:</span> <span class=mi>314159</span><span class=p>,</span>
+            <span class=nt>&#34;gasPrice&#34;</span><span class=p>:</span> <span class=s2>&#34;2000000000000&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;input&#34;</span><span class=p>:</span> <span class=s2>&#34;0x57cb2fc4&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;v&#34;</span><span class=p>:</span> <span class=s2>&#34;0x26&#34;</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;hash&#34;</span><span class=p>:</span> <span class=s2>&#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;nonce&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+            <span class=nt>&#34;blockHash&#34;</span><span class=p>:</span> <span class=s2>&#34;0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;blockNumber&#34;</span><span class=p>:</span> <span class=mi>3</span><span class=p>,</span>
+            <span class=nt>&#34;transactionIndex&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+            <span class=nt>&#34;r&#34;</span><span class=p>:</span> <span class=s2>&#34;0x8912348621879462817634897216348712638941&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;s&#34;</span><span class=p>:</span> <span class=s2>&#34;0x1234689712638957682375682364892376487238&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=s2>&#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;to&#34;</span><span class=p>:</span> <span class=s2>&#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;value&#34;</span><span class=p>:</span> <span class=s2>&#34;123450000000000000&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;gas&#34;</span><span class=p>:</span> <span class=mi>314159</span><span class=p>,</span>
+            <span class=nt>&#34;gasPrice&#34;</span><span class=p>:</span> <span class=s2>&#34;2000000000000&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;input&#34;</span><span class=p>:</span> <span class=s2>&#34;0x57cb2fc4&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;v&#34;</span><span class=p>:</span> <span class=s2>&#34;0x26&#34;</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=blockchain-openapi-docs>Blockchain OpenAPI Docs<a href=#blockchain-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
 <div class=$openapi-spec-content>
 <div class=description>
 <p></p>
@@ -326,6 +384,6 @@ Compliance API &rarr;
 <script src=https://docs.jitsuin.com/js/bootstrap.min.f4b5ab9236e63f92dac3d18c21f19cbb0492bfba5f64e9d346995468429d312d8cfa213b555bc3b18055a4e1a17c9ce378a67570b8d246051f853b96454536fd.js integrity="sha512-9LWrkjbmP5Law9GMIfGcuwSSv7pfZOnTRplUaEKdMS2M+iE7VVvDsYBVpOGhfJzjeKZ1cLjSRgUfhTuWRUU2/Q==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.jitsuin.com/index.min.80130ac6b0eb952161f6062b77926ffab361baa8dc79d57329ba19476210537f93c998dba6406d122ee444d6ccb49269ff3c65db41bd0ee6fd2209643e0e699a.js integrity="sha512-gBMKxrDrlSFh9gYrd5Jv+rNhuqjcedVzKboZR2IQU3+TyZjbpkBtEi7kRNbMtJJp/zxl20G9Dub9IglkPg5pmg==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/index.min.cf1c0dcefb53a0b6d5732061a1db1c77be6dec543563165cbc29d61266fd447ecc2c26a1d9f7c816cf273a0144cc94c584af3b083b286c198af15ac91a1da9a3.js integrity="sha512-zxwNzvtToLbVcyBhodscd75t7FQ1YxZcvCnWEmb9RH7MLCah2ffIFs8nOgFEzJTFhK87CDsobBmK8VrJGh2pow==" crossorigin=anonymous defer></script>
 </body>
 </html>

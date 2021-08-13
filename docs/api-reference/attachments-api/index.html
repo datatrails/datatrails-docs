@@ -5,7 +5,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
 <link rel=preload as=font href=https://docs.jitsuin.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
-<link rel=stylesheet href=https://docs.jitsuin.com/main.032094dad73d3338ba0854d9640ad39bc64c6a93e903d29ea1d1ecd35a6a2d88c13c53116bd233df16f824950b13420e0cb9e40cd99506fea7eeeee13ea3d4c4.css integrity="sha512-AyCU2tc9Mzi6CFTZZArTm8ZMapPpA9KeodHs01pqLYjBPFMRa9Iz3xb4JJULE0IODLnkDNmVBv6n7u7hPqPUxA==" crossorigin=anonymous>
+<link rel=stylesheet href=https://docs.jitsuin.com/main.c37c038f2b11673cf06066f554753e568c01b6a7a5d7be01a92b3da1d74e6d5a97be96a554704c7269755fbe37fa308e367dd2ce7385ff0529178a8b6e56984a.css integrity="sha512-w3wDjysRZzzwYGb1VHU+VowBtqel174BqSs9oddObVqXvpalVHBMcml1X743+jCONn3SznOF/wUpF4qLblaYSg==" crossorigin=anonymous>
 <noscript><style>img.lazyload{display:none}</style></noscript>
 <meta name=robots content="index, follow">
 <meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -164,7 +164,18 @@ API Reference
 <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
 <div class=page-links>
 <h3>On this page</h3>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#attachment-api-examples>Attachment API Examples</a>
+<ul>
+<li><a href=#retrieve-a-specific-attachment-on-an-asset>Retrieve a Specific Attachment on an Asset</a></li>
+<li><a href=#retrieve-a-specific-attachment-on-an-event>Retrieve a Specific Attachment on an Event</a></li>
+<li><a href=#retrieve-information-about-a-specific-attachment>Retrieve Information about a specific Attachment</a></li>
+</ul>
+</li>
+<li><a href=#attachment-openapi-docs>Attachment OpenAPI Docs</a></li>
+</ul>
+</nav>
 </div>
 </nav>
 <main class="docs-content col-lg-11 col-xl-9">
@@ -179,6 +190,36 @@ API Reference
 <div class=my-n3></div>
 <h1>Attachments API</h1>
 <p class=lead>Attachments API Reference</p>
+<h2 id=attachment-api-examples>Attachment API Examples<a href=#attachment-api-examples class=anchor aria-hidden=true>#</a> </h2>
+<p>Create the <a href=../../setup-and-administration/getting-access-tokens-using-client-secret>bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<p>Set the URL (for example):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>URL</span><span class=o>=</span>https://app.rkvst.io 
+</code></pre></div><h3 id=retrieve-a-specific-attachment-on-an-asset>Retrieve a Specific Attachment on an Asset<a href=#retrieve-a-specific-attachment-on-an-asset class=anchor aria-hidden=true>#</a> </h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22
+</code></pre></div><h3 id=retrieve-a-specific-attachment-on-an-event>Retrieve a Specific Attachment on an Event<a href=#retrieve-a-specific-attachment-on-an-event class=anchor aria-hidden=true>#</a> </h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/events/de834094-f6c3-4e38-9b37-8c61dea312c9/08838336-c357-460d-902a-3aba9528dd22
+</code></pre></div><h3 id=retrieve-information-about-a-specific-attachment>Retrieve Information about a specific Attachment<a href=#retrieve-information-about-a-specific-attachment class=anchor aria-hidden=true>#</a> </h3>
+<p>It’s also possible to retrieve information about specific attachment using this API.</p>
+<p>To do that simply issue request as above with a suffix <code>/info</code></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v <span class=se>\
+</span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22/info
+</code></pre></div><p>The response will include basic information about the attachment:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;attachments/08838336-c357-460d-902a-3aba9528dd22&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;hash&#34;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&#34;alg&#34;</span><span class=p>:</span> <span class=s2>&#34;SHA256&#34;</span><span class=p>,</span>
+        <span class=nt>&#34;value&#34;</span><span class=p>:</span> <span class=s2>&#34;xxxxxxxxxxxxxxxxxxxxxxx&#34;</span>
+    <span class=p>},</span>
+    <span class=nt>&#34;mime_type&#34;</span><span class=p>:</span> <span class=s2>&#34;image/jpeg&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;timestamp_accepted&#34;</span><span class=p>:</span> <span class=s2>&#34;2019-11-07T15:31:49Z&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;size&#34;</span><span class=p>:</span> <span class=mi>31424</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=attachment-openapi-docs>Attachment OpenAPI Docs<a href=#attachment-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
 <div class=$openapi-spec-content>
 <div class=description>
 <p></p>
@@ -350,6 +391,6 @@ Blobs API &rarr;
 <script src=https://docs.jitsuin.com/js/bootstrap.min.f4b5ab9236e63f92dac3d18c21f19cbb0492bfba5f64e9d346995468429d312d8cfa213b555bc3b18055a4e1a17c9ce378a67570b8d246051f853b96454536fd.js integrity="sha512-9LWrkjbmP5Law9GMIfGcuwSSv7pfZOnTRplUaEKdMS2M+iE7VVvDsYBVpOGhfJzjeKZ1cLjSRgUfhTuWRUU2/Q==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.jitsuin.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.jitsuin.com/index.min.80130ac6b0eb952161f6062b77926ffab361baa8dc79d57329ba19476210537f93c998dba6406d122ee444d6ccb49269ff3c65db41bd0ee6fd2209643e0e699a.js integrity="sha512-gBMKxrDrlSFh9gYrd5Jv+rNhuqjcedVzKboZR2IQU3+TyZjbpkBtEi7kRNbMtJJp/zxl20G9Dub9IglkPg5pmg==" crossorigin=anonymous defer></script>
+<script src=https://docs.jitsuin.com/index.min.cf1c0dcefb53a0b6d5732061a1db1c77be6dec543563165cbc29d61266fd447ecc2c26a1d9f7c816cf273a0144cc94c584af3b083b286c198af15ac91a1da9a3.js integrity="sha512-zxwNzvtToLbVcyBhodscd75t7FQ1YxZcvCnWEmb9RH7MLCah2ffIFs8nOgFEzJTFhK87CDsobBmK8VrJGh2pow==" crossorigin=anonymous defer></script>
 </body>
 </html>

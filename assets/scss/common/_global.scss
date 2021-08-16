@@ -49,6 +49,11 @@ h6,
 .home h1 {
   /* font-size: calc(1.375rem + 1.5vw); */
   font-size: calc(1.875rem + 1.5vw);
+
+}
+
+h1 {
+  font-family: Montserrat;
 }
 
 a:hover,
@@ -215,7 +220,7 @@ body {
 // https://fossheim.io/writing/posts/css-text-gradient/
 .gradient-text {
   background-color: $primary;
-  background-image: linear-gradient(90deg, $jitsuin-red, $jitsuin-red 50%, $jitsuin-red);
+  background-image: linear-gradient(90deg, $rkvst-blue, $rkvst-blue 50%, $rkvst-blue);
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -226,4 +231,8 @@ body {
 
 .katex {
   font-size: $font-size-md;
+}
+
+.btn-primary {
+  color: $white !important;
 }

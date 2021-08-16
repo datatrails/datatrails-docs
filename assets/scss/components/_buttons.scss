@@ -67,14 +67,14 @@ body.dark .toggle-dark {
 .copy-status:hover::after {
   content: "Copy";
   display: block;
-  color: $jitsuin-red;
+  color: $rkvst-blue;
 }
 
 .copy-status:focus::after,
 .copy-status:active::after {
   content: "Copied";
   display: block;
-  color: $jitsuin-red;
+  color: $rkvst-blue;
 }
 
 .collapsible-sidebar {

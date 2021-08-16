@@ -19,6 +19,10 @@ $beige:    #fbf7f0;
 $purple:   #5d2f86;
 $brown:    #aa9c84;
 
+$rkvst-brown: #fdf5e6;
+$rkvst-lightblue: #e5f6fd;
+
+
 $blue-300: #8ed6fb;
 $pink-500: #d32e9d;
 $red-400:  #ef5350;
@@ -31,8 +35,10 @@ $jitsuin-purple: #a112ff;
 $jitsuin-yellow: #ffaf09;
 $jitsuin-red: #ed1c24;
 
+$rkvst-blue: #00AEEF;
+$rkvst-grey: #F7FAFC;
 
-$primary: $jitsuin-red;
+$primary: $rkvst-blue;
 
 // Options
 //
@@ -110,7 +116,7 @@ $border-color:                $gray-200;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      "Open Sans";
+$font-family-sans-serif:      "Open Sans", "Montserrat";
 $font-family-monospace:       sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
 // stylelint-enable value-keyword-case
@@ -171,13 +177,13 @@ $accordion-bg:                            $body-bg;
 $accordion-color:                         $body-color;
 
 $accordion-button-color:                  $body-color;
-$accordion-button-bg:                     $beige;
+$accordion-button-bg:                     $rkvst-grey;
 
-$accordion-button-active-bg:              $beige;
+$accordion-button-active-bg:              $rkvst-grey;
 $accordion-button-active-color:           $accordion-color;
 
-$accordion-icon-color:                    $jitsuin-red;
-$accordion-icon-active-color:             $jitsuin-red;
+$accordion-icon-color:                    $rkvst-blue;
+$accordion-icon-active-color:             $rkvst-blue;
 
 $accordion-padding-y:                     1rem;
 $accordion-button-padding-y:              1.25rem;

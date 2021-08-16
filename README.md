@@ -2,7 +2,7 @@
 
 This is the Home of the RKVST Documentation
 
-RKVST provides Continuous Assurance as a Service to attest trustworthiness of assets, and boost confidence in critical decisions.  Find out more on our [website](https://jitsuin.com).
+RKVST provides Continuous Assurance as a Service to attest trustworthiness of assets, and boost confidence in critical decisions.  Find out more on our [website](https://rkvst.com).
 
 ## Contributing
 

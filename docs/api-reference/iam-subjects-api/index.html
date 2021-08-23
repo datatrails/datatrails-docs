@@ -10,27 +10,27 @@
 <meta name=robots content="index, follow">
 <meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<title>TLS CA Certificates API - RKVST</title>
-<meta name=description content="TLS CA Certificates API Reference">
-<link rel=canonical href=https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/>
+<title>IAM Subjects API - RKVST</title>
+<meta name=description content="IAM Subjects API Reference">
+<link rel=canonical href=https://docs.rkvst.com/docs/api-reference/iam-subjects-api/>
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="/RKVST_WhtLogo_CMYK.svg">
-<meta name=twitter:title content="TLS CA Certificates API">
-<meta name=twitter:description content="TLS CA Certificates API Reference">
+<meta name=twitter:title content="IAM Subjects API">
+<meta name=twitter:description content="IAM Subjects API Reference">
 <meta name=twitter:site content="@">
 <meta name=twitter:creator content="@">
-<meta property="og:title" content="TLS CA Certificates API">
-<meta property="og:description" content="TLS CA Certificates API Reference">
+<meta property="og:title" content="IAM Subjects API">
+<meta property="og:description" content="IAM Subjects API Reference">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/docs/api-reference/tls-ca-certificates-api/">
+<meta property="og:url" content="/docs/api-reference/iam-subjects-api/">
 <meta property="og:image" content="/RKVST_WhtLogo_CMYK.svg">
-<meta property="article:published_time" content="2021-06-09T13:53:24+01:00">
-<meta property="article:modified_time" content="2021-06-09T13:53:24+01:00">
+<meta property="article:published_time" content="2021-06-09T12:02:15+01:00">
+<meta property="article:modified_time" content="2021-06-09T12:02:15+01:00">
 <meta property="og:site_name" content="RKVST">
 <meta property="article:publisher" content="https://www.facebook.com/">
 <meta property="article:author" content="https://www.facebook.com/">
 <meta property="og:locale" content="en_US">
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/docs.rkvst.com"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/docs.rkvst.com\/docs\/"},{"@type":"ListItem","position":4,"name":"API Reference","item":"https:\/\/docs.rkvst.com\/docs\/api-reference\/"},{"@type":"ListItem","position":5,"name":"Tls Ca Certificates API","item":"https:\/\/docs.rkvst.com\/docs\/api-reference\/tls-ca-certificates-api\/"}]}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/docs.rkvst.com"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/docs.rkvst.com\/docs\/"},{"@type":"ListItem","position":4,"name":"API Reference","item":"https:\/\/docs.rkvst.com\/docs\/api-reference\/"},{"@type":"ListItem","position":5,"name":"Iam Subjects API","item":"https:\/\/docs.rkvst.com\/docs\/api-reference\/iam-subjects-api\/"}]}</script>
 <meta name=theme-color content="#fff">
 <link rel=apple-touch-icon sizes=180x180 href=https://docs.rkvst.com/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://docs.rkvst.com/favicon-32x32.png>
@@ -149,13 +149,13 @@ API Reference
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/compliance-api/>Compliance API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/events-api/>Events API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/iam-policies-api/>IAM Policies API</a></li>
-<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/iam-subjects-api/>IAM Subjects API</a></li>
+<li><a class="docs-link rounded active" href=https://docs.rkvst.com/docs/api-reference/iam-subjects-api/>IAM Subjects API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/locations-api/>Locations API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/microsoft-iothub-api/>Microsoft IoTHub API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/svc-buses-api/>Service Bus API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/system-api/>System API</a></li>
 <li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/tenancies-api/>Tenancies API</a></li>
-<li><a class="docs-link rounded active" href=https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/>TLS CA Certificates API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/>TLS CA Certificates API</a></li>
 </ul>
 </div>
 </li>
@@ -167,13 +167,16 @@ API Reference
 <h3>On this page</h3>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#tls-ca-certificates-api-examples>TLS CA Certificates API Examples</a>
+<li><a href=#iam-subjects-api-examples>IAM Subjects API Examples</a>
 <ul>
-<li><a href=#tls-ca-certificate-upload>TLS CA Certificate Upload</a></li>
-<li><a href=#tls-ca-certificate-retrieval>TLS CA Certificate Retrieval</a></li>
+<li><a href=#iam-subjects-creation>IAM Subjects Creation</a></li>
+<li><a href=#iam-subjects-retrieval>IAM Subjects Retrieval</a></li>
+<li><a href=#iam-subject-deletion>IAM Subject Deletion</a></li>
+<li><a href=#iam-subject-update>IAM Subject Update</a></li>
+<li><a href=#iam-subject-self-entry>IAM Subject Self Entry</a></li>
 </ul>
 </li>
-<li><a href=#tls-ca-certificates-openapi-docs>TLS CA Certificates OpenAPI Docs</a></li>
+<li><a href=#iam-subjects-openapi-docs>IAM Subjects OpenAPI Docs</a></li>
 </ul>
 </nav>
 </div>
@@ -184,134 +187,167 @@ API Reference
 <li class=breadcrumb-item><a href=https://docs.rkvst.com/>Home</a></li>
 <li class=breadcrumb-item><a href=https://docs.rkvst.com/docs/>Docs</a></li>
 <li class=breadcrumb-item><a href=https://docs.rkvst.com/docs/api-reference/>Api Reference</a></li>
-<li class="breadcrumb-item active" aria-current=page>TLS CA Certificates API</li>
+<li class="breadcrumb-item active" aria-current=page>IAM Subjects API</li>
 </ol>
 </nav>
 <div class=my-n3></div>
-<h1>TLS CA Certificates API</h1>
-<p class=lead>TLS CA Certificates API Reference</p>
-<h2 id=tls-ca-certificates-api-examples>TLS CA Certificates API Examples<a href=#tls-ca-certificates-api-examples class=anchor aria-hidden=true>#</a> </h2>
+<h1>IAM Subjects API</h1>
+<p class=lead>IAM Subjects API Reference</p>
+<h2 id=iam-subjects-api-examples>IAM Subjects API Examples<a href=#iam-subjects-api-examples class=anchor aria-hidden=true>#</a> </h2>
 <p>Create the <a href=../../setup-and-administration/getting-access-tokens-using-client-secret>bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <p>Set the URL (for example):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>URL</span><span class=o>=</span>https://app.rkvst.io 
-</code></pre></div><h3 id=tls-ca-certificate-upload>TLS CA Certificate Upload<a href=#tls-ca-certificate-upload class=anchor aria-hidden=true>#</a> </h3>
-<p>Define the TLS CA certificate parameters and store in <code>/path/to/jsonfile</code> (certificate field shortened for brevity):</p>
+</code></pre></div><h3 id=iam-subjects-creation>IAM Subjects Creation<a href=#iam-subjects-creation class=anchor aria-hidden=true>#</a> </h3>
+<p>Define the subjects parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
     <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;certificate&#34;</span><span class=p>:</span> <span class=s2>&#34;-----BEGIN CERTIFICATE-----\nMIIFxDCCA6ygAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBsDELMAkGA1UEBhMCVVMx\nETAPBgNV....1NF/BjDZ4wdexw==\n-----END CERTIFICATE-----\n&#34;</span>
+    <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key2&#34;</span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><p>To include the PEM file content in a JSON string it must be flattened to a single line.</p>
-<p>To create a single line representation of a PEM file for the RKVST API, you must replace new lines with the literal string “\n”.</p>
-<p>The following unix command could be used:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>awk <span class=s1>&#39;NF {sub(/\r/, &#34;&#34;); printf &#34;%s\\n&#34;,$0;}&#39;</span> cert-name.pem
-</code></pre></div><p>Create the CA Certificate:</p>
+</code></pre></div><p>Create the IAM subject:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X POST <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
 </span><span class=se></span>    -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
-</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/tlscacertificates
-</code></pre></div><p>The response is (certificate field shortened for brevity):</p>
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/subjects
+</code></pre></div><p>The response is:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;tlscacertificates/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;subjects/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
     <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;certificate&#34;</span><span class=p>:</span> <span class=s2>&#34;-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----&#34;</span>
+    <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;wallet_address&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;address&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key2&#34;</span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><h3 id=tls-ca-certificate-retrieval>TLS CA Certificate Retrieval<a href=#tls-ca-certificate-retrieval class=anchor aria-hidden=true>#</a> </h3>
-<p>TLS CA Certificate records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>tlscacertificates/12345678-90ab-cdef-1234-567890abcdef
-</code></pre></div><p>If you do not know the certificate’s identity you can fetch TLS CA Certificate records using other information you do know, such as the certificate’s name.</p>
-<h4 id=fetch-all-tls-ca-certificates>Fetch all TLS CA Certificates<a href=#fetch-all-tls-ca-certificates class=anchor aria-hidden=true>#</a> </h4>
-<p>To fetch all TLS CA certificates records, simply <code>GET</code> the <code>tlscacertificates</code> resource:</p>
+</code></pre></div><h3 id=iam-subjects-retrieval>IAM Subjects Retrieval<a href=#iam-subjects-retrieval class=anchor aria-hidden=true>#</a> </h3>
+<p>IAM subject records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>subjects/12345678-90ab-cdef-1234-567890abcdef
+</code></pre></div><p>If you do not know the subjects’s identity you can fetch IAM subject records using other information you do know, such as the subject’s name.</p>
+<h4 id=fetch-all-iam-subjects-v1>Fetch all IAM subjects (v1)<a href=#fetch-all-iam-subjects-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>To fetch all IAM subjects records, simply <code>GET</code> the <code>/subjects</code> resource:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
 </span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
-</span><span class=se></span>     <span class=nv>$URL</span>/archivist/v1/tlscacertificates
-</code></pre></div><h4 id=fetch-specific-tls-ca-certificate-by-identity>Fetch specific TLS CA Certificate by Identity<a href=#fetch-specific-tls-ca-certificate-by-identity class=anchor aria-hidden=true>#</a> </h4>
-<p>If you know the unique identity of the TLS CA certificate Record simply <code>GET</code> the resource:</p>
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/subjects
+</code></pre></div><h4 id=fetch-specific-iam-subject-by-identity-v1>Fetch specific IAM Subject by identity (v1)<a href=#fetch-specific-iam-subject-by-identity-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>If you know the unique identity of the IAM subject Record simply <code>GET</code> the resource:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
 </span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
-</span><span class=se></span>     <span class=nv>$URL</span>/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
-</code></pre></div><h4 id=fetch-tls-ca-certificates-by-name>Fetch TLS CA Certificates by Name<a href=#fetch-tls-ca-certificates-by-name class=anchor aria-hidden=true>#</a> </h4>
-<p>To fetch all TLS CA Certificates with a specific name, <code>GET</code> the <code>tlscacertificates</code> resource and filter on <code>display_name</code>:</p>
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
+</code></pre></div><h4 id=fetch-iam-subjects-by-name-v1>Fetch IAM Subjects by name (v1)<a href=#fetch-iam-subjects-by-name-v1 class=anchor aria-hidden=true>#</a> </h4>
+<p>To fetch all IAM subjects with a specific name, <code>GET</code> the <code>/subjects</code> resource and filter on <code>display_name</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -g -v -X GET <span class=se>\
 </span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
-</span><span class=se></span>     <span class=nv>$URL</span>/archivist/v1/tlscacertificates?display_name<span class=o>=</span>Acme
-</code></pre></div><p>Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):</p>
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/subjects?display_name<span class=o>=</span>Acme
+</code></pre></div><p>Each of these calls returns a list of matching IAM subjects records in the form:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;certificates&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
         <span class=p>{</span>
-            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
             <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;certificate&#34;</span><span class=p>:</span> <span class=s2>&#34;-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE----- &#34;</span>
+            <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;wallet_address&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;address1&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key2&#34;</span><span class=p>]</span>
         <span class=p>},</span>
         <span class=p>{</span>
-            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;tlscacertificates/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some other description&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;certificate&#34;</span><span class=p>:</span> <span class=s2>&#34;-----BEGIN CERTIFICATE----- XYZEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE----- &#34;</span>
+            <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;subjects/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some otherdescription&#34;</span><span class=p>,</span>
+            <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key5&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;wallet_address&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;address5&#34;</span><span class=p>],</span>
+            <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key7&#34;</span><span class=p>]</span>
         <span class=p>}</span>
     <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><h4 id=tls-ca-certificate-deletion>TLS CA Certificate Deletion<a href=#tls-ca-certificate-deletion class=anchor aria-hidden=true>#</a> </h4>
-<p>To delete a TLS CA Certificate, issue the following request:</p>
+</code></pre></div><h3 id=iam-subject-deletion>IAM Subject Deletion<a href=#iam-subject-deletion class=anchor aria-hidden=true>#</a> </h3>
+<p>To delete an IAM subject, issue the following request:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X DELETE <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
-</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 </code></pre></div><p>The response is <code>{}</code>.</p>
-<h4 id=updating-a-tls-ca-certificate>Updating a TLS CA Certificate<a href=#updating-a-tls-ca-certificate class=anchor aria-hidden=true>#</a> </h4>
-<p>Define the TLS CA certificates parameters to be changed and store in /path/to/jsonfile:</p>
+<h3 id=iam-subject-update>IAM Subject Update<a href=#iam-subject-update class=anchor aria-hidden=true>#</a> </h3>
+<p>Define the subjects parameters to be changed and store in <code>/path/to/jsonfile</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;new description&#34;</span>
+    <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key2&#34;</span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><p>Update the TLS CA Certificate:</p>
+</code></pre></div><p>Update the IAM Subject:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X PATCH <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
 </span><span class=se></span>    -H <span class=s2>&#34;Content-type: application/json&#34;</span> <span class=se>\
 </span><span class=se></span>    -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
-</span><span class=se></span>    <span class=nv>$URL</span>/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
-</code></pre></div><p>The response is (certificate field shortened for brevity):</p>
+</span><span class=se></span>    <span class=nv>$URL</span>/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
+</code></pre></div><p>The response is:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;tlscacertificates/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;subjects/3f5be24f-fd1b-40e2-af35-ec7c14c74d53&#34;</span><span class=p>,</span>
     <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
-    <span class=nt>&#34;certificate&#34;</span><span class=p>:</span> <span class=s2>&#34;-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----&#34;</span>
+    <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;wallet_address&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;address1&#34;</span><span class=p>],</span>
+    <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key3&#34;</span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><h2 id=tls-ca-certificates-openapi-docs>TLS CA Certificates OpenAPI Docs<a href=#tls-ca-certificates-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
+</code></pre></div><h3 id=iam-subject-self-entry>IAM Subject Self Entry<a href=#iam-subject-self-entry class=anchor aria-hidden=true>#</a> </h3>
+<p>There is an immutable entry in the subjects API called <code>Self</code> that contains the keys for the hosting organisation of the RKVST Tenant.</p>
+<p>This entry cannot be deleted or updated.</p>
+<p>This special identity is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>subjects/00000000-0000-0000-0000-000000000000
+</code></pre></div><h4 id=fetch-self-iam-subject-by-identity-v1>Fetch self IAM Subject by identity (v1)<a href=#fetch-self-iam-subject-by-identity-v1 class=anchor aria-hidden=true>#</a> </h4>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -v -X GET <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>     <span class=nv>$URL</span>/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
+</code></pre></div><p>The response is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>[</span>
+    <span class=p>{</span>
+        <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;subjects/00000000-0000-0000-0000-000000000000&#34;</span><span class=p>,</span>
+        <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Some description&#34;</span><span class=p>,</span>
+        <span class=nt>&#34;wallet_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key1&#34;</span><span class=p>],</span>
+        <span class=nt>&#34;wallet_address&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;address1&#34;</span><span class=p>],</span>
+        <span class=nt>&#34;tessera_pub_key&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;key3&#34;</span><span class=p>]</span>
+    <span class=p>}</span>
+<span class=p>]</span>
+</code></pre></div><h2 id=iam-subjects-openapi-docs>IAM Subjects OpenAPI Docs<a href=#iam-subjects-openapi-docs class=anchor aria-hidden=true>#</a> </h2>
 <div class=$openapi-spec-content>
 <div class=description>
 <p></p>
 </div>
-<div class=accordion id=TLSCACertificates0></div>
+<div class=accordion id=IAMSubjects0></div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTLSCACertificates1>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTLSCACertificates1 aria-expanded=true aria-controls=collapseTLSCACertificates1>
+<h3 class=accordion-header id=headerIAMSubjects1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects1 aria-expanded=true aria-controls=collapseIAMSubjects1>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tlscacertificates</span>
+<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects</span>
 </div>
 </button>
 </h3>
-<div id=collapseTLSCACertificates1 class="accordion-collapse collapse" aria-labelledby=headerTLSCACertificates1 data-parent=#accordion>
+<div id=collapseIAMSubjects1 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
 </div>
-<h5>List TLS CA certificates</h5>
+<h5>List subjects</h5>
 <p><a href></a></p>
-<p>Description: Returns a paginated list of TLS CA certificates</p>
+<p>Description: Returns a paginated list of subjects</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTLSCACertificates1>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTLSCACertificates1 aria-expanded=true aria-controls=collapserequestTLSCACertificates1>
+<h3 class=accordion-header id=headerresponseIAMSubjects1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects1 aria-expanded=true aria-controls=collapserequestIAMSubjects1>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTLSCACertificates1 class="accordion-collapse collapse" aria-labelledby=headerresponseTLSCACertificates1 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects1 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "tlscacertificates": [
+  "subjects": [
     {
       "display_name": "Some description",
-      "identity": "tlscacertificates/08838336-c357-460d-902a-3aba9528dd22"
+      "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+      "tessera_pub_key": [
+        "key3",
+        "key4"
+      ],
+      "wallet_pub_key": [
+        "key1",
+        "key2"
+      ]
     }
   ]
 }</code></pre>
@@ -333,9 +369,9 @@ API Reference
 <td>string</td>
 <td>Token to retrieve the next page of results or empty if there are none.</td>
 <tr>
-<th>tlscacertificates</th>
+<th>subjects</th>
 <td>array</td>
-<td>Describes TLS CA certificate in PEM file format.</td>
+<td>Describes an Access Policy for OBAC</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -349,7 +385,7 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to read the TLS CA certificate.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to read the subject.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -359,34 +395,41 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTLSCACertificates2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTLSCACertificates2 aria-expanded=true aria-controls=collapseTLSCACertificates2>
+<h3 class=accordion-header id=headerIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects2 aria-expanded=true aria-controls=collapseIAMSubjects2>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>post</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tlscacertificates</span>
+<span style=text-transform:uppercase;color:#00aeef>post</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects</span>
 </div>
 </button>
 </h3>
-<div id=collapseTLSCACertificates2 class="accordion-collapse collapse" aria-labelledby=headerTLSCACertificates2 data-parent=#accordion>
+<div id=collapseIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
 </div>
-<h5>Upload a TLS CA certificate</h5>
+<h5>Create an subject</h5>
 <p><a href></a></p>
-<p>Description: This request uploads a TLS CA certificate. The display_name is the friendly name.</p>
+<p>Description: This request creates a new subject. The display_name is the friendly name.</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerrequestTLSCACertificates2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestTLSCACertificates2 aria-expanded=true aria-controls=collapserequestTLSCACertificates2>
+<h3 class=accordion-header id=headerrequestIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAMSubjects2 aria-expanded=true aria-controls=collapserequestIAMSubjects2>
 <span>Example Request</span>
 </button>
 </h3>
-<div id=collapserequestTLSCACertificates2 class="accordion-collapse collapse" aria-labelledby=headerrequestTLSCACertificates2 data-parent=#accordion>
+<div id=collapserequestIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerrequestIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "display_name": "Some description",
-  "tlscacertificate": "-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----"
+  "tessera_pub_key": [
+    "key3",
+    "key4"
+  ],
+  "wallet_pub_key": [
+    "key1",
+    "key2"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -404,26 +447,41 @@ API Reference
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the TLS CA certificate.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
-<th>tlscacertificate</th>
-<td>string</td>
-<td>TLS CA Certificate as string representing the contents of the PEM file</td>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTLSCACertificates2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTLSCACertificates2 aria-expanded=true aria-controls=collapserequestTLSCACertificates2>
+<h3 class=accordion-header id=headerresponseIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects2 aria-expanded=true aria-controls=collapserequestIAMSubjects2>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTLSCACertificates2 class="accordion-collapse collapse" aria-labelledby=headerresponseTLSCACertificates2 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "display_name": "Some description",
-  "identity": "tlscacertificates/08838336-c357-460d-902a-3aba9528dd22",
-  "tlscacertificate": "-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----"
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3",
+    "key4"
+  ],
+  "wallet_address": [
+    "address1",
+    "address2"
+  ],
+  "wallet_pub_key": [
+    "key1",
+    "key2"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -441,15 +499,27 @@ API Reference
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the TLS CA certificate.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
-<th>tlscacertificate</th>
+<th>tenant</th>
 <td>string</td>
-<td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -463,7 +533,7 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to create a tlscacertificate.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to create a subject.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -473,22 +543,22 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTLSCACertificates3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTLSCACertificates3 aria-expanded=true aria-controls=collapseTLSCACertificates3>
+<h3 class=accordion-header id=headerIAMSubjects3>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects3 aria-expanded=true aria-controls=collapseIAMSubjects3>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>delete</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/{identity}</span>
+<span style=text-transform:uppercase;color:#00aeef>delete</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
 </div>
 </button>
 </h3>
-<div id=collapseTLSCACertificates3 class="accordion-collapse collapse" aria-labelledby=headerTLSCACertificates3 data-parent=#accordion>
+<div id=collapseIAMSubjects3 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects3 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>delete</span>&nbsp;&nbsp;<span>/archivist/v1/{identity}</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
 </div>
-<h5>Delete a TLS C Acertificate</h5>
+<h5>Delete a subject</h5>
 <p><a href></a></p>
-<p>Description: Delete the identified tLS CA Certificate</p>
+<p>Description: Delete the identified subject</p>
 <table class="table table-striped table-bordered">
 <thead>
 <tr>
@@ -500,7 +570,7 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to delete the TLS CA certificate.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to delete the subject.</td>
 <tr><th>404</th><td>Returned when the identified laccess policy does not exist.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
@@ -511,35 +581,46 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTLSCACertificates4>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTLSCACertificates4 aria-expanded=true aria-controls=collapseTLSCACertificates4>
+<h3 class=accordion-header id=headerIAMSubjects4>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects4 aria-expanded=true aria-controls=collapseIAMSubjects4>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/{identity}</span>
+<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
 </div>
 </button>
 </h3>
-<div id=collapseTLSCACertificates4 class="accordion-collapse collapse" aria-labelledby=headerTLSCACertificates4 data-parent=#accordion>
+<div id=collapseIAMSubjects4 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects4 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/v1/{identity}</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
 </div>
-<h5>Get a TLS CA certificate</h5>
+<h5>Get an subject</h5>
 <p><a href></a></p>
-<p>Description: Returns the identified tlscacertificate</p>
+<p>Description: Returns the identified subject</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTLSCACertificates4>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTLSCACertificates4 aria-expanded=true aria-controls=collapserequestTLSCACertificates4>
+<h3 class=accordion-header id=headerresponseIAMSubjects4>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects4 aria-expanded=true aria-controls=collapserequestIAMSubjects4>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTLSCACertificates4 class="accordion-collapse collapse" aria-labelledby=headerresponseTLSCACertificates4 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects4 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects4 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "display_name": "Some description",
-  "identity": "tlscacertificates/08838336-c357-460d-902a-3aba9528dd22",
-  "tlscacertificate": "-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----"
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3",
+    "key4"
+  ],
+  "wallet_address": [
+    "address1",
+    "address2"
+  ],
+  "wallet_pub_key": [
+    "key1",
+    "key2"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -557,15 +638,27 @@ API Reference
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the TLS CA certificate.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
-<th>tlscacertificate</th>
+<th>tenant</th>
 <td>string</td>
-<td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -579,8 +672,8 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to read the TLS CA certificate.</td>
-<tr><th>404</th><td>Returned when the identified TLS CA certificate does not exist.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to read the subject.</td>
+<tr><th>404</th><td>Returned when the identified subject does not exist.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -590,35 +683,46 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTLSCACertificates5>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTLSCACertificates5 aria-expanded=true aria-controls=collapseTLSCACertificates5>
+<h3 class=accordion-header id=headerIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects5 aria-expanded=true aria-controls=collapseIAMSubjects5>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>patch</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/{identity}</span>
+<span style=text-transform:uppercase;color:#00aeef>patch</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
 </div>
 </button>
 </h3>
-<div id=collapseTLSCACertificates5 class="accordion-collapse collapse" aria-labelledby=headerTLSCACertificates5 data-parent=#accordion>
+<div id=collapseIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>patch</span>&nbsp;&nbsp;<span>/archivist/v1/{identity}</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
 </div>
-<h5>Update a TLS CA certificate's details</h5>
+<h5>Update a subject's details</h5>
 <p><a href></a></p>
-<p>Description: Perform a full or partial update of the identified TLS CA certificate</p>
+<p>Description: Perform a full or partial update of the identified subject</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerrequestTLSCACertificates5>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestTLSCACertificates5 aria-expanded=true aria-controls=collapserequestTLSCACertificates5>
+<h3 class=accordion-header id=headerrequestIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAMSubjects5 aria-expanded=true aria-controls=collapserequestIAMSubjects5>
 <span>Example Request</span>
 </button>
 </h3>
-<div id=collapserequestTLSCACertificates5 class="accordion-collapse collapse" aria-labelledby=headerrequestTLSCACertificates5 data-parent=#accordion>
+<div id=collapserequestIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerrequestIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "display_name": "Some description",
-  "identity": "tlscacertificates/08838336-c357-460d-902a-3aba9528dd22",
-  "tlscacertificate": "-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----"
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3",
+    "key4"
+  ],
+  "wallet_address": [
+    "address1",
+    "address2"
+  ],
+  "wallet_pub_key": [
+    "key1",
+    "key2"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -636,30 +740,53 @@ API Reference
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the TLS CA certificate.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
-<th>tlscacertificate</th>
+<th>tenant</th>
 <td>string</td>
-<td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTLSCACertificates5>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTLSCACertificates5 aria-expanded=true aria-controls=collapserequestTLSCACertificates5>
+<h3 class=accordion-header id=headerresponseIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects5 aria-expanded=true aria-controls=collapserequestIAMSubjects5>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTLSCACertificates5 class="accordion-collapse collapse" aria-labelledby=headerresponseTLSCACertificates5 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
   "display_name": "Some description",
-  "identity": "tlscacertificates/08838336-c357-460d-902a-3aba9528dd22",
-  "tlscacertificate": "-----BEGIN CERTIFICATE----- MIIEBDCCAuygAwIBAgIDAjppMA0GCSqGSIb3DQEBBQUAMEIxCzAJBgNVBAYTAlVT -----END CERTIFICATE-----"
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3",
+    "key4"
+  ],
+  "wallet_address": [
+    "address1",
+    "address2"
+  ],
+  "wallet_pub_key": [
+    "key1",
+    "key2"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -677,15 +804,27 @@ API Reference
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the TLS CA certificate.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
-<th>tlscacertificate</th>
+<th>tenant</th>
 <td>string</td>
-<td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -699,8 +838,8 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to update the TLS CA certificate.</td>
-<tr><th>404</th><td>Returned when the identified TLS C Acertificate does not exist.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to update the subject.</td>
+<tr><th>404</th><td>Returned when the identified subject does not exist.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -710,12 +849,19 @@ API Reference
 </div>
 </div>
 </div>
-<p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/api-reference/tls-ca-certificates-api/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p>
+<p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/api-reference/iam-subjects-api/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p>
 <div class="docs-navigation d-flex justify-content-between">
-<a href=https://docs.rkvst.com/docs/api-reference/tenancies-api/>
+<a href=https://docs.rkvst.com/docs/api-reference/iam-policies-api/>
 <div class="card my-1">
 <div class="card-body py-2">
-&larr; Tenancies API
+&larr; IAM Policies API
+</div>
+</div>
+</a>
+<a class=ms-auto href=https://docs.rkvst.com/docs/api-reference/locations-api/>
+<div class="card my-1">
+<div class="card-body py-2">
+Locations API &rarr;
 </div>
 </div>
 </a>

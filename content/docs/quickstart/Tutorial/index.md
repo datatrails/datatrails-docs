@@ -86,17 +86,106 @@ This is because we have also have another aspect of our bike to consider, what k
 
 ### Planning Events
 
-What kind of things can happen to my asset?
+There are things that happen throughout an Asset's lifecyle that one may want to track.  These events are important because they
+could change an Asset's state, change an Asset's Attribute, verify that an acitivity has been performed or help with a dispute or audit.
 
-What kind of decisions that are made during my assets lifecycle am I interested in?
+It's not a requirement to track every event, only those that help prove **Who Did What When**.  The below questions will help one
+identify events that answer the above.
 
-What are the properties of these decisions that I am interested in tracking?
+**What kind of things can happen to my asset?**
 
-What kind of changes to the Asset can I expect, does it gain more properties? Does it change properties itself as a result of the event?
+Let's discuss what could happen to my bike:
 
-Who needs to see which events and which properties?
+* Worn or Damaged Parts: broken chain, flat tire
+* Maintenance: Cleaning, checking brake pads
+* Upgrade: bar tape, tires, saddle
+
+These events impact the bike itself, performance of the bike and the ability to race.  This is why I want to track the above activity, to ensure
+that my bike is properly cared for and available for upcoming racing competitions.
+
+**What kind of decisions that are made during my assets lifecycle am I interested in?**
+
+Not all decisions made require tracking, however those that affect the state of my bike, change an attribute or help me verify that an activity has been
+performed are decisons of interest.
+
+Based on the aforementioned events, let's take a look at actions of importance:
+
+- Worn or Damaged Parts:
+   - What parts have been replaced?
+   - Who replaced the parts?
+   - When were the parts replaced?
+- Maintenance:
+   - What type of maintenance was done?
+   - Who performed the maintenance?
+   - When was the mainteance performed?
+- Upgrade:
+   - What was upgraded?
+   - Who did the upgrade?
+   - When was the upgrade performed?
+
+The answers to the above help me understand alterations to my bike in addtion to proving **Who Did What When**.  In addition, the tracking of these answers will help 
+with dispute resolution and hopefully lessen confusion between parties.
+
+**What are the properties of these decisions that I am interested in tracking?**
+
+Properties of interest would be those that: change the state of an Asset, change an attribute of the Asset, verify that a relevant activity has been performed and/or would help
+with dispute resolution.  Depending on the type of Asset these properties can range from: location change, change in size (i.e. weight), verification and validation just to name a few.
+
+Focusing on the bike, let's take a look at properties of interest:
+
+- Worn or Damaged Parts:
+   - Type of part replaced
+   - Serial number of part
+- Upgrade:
+   - Type of part upgraded
+   - Serial number of upgraded part
+
+Understanding the impact of a replaced or upgraded part is important because it could change the dynamics of my bike.  These changes could affect the performance, change the look and feel and/or increase longevity.  Thus these properties are significant as they help me make critical decisions about my bike.
+
+**What kind of changes to the Asset can I expect, does it gain more properties? Does it change properties itself as a result of the event?**
+
+Part of understanding what to track and what not to track, is knowing which properties may change the Asset.  In addition, does the change to the Asset have other affects.
+For example, changing the frame of the bike could change the color/look, however upgrading the tires may not change the look but will change the performance.
+
+Let's add the above as part of my bike's lifecycle:
+
+- Worn or Damaged Parts:
+   - Replacing frame (same size as old frame but different color)
+- Upgrade:
+   - Tires for higher performance during inclement weather/terrain
+
+Changes that I could expect from the above events and how they affect my bike.
+
+- Replacement Frame
+   - Color Change 
+   - Size (still want to track to ensure the sizing hasn't changed)
+   - Make/model of frame
+- New Tires
+   - Make/model of tires
+   - Size of tires
+   - PSI of tires
+
+After the above work is completed, my Asset will change.  In addition to tracking the process of the installation, I also want to know how my bike changed post completion.  My bike looks and feels different and I want to track the final result.
+
+**Who needs to see which events and which properties?**
+
+My bike is getting a new frame and tires, who else needs to know about this?  Who are the important parties involved?
+
+- Me: owner of the bike
+- Two shops: one will install the frame and the other will upgrade the tires
+
+The owner (me), I want to be able to view the entire lifecycle of my bike.  From when I drop it off to when I pick it up and everything in between.
+
+The frame shop, should be able to view all things related to my new frame: status of order, color of frame, make/model, dimenstions, etc.  Events and properties related to the frame should be available for the shop to also update.
+
+The tire shop, should be able tto view all things related to my new tires: status of order, make/model, dimensions, type of tire, etc.  Events and properties related to the tires should be available for the shop to also update.
+
+The two shops should be able to view progress but it's not a requirement to see "everything".  My bike will be at the frame shop first, then when done will be dropped off at the tire shop.
+Both shops should see when I dropped off the bike making parties aware that the lifecycle has begun.  However, the tire shop should only need to know when the frame shop is done and ETA of drop off, so they can begin work. Establishing the above will increase effecient and effective communication.
 
 ### Planning who to Share with
+
+When sharing data, it's important to understand: who needs to see what, when do they need to see it and who requires read and/or write access.  Recognizing these aspects will ensure that **the right data will be shared at the right time to the right resources**.
 
 ## Creating an Asset
 

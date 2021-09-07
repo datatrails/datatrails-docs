@@ -21,9 +21,9 @@ These considerations and their conclusions can vary heavily from situation to si
 
 ### Planning your Asset
 
-Often many know ahead of time what they would like to track in RKVST, whether it's a Shipping Container and its route, the status of a Software Bill of Materials as a product gets updated or even the impact of decisions made during a business process.
+Often many know ahead of time what they would like to track in RKVST; whether it's a Shipping Container and its route, the status of a Software Bill of Materials as a product gets updated or even the impact of decisions made during a business process.
 
-Whether you do know or not, it would be worth asking the following questions to establish a good understanding of what you aim to achieve:
+Whether you do know or not, it would be worth asking the following questions to establish a good understanding of what you aim to achieve with RKVST:
 
 **What am I interested in tracking?**
 
@@ -80,17 +80,19 @@ When considering my bike I am interested in a number of things:
 
 I am also interested in tracking the times I placed in my last few races as well.
 
-You should notice that some of these things I'd like to track aren't strictly properties of the bike itself
+You should notice that some of these things I'd like to track aren't strictly properties of the bike itself.
 
 This is because we have also have another aspect of our bike to consider, what kind of Events can happen to the bike?
 
 ### Planning Events
 
-There are things that happen throughout an Asset's lifecyle that one may want to track.  These events are important because they
-could change an Asset's state, change an Asset's Attribute, verify that an acitivity has been performed or help with a dispute or audit.
+There are things that happen throughout an Asset's lifecyle that you may want to track.  
 
-It's not a requirement to track every event, only those that help prove **Who Did What When**.  The below questions will help one
-identify events that answer the above.
+These events are important because they could change an Asset's state, change an Asset's Attribute, verify that an activity has been performed or help with a dispute or audit.
+
+It's not a requirement to track every event, only those that help prove **Who Did What When**.  
+
+The below questions will help you identify events the kind of events you may be interested in.
 
 **What kind of things can happen to my asset?**
 
@@ -100,8 +102,7 @@ Let's discuss what could happen to my bike:
 * Maintenance: Cleaning, checking brake pads
 * Upgrade: bar tape, tires, saddle
 
-These events impact the bike itself, performance of the bike and the ability to race.  This is why I want to track the above activity, to ensure
-that my bike is properly cared for and available for upcoming racing competitions.
+I am interested in these events as they impact the bike itself; the performance of the bike and the ability to race. 
 
 **What kind of decisions that are made during my assets lifecycle am I interested in?**
 
@@ -123,13 +124,16 @@ Based on the aforementioned events, let's take a look at actions of importance:
    - Who did the upgrade?
    - When was the upgrade performed?
 
-The answers to the above help me understand alterations to my bike in addtion to proving **Who Did What When**.  In addition, the tracking of these answers will help 
-with dispute resolution and hopefully lessen confusion between parties.
+The answers to the above help me understand alterations to my bike in addtion to proving **Who Did What When**.  
+
+The tracking of these answers will help with dispute resolution and hopefully lessen confusion between parties.
 
 **What are the properties of these decisions that I am interested in tracking?**
 
 Properties of interest would be those that: change the state of an Asset, change an attribute of the Asset, verify that a relevant activity has been performed and/or would help
-with dispute resolution.  Depending on the type of Asset these properties can range from: location change, change in size (i.e. weight), verification and validation just to name a few.
+with dispute resolution.  
+
+Depending on the type of Asset these properties can range from: location change, change in size (i.e. weight), verification and validation just to name a few.
 
 Focusing on the bike, let's take a look at properties of interest:
 
@@ -140,11 +144,16 @@ Focusing on the bike, let's take a look at properties of interest:
    - Type of part upgraded
    - Serial number of upgraded part
 
-Understanding the impact of a replaced or upgraded part is important because it could change the dynamics of my bike.  These changes could affect the performance, change the look and feel and/or increase longevity.  Thus these properties are significant as they help me make critical decisions about my bike.
+Understanding the impact of a replaced or upgraded part is important because it could change the dynamics of my bike.
+
+These critical changes could significantly affect the performance, change the look and feel and/or increase longevity.  
 
 **What kind of changes to the Asset can I expect, does it gain more properties? Does it change properties itself as a result of the event?**
 
-Part of understanding what to track and what not to track, is knowing which properties may change the Asset.  In addition, does the change to the Asset have other affects.
+Part of understanding what to track and what not to track, is knowing which properties may change the Asset.  
+
+In addition, does the change to the Asset have other affects.
+
 For example, changing the frame of the bike could change the color/look, however upgrading the tires may not change the look but will change the performance.
 
 Let's add the above as part of my bike's lifecycle:

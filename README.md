@@ -33,7 +33,7 @@ npm install
 4. To run a local RKVST Docs Server it is advisable to use the `jitsuin-doks` wrapper
 
 ```bash
-jistuin-doks start
+rkvst-doks start
 ```
 
 This will build a local version of the server that can be accessed at [http://localhost:1313](https://localhost:1313).

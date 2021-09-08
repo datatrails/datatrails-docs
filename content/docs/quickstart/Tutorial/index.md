@@ -204,14 +204,14 @@ When sharing data, it's important to understand: who needs to see what, when do 
 
 2. You will see an Asset Creation form, where you provide details of your new Asset:
 
-{{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateNT.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 
 3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
 * `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
 
-{{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
+{{< img src="AssetCreationDetailsNT.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
 4. At this point, you may wish to add other details to your Asset including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
 
@@ -223,7 +223,7 @@ To add a new Attribute to an Asset select `Add Attribute` then enter your key-va
 
 For Example:
 
-{{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
+{{< img src="AssetExtendedAttributesNT.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 
 5. Once complete, click `Create Asset`
 

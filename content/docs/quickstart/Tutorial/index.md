@@ -209,7 +209,8 @@ When sharing data, it's important to understand: who needs to see what, when do 
 3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
-* `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
+* `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use as their own types
+* `Storage Integrity` - This identifies storage to be used for an Asset. Ledger indicates the Asset will be stored via blockchain. Tenant indicates the Asset will be stored within RKVST tenancy.
 
 {{< img src="AssetCreationDetailsNT.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
@@ -227,15 +228,15 @@ For Example:
 
 5. Once complete, click `Create Asset`
 
-{{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateNT.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 
 6. Navigate to `Manage Assets` to see your Asset in the UI.
 
-{{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
+{{< img src="AssetManageNT.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
 7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
 
-{{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
+{{< img src="AssetViewNT.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
 Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 

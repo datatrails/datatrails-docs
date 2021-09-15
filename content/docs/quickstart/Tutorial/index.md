@@ -244,7 +244,7 @@ Now that we have outlined the bike's journey including sharing access, let's tak
 
 3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
 
-* `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
+* `Asset Name` - This is the unique name of the Asset i.e. 'My Bike'
 * `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use as their own types
 * `Storage Integrity` - This identifies storage to be used for an Asset. Ledger indicates the Asset will be stored via blockchain. Tenant indicates the Asset will be stored within RKVST tenancy.
 
@@ -287,7 +287,7 @@ In order to share Assets and their details with another Organization or Tenant w
 
 1. As a Root User, navigate to `Access Policies`
 
-{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+{{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
 2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
 
@@ -299,7 +299,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 1. As a Root User, navigate to `Access Policies`.
 
-{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+{{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
 2. Select the Subjects Tab and then `Import Subject`.
 
@@ -311,9 +311,9 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 ## Creating an OBAC Sharing Policy
 
-1. Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
+1. Navigate to the `Access Policies` section on the Sidebar of the RKVST User Interface.
 
-{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+{{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
 2. Here you will see any existing policies, select `Add Policy`.
 
@@ -323,9 +323,9 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for any Assets in the `UK Factory` Location created earlier.
+4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for any Assets in the `Jitsuin Paris` Location created earlier.
 
-{{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
+{{< img src="PolicyOBACFilterNT.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 
 5. Next we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.
 

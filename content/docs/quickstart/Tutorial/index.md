@@ -176,25 +176,61 @@ Changes that I could expect from the above events and how they affect my bike.
 
 After the above work is completed, my Asset will change.  In addition to tracking the process of the installation, I also want to know how my bike changed post completion.  My bike looks and feels different and I want to track the final result.
 
+
+### Planning who to Share with
+
+When sharing data, it's important to understand: who needs to see what, when do they need to see it and who requires read and/or write access.  Recognizing these aspects will ensure that **the right data will be shared at the right time to the right resources**.
+
+Referencing my bike, let's take a look at parties involved and what information is required to be shared with who and when.
+
 **Who needs to see which events and which properties?**
 
 My bike is getting a new frame and tires, who else needs to know about this?  Who are the important parties involved?
 
 - Me: owner of the bike
-- Two shops: one will install the frame and the other will upgrade the tires
+- Frame Shop: Frame installation
+- Tire Shop: Tire upgrade
 
 The owner (me), I want to be able to view the entire lifecycle of my bike.  From when I drop it off to when I pick it up and everything in between.
 
 The frame shop, should be able to view all things related to my new frame: status of order, color of frame, make/model, dimenstions, etc.  Events and properties related to the frame should be available for the shop to also update.
 
-The tire shop, should be able tto view all things related to my new tires: status of order, make/model, dimensions, type of tire, etc.  Events and properties related to the tires should be available for the shop to also update.
+The tire shop, should be able to view all things related to my new tires: status of order, make/model, dimensions, type of tire, etc.  Events and properties related to the tires should be available for the shop to also update.
 
-The two shops should be able to view progress but it's not a requirement to see "everything".  My bike will be at the frame shop first, then when done will be dropped off at the tire shop.
-Both shops should see when I dropped off the bike making parties aware that the lifecycle has begun.  However, the tire shop should only need to know when the frame shop is done and ETA of drop off, so they can begin work. Establishing the above will increase effecient and effective communication.
+**When should events be shared?**
 
-### Planning who to Share with
+The frame and tire shop should be able to view progress but it's not a requirement to see "everything".  My bike will be at the frame shop first, then when done will be dropped off at the tire shop.  The shops are adjacent to each other and have agreed to transport the bike themselves, thus the frame shop will deliver the bike to the tire shop.
 
-When sharing data, it's important to understand: who needs to see what, when do they need to see it and who requires read and/or write access.  Recognizing these aspects will ensure that **the right data will be shared at the right time to the right resources**.
+- Workflow of Events
+  - Owner drops off bike at frame shop
+  - Frame shop orders and installs frame
+  - Bike is transported to tire shop
+  - Tire shop orders and installs tires
+  - Tire shop notifies owner of completion
+  - Owner pays and picks up bike
+
+Both shops should see when I dropped off the bike making parties aware that the lifecycle has begun.  However, the tire shop should only need to know when the frame shop is done and ETA of drop off, so they can schedule appropriately. Sharing this information will increase effecient and effective communication.
+
+**Who should have access to update/add data?**
+
+The purpose of sharing data is to relay changes/updates when they happen.  This allows one gain insight into an Asset's lifecycle and make informed decisions.  Based on the workflow let's look at when data should be updated and onus.
+
+- Frame Shop
+  - Able to update timing of bike drop off
+  - Able to update order ETA
+  - Able to update frame properties (color, size, dimensions, etc ..)
+  - Able to update installation progress and ETA
+  - Able to update bike drop off to tire shop
+- Tire Shop
+  - Able to update timing of bike drop off 
+  - Able to update order ETA
+  - Able to update tire properties (type, size, dimensions, etc ..)
+  - Able to update installation progress and ETA
+  - Able to update completion and pick up window
+
+As you see, both shops should be able to update aspects of their work with additional drop off information.  However only a subset of this information will be shared between the shops, but all the information will be shared with the owner.
+
+Now that we have outlined the bike's journey including sharing access, let's take this a step further and input this information into RKVST's user interface.
 
 ## Creating an Asset
 

@@ -343,13 +343,13 @@ Note we have included RKVST-significant atributes: `arc_display_name` and `arc_d
 
 {{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
-8. Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Weight` attribute.
+8. Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
 
-{{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
+{{< img src="PolicyOBACMandyViewNT.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 
 By comparison our Root User, Jill, can see the full details of the Asset:
 
-{{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
+{{< img src="PolicyOBACJillViewNT.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 
 9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
@@ -360,7 +360,7 @@ There are many possible fine-grained controls and as such ABAC and OBAC Policy C
 
 1. When viewing your Asset click the `Record Event` button.
 
-{{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
+{{< img src="EventRecordNT.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
 2. You will see the following screen, where you can enter an Event type and description.
 
@@ -368,18 +368,18 @@ There are many possible fine-grained controls and as such ABAC and OBAC Policy C
 
 3. Tabs enable you to enter both Event and Asset attributes.
 
-* `Event Attributes` - Attributes specific to an Event e.g. which device recorded the Event
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. overall weight of a container
+* `Event Attributes` - Attributes specific to an Event e.g. signifying when the frame was ordered
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. color of the frame
 
 Select the `Add Attribute` button on each field to add your Key-Value pairs.
 
 For example:
 
-{{< img src="EventAttributes.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+{{< img src="EventAttributesNT.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
-{{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
+{{< img src="EventAssetAttributesNT.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 
-Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
+Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
@@ -387,18 +387,18 @@ There is an option to append `timestamp_declared` and `principal_declared` attri
 
 PDFs or images can be recorded with an Event in the same way as an Asset. 
 
-This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+This is useful for storing associated material for posterity. For example, each `Frame Order` Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.
 
 4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
 
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
-{{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
+{{< img src="EventRecordedNT.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
 5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
 
-{{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
+{{< img src="EventViewNT.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
 Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
 
-{{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
+{{< img src="EventAttributeViewNT.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}

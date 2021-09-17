@@ -236,7 +236,7 @@ Now that we have outlined the bike's journey including sharing access, let's tak
 
 1. Using the Sidebar, select `Add Asset`.
 
-{{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
+{{< img src="AssetAddNT.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 
 2. You will see an Asset Creation form, where you provide details of your new Asset:
 

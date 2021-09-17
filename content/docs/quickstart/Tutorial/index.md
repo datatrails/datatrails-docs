@@ -47,7 +47,7 @@ Some things to consider are the following:
 
 * **Authenticated Provenance** - Delivering full traceability on all internal and external data sources to speed and assure critical decisions.
 
-* **Continuous Accountability** - Instantly auditable evidence “Proves When Who Did What” for any shared asset to delight your GRC team.
+* **Continuous Accountability** - Instantly auditable evidence “Proves Who Did What When” for any shared asset to delight your GRC team.
 
 * **Persistent Integrity** - Create a complete, unbroken, and permanent record of shared event transactions, delivering continuous assurance for faster critical decisions.
 
@@ -104,7 +104,7 @@ Let's discuss what could happen to my bike:
 
 I am interested in these events as they impact the bike itself; the performance of the bike and the ability to race. 
 
-**What kind of decisions that are made during my assets lifecycle am I interested in?**
+**What kind of decisions made during my assets lifecycle am I interested in?**
 
 Not all decisions made require tracking, however those that affect the state of my bike, change an attribute or help me verify that an activity has been
 performed are decisons of interest.
@@ -133,7 +133,7 @@ The tracking of these answers will help with dispute resolution and hopefully le
 Properties of interest would be those that: change the state of an Asset, change an attribute of the Asset, verify that a relevant activity has been performed and/or would help
 with dispute resolution.  
 
-Depending on the type of Asset these properties can range from: location change, change in size (i.e. weight), verification and validation just to name a few.
+Depending on the type of Asset these properties can range from: location, change in size (i.e. weight), verification and validation just to name a few.
 
 Focusing on the bike, let's take a look at properties of interest:
 

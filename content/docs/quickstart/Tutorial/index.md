@@ -266,7 +266,7 @@ For Example:
 
 {{< img src="AssetCreateNT.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 
-6. Navigate to `Manage Assets` to see your Asset in the UI.
+6. `Manage Assets` (default view) is where one can see their Asset within the UI.
 
 {{< img src="AssetManageNT.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 

@@ -13,15 +13,14 @@ weight: 26
 toc: true
 ---
 
-## How to think about RKVST
 
 When planning to use RKVST it is important to consider not just what you need to track but how to track it and what information you may want to share with others along the way.
 
-These considerations and their conclusions can vary heavily from situation to situation, the following guide will take you through a basic walkthrough of how to build up your RKVST solution.
+These considerations and their conclusions can vary heavily from solution to solution, the following guide will take you through a basic walkthrough of how to build up your own RKVST solution.
 
 ### Planning your Asset
 
-Often many know ahead of time what they would like to track in RKVST; whether it's a Shipping Container and its route, the status of a Software Bill of Materials as a product gets updated or even the impact of decisions made during a business process.
+Often many know ahead of time what they would like to track in RKVST; whether it's a Shipping Container and its routes, the status of a Software Package as it gets updated or even the impact of the decisions made during a business process.
 
 Whether you do know or not, it would be worth asking the following questions to establish a good understanding of what you aim to achieve with RKVST:
 
@@ -35,11 +34,15 @@ What kind of assurance are you seeking?
 
 We'll follow along with a simple example to illustrate; I am interested in tracking the changes my bike will go through over it's lifetime.
 
-**Why am I interest in tracking this?**
+In RKVST terms my bike would be considered an Asset.
 
-Here we need to consider why this process or object needs assurance.
+**Why am I interested in tracking this?**
 
-Why is it we need to track it? What do we hope to gain by tracking it?
+Here we need to consider why this process or object needs assurance, this may seem simple at first but understanding the answer to this question will become the foundation for the rest of your solution.
+
+Why is it we need to track it?
+
+What do we hope to gain by tracking it?
 
 Some things to consider are the following:
 
@@ -47,7 +50,7 @@ Some things to consider are the following:
 
 * **Authenticated Provenance** - Delivering full traceability on all internal and external data sources to speed and assure critical decisions.
 
-* **Continuous Accountability** - Instantly auditable evidence “Proves Who Did What When” for any shared asset to delight your GRC team.
+* **Continuous Accountability** - Instantly auditable evidence “Proves Who Did What When” for any shared asset.
 
 * **Persistent Integrity** - Create a complete, unbroken, and permanent record of shared event transactions, delivering continuous assurance for faster critical decisions.
 
@@ -57,7 +60,7 @@ I am an avid cyclist, it is important my bike is always in top condition when I 
 
 I would like to be able to go into any race assured that my bike has a recorded history of being properly serviced by the right mechanics.
 
-I should be able to asset that once serviced all of the parts are in order, so that I can assure my bike's integrity has not been tampered with.
+I should be able to assert that once serviced all of the parts are in order, so that I can assure my bike's integrity has not been tampered with.
 
 This should also mean that if I ever choose to sell my bike I can demonstrate to the buyer a full history of all changes to my bike and I can resolve any queries or disputes that may occur.
 
@@ -78,23 +81,25 @@ When considering my bike I am interested in a number of things:
 * Tracking the last time the bike got serviced
 * Tracking who last serviced it
 
-I am also interested in tracking the times I placed in my last few races as well.
+I am also interested in tracking the times I placed in my last few races, for my own satisfaction.
 
-You should notice that some of these things I'd like to track aren't strictly properties of the bike itself.
+You should notice that some of these things I'd like to track aren't strictly properties of the bike itself; rather they are events that may happen to my bike during it's lifecycle.
 
-This is because we have also have another aspect of our bike to consider, what kind of Events can happen to the bike?
+Events are a significant aspect of RKVST and managing Asset lifecycles, in the next section we will discuss what you may need to ask yourself to continue developing your solution.
 
 ### Planning Events
 
-There are things that happen throughout an Asset's lifecyle that you may want to track.  
+Events are things that happen throughout an Asset's lifecyle that you may want to track.  
 
-These events are important because they could change an Asset's state, change an Asset's Attribute, verify that an activity has been performed or help with a dispute or audit.
+These events are important because they have the ability to change an Asset's attributes, verify when an activity has been performed (and by whom) or help with a dispute or audit.
 
-It's not a requirement to track every event, only those that help prove **Who Did What When**.  
+In fact, once an Asset has been created in RKVST the only way to change any of its attributes is to use an Event.
 
-The below questions will help you identify events the kind of events you may be interested in.
+It is not a requirement to track every event in an asset lifecycle, only those that help prove **Who Did What When**.  
 
-**What kind of things can happen to my asset?**
+The following questions will help you identify the events you may be interested in:
+
+**What kind of things may happen to my asset?**
 
 Let's discuss what could happen to my bike:
 
@@ -102,14 +107,37 @@ Let's discuss what could happen to my bike:
 * Maintenance: Cleaning, checking brake pads
 * Upgrade: bar tape, tires, saddle
 
-I am interested in these events as they impact the bike itself; the performance of the bike and the ability to race. 
+I am interested in these events as they impact the bike itself; the performance of the bike and my ability to race with it. 
 
 **What kind of decisions made during my assets lifecycle am I interested in?**
 
-Not all decisions made require tracking, however those that affect the state of my bike, change an attribute or help me verify that an activity has been
-performed are decisons of interest.
+Not all decisions made require tracking, instead I seek to add assurance to the decisions that impact my ability to race my bike.
 
-Based on the aforementioned events, let's take a look at actions of importance:
+Let us take a look at actions of importance:
+
+- Worn or Damaged Parts:
+   - Type of part replaced
+   - Serial number of part
+- Upgrade:
+   - Type of part upgraded
+   - Serial number of upgraded part
+
+Understanding the impact of a replaced or upgraded part is important because it could change the dynamics of my bike.
+
+These critical changes could significantly affect the performance, change the look and feel and/or increase longevity of my bike. 
+
+**What are the properties of these decisions that I am interested in tracking?**
+
+At this point we should introduce the concept of `Event Attributes`.
+
+In the same way that an Asset has attributes so does an Event; for example, a maintenance event is performed by a specific mechanic.
+
+This means that when we create an Event against an Asset we can define two sets of Attributes:
+
+* `Asset Attributes` - Change/Update the current state of the Asset and it's attributes.
+* `Event Attributes` - Attributes of the specific event being recorded.
+
+Focusing on the bike, let's take a look at properties of the events:
 
 - Worn or Damaged Parts:
    - What parts have been replaced?
@@ -124,64 +152,19 @@ Based on the aforementioned events, let's take a look at actions of importance:
    - Who did the upgrade?
    - When was the upgrade performed?
 
-The answers to the above help me understand alterations to my bike in addtion to proving **Who Did What When**.  
+The answers to the above help me understand alterations to the attributes of my bike and its' readiness on the day of a race.
 
-The tracking of these answers will help with dispute resolution and hopefully lessen confusion between parties.
+This also helps with any dispute resolution and ensures the right information is with the right people at the right time if I need to refer to any mechanics.
 
-**What are the properties of these decisions that I am interested in tracking?**
+A huge benefit of using RKVST is the ability to set granular permissions on what information is shared with which people; including which Asset Attributes, which Events and even which specific Event Attributes I wish to share. 
 
-Properties of interest would be those that: change the state of an Asset, change an attribute of the Asset, verify that a relevant activity has been performed and/or would help
-with dispute resolution.  
-
-Depending on the type of Asset these properties can range from: location, change in size (i.e. weight), verification and validation just to name a few.
-
-Focusing on the bike, let's take a look at properties of interest:
-
-- Worn or Damaged Parts:
-   - Type of part replaced
-   - Serial number of part
-- Upgrade:
-   - Type of part upgraded
-   - Serial number of upgraded part
-
-Understanding the impact of a replaced or upgraded part is important because it could change the dynamics of my bike.
-
-These critical changes could significantly affect the performance, change the look and feel and/or increase longevity.  
-
-**What kind of changes to the Asset can I expect, does it gain more properties? Does it change properties itself as a result of the event?**
-
-Part of understanding what to track and what not to track, is knowing which properties may change the Asset.  
-
-In addition, does the change to the Asset have other affects.
-
-For example, changing the frame of the bike could change the color/look, however upgrading the tires may not change the look but will change the performance.
-
-Let's add the above as part of my bike's lifecycle:
-
-- Worn or Damaged Parts:
-   - Replacing frame (same size as old frame but different color)
-- Upgrade:
-   - Tires for higher performance during inclement weather/terrain
-
-Changes that I could expect from the above events and how they affect my bike.
-
-- Replacement Frame
-   - Color Change 
-   - Size (still want to track to ensure the sizing hasn't changed)
-   - Make/model of frame
-- New Tires
-   - Make/model of tires
-   - Size of tires
-   - PSI of tires
-
-After the above work is completed, my Asset will change.  In addition to tracking the process of the installation, I also want to know how my bike changed post completion.  My bike looks and feels different and I want to track the final result.
-
+As we should have some idea of the events in the lifecycle of our asset, what attributes of the asset those events affect and even the attributes of the events themselves; in the next section we will cover the steps needed when planning to share information across your RKVST tenancy.
 
 ### Planning who to Share with
 
 When sharing data, it's important to understand: who needs to see what, when do they need to see it and who requires read and/or write access.  Recognizing these aspects will ensure that **the right data will be shared at the right time to the right resources**.
 
-Referencing my bike, let's take a look at parties involved and what information is required to be shared with who and when.
+Getting back to my bike, let's take a look at the parties involved and what information is required to be shared with who and when.
 
 **Who needs to see which events and which properties?**
 
@@ -230,7 +213,7 @@ The purpose of sharing data is to relay changes/updates when they happen.  This 
 
 As you see, both shops should be able to update aspects of their work with additional drop off information.  However only a subset of this information will be shared between the shops, but all the information will be shared with the owner.
 
-Now that we have outlined the bike's journey including sharing access, let's take this a step further and input this information into RKVST's user interface.
+Now that we have outlined the bike's journey including sharing access, let's jump in and put this information into RKVST.
 
 ## Creating an Asset
 

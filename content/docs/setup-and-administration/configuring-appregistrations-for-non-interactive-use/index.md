@@ -1,7 +1,7 @@
 ---
-title: "Configuring Clients for Non-Interactive Use"
-description: "Creating Clients for RKVST"
-lead: "Creating Clients for RKVST"
+title: "Configuring App Registrations for Non-Interactive Use"
+description: "Creating App Registrations for RKVST"
+lead: "Creating App Registrations for RKVST"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2021-06-16T11:12:25+01:00
 draft: false
@@ -15,9 +15,9 @@ toc: true
 
 To enable non-interactive access to RKVST APIs:
 
-* Create an Application Registration in your archivist.
+* Create an App Registration in your archivist.
 
-## Create an Application Registration
+## Create an App Registration
 
 * Visit the APP REGISTRATIONS tab on the Manage RKVST page in the archivist ui.
 * Click CREATE APP REGISTRATION.

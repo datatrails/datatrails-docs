@@ -64,7 +64,7 @@
 
 [[main]]
   name = "Support"
-  url = "/support/contactus"
+  url = "https://support.rkvst.com"
   weight = 20
 
 [[main]]

@@ -18,13 +18,13 @@ When planning to use RKVST it is important to consider not just what you need to
 
 These considerations and their conclusions can vary heavily from solution to solution, the following guide will take you through a basic walkthrough of how to build up your own RKVST solution.
 
-### Planning your Asset
+## Planning your Asset
 
 Often many know ahead of time what they would like to track in RKVST; whether it's a Shipping Container and its routes, the status of a Software Package as it gets updated or even the impact of the decisions made during a business process.
 
 Whether you do know or not, it would be worth asking the following questions to establish a good understanding of what you aim to achieve with RKVST:
 
-**What am I interested in tracking?**
+### What am I interested in tracking?
 
 Here you need to consider what information you are interested in, is it a particular object whose history you would like to track?
 
@@ -32,11 +32,15 @@ Maybe you have a process your business is performing and you'd like to add some 
 
 What kind of assurance are you seeking?
 
-We'll follow along with a simple example to illustrate; I am interested in tracking the changes my bike will go through over it's lifetime.
+An Asset in RKVST is the focal point around which you can describe attributes, build event lifecycles, define sharing policies and more.
 
-In RKVST terms my bike would be considered an Asset.
+For more information on what an asset is in RKVST, check out our [Core Concepts Section](../../overview/core-concepts#assets): or our [Assets API Reference](../../api-reference/assets-api) if you'd like programmatic details. 
 
-**Why am I interested in tracking this?**
+We'll follow along with a simple example to illustrate; I am interested in tracking the changes my bike will go through over its lifetime.
+
+If you're up to speed on what an asset is, bear with us as there are just a couple more things to check before creating it!
+
+### Why am I interested in tracking this?
 
 Here we need to consider why this process or object needs assurance, this may seem simple at first but understanding the answer to this question will become the foundation for the rest of your solution.
 
@@ -64,9 +68,11 @@ I should be able to assert that once serviced all of the parts are in order, so 
 
 This should also mean that if I ever choose to sell my bike I can demonstrate to the buyer a full history of all changes to my bike and I can resolve any queries or disputes that may occur.
 
-**What are the properties of the item I am interested in tracking?**
+Now we have this understanding it will underpin many of the design decisions we plan to make going forward.
 
-As discussed in our [Core Concepts Section](../../overview/core-concepts#assets):
+### What are the properties of the item I am interested in tracking?
+
+Let's move on to something a little more tangible, as discussed in our [Core Concepts Section](../../overview/core-concepts#assets):
 
 >RKVST Assets are essentially very simple: a collection of attributes that describe the Asset expressed as a standard JSON document.
 
@@ -85,7 +91,15 @@ I am also interested in tracking the times I placed in my last few races, for my
 
 You should notice that some of these things I'd like to track aren't strictly properties of the bike itself; rather they are events that may happen to my bike during it's lifecycle.
 
-Events are a significant aspect of RKVST and managing Asset lifecycles, in the next section we will discuss what you may need to ask yourself to continue developing your solution.
+Events are an essential aspect of your Asset and its lifecycle, in the next section we will discuss fleshing out the events for your asset.
+
+For now we're going to keep it simple and stick to Asset Attributes only, let's sketch out a rough description of our bike as an Asset:
+
+```json
+{
+
+}
+```
 
 ### Planning Events
 

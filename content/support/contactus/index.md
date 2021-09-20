@@ -7,4 +7,4 @@ draft: false
 images: []
 ---
 
-Contact community.support@jitsuin.com
+For any queries please contact support@rkvst.com

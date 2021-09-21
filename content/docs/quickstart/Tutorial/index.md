@@ -1,5 +1,5 @@
 ---
-title: "Quickstart"
+title: "Tutorial"
 description: ""
 lead: ""
 date: 2021-05-18T15:33:31+01:00
@@ -58,7 +58,6 @@ For Example:
 Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 
 The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
-
 
 ## Adding External Organizations to Allow Sharing
 
@@ -134,8 +133,7 @@ By comparison our Root User, Jill, can see the full details of the Asset:
 
 9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
-There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).
-
+ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).
 
 ## Creating Events
 
@@ -163,8 +161,6 @@ For example:
 Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
-
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
 
 PDFs or images can be recorded with an Event in the same way as an Asset. 
 

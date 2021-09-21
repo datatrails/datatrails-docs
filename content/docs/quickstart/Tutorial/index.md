@@ -110,7 +110,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for any Assets in the `Jitsuin Paris` Location created earlier.
+4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for Bike Assets in the `Jitsuin Paris` Location created earlier.
 
 {{< img src="PolicyOBACFilterNT.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 

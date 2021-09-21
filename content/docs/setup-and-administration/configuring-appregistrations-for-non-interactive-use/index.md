@@ -13,31 +13,61 @@ weight: 12
 toc: true
 ---
 
-Non-interactive access to the RKVST platform is managed through `App Registrations` in the `Manage RKVST` Interface.
+Non-interactive access to the RKVST platform is managed by creating `App Registrations` either via the Manage RKVST Interface in the UI or by using the App Registrations API directly.
 
-`App Registrations` are Machine Auth Profiles with `CLIENT ID`s and `SECRET`s that can then be used to generate JWT Tokens for authenticating to the RKVST API Endpoints.
-
-To enable non-interactive access to RKVST you **must** create your first `App Registration` in the RKVST UI as a `Root User`.
+`App Registrations` are Authentication Profiles with a `CLIENT ID` and `SECRET` that can then be used to generate JWT Tokens for authenticating to RKVST API Endpoints.
 
 ## Creating an App Registration
 
+To enable non-interactive access to RKVST you **must** create your first `App Registration` in the RKVST UI and **only** as a Root User.
+
 ### Using the RKVST UI (Required for First-Time Setup)
 
-1. As a `Root User` visit the APP REGISTRATIONS tab on the Manage RKVST page in the RKVST UI.
+1. As a Root User visit the APP REGISTRATIONS tab in the `Manage RKVST` Interface
 2. Click CREATE APP REGISTRATION.
 3. Enter any display name you like.
-  a. Optional - using the ADD CUSTOM CLAIM button Add any extra claims you require in your access token.
+a. Optional - using the ADD CUSTOM CLAIM button Add any extra claims you require in your access token.
 4. Click CREATE APP REGISTRATION. The response will include the CLIENTID and SECRET required by the archivist token endpoint.
 
 {{< caution >}}
-**Caution:** You **must** take note of the secret at this point - it can not be viewed again.
-{{< /caution > }}
+**Caution:** You **must** take note of the secret at this point - it can not be viewed again later.
+{{< /caution >}}
+
+5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 ### Using the App Registrations API
 
-1. Define your Application json and save it to local path e.g.
+The following assumes you already have at least one `App Registration` configured and that you are comfortable generating tokens and using the RKVST API.
 
+If you do not yet have an App Registration configured please follow [the first-time setup guide](./#creating-an-app-registration) to get started.
 
+1. Define your new Application JSON and save it to a file locally. e.g.
+
+```json
+{
+    "display_name": "TrafficLight101",
+    "custom_claims": {
+      "serial_number": "TL1000000101",
+      "has_cyclist_light": "true"
+    }
+}
+```
+
+2. Generate a token using your pre-existing `App Registration` details
+
+```bash
+RESPONSE=$(curl \
+    https://app.rkvst.io/archivist/iam/v1/appidp/token \
+    --data-urlencode "grant_type=client_credentials" \
+    --data-urlencode "client_id=${CLIENTID}" \
+    --data-urlencode "client_secret=${SECRET}")
+
+TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
+```
+
+and save it locally
+
+3. Submit your new Application JSON to the App Registration API Endpoint 
 
 ```bash
 curl -X POST \
@@ -47,7 +77,20 @@ curl -X POST \
      $URL/archivist/iam/v1/applications
 ```
 
-## Getting a token with your App Registration
+You should see a response like so:
+
+
+
+
+{{< caution >}}
+**Caution:** You **must** take note of the secret at this point - it can not be viewed again later.
+{{< /caution >}}
+
+4. You should now have a newly configured App Registration and have recorded its `CLIENT_ID` and its `SECRET` so that it can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).
+
+For more details check out our [App Registrations API Reference](../../api-reference/app-registrations-api) which not only contains more detailed usage examples but also has the full OpenAPI Reference.
+
+## Getting a Token With Your App Registration
 
 Having completed the steps at [Creating an App Registration](./#creating-an-app-registration), and having taken note of the `CLIENT ID` and the `SECRET`, a token can be obtained with the following command.
 
@@ -63,7 +106,7 @@ $ RESPONSE=$(curl \
 $ TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
 ```
 
-### Using your token
+### Testing Your Access
 
 To confirm access token configuration, use the shell command (above) to obtain
 an access token. The response is json structured data. The token is found in
@@ -83,4 +126,3 @@ echo -n $TOKEN | cut -d '.' -f 2 | base64 -D
 **Note:** Decoding tokens with an online service exposes your RKVST until you delete the test secret.
 {{< /note >}}
 
-##

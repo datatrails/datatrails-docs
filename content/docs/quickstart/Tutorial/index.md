@@ -12,11 +12,6 @@ menu:
 weight: 26
 toc: true
 ---
-## Accessing RKVST
-
-1. To log into RKVST, select the link and follow the prompts:
-   [RKVST Login](https://app.rkvst.io/login)
-
 
 ## Creating an Asset
 

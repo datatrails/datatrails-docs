@@ -33,7 +33,8 @@ toc: true
 
 4. You may wish to add other details to your Asset including attachments and Extended Attributes. 
 
-Extended Attributes are user-defined and can be added to each unique Asset. 
+Extended Attributes are user-defined and can be added to each unique Asset.
+
 To add a new Attribute to an Asset select `Add Attribute` then enter your key-value pair.
 
 For Example:
@@ -163,7 +164,7 @@ Here we see someone noted the frame has been ordered in the Event, and has also 
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
-PDFs or images can be recorded with an Event in the same way as an Asset. 
+PDFs or images can also be recorded with an Event in the same way as an Asset. 
 
 This is useful for storing associated material for posterity. For example, each `Frame Order` Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.
 

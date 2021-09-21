@@ -15,24 +15,37 @@ toc: true
 
 Non-interactive access to the RKVST platform is managed through `App Registrations` in the `Manage RKVST` Interface.
 
-`App Registrations` are Machine Auth Profiles with `Client ID`s and `Client Secret`s that can then be used to generate JWT Tokens for authenticating to the RKVST API Endpoints.
+`App Registrations` are Machine Auth Profiles with `CLIENT ID`s and `SECRET`s that can then be used to generate JWT Tokens for authenticating to the RKVST API Endpoints.
 
-To enable non-interactive access to RKVST you must create your first `App Registration` in the RKVST UI as a `Root User`.
+To enable non-interactive access to RKVST you **must** create your first `App Registration` in the RKVST UI as a `Root User`.
 
 ## Creating an App Registration
 
-### Using the RKVST UI (First-Time Setup)
+### Using the RKVST UI (Required for First-Time Setup)
 
-* Visit the APP REGISTRATIONS tab on the Manage RKVST page in the RKVST UI.
-* Click CREATE APP REGISTRATION.
-* Enter any display name you like.
-* Optional - using the ADD CUSTOM CLAIM button Add any extra claims you require in your access token.
-* Click CREATE APP REGISTRATION. The response will include the CLIENTID and
-  SECRET required by the archivist token endpoint.
+1. As a `Root User` visit the APP REGISTRATIONS tab on the Manage RKVST page in the RKVST UI.
+2. Click CREATE APP REGISTRATION.
+3. Enter any display name you like.
+  a. Optional - using the ADD CUSTOM CLAIM button Add any extra claims you require in your access token.
+4. Click CREATE APP REGISTRATION. The response will include the CLIENTID and SECRET required by the archivist token endpoint.
 
-You MUST take note of the secret - it can not be viewed again.
+{{< caution >}}
+**Caution:** You **must** take note of the secret at this point - it can not be viewed again.
+{{< /caution > }}
 
 ### Using the App Registrations API
+
+1. Define your Application json and save it to local path e.g.
+
+
+
+```bash
+curl -X POST \
+     -H "@$BEARER_TOKEN_FILE" \
+     -H "Content-Type: application/json" \
+     -d "@/path/to/jsonfile" \
+     $URL/archivist/iam/v1/applications
+```
 
 ## Getting a token with your App Registration
 

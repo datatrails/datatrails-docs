@@ -19,4 +19,4 @@ toc: true
 
 ## App Registrations OpenAPI Docs
 
-{{</* openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/<your-swagger-ref-here>.swagger.json" */>}}
+{{< openapi url="https://raw.githubusercontent.com/leflambeur/k3d-demo/main/appregistrationsv1.swagger.json" >}}

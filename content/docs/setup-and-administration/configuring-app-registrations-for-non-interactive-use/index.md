@@ -30,7 +30,7 @@ a. Optional - using the ADD CUSTOM CLAIM button Add any extra claims you require
 4. Click CREATE APP REGISTRATION. The response will include the CLIENTID and SECRET required by the archivist token endpoint.
 
 {{< caution >}}
-**Caution:** You **must** take note of the secret at this point - it can not be viewed again later.
+**Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later.
 {{< /caution >}}
 
 5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
@@ -65,7 +65,7 @@ RESPONSE=$(curl \
 TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
 ```
 
-and save it locally
+and save it locally to a bearer_token file.
 
 3. Submit your new Application JSON to the App Registration API Endpoint 
 
@@ -77,13 +77,30 @@ curl -X POST \
      $URL/archivist/iam/v1/applications
 ```
 
-You should see a response like so:
+You should see a response with details about the App Registration's `CLIENT ID` and `SECRET`:
 
-
-
+```json
+{
+    "identity": "applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
+    "display_name": "TrafficLight101",
+    "client_id": "d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
+    "tenant_id": "tenant/53e6bed7-6f4c-4a37-8c4f-cf889f2b1aa6",
+    "credentials": [
+        {
+            "secret":"a0c09972b6ac912a4d67815fef88093c81a99b49977d35ecf6d162631aa29173",
+            "valid_from": "2021-09-21T16:43:19Z",
+            "valid_until": "2022-09-21T16:43:19Z"
+        }
+    ],
+    "custom_claims": {
+        "serial_number": "TL1000000101",
+        "has_cyclist_light": "true"
+    }
+}
+```
 
 {{< caution >}}
-**Caution:** You **must** take note of the secret at this point - it can not be viewed again later.
+**Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later.
 {{< /caution >}}
 
 4. You should now have a newly configured App Registration and have recorded its `CLIENT_ID` and its `SECRET` so that it can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).

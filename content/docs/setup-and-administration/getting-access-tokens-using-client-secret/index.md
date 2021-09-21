@@ -15,11 +15,11 @@ toc: true
 
 Having completed the steps at [App Registration](../configuring-appregistrations-for-non-interactive-use/), and taken note of the `CLIENT ID` and the `SECRET`, a token can be obtained with the following command.
 
-Replace `${CLIENTID}` with the application id, and `${SECRET}` with your secret from the application registration; `${FQDN}` is the FQDN of the RKVST SaaS.
+Replace `${CLIENTID}` with the application id, and `${SECRET}` with your secret from the application registration.
 
 ```bash
 $ RESPONSE=$(curl \
-    https://${FQDN}/iam/v1/appidp/token \
+    https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
     --data-urlencode "client_id=${CLIENTID}" \
     --data-urlencode "client_secret=${SECRET}")

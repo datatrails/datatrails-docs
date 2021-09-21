@@ -21,39 +21,40 @@ toc: true
 
 2. You will see an Asset Creation form, where you provide details of your new Asset:
 
-{{< img src="AssetCreateNT.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 
-3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
+3. At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My Bike'
-* `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use as their own types
-* `Proof Mechanism` - This identifies storage to be used for an Asset. Ledger indicates the Asset will be stored via blockchain. Tenant indicates the Asset will be stored within RKVST tenancy.
+* `Asset Type` - This is the type of Asset, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use as their own types
+* `Proof Mechanism` - This identifies storage to be used for an Asset. Khipu indicates the Asset will be stored via blockchain. Simple Hash indicates the Asset will be stored within RKVST tenancy.
 
-{{< img src="AssetCreationDetailsNT.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
+{{< img src="AssetCreationDetailsQS.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
-4. At this point, you may wish to add other details to your Asset including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
+4. You may wish to add other details to your Asset including attachments and Extended Attributes. 
 
 Extended Attributes are user-defined and can be added to each unique Asset. 
-
-Not all Assets of a specific type need to have the same Extended Attributes, but in most cases it is better to do so for consistency. 
-
 To add a new Attribute to an Asset select `Add Attribute` then enter your key-value pair.
 
 For Example:
 
-{{< img src="AssetExtendedAttributesNT.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
+{{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
+
+To add an attachment, select `Add Attchment` and then select the plus symbol.
+
+{{< img src="AssetAttachmentQS.png" alt="Rectangle" caption="<em>Asset Attachment</em>" class="border-0" >}}
 
 5. Once complete, click `Create Asset`
 
-{{< img src="AssetCreateNT.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 
 6. `Manage Assets` (default view) is where one can see their Asset within the UI.
 
-{{< img src="AssetManageNT.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
+{{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
 7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
 
-{{< img src="AssetViewNT.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
+{{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
 Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 
@@ -103,7 +104,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for any Assets in the `Jitsuin Paris` Location created earlier.
+4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for Bike Assets in the `Jitsuin Paris` Location created earlier.
 
 {{< img src="PolicyOBACFilterNT.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 

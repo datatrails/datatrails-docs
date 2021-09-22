@@ -73,6 +73,8 @@ In order to share Assets and their details with another Organization or Tenant w
 
 2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
 
+{{< note >}} **Note:** Please do not use the subject info obtained from the copy menu on the login button. {{< /note >}}
+
 This string is the one you should share with a 3rd Party who wants to share their data with you.
 
 {{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
@@ -119,13 +121,17 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. When the relevant controls are in place we then add the Permisson Group to the policy.
+7. Once the relevant details are complete, then add the Permisson Group to the policy by selecting `Add Permission Group`.
 
 Note we have included RKVST-significant atributes: `arc_display_name` and `arc_display_type` which brings visibility to the Name and Type of Asset being shared. 
 
-{{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
+{{< img src="PolicyPermissionsQS.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
-8. Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
+8. Once complete, select `Create Policy` and check the Asset is shared appropriately
+
+{{< img src="PolicyOBACPermissionsQS.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
+
+Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
 
 {{< img src="PolicyOBACMandyViewNT.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 

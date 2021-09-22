@@ -82,4 +82,4 @@ Each of these calls returns a list of matching blockchain transactions in the fo
 
 ## Blockchain OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blockchain_blockchainv1alpha1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blockchainv1alpha1.swagger.json" >}}

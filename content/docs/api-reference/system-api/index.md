@@ -86,4 +86,4 @@ The response is:
 
 ## System OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/archivistnode.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/archivistnodev1.swagger.json" >}}

@@ -202,4 +202,4 @@ The response is:
 
 ## IAM Subjects OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/subjects.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/subjectsv1.swagger.json" >}}

@@ -41,7 +41,7 @@ For Example:
 
 {{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 
-To add an attachment, select `Add Attchment` and then select the plus symbol.
+To add an attachment, select `Add Attachment` and then select the plus symbol.
 
 {{< img src="AssetAttachmentQS.png" alt="Rectangle" caption="<em>Asset Attachment</em>" class="border-0" >}}
 
@@ -141,11 +141,11 @@ ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, 
 
 1. When viewing your Asset click the `Record Event` button.
 
-{{< img src="EventRecordNT.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
+{{< img src="EventRecordQS.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
 2. You will see the following screen, where you can enter an Event type and description.
 
-{{< img src="EventInformation.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
+{{< img src="EventInformationQS.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
 
 3. Tabs enable you to enter both Event and Asset attributes.
 
@@ -156,9 +156,9 @@ Select the `Add Attribute` button on each field to add your Key-Value pairs.
 
 For example:
 
-{{< img src="EventAttributesNT.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+{{< img src="EventAttributesQS.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
-{{< img src="EventAssetAttributesNT.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
+{{< img src="EventAssetAttributesQS.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 
 Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
 
@@ -172,11 +172,11 @@ This is useful for storing associated material for posterity. For example, each 
 
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
-{{< img src="EventRecordedNT.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
+{{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
 5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
 
-{{< img src="EventViewNT.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
+{{< img src="EventViewQS.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
 Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
 

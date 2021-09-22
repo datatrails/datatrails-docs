@@ -1,0 +1,702 @@
+<!doctype html><html lang=en-gb>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel=preload as=font href=https://docs.rkvst.com/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin>
+<link rel=preload as=font href=https://docs.rkvst.com/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin>
+<link rel=stylesheet href=https://docs.rkvst.com/main.bc5d197ef492c7c2c039f397a1c1bad56f434393fd9478da52b9cedd63bae3c25f1aa4775c4730ddf80eb5352e9785133f934f8df30838d4a3297954a77472cb.css integrity="sha512-vF0ZfvSSx8LAOfOXocG61W9DQ5P9lHjaUrnO3WO648JfGqR3XEcw3fgOtTUul4UTP5NPjfMIONSjKXlUp3Ryyw==" crossorigin=anonymous>
+<noscript><style>img.lazyload{display:none}</style></noscript>
+<meta name=robots content="index, follow">
+<meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>Tutorial - RKVST</title>
+<meta name=description content="RKVST provides Continuous Assurance as a Service to attest trustworthiness of assets, and boost confidence in critical decisions.  Find out more on our [website](https://rkvst.com).">
+<link rel=canonical href=https://docs.rkvst.com/docs/quickstart/tutorial/>
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="/RKVST_WhtLogo_CMYK.svg">
+<meta name=twitter:title content="Tutorial">
+<meta name=twitter:description content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form, where you provide details of your new Asset:   Creating an Asset     At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
+<meta name=twitter:site content="@">
+<meta name=twitter:creator content="@">
+<meta property="og:title" content="Tutorial">
+<meta property="og:description" content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form, where you provide details of your new Asset:   Creating an Asset     At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/docs/quickstart/tutorial/">
+<meta property="og:image" content="/RKVST_WhtLogo_CMYK.svg">
+<meta property="article:published_time" content="2021-05-18T15:33:31+01:00">
+<meta property="article:modified_time" content="2021-05-18T15:33:31+01:00">
+<meta property="og:site_name" content="RKVST">
+<meta property="article:publisher" content="https://www.facebook.com/">
+<meta property="article:author" content="https://www.facebook.com/">
+<meta property="og:locale" content="en_US">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/docs.rkvst.com"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/docs.rkvst.com\/docs\/"},{"@type":"ListItem","position":4,"name":"Quickstart","item":"https:\/\/docs.rkvst.com\/docs\/quickstart\/"},{"@type":"ListItem","position":5,"name":"Tutorial","item":"https:\/\/docs.rkvst.com\/docs\/quickstart\/tutorial\/"}]}</script>
+<meta name=theme-color content="#fff">
+<link rel=apple-touch-icon sizes=180x180 href=https://docs.rkvst.com/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://docs.rkvst.com/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://docs.rkvst.com/favicon-16x16.png>
+<link rel=manifest href=https://docs.rkvst.com/site.webmanifest>
+<script type=text/javascript id=hs-script-loader async defer src=//js.hs-scripts.com/9491266.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7K46H3KK7N"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-7K46H3KK7N')</script>
+</head>
+<body class="docs single">
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+<div class=container>
+<input class="menu-btn order-0" type=checkbox id=menu-btn>
+<label class="menu-icon d-md-none" for=menu-btn><span class=navicon></span></label>
+<a class="navbar-brand order-1 order-md-0 me-auto" style=font-family:Montserrat href=https://www.rkvst.com>RKVST</a>
+<button id=mode class="btn btn-link order-2 order-md-4" type=button aria-label="Toggle mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+<span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+</button>
+<ul class="navbar-nav social-nav order-3 order-md-5">
+<li class=nav-item>
+<a class=nav-link href=https://twitter.com/jitsuin_inc><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://github.com/jitsuin-inc/rkvst-docs><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+</li>
+</ul>
+<div class="collapse navbar-collapse order-4 order-md-1">
+<ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item active">
+<a class=nav-link href=https://docs.rkvst.com/docs/overview/introduction>Docs</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://support.rkvst.com>Support</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://www.rkvst.com/beta/>Sales</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=https://docs.rkvst.com/contributing/getting-started/pulling-and-building-rkvst-docs>Contributing</a>
+</li>
+</ul>
+<div class="break order-6 d-md-none"></div>
+<form class="navbar-form flex-grow-1 order-7 order-md-3">
+<input id=userinput class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off>
+<div id=suggestions class="shadow bg-white rounded"></div>
+</form>
+</div>
+</div>
+</header>
+<div class="wrap container" role=document>
+<div class=content>
+<div class="row flex-xl-nowrap">
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+<nav class=docs-links aria-label="Main navigation">
+<ul class="list-unstyled collapsible-sidebar">
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#overview aria-expanded=false>
+Overview
+</button>
+<div class=collapse id=overview>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/overview/introduction/>Introduction</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/overview/core-concepts/>Core Concepts</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#setup-and-administration aria-expanded=false>
+Setup and Administration
+</button>
+<div class=collapse id=setup-and-administration>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/setup-and-administration/registering-your-azure-active-directory-with-rkvst/>Registering Your Azure Active Directory With RKVST</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/setup-and-administration/assign-users-to-rkvst-for-interactive-use/>Assign Users to RKVST for Interactive Use</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/setup-and-administration/configuring-azure-clients-for-non-interactive-use/>Configuring Azure Clients for Non-Interactive Use</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-client-secret/>Getting Access Tokens Using Client Secret</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#quickstart aria-expanded=true>
+Quickstart
+</button>
+<div class="collapse show" id=quickstart>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/when-who-did-what-to-an-asset/>Who Did What When to an Asset?</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/creating-an-asset/>Creating an Asset</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/>Creating an Event Against an Asset</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/>Grouping Assets by Location</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/>Managing Access to an Asset With ABAC</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/>Sharing Assets With OBAC</a></li>
+<li><a class="docs-link rounded active" href=https://docs.rkvst.com/docs/quickstart/tutorial/>Tutorial</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#user-patterns aria-expanded=false>
+User Patterns
+</button>
+<div class=collapse id=user-patterns>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/>Authenticity and Attestation</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/user-patterns/bill-of-materials/>Bill of Materials</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/user-patterns/state-machine/>State Machine and Supply Chains</a></li>
+</ul>
+</div>
+</li>
+<li class=mb-1>
+<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#api-reference aria-expanded=false>
+API Reference
+</button>
+<div class=collapse id=api-reference>
+<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/assets-api/>Assets API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/attachments-api/>Attachments API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/blobs-api/>Blobs API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/blockchain-api/>Blockchain API (v1alpha1)</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/compliance-api/>Compliance API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/events-api/>Events API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/iam-policies-api/>IAM Policies API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/iam-subjects-api/>IAM Subjects API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/locations-api/>Locations API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/microsoft-iothub-api/>Microsoft IoTHub API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/svc-buses-api/>Service Bus API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/system-api/>System API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/tenancies-api/>Tenancies API</a></li>
+<li><a class="docs-link rounded" href=https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/>TLS CA Certificates API</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+<div class=page-links>
+<h3>On this page</h3>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#creating-an-asset>Creating an Asset</a></li>
+<li><a href=#adding-external-organizations-to-allow-sharing>Adding External Organizations to Allow Sharing</a>
+<ul>
+<li><a href=#finding-your-own-id>Finding Your Own ID</a></li>
+<li><a href=#importing-another-organizations-id>Importing another Organization&rsquo;s ID</a></li>
+</ul>
+</li>
+<li><a href=#creating-an-obac-sharing-policy>Creating an OBAC Sharing Policy</a></li>
+<li><a href=#creating-events>Creating Events</a></li>
+</ul>
+</nav>
+</div>
+</nav>
+<main class="docs-content col-lg-11 col-xl-9">
+<nav aria-label=breadcrumb>
+<ol class=breadcrumb>
+<li class=breadcrumb-item><a href=https://docs.rkvst.com/>Home</a></li>
+<li class=breadcrumb-item><a href=https://docs.rkvst.com/docs/>Docs</a></li>
+<li class=breadcrumb-item><a href=https://docs.rkvst.com/docs/quickstart/>Quickstart</a></li>
+<li class="breadcrumb-item active" aria-current=page>Tutorial</li>
+</ol>
+</nav>
+<div class=my-n3></div>
+<h1>Tutorial</h1>
+<p class=lead></p>
+<h2 id=creating-an-asset>Creating an Asset<a href=#creating-an-asset class=anchor aria-hidden=true>#</a> </h2>
+<ol>
+<li>Using the Sidebar, select <code>Add Asset</code>.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetAddNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT.png width=1896 height=918 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT.png width=1896 height=918 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Adding an Asset</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetAddNT tabindex=-1 aria-labelledby=AssetAddNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAddNT_hu6b1f9861eba626e4fbe9576dfac78180_241541_200x0_resize_box_3.png 200w" width=1896 height=918 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=2>
+<li>You will see an Asset Creation form, where you provide details of your new Asset:</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetCreateQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Creating an Asset</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetCreateQS tabindex=-1 aria-labelledby=AssetCreateQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" width=949 height=671 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=3>
+<li>At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:</li>
+</ol>
+<ul>
+<li><code>Asset Name</code> - This is the unique name of the Asset i.e. &lsquo;My Bike&rsquo;</li>
+<li><code>Asset Type</code> - This is the type of Asset, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be <code>Bike</code> which will then be pre-populated for future Assets to use as their own types</li>
+<li><code>Proof Mechanism</code> - This identifies storage to be used for an Asset. Khipu indicates the Asset will be stored via blockchain. Simple Hash indicates the Asset will be stored within RKVST tenancy.</li>
+</ul>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetCreationDetailsQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS.png width=947 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS.png width=947 height=671 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Adding Asset Details</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetCreationDetailsQS tabindex=-1 aria-labelledby=AssetCreationDetailsQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_200x0_resize_box_3.png 200w" width=947 height=671 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=4>
+<li>You may wish to add other details to your Asset including attachments and Extended Attributes.</li>
+</ol>
+<p>Extended Attributes are user-defined and can be added to each unique Asset.</p>
+<p>To add a new Attribute to an Asset select <code>Add Attribute</code> then enter your key-value pair.</p>
+<p>For Example:</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetExtendedAttributesQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS.png width=948 height=611 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS.png width=948 height=611 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Asset Extended Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetExtendedAttributesQS tabindex=-1 aria-labelledby=AssetExtendedAttributesQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_200x0_resize_box_3.png 200w" width=948 height=611 alt=Rectangle>
+</div>
+</div>
+</div>
+<p>To add an attachment, select <code>Add Attchment</code> and then select the plus symbol.</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetAttachmentQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS.png width=948 height=716 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS.png width=948 height=716 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Asset Attachment</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetAttachmentQS tabindex=-1 aria-labelledby=AssetAttachmentQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_200x0_resize_box_3.png 200w" width=948 height=716 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=5>
+<li>Once complete, click <code>Create Asset</code></li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetCreateQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Create the Asset</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetCreateQS tabindex=-1 aria-labelledby=AssetCreateQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" width=949 height=671 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=6>
+<li><code>Manage Assets</code> (default view) is where one can see their Asset within the UI.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetManageQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS.png width=1898 height=830 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS.png width=1898 height=830 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Managing Assets</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetManageQS tabindex=-1 aria-labelledby=AssetManageQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_hud51c9699a55817e9ac220e078d40b8ff_219701_200x0_resize_box_3.png 200w" width=1898 height=830 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=7>
+<li>To view your Asset, click on the small eye symbol ( <img src=EyeSymbol.png alt> ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#AssetViewQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS.png width=1681 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS.png width=1681 height=865 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Viewing an Asset</em></figcaption>
+</figure>
+<div class="modal fade" id=AssetViewQS tabindex=-1 aria-labelledby=AssetViewQS aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_200x0_resize_box_3.png 200w" width=1681 height=865 alt=Rectangle>
+</div>
+</div>
+</div>
+<p>Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.</p>
+<p>The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.</p>
+<h2 id=adding-external-organizations-to-allow-sharing>Adding External Organizations to Allow Sharing<a href=#adding-external-organizations-to-allow-sharing class=anchor aria-hidden=true>#</a> </h2>
+<p>In order to share Assets and their details with another Organization or Tenant we must first import the ID of the External Organization.</p>
+<h3 id=finding-your-own-id>Finding Your Own ID<a href=#finding-your-own-id class=anchor aria-hidden=true>#</a> </h3>
+<ol>
+<li>As a Root User, navigate to <code>Access Policies</code></li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyManageNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Access Policies</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyManageNT tabindex=-1 aria-labelledby=PolicyManageNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" width=1916 height=865 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=2>
+<li>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</li>
+</ol>
+<p>This string is the one you should share with a 3rd Party who wants to share their data with you.</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACSubjectSelf img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf.png width=1984 height=289 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf.png width=1984 height=289 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Managing Policies</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACSubjectSelf tabindex=-1 aria-labelledby=PolicyOBACSubjectSelf aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectSelf_hua1ad9eb2e917c88a9aacd2fb36d8e660_17970_200x0_resize_box_3.png 200w" width=1984 height=289 alt=Rectangle>
+</div>
+</div>
+</div>
+<h3 id=importing-another-organizations-id>Importing another Organization&rsquo;s ID<a href=#importing-another-organizations-id class=anchor aria-hidden=true>#</a> </h3>
+<ol>
+<li>As a Root User, navigate to <code>Access Policies</code>.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyManageNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Access Policies</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyManageNT tabindex=-1 aria-labelledby=PolicyManageNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" width=1916 height=865 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=2>
+<li>Select the Subjects Tab and then <code>Import Subject</code>.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACSubjectImport img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport.png width=1977 height=362 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport.png width=1977 height=362 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Importing a Subject</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACSubjectImport tabindex=-1 aria-labelledby=PolicyOBACSubjectImport aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" width=1977 height=362 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=3>
+<li>You will be presented with a form, the <code>Subject String</code> is the ID of the Organization with which you wish to share Asset evidence. The <code>Name</code> is a Friendly Name for you to label the imported organization.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACSubjectAdd img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd.png width=587 height=333 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd.png width=587 height=333 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Adding the Subject</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACSubjectAdd tabindex=-1 aria-labelledby=PolicyOBACSubjectAdd aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" width=587 height=333 alt=Rectangle>
+</div>
+</div>
+</div>
+<h2 id=creating-an-obac-sharing-policy>Creating an OBAC Sharing Policy<a href=#creating-an-obac-sharing-policy class=anchor aria-hidden=true>#</a> </h2>
+<ol>
+<li>Navigate to the <code>Access Policies</code> section on the Sidebar of the RKVST User Interface.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyManageNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Access Policies</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyManageNT tabindex=-1 aria-labelledby=PolicyManageNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" width=1916 height=865 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=2>
+<li>Here you will see any existing policies, select <code>Add Policy</code>.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyAdd img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd.png width=1824 height=661 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd.png width=1824 height=661 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Adding a Policy</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyAdd tabindex=-1 aria-labelledby=PolicyAdd aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" width=1824 height=661 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=3>
+<li>When you add a policy the following form will appear:</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyForm img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm.png width=939 height=484 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm.png width=939 height=484 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Policy Web Form</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyForm tabindex=-1 aria-labelledby=PolicyForm aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" width=939 height=484 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=4>
+<li>Here you can begin applying filters to your Policy for the right assets. In this case we&rsquo;re going to filter for Bike Assets in the <code>Jitsuin Paris</code> Location created earlier.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACFilterNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT.png width=947 height=514 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT.png width=947 height=514 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Filtering for specific Assets and Locations</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACFilterNT tabindex=-1 aria-labelledby=PolicyOBACFilterNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_200x0_resize_box_3.png 200w" width=947 height=514 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=5>
+<li>Next we select the <code>Permissions</code> Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACForm img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm.png width=934 height=936 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm.png width=934 height=936 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Default view of Policy Permissions</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACForm tabindex=-1 aria-labelledby=PolicyOBACForm aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" width=934 height=936 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=6>
+<li>In our case we want the <code>Organization</code> actor which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.</li>
+</ol>
+<blockquote class="note callout">
+<div><strong></strong> <strong>Note:</strong> You will need to have imported another Organization&rsquo;s ID before you can specify a policy to share information with that Organization.</div>
+</blockquote>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACUsers img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers.png width=894 height=235 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers.png width=894 height=235 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Adding a specific User to a Policy</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACUsers tabindex=-1 aria-labelledby=PolicyOBACUsers aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" width=894 height=235 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=7>
+<li>When the relevant controls are in place we then add the Permisson Group to the policy.</li>
+</ol>
+<p>Note we have included RKVST-significant atributes: <code>arc_display_name</code> and <code>arc_display_type</code> which brings visibility to the Name and Type of Asset being shared.</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACPermissions img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions.png width=907 height=243 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions.png width=907 height=243 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Permitted Attributes on an Asset</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACPermissions tabindex=-1 aria-labelledby=PolicyOBACPermissions aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" width=907 height=243 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=8>
+<li>Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset&rsquo;s custom <code>Frame Color</code> attribute.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACMandyViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT.png width=1681 height=713 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT.png width=1681 height=713 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Mandy's view as a Root User of the External Organization</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACMandyViewNT tabindex=-1 aria-labelledby=PolicyOBACMandyViewNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_200x0_resize_box_3.png 200w" width=1681 height=713 alt=Rectangle>
+</div>
+</div>
+</div>
+<p>By comparison our Root User, Jill, can see the full details of the Asset:</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACJillViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT.png width=1764 height=891 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT.png width=1764 height=891 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Jill's view as a Root User</em></figcaption>
+</figure>
+<div class="modal fade" id=PolicyOBACJillViewNT tabindex=-1 aria-labelledby=PolicyOBACJillViewNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_200x0_resize_box_3.png 200w" width=1764 height=891 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=9>
+<li>If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
+</ol>
+<p>ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, head over to the <a href=../../api-reference/iam-policies-api/>IAM Policies API Reference</a>.</p>
+<h2 id=creating-events>Creating Events<a href=#creating-events class=anchor aria-hidden=true>#</a> </h2>
+<ol>
+<li>When viewing your Asset click the <code>Record Event</code> button.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventRecordNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT.png width=1677 height=890 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT.png width=1677 height=890 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Recording an Event</em></figcaption>
+</figure>
+<div class="modal fade" id=EventRecordNT tabindex=-1 aria-labelledby=EventRecordNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordNT_hua00754f949a80cd4e28a7f062d2cab33_143622_200x0_resize_box_3.png 200w" width=1677 height=890 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=2>
+<li>You will see the following screen, where you can enter an Event type and description.</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventInformation img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation.png width=927 height=752 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation.png width=927 height=752 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Entering Event Details</em></figcaption>
+</figure>
+<div class="modal fade" id=EventInformation tabindex=-1 aria-labelledby=EventInformation aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformation_hu04eef99650bc875a5d61bd28ea2e621b_43596_200x0_resize_box_3.png 200w" width=927 height=752 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=3>
+<li>Tabs enable you to enter both Event and Asset attributes.</li>
+</ol>
+<ul>
+<li><code>Event Attributes</code> - Attributes specific to an Event e.g. signifying when the frame was ordered</li>
+<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event e.g. color of the frame</li>
+</ul>
+<p>Select the <code>Add Attribute</code> button on each field to add your Key-Value pairs.</p>
+<p>For example:</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventAttributesNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT.png width=946 height=693 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT.png width=946 height=693 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Event Specific Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id=EventAttributesNT tabindex=-1 aria-labelledby=EventAttributesNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesNT_hud19dcb113038bc11581d42289ad764d0_41678_200x0_resize_box_3.png 200w" width=946 height=693 alt=Rectangle>
+</div>
+</div>
+</div>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventAssetAttributesNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT.png width=947 height=693 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT.png width=947 height=693 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Event Asset Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id=EventAssetAttributesNT tabindex=-1 aria-labelledby=EventAssetAttributesNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAssetAttributesNT_hud9f575628f3ca1837fa0a32a4be93f0a_42495_200x0_resize_box_3.png 200w" width=947 height=693 alt=Rectangle>
+</div>
+</div>
+</div>
+<p>Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined <code>Frame Color</code> attribute.</p>
+<p>Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.</p>
+<p>PDFs or images can also be recorded with an Event in the same way as an Asset.</p>
+<p>This is useful for storing associated material for posterity. For example, each <code>Frame Order</code> Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.</p>
+<ol start=4>
+<li>Once you have entered all data, click the <code>Record Event</code> Button, to add to your Asset.</li>
+</ol>
+<p>You will see that the Asset Attribute we changed is also recorded in the Asset View.</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventRecordedNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT.png width=1676 height=878 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT.png width=1676 height=878 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Submitting the Event</em></figcaption>
+</figure>
+<div class="modal fade" id=EventRecordedNT tabindex=-1 aria-labelledby=EventRecordedNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedNT_hu3160e8d1efa2cb748c33855a1292317b_131512_200x0_resize_box_3.png 200w" width=1676 height=878 alt=Rectangle>
+</div>
+</div>
+</div>
+<ol start=5>
+<li>Use the eye symbol ( <img src=EyeSymbol.png alt> ) to inspect the Event:</li>
+</ol>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT.png width=948 height=494 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT.png width=948 height=494 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Viewing an Event</em></figcaption>
+</figure>
+<div class="modal fade" id=EventViewNT tabindex=-1 aria-labelledby=EventViewNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewNT_hu88a60ad9f8da018c0cb558942aa45ba9_62971_200x0_resize_box_3.png 200w" width=948 height=494 alt=Rectangle>
+</div>
+</div>
+</div>
+<p>Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:</p>
+<figure class=border-0>
+<input type=image data-bs-toggle=modal data-bs-target=#EventAttributeViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT.png width=946 height=488 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_200x0_resize_box_3.png 200w" alt=Rectangle>
+<noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT.png width=946 height=488 alt=Rectangle></noscript>
+<figcaption class=figure-caption><em>Viewing Event Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id=EventAttributeViewNT tabindex=-1 aria-labelledby=EventAttributeViewNT aria-hidden=true>
+<div class="modal-dialog modal-xl">
+<div class=modal-body>
+<img class="img-fluid lazyload responsive" data-sizes=auto src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_100x0_resize_box_3.png data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_200x0_resize_box_3.png 200w" width=946 height=488 alt=Rectangle>
+</div>
+</div>
+</div>
+<p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/quickstart/Tutorial/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p>
+<div class="docs-navigation d-flex justify-content-between">
+<a href=https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/>
+<div class="card my-1">
+<div class="card-body py-2">
+&larr; Sharing Assets With OBAC
+</div>
+</div>
+</a>
+<a class=ms-auto href=https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/>
+<div class="card my-1">
+<div class="card-body py-2">
+Authenticity and Attestation &rarr;
+</div>
+</div>
+</a>
+</div>
+</main>
+</div>
+</div>
+</div>
+<footer class="footer text-muted">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 order-last order-lg-first">
+<ul class=list-inline>
+<li class=list-inline-item>Powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a></li>
+</ul>
+</div>
+<div class="col-lg-8 order-first order-lg-last text-lg-end">
+<ul class=list-inline>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<script src=https://docs.rkvst.com/js/bootstrap.min.f32717ac067969b5b271e11dcf32d4ab7cbd5e7ecf7ce32f4bd37115b9f65c2933aa15d035219a9d5b3333a9ed513e80c62d39e32833a0ba841b92be04d5e1f8.js integrity="sha512-8ycXrAZ5abWyceEdzzLUq3y9Xn7PfOMvS9NxFbn2XCkzqhXQNSGanVszM6ntUT6Axi054ygzoLqEG5K+BNXh+A==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.b05b7359a9c96e83ac22861a0c3a9be115e989ad9f07b49a10173c26aeca3ac04054435d0edadc158d5965cf121a8ab7578b3b7094a353d78d60d16190c37d07.js integrity="sha512-sFtzWanJboOsIoYaDDqb4RXpia2fB7SaEBc8Jq7KOsBAVENdDtrcFY1ZZc8SGoq3V4s7cJSjU9eNYNFhkMN9Bw==" crossorigin=anonymous defer></script>
+</body>
+</html>

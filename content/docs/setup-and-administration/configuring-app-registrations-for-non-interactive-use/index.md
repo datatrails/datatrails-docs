@@ -68,22 +68,33 @@ If you do not yet have an App Registration configured please follow [the first-t
 2. Generate a token using your pre-existing `App Registration` details
 
 ```bash
-RESPONSE=$(curl \
-    https://app.rkvst.io/archivist/iam/v1/appidp/token \
+curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
     --data-urlencode "client_id=${CLIENT_ID}" \
-    --data-urlencode "client_secret=${SECRET}")
+    --data-urlencode "client_secret=${SECRET}"
+```
 
+The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
+
+A common way to extract the token is to use `jq`, where `$RESPONSE` is the output your curl command:
+
+```bash
 TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
 ```
 
-and save it locally to a bearer_token file.
+You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
+
+```bash
+Authorization: Bearer $TOKEN
+```
+
+Where `$TOKEN` is the extracted token value.
 
 3. Submit your new Application JSON to the App Registration API Endpoint 
 
 ```bash
 curl -X POST \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
      https://app.rkvst.io/archivist/iam/v1/applications
@@ -126,30 +137,27 @@ Having completed the steps at [Creating an App Registration](./#creating-an-app-
 Replace `${CLIENT_ID}` with the application id, and `${SECRET}` with your secret from the application registration.
 
 ```bash
-RESPONSE=$(curl \
-    https://app.rkvst.io/archivist/iam/v1/appidp/token \
+curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
     --data-urlencode "client_id=${CLIENT_ID}" \
-    --data-urlencode "client_secret=${SECRET}")
+    --data-urlencode "client_secret=${SECRET}"
+```
 
+The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
+
+A common way to extract the token is to use `jq`, where `$RESPONSE` is the output returned from your curl command:
+
+```bash
 TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
 ```
 
-The token is found in the `access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
+You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
 
-The header and payload of the `TOKEN` can be examined with the following commands.
-
-```shell
-# Header
-echo -n $TOKEN | cut -d '.' -f 1 | base64 -D
-
-# Payload
-echo -n $TOKEN | cut -d '.' -f 2 | base64 -D
+```bash
+Authorization: Bearer $TOKEN
 ```
 
-{{< note >}}
-**Note:** Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.
-{{< /note >}}
+Where `$TOKEN` is the extracted token value.
 
 ### Testing Your Access
 
@@ -166,3 +174,21 @@ curl -v -X GET \
 If successful you should then see a list of the assets your Application has access to in the tenancy, note this may be an empty response if no assets are being shared with that user, this is an expected behaviour.
 
 Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#assets-openapi-reference) for more detailed information on the response codes you may expect if authentication fails and what they mean.
+
+### Troubleshooting Token Generation
+
+The header and payload of the `TOKEN` may be examined with the following commands:
+
+```shell
+# Header
+echo -n $TOKEN | cut -d '.' -f 1 | base64 -D
+
+# Payload
+echo -n $TOKEN | cut -d '.' -f 2 | base64 -D
+```
+
+This is useful when investigating tokens contain the correct custom claims or tokens that may appear malformed.
+
+{{< note >}}
+**Note:** Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.
+{{< /note >}}

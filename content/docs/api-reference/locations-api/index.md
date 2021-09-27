@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### Location Creation
 
 Define the location parameters and store in `/path/to/jsonfile`:
@@ -50,7 +44,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/locations
+    https://app.rkvst.io/archivist/v2/locations
 ```
 
 The response is:
@@ -81,7 +75,7 @@ To fetch all locations, simply `GET` the locations resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/locations
+     https://app.rkvst.io/archivist/v2/locations
 ```
 
 #### Fetch Specific Location by Identity
@@ -91,7 +85,7 @@ If you know the unique identity of the location record, simply `GET` the resourc
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
+     https://app.rkvst.io/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 #### Fetch Location by Name
@@ -101,7 +95,7 @@ To fetch all locations with a specific name, `GET` the assets resource and filte
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire
+    https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire
 ```
 
 Each of these calls returns a list of matching asset records in the form:

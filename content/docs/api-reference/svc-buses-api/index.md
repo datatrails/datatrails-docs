@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### Service Bus Sources Creation
 
 The `svcbussources` endpoint allows subscribing to an Azure Service Bus Queue and receiving events when a device changes state. 
@@ -50,7 +44,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/svcbussources
+    https://app.rkvst.io/archivist/v1/svcbussources
 ```
 
 The response is:
@@ -74,7 +68,7 @@ Delete the endpoint:
 ```bash
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v1/svcbussources/08838336-c357-460d-902a-3aba9528dd22
+    https://app.rkvst.io/archivist/v1/svcbussources/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:

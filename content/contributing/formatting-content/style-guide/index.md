@@ -690,7 +690,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/assets
+    https://app.rkvst.io/archivist/v2/assets
 {{< /tab >}}
 {{< /tabs >}}
 

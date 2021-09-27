@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### Asset Record Creation
 
 Define the asset parameters and store in `/path/to/jsonfile`:
@@ -57,7 +51,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/assets
+    https://app.rkvst.io/archivist/v2/assets
 ```
 
 The response is:
@@ -108,7 +102,7 @@ To fetch all asset records, simply `GET` the assets resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets
+     https://app.rkvst.io/archivist/v2/assets
 ```
 
 #### Fetch Specific Asset by Identity
@@ -118,7 +112,7 @@ If you know the unique identity of the Asset Record simply `GET` the resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
+     https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch Specific Asset at Given Point in Time by Identity
@@ -128,7 +122,7 @@ If you know the unique identity of an Asset Record and want to show its state at
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z
+     https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z
 ```
 
 This will return the Asset Record with the values it had on `2021-01-13T12:34:21Z`
@@ -140,7 +134,7 @@ To fetch all assets with a specific name, GET the assets resource and filter on 
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003
 ```
 
 #### Fetch Assets by Type
@@ -150,7 +144,7 @@ To fetch all assets of a specific type, `GET` the assets resource and filter on 
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets?attributes.arc_display_type=Traffic%20light
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light
 ```
 
 #### Fetch Assets by Filtering for Presence of a Field
@@ -160,7 +154,7 @@ To fetch all assets with a field set to any value, `GET` the assets resource and
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets?attributes.arc_display_name=*
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*
 ```
 
 Returns all assets which have `arc_display_name` that is not empty.
@@ -172,7 +166,7 @@ To fetch all assets with a field which is not set to any value, `GET` the assets
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v2/assets?attributes.arc_display_name!=*
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*
 ```
 
 Returns all assets which do not have `arc_display_name` or in which `arc_display_name` is empty.

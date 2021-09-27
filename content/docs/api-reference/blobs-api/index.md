@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### Upload a Blob
 
 Upload the blob stored at /path/to/file:
@@ -32,7 +26,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    $URL/archivist/v1/blobs
+    https://app.rkvst.io/archivist/v1/blobs
 ```
 
 The response is:
@@ -59,7 +53,7 @@ curl -v \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    $URL/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
+    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:

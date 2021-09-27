@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### IoTHub GDR Creation
 
 The `iothubgdr` endpoint allows to import all devices from selected Azure IoT Hub into RKVST.
@@ -44,7 +38,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/iothubgdr
+    https://app.rkvst.io/archivist/v2/iothubgdr
 ```
 
 You should see the following responses:
@@ -91,7 +85,7 @@ The `iothubgdr` endpoint allows to query and manage recent imports.
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/v2/iothubgdr
+    https://app.rkvst.io/archivist/v2/iothubgdr
 ```
 
 This call will respond with a list containing all known imports. Individual items in list are identical to create Responses
@@ -109,7 +103,7 @@ Which can be used in the following request following request:
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 #### Cancel IoTHub GDR Import Job
@@ -120,7 +114,7 @@ To cancel running import issue the following request:
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667:cancel
+    https://app.rkvst.io/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667:cancel
 ```
 
 The response status should be set to `STATUS_CANCELLED`.
@@ -133,7 +127,7 @@ To delete an import issue the following request:
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/v2/iothubgdr/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The import will be deleted from tracked imports but the underlying job will not stop. To stop the job cancel it before deleting.

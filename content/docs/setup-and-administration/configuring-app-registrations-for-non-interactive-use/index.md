@@ -15,7 +15,7 @@ toc: true
 
 Non-interactive access to the RKVST platform is managed by creating `Applications` with App Registrations, using either the Manage RKVST Menu in the UI or by using the App Registrations API directly.
 
-`Applications` have a `CLIENT ID` and `SECRET` that can then be used to authenticate to RKVST IAM Endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
+`Applications` have a `CLIENT_ID` and `SECRET` that can then be used to authenticate to RKVST IAM Endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
 
 This authentication flow uses the industry-standard OIDC 'Client Credentials' Flow. 
 
@@ -35,7 +35,7 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
  You may also optionally add any Custom Claims at this step, you must ensure they do not start with `jit_` or use of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
 
-4. Click CREATE APP REGISTRATION. The response will include the CLIENTID and SECRET required by the archivist token endpoint.
+4. Click CREATE APP REGISTRATION. The response will include the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
 
 {{< caution >}}
 **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later.
@@ -71,7 +71,7 @@ If you do not yet have an App Registration configured please follow [the first-t
 RESPONSE=$(curl \
     https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=${CLIENTID}" \
+    --data-urlencode "client_id=${CLIENT_ID}" \
     --data-urlencode "client_secret=${SECRET}")
 
 TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
@@ -86,10 +86,10 @@ curl -X POST \
      -H "@$BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
-     $URL/archivist/iam/v1/applications
+     https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
-You should see a response with details about the App Registration's `CLIENT ID` and `SECRET`:
+You should see a response with details about the App Registration's `CLIENT_ID` and `SECRET`:
 
 ```json
 {
@@ -121,15 +121,15 @@ For further details on using this API check out our [App Registrations API Refer
 
 ## Getting a Token With Your App Registration
 
-Having completed the steps at [Creating an App Registration](./#creating-an-app-registration), and having taken note of the `CLIENT ID` and the `SECRET`, a token can be obtained with the following command.
+Having completed the steps at [Creating an App Registration](./#creating-an-app-registration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
 
-Replace `${CLIENTID}` with the application id, and `${SECRET}` with your secret from the application registration.
+Replace `${CLIENT_ID}` with the application id, and `${SECRET}` with your secret from the application registration.
 
 ```bash
 RESPONSE=$(curl \
     https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=${CLIENTID}" \
+    --data-urlencode "client_id=${CLIENT_ID}" \
     --data-urlencode "client_secret=${SECRET}")
 
 TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')

@@ -44,7 +44,7 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
-**Note:** By default, newly created Applications will always have a Non-Root User permission to the API. To give an Application Root User priviliges so it can be used to administrate RKVST, including adding and managing new App Registrations, please refer to our [Tenancies API](../../api-reference/tenancies-api).
+**Note:** By default, newly created Applications will always have a Non-Root User permission to the API, you must add the Application as a Root User to elevate it's permissions.
 {{< /note >}}
 
 ### Using the App Registrations API

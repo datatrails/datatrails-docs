@@ -76,10 +76,10 @@ curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
 
 The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
 
-A common way to extract the token is to use `jq`, where `$RESPONSE` is the output your curl command:
+A common method to extract the token is to use `jq`, where `$RESPONSE` is the output your curl command:
 
 ```bash
-TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
+TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
 ```
 
 You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
@@ -145,10 +145,10 @@ curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
 
 The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
 
-A common way to extract the token is to use `jq`, where `$RESPONSE` is the output returned from your curl command:
+A common method to extract the token is to use `jq`, where `$RESPONSE` is the output returned from your curl command:
 
 ```bash
-TOKEN=$(echo -n $RESPONSE | jq .access_token | tr -d '"')
+TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
 ```
 
 You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:

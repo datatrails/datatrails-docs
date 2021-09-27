@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### Fetch Transactions for an event (v1alpha1)
 
 Blockchain transactions can be fetched from the blockchain endpoint using the asset's Event ID as a parameter:
@@ -36,7 +30,7 @@ To fetch all transactions for an asset event GET the blockchain resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+     https://app.rkvst.io/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 ```
 
 Each of these calls returns a list of matching blockchain transactions in the form:

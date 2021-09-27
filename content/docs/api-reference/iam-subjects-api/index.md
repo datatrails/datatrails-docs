@@ -17,12 +17,6 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 ### IAM Subjects Creation
 
 Define the subjects parameters and store in `/path/to/jsonfile`:
@@ -42,7 +36,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/iam/v1/subjects
+    https://app.rkvst.io/archivist/iam/v1/subjects
 ```
 
 The response is:
@@ -74,7 +68,7 @@ To fetch all IAM subjects records, simply `GET` the `/subjects` resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/subjects
+     https://app.rkvst.io/archivist/iam/v1/subjects
 ```
 
 #### Fetch specific IAM Subject by identity (v1)
@@ -84,7 +78,7 @@ If you know the unique identity of the IAM subject Record simply `GET` the resou
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
+     https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch IAM Subjects by name (v1)
@@ -94,7 +88,7 @@ To fetch all IAM subjects with a specific name, `GET` the `/subjects` resource a
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/subjects?display_name=Acme
+     https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme
 ```
 
 Each of these calls returns a list of matching IAM subjects records in the form:
@@ -128,7 +122,7 @@ To delete an IAM subject, issue the following request:
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is `{}`.
@@ -151,7 +145,7 @@ curl -v -X PATCH \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is:
@@ -183,7 +177,7 @@ subjects/00000000-0000-0000-0000-000000000000
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
+     https://app.rkvst.io/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
 ```
 
 The response is:

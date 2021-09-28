@@ -16,15 +16,15 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="/RKVST_WhtLogo_CMYK.svg">
 <meta name=twitter:title content="OpenAPI Example Render">
-<meta name=twitter:description content="get&nbsp;&nbsp;/archivist/iam/v1/access_policies    get&nbsp;&nbsp;/archivist/iam/v1/access_policies  List access policies 
-Description: Returns a paginated list of access_policies
-Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;: [ { &#34;asset_attributes_read&#34;: [ &#34;attribute1&#34;, &#34;attribute2&#34; ], &#34;behaviours&#34;: [ &#34;behaviour1&#34;, &#34;behaviour2&#34; ], &#34;subjects&#34;: [ &#34;subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2&#34;, &#34;subjects/3907c132-900b-4481-82da-21ffe699ddb9&#34; ], &#34;user_attributes&#34;: [ { &#34;or&#34;: [ &#34;group:maintainers&#34;, &#34;group:supervisors&#34; ] } ] } ], &#34;display_name&#34;: &#34;Some description&#34;, &#34;filters&#34;: [ { &#34;or&#34;: [ &#34;location=basingstoke&#34;, &#34;location=cambridge&#34; ] }, { &#34;">
+<meta name=twitter:description content="get&nbsp;&nbsp;/archivist/iam/v1/subjects    get&nbsp;&nbsp;/archivist/iam/v1/subjects  List subjects 
+Description: Returns a paginated list of subjects
+Example Response   { &#34;page_token&#34;: &#34;eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR&#34;, &#34;subjects&#34;: [ { &#34;display_name&#34;: &#34;Some description&#34;, &#34;identity&#34;: &#34;subjects/08838336-c357-460d-902a-3aba9528dd22&#34;, &#34;tessera_pub_key&#34;: [ &#34;key3&#34; ], &#34;wallet_pub_key&#34;: [ &#34;key1&#34; ] } ] }       Response Parameter Type Description     next_page_token string Token to retrieve the next page of results or empty if there are none.">
 <meta name=twitter:site content="@">
 <meta name=twitter:creator content="@">
 <meta property="og:title" content="OpenAPI Example Render">
-<meta property="og:description" content="get&nbsp;&nbsp;/archivist/iam/v1/access_policies    get&nbsp;&nbsp;/archivist/iam/v1/access_policies  List access policies 
-Description: Returns a paginated list of access_policies
-Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;: [ { &#34;asset_attributes_read&#34;: [ &#34;attribute1&#34;, &#34;attribute2&#34; ], &#34;behaviours&#34;: [ &#34;behaviour1&#34;, &#34;behaviour2&#34; ], &#34;subjects&#34;: [ &#34;subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2&#34;, &#34;subjects/3907c132-900b-4481-82da-21ffe699ddb9&#34; ], &#34;user_attributes&#34;: [ { &#34;or&#34;: [ &#34;group:maintainers&#34;, &#34;group:supervisors&#34; ] } ] } ], &#34;display_name&#34;: &#34;Some description&#34;, &#34;filters&#34;: [ { &#34;or&#34;: [ &#34;location=basingstoke&#34;, &#34;location=cambridge&#34; ] }, { &#34;">
+<meta property="og:description" content="get&nbsp;&nbsp;/archivist/iam/v1/subjects    get&nbsp;&nbsp;/archivist/iam/v1/subjects  List subjects 
+Description: Returns a paginated list of subjects
+Example Response   { &#34;page_token&#34;: &#34;eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR&#34;, &#34;subjects&#34;: [ { &#34;display_name&#34;: &#34;Some description&#34;, &#34;identity&#34;: &#34;subjects/08838336-c357-460d-902a-3aba9528dd22&#34;, &#34;tessera_pub_key&#34;: [ &#34;key3&#34; ], &#34;wallet_pub_key&#34;: [ &#34;key1&#34; ] } ] }       Response Parameter Type Description     next_page_token string Token to retrieve the next page of results or empty if there are none.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/contributing/playground/openapi-example-render/">
 <meta property="og:image" content="/RKVST_WhtLogo_CMYK.svg">
@@ -134,78 +134,47 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <div class=description>
 <p></p>
 </div>
-<div class=accordion id=IAM0></div>
+<div class=accordion id=IAMSubjects0></div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerIAM1>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM1 aria-expanded=true aria-controls=collapseIAM1>
+<h3 class=accordion-header id=headerIAMSubjects1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects1 aria-expanded=true aria-controls=collapseIAMSubjects1>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/access_policies</span>
+<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects</span>
 </div>
 </button>
 </h3>
-<div id=collapseIAM1 class="accordion-collapse collapse" aria-labelledby=headerIAM1 data-parent=#accordion>
+<div id=collapseIAMSubjects1 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
 </div>
-<h5>List access policies</h5>
+<h5>List subjects</h5>
 <p><a href></a></p>
-<p>Description: Returns a paginated list of access_policies</p>
+<p>Description: Returns a paginated list of subjects</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM1>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM1 aria-expanded=true aria-controls=collapserequestIAM1>
+<h3 class=accordion-header id=headerresponseIAMSubjects1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects1 aria-expanded=true aria-controls=collapserequestIAMSubjects1>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseIAM1 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM1 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects1 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_policies": [
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
+  "subjects": [
     {
-      "access_permissions": [
-        {
-          "asset_attributes_read": [
-            "attribute1",
-            "attribute2"
-          ],
-          "behaviours": [
-            "behaviour1",
-            "behaviour2"
-          ],
-          "subjects": [
-            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-          ],
-          "user_attributes": [
-            {
-              "or": [
-                "group:maintainers",
-                "group:supervisors"
-              ]
-            }
-          ]
-        }
-      ],
       "display_name": "Some description",
-      "filters": [
-        {
-          "or": [
-            "location=basingstoke",
-            "location=cambridge"
-          ]
-        },
-        {
-          "or": [
-            "asset_type=door_access_reader"
-          ]
-        }
+      "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+      "tessera_pub_key": [
+        "key3"
       ],
-      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+      "wallet_pub_key": [
+        "key1"
+      ]
     }
-  ],
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -221,13 +190,13 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </thead>
 <tbody>
 <tr>
-<th>access_policies</th>
-<td>array</td>
-<td>Describes an Access Policy for OBAC</td>
-<tr>
 <th>next_page_token</th>
 <td>string</td>
 <td>Token to retrieve the next page of results or empty if there are none.</td>
+<tr>
+<th>subjects</th>
+<td>array</td>
+<td>Describes an Access Policy for OBAC</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -241,7 +210,7 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to read the subject.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -251,70 +220,38 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerIAM2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM2 aria-expanded=true aria-controls=collapseIAM2>
+<h3 class=accordion-header id=headerIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects2 aria-expanded=true aria-controls=collapseIAMSubjects2>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>post</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/access_policies</span>
+<span style=text-transform:uppercase;color:#00aeef>post</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects</span>
 </div>
 </button>
 </h3>
-<div id=collapseIAM2 class="accordion-collapse collapse" aria-labelledby=headerIAM2 data-parent=#accordion>
+<div id=collapseIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
 </div>
-<h5>Create an access policy</h5>
+<h5>Create an subject</h5>
 <p><a href></a></p>
-<p>Description: This request creates a new access policy. The display_name is the friendly name.</p>
+<p>Description: This request creates a new subject. The display_name is the friendly name.</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerrequestIAM2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAM2 aria-expanded=true aria-controls=collapserequestIAM2>
+<h3 class=accordion-header id=headerrequestIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAMSubjects2 aria-expanded=true aria-controls=collapserequestIAMSubjects2>
 <span>Example Request</span>
 </button>
 </h3>
-<div id=collapserequestIAM2 class="accordion-collapse collapse" aria-labelledby=headerrequestIAM2 data-parent=#accordion>
+<div id=collapserequestIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerrequestIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_permissions": [
-    {
-      "asset_attributes_read": [
-        "attribute1",
-        "attribute2"
-      ],
-      "behaviours": [
-        "behaviour1",
-        "behaviour2"
-      ],
-      "subjects": [
-        "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-        "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-      ],
-      "user_attributes": [
-        {
-          "or": [
-            "group:maintainers",
-            "group:supervisors"
-          ]
-        }
-      ]
-    }
+  "display_name": "Some description",
+  "tessera_pub_key": [
+    "key3"
   ],
-  "description": "Customers description for the policy",
-  "display_name": "Customers name for the policy",
-  "filters": [
-    {
-      "or": [
-        "location=basingstoke",
-        "location=cambridge"
-      ]
-    },
-    {
-      "or": [
-        "asset_type=door_access_reader"
-      ]
-    }
+  "wallet_pub_key": [
+    "key1"
   ]
 }</code></pre>
 </div>
@@ -331,73 +268,40 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </thead>
 <tbody>
 <tr>
-<th>access_permissions</th>
-<td>array</td>
-<td>Permissions</td>
-<tr>
-<th>description</th>
-<td>string</td>
-<td>Customer description for the access policy.</td>
-<tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the access policy.</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
-<th>filters</th>
+<th>tessera_pub_key</th>
 <td>array</td>
-<td>Filter</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM2 aria-expanded=true aria-controls=collapserequestIAM2>
+<h3 class=accordion-header id=headerresponseIAMSubjects2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects2 aria-expanded=true aria-controls=collapserequestIAMSubjects2>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseIAM2 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM2 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects2 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_permissions": [
-    {
-      "asset_attributes_read": [
-        "attribute1",
-        "attribute2"
-      ],
-      "behaviours": [
-        "behaviour1",
-        "behaviour2"
-      ],
-      "subjects": [
-        "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-        "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-      ],
-      "user_attributes": [
-        {
-          "or": [
-            "group:maintainers",
-            "group:supervisors"
-          ]
-        }
-      ]
-    }
+  "display_name": "Some description",
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3"
   ],
-  "description": "User description for this policy",
-  "display_name": "User name for this policy",
-  "filters": [
-    {
-      "or": [
-        "location=basingstoke",
-        "location=cambridge"
-      ]
-    },
-    {
-      "or": [
-        "asset_type=door_access_reader"
-      ]
-    }
+  "wallet_address": [
+    "address1"
   ],
-  "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+  "wallet_pub_key": [
+    "key1"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -413,29 +317,29 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </thead>
 <tbody>
 <tr>
-<th>access_permissions</th>
-<td>array</td>
-<td>Permissions</td>
-<tr>
-<th>description</th>
-<td>string</td>
-<td>Customer description for the access policy.</td>
-<tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the access policy.</td>
-<tr>
-<th>filters</th>
-<td>array</td>
-<td>Filter</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the access policy, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
 <th>tenant</th>
 <td>string</td>
-<td>Tenant id</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -449,8 +353,7 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to create an access policy.</td>
-<tr><th>429</th><td>Returned when the allowed number of access_policies exceeds internal limit.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to create a subject.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -460,76 +363,81 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerIAM3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM3 aria-expanded=true aria-controls=collapseIAM3>
+<h3 class=accordion-header id=headerIAMSubjects3>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects3 aria-expanded=true aria-controls=collapseIAMSubjects3>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{asset_identity}/access_policies</span>
+<span style=text-transform:uppercase;color:#00aeef>delete</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects/{uuid}</span>
 </div>
 </button>
 </h3>
-<div id=collapseIAM3 class="accordion-collapse collapse" aria-labelledby=headerIAM3 data-parent=#accordion>
+<div id=collapseIAMSubjects3 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects3 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{asset_identity}/access_policies</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
 </div>
-<h5>Get matching access policies</h5>
+<h5>Delete a subject</h5>
 <p><a href></a></p>
-<p>Description: Get matching access policies for specified asset</p>
+<p>Description: Delete the identified subject</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th scope=col>Responses</th>
+<th scope=col>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><th>200</th><td>A successful response.</td>
+<tr><th>400</th><td>Returned when the request is badly formed.</td>
+<tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to delete the subject.</td>
+<tr><th>404</th><td>Returned when the identified laccess policy does not exist.</td>
+<tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
+<tr><th>default</th><td>An unexpected error response.</td>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM3 aria-expanded=true aria-controls=collapserequestIAM3>
+<h3 class=accordion-header id=headerIAMSubjects4>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects4 aria-expanded=true aria-controls=collapseIAMSubjects4>
+<div class="overflow-hidden text-nowrap">
+<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects/{uuid}</span>
+</div>
+</button>
+</h3>
+<div id=collapseIAMSubjects4 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects4 data-parent=#accordion>
+<div class=accordion-body>
+<div style=width:100%>
+<div class=overflow-auto>
+<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+</div>
+<h5>Get an subject</h5>
+<p><a href></a></p>
+<p>Description: Returns the identified subject</p>
+<div class=accordion-item>
+<h3 class=accordion-header id=headerresponseIAMSubjects4>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects4 aria-expanded=true aria-controls=collapserequestIAMSubjects4>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseIAM3 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM3 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects4 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects4 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_policies": [
-    {
-      "access_permissions": [
-        {
-          "asset_attributes_read": [
-            "attribute1",
-            "attribute2"
-          ],
-          "behaviours": [
-            "behaviour1",
-            "behaviour2"
-          ],
-          "subjects": [
-            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-          ],
-          "user_attributes": [
-            {
-              "or": [
-                "group:maintainers",
-                "group:supervisors"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_name": "Some description",
-      "filters": [
-        {
-          "or": [
-            "location=basingstoke",
-            "location=cambridge"
-          ]
-        },
-        {
-          "or": [
-            "asset_type=door_access_reader"
-          ]
-        }
-      ],
-      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
-    }
+  "display_name": "Some description",
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3"
   ],
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+  "wallet_address": [
+    "address1"
+  ],
+  "wallet_pub_key": [
+    "key1"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -544,180 +452,30 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>access_policies</th>
-<td>array</td>
-<td>Describes an Access Policy for OBAC</td>
-<tr>
-<th>next_page_token</th>
-<td>string</td>
-<td>Token to retrieve the next page of results or empty if there are none.</td>
-</tbody>
-</table>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Responses</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr><th>200</th><td>A successful response.</td>
-<tr><th>400</th><td>Returned when the request is badly formed.</td>
-<tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
-<tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
-<tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-<tr><th>default</th><td>An unexpected error response.</td>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerIAM4>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM4 aria-expanded=true aria-controls=collapseIAM4>
-<div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>delete</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
-</div>
-</button>
-</h3>
-<div id=collapseIAM4 class="accordion-collapse collapse" aria-labelledby=headerIAM4 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
-</div>
-<h5>Delete an access policy</h5>
-<p><a href></a></p>
-<p>Description: Delete the identified access policy</p>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Responses</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr><th>200</th><td>A successful response.</td>
-<tr><th>400</th><td>Returned when the request is badly formed.</td>
-<tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to delete the access policy.</td>
-<tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
-<tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-<tr><th>default</th><td>An unexpected error response.</td>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerIAM5>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM5 aria-expanded=true aria-controls=collapseIAM5>
-<div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
-</div>
-</button>
-</h3>
-<div id=collapseIAM5 class="accordion-collapse collapse" aria-labelledby=headerIAM5 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
-</div>
-<h5>Get an access policy</h5>
-<p><a href></a></p>
-<p>Description: Returns the identified access policy</p>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM5>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM5 aria-expanded=true aria-controls=collapserequestIAM5>
-<span>Example Response</span>
-</button>
-</h3>
-<div id=collapseresponseIAM5 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM5 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<pre><code>{
-  "access_permissions": [
-    {
-      "asset_attributes_read": [
-        "attribute1",
-        "attribute2"
-      ],
-      "behaviours": [
-        "behaviour1",
-        "behaviour2"
-      ],
-      "subjects": [
-        "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-        "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-      ],
-      "user_attributes": [
-        {
-          "or": [
-            "group:maintainers",
-            "group:supervisors"
-          ]
-        }
-      ]
-    }
-  ],
-  "description": "User description for this policy",
-  "display_name": "User name for this policy",
-  "filters": [
-    {
-      "or": [
-        "location=basingstoke",
-        "location=cambridge"
-      ]
-    },
-    {
-      "or": [
-        "asset_type=door_access_reader"
-      ]
-    }
-  ],
-  "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Response Parameter</th>
-<th scope=col>Type</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>access_permissions</th>
-<td>array</td>
-<td>Permissions</td>
-<tr>
-<th>description</th>
-<td>string</td>
-<td>Customer description for the access policy.</td>
 <tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the access policy.</td>
-<tr>
-<th>filters</th>
-<td>array</td>
-<td>Filter</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the access policy, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
 <th>tenant</th>
 <td>string</td>
-<td>Tenant id</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -731,8 +489,8 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to read the access policy.</td>
-<tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to read the subject.</td>
+<tr><th>404</th><td>Returned when the identified subject does not exist.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -742,72 +500,43 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerIAM6>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM6 aria-expanded=true aria-controls=collapseIAM6>
+<h3 class=accordion-header id=headerIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAMSubjects5 aria-expanded=true aria-controls=collapseIAMSubjects5>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>patch</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}</span>
+<span style=text-transform:uppercase;color:#00aeef>patch</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/subjects/{uuid}</span>
 </div>
 </button>
 </h3>
-<div id=collapseIAM6 class="accordion-collapse collapse" aria-labelledby=headerIAM6 data-parent=#accordion>
+<div id=collapseIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}</span></h4>
+<h4><span style=color:#00aeef;text-transform:uppercase>patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
 </div>
-<h5>Update a access policy details</h5>
+<h5>Update a subject's details</h5>
 <p><a href></a></p>
-<p>Description: Perform a full or partial update of the identified access policy</p>
+<p>Description: Perform a full or partial update of the identified subject</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerrequestIAM6>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAM6 aria-expanded=true aria-controls=collapserequestIAM6>
+<h3 class=accordion-header id=headerrequestIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestIAMSubjects5 aria-expanded=true aria-controls=collapserequestIAMSubjects5>
 <span>Example Request</span>
 </button>
 </h3>
-<div id=collapserequestIAM6 class="accordion-collapse collapse" aria-labelledby=headerrequestIAM6 data-parent=#accordion>
+<div id=collapserequestIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerrequestIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_permissions": [
-    {
-      "asset_attributes_read": [
-        "attribute1",
-        "attribute2"
-      ],
-      "behaviours": [
-        "behaviour1",
-        "behaviour2"
-      ],
-      "subjects": [
-        "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-        "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-      ],
-      "user_attributes": [
-        {
-          "or": [
-            "group:maintainers",
-            "group:supervisors"
-          ]
-        }
-      ]
-    }
+  "display_name": "Some description",
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3"
   ],
-  "description": "User description for this policy",
-  "display_name": "User name for this policy",
-  "filters": [
-    {
-      "or": [
-        "location=basingstoke",
-        "location=cambridge"
-      ]
-    },
-    {
-      "or": [
-        "asset_type=door_access_reader"
-      ]
-    }
+  "wallet_address": [
+    "address1"
   ],
-  "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+  "wallet_pub_key": [
+    "key1"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -823,81 +552,52 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </thead>
 <tbody>
 <tr>
-<th>access_permissions</th>
-<td>array</td>
-<td>Permissions</td>
-<tr>
-<th>description</th>
-<td>string</td>
-<td>Customer description for the access policy.</td>
-<tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the access policy.</td>
-<tr>
-<th>filters</th>
-<td>array</td>
-<td>Filter</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the access policy, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
 <th>tenant</th>
 <td>string</td>
-<td>Tenant id</td>
+<td>Tenent id</td>
+<tr>
+<th>tessera_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
+<tr>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM6>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM6 aria-expanded=true aria-controls=collapserequestIAM6>
+<h3 class=accordion-header id=headerresponseIAMSubjects5>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAMSubjects5 aria-expanded=true aria-controls=collapserequestIAMSubjects5>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseIAM6 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM6 data-parent=#accordion>
+<div id=collapseresponseIAMSubjects5 class="accordion-collapse collapse" aria-labelledby=headerresponseIAMSubjects5 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
-  "access_permissions": [
-    {
-      "asset_attributes_read": [
-        "attribute1",
-        "attribute2"
-      ],
-      "behaviours": [
-        "behaviour1",
-        "behaviour2"
-      ],
-      "subjects": [
-        "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-        "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-      ],
-      "user_attributes": [
-        {
-          "or": [
-            "group:maintainers",
-            "group:supervisors"
-          ]
-        }
-      ]
-    }
+  "display_name": "Some description",
+  "identity": "subjects/08838336-c357-460d-902a-3aba9528dd22",
+  "tessera_pub_key": [
+    "key3"
   ],
-  "description": "User description for this policy",
-  "display_name": "User name for this policy",
-  "filters": [
-    {
-      "or": [
-        "location=basingstoke",
-        "location=cambridge"
-      ]
-    },
-    {
-      "or": [
-        "asset_type=door_access_reader"
-      ]
-    }
+  "wallet_address": [
+    "address1"
   ],
-  "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+  "wallet_pub_key": [
+    "key1"
+  ]
 }</code></pre>
 </div>
 </div>
@@ -913,150 +613,29 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 </thead>
 <tbody>
 <tr>
-<th>access_permissions</th>
-<td>array</td>
-<td>Permissions</td>
-<tr>
-<th>description</th>
-<td>string</td>
-<td>Customer description for the access policy.</td>
-<tr>
 <th>display_name</th>
 <td>string</td>
-<td>Customer friendly name for the access policy.</td>
-<tr>
-<th>filters</th>
-<td>array</td>
-<td>Filter</td>
+<td>Customer friendly name for the subject.</td>
 <tr>
 <th>identity</th>
 <td>string</td>
-<td>Unique identification for the access policy, Relative Resource Name</td>
+<td>Unique identification for the subject, Relative Resource Name</td>
 <tr>
 <th>tenant</th>
 <td>string</td>
-<td>Tenant id</td>
-</tbody>
-</table>
-<table class="table table-striped table-bordered">
-<thead>
+<td>Tenent id</td>
 <tr>
-<th scope=col>Responses</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr><th>200</th><td>A successful response.</td>
-<tr><th>400</th><td>Returned when the request is badly formed.</td>
-<tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to update the access policy.</td>
-<tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
-<tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-<tr><th>default</th><td>An unexpected error response.</td>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerIAM7>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseIAM7 aria-expanded=true aria-controls=collapseIAM7>
-<div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/iam/v1/{identity}/assets</span>
-</div>
-</button>
-</h3>
-<div id=collapseIAM7 class="accordion-collapse collapse" aria-labelledby=headerIAM7 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/{identity}/assets</span></h4>
-</div>
-<h5>Returns assets matching access policy</h5>
-<p><a href></a></p>
-<p>Description: Returns assets matching access policy</p>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerresponseIAM7>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseIAM7 aria-expanded=true aria-controls=collapserequestIAM7>
-<span>Example Response</span>
-</button>
-</h3>
-<div id=collapseresponseIAM7 class="accordion-collapse collapse" aria-labelledby=headerresponseIAM7 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<pre><code>{
-  "assets": [
-    {
-      "at_time": "2019-11-27T14:44:19Z",
-      "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture from yesterday",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
-      },
-      "behaviours": [
-        "RecordEvidence"
-      ],
-      "confirmation_status": "PENDING",
-      "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
-      "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "storage_integrity": "TENANT_STORAGE",
-      "tracked": "TRACKED"
-    },
-    {
-      "at_time": "2019-11-27T14:44:19Z",
-      "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/2865ca31-d01f-5e6f-4621-de562470732e",
-            "arc_display_name": "Picture",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "12bc4819d90b6fe911b091a7c05134b65edfce045e09b048caaa7916ecdd458c"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/53165a2c-6054-dd68-f093-a0e1e21304fd"
-      },
-      "behaviours": [
-        "RecordEvidence"
-      ],
-      "confirmation_status": "PENDING",
-      "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
-      "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "storage_integrity": "TENANT_STORAGE",
-      "tracked": "TRACKED"
-    }
-  ],
-  "next_page_token": "abcd"
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Response Parameter</th>
-<th scope=col>Type</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>assets</th>
+<th>tessera_pub_key</th>
 <td>array</td>
-<td>This describes Jitsuin Asset.</td>
+<td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
 <tr>
-<th>next_page_token</th>
-<td>string</td>
-<td>Token to retrieve the next page of results or empty if there are none.</td>
+<th>wallet_address</th>
+<td>array</td>
+<td>Organisation&rsquo;s wallet addresses</td>
+<tr>
+<th>wallet_pub_key</th>
+<td>array</td>
+<td>Organisation&rsquo;s public wallet keys (BNF)</td>
 </tbody>
 </table>
 <table class="table table-striped table-bordered">
@@ -1070,8 +649,8 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
-<tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
+<tr><th>403</th><td>Returned when the user is not authorized to update the subject.</td>
+<tr><th>404</th><td>Returned when the identified subject does not exist.</td>
 <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
@@ -1113,6 +692,6 @@ Example Response   { &#34;access_policies&#34;: [ { &#34;access_permissions&#34;
 <script src=https://docs.rkvst.com/js/bootstrap.min.f32717ac067969b5b271e11dcf32d4ab7cbd5e7ecf7ce32f4bd37115b9f65c2933aa15d035219a9d5b3333a9ed513e80c62d39e32833a0ba841b92be04d5e1f8.js integrity="sha512-8ycXrAZ5abWyceEdzzLUq3y9Xn7PfOMvS9NxFbn2XCkzqhXQNSGanVszM6ntUT6Axi054ygzoLqEG5K+BNXh+A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.4f21bd41200756f5c24d154638fcaad8ccb61bca4ef6e7855eff32d577473b00039aa02d4a46465821b86262a1fbfda1992ca79b9f842fd5eda7565eab75c4f5.js integrity="sha512-TyG9QSAHVvXCTRVGOPyq2My2G8pO9ueFXv8y1XdHOwADmqAtSkZGWCG4YmKh+/2hmSynm5+EL9Xtp1Zeq3XE9Q==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.6933b11e6d595fca1809832ae26ff4f4c39a652c7a1624a8722b19e3a53a2074fff4b1c5222fd98853a252d5a1290a11b7cc26fd393d630a588cd969bb767374.js integrity="sha512-aTOxHm1ZX8oYCYMq4m/09MOaZSx6FiSocisZ46U6IHT/9LHFIi/ZiFOiUtWhKQoRt8wm/Tk9YwpYjNlpu3ZzdA==" crossorigin=anonymous defer></script>
 </body>
 </html>

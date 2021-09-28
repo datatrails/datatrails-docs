@@ -16,11 +16,11 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="/RKVST_WhtLogo_CMYK.svg">
 <meta name=twitter:title content="Tutorial">
-<meta name=twitter:description content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form, where you provide details of your new Asset:   Creating an Asset     At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
+<meta name=twitter:description content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form where you can provide details about your new Asset:   Creating an Asset     At a minimum, you will need to add an Asset Name, Asset Type, and your choice of Proof Mechanism when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
 <meta name=twitter:site content="@">
 <meta name=twitter:creator content="@">
 <meta property="og:title" content="Tutorial">
-<meta property="og:description" content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form, where you provide details of your new Asset:   Creating an Asset     At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
+<meta property="og:description" content="Creating an Asset  Using the Sidebar, select Add Asset.   Adding an Asset     You will see an Asset Creation form where you can provide details about your new Asset:   Creating an Asset     At a minimum, you will need to add an Asset Name, Asset Type, and your choice of Proof Mechanism when using the UI to create an Asset:   Asset Name - This is the unique name of the Asset i.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="/docs/quickstart/tutorial/">
 <meta property="og:image" content="/RKVST_WhtLogo_CMYK.svg">
@@ -212,7 +212,7 @@ API Reference
 </div>
 </div>
 <ol start=2>
-<li>You will see an Asset Creation form, where you provide details of your new Asset:</li>
+<li>You will see an Asset Creation form where you can provide details about your new Asset:</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetCreateQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -227,12 +227,12 @@ API Reference
 </div>
 </div>
 <ol start=3>
-<li>At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:</li>
+<li>At a minimum, you will need to add an Asset Name, Asset Type, and your choice of Proof Mechanism when using the UI to create an Asset:</li>
 </ol>
 <ul>
 <li><code>Asset Name</code> - This is the unique name of the Asset i.e. &lsquo;My Bike&rsquo;</li>
-<li><code>Asset Type</code> - This is the type of Asset, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be <code>Bike</code> which will then be pre-populated for future Assets to use as their own types</li>
-<li><code>Proof Mechanism</code> - This identifies storage to be used for an Asset. Khipu indicates the Asset will be stored via blockchain. Simple Hash indicates the Asset will be stored within RKVST tenancy.</li>
+<li><code>Asset Type</code> - This is the type of Asset - while arbitrary, it is best to have consistency amongst the Assets you use i.e. if it is a bike, the type could be <code>Bike</code> which will then be pre-populated for future Assets to use.</li>
+<li><code>Proof Mechanism</code> - This identifies how frequently Asset history information is committed to the blockchain. <code>Khipu</code> - or &lsquo;Transactional Immutability&rsquo; - indicates that every Event is committed through smart contracts and immediately committed to the chain. <code>Simple Hash</code> - or &lsquo;Batched Immutability&rsquo; - indicates that Events are processed in the RKVST tenancy and then periodically collected together and committed to the chain as a batch.</li>
 </ul>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetCreationDetailsQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS.png width=947 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreationDetailsQS_hu6792e34bdfcc9494f6fc5c625c09ff3b_41193_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -247,10 +247,10 @@ API Reference
 </div>
 </div>
 <ol start=4>
-<li>You may wish to add other details to your Asset including attachments and Extended Attributes.</li>
+<li>You may wish to add other details to your Asset, including Attachments and Extended Attributes.</li>
 </ol>
-<p>Extended Attributes are user-defined and can be added to each unique Asset.</p>
-<p>To add a new Attribute to an Asset select <code>Add Attribute</code> then enter your key-value pair.</p>
+<p>Extended Attributes are user-defined and added per unique Asset.</p>
+<p>To add a new Attribute to an Asset select <code>Add Attribute</code> and then enter your key-value pair.</p>
 <p>For Example:</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetExtendedAttributesQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS.png width=948 height=611 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetExtendedAttributesQS_hud47ca18a0155eb3eb9585b27e2d92917_32511_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -264,7 +264,7 @@ API Reference
 </div>
 </div>
 </div>
-<p>To add an attachment, select <code>Add Attachment</code> and then select the plus symbol.</p>
+<p>To add an attachment, such as an image of your asset, select <code>Add Attachment</code> and then select the plus symbol.</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetAttachmentQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS.png width=948 height=716 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS_hu6e00fb3d29e7f2a56ad0de925b34deac_40502_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetAttachmentQS.png width=948 height=716 alt=Rectangle></noscript>
@@ -278,7 +278,7 @@ API Reference
 </div>
 </div>
 <ol start=5>
-<li>Once complete, click <code>Create Asset</code></li>
+<li>Once complete, click <code>Create Asset</code>.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetCreateQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS.png width=949 height=671 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetCreateQS_hu5a222244285845284d8685f94671284d_40740_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -293,7 +293,7 @@ API Reference
 </div>
 </div>
 <ol start=6>
-<li><code>Manage Assets</code> (default view) is where one can see their Asset within the UI.</li>
+<li><code>Manage Assets</code> (default view) is where you may view a list of your Assets within the UI.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetManageQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS.png width=1893 height=800 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_huaab8eb3da366dd1188aafcaccbcf0b89_217299_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_huaab8eb3da366dd1188aafcaccbcf0b89_217299_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_huaab8eb3da366dd1188aafcaccbcf0b89_217299_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetManageQS_huaab8eb3da366dd1188aafcaccbcf0b89_217299_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -308,7 +308,7 @@ API Reference
 </div>
 </div>
 <ol start=7>
-<li>To view your Asset, click on the small eye symbol ( <img src=EyeSymbol.png alt> ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.</li>
+<li>To view a detailed history of your Asset, click on the small eye symbol ( <img src=EyeSymbol.png alt> ) to the right of the Asset in the Manage view.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AssetViewQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS.png width=1681 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/AssetViewQS_hu9fb6c0622e33435c9a718ca3bda152ba_129406_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -322,11 +322,11 @@ API Reference
 </div>
 </div>
 </div>
-<p>Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.</p>
-<p>The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.</p>
+<p>Here you will see the details entered earlier; The Extended Attributes and the history of any Events recorded on the Asset.</p>
+<p>The first Event in an Asset&rsquo;s Lifecycle will always be the &lsquo;Asset Creation&rsquo; Event, in the next section you will find out how to create your own events against an Asset.</p>
 <h2 id=creating-events>Creating Events<a href=#creating-events class=anchor aria-hidden=true>#</a> </h2>
 <ol>
-<li>When viewing your Asset click the <code>Record Event</code> button.</li>
+<li>When viewing your Asset, click the <code>Record Event</code> button.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventRecordQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordQS.png width=1682 height=855 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordQS_hu0541e0f28ff4f3da6691f71111b8f483_129335_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordQS_hu0541e0f28ff4f3da6691f71111b8f483_129335_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordQS_hu0541e0f28ff4f3da6691f71111b8f483_129335_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordQS_hu0541e0f28ff4f3da6691f71111b8f483_129335_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -341,7 +341,7 @@ API Reference
 </div>
 </div>
 <ol start=2>
-<li>You will see the following screen, where you can enter an Event type and description.</li>
+<li>You will see the following form, where you can enter an Event <code>Type</code> and <code>Description</code>.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventInformationQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventInformationQS.png width=948 height=595 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventInformationQS_hub18c01b21fc67bd6ba84533afa396c1f_31151_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformationQS_hub18c01b21fc67bd6ba84533afa396c1f_31151_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformationQS_hub18c01b21fc67bd6ba84533afa396c1f_31151_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventInformationQS_hub18c01b21fc67bd6ba84533afa396c1f_31151_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -356,13 +356,13 @@ API Reference
 </div>
 </div>
 <ol start=3>
-<li>Tabs enable you to enter both Event and Asset attributes.</li>
+<li>Using the Tabs enables you to then enter both Event and Asset attributes.</li>
 </ol>
 <ul>
-<li><code>Event Attributes</code> - Attributes specific to an Event e.g. signifying when the frame was ordered</li>
-<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event e.g. color of the frame</li>
+<li><code>Event Attributes</code> - Attributes specific to an Event i.e. signifying <em>when</em> a new frame was ordered</li>
+<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event i.e. the color of the new frame</li>
 </ul>
-<p>Select the <code>Add Attribute</code> button on each field to add your Key-Value pairs.</p>
+<p>Select the <code>Add Attribute</code> button on each field to add your own custom Key-Value pairs.</p>
 <p>For example:</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventAttributesQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesQS.png width=947 height=552 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesQS_hu03b34fc5f9145506b3984272d3eff41b_30709_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesQS_hu03b34fc5f9145506b3984272d3eff41b_30709_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesQS_hu03b34fc5f9145506b3984272d3eff41b_30709_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributesQS_hu03b34fc5f9145506b3984272d3eff41b_30709_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -388,14 +388,14 @@ API Reference
 </div>
 </div>
 </div>
-<p>Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined <code>Frame Color</code> attribute.</p>
-<p>Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.</p>
-<p>PDFs or images can also be recorded with an Event in the same way as an Asset.</p>
-<p>This is useful for storing associated material for posterity. For example, each <code>Frame Order</code> Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.</p>
+<p>Here you see that someone noted a new frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined <code>Frame Color</code> Asset Attribute.</p>
+<p>Note that every Event will always have a <code>timestamp_accepted</code> and <code>principal_accepted</code> Event Attributes once created, which records <em>when</em> <em>who</em> performed what, as submitted to RKVST; this is added automatically at Event Creation.</p>
+<p>Similarly, PDFs or images can also be attached to an Event in the same way as an Asset.</p>
+<p>Attaching files is beneficial when storing contextual and associated material for posterity. For example, each <code>Frame Order</code> Event may have a copy of the invoice for the new frame and a datasheet attached ready for historical inspection and compliance checking.</p>
 <ol start=4>
-<li>Once you have entered all data, click the <code>Record Event</code> Button, to add to your Asset.</li>
+<li>Once you have entered your data, click the <code>Record Event</code> Button, to add the Event to your Asset.</li>
 </ol>
-<p>You will see that the Asset Attribute we changed is also recorded in the Asset View.</p>
+<p>You will see that the Asset Attribute that changed is recorded in the Asset View.</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventRecordedQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS.png width=1678 height=879 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS_hu40a276c7bbd312fc668535ad70c4e81b_129628_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventRecordedQS.png width=1678 height=879 alt=Rectangle></noscript>
@@ -409,7 +409,7 @@ API Reference
 </div>
 </div>
 <ol start=5>
-<li>Use the eye symbol ( <img src=EyeSymbol.png alt> ) to inspect the Event:</li>
+<li>You can use the eye symbol ( <img src=EyeSymbol.png alt> ) to inspect the Event:</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventViewQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventViewQS.png width=946 height=495 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventViewQS_hufa93e6166d2e2ec7a02a1a69941fca2b_62636_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewQS_hufa93e6166d2e2ec7a02a1a69941fca2b_62636_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewQS_hufa93e6166d2e2ec7a02a1a69941fca2b_62636_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventViewQS_hufa93e6166d2e2ec7a02a1a69941fca2b_62636_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -423,7 +423,7 @@ API Reference
 </div>
 </div>
 </div>
-<p>Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:</p>
+<p>Here are the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#EventAttributeViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT.png width=946 height=488 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT_hu6bb3d55496b455f248222cd3e0013c98_49701_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/EventAttributeViewNT.png width=946 height=488 alt=Rectangle></noscript>
@@ -437,10 +437,10 @@ API Reference
 </div>
 </div>
 <h2 id=adding-external-organizations-to-allow-sharing>Adding External Organizations to Allow Sharing<a href=#adding-external-organizations-to-allow-sharing class=anchor aria-hidden=true>#</a> </h2>
-<p>A key aspect of RKVST is the ability to share specific information with multiple parties (Organization or Tenant), in order to achieve this, we must first import the ID of the External Organization.</p>
+<p>A key aspect of RKVST is the ability to share specific information with multiple external parties, in order to achieve this, you must first import the ID of the External Organization.</p>
 <h3 id=finding-your-own-id>Finding Your Own ID<a href=#finding-your-own-id class=anchor aria-hidden=true>#</a> </h3>
 <ol>
-<li>As a Root User, navigate to <code>Access Policies</code></li>
+<li>As a Root User, navigate to <code>Access Policies</code>.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyManageNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -455,10 +455,10 @@ API Reference
 </div>
 </div>
 <ol start=2>
-<li>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</li>
+<li>Select the Subjects Tab, where your own Organization&rsquo;s ID will be located in the <code>Self</code> box.</li>
 </ol>
-<blockquote class="note callout">
-<div><strong></strong> <strong>Note:</strong> Please do not use the subject info obtained from the copy menu on the login button.</div>
+<blockquote class="caution callout">
+<div><strong></strong> <strong>Caution:</strong> Please do not use the subject info obtained from the copy menu on the login button.</div>
 </blockquote>
 <p>This string is the one you should share with a 3rd Party who wants to share their data with you.</p>
 <figure class=border-0>
@@ -474,7 +474,10 @@ API Reference
 </div>
 </div>
 <h3 id=importing-external-organizations-id>Importing External Organization&rsquo;s ID<a href=#importing-external-organizations-id class=anchor aria-hidden=true>#</a> </h3>
-<p>Once you have an Asset defined, it can be shared within your department or another organization thus enhancing the &ldquo;multi-party sharing&rdquo; experience.</p>
+<p>Once you have an Asset defined, it can be shared both within your department or even to another organization, enhancing the multi-party sharing experience.</p>
+<blockquote class="note callout">
+<div><strong></strong> <strong>Note:</strong> You must request that any external organization you wish to share with find their own Organization&rsquo;s ID using the steps above and share it with you before you can begin sharing Asset data with them.</div>
+</blockquote>
 <ol>
 <li>As a Root User, navigate to <code>Access Policies</code>.</li>
 </ol>
@@ -506,7 +509,7 @@ API Reference
 </div>
 </div>
 <ol start=3>
-<li>You will be presented with a form, the <code>Subject String</code> is the ID of the Organization with which you wish to share Asset evidence. The <code>Name</code> is a Friendly Name for you to label the imported organization.</li>
+<li>You will be presented with a new form: <code>Subject String</code> is the ID of the Organization that you wish to share Asset evidence with, <code>Name</code> is a Friendly Name for you to label the imported organization.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACSubjectAdd img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd.png width=587 height=333 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -522,7 +525,7 @@ API Reference
 </div>
 <h2 id=creating-an-obac-sharing-policy>Creating an OBAC Sharing Policy<a href=#creating-an-obac-sharing-policy class=anchor aria-hidden=true>#</a> </h2>
 <ol>
-<li>Navigate to the <code>Access Policies</code> section on the Sidebar of the RKVST User Interface.</li>
+<li>Navigate to the <code>Access Policies</code> section in the Sidebar.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyManageNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT.png width=1916 height=865 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyManageNT_hu15e68cc60d5b373d18682188eb71982e_261028_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -537,7 +540,7 @@ API Reference
 </div>
 </div>
 <ol start=2>
-<li>Here you will see any existing policies, select <code>Add Policy</code>.</li>
+<li>Here you can manage your existing policies, but for now select <code>Add Policy</code>.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyAdd img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd.png width=1824 height=661 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -567,7 +570,7 @@ API Reference
 </div>
 </div>
 <ol start=4>
-<li>Here you can begin applying filters to your Policy for the right assets. In this case we&rsquo;re going to filter for Bike Assets in the <code>Jitsuin Paris</code> Location created earlier.</li>
+<li>You should begin applying filters to your Policy so it applies to the correct assets. Following the example let&rsquo;s filter for <code>Bike</code> type Assets in the <code>Jitsuin Paris</code> Location.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACFilterNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT.png width=947 height=514 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACFilterNT_hu91358fb0a18fddd98519cffd01b5df50_30365_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -582,7 +585,7 @@ API Reference
 </div>
 </div>
 <ol start=5>
-<li>Next we select the <code>Permissions</code> Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.</li>
+<li>Select the <code>Permissions</code> Tab and define which Organizations can read and write which Attributes and Events.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACForm img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm.png width=934 height=936 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt=Rectangle>
@@ -597,8 +600,9 @@ API Reference
 </div>
 </div>
 <ol start=6>
-<li>In our case we want the <code>Organization</code> actor which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.</li>
+<li>In the example let&rsquo;s use the <code>Organization</code> actor, implying OBAC (Organization Based Access Control).</li>
 </ol>
+<p>Enter the Friendly Name of the Organization you wish to share with and a pre-populated, drop-down search of the Organizations you have already imported should appear.</p>
 <blockquote class="note callout">
 <div><strong></strong> <strong>Note:</strong> You will need to have imported another Organization&rsquo;s ID before you can specify a policy to share information with that Organization.</div>
 </blockquote>
@@ -615,9 +619,9 @@ API Reference
 </div>
 </div>
 <ol start=7>
-<li>Once the relevant details are complete, then add the Permisson Group to the policy by selecting <code>Add Permission Group</code>.</li>
+<li>Once the relevant details are complete, add the Permission Group to the policy by selecting <code>Add Permission Group</code>.</li>
 </ol>
-<p>Note we have included RKVST-significant atributes: <code>arc_display_name</code> and <code>arc_display_type</code> which brings visibility to the Name and Type of Asset being shared.</p>
+<p>Note that the examples includes RKVST-significant attributes: <code>arc_display_name</code> and <code>arc_display_type</code> which allows visibility to the External Organization of the Name and Type of Asset being shared.</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyPermissionsQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS.png width=1892 height=1696 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS_hu1aaa834dfd62a24d18fb41e4bb25e82f_173471_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyPermissionsQS.png width=1892 height=1696 alt=Rectangle></noscript>
@@ -631,7 +635,7 @@ API Reference
 </div>
 </div>
 <ol start=8>
-<li>Once complete, select <code>Create Policy</code> and check the Asset is shared appropriately</li>
+<li>Once complete, select <code>Create Policy</code> and check the Asset is shared appropriately.</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACPermissionsQS img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissionsQS.png width=1784 height=480 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissionsQS_hu946f2980f6c90c02b948009f30b8a270_55341_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissionsQS_hu946f2980f6c90c02b948009f30b8a270_55341_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissionsQS_hu946f2980f6c90c02b948009f30b8a270_55341_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACPermissionsQS_hu946f2980f6c90c02b948009f30b8a270_55341_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -645,7 +649,7 @@ API Reference
 </div>
 </div>
 </div>
-<p>Mandy should only be able to see the Name and Type of Asset as well as the Asset&rsquo;s custom <code>Frame Color</code> attribute.</p>
+<p>Mandy should be able to see only the <code>Name</code> and <code>Type</code> of Asset and the Asset&rsquo;s custom <code>Frame Color</code> attribute.</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACMandyViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT.png width=1681 height=713 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT_hu9672f311de25a8ae330f58ab4fad89d8_128055_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACMandyViewNT.png width=1681 height=713 alt=Rectangle></noscript>
@@ -658,7 +662,7 @@ API Reference
 </div>
 </div>
 </div>
-<p>By comparison our Root User, Jill, can see the full details of the Asset:</p>
+<p>By comparison our own Tenancy&rsquo;s Root User, Jill, can see the full details of the Asset:</p>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#PolicyOBACJillViewNT img class="img-fluid responsive" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT.png width=1764 height=891 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_200x0_resize_box_3.png 200w" alt=Rectangle>
 <noscript><img class=img-fluid sizes=100vw srcset="https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT_hu0235061b451dcfacc1fca5b775935689_205850_200x0_resize_box_3.png 200w" src=https://docs.rkvst.com/docs/quickstart/tutorial/PolicyOBACJillViewNT.png width=1764 height=891 alt=Rectangle></noscript>
@@ -672,9 +676,9 @@ API Reference
 </div>
 </div>
 <ol start=9>
-<li>If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
+<li>If Mandy wishes to then share what she can with Non-Root Users in her organization, it is her responsibility to create an ABAC Policy as she would any other Asset.</li>
 </ol>
-<p>ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, head over to the <a href=../../api-reference/iam-policies-api/>IAM Policies API Reference</a>.</p>
+<p>ABAC and OBAC Policy Creation has many fine-grained controls, head over to the <a href=../../api-reference/iam-policies-api/>IAM Policies API Reference</a> to find out more.</p>
 <p class=edit-page><a href=https://www.github.com/jitsuin-inc/rkvst-docs/blob/master/content/docs/quickstart/Tutorial/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p>
 <div class="docs-navigation d-flex justify-content-between">
 <a href=https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/>
@@ -714,6 +718,6 @@ Authenticity and Attestation &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.f32717ac067969b5b271e11dcf32d4ab7cbd5e7ecf7ce32f4bd37115b9f65c2933aa15d035219a9d5b3333a9ed513e80c62d39e32833a0ba841b92be04d5e1f8.js integrity="sha512-8ycXrAZ5abWyceEdzzLUq3y9Xn7PfOMvS9NxFbn2XCkzqhXQNSGanVszM6ntUT6Axi054ygzoLqEG5K+BNXh+A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.c5781a13d12e706e00451822241b1b75ffe497e946e63d3bd88314cc1e6a3aadc167868330ce97a5f7bf4212a0f4db26e513d6b7603fd6cb37654a55048ceadc.js integrity="sha512-xXgaE9EucG4ARRgiJBsbdf/kl+lG5j072IMUzB5qOq3BZ4aDMM6Xpfe/QhKg9Nsm5RPWt2A/1ss3ZUpVBIzq3A==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.4f21bd41200756f5c24d154638fcaad8ccb61bca4ef6e7855eff32d577473b00039aa02d4a46465821b86262a1fbfda1992ca79b9f842fd5eda7565eab75c4f5.js integrity="sha512-TyG9QSAHVvXCTRVGOPyq2My2G8pO9ueFXv8y1XdHOwADmqAtSkZGWCG4YmKh+/2hmSynm5+EL9Xtp1Zeq3XE9Q==" crossorigin=anonymous defer></script>
 </body>
 </html>

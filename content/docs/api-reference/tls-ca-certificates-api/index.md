@@ -162,4 +162,4 @@ The response is (certificate field shortened for brevity):
 
 ## TLS CA Certificates OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tlscacertificates.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tlscacertificatesv1.swagger.json" >}}

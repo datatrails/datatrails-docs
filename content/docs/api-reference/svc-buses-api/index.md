@@ -83,4 +83,4 @@ The response is:
 
 ## Service Bus OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/svcbussources.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/svcbussourcesv1.swagger.json" >}}

@@ -70,3 +70,7 @@ The response is:
     "size": 31424
 }
 ```
+
+## Blobs OpenAPI Docs
+
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blobsv1.swagger.json" >}}

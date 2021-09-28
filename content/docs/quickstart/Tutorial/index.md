@@ -41,7 +41,7 @@ For Example:
 
 {{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 
-To add an attachment, select `Add Attchment` and then select the plus symbol.
+To add an attachment, select `Add Attachment` and then select the plus symbol.
 
 {{< img src="AssetAttachmentQS.png" alt="Rectangle" caption="<em>Asset Attachment</em>" class="border-0" >}}
 
@@ -61,9 +61,54 @@ Here we see all details entered: The Extended Attributes and a history of Events
 
 The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
 
+## Creating Events
+
+1. When viewing your Asset click the `Record Event` button.
+
+{{< img src="EventRecordQS.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
+
+2. You will see the following screen, where you can enter an Event type and description.
+
+{{< img src="EventInformationQS.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
+
+3. Tabs enable you to enter both Event and Asset attributes.
+
+* `Event Attributes` - Attributes specific to an Event e.g. signifying when the frame was ordered
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. color of the frame
+
+Select the `Add Attribute` button on each field to add your Key-Value pairs.
+
+For example:
+
+{{< img src="EventAttributesQS.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+
+{{< img src="EventAssetAttributesQS.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
+
+Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
+
+Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
+
+PDFs or images can also be recorded with an Event in the same way as an Asset. 
+
+This is useful for storing associated material for posterity. For example, each `Frame Order` Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.
+
+4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
+
+You will see that the Asset Attribute we changed is also recorded in the Asset View.
+
+{{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
+
+5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
+
+{{< img src="EventViewQS.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
+
+Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
+
+{{< img src="EventAttributeViewNT.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
+
 ## Adding External Organizations to Allow Sharing
 
-In order to share Assets and their details with another Organization or Tenant we must first import the ID of the External Organization.
+A key aspect of RKVST is the ability to share specific information with multiple parties (Organization or Tenant), in order to achieve this, we must first import the ID of the External Organization.
 
 ### Finding Your Own ID
 
@@ -73,11 +118,15 @@ In order to share Assets and their details with another Organization or Tenant w
 
 2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
 
+{{< note >}} **Note:** Please do not use the subject info obtained from the copy menu on the login button. {{< /note >}}
+
 This string is the one you should share with a 3rd Party who wants to share their data with you.
 
 {{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
-### Importing another Organization's ID
+### Importing External Organization's ID
+
+Once you have an Asset defined, it can be shared within your department or another organization thus enhancing the "multi-party sharing" experience.
 
 1. As a Root User, navigate to `Access Policies`.
 
@@ -119,13 +168,17 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. When the relevant controls are in place we then add the Permisson Group to the policy.
+7. Once the relevant details are complete, then add the Permisson Group to the policy by selecting `Add Permission Group`.
 
 Note we have included RKVST-significant atributes: `arc_display_name` and `arc_display_type` which brings visibility to the Name and Type of Asset being shared. 
 
-{{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
+{{< img src="PolicyPermissionsQS.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
-8. Once complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
+8. Once complete, select `Create Policy` and check the Asset is shared appropriately
+
+{{< img src="PolicyOBACPermissionsQS.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
+
+Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
 
 {{< img src="PolicyOBACMandyViewNT.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 
@@ -136,48 +189,3 @@ By comparison our Root User, Jill, can see the full details of the Asset:
 9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
 ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).
-
-## Creating Events
-
-1. When viewing your Asset click the `Record Event` button.
-
-{{< img src="EventRecordNT.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
-
-2. You will see the following screen, where you can enter an Event type and description.
-
-{{< img src="EventInformation.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
-
-3. Tabs enable you to enter both Event and Asset attributes.
-
-* `Event Attributes` - Attributes specific to an Event e.g. signifying when the frame was ordered
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. color of the frame
-
-Select the `Add Attribute` button on each field to add your Key-Value pairs.
-
-For example:
-
-{{< img src="EventAttributesNT.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
-
-{{< img src="EventAssetAttributesNT.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
-
-Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
-
-Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
-
-PDFs or images can also be recorded with an Event in the same way as an Asset. 
-
-This is useful for storing associated material for posterity. For example, each `Frame Order` Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.
-
-4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
-
-You will see that the Asset Attribute we changed is also recorded in the Asset View.
-
-{{< img src="EventRecordedNT.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
-
-5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
-
-{{< img src="EventViewNT.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
-
-Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
-
-{{< img src="EventAttributeViewNT.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}

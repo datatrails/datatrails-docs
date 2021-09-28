@@ -19,64 +19,64 @@ toc: true
 
 {{< img src="AssetAddNT.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 
-2. You will see an Asset Creation form, where you provide details of your new Asset:
+2. You will see an Asset Creation form where you can provide details about your new Asset:
 
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 
-3. At minimum, you will need to add an Asset Name, Asset Type and Proof Mechanisim when using the UI to create an Asset:
+3. At a minimum, you will need to add an Asset Name, Asset Type, and your choice of Proof Mechanism when using the UI to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My Bike'
-* `Asset Type` - This is the type of Asset, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use as their own types
-* `Proof Mechanism` - This identifies storage to be used for an Asset. Khipu indicates the Asset will be stored via blockchain. Simple Hash indicates the Asset will be stored within RKVST tenancy.
+* `Asset Type` - This is the type of Asset - while arbitrary, it is best to have consistency amongst the Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use.
+* `Proof Mechanism` - This identifies how frequently Asset history information is committed to the blockchain. `Khipu` - or 'Transactional Immutability' - indicates that every Event is committed through smart contracts and immediately committed to the chain. `Simple Hash` - or 'Batched Immutability' - indicates that Events are processed in the RKVST tenancy and then periodically collected together and committed to the chain as a batch.
 
 {{< img src="AssetCreationDetailsQS.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
-4. You may wish to add other details to your Asset including attachments and Extended Attributes. 
+4. You may wish to add other details to your Asset, including Attachments and Extended Attributes. 
 
-Extended Attributes are user-defined and can be added to each unique Asset.
+Extended Attributes are user-defined and added per unique Asset.
 
-To add a new Attribute to an Asset select `Add Attribute` then enter your key-value pair.
+To add a new Attribute to an Asset select `Add Attribute` and then enter your key-value pair.
 
 For Example:
 
 {{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 
-To add an attachment, select `Add Attachment` and then select the plus symbol.
+To add an attachment, such as an image of your asset, select `Add Attachment` and then select the plus symbol.
 
 {{< img src="AssetAttachmentQS.png" alt="Rectangle" caption="<em>Asset Attachment</em>" class="border-0" >}}
 
-5. Once complete, click `Create Asset`
+5. Once complete, click `Create Asset`.
 
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 
-6. `Manage Assets` (default view) is where one can see their Asset within the UI.
+6. `Manage Assets` (default view) is where you may view a list of your Assets within the UI.
 
 {{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
-7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
+7. To view a detailed history of your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view.
 
 {{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
-Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
+Here you will see the details entered earlier; The Extended Attributes and the history of any Events recorded on the Asset.
 
-The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
+The first Event in an Asset's Lifecycle will always be the 'Asset Creation' Event, in the next section you will find out how to create your own events against an Asset.
 
 ## Creating Events
 
-1. When viewing your Asset click the `Record Event` button.
+1. When viewing your Asset, click the `Record Event` button.
 
 {{< img src="EventRecordQS.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
-2. You will see the following screen, where you can enter an Event type and description.
+2. You will see the following form, where you can enter an Event `Type` and `Description`.
 
 {{< img src="EventInformationQS.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
 
-3. Tabs enable you to enter both Event and Asset attributes.
+3. Using the Tabs enables you to then enter both Event and Asset attributes.
 
-* `Event Attributes` - Attributes specific to an Event e.g. signifying when the frame was ordered
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. color of the frame
+* `Event Attributes` - Attributes specific to an Event i.e. signifying _when_ a new frame was ordered
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event i.e. the color of the new frame
 
-Select the `Add Attribute` button on each field to add your Key-Value pairs.
+Select the `Add Attribute` button on each field to add your own custom Key-Value pairs.
 
 For example:
 
@@ -84,41 +84,41 @@ For example:
 
 {{< img src="EventAssetAttributesQS.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 
-Here we see someone noted the frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` attribute.
+Here you see that someone noted a new frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` Asset Attribute.
 
-Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
+Note that every Event will always have a `timestamp_accepted` and `principal_accepted` Event Attributes once created, which records _when_ _who_ performed what, as submitted to RKVST; this is added automatically at Event Creation.
 
-PDFs or images can also be recorded with an Event in the same way as an Asset. 
+Similarly, PDFs or images can also be attached to an Event in the same way as an Asset. 
 
-This is useful for storing associated material for posterity. For example, each `Frame Order` Event can store the PDF document of the frame ordered for inspection. This allows historical compliance checking of Events.
+Attaching files is beneficial when storing contextual and associated material for posterity. For example, each `Frame Order` Event may have a copy of the invoice for the new frame and a datasheet attached ready for historical inspection and compliance checking.
 
-4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
+4. Once you have entered your data, click the `Record Event` Button, to add the Event to your Asset.
 
-You will see that the Asset Attribute we changed is also recorded in the Asset View.
+You will see that the Asset Attribute that changed is recorded in the Asset View.
 
 {{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
-5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
+5. You can use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
 
 {{< img src="EventViewQS.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
+Here are the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
 
 {{< img src="EventAttributeViewNT.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
 ## Adding External Organizations to Allow Sharing
 
-A key aspect of RKVST is the ability to share specific information with multiple parties (Organization or Tenant), in order to achieve this, we must first import the ID of the External Organization.
+A key aspect of RKVST is the ability to share specific information with multiple external parties, in order to achieve this, you must first import the ID of the External Organization.
 
 ### Finding Your Own ID
 
-1. As a Root User, navigate to `Access Policies`
+1. As a Root User, navigate to `Access Policies`.
 
 {{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
-2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
+2. Select the Subjects Tab, where your own Organization's ID will be located in the `Self` box.
 
-{{< note >}} **Note:** Please do not use the subject info obtained from the copy menu on the login button. {{< /note >}}
+{{< caution >}} **Caution:** Please do not use the subject info obtained from the copy menu on the login button. {{< /caution >}}
 
 This string is the one you should share with a 3rd Party who wants to share their data with you.
 
@@ -126,7 +126,11 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 ### Importing External Organization's ID
 
-Once you have an Asset defined, it can be shared within your department or another organization thus enhancing the "multi-party sharing" experience.
+Once you have an Asset defined, it can be shared both within your department or even to another organization, enhancing the multi-party sharing experience.
+
+{{< note >}}
+**Note:** You must request that any external organization you wish to share with find their own Organization's ID using the steps above and share it with you before you can begin sharing Asset data with them.
+{{< /note >}}
 
 1. As a Root User, navigate to `Access Policies`.
 
@@ -136,17 +140,17 @@ Once you have an Asset defined, it can be shared within your department or anoth
 
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 
-3. You will be presented with a form, the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+3. You will be presented with a new form: `Subject String` is the ID of the Organization that you wish to share Asset evidence with, `Name` is a Friendly Name for you to label the imported organization.
 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
 
 ## Creating an OBAC Sharing Policy
 
-1. Navigate to the `Access Policies` section on the Sidebar of the RKVST User Interface.
+1. Navigate to the `Access Policies` section in the Sidebar.
 
 {{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
-2. Here you will see any existing policies, select `Add Policy`.
+2. Here you can manage your existing policies, but for now select `Add Policy`.
 
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 
@@ -154,38 +158,40 @@ Once you have an Asset defined, it can be shared within your department or anoth
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for Bike Assets in the `Jitsuin Paris` Location created earlier.
+4. You should begin applying filters to your Policy so it applies to the correct assets. Following the example let's filter for `Bike` type Assets in the `Jitsuin Paris` Location.
 
 {{< img src="PolicyOBACFilterNT.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 
-5. Next we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.
+5. Select the `Permissions` Tab and define which Organizations can read and write which Attributes and Events.
 
 {{< img src="PolicyOBACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-6. In our case we want the `Organization` actor which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.
+6. In the example let's use the `Organization` actor, implying OBAC (Organization Based Access Control). 
+
+Enter the Friendly Name of the Organization you wish to share with and a pre-populated, drop-down search of the Organizations you have already imported should appear.
 
 {{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization. {{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. Once the relevant details are complete, then add the Permisson Group to the policy by selecting `Add Permission Group`.
+7. Once the relevant details are complete, add the Permission Group to the policy by selecting `Add Permission Group`.
 
-Note we have included RKVST-significant atributes: `arc_display_name` and `arc_display_type` which brings visibility to the Name and Type of Asset being shared. 
+Note that the examples includes RKVST-significant attributes: `arc_display_name` and `arc_display_type` which allows visibility to the External Organization of the Name and Type of Asset being shared. 
 
 {{< img src="PolicyPermissionsQS.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
-8. Once complete, select `Create Policy` and check the Asset is shared appropriately
+8. Once complete, select `Create Policy` and check the Asset is shared appropriately.
 
 {{< img src="PolicyOBACPermissionsQS.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
 
-Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Frame Color` attribute.
+Mandy should be able to see only the `Name` and `Type` of Asset and the Asset's custom `Frame Color` attribute.
 
 {{< img src="PolicyOBACMandyViewNT.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 
-By comparison our Root User, Jill, can see the full details of the Asset:
+By comparison our own Tenancy's Root User, Jill, can see the full details of the Asset:
 
 {{< img src="PolicyOBACJillViewNT.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 
-9. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
+9. If Mandy wishes to then share what she can with Non-Root Users in her organization, it is her responsibility to create an ABAC Policy as she would any other Asset.
 
-ABAC and OBAC Policy Creation has many fine-grained controls, to find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).
+ABAC and OBAC Policy Creation has many fine-grained controls, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/) to find out more.

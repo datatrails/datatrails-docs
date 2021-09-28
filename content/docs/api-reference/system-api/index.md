@@ -9,20 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 112
+weight: 113
 toc: true
 ---
-
 
 ## System API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Querying Blockchain Status
 
@@ -33,7 +26,7 @@ Query the endpoint:
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v1/archivistnode
+    https://app.rkvst.io/archivist/v1/archivistnode
 ```
 
 The response is:
@@ -86,4 +79,4 @@ The response is:
 
 ## System OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/archivistnode.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/archivistnodev1.swagger.json" >}}

@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 103
+weight: 104
 toc: true
 ---
 
 ## Blob API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Upload a Blob
 
@@ -32,7 +26,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    $URL/archivist/v1/blobs
+    https://app.rkvst.io/archivist/v1/blobs
 ```
 
 The response is:
@@ -59,7 +53,7 @@ curl -v \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    $URL/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
+    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:
@@ -76,3 +70,7 @@ The response is:
     "size": 31424
 }
 ```
+
+## Blobs OpenAPI Docs
+
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blobsv1.swagger.json" >}}

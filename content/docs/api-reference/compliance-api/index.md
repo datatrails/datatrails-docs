@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 105
+weight: 106
 toc: true
 ---
 
 ## Compliance API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Types of Compliance Policies
 
@@ -197,7 +191,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/compliance_policies
+    https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 
 Using data from `/path/to/jsonfile` in the format described in [Types of Compliance Policies](./types-of-compliance-policies).
@@ -228,7 +222,7 @@ Query the endpoint:
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
+    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 or if determining compliance at some historical date:
@@ -236,7 +230,7 @@ or if determining compliance at some historical date:
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z
+    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z
 ```
 The response is:
 
@@ -256,4 +250,4 @@ The response is:
 
 ## Compliance OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/compliance.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/compliancev1.swagger.json" >}}

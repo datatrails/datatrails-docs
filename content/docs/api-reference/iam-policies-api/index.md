@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 107
+weight: 108
 toc: true
 ---
 
 ## IAM Policies API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### IAM Policy Creation
 
@@ -70,7 +64,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/iam/v1/access_policies
+    https://app.rkvst.io/archivist/iam/v1/access_policies
 ```
 
 The response is:
@@ -129,7 +123,7 @@ To fetch all IAM `access_policies` records, simply `GET` the `iam/access_policie
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/access_policies
+     https://app.rkvst.io/archivist/iam/v1/access_policies
 ```
 
 #### Fetch specific IAM access Policy by identity (v1)
@@ -139,7 +133,7 @@ If you know the unique identity of the IAM access policy Record simply `GET` the
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
+     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch IAM Access Policies by name (v1)
@@ -149,7 +143,7 @@ To fetch all IAM `access_policies` with a specific name, `GET` the `iam/access_p
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/access_policies?display_name=Some%20description
+     https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description
 ```
 Each of these calls returns a list of matching IAM access_policies records in the form:
 
@@ -226,7 +220,7 @@ To delete an IAM access policy, issue following request:
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is:
@@ -281,7 +275,7 @@ curl -v -X PATCH \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 The response is:
 
@@ -340,7 +334,7 @@ If you know the unique identity of the IAM access policy Record simply GET the r
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
+     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
 ```
 
 Each of these calls returns a list of matching Asset records in the form:
@@ -388,7 +382,7 @@ If you know the unique identity of the Asset Record simply GET matching policies
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
+     https://app.rkvst.io/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
 ```
 
 Each of these calls returns a list of matching IAM `access_policies` records in the form:
@@ -452,4 +446,4 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
 
 ## IAM Policies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/access_policies.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/accesspoliciesv1.swagger.json" >}}

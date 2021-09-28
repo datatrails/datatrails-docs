@@ -9,7 +9,7 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 106
+weight: 107
 toc: true
 ---
 
@@ -23,17 +23,11 @@ This attachment uuid is generically referred to as:
 blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Each attachment has an associated hash value and the name of tha hash algorithm used.
+Each attachment has an associated hash value and the name of the hash algorithm used.
 
 ### Attachments API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 Define the event parameters and store in `/path/to/jsonfile`:
 
@@ -73,7 +67,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
 ```
 
 The response is:
@@ -147,12 +141,6 @@ The response is:
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
 
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
-
 Define the event parameters and store in `/path/to/jsonfile`:
 
 ```json
@@ -179,7 +167,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
 ```
 
 The response is:

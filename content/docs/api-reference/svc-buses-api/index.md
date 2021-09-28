@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 111
+weight: 112
 toc: true
 ---
 
 ## Service Bus API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Service Bus Sources Creation
 
@@ -50,7 +44,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/svcbussources
+    https://app.rkvst.io/archivist/v1/svcbussources
 ```
 
 The response is:
@@ -74,7 +68,7 @@ Delete the endpoint:
 ```bash
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
-    $URL/archivist/v1/svcbussources/08838336-c357-460d-902a-3aba9528dd22
+    https://app.rkvst.io/archivist/v1/svcbussources/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:
@@ -89,4 +83,4 @@ The response is:
 
 ## Service Bus OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/svcbussources.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/svcbussourcesv1.swagger.json" >}}

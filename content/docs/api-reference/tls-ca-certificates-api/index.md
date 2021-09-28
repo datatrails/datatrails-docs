@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 114
+weight: 115
 toc: true
 ---
 
 ## TLS CA Certificates API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### TLS CA Certificate Upload
 
@@ -51,7 +45,7 @@ curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/tlscacertificates
+    https://app.rkvst.io/archivist/v1/tlscacertificates
 ```
 
 The response is (certificate field shortened for brevity):
@@ -81,7 +75,7 @@ To fetch all TLS CA certificates records, simply `GET` the `tlscacertificates` r
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v1/tlscacertificates
+     https://app.rkvst.io/archivist/v1/tlscacertificates
 ```
 
 #### Fetch specific TLS CA Certificate by Identity
@@ -91,7 +85,7 @@ If you know the unique identity of the TLS CA certificate Record simply `GET` th
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
+     https://app.rkvst.io/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch TLS CA Certificates by Name
@@ -101,7 +95,7 @@ To fetch all TLS CA Certificates with a specific name, `GET` the `tlscacertifica
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v1/tlscacertificates?display_name=Acme
+     https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme
 ```
 
 Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):
@@ -131,7 +125,7 @@ To delete a TLS CA Certificate, issue the following request:
 curl -v -X DELETE \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    $URL/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is `{}`.
@@ -153,7 +147,7 @@ curl -v -X PATCH \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is (certificate field shortened for brevity):
@@ -168,4 +162,4 @@ The response is (certificate field shortened for brevity):
 
 ## TLS CA Certificates OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tlscacertificates.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tlscacertificatesv1.swagger.json" >}}

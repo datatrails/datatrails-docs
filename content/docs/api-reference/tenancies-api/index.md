@@ -9,19 +9,13 @@ images: []
 menu: 
   docs:
     parent: "api-reference"
-weight: 113
+weight: 114
 toc: true
 ---
 
 ## Tenancies API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Retrieve the Current List of Root Principals
 
@@ -30,7 +24,7 @@ To fetch the list of root principals, simply `GET` the `tenancies/root_principal
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/v1/tenancies/root_principals
+     https://app.rkvst.io/archivist/v1/tenancies/root_principals
 ```
 
 ### Update the List of Root Principals
@@ -63,9 +57,9 @@ curl -v -X PATCH \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    $URL/archivist/v1/tenancies/root_principals
+    https://app.rkvst.io/archivist/v1/tenancies/root_principals
 ```
 
 ## Tenancies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tenancies.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tenanciesv1.swagger.json" >}}

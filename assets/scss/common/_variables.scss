@@ -91,8 +91,8 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1240px,
-  xxl: 1320px
+  xl: 1320px,
+  xxl: 1800px
 );
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -117,7 +117,7 @@ $border-color:                $gray-200;
 
 // stylelint-disable value-keyword-case
 $font-family-sans-serif:      "Open Sans", "Montserrat";
-$font-family-monospace:       sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-monospace:       "Roboto Mono", sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:            $font-family-sans-serif;
 // stylelint-enable value-keyword-case
 

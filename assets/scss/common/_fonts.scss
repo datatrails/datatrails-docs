@@ -242,3 +242,12 @@
   src: local(''),
        url('fonts/vendor/Montserrat/Montserrat-ExtraBoldItalic.ttf') format('truetype'), /* Chrome 26+, Opera 23+, Firefox 39+ */
 }
+
+/* roboto-mono - regular - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('fonts/vendor/roboto-mono/RobotoMono-Regular.ttf') format('truetype'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+}

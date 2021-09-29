@@ -29,17 +29,35 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
 ### Using the RKVST UI (Required for First-Time Setup)
 
-1. As a Root User visit the APP REGISTRATIONS tab in the `Manage RKVST` Interface
-2. Click CREATE APP REGISTRATION.
-3. Enter any display name you like.
+1. As a Root User open the `Manage RKVST` Interface
 
- You may also optionally add any Custom Claims at this step, you must ensure they do not start with `jit_` or use of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
+{{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Manage RKVST</em>" class="border-0" >}}
 
-4. Click CREATE APP REGISTRATION. The response will include the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
+2. Navigate to the APP REGISTRATIONS tab
+
+{{< img src="AppRegistrationsTab.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS</em>" class="border-0" >}}
+
+3. Click CREATE APP REGISTRATION and the following form should appear:
+
+{{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
+
+3. Enter any display name you like and then click CREATE APP REGISTRATION.
+
+{{< note >}}
+ You can optionally add any Custom Claims at this step, you must ensure they do not start with `jit_` or use of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
+{{< /note >}}
+
+{{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
+
+4.  You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
 
 {{< caution >}}
 **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later.
 {{< /caution >}}
+
+{{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
+
+
 
 5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 

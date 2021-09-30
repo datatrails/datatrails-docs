@@ -235,74 +235,11 @@ API Reference
 <h3 class=accordion-header id=headerTenancies1>
 <button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies1 aria-expanded=true aria-controls=collapseTenancies1>
 <div class="overflow-hidden text-nowrap">
-<span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tenancies/caps</span>
-</div>
-</button>
-</h3>
-<div id=collapseTenancies1 class="accordion-collapse collapse" aria-labelledby=headerTenancies1 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<div class=overflow-auto>
-<h4><span style=color:#00aeef;text-transform:uppercase>get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/caps</span></h4>
-</div>
-<h5>Fetch map of resource: caps for authenticated principal's tenant</h5>
-<p><a href></a></p>
-<p>Description: Not stable or officially supported. Fetch the map of resource: caps for authenticated principal&rsquo;s tenant</p>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTenancies1>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies1 aria-expanded=true aria-controls=collapserequestTenancies1>
-<span>Example Response</span>
-</button>
-</h3>
-<div id=collapseresponseTenancies1 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies1 data-parent=#accordion>
-<div class=accordion-body>
-<div style=width:100%>
-<pre><code>null</code></pre>
-</div>
-</div>
-</div>
-</div>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Response Parameter</th>
-<th scope=col>Type</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>limits</th>
-<td>object</td>
-<td>map of caps for authenticated principal&rsquo;s tenancy</td>
-</tbody>
-</table>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th scope=col>Responses</th>
-<th scope=col>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr><th>200</th><td>A successful response.</td>
-<tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-<tr><th>default</th><td>An unexpected error response.</td>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class=accordion-item>
-<h3 class=accordion-header id=headerTenancies2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies2 aria-expanded=true aria-controls=collapseTenancies2>
-<div class="overflow-hidden text-nowrap">
 <span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tenancies/root_principals</span>
 </div>
 </button>
 </h3>
-<div id=collapseTenancies2 class="accordion-collapse collapse" aria-labelledby=headerTenancies2 data-parent=#accordion>
+<div id=collapseTenancies1 class="accordion-collapse collapse" aria-labelledby=headerTenancies1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
@@ -312,12 +249,12 @@ API Reference
 <p><a href></a></p>
 <p>Description: Fetch the current list of tenant root user principals.</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTenancies2>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies2 aria-expanded=true aria-controls=collapserequestTenancies2>
+<h3 class=accordion-header id=headerresponseTenancies1>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies1 aria-expanded=true aria-controls=collapserequestTenancies1>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTenancies2 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies2 data-parent=#accordion>
+<div id=collapseresponseTenancies1 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies1 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
@@ -368,14 +305,14 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTenancies3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies3 aria-expanded=true aria-controls=collapseTenancies3>
+<h3 class=accordion-header id=headerTenancies2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies2 aria-expanded=true aria-controls=collapseTenancies2>
 <div class="overflow-hidden text-nowrap">
 <span style=text-transform:uppercase;color:#00aeef>patch</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tenancies/root_principals</span>
 </div>
 </button>
 </h3>
-<div id=collapseTenancies3 class="accordion-collapse collapse" aria-labelledby=headerTenancies3 data-parent=#accordion>
+<div id=collapseTenancies2 class="accordion-collapse collapse" aria-labelledby=headerTenancies2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
@@ -385,12 +322,12 @@ API Reference
 <p><a href></a></p>
 <p>Description: Replace the list of tenant root user principals. Note that you are not able to remove yourself from the list.</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerrequestTenancies3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestTenancies3 aria-expanded=true aria-controls=collapserequestTenancies3>
+<h3 class=accordion-header id=headerrequestTenancies2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapserequestTenancies2 aria-expanded=true aria-controls=collapserequestTenancies2>
 <span>Example Request</span>
 </button>
 </h3>
-<div id=collapserequestTenancies3 class="accordion-collapse collapse" aria-labelledby=headerrequestTenancies3 data-parent=#accordion>
+<div id=collapserequestTenancies2 class="accordion-collapse collapse" aria-labelledby=headerrequestTenancies2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
@@ -423,12 +360,12 @@ API Reference
 </tbody>
 </table>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTenancies3>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies3 aria-expanded=true aria-controls=collapserequestTenancies3>
+<h3 class=accordion-header id=headerresponseTenancies2>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies2 aria-expanded=true aria-controls=collapserequestTenancies2>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTenancies3 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies3 data-parent=#accordion>
+<div id=collapseresponseTenancies2 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies2 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>{
@@ -480,14 +417,14 @@ API Reference
 </div>
 </div>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerTenancies4>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies4 aria-expanded=true aria-controls=collapseTenancies4>
+<h3 class=accordion-header id=headerTenancies3>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseTenancies3 aria-expanded=true aria-controls=collapseTenancies3>
 <div class="overflow-hidden text-nowrap">
 <span style=text-transform:uppercase;color:#00aeef>get</span>&nbsp;&nbsp;<span style=width:100%;overflow-wrap:break-word>/archivist/v1/tenancies/tenantid</span>
 </div>
 </button>
 </h3>
-<div id=collapseTenancies4 class="accordion-collapse collapse" aria-labelledby=headerTenancies4 data-parent=#accordion>
+<div id=collapseTenancies3 class="accordion-collapse collapse" aria-labelledby=headerTenancies3 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <div class=overflow-auto>
@@ -497,12 +434,12 @@ API Reference
 <p><a href></a></p>
 <p>Description: Get ID of tenant associated with issuer and/or subject, and create if not exists.</p>
 <div class=accordion-item>
-<h3 class=accordion-header id=headerresponseTenancies4>
-<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies4 aria-expanded=true aria-controls=collapserequestTenancies4>
+<h3 class=accordion-header id=headerresponseTenancies3>
+<button class=accordion-button data-bs-toggle=collapse data-bs-target=#collapseresponseTenancies3 aria-expanded=true aria-controls=collapserequestTenancies3>
 <span>Example Response</span>
 </button>
 </h3>
-<div id=collapseresponseTenancies4 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies4 data-parent=#accordion>
+<div id=collapseresponseTenancies3 class="accordion-collapse collapse" aria-labelledby=headerresponseTenancies3 data-parent=#accordion>
 <div class=accordion-body>
 <div style=width:100%>
 <pre><code>null</code></pre>
@@ -588,6 +525,6 @@ TLS CA Certificates API &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.f32717ac067969b5b271e11dcf32d4ab7cbd5e7ecf7ce32f4bd37115b9f65c2933aa15d035219a9d5b3333a9ed513e80c62d39e32833a0ba841b92be04d5e1f8.js integrity="sha512-8ycXrAZ5abWyceEdzzLUq3y9Xn7PfOMvS9NxFbn2XCkzqhXQNSGanVszM6ntUT6Axi054ygzoLqEG5K+BNXh+A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.bd4827dd723ed97888a924eb84843fba134829a038e4622a5cc765aea558866875c39d59ca1a028ec0dfdea35f99cf55c4a0d1728e654bb93afbebebf310e3e0.js integrity="sha512-vUgn3XI+2XiIqSTrhIQ/uhNIKaA45GIqXMdlrqVYhmh1w51ZyhoCjsDf3qNfmc9VxKDRco5lS7k6++vr8xDj4A==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.e2ca17f3883fb498d98377c5e1246c75193ca85f71cc99d1471420a31ef112ba512d461e1658551441b9b4c729dbbd931a1e53302dd48b7074b014f6a1258466.js integrity="sha512-4soX84g/tJjZg3fF4SRsdRk8qF9xzJnRRxQgox7xErpRLUYeFlhVFEG5tMcp272TGh5TMC3Ui3B0sBT2oSWEZg==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.8215fcfb796026f7f3340ff7e07697f714eddd38ec3e5f2ad571c5be70d57a8dcb133faa11f5149df87d5f2d052d9ac711795dd84dddbf7b1ead6bf853ed0a69.js integrity="sha512-ghX8+3lgJvfzNA/34HaX9xTt3TjsPl8q1XHFvnDVeo3LEz+qEfUUnfh9Xy0FLZrHEXld2E3dv3serWv4U+0KaQ==" crossorigin=anonymous defer></script>
 </body>
 </html>

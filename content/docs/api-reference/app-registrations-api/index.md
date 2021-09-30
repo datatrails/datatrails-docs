@@ -70,7 +70,7 @@ The client secret ***must*** be taken note of at this point, as it will be redac
 ```
 
 {{< caution >}}
-**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour by default. 
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour. 
 {{< /caution >}}
 
 #### Authenticating with your Application
@@ -123,7 +123,7 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/iam/v1/$IDENTITY
+     https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
 ```
 ### Updating Applications
 
@@ -184,11 +184,11 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X POST \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/iam/v1/$IDENTITY:regenerate-secret
+     https://app.rkvst.io/archivist/iam/v1/${IDENTITY}:regenerate-secret
 ```
 
 {{< caution >}}
-**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour by default. 
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour. 
 {{< /caution >}}
 
 ### Deleting Applications
@@ -199,7 +199,7 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X DELETE \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/iam/v1/$IDENTITY
+     https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
 ```
 
 ## App Registrations OpenAPI Docs

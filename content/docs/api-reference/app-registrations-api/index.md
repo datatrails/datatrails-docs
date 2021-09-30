@@ -14,17 +14,12 @@ toc: true
 ---
 
 ## App Registrations API Examples
+
 The App Registrations API enables you to create and manage application identities with access to your RKVST tenant. 
 
-It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a client_id and secret are generated and returned. 
+It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned. 
 
 These can be used to request an access token from `https://app.rkvst.io/archivist/iam/v1/appidp/token`, used for application authentication to RKVST.
-
-Set the URL (for example):
-
-```bash
-export URL=https://app.rkvst.io 
-```
 
 ### Creating an Application
 
@@ -47,7 +42,7 @@ curl -X POST \
      -H "@$BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
-     $URL/archivist/iam/v1/applications
+     https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
 An example response is shown below. 
@@ -74,24 +69,40 @@ The client secret ***must*** be taken note of at this point, as it will be redac
 }
 ```
 
+{{< caution >}}
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour by default. 
+{{< /caution >}}
+
 #### Authenticating with your Application
 
-Now that you've created an application, the `client_id` and `secret` can be used to obtain a bearer token:
+Now that you've created an application, you get a token.
+
+Replace `${CLIENT_ID}` with the application id, and `${SECRET}` with your secret from the application registration.
 
 ```bash
-export CLIENT_ID=d1fb6c87-faa9-4d56-b2fd-a5b70a9af065
-export SECRET=a0c09972b6ac912a4d67815fef88093c81a99b49977d35ecf6d162631aa29173
-
-TOKEN=$(curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
-     --url ${URL}/archivist/iam/v1/appidp/token \
-     --data-urlencode "grant_type=client_credentials" \
-     --data-urlencode "client_id=${CLIENT_ID}" \
-     --data-urlencode "client_secret=${SECRET}") && echo "Authorization: Bearer ${TOKEN}" > app-id.jwt
+curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
+    --data-urlencode "grant_type=client_credentials" \
+    --data-urlencode "client_id=${CLIENT_ID}" \
+    --data-urlencode "client_secret=${SECRET}"
 ```
 
-You can then use this bearer token to interact with other RKVST services.
+The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
 
-The App Registrations API helps you manage the full lifecycle of your application identities.
+A common method to extract the token is to use `jq`, where `$RESPONSE` is the output your curl command:
+
+```bash
+TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
+```
+
+You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
+
+```bash
+Authorization: Bearer $TOKEN
+```
+
+Where `$TOKEN` is the extracted token value.
+
+You can then use this bearer token to interact with other RKVST services.
 
 ### Listing Applications
 
@@ -100,7 +111,7 @@ All of the applications created for your RKVST tenancy can be viewed using the f
 ```bash
 curl -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/applications
+     https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
 ### Viewing Applications
@@ -112,7 +123,7 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/$IDENTITY
+     https://app.rkvst.io/archivist/iam/v1/$IDENTITY
 ```
 ### Updating Applications
 
@@ -137,7 +148,7 @@ curl -X PATCH \
      -H "@$BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/json"
-     $URL/archivist/iam/v1/${IDENTITY}
+     https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
 ```
 
 Example response:
@@ -173,8 +184,12 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X POST \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/$IDENTITY:regenerate-secret
+     https://app.rkvst.io/archivist/iam/v1/$IDENTITY:regenerate-secret
 ```
+
+{{< caution >}}
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour by default. 
+{{< /caution >}}
 
 ### Deleting Applications
 The following example shows how to delete an application.
@@ -184,9 +199,9 @@ export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X DELETE \
      -H "@$BEARER_TOKEN_FILE" \
-     $URL/archivist/iam/v1/$IDENTITY
+     https://app.rkvst.io/archivist/iam/v1/$IDENTITY
 ```
 
 ## App Registrations OpenAPI Docs
 
-{{<openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/appregistrationsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/appregistrationsv1.swagger.json" >}}

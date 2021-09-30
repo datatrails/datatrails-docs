@@ -27,6 +27,7 @@ where fileName is the file's name with `.json` removed from the end
       <div class="accordion" id='{{ $componentID }}{{ $.Scratch.Get "id" }}'></div>
       {{ range $path, $pathMethods := $openapi.paths }}
         {{ range $pathMethod, $pathDetails := $pathMethods }}
+          {{ if not (in $pathDetails.tags "Unsupported") }}
           {{ $.Scratch.Set "id" (add ($.Scratch.Get "id") 1) }}
                 <div class="accordion-item">
                   <h3 class="accordion-header" id='header{{ $componentID }}{{ $.Scratch.Get "id" }}'>
@@ -46,7 +47,6 @@ where fileName is the file's name with `.json` removed from the end
                       <p><a href="{{ $pathDetails.externalDocs.url }}">{{ $pathDetails.externalDocs.description}}</a></p>
                       <p>Description: {{ $pathDetails.description | markdownify }}</p>
 
-                    
                       {{ range $pathParameter := $pathDetails.parameters }}
                         {{ if eq $pathParameter.name "body" }}
                           {{ if isset $pathParameter.schema "$ref"}}
@@ -184,6 +184,8 @@ where fileName is the file's name with `.json` removed from the end
         {{ end }}
       {{ end }}
     {{ end }}
+{{ end }}
+
 
   </div>
 

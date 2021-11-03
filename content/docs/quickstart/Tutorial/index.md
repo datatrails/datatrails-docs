@@ -160,6 +160,11 @@ Once you have an Asset defined, it can be shared both within your department or 
 
 4. You should begin applying filters to your Policy so it applies to the correct assets. Following the example let's filter for `Bike` type Assets in the `Jitsuin Paris` Location.
 
+{{< note >}}
+**Note:** The applied filters should be an exact match to what has been recorded.  Following the above example, there should be an Asset Type of `Bike` and location of `Jitsuin Paris` within RKVST.
+{{< /note >}}
+
+
 {{< img src="PolicyOBACFilterNT.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 
 5. Select the `Permissions` Tab and define which Organizations can read and write which Attributes and Events.

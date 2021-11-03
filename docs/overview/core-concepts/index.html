@@ -225,20 +225,20 @@ API Reference
 <p>RKVST is not opinionated about Asset content meaning that Attributes can trace anything deemed important to participants. Much like #hashtags on Twitter they can be invented by anyone at any time, but once an Attribute has been seen once it will be fully traced from that point on.</p>
 <p>A simple Asset might look like this:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json>   <span class=p>{</span>
-      <span class=err>//</span> <span class=err>Fixed</span> <span class=err>global</span> <span class=err>identity</span> <span class=err>for</span> <span class=err>this</span> <span class=err>Asset</span>
-      <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
+      <span class=c1>// Fixed global identity for this Asset
+</span><span class=c1></span>      <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
 
-      <span class=err>//</span> <span class=err>The</span> <span class=err>set</span> <span class=err>of</span> <span class=err>tracked</span> <span class=err>and</span> <span class=err>traced</span> <span class=err>attributes</span>
-      <span class=nt>&#34;attributes&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=err>//</span> <span class=err>arc_*</span> <span class=err>are</span> <span class=err>understood</span> <span class=err>and</span> <span class=err>processed</span> <span class=err>by</span> <span class=err>RKVST</span>
-        <span class=nt>&#34;arc_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Top Trump&#34;</span><span class=p>,</span>
+      <span class=c1>// The set of tracked and traced attributes
+</span><span class=c1></span>      <span class=nt>&#34;attributes&#34;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=c1>// arc_* are understood and processed by RKVST
+</span><span class=c1></span>        <span class=nt>&#34;arc_display_type&#34;</span><span class=p>:</span> <span class=s2>&#34;Top Trump&#34;</span><span class=p>,</span>
         <span class=nt>&#34;arc_display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Opel Kadett Rallye 1900&#34;</span><span class=p>,</span>
         <span class=nt>&#34;arc_description&#34;</span><span class=p>:</span> <span class=s2>&#34;Opel Kadett Rallye 1900 Top Trump card&#34;</span><span class=p>,</span>
         <span class=nt>&#34;arc_serial_number&#34;</span><span class=p>:</span> <span class=s2>&#34;5a&#34;</span><span class=p>,</span>
         <span class=nt>&#34;arc_home_location_identity&#34;</span><span class=p>:</span> <span class=s2>&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
 
-        <span class=err>//</span> <span class=err>arc_attachments</span> <span class=err>is</span> <span class=err>a</span> <span class=err>collection</span> <span class=err>of</span> <span class=err>BLOBs</span> <span class=err>attached</span> <span class=err>to</span> <span class=err>the</span> <span class=err>Asset</span>
-        <span class=nt>&#34;arc_attachments&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=c1>// arc_attachments is a collection of BLOBs attached to the Asset
+</span><span class=c1></span>        <span class=nt>&#34;arc_attachments&#34;</span><span class=p>:</span> <span class=p>[</span>
           <span class=p>{</span>
             <span class=nt>&#34;arc_display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;arc_primary_image&#34;</span><span class=p>,</span>
             <span class=nt>&#34;arc_hash_alg&#34;</span><span class=p>:</span> <span class=s2>&#34;SHA256&#34;</span><span class=p>,</span>
@@ -247,23 +247,23 @@ API Reference
           <span class=p>}</span>
         <span class=p>],</span>
         
-        <span class=err>//</span> <span class=err>All</span> <span class=err>others</span> <span class=err>are</span> <span class=err>user-defined</span> <span class=err>attributes</span>
-        <span class=nt>&#34;bhp&#34;</span><span class=p>:</span> <span class=s2>&#34;145&#34;</span><span class=p>,</span>
+        <span class=c1>// All others are user-defined attributes
+</span><span class=c1></span>        <span class=nt>&#34;bhp&#34;</span><span class=p>:</span> <span class=s2>&#34;145&#34;</span><span class=p>,</span>
         <span class=nt>&#34;top_speed&#34;</span><span class=p>:</span> <span class=s2>&#34;190&#34;</span><span class=p>,</span>
         <span class=nt>&#34;weight&#34;</span><span class=p>:</span> <span class=s2>&#34;860&#34;</span><span class=p>,</span>
         <span class=nt>&#34;engine_capacity&#34;</span><span class=p>:</span> <span class=s2>&#34;1980&#34;</span>
       <span class=p>},</span>
 
-      <span class=err>//</span> <span class=err>Behaviours</span> <span class=err>define</span> <span class=err>the</span> <span class=err>set</span> <span class=err>of</span> <span class=err>APIs</span> <span class=err>that</span> <span class=err>can</span> <span class=err>be</span> <span class=err>used</span> <span class=err>to</span> <span class=err>interact</span> <span class=err>with</span> <span class=err>the</span> <span class=err>Asset</span>
-      <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span>
+      <span class=c1>// Behaviours define the set of APIs that can be used to interact with the Asset
+</span><span class=c1></span>      <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span>
         <span class=s2>&#34;RecordEvidence&#34;</span>
       <span class=p>],</span>
 
-      <span class=err>//</span> <span class=err>Date</span> <span class=err>and</span> <span class=err>time</span> <span class=err>at</span> <span class=err>which</span> <span class=err>these</span> <span class=err>attributes</span> <span class=err>were</span> <span class=err>contemporary</span>
-      <span class=nt>&#34;at_time&#34;</span><span class=p>:</span> <span class=s2>&#34;2021-06-25T12:40:03Z&#34;</span><span class=p>,</span>
+      <span class=c1>// Date and time at which these attributes were contemporary
+</span><span class=c1></span>      <span class=nt>&#34;at_time&#34;</span><span class=p>:</span> <span class=s2>&#34;2021-06-25T12:40:03Z&#34;</span><span class=p>,</span>
 
-      <span class=err>//</span> <span class=err>Storage</span> <span class=err>and</span> <span class=err>integrity</span> <span class=err>properties</span> <span class=err>-</span> <span class=err>managed</span> <span class=err>by</span> <span class=err>the</span> <span class=err>system</span>
-      <span class=nt>&#34;confirmation_status&#34;</span><span class=p>:</span> <span class=s2>&#34;CONFIRMED&#34;</span><span class=p>,</span>
+      <span class=c1>// Storage and integrity properties - managed by the system
+</span><span class=c1></span>      <span class=nt>&#34;confirmation_status&#34;</span><span class=p>:</span> <span class=s2>&#34;CONFIRMED&#34;</span><span class=p>,</span>
       <span class=nt>&#34;tracked&#34;</span><span class=p>:</span> <span class=s2>&#34;TRACKED&#34;</span><span class=p>,</span>
       <span class=nt>&#34;owner&#34;</span><span class=p>:</span> <span class=s2>&#34;0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class=p>,</span>
       <span class=nt>&#34;storage_integrity&#34;</span><span class=p>:</span> <span class=s2>&#34;LEDGER&#34;</span>
@@ -329,76 +329,76 @@ Every situation is different, and the RKVST Access Policy system is flexible and
 <p>A simple access policy may look like this:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json>
     <span class=p>{</span>
-      <span class=err>//</span> <span class=err>identity</span> <span class=err>and</span> <span class=err>tenant</span> <span class=err>are</span> <span class=err>non-modifiable</span> <span class=err>system</span> <span class=err>info</span>
-      <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
+      <span class=c1>// identity and tenant are non-modifiable system info
+</span><span class=c1></span>      <span class=nt>&#34;identity&#34;</span><span class=p>:</span> <span class=s2>&#34;access_policies/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
       <span class=nt>&#34;tenant&#34;</span><span class=p>:</span> <span class=s2>&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class=p>,</span>
 
-      <span class=err>//</span> <span class=err>User-friendly</span> <span class=err>identifiers</span>
-      <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Sample Policy&#34;</span><span class=p>,</span>
+      <span class=c1>// User-friendly identifiers
+</span><span class=c1></span>      <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Sample Policy&#34;</span><span class=p>,</span>
       <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;An Access Policy created for RKVST user docs&#34;</span>
 
-      <span class=err>//</span> <span class=err>Filters</span> <span class=err>define</span> <span class=err>which</span> <span class=err>Assets</span> <span class=err>this</span> <span class=err>Policy</span> <span class=err>applies</span> <span class=err>to</span>
-      <span class=s2>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
+      <span class=c1>// Filters define which Assets this Policy applies to
+</span><span class=c1></span>      <span class=s2>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
         <span class=p>{</span>
-          <span class=err>//</span> <span class=err>Any</span> <span class=err>Crate,</span> <span class=err>Box,</span> <span class=err>or</span> <span class=err>Bag</span> <span class=err>...</span>
-          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// Any Crate, Box, or Bag ...
+</span><span class=c1></span>          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;attributes.arc_display_type=Crate&#34;</span><span class=p>,</span>
             <span class=s2>&#34;attributes.arc_display_type=Box&#34;</span><span class=p>,</span>
             <span class=s2>&#34;attributes.arc_display_type=Bag&#34;</span>
           <span class=p>]</span>
         <span class=p>},</span>
         <span class=p>{</span>
-          <span class=err>//</span> <span class=err>...</span> <span class=err>whose</span> <span class=err>registered</span> <span class=err>handler</span> <span class=err>is</span> <span class=err>either</span> <span class=err>Fred</span> <span class=err>or</span> <span class=err>Margaret</span>
-          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// ... whose registered handler is either Fred or Margaret
+</span><span class=c1></span>          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;attributes.handler=Fred&#34;</span><span class=p>,</span>
             <span class=s2>&#34;attributes.handler=Margaret&#34;</span>
           <span class=p>]</span>
         <span class=p>}</span>
       <span class=p>],</span>
 
-      <span class=err>//</span> <span class=err>Permissions</span> <span class=err>define</span> <span class=err>what</span> <span class=err>can</span> <span class=err>be</span> <span class=err>done</span> <span class=err>with</span> <span class=err>the</span> <span class=err>matching</span> <span class=err>Assets</span>
-      <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
+      <span class=c1>// Permissions define what can be done with the matching Assets
+</span><span class=c1></span>      <span class=nt>&#34;access_permissions&#34;</span><span class=p>:</span> <span class=p>[</span>
         <span class=p>{</span>
-          <span class=err>//</span> <span class=err>Grant</span> <span class=err>access</span> <span class=err>to</span> <span class=err>partner</span> <span class=err>organizations</span> <span class=err>by</span> <span class=err>Subject</span> <span class=err>Identity</span>
-          <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
-            <span class=err>//</span> <span class=err>The</span> <span class=err>Subject</span> <span class=err>Identity</span> <span class=err>for</span> <span class=err>a</span> <span class=err>known</span> <span class=err>partner</span> <span class=err>eg</span> <span class=err>ACME</span> <span class=err>Co</span>
-            <span class=s2>&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span> 
+          <span class=c1>// Grant access to partner organizations by Subject Identity
+</span><span class=c1></span>          <span class=nt>&#34;subjects&#34;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=c1>// The Subject Identity for a known partner eg ACME Co
+</span><span class=c1></span>            <span class=s2>&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span> 
           <span class=p>],</span>
 
-          <span class=err>//</span> <span class=err>Grant</span> <span class=err>access</span> <span class=err>to</span> <span class=err>local</span> <span class=err>users</span> <span class=err>by</span> <span class=err>attribute</span> <span class=err>(eg</span> <span class=err>email</span> <span class=err>address)</span>
-          <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> 
+          <span class=c1>// Grant access to local users by attribute (eg email address)
+</span><span class=c1></span>          <span class=nt>&#34;user_attributes&#34;</span><span class=p>:</span> <span class=p>[</span> 
             <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;email=bill@synsation.com&#34;</span> <span class=p>]</span> <span class=p>}</span> 
           <span class=p>],</span>
           
-          <span class=err>//</span> <span class=err>Limit</span> <span class=err>the</span> <span class=err>APIs</span> <span class=err>they</span> <span class=err>can</span> <span class=err>call</span>
-          <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
+          <span class=c1>// Limit the APIs they can call
+</span><span class=c1></span>          <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
           
-          <span class=err>//</span> <span class=err>Select</span> <span class=err>which</span> <span class=err>Asset</span> <span class=err>attributes</span> <span class=err>these</span> <span class=err>users</span> <span class=err>can</span> <span class=err>see</span>
-          <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// Select which Asset attributes these users can see
+</span><span class=c1></span>          <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;Height&#34;</span><span class=p>,</span>
             <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span>
             <span class=s2>&#34;arc_display_type&#34;</span>
           <span class=p>],</span>
 
-          <span class=err>//</span> <span class=err>Select</span> <span class=err>which</span> <span class=err>Asset</span> <span class=err>attributes</span> <span class=err>these</span> <span class=err>users</span> <span class=err>can</span> <span class=err>modify</span>
-          <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// Select which Asset attributes these users can modify
+</span><span class=c1></span>          <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;Height&#34;</span>
           <span class=p>],</span>
 
-          <span class=err>//</span> <span class=err>Select</span> <span class=err>which</span> <span class=err>Events</span> <span class=err>from</span> <span class=err>the</span> <span class=err>Asset</span> <span class=err>history</span> <span class=err>these</span> <span class=err>users</span> <span class=err>can</span> <span class=err>see</span>
-          <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// Select which Events from the Asset history these users can see
+</span><span class=c1></span>          <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;Measure&#34;</span><span class=p>,</span>
             <span class=s2>&#34;Open&#34;</span><span class=p>,</span>
             <span class=s2>&#34;Seal&#34;</span>
           <span class=p>],</span>
 
-          <span class=err>//</span> <span class=err>Select</span> <span class=err>which</span> <span class=err>Events</span> <span class=err>these</span> <span class=err>users</span> <span class=err>can</span> <span class=err>contribute</span> <span class=err>to</span> <span class=err>the</span> <span class=err>history</span>
-          <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span>
+          <span class=c1>// Select which Events these users can contribute to the history
+</span><span class=c1></span>          <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span>
             <span class=s2>&#34;Measure&#34;</span>
           <span class=p>],</span>
 
-          <span class=err>//</span> <span class=err>Note</span> <span class=err>the</span> <span class=err>include_attributes</span> <span class=err>field</span> <span class=err>is</span> <span class=err>deprecated</span>
-          <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[]</span>
+          <span class=c1>// Note the include_attributes field is deprecated
+</span><span class=c1></span>          <span class=nt>&#34;include_attributes&#34;</span><span class=p>:</span> <span class=p>[]</span>
         <span class=p>}</span>
       <span class=p>]</span>
     <span class=p>}</span>
@@ -550,6 +550,6 @@ Registering Your Azure Active Directory With RKVST &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.e156e72f13e635819258d1406846e5fc8b399a0961fe9041caccda949d5c4184bf4ca4bc170c1982ac78cd8620218af9d83e3ddd14717497295b4020bce8e1da.js integrity="sha512-4VbnLxPmNYGSWNFAaEbl/Is5mglh/pBByszalJ1cQYS/TKS8FwwZgqx4zYYgIYr52D493RRxdJcpW0AgvOjh2g==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.0e7411e87a9d56b124535f94ea5ae5a98367bd4b72b13d81c7773f6ccc2c42703a839415bb84c5477502fdb87b93eab782ec40f50f8a5f9942adc5a0e937d2a6.js integrity="sha512-DnQR6HqdVrEkU1+U6lrlqYNnvUtysT2Bx3c/bMwsQnA6g5QVu4TFR3UC/bh7k+q3guxA9Q+KX5lCrcWg6TfSpg==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.edbf49f439d7cd6aa3f0c39dbb8bbdb241422fe1af740a8ce5135575f0d3a4f978ba6a8c4a4c113b0db685c2564387656d6e60510b430d169a076f273a1e1ed0.js integrity="sha512-7b9J9DnXzWqj8MOdu4u9skFCL+GvdAqM5RNVdfDTpPl4umqMSkwROw22hcJWQ4dlbW5gUQtDDRaaB28nOh4e0A==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.6843de7a45f82e5193a59865c7d7ae6c0dc2fdc7cb288c0dbef3a3f1690b66d0d2e894ae447d35b5d0b59c4180179f165908914477c6ef108ace308b462ece71.js integrity="sha512-aEPeekX4LlGTpZhlx9eubA3C/cfLKIwNvvOj8WkLZtDS6JSuRH01tdC1nEGAF58WWQiRRHfG7xCKzjCLRi7OcQ==" crossorigin=anonymous defer></script>
 </body>
 </html>

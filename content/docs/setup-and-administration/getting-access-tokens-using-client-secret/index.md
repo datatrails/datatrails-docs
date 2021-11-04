@@ -13,7 +13,7 @@ weight: 13
 toc: true
 ---
 
-Having completed the steps at [App Registration](../configuring-appregistrations-for-non-interactive-use/), and taken note of the `CLIENT ID` and the `SECRET`, a token can be obtained with the following command.
+Having completed the steps at [App Registration](../configuring-app-registrations-for-non-interactive-use/), and taken note of the `CLIENT ID` and the `SECRET`, a token can be obtained with the following command.
 
 Replace `${CLIENTID}` with the application id, and `${SECRET}` with your secret from the application registration.
 

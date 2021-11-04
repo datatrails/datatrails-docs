@@ -1,6 +1,6 @@
 ---
-title: "Configuring App Registrations for Non-Interactive Use"
-description: "Creating App Registrations for RKVST"
+title: "Getting Access Tokens using App Registrations"
+description: "Getting Access Tokens using App Registrations"
 lead: "Creating App Registrations for RKVST"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2021-06-16T11:12:25+01:00

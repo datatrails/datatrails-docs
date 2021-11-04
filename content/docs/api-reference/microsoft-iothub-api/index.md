@@ -15,7 +15,7 @@ toc: true
 
 ## Microsoft IoTHub API Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### IoTHub GDR Creation
 

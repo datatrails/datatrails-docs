@@ -27,7 +27,7 @@ Each attachment has an associated hash value and the name of the hash algorithm 
 
 ### Attachments API Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 Define the event parameters and store in `/path/to/jsonfile`:
 
@@ -139,7 +139,7 @@ The response is:
 
 ### RecordEvidence Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-client-secret) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 Define the event parameters and store in `/path/to/jsonfile`:
 

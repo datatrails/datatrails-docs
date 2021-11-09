@@ -27,21 +27,21 @@ This authentication flow uses the industry-standard OIDC 'Client Credentials' Fl
 
 When enabling non-interactive access to RKVST, you ***must*** create your first App Registration in the **RKVST UI.**
 
-### Using the RKVST UI (Required for First-Time Setup)
+### Using the RKVST UI to create an App Registration (First-Time Setup)
 
 1. As a Root User open the `Manage RKVST` Interface
 
 {{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Manage RKVST</em>" class="border-0" >}}
 
-2. Navigate to the APP REGISTRATIONS tab
+2. Navigate to the `APP REGISTRATIONS` tab
 
 {{< img src="AppRegistrationsTab.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS</em>" class="border-0" >}}
 
-3. Click CREATE APP REGISTRATION and the following form should appear:
+3. Click `CREATE APP REGISTRATION` and the following form should appear:
 
 {{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
 
-3. Enter any display name you like and then click CREATE APP REGISTRATION.
+3. Enter any display name you like and then click `CREATE APP REGISTRATION`.
 
 {{< note >}}
  You can optionally add any Custom Claims at this step, you must ensure they do not start with `jit_` or use of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
@@ -57,19 +57,19 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 
-
-
 5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
 **Note:** By default, newly created Applications will always have a Non-Root User permission to the API, you must add the Application as a Root User to elevate it's permissions.
+
+You can add an App Registration as a Root User using the `Manage RKVST` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration's `CLIENT_ID`.
 {{< /note >}}
 
-### Using the App Registrations API
+### Using the App Registrations API to create an App Registration
 
 The following assumes you have at least one `App Registration` that has already been configured with Root User permissions and that you are comfortable generating tokens and using the RKVST API.
 
-If you do not yet have an App Registration configured please follow [the first-time setup guide](./#using-the-rkvst-ui-(required-for-first-time-setup)) to get started.
+If you do not yet have an App Registration configured please follow [the first-time setup guide](./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup) to get started.
 
 1. Define your new Application JSON and save it to a file locally. e.g.
 
@@ -112,7 +112,7 @@ Where `$TOKEN` is the extracted token value.
 
 ```bash
 curl -X POST \
-     -H "@BEARER_TOKEN_FILE" \
+     -H "@$BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
      https://app.rkvst.io/archivist/iam/v1/applications
@@ -152,7 +152,7 @@ For further details on using this API check out our [App Registrations API Refer
 
 Having completed the steps at [Creating an App Registration](./#creating-an-app-registration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
 
-Replace `${CLIENT_ID}` with the application id, and `${SECRET}` with your secret from the application registration.
+Replace `$CLIENT_ID` with the application id, and `$SECRET` with your secret from the application registration.
 
 ```bash
 curl https://app.rkvst.io/archivist/iam/v1/appidp/token \

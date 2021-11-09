@@ -172,8 +172,8 @@ API Reference
 <ul>
 <li><a href=#creating-an-app-registration>Creating an App Registration</a>
 <ul>
-<li><a href=#using-the-rkvst-ui-required-for-first-time-setup>Using the RKVST UI (Required for First-Time Setup)</a></li>
-<li><a href=#using-the-app-registrations-api>Using the App Registrations API</a></li>
+<li><a href=#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup>Using the RKVST UI to create an App Registration (First-Time Setup)</a></li>
+<li><a href=#using-the-app-registrations-api-to-create-an-app-registration>Using the App Registrations API to create an App Registration</a></li>
 </ul>
 </li>
 <li><a href=#getting-a-token-with-your-app-registration>Getting a Token With Your App Registration</a>
@@ -206,7 +206,7 @@ API Reference
 <div><strong></strong> <strong>Warning:</strong> You may only create and manage <code>App Registrations</code> with a <strong>Root User</strong>.</div>
 </blockquote>
 <p>When enabling non-interactive access to RKVST, you <em><strong>must</strong></em> create your first App Registration in the <strong>RKVST UI.</strong></p>
-<h3 id=using-the-rkvst-ui-required-for-first-time-setup>Using the RKVST UI (Required for First-Time Setup)<a href=#using-the-rkvst-ui-required-for-first-time-setup class=anchor aria-hidden=true>#</a> </h3>
+<h3 id=using-the-rkvst-ui-to-create-an-app-registration-first-time-setup>Using the RKVST UI to create an App Registration (First-Time Setup)<a href=#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup class=anchor aria-hidden=true>#</a> </h3>
 <ol>
 <li>As a Root User open the <code>Manage RKVST</code> Interface</li>
 </ol>
@@ -223,7 +223,7 @@ API Reference
 </div>
 </div>
 <ol start=2>
-<li>Navigate to the APP REGISTRATIONS tab</li>
+<li>Navigate to the <code>APP REGISTRATIONS</code> tab</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AppRegistrationsTab img class="img-fluid responsive" src=https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationsTab.png width=2580 height=509 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationsTab_huac5b39d0065757760ad019df63adfeb3_56234_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationsTab_huac5b39d0065757760ad019df63adfeb3_56234_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationsTab_huac5b39d0065757760ad019df63adfeb3_56234_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationsTab_huac5b39d0065757760ad019df63adfeb3_56234_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -238,7 +238,7 @@ API Reference
 </div>
 </div>
 <ol start=3>
-<li>Click CREATE APP REGISTRATION and the following form should appear:</li>
+<li>Click <code>CREATE APP REGISTRATION</code> and the following form should appear:</li>
 </ol>
 <figure class=border-0>
 <input type=image data-bs-toggle=modal data-bs-target=#AppRegistrationForm img class="img-fluid responsive" src=https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationForm.png width=594 height=401 data-sizes=auto data-srcset="https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationForm_hu3116cfcc5e634d3fd28429a818fdcd01_16435_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationForm_hu3116cfcc5e634d3fd28429a818fdcd01_16435_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationForm_hu3116cfcc5e634d3fd28429a818fdcd01_16435_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/AppRegistrationForm_hu3116cfcc5e634d3fd28429a818fdcd01_16435_200x0_resize_box_3.png 200w" alt=Rectangle>
@@ -253,7 +253,7 @@ API Reference
 </div>
 </div>
 <ol start=3>
-<li>Enter any display name you like and then click CREATE APP REGISTRATION.</li>
+<li>Enter any display name you like and then click <code>CREATE APP REGISTRATION</code>.</li>
 </ol>
 <blockquote class="note callout">
 <div><strong></strong> You can optionally add any Custom Claims at this step, you must ensure they do not start with <code>jit_</code> or use of the <a href=https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims>well-known reserved claims</a>.</div>
@@ -292,11 +292,13 @@ API Reference
 <li>Now you have created your App Registration, follow the steps further below to <a href=./#getting-a-token-with-your-app-registration>test generating a token</a> and <a href=./#testing-your-access>ensure you can access the RKVST API</a>.</li>
 </ol>
 <blockquote class="note callout">
-<div><strong></strong> <strong>Note:</strong> By default, newly created Applications will always have a Non-Root User permission to the API, you must add the Application as a Root User to elevate it&rsquo;s permissions.</div>
+<div><strong></strong> <p><strong>Note:</strong> By default, newly created Applications will always have a Non-Root User permission to the API, you must add the Application as a Root User to elevate it&rsquo;s permissions.</p>
+<p>You can add an App Registration as a Root User using the <code>Manage RKVST</code> screen, where the issuer will be <code>https://app.rkvst.io/appidpv1</code> and the subject will be your App Registration&rsquo;s <code>CLIENT_ID</code>.</p>
+</div>
 </blockquote>
-<h3 id=using-the-app-registrations-api>Using the App Registrations API<a href=#using-the-app-registrations-api class=anchor aria-hidden=true>#</a> </h3>
+<h3 id=using-the-app-registrations-api-to-create-an-app-registration>Using the App Registrations API to create an App Registration<a href=#using-the-app-registrations-api-to-create-an-app-registration class=anchor aria-hidden=true>#</a> </h3>
 <p>The following assumes you have at least one <code>App Registration</code> that has already been configured with Root User permissions and that you are comfortable generating tokens and using the RKVST API.</p>
-<p>If you do not yet have an App Registration configured please follow <a href=./#using-the-rkvst-ui-(required-for-first-time-setup)>the first-time setup guide</a> to get started.</p>
+<p>If you do not yet have an App Registration configured please follow <a href=./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup>the first-time setup guide</a> to get started.</p>
 <ol>
 <li>Define your new Application JSON and save it to a file locally. e.g.</li>
 </ol>
@@ -324,7 +326,7 @@ API Reference
 <li>Submit your new Application JSON to the App Registration API Endpoint</li>
 </ol>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -X POST <span class=se>\
-</span><span class=se></span>     -H <span class=s2>&#34;@BEARER_TOKEN_FILE&#34;</span> <span class=se>\
+</span><span class=se></span>     -H <span class=s2>&#34;@</span><span class=nv>$BEARER_TOKEN_FILE</span><span class=s2>&#34;</span> <span class=se>\
 </span><span class=se></span>     -H <span class=s2>&#34;Content-Type: application/json&#34;</span> <span class=se>\
 </span><span class=se></span>     -d <span class=s2>&#34;@/path/to/jsonfile&#34;</span> <span class=se>\
 </span><span class=se></span>     https://app.rkvst.io/archivist/iam/v1/applications
@@ -355,7 +357,7 @@ API Reference
 <p>For further details on using this API check out our <a href=../../api-reference/app-registrations-api>App Registrations API Reference</a> which not only contains more detailed usage examples but also has the full OpenAPI Reference.</p>
 <h2 id=getting-a-token-with-your-app-registration>Getting a Token With Your App Registration<a href=#getting-a-token-with-your-app-registration class=anchor aria-hidden=true>#</a> </h2>
 <p>Having completed the steps at <a href=./#creating-an-app-registration>Creating an App Registration</a>, and having taken note of the <code>CLIENT_ID</code> and the <code>SECRET</code>, a token can be obtained with the following command.</p>
-<p>Replace <code>${CLIENT_ID}</code> with the application id, and <code>${SECRET}</code> with your secret from the application registration.</p>
+<p>Replace <code>$CLIENT_ID</code> with the application id, and <code>$SECRET</code> with your secret from the application registration.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl https://app.rkvst.io/archivist/iam/v1/appidp/token <span class=se>\
 </span><span class=se></span>    --data-urlencode <span class=s2>&#34;grant_type=client_credentials&#34;</span> <span class=se>\
 </span><span class=se></span>    --data-urlencode <span class=s2>&#34;client_id=</span><span class=si>${</span><span class=nv>CLIENT_ID</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
@@ -429,6 +431,6 @@ Who Did What When to an Asset? &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.e156e72f13e635819258d1406846e5fc8b399a0961fe9041caccda949d5c4184bf4ca4bc170c1982ac78cd8620218af9d83e3ddd14717497295b4020bce8e1da.js integrity="sha512-4VbnLxPmNYGSWNFAaEbl/Is5mglh/pBByszalJ1cQYS/TKS8FwwZgqx4zYYgIYr52D493RRxdJcpW0AgvOjh2g==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.0e7411e87a9d56b124535f94ea5ae5a98367bd4b72b13d81c7773f6ccc2c42703a839415bb84c5477502fdb87b93eab782ec40f50f8a5f9942adc5a0e937d2a6.js integrity="sha512-DnQR6HqdVrEkU1+U6lrlqYNnvUtysT2Bx3c/bMwsQnA6g5QVu4TFR3UC/bh7k+q3guxA9Q+KX5lCrcWg6TfSpg==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.f5ffa0a9836a84c831ff9cfa2a2edaa32e15cb508686053184cac38e270cf6d05a12bcf66a05ad49ad3db648a7723c0dcf9a7183d648369c590fe20f113147b7.js integrity="sha512-9f+gqYNqhMgx/5z6Ki7aoy4Vy1CGhgUxhMrDjicM9tBaErz2agWtSa09tkincjwNz5pxg9ZINpxZD+IPETFHtw==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.d71f74a54d4016d19ea5f069512e9b44741bfc932862ac795d1783cd917067975ba40ca990f88a7c5099351f53b2d086b9b9354fd611cc81044326e7de2ac012.js integrity="sha512-1x90pU1AFtGepfBpUS6bRHQb/JMoYqx5XReDzZFwZ5dbpAypkPiKfFCZNR9TstCGubk1T9YRzIEEQybn3irAEg==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.14a8e59e5ec7d60cef511ae501c30ba9711e425473a27d75baf64a40515d9ad1b811883be0d9115cc9545944fba6522e0dd1deff9d216d154d59848ebee471ed.js integrity="sha512-FKjlnl7H1gzvURrlAcMLqXEeQlRzon11uvZKQFFdmtG4EYg74NkRXMlUWUT7plIuDdHe/50hbRVNWYSOvuRx7Q==" crossorigin=anonymous defer></script>
 </body>
 </html>

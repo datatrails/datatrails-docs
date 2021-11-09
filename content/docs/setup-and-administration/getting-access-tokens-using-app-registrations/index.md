@@ -57,8 +57,6 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 
-
-
 5. Now you have created your App Registration, follow the steps further below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
@@ -90,8 +88,8 @@ If you do not yet have an App Registration configured please follow [the first-t
 ```bash
 curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=$CLIENT_ID" \
-    --data-urlencode "client_secret=$SECRET"
+    --data-urlencode "client_id=${CLIENT_ID}" \
+    --data-urlencode "client_secret=${SECRET}"
 ```
 
 The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
@@ -114,7 +112,7 @@ Where `$TOKEN` is the extracted token value.
 
 ```bash
 curl -X POST \
-     -H "@BEARER_TOKEN_FILE" \
+     -H "@$BEARER_TOKEN_FILE" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
      https://app.rkvst.io/archivist/iam/v1/applications
@@ -159,8 +157,8 @@ Replace `$CLIENT_ID` with the application id, and `$SECRET` with your secret fro
 ```bash
 curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
     --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=$CLIENT_ID" \
-    --data-urlencode "client_secret=$SECRET"
+    --data-urlencode "client_id=${CLIENT_ID}" \
+    --data-urlencode "client_secret=${SECRET}"
 ```
 
 The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).

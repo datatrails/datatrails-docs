@@ -52,7 +52,7 @@ Retrieve a specific Attachment
 curl -v \
     -H "@$BEARER_TOKEN_FILE" \
     -H "content_type=image/jpg" \
-    -F "file=@/path/to/file" \
+    --output "/path/to/file" \
     https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
 ```
 

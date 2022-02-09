@@ -408,6 +408,7 @@ API Reference
 <tr><th>206</th><td>The number of assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &lsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to list Assets.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
 </table>
@@ -592,7 +593,9 @@ API Reference
 <tbody>
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+<tr><th>402</th><td>Returned when the user either has not enabled blockchain storage orthe number of assets would exceed the user&rsquo;s quota</td>
 <tr><th>403</th><td>Returned when the user is not authorized to create an Asset.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
 </table>
@@ -752,6 +755,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to view Event.</td>
 <tr><th>404</th><td>Returned when the event does not exist.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
 </table>
@@ -875,6 +879,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to view an Asset.</td>
 <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
 </table>
@@ -1018,6 +1023,7 @@ API Reference
 <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to list Events.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>default</th><td>An unexpected error response.</td>
 </tbody>
 </table>
@@ -1070,6 +1076,6 @@ Attachments API &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.24933a6eeb08dcedbd4a00bb952ebb922bd4092a8ce24fb85cac13ab541f134572d9f8814670706ea6500db9a61fe93fcf0a12dcf77171971de6ec113f211125.js integrity="sha512-JJM6busI3O29SgC7lS67kivUCSqM4k+4XKwTq1QfE0Vy2fiBRnBwbqZQDbmmH+k/zwoS3PdxcZcd5uwRPyERJQ==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.a89c95f8133e2d6fb7ae123d2f0190542dabbac06383c0f5ef9fed879cc311cef06b5762803f0b7c0010645f1214789a50d73a3f0000688a6b284663bf4082be.js integrity="sha512-qJyV+BM+LW+3rhI9LwGQVC2rusBjg8D175/th5zDEc7wa1digD8LfAAQZF8SFHiaUNc6PwAAaIprKEZjv0CCvg==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.a366ff4e5d181061105a1417ecc0532c97e546ac345dbaaec6935e63d5b42c1e07793024d31830255459ed9bf8478e2c8b53a11817ea74f199f438f68a34d041.js integrity="sha512-o2b/Tl0YEGEQWhQX7MBTLJflRqw0XbquxpNeY9W0LB4HeTAk0xgwJVRZ7Zv4R44si1OhGBfqdPGZ9Dj2ijTQQQ==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.ba73fa7ff3ebdd3d57d823722c3905e2532471ed21a47348578c18ec10de5534af3f8f854744d315a05711b040c97f79e6d618d3feed736e4b53082914100202.js integrity="sha512-unP6f/Pr3T1X2CNyLDkF4lMkce0hpHNIV4wY7BDeVTSvP4+FR0TTFaBXEbBAyX955tYY0/7tc25LUwgpFBACAg==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.5c104aa2bfc74310d9d839feac274f396001ca1eeb6d2752740edea4e0edc7f75c20e7d6dbe2d4bb402f5df29acc03465b33933ce7df5ef04f1845da38f3b8e5.js integrity="sha512-XBBKor/HQxDZ2Dn+rCdPOWAByh7rbSdSdA7epODtx/dcIOfW2+LUu0AvXfKazANGWzOTPOffXvBPGEXaOPO45Q==" crossorigin=anonymous defer></script>
 </body>
 </html>

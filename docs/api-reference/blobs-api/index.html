@@ -269,6 +269,9 @@ API Reference
   "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
   "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
   "size": 31424,
   "subject": "user-xxxx@example.com",
   "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -304,6 +307,18 @@ API Reference
 <td>string</td>
 <td>http mime type.</td>
 <tr>
+<th>scanned_bad_reason</th>
+<td>string</td>
+<td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
+<tr>
+<th>scanned_status</th>
+<td>string</td>
+<td>status of scan.</td>
+<tr>
+<th>scanned_timestamp</th>
+<td>string</td>
+<td>date and time when the attachments has been scanned.</td>
+<tr>
 <th>size</th>
 <td>integer</td>
 <td>size of the blob.</td>
@@ -332,8 +347,9 @@ API Reference
 <tr><th>200</th><td>A successful response.</td>
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+<tr><th>402</th><td>Returned when the number of blobs would exceed the user&rsquo;s quota or the size of the blob exceeds the user&rsquo;s allocation.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to create a blob.</td>
-<tr><th>429</th><td>Returned when the user blob limit has been reached.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>500</th><td>Returned when the underlying system returns an error.</td>
 </tbody>
 </table>
@@ -370,6 +386,7 @@ API Reference
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>500</th><td>Returned when the underlying system returns an error.</td>
 </tbody>
 </table>
@@ -411,6 +428,9 @@ API Reference
   "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
   "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
   "size": 31424,
   "subject": "user-xxxx@example.com",
   "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -446,6 +466,18 @@ API Reference
 <td>string</td>
 <td>http mime type.</td>
 <tr>
+<th>scanned_bad_reason</th>
+<td>string</td>
+<td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
+<tr>
+<th>scanned_status</th>
+<td>string</td>
+<td>status of scan.</td>
+<tr>
+<th>scanned_timestamp</th>
+<td>string</td>
+<td>date and time when the attachments has been scanned.</td>
+<tr>
 <th>size</th>
 <td>integer</td>
 <td>size of the blob.</td>
@@ -475,6 +507,7 @@ API Reference
 <tr><th>400</th><td>Returned when the request is badly formed.</td>
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob metadata.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 <tr><th>500</th><td>Returned when the underlying system returns an error.</td>
 </tbody>
 </table>
@@ -512,6 +545,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob.</td>
 <tr><th>404</th><td>Returned when the underlying system can&rsquo;t find the event.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 </tbody>
 </table>
 </div>
@@ -552,6 +586,9 @@ API Reference
   "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
   "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
   "size": 31424,
   "subject": "user-xxxx@example.com",
   "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -587,6 +624,18 @@ API Reference
 <td>string</td>
 <td>http mime type.</td>
 <tr>
+<th>scanned_bad_reason</th>
+<td>string</td>
+<td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
+<tr>
+<th>scanned_status</th>
+<td>string</td>
+<td>status of scan.</td>
+<tr>
+<th>scanned_timestamp</th>
+<td>string</td>
+<td>date and time when the attachments has been scanned.</td>
+<tr>
 <th>size</th>
 <td>integer</td>
 <td>size of the blob.</td>
@@ -617,6 +666,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob metadata.</td>
 <tr><th>404</th><td>Returned when the underlying system can&rsquo;t find the event.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 </tbody>
 </table>
 </div>
@@ -653,6 +703,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob.</td>
 <tr><th>404</th><td>Returned when the underlying system can&rsquo;t find the asset.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 </tbody>
 </table>
 </div>
@@ -693,6 +744,9 @@ API Reference
   "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
   "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
   "size": 31424,
   "subject": "user-xxxx@example.com",
   "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -728,6 +782,18 @@ API Reference
 <td>string</td>
 <td>http mime type.</td>
 <tr>
+<th>scanned_bad_reason</th>
+<td>string</td>
+<td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
+<tr>
+<th>scanned_status</th>
+<td>string</td>
+<td>status of scan.</td>
+<tr>
+<th>scanned_timestamp</th>
+<td>string</td>
+<td>date and time when the attachments has been scanned.</td>
+<tr>
 <th>size</th>
 <td>integer</td>
 <td>size of the blob.</td>
@@ -758,6 +824,7 @@ API Reference
 <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
 <tr><th>403</th><td>Returned when the user is not authorized to get the blob metadata.</td>
 <tr><th>404</th><td>Returned when the underlying system can&rsquo;t find the asset.</td>
+<tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
 </tbody>
 </table>
 </div>
@@ -809,6 +876,6 @@ Blockchain API (v1alpha1) &rarr;
 <script src=https://docs.rkvst.com/js/bootstrap.min.24933a6eeb08dcedbd4a00bb952ebb922bd4092a8ce24fb85cac13ab541f134572d9f8814670706ea6500db9a61fe93fcf0a12dcf77171971de6ec113f211125.js integrity="sha512-JJM6busI3O29SgC7lS67kivUCSqM4k+4XKwTq1QfE0Vy2fiBRnBwbqZQDbmmH+k/zwoS3PdxcZcd5uwRPyERJQ==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/js/highlight.min.a89c95f8133e2d6fb7ae123d2f0190542dabbac06383c0f5ef9fed879cc311cef06b5762803f0b7c0010645f1214789a50d73a3f0000688a6b284663bf4082be.js integrity="sha512-qJyV+BM+LW+3rhI9LwGQVC2rusBjg8D175/th5zDEc7wa1digD8LfAAQZF8SFHiaUNc6PwAAaIprKEZjv0CCvg==" crossorigin=anonymous defer></script>
 <script src=https://docs.rkvst.com/main.min.a366ff4e5d181061105a1417ecc0532c97e546ac345dbaaec6935e63d5b42c1e07793024d31830255459ed9bf8478e2c8b53a11817ea74f199f438f68a34d041.js integrity="sha512-o2b/Tl0YEGEQWhQX7MBTLJflRqw0XbquxpNeY9W0LB4HeTAk0xgwJVRZ7Zv4R44si1OhGBfqdPGZ9Dj2ijTQQQ==" crossorigin=anonymous defer></script>
-<script src=https://docs.rkvst.com/index.min.ba73fa7ff3ebdd3d57d823722c3905e2532471ed21a47348578c18ec10de5534af3f8f854744d315a05711b040c97f79e6d618d3feed736e4b53082914100202.js integrity="sha512-unP6f/Pr3T1X2CNyLDkF4lMkce0hpHNIV4wY7BDeVTSvP4+FR0TTFaBXEbBAyX955tYY0/7tc25LUwgpFBACAg==" crossorigin=anonymous defer></script>
+<script src=https://docs.rkvst.com/index.min.5c104aa2bfc74310d9d839feac274f396001ca1eeb6d2752740edea4e0edc7f75c20e7d6dbe2d4bb402f5df29acc03465b33933ce7df5ef04f1845da38f3b8e5.js integrity="sha512-XBBKor/HQxDZ2Dn+rCdPOWAByh7rbSdSdA7epODtx/dcIOfW2+LUu0AvXfKazANGWzOTPOffXvBPGEXaOPO45Q==" crossorigin=anonymous defer></script>
 </body>
 </html>

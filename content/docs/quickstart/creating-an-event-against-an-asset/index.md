@@ -15,13 +15,13 @@ toc: true
 
 If you wish to begin tracking your Asset history, you need to create Events.
 
-Asset Creation is the first Event and the more Events recorded against an Asset, the richer and deeper its history becomes.
+Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.
 
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
 ## Creating Events
 
-1. When viewing your Asset click the `Record Event` button.
+1. When viewing your Asset, click the `Record Event` button.
 
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 
@@ -52,13 +52,13 @@ PDFs or images can be recorded with an Event in the same way as an Asset.
 
 This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
-4. Once you have entered all data, click the `Record Event` Button, to add to your Asset.
+4. Once you have entered all data, click the `Record Event` Button to add to your Asset.
 
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
 {{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
-5. Use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
+5. Click the Event row to inspect the Event:
 
 {{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
@@ -66,5 +66,5 @@ Here we see the details entered earlier and also a tab that will show both the E
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
-In the next section we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
+In the next section, we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
 

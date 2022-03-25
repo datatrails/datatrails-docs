@@ -53,13 +53,13 @@ To add an attachment, such as an image of your asset, select `Add Attachment` an
 
 {{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
-7. To view a detailed history of your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view.
+7. To view a detailed history of your Asset, click the Asset row.
 
 {{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 
-Here you will see the details entered earlier; The Extended Attributes and the history of any Events recorded on the Asset.
+Here you will see the details entered earlier: The Extended Attributes and the history of any Events recorded on the Asset.
 
-The first Event in an Asset's Lifecycle will always be the 'Asset Creation' Event, in the next section you will find out how to create your own events against an Asset.
+The first Event in an Asset's Lifecycle will always be the 'Asset Creation' Event. In the next section, you will find out how to create your own events against an Asset.
 
 ## Creating Events
 
@@ -98,7 +98,7 @@ You will see that the Asset Attribute that changed is recorded in the Asset View
 
 {{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 
-5. You can use the eye symbol ( ![](EyeSymbol.png) ) to inspect the Event:
+5. You can click the Event row to inspect the Event:
 
 {{< img src="EventViewQS.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 

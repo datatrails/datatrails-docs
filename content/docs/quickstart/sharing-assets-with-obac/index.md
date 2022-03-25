@@ -21,13 +21,13 @@ toc: true
 **Warning:** To use OBAC you will need to share with an external organization.
 {{< /warning >}}
 
-Organization Based Access Control (OBAC) policies have a lot in common with Attribute Based Access Control (ABAC) policies; they apply the same controls with two different classes of Actor.
+Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of Actor.
 
 Where they differ is that OBAC shares only with Root Users of an External Organization; the External Root User must then apply ABAC to establish appropriate access for their own organization's Non-Root Users.
 
 ## Adding External Organizations to Allow Sharing
 
-In order to share Assets and their details with another Organization or Tenant we must first import the ID of the External Organization.
+In order to share Assets and their details with another Organization or Tenant, we must first import the ID of the External Organization.
 
 ### Finding Your Own ID
 
@@ -51,7 +51,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 
-3. You will be presented with a form, the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+3. You will be presented with a form; the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
 
@@ -73,21 +73,21 @@ It is possible to mix-and-match ABAC and OBAC Permission Groups in the same poli
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can begin applying filters to your Policy for the right assets. In this case we're going to filter for any Assets in the `UK Factory` Location created earlier.
+4. Here you can begin applying filters to your Policy for the right assets. In this case, we're going to filter for any Assets in the `UK Factory` Location created earlier.
 
 {{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 
-5. Next we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.
+5. Next, we select the `Permissions` Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.
 
 {{< img src="PolicyOBACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-6. In our case we want the `Organization` actor which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.
+6. In our case, we want the `Organization` actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.
 
 {{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization. {{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. When the relevant controls are in place we then add the Permisson Group to the policy.
+7. When the relevant controls are in place, we then add the Permission Group to the policy.
 
 Note we have included RKVST-significant atributes: `arc_display_name` and `arc_display_type` which brings visibility to the Name and Type of Asset being shared. 
 
@@ -97,7 +97,7 @@ Note we have included RKVST-significant atributes: `arc_display_name` and `arc_d
 
 {{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
 
-By comparison our Root User, Jill, can see the full details of the Asset:
+By comparison, our Root User, Jill, can see the full details of the Asset:
 
 {{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 

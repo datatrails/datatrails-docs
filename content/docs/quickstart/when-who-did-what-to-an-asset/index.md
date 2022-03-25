@@ -28,11 +28,11 @@ Before you begin with RKVST there's one key model to use when mapping to busines
 
 ## What is an Asset?
 
-An Asset can be anything; a weather station sensor, an invoice or even a shipping container. 
+An Asset can be anything; a weather station sensor, an invoice, or even a shipping container. 
 
 An Asset is an object, physical or otherwise, that has an Identity, a Description, and a set of Attributes. 
 
-In most cases, attributes are fairly simple Key-Value pairs, however RKVST can also store more detailed information including associated binaries such as PDFs or Pictures.
+In most cases, attributes are fairly simple Key-Value pairs. However, RKVST can also store more detailed information, including associated binaries such as PDFs or Pictures.
 
 Take the following example:
 
@@ -54,7 +54,7 @@ For more detailed information on Assets and how to implement them, [please refer
 
 Many things may happen to an Asset over its entire lifecycle, either directly affecting its state or decisions about what should happen to it. If an Asset Attribute is changed or if there is a noteworthy decision made about it, RKVST considers this an ***Event***.
 
-Similar to an Asset, Events also have Identities, Descriptions and their own set of Attributes. Importantly, a key attribute of Events is tracking ***when*** an action happens, ***what*** that action is and ***who*** acted upon it.
+Similar to an Asset, Events also have Identities, Descriptions and their own set of Attributes. Importantly, a key attribute of Events is tracking ***when*** an action happens, ***what*** that action is, and ***who*** acted upon it.
 
 For example:
 
@@ -62,20 +62,20 @@ For example:
 
 Here we can see a single event against our Shipping Crate Asset. We can see that after a physical inspection the Container has an Event explaining it was unsealed at a factory. This Event has been automatically reported by a sensor on the crate and the Event was completed on the 12th March 2020.
 
-We can also see that this Event belongs to a specific Asset. As more Events happen to an Asset the richer the information on it becomes, over time your Asset will not just be the attributes it is described by but also the sum of its entire shared Event history. 
+We can also see that this Event belongs to a specific Asset. As more Events happen to an Asset, the richer the information on it becomes. Over time, your Asset will not just be the attributes it is described by but also the sum of its entire shared Event history. 
 
-Events can be very extensive and descriptive but will always belong to a specific Asset, later on in this guide we will see step-by-step example on how to record an event but, for details and examples on how to implement more comprehensive Events [please refer to the Events API Reference](../../api-reference/events-api/).
+Events can be very extensive and descriptive but will always belong to a specific Asset. Later on in this guide, we will see step-by-step example on how to record an event. For details and examples on how to implement more comprehensive Events, [please refer to the Events API Reference](../../api-reference/events-api/).
 
 ## Who can perform an Event against an Asset?
 
-Now we understand what an Asset is and what sort of Event can happen to it, it is important to understand who can perform an Event.
+Now that we understand what an Asset is and what sort of Event can happen to it, it is important to understand who can perform an Event.
 
 Access to Events, Assets and their Attributes are controlled by two different sets of policies:
 
 * ***ABAC*** (Attribute Based Access Control) - controls access for non-root users of your internal organization to Assets and Events based on specific attributes
 * ***OBAC*** (Organization Based Access Control) - controls access for external organizations to specific Assets and Events based on specific attributes 
 
-Specifically in the case of OBAC you share access to the root users of the external organization and then those organizations apply ABAC themselves to further share Assets and Events within their own organization.
+Specifically, in the case of OBAC, you share access to the root users of the external organization. Then those organizations apply ABAC themselves to further share Assets and Events within their own organization.
 
 Both ABAC and OBAC use the same format for controlling access; they provide filters and restrictions to what a specific subject or Actor can read and write following the same generic pattern:
 
@@ -89,17 +89,17 @@ You can also mix and match ABAC and OBAC into the same policy, for example:
 
 {{< img src="IAMPolicyExample.png" alt="Rectangle" caption="<em>Example IAM Policy</em>" class="border-0" >}}
 
-Here we can see an access policy that allows specific members of the Internal Organization, and an External organization to read all of the event attributes as well as the `Height`, `Width` and `Length` of Assets. The Users can also create `Dispose` Events but they cannot change the attribute of an Asset itself.
+Here we can see an access policy that allows specific members of the Internal Organization and an External organization to read all of the event attributes as well as the `Height`, `Width`, and `Length` of Assets. The Users can also create `Dispose` Events, but they cannot change the attribute of an Asset itself.
 
 We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies API Reference](../../api-reference/iam-policies-api/).
 
 ## The Golden Thread
 
-Now we understand 'Who did What to an Asset' we can bring it all together, creating a stream of untamperable, assured and trusted Events against an Asset to track and follow the key information that is needed. 
+Now we understand 'Who did What to an Asset'. We can bring it all together, creating a stream of untamperable, assured, and trusted Events against an Asset to track and follow the key information that is needed. 
 
 {{< img src="TheGoldenThread.png" alt="Rectangle" caption="<em>The Golden Thread</em>" class="border-0" >}}
 
-We can ensure the data that is recorded is only accessible by the people who need it and those users and organizations can only see what they need to see, when they need to see it.
+We can ensure the data recorded is only accessible by the people who need it, and those users and organizations can only see what they need to see, when they need to see it.
 
 This provides a strong and compelling platform for building cross-organizational, multi-party trust.
 

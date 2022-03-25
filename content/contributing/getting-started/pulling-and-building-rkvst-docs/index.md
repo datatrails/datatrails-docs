@@ -21,7 +21,7 @@ git clone git@github.com:jitsuin-inc/rkvst-docs.git
 2. Move into the directory.
 
 ```bash
-cd rkvst-doks
+cd rkvst-docs
 ```
 
 3. Install the DOKS Dependencies.
@@ -44,13 +44,13 @@ brew install npm
 {{< /tab >}}
 {{< /tabs >}}
 <br>
-4. To run a local RKVST Docs Server it is advisable to use the `jitsuin-doks` wrapper
+4. To run a local RKVST Docs Server it is advisable to use the `rkvst-doks` wrapper
 
 ```bash
 rkvst-doks start
 ```
 
-This will build a local version of the server that can be accessed at [http://localhost:1313](https://localhost:1313).
+This will build a local version of the server that can be accessed at [http://localhost:1313](http://localhost:1313).
 
 You can keep this running in the background while making any edits and the developer server should automatically pick up your changes for you.
 

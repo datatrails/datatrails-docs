@@ -17,21 +17,21 @@ toc: true
 **Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your Organization.
 {{< /caution >}}
 
-Attribute Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes and Events within a single Organization. 
+Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization. 
 
-Specifically, ABAC policies are created by Root Users to then share information with Non-Root Users in the same Tenancy.
+Specifically, ABAC policies are created by Root Users to share information with Non-Root Users in the same Tenancy.
 
-ABAC policies can be granular, with users allowed to see only single Attributes at a time if wished. 
+ABAC policies can be granular, with users allowed to see only single Attributes at a time, if wished. 
 
 It is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.
 
-By default, all Non-Root Users will not see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
+By default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
 
 ## Creating an ABAC Policy
 
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.
 
-We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo and create `Inspect` Events.
+We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create `Inspect` Events.
 
 1. Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
 
@@ -41,7 +41,7 @@ We shall create a policy for someone who needs to share some standard dimensions
 
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 
-3. When adding a Policy you will see this form:
+3. When adding a Policy, you will see this form:
 
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
@@ -59,11 +59,11 @@ In this case, we shall apply the policy to any Asset in the `UK Factory` Locatio
 
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 
-7. Once all relevant details are complete, then add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+7. Once all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
 
 Note we have included RKVST-sigificant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`.
 
-`arc_*` attributes have special significance in RKVST; in this case respectively allowing visibility to the Name, Description, and Location of the Asset. Other `arc_*` attributes are also available.
+`arc_*` attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other `arc_*` attributes are also available.
 
 {{< img src="PolicyABACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
@@ -79,6 +79,6 @@ For comparison with our Root User, Jill:
 
 {{< img src="PolicyABACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 
-We can see that Bill can only view the Attributes as specified in the policy. He can also see the Event where we updated the Location. 
+We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location. 
 
 Our Root User Jill, can see every detail associated with the Asset.

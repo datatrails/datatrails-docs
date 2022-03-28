@@ -71,7 +71,7 @@ A simple Asset might look like this:
 ```
 
 {{< note >}}
-**Note:** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easily traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
+**Note:** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easy traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
 {{< /note >}}
 
 ### Deleting Assets
@@ -81,7 +81,7 @@ An essential value of storing evidence in RKVST is that data is always available
 To accommodate this need RKVST separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events); and untracked Assets (those that are no longer actively interesting). When for any reason it becomes desirable to remove an Asset the Asset Owner can make it _untracked_ so that it does not appear in lists or searches. 
 
 {{< caution >}}
-**Caution:** Untracking an Asset does not remove it or its Event history from the system: all stakeholders who previously had access to the record will continue to have access to the Event history _including_ the untracking event if they look for it.
+**Caution:** Untracking an Asset does not remove it or its Event history from the system; all stakeholders who previously had access to the record will continue to have access to the Event history, _including_ the untracking event, if they look for it.
 {{< /caution >}}
 
 For more detailed information on Assets and how to implement them, please refer to [the Assets API Reference](../../api-reference/assets-api/).
@@ -125,7 +125,7 @@ In other scenarios, it is desirable to share basic maintenance information with 
 RKVST Access Policies are the method through which this access is defined, allowing Asset owners to collaborate with just the right partners at the right time, sharing as much or as little access to Assets as the needs of the value chain partners dictate. All transactions are private by default, meaning that only the asset owner can see and update asset histories until a sharing policy has been set up. This ensures ready compliance with important regimes such as GDPR and antitrust regulations, as well as allowing safe and ready collaboration with a large and diverse range of value chain partners in the RKVST network when required.
 
 {{< note >}}
-**Note:** To collaborate with a value chain partner you first need to enrol them as a partner in your RKVST tenancy by exchanging your RKVST public Subject Identity with each other, a little like making a new LinkedIn connection or Facebook friend.
+**Note:** To collaborate with a value chain partner you first need to enroll them as a partner in your RKVST tenancy by exchanging your RKVST public Subject Identity with each other, a little like making a new LinkedIn connection or Facebook friend.
 
 This one-time manual process helps to underpin trust and security in your RKVST Access Policies by ensuring that the partners represented in them are the ones you expect.
 {{< /note >}}
@@ -141,7 +141,7 @@ Every situation is different, and the RKVST Access Policy system is flexible and
 
 ### Access Policy configuration
 
-RKVST employs a principle called Attribute-Based Access Control for users within an organization, and a related concept called Organization-Based Access Control to mediate data sharing between value chain participants.
+RKVST employs a principle called Attribute-Based Access Control (ABAC) for users within an organization, and a related concept called Organization-Based Access Control (OBAC) to mediate data sharing between value chain participants.
 
 Rather than applying a specific fixed policy to each asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied. This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems. 
 
@@ -286,7 +286,7 @@ Adding an Attachment to an Event allows recording and communication of evidence 
 To add Attachments to an Event simply specify an `arc_attachments` list in the `event_attributes` of the request when posting an event.
 
 {{< note >}}
-**Note:** Attachments cannot be searched or listed as a collection in their own right: they must always be associated an Asset or Event and can only be downloaded by users with appropriate access rights to that Asset or Event.
+**Note:** Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event and can only be downloaded by users with appropriate access rights to that Asset or Event.
 {{< /note >}}
 
 For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments API Reference](../../api-reference/assets-api/)
@@ -298,7 +298,7 @@ Assets in RKVST are arranged into locations, which allows virtual assets (eg dig
 This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
 
 {{< note >}}
-**Note:** If your use case does not concern physical sites like factory plant locations orr offices it is still possible to use Locations to logically group related Assets together. However it is likely to be more scalable to use a custom attribute to link them together.
+**Note:** If your use case does not concern physical sites like factory plant locations or offices it is still possible to use Locations to logically group related Assets together. However it is likely to be more scalable to use a custom attribute to link them together.
 {{< /note >}}
 
 {{< caution >}}
@@ -323,7 +323,7 @@ In order to make these trust decisions, RKVST can be configured with Compliance 
 
 * “Assets must be patched within 40 days of vulnerability notification”
 * “Maintenance calls must be answered within 72 hours”
-* "rad level must be less than 
+* "rad level must be less than"
 
 Policies can also declare relative tolerances,  such as:
 
@@ -334,12 +334,12 @@ Individual assets either pass or fail, and organizations can calculate their ove
 
 As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:
 
-* *COMPLIANCE RICHNESS*: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example "Weight attribute must be less than 1000 kg"
-* *COMPLIANCE SINCE*: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br><br>For example "Time since last Maintenance must be less than 72 hours"
+* *COMPLIANCE RICHNESS*: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example, "Weight attribute must be less than 1000 kg"
+* *COMPLIANCE SINCE*: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br><br>For example, "Time since last Maintenance must be less than 72 hours"
 
 * *COMPLIANCE CURRENT OUTSTANDING*: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br><br>For example, checking there are no outstanding "Maintenance Request" Events that are not addressed by an associated "Maintenance Performed" Event.
 
-* *COMPLIANCE_PERIOD_OUTSTANDING*: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours
+* *COMPLIANCE_PERIOD_OUTSTANDING*: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours.
 
 * *COMPLIANCE_DYNAMIC_TOLERANCE*: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
 
@@ -349,7 +349,7 @@ As with Assets and Events, Compliance Policies are very flexible and can be conf
 
 ## Perspectives 
 
-In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time but with RKVST it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.
+In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with RKVST it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.
 
 To do this, simply add `at_time=TIMESTAMP` to your query. For example, to check the state an asset was in at 15:30 UTC on 23rd June:
 
@@ -357,7 +357,7 @@ To do this, simply add `at_time=TIMESTAMP` to your query. For example, to check 
 curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application/json" https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-06-23T15:30:00Z | jq 
 ```
 
-Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.
+Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question, would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.
 
 ## That's it!
 

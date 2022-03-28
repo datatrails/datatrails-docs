@@ -32,11 +32,11 @@ The creation of an Asset is the first Event in its lifecycle. The following step
 3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
-* `Asset Type` - This is the class of object, while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
+* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
 
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 
-4. At this point, you may wish to add other details to your Asset including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
+4. At this point, you may wish to add other details to your Asset, including attachments such as PDFs or Thumbnail Images. You may also wish to add Extended Attributes. 
 
 Extended Attributes are user-defined and can be added to each unique Asset. 
 
@@ -56,7 +56,7 @@ For Example:
 
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 
-7. To view your Asset, click on the small eye symbol ( ![](EyeSymbol.png) ) to the right of the Asset in the Manage view. You will see the detailed history of your Asset.
+7. To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 

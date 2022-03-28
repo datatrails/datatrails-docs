@@ -20,7 +20,7 @@ It may still be useful to indicate an Asset's origin. For example, if tracking t
 
 ## Creating a Location
 
-1. In the Dashboard select `Add Location` in the Sidebar.
+1. In the Dashboard, select `Add Location` in the Sidebar.
 
 {{< img src="LocationAdd.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
 
@@ -66,7 +66,7 @@ This is found by viewing the Location once complete using the (![](EyeSymbol.png
 
 {{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
 
-2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key, for example:
+2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. For example:
 
 {{< img src="LocationAssetUpdate.png" alt="Rectangle" caption="<em>Updating an Existing Asset with a new Location</em>" class="border-0" >}}
 
@@ -74,7 +74,7 @@ This is found by viewing the Location once complete using the (![](EyeSymbol.png
 **Note** - You need to include the full `locations/<UUID>` reference as using only the `UUID` will not be recognized.
 {{< /note >}}
 
-3. In the following screenshot note the Location of our Asset has been updated.
+3. In the following screenshot, note the Location of our Asset has been updated.
 
 {{< img src="LocationUpdateComplete.png" alt="Rectangle" caption="<em>Completed update of Asset Location</em>" class="border-0" >}}
 

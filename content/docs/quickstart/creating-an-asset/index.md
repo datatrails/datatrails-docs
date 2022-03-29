@@ -13,26 +13,45 @@ weight: 21
 toc: true
 ---
 
-An Asset can be anything: a Connected Machine, a Shipping Container or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.
+An Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.
 
 Each Asset will have a history of any actions performed upon it by any actor. 
 
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
-In order to use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) and follow the set-up.
+To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
 
 ## Creating an Asset
 
-1. Using the Sidebar, select `Add Asset`.
+1. Create your Asset. 
 
+{{< tabs name="add_asset" >}}
+{{{< tab name="UI" >}}
+Using the Sidebar, select 'Add Asset'.
 {{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
 
-2. You will see an Asset Creation form, where you provide details of your new Asset:
+To create your asset, use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
+2. Add details to your new Asset.
+
+{{< tabs name="add_asset_details" >}}
+{{{< tab name="UI" >}}
+You will see an Asset Creation form, where you provide details of your new Asset:
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#Add details to your new Asset
+{{< tab name="YAML" >}}
+Add details to your new Asset.
+```yaml
 ---
 steps:
   - step:
@@ -45,16 +64,24 @@ steps:
     behaviours: 
       - RecordEvidence
       - Attachments
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-3. At minimum, you will need to add an Asset Name and Asset Type when using the UI to create an Asset:
+
+
+3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'
 * `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types
 
+{{< tabs name="add_asset_details_min" >}}
+{{{< tab name="UI" >}}
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#arc_display_name and arc_display_type are recognized by RKVST as Asset Name and Asset Type.
+{{< tab name="YAML" >}}
+`arc_display_name` and `arc_display_type` are recognized by RKVST as `Asset Name` and `Asset Type`.
+```yaml
 ---
 steps:
   - step:
@@ -70,6 +97,7 @@ steps:
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
+```
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -82,15 +110,18 @@ Extended Attributes are user-defined and can be added to each unique Asset.
 
 Not all Assets of a specific type need to have the same Extended Attributes, but in most cases it is better to do so for consistency. 
 
-To add a new Attribute to an Asset select `Add Attribute` then enter your key-value pair.
+To add a new Attribute to an Asset, enter your key-value pair.
 
 For Example:
 
+{{< tabs name="add_extended_attributes" >}}
+{{{< tab name="UI" >}}
+Select 'Add Attribute', and add your key-value pairs. 
 {{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#See custom key-value pairs. 
-#Use 'confirm: true' to tell RKVST to finish commiting the asset before moving to the next step.  
+{{< tab name="YAML" >}}
+See custom key-value pairs, such as Width, Length, and Height.
+```yaml 
 ---
 steps:
   - step:
@@ -115,9 +146,11 @@ steps:
         - display_name
       display_name: Parkside Junction
       description: Box intersection between Mill Road and East Road
-      latitude: 53.4560
-      longitude: 2.5895
-    confirm: true
+      latitude: 52.2025
+      longitude: 0.1311
+      confirm: true
+```
+`confirm: true` tells RKVST to finish commiting the asset before moving to the next step. 
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -131,34 +164,53 @@ steps:
 Click 'Create Asset'.
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="bash" >}}
-#Enter the client-id and client-secret from your App Registration, more info can be found at: https://docs.rkvst.com/docs/api-reference/app-registrations-api/.
-
+{{< tab name="YAML" >}}
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file.
+ 
+```bash
 $ archivist_runner \
       -u https://app.rkvst.io \
       --client-id d1fb6c87-faa9-4d56-b2fd-a5b70a9af065 \
       --client-secret client_secret.txt \
       my_first_container.yaml
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-6. Navigate to `Manage Assets` to see your Asset in the UI.
 
+
+6. View your Assets.
+
+
+{{< tabs name="view_all_assets" >}}
+{{{< tab name="UI" >}}
+Navigate to 'Manage Assets' to see your Asset in the UI.
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#View all Assets using the 'ASSETS_LIST' action.  
+{{< tab name="YAML" >}}
+View all Assets using the `ASSETS_LIST` action.
+```yaml  
 ---
 steps:
   - step:
       action: ASSETS_LIST
-      description: List all assets
+      description: List all assets.
       print_response: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-7. To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 
+7. View details of the Asset you created.
+
+{{< tabs name="view_specific_asset" >}}
+{{{< tab name="UI" >}}
+To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#The 'ASSETS_LIST' action can be filtered, with identifying attrs, to view specific assets.   
+{{< tab name="YAML" >}}
+The `ASSETS_LIST` action can be filtered using identifying `attrs` to view the details of a specific Asset.
+```yaml  
 ---
 steps:
   - step:
@@ -167,6 +219,7 @@ steps:
       print_response: true
     attrs:
       arc_display_name: My First Container
+```
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -175,5 +228,5 @@ steps:
 
 Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 
-The first Event will always be the Asset Creation, in the next section we will cover how to create your own Events for your Asset.
+The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.
 

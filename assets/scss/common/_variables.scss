@@ -193,3 +193,7 @@ $btn-transition:                          color .15s ease-in-out, background-col
 $accordion-transition:                    $btn-transition, border-radius .15s ease;
 
 $transition-collapse:                     height .35s ease;
+
+$color-btn-bg: transparent;
+$color-btn-border: darken($rkvst-blue, 5%);
+$color-btn-text: $rkvst-blue;

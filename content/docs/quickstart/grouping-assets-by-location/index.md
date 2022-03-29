@@ -46,7 +46,7 @@ This is useful to add metadata to a Location, e.g. a site contact's number and e
 
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
 
-7. You can inspect details using the eye symbol ( ![](EyeSymbol.png) ) to the right of the Location.
+7. You can inspect details by clicking the Location row. 
 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
 
@@ -58,11 +58,11 @@ This is useful to add metadata to a Location, e.g. a site contact's number and e
 
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
 
-### Adding to a pre-existing Asset
+### Adding to a Pre-Existing Asset
 
-1. To assign a pre-existing asset with a new Location you need to identify the Location Identity
+1. To assign a pre-existing asset with a new Location, you need to identify the Location Identity.
 
-This is found by viewing the Location once complete using the (![](EyeSymbol.png)) to the right.
+This is found by viewing the Location, once complete, by clicking the Location row.
 
 {{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
 

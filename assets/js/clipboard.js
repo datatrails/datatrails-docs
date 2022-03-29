@@ -5,17 +5,14 @@ var pre = document.getElementsByTagName('pre');
 for (var i = 0; i < pre.length; ++ i)
 {
   var element = pre[i];
-  var mermaid = element.getElementsByClassName('language-mermaid')[0];
-
-  if (mermaid == null) {
-    element.insertAdjacentHTML('afterbegin', '<button class="btn btn-copy"></button>');
-  }
+  element.insertAdjacentHTML('afterbegin', '<button class="btn btn-copy"></button>')
 }
 
 var clipboard = new Clipboard('.btn-copy', {
 
   target: function(trigger) {
     return trigger.nextElementSibling;
+    
   },
 
 });

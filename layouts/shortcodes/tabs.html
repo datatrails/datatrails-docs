@@ -24,7 +24,7 @@
 {{ else }}
   <div id="{{ $id }}" class="tab-pane fade" role="tabpanel" aria-labelledby="{{ $id }}">
 {{ end }}
-	{{- with .content -}}
+	{{- with .content | markdownify -}}
 		{{- . -}}
 	{{- else -}}
 		{{- if eq $.Page.BundleType "leaf" -}}

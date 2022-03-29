@@ -38,7 +38,7 @@ Take the following example:
 
 {{< img src="AssetExample.png" alt="Rectangle" caption="<em>Example Asset</em>" class="border-0" >}}
 
-Here our Asset represents a specific shipping crate. It has basic Attributes that describe its capacity, more specific Attributes such as internal tracking IDs, and even a picture to show us its last recorded physical state.
+Here our Asset represents a specific shipping crate, it has basic Attributes that describe its capacity, more specific Attributes such as internal tracking IDs and even a picture to show us its last recorded physical state.
 
 Here is an example of another Asset:
 
@@ -54,17 +54,17 @@ For more detailed information on Assets and how to implement them, [please refer
 
 Many things may happen to an Asset over its entire lifecycle, either directly affecting its state or decisions about what should happen to it. If an Asset Attribute is changed or if there is a noteworthy decision made about it, RKVST considers this an ***Event***.
 
-Similar to an Asset, Events also have Identities, Descriptions, and their own set of Attributes. Importantly, a key attribute of Events is tracking ***when*** an action happens, ***what*** that action is, and ***who*** acted upon it.
+Similar to an Asset, Events also have Identities, Descriptions and their own set of Attributes. Importantly, a key attribute of Events is tracking ***when*** an action happens, ***what*** that action is, and ***who*** acted upon it.
 
 For example:
 
 {{< img src="EventExample.png" alt="Rectangle" caption="<em>Example Event</em>" class="border-0" >}}
 
-Here we can see a single event against our Shipping Crate Asset. We can see that after a physical inspection, the Container has an Event explaining it was unsealed at a factory. This Event has been automatically reported by a sensor on the crate and the Event was completed on the 12th March 2020.
+Here we can see a single event against our Shipping Crate Asset. We can see that after a physical inspection the Container has an Event explaining it was unsealed at a factory. This Event has been automatically reported by a sensor on the crate and the Event was completed on the 12th March 2020.
 
 We can also see that this Event belongs to a specific Asset. As more Events happen to an Asset, the richer the information on it becomes. Over time, your Asset will not just be the attributes it is described by but also the sum of its entire shared Event history. 
 
-Events can be very extensive and descriptive but will always belong to a specific Asset. Later on in this guide, we will see a step-by-step example on how to record an event. For details and examples on how to implement more comprehensive Events, [please refer to the Events API Reference](../../api-reference/events-api/).
+Events can be very extensive and descriptive but will always belong to a specific Asset. Later on in this guide, we will see step-by-step example on how to record an event. For details and examples on how to implement more comprehensive Events, [please refer to the Events API Reference](../../api-reference/events-api/).
 
 ## Who can perform an Event against an Asset?
 
@@ -89,7 +89,7 @@ You can also mix and match ABAC and OBAC into the same policy, for example:
 
 {{< img src="IAMPolicyExample.png" alt="Rectangle" caption="<em>Example IAM Policy</em>" class="border-0" >}}
 
-Here we can see an access policy that allows specific members of the Internal Organization and an External organization to read all of the event attributes, as well as the `Height`, `Width`, and `Length` of Assets. The Users can also create `Dispose` Events, but they cannot change the attribute of an Asset itself.
+Here we can see an access policy that allows specific members of the Internal Organization and an External organization to read all of the event attributes as well as the `Height`, `Width`, and `Length` of Assets. The Users can also create `Dispose` Events, but they cannot change the attribute of an Asset itself.
 
 We can then define filters for the asset types users are allowed to see, which will be [covered in more detail in the IAM Policies API Reference](../../api-reference/iam-policies-api/).
 
@@ -103,5 +103,5 @@ We can ensure the data recorded is only accessible by the people who need it, an
 
 This provides a strong and compelling platform for building cross-organizational, multi-party trust.
 
-If you'd like to understand more about the application of RKVST to specific Usecases, please see our [User Patterns Section](../../user-patterns/).
+If you'd like to understand more about the application of RKVST to specific Usecases please see our [User Patterns Section](../../user-patterns/).
 

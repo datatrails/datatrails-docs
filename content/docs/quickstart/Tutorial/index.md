@@ -31,7 +31,7 @@ Using the Sidebar, select 'Add Asset'.
 {{< tab name="YAML" >}}
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
-In order to create an asset, we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
+In order to create an Asset, we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
  
 ```yaml
 ---
@@ -52,7 +52,7 @@ You will see an Asset Creation form, where you provide details of your new Asset
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Here you can fill out some more metadata about your asset:
+Here you can fill out some metadata about your Asset:
 * `selector` is the identifying attribute the yaml runner will use to check if your asset exists already before attempting to create it, in this case we use `arc_display_name` which represents the name of the Asset.
 * `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
 
@@ -241,26 +241,97 @@ The first Event in an Asset's Lifecycle will always be the 'Asset Creation' Even
 
 ## Creating Events
 
-1. When viewing your Asset, click the `Record Event` button.
-
+1. Create an Event. 
+{{< tabs name="add_event" >}}
+{{{< tab name="UI" >}}
+When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecordQS.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
 
-2. You will see the following form, where you can enter an Event `Type` and `Description`.
+In order to create an Event, we use the action `EVENTS_CREATE`.
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record event against My Bike.
+      asset_id: <your-asset-id> 
+```
+The `asset_id` must match the Asset ID found in the details of your Asset. See Step 7 of [Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/) for instructions.
+{{< /tab >}}}
+{{< /tabs >}}
 
+
+
+2. Add Event type and description.
+
+{{< tabs name="add_event_type" >}}
+{{{< tab name="UI" >}}
+You will see the following Event creation form: 
 {{< img src="EventInformationQS.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+As with your Asset, you can fill out metadata about your Event:
 
-3. Using the Tabs enables you to then enter both Event and Asset attributes.
+* `behaviour` details what class of event is being performed
+
+The RKVST API uses the reserved attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`, respectively.
+
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record event against My Bike.
+      asset_id: <your-asset-id> 
+    operation: Record
+    behaviour: RecordEvidence
+    event_attributes:
+      arc_description: Frame ordered
+      arc_display_type:  Frame ordered
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
+3. Creating an Event enables you to enter both Event and Asset attributes.
 
 * `Event Attributes` - Attributes specific to an Event i.e. signifying _when_ a new frame was ordered
 * `Asset Attributes` - Attributes of the Asset that may change as a result of the Event i.e. the color of the new frame
 
-Select the `Add Attribute` button on each field to add your own custom Key-Value pairs.
-
-For example:
-
+{{< tabs name="add_event_attr" >}}
+{{{< tab name="UI" >}}
+Select the `Add Attribute` button on each tab to add your key-value pairs.
 {{< img src="EventAttributesQS.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributesQS.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Extended Attributes are custom key-value pairs, such as `Frame_Ordered`, an Event Attribute, and `Frame_Color`, an Asset Attribute.
+
+It's good practice to include `confirm: true` which tells RKVST to finish commiting the Event before moving to the next step. 
+```yaml
+---
+
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record frame order and color of frame.
+      asset_label: My Bike 
+    operation: Record
+    behaviour: RecordEvidence
+    event_attributes:
+      arc_description: Frame ordered
+      arc_display_type:  Frame ordered
+      Frame_Ordered: "1"
+    asset_attributes:
+      Frame_Color: Blue
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
 
 Here you see that someone noted a new frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` Asset Attribute.
 
@@ -270,19 +341,72 @@ Similarly, PDFs or images can also be attached to an Event in the same way as an
 
 Attaching files is beneficial when storing contextual and associated material for posterity. For example, each `Frame Order` Event may have a copy of the invoice for the new frame and a datasheet attached ready for historical inspection and compliance checking.
 
-4. Once you have entered your data, click the `Record Event` Button, to add the Event to your Asset.
+4. Record your Event. 
 
-You will see that the Asset Attribute that changed is recorded in the Asset View.
-
+{{< tabs name="record_event" >}}
+{{{< tab name="UI" >}}
+Once you have entered all data, click the `Record Event` Button to add to your Asset.
 {{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
+You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
-5. You can click the Event row to inspect the Event:
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret client_secret.txt \
+      my_bike_event.yaml
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
+
+5. View your Event details. 
+
+{{< tabs name="view_event" >}}
+{{{< tab name="UI" >}}
+Click the Event row to inspect the Event:
 
 {{< img src="EventViewQS.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here are the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
+Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
 
 {{< img src="EventAttributeViewNT.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
+
+{{< /tab >}}
+{{< tab name="YAML" >}}
+
+The `EVENTS_LIST` action can be used to view all Events, or filtered using `attrs` to view details of a specific Event. Use the `print_response` keyword to get the full output.
+
+To view all Events, use: 
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_LIST
+      description: List all events.
+      print_response: true
+```
+As an example, to view the details of the Event you just created for the asset 'My Bike' use:
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_LIST
+      description: List frame order Events against the Asset 'My Bike'.
+      print_response: true
+    attrs:
+      arc_display_type: Frame ordered
+    asset_attrs:
+      arc_display_name: My Bike 
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
 
 ## Adding External Organizations to Allow Sharing
 

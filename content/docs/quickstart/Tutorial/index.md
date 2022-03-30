@@ -15,47 +15,225 @@ toc: true
 
 ## Creating an Asset
 
-1. Using the Sidebar, select `Add Asset`.
+{{< note >}}
+**Note:** To use the YAML Runner you will need to install the `jitsuin-archivist` python package.
 
+[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+{{< /note >}}
+
+1. Create your Asset. 
+
+{{< tabs name="add_asset" >}}
+{{{< tab name="UI" >}}
+Using the Sidebar, select 'Add Asset'.
 {{< img src="AssetAddNT.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
-2. You will see an Asset Creation form where you can provide details about your new Asset:
+In order to create an asset, we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
+ 
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
+
+
+2. Add details to your new Asset.
+
+{{< tabs name="add_asset_details" >}}
+{{{< tab name="UI" >}}
+You will see an Asset Creation form, where you provide details of your new Asset:
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Here you can fill out some more metadata about your asset:
+* `selector` is the identifying attribute the yaml runner will use to check if your asset exists already before attempting to create it, in this case we use `arc_display_name` which represents the name of the Asset.
+* `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
 
-3. At a minimum, you will need to add an Asset Name, Asset Type, and your choice of Proof Mechanism when using the UI to create an Asset:
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset.
+      asset_label: My Bike 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-* `Asset Name` - This is the unique name of the Asset i.e. 'My Bike'
-* `Asset Type` - This is the type of Asset - while arbitrary, it is best to have consistency amongst the Assets you use i.e. if it is a bike, the type could be `Bike` which will then be pre-populated for future Assets to use.
-* `Proof Mechanism` - This identifies how frequently Asset history information is committed to the blockchain. `Khipu` - or 'Transactional Immutability' - indicates that every Event is committed through smart contracts and immediately committed to the chain. `Simple Hash` - or 'Batched Immutability' - indicates that Events are processed in the RKVST tenancy and then periodically collected together and committed to the chain as a batch.
+
+
+3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
+
+* `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
+* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types.
+
+{{< tabs name="add_asset_details_min" >}}
+{{{< tab name="UI" >}}
+`Proof Mechanism` identifies how frequently Asset history information is committed to the blockchain. `Khipu` - or 'Transactional Immutability' - indicates that every Event is committed through smart contracts and immediately committed to the chain. `Simple Hash` - or 'Batched Immutability' - indicates that Events are processed in the RKVST tenancy and then periodically collected together and committed to the chain as a batch.
 
 {{< img src="AssetCreationDetailsQS.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset of a bike. 
+      asset_label: My Bike 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    attributes: 
+      arc_display_name: My Bike 
+      arc_display_type: Bike
+```
+The YAML Runner defaults to `Simple Hash` as its proof mechanism.
+
+{{< /tab >}}}
+{{< /tabs >}}
 
 4. You may wish to add other details to your Asset, including Attachments and Extended Attributes. 
 
 Extended Attributes are user-defined and added per unique Asset.
 
-To add a new Attribute to an Asset select `Add Attribute` and then enter your key-value pair.
+To add a new Attribute to an Asset, enter your key-value pair. You may also add an attachment, such as an image of your Asset.
 
-For Example:
-
+{{< tabs name="add_extended_attributes" >}}
+{{{< tab name="UI" >}}
+Select `Add Attribute`, and add your key-value pairs. 
 {{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
-
-To add an attachment, such as an image of your asset, select `Add Attachment` and then select the plus symbol.
-
+To add an attachment, such as an image of your asset, select `Add Attachment`, then select the plus symbol.
 {{< img src="AssetAttachmentQS.png" alt="Rectangle" caption="<em>Asset Attachment</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Extended Attributes are custom key-value pairs, such as `Top_Tube`, `Seat_Tube`, and `Head_Tube` you see below.
 
-5. Once complete, click `Create Asset`.
+This example also adds a location to our asset, to find out more about Locations, [click here](../grouping-assets-by-location/).
 
+The `attachments` argument indicates a file, file type, and file display name that will be attached to your Asset.
+
+It's also good practice to include `confirm: true` which tells RKVST to finish commiting the asset before moving to the next step. 
+```yaml 
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset of a bike. 
+      asset_label: My Bike 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    attributes: 
+      arc_display_name: My Bike 
+      arc_display_type: Bike
+      arc_description: Replacement frame and upgraded tires
+      Top_Tube: 570mm
+      Seat_Tube: 420mm
+      Head_Tube: 112mm
+    location: 
+      selector: 
+        - display_name
+      display_name: My Bike 
+      latitude: 30.2672
+      longitude: -97.7431
+      attributes:
+        address: Austin, Texas
+    attachments: 
+      - filename: my_bike.png
+        content_type: image/png
+        display_name: my_bike_image
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
+5. Complete your Asset creation.
+
+{{< tabs name="finish_create_asset" >}}
+{{{< tab name="UI" >}}
+Click 'Create Asset'.
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret client_secret.txt \
+      my_bike.yaml
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-6. `Manage Assets` (default view) is where you may view a list of your Assets within the UI.
 
+
+6. View your Assets.
+
+{{< tabs name="view_all_assets" >}}
+{{{< tab name="UI" >}}
+`Manage Assets` (default view) is where you may view a list of your Assets within the UI.
 {{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+You can view all Asset data using the `ASSETS_LIST` action; use the `print_response` keyword to get the full output.
+```yaml  
+---
+steps:
+  - step:
+      action: ASSETS_LIST
+      description: List all assets.
+      print_response: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-7. To view a detailed history of your Asset, click the Asset row.
 
+7. View details of the Asset you created.
+
+{{< tabs name="view_specific_asset" >}}
+{{{< tab name="UI" >}}
+To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 {{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The `ASSETS_LIST` action can be filtered using identifying `attrs` to view the details of a specific Asset.
+```yaml  
+---
+steps:
+  - step:
+      action: ASSETS_LIST
+      description: Display Asset named My Bike.
+      print_response: true
+    attrs:
+      arc_display_name: My Bike
+```
+
+{{< /tab >}}}
+{{< /tabs >}}
 
 Here you will see the details entered earlier: The Extended Attributes and the history of any Events recorded on the Asset.
 

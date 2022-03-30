@@ -19,6 +19,8 @@ Each Asset will have a history of any actions performed upon it by any actor.
 
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
+To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
+
 ## Creating an Asset
 
 1. Create your Asset. 
@@ -28,13 +30,15 @@ The creation of an Asset is the first Event in its lifecycle. The following step
 Using the Sidebar, select 'Add Asset'.
 {{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#To create your asset, use the action 'ASSETS_CREATE_IF_NOT_EXISTS'
+{{< tab name="YAML" >}}
+
+To create your asset, use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
+```yaml
 ---
 steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
-
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -45,8 +49,9 @@ steps:
 You will see an Asset Creation form, where you provide details of your new Asset:
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#Add details to your new Asset
+{{< tab name="YAML" >}}
+Add details to your new Asset.
+```yaml
 ---
 steps:
   - step:
@@ -59,18 +64,7 @@ steps:
     behaviours: 
       - RecordEvidence
       - Attachments
-    attributes: 
-      arc_display_name: My First Container 
-      arc_display_type: Shipping Container
-      arc_description: Originally shipped from Shanghai
-    location: 
-      selector: 
-        - display_name
-      display_name: Parkside Junction
-      description: Box intersection between Mill Road and East Road
-      latitude: 53.4560
-      longitude: 2.5895
-
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -85,8 +79,9 @@ steps:
 {{{< tab name="UI" >}}
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#arc_display_name and arc_display_type are recognized by RKVST as Asset Name and Asset Type
+{{< tab name="YAML" >}}
+`arc_display_name` and `arc_display_type` are recognized by RKVST as `Asset Name` and `Asset Type`.
+```yaml
 ---
 steps:
   - step:
@@ -102,14 +97,7 @@ steps:
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
-      arc_description: Originally shipped from Shanghai
-    location: 
-      selector: 
-        - display_name
-      display_name: Parkside Junction
-      description: Box intersection between Mill Road and East Road
-      latitude: 53.4560
-      longitude: 2.5895
+```
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -131,8 +119,9 @@ For Example:
 Select 'Add Attribute', and add your key-value pairs. 
 {{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#See custom key-value pairs. 
+{{< tab name="YAML" >}}
+See custom key-value pairs, such as Width, Length, and Height.
+```yaml 
 ---
 steps:
   - step:
@@ -157,8 +146,11 @@ steps:
         - display_name
       display_name: Parkside Junction
       description: Box intersection between Mill Road and East Road
-      latitude: 53.4560
-      longitude: 2.5895
+      latitude: 52.2025
+      longitude: 0.1311
+      confirm: true
+```
+`confirm: true` tells RKVST to finish commiting the asset before moving to the next step. 
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -172,36 +164,16 @@ steps:
 Click 'Create Asset'.
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#Use 'confirm: true' to tell RKVST to finish commiting the asset before moving to the next step.  
----
-steps:
-  - step:
-      action: ASSETS_CREATE_IF_NOT_EXISTS
-      description: Create an asset.
-      asset_label: My First Container 
-    selector: 
-      - attributes: 
-        - arc_display_name
-    behaviours: 
-      - RecordEvidence
-      - Attachments
-    attributes: 
-      arc_display_name: My First Container 
-      arc_display_type: Shipping Container
-      arc_description: Originally shipped from Shanghai
-      Width: "2.43m"
-      Length: "6.06m"
-      Height: "2.59m"
-    location: 
-      selector: 
-        - display_name
-      display_name: Parkside Junction
-      description: Box intersection between Mill Road and East Road
-      latitude: 53.4560
-      longitude: 2.5895
-      confirm: true
-
+{{< tab name="YAML" >}}
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file.
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id d1fb6c87-faa9-4d56-b2fd-a5b70a9af065 \
+      --client-secret client_secret.txt \
+      my_first_container.yaml
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -215,15 +187,16 @@ steps:
 Navigate to 'Manage Assets' to see your Asset in the UI.
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#View your Assets using the 'ASSETS_LIST' action.  
+{{< tab name="YAML" >}}
+View all Assets using the `ASSETS_LIST` action.
+```yaml  
 ---
 steps:
   - step:
       action: ASSETS_LIST
-      description: List all assets
+      description: List all assets.
       print_response: true
-
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -235,8 +208,9 @@ steps:
 To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="YAML" codelang="yaml" >}}
-#View your Asset using the 'ASSETS_LIST' action, with identifying attrs.  
+{{< tab name="YAML" >}}
+The `ASSETS_LIST` action can be filtered using identifying `attrs` to view the details of a specific Asset.
+```yaml  
 ---
 steps:
   - step:
@@ -245,6 +219,7 @@ steps:
       print_response: true
     attrs:
       arc_display_name: My First Container
+```
 
 {{< /tab >}}}
 {{< /tabs >}}

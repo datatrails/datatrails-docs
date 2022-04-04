@@ -51,7 +51,7 @@ The following screen will appear:
 {{< img src="LocationDescribe.png" alt="Rectangle" caption="<em>The Location Webform</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-You may add a `description` and a `selector`. `selector` is the identifying attribute the YAML runner will use to check if your asset exists before attempting to create it, in this case we use `display_name` which represents the name of the Location.
+You may add a `description` and a `selector`. `selector` is the identifying attribute the YAML runner will use to check if your asset exists before attempting to create it. In this case, we use `display_name` which represents the name of the Location.
  
 ```yaml
 ---
@@ -66,7 +66,7 @@ steps:
 {{< /tabs >}}
 
 
-3. Enter the required Location Name and Address.
+3. Enter the required Location Name and Address, or in the case of the YAML Runner, Coordinates.
 
 {{< tabs name="add_location_name" >}}
 {{{< tab name="UI" >}}
@@ -156,14 +156,10 @@ Navigate to `Manage Locations` in the Sidebar to see a list of existing Location
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The action ###yaml action to list locations??###
+###yaml action to list locations?###
  
-```bash
-$ archivist_runner \
-      -u https://app.rkvst.io \
-      --client-id <your-client-id> \
-      --client-secret client_secret.txt \
-      UK_factory_location.yaml
+```yaml
+need added capability
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -172,20 +168,16 @@ $ archivist_runner \
 
 7. You can inspect details of a single Location.
 
-{{< tabs name="list_locations" >}}
+{{< tabs name="location_details" >}}
 {{{< tab name="UI" >}}
 Click the desired Location row. 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The action ###yaml action to list locations??###
+###yaml action to list locations?###
  
-```bash
-$ archivist_runner \
-      -u https://app.rkvst.io \
-      --client-id <your-client-id> \
-      --client-secret client_secret.txt \
-      UK_factory_location.yaml
+```yaml
+need added capability
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -195,7 +187,7 @@ $ archivist_runner \
 
 ### Adding at Asset Creation
 
-1. To assign a pre-existing Location to an Asset during Asset Creation you need only select it from the Location drop-down. ##can pre-existing location be added?##
+1. To assign a pre-existing Location to an Asset during Asset creation, you need only select it from the Location drop-down.
 
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
 

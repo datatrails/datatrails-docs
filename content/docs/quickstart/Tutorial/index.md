@@ -87,7 +87,10 @@ steps:
 {{< img src="AssetCreationDetailsQS.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`, respectively.
+
+The YAML Runner defaults to `Simple Hash` as its proof mechanism.
+
 ```yaml
 ---
 steps:
@@ -105,7 +108,6 @@ steps:
       arc_display_name: My Bike 
       arc_display_type: Bike
 ```
-The YAML Runner defaults to `Simple Hash` as its proof mechanism.
 
 {{< /tab >}}}
 {{< /tabs >}}
@@ -126,7 +128,7 @@ To add an attachment, such as an image of your asset, select `Add Attachment`, t
 {{< tab name="YAML" >}}
 Extended Attributes are custom key-value pairs, such as `Top_Tube`, `Seat_Tube`, and `Head_Tube` you see below.
 
-This example also adds a location to our asset, to find out more about Locations, [click here](../grouping-assets-by-location/).
+This example also adds a location to our Asset. To find out more about Locations, [click here](../grouping-assets-by-location/).
 
 The `attachments` argument indicates a file, file type, and file display name that will be attached to your Asset.
 
@@ -199,7 +201,7 @@ $ archivist_runner \
 {{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-You can view all Asset data using the `ASSETS_LIST` action; use the `print_response` keyword to get the full output.
+You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.
 ```yaml  
 ---
 steps:
@@ -220,7 +222,7 @@ To view your Asset, click on the Asset row. You will see the detailed history of
 {{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The `ASSETS_LIST` action can be filtered using identifying `attrs` to view the details of a specific Asset.
+The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
 ```yaml  
 ---
 steps:
@@ -380,7 +382,7 @@ Here we see the details entered earlier and also a tab that will show both the E
 {{< /tab >}}
 {{< tab name="YAML" >}}
 
-The `EVENTS_LIST` action can be used to view all Events, or filtered using `attrs` to view details of a specific Event. Use the `print_response` keyword to get the full output.
+The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event. Use the `print_response` keyword to get the full output.
 
 To view all Events, use: 
 ```yaml
@@ -391,7 +393,7 @@ steps:
       description: List all events.
       print_response: true
 ```
-As an example, to view the details of the Event you just created for the asset 'My Bike' use:
+As an example, to view the details of the Event you just created for the asset 'My Bike', use:
 ```yaml
 ---
 steps:

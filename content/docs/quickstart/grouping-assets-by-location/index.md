@@ -187,21 +187,75 @@ need added capability
 
 ### Adding at Asset Creation
 
-1. To assign a pre-existing Location to an Asset during Asset creation, you need only select it from the Location drop-down.
+1. To assign a pre-existing Location to an Asset during Asset creation, you need only select it. 
 
+{{< tabs name="add_at_asset_create" >}}
+{{{< tab name="UI" >}}
+Choose the desired Location from the Location drop-down.
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
+
+{{< /tab >}}
+{{< tab name="YAML" >}}
+A pre-exisitng Location can be added during Asset creation, using the Location ID as an identifier. 
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset with pre-existing Location. 
+      asset_label: My Asset 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    attributes: 
+      arc_display_name: My Asset 
+      arc_display_type: Example
+    location: 
+      selector: 
+        - arc_home_location_identity
+      arc_home_location_identity: <your-location-id>
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
 
 ### Adding to a pre-existing Asset
 
-1. To assign a pre-existing asset with a new Location you need to identify the Location Identity 
-
-This is found by viewing the Location once complete using the (![](EyeSymbol.png)) to the right.
+1. To assign a pre-existing asset with a new Location, you need to identify the Location Identity. To do this, view the Location details by clicking the Location row. 
 
 {{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
 
-2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. For example:
+2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. 
+
+{{< tabs name="add_to_asset" >}}
+{{{< tab name="UI" >}}
 
 {{< img src="LocationAssetUpdate.png" alt="Rectangle" caption="<em>Updating an Existing Asset with a new Location</em>" class="border-0" >}}
+
+{{< /tab >}}
+{{< tab name="YAML" >}}
+For more information on creating Events, please visit [Creating and Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Add Location to existing Asset.
+      asset_id: <your-asset-id> 
+    operation: Record
+    behaviour: RecordEvidence
+    asset_attributes:
+      arc_home_location_identity: <your-location-id>
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
 
 {{< note >}}
 **Note** - You need to include the full `locations/<UUID>` reference as using only the `UUID` will not be recognized.

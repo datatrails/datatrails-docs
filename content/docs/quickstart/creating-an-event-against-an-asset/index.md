@@ -136,8 +136,8 @@ Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run yo
 ```bash
 $ archivist_runner \
       -u https://app.rkvst.io \
-      --client-id d1fb6c87-faa9-4d56-b2fd-a5b70a9af065 \
-      --client-secret client_secret.txt \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
       my_first_container_inspection_event.yaml
 ```
 {{< /tab >}}}

@@ -185,7 +185,7 @@ Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command t
 $ archivist_runner \
       -u https://app.rkvst.io \
       --client-id <your-client-id> \
-      --client-secret client_secret.txt \
+      --client-secret <your-client-secret> \
       my_bike.yaml
 ```
 {{< /tab >}}}
@@ -359,7 +359,7 @@ Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run yo
 $ archivist_runner \
       -u https://app.rkvst.io \
       --client-id <your-client-id> \
-      --client-secret client_secret.txt \
+      --client-secret <your-client-secret> \
       my_bike_event.yaml
 ```
 {{< /tab >}}}

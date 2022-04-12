@@ -140,7 +140,7 @@ Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run yo
 $ archivist_runner \
       -u https://app.rkvst.io \
       --client-id <your-client-id> \
-      --client-secret client_secret.txt \
+      --client-secret <your-client-secret> \
       UK_factory_location.yaml
 ```
 {{< /tab >}}}

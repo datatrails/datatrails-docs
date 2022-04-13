@@ -29,6 +29,7 @@ Where they differ is that OBAC shares only with Root Users of an External Organi
 
 In order to share Assets and their details with another Organization or Tenant, we must first import the ID of the External Organization.
 
+
 ### Finding Your Own ID
 
 1. As a Root User, navigate to `Access Policies`
@@ -58,6 +59,11 @@ Select the Subjects Tab and then `Import Subject`.
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an subject, we use the action `SUBJECTS_CREATE_FROM_B64`.
+
+{{< note >}}
+**Note:** You will only have permission to add subjects if your App Registration is a root user. To add credentials, click Root Principals, then `Add Root Principal`. The issuer should be specified as https://app.rkvst.io/appidpv1 and the subject will be your client-id. 
+{{< /note >}}
+
  
 ```yaml
 ---
@@ -84,12 +90,13 @@ You will be presented with a form to input your `Subject String` and `Name`.
 ---
 steps:
   - step:
-    action: SUBJECTS_CREATE_FROM_B64
-    description: Import a subjects entity.
-    print_response: true
-    subject_label: Example Subject
-  display_name: Example Subject
-  subject_string: <subject-id>
+      action: SUBJECTS_CREATE_FROM_B64
+      description: Import a subjects entity.
+      print_response: true
+      subject_label: Example Subject
+    display_name: Example Subject
+    subject_string: >-
+      <subject-id-string>
 ```
 {{< /tab >}}}
 {{< /tabs >}}

@@ -258,9 +258,9 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record event against My Bike.
-      asset_id: <your-asset-id> 
+      asset_label: assets/<asset-id> 
 ```
-The `asset_id` must match the Asset ID found in the details of your Asset. See Step 7 of [Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/) for instructions.
+The `asset-id` must match the Asset ID found in the details of your Asset. See Step 7 of [Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/) for instructions.
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -286,7 +286,7 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record event against My Bike.
-      asset_id: <your-asset-id> 
+      asset_label: assets/<asset-id> 
     operation: Record
     behaviour: RecordEvidence
     event_attributes:
@@ -320,7 +320,7 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record frame order and color of frame.
-      asset_label: My Bike 
+      asset_label: assets/<asset-id> 
     operation: Record
     behaviour: RecordEvidence
     event_attributes:
@@ -401,6 +401,7 @@ steps:
       action: EVENTS_LIST
       description: List frame order Events against the Asset 'My Bike'.
       print_response: true
+      asset_label: assets/<asset-id>
     attrs:
       arc_display_type: Frame ordered
     asset_attrs:

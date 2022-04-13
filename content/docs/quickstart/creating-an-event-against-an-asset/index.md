@@ -38,8 +38,7 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record event against My First Container.
-      asset_id: d0f5e913-4cb4-4a29-b959-962a48a4ad31 
-    operation: Record
+      asset_label: assets/<asset-id>
     behaviour: RecordEvidence
 ```
 The `asset_id` must match the Asset ID found in the details of your Asset. See Step 7 of [Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/) for instructions.
@@ -63,7 +62,7 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record event against My First Container.
-      asset_id: d0f5e913-4cb4-4a29-b959-962a48a4ad31 
+      asset_label: assets/<asset-id> 
     operation: Record
     behaviour: RecordEvidence
     event_attributes:
@@ -96,7 +95,7 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Record event against My First Container.
-      asset_id: d0f5e913-4cb4-4a29-b959-962a48a4ad31 
+      asset_label: assets/<asset-id>
     operation: Record
     behaviour: RecordEvidence
     event_attributes:
@@ -105,6 +104,7 @@ steps:
       Cargo: Rare Metals
     asset_attributes:
       Weight: "1192kg"
+    confirm: true
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -176,10 +176,11 @@ steps:
       action: EVENTS_LIST
       description: List inspection Events against the Asset 'My First Container'.
       print_response: true
+      asset_label: assets/<asset-id>
     attrs:
       arc_display_type: Inspection
     asset_attrs:
-      arc_display_name: My First Container 
+      arc_display_type: Shipping Container 
 ```
 {{< /tab >}}}
 {{< /tabs >}}

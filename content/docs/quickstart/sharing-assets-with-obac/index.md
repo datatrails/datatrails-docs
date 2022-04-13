@@ -47,13 +47,54 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
-2. Select the Subjects Tab and then `Import Subject`.
+2. Import subject.
 
+{{< tabs name="add_subject" >}}
+{{{< tab name="UI" >}}
+Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
-3. You will be presented with a form; the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+In order to create an subject, we use the action `SUBJECTS_CREATE_FROM_B64`.
+ 
+```yaml
+---
+steps:
+  - step:
+      action: SUBJECTS_CREATE_FROM_B64
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
+
+
+3. Add the `Subject String` and `Name`/`subject_label`. `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+
+{{< tabs name="add_subject" >}}
+{{{< tab name="UI" >}}
+You will be presented with a form to input your `Subject String` and `Name`. 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+`subject_label` is not required, but must be present to reference the subject in later actions. 
+
+```yaml
+---
+steps:
+  - step:
+    action: SUBJECTS_CREATE_FROM_B64
+    description: Import a subjects entity.
+    print_response: true
+    subject_label: Example Subject
+  display_name: Example Subject
+  subject_string: <subject-id>
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
 
 ## Creating an OBAC Policy
 

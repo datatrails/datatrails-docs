@@ -13,9 +13,9 @@ weight: 23
 toc: true
 ---
 
-Locations associate an Asset with a 'home' that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building or other logical grouping.
+Locations associate an Asset with a 'home' that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.
 
-It may still be useful to indicate an Asset's origin. For example, if tracking traveling consultant's Laptops, you may still wish to associate them with a 'home' office.
+It may be useful to indicate an Asset's origin. For example, if tracking traveling consultant's Laptops, you may wish to associate them with a 'home' office.
 
 
 ## Creating a Location
@@ -23,7 +23,7 @@ It may still be useful to indicate an Asset's origin. For example, if tracking t
 1. Create your Location.
 
 
-{{< tabs name="add_location" >}}
+{{< tabs name="add_location_locations" >}}
 {{{< tab name="UI" >}}
 In the Dashboard, select `Add Location` in the Sidebar.
 {{< img src="LocationAdd.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
@@ -45,7 +45,7 @@ steps:
 
 2. Add information about the Location you are creating. 
 
-{{< tabs name="add_location_info" >}}
+{{< tabs name="add_location_info_locations" >}}
 {{{< tab name="UI" >}}
 The following screen will appear:
 {{< img src="LocationDescribe.png" alt="Rectangle" caption="<em>The Location Webform</em>" class="border-0" >}}
@@ -68,7 +68,7 @@ steps:
 
 3. Enter the required Location Name and Address, or in the case of the YAML Runner, Coordinates.
 
-{{< tabs name="add_location_name" >}}
+{{< tabs name="add_location_name_locations" >}}
 {{{< tab name="UI" >}}
 {{< img src="LocationForm.png" alt="Rectangle" caption="<em>Adding the Location Details</em>" class="border-0" >}}
 {{< /tab >}}
@@ -93,15 +93,15 @@ steps:
 
 
 
-4. There is an option to add Extended Attributes to a Location. This is useful to add metadata to a Location, e.g. a site contact's number and email address.
+4. There is an option to add Extended Attributes to a Location. This is useful to add metadata to a Location, i.e. a site contact's number and email address.
 
-{{< tabs name="add_location_attributes" >}}
+{{< tabs name="add_location_attributes_locations" >}}
 {{{< tab name="UI" >}}
 Use the `Extended Attributes` Tab.
 {{< img src="LocationAttributes.png" alt="Rectangle" caption="<em>Adding Extended Attributes to a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Extended attributes may also be added to your YAML file. 
+Extended attributes may also be added to your YAML file as key-value pairs. 
  
 ```yaml
 ---
@@ -128,7 +128,7 @@ steps:
 
 5. Complete your Location. 
 
-{{< tabs name="complete_location" >}}
+{{< tabs name="complete_location_locations" >}}
 {{{< tab name="UI" >}}
 Click `Create Location`.
 {{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
@@ -149,14 +149,13 @@ $ archivist_runner \
 
 6. View a list of your existing Locations.
 
-{{< tabs name="list_locations" >}}
+{{< tabs name="list_locations_locations" >}}
 {{{< tab name="UI" >}}
 Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-###yaml action to list locations?###
  
 ```yaml
 need added capability
@@ -168,13 +167,12 @@ need added capability
 
 7. You can inspect details of a single Location.
 
-{{< tabs name="location_details" >}}
+{{< tabs name="location_details_locations" >}}
 {{{< tab name="UI" >}}
 Click the desired Location row. 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-###yaml action to list locations?###
  
 ```yaml
 need added capability

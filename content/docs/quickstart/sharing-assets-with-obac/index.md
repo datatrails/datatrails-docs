@@ -56,14 +56,16 @@ Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
+
+{{< note >}}
+**Note:** Note: By default, newly created Applications will always have a Non-Root User permission to the API. You must add the Application as a Root User to elevate it’s permissions.
+
+You can add an App Registration as a Root User using the Manage RKVST screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration’s `CLIENT_ID`.
+{{< /note >}}
+
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an subject, we use the action `SUBJECTS_CREATE_FROM_B64`.
-
-{{< note >}}
-**Note:** You will only have permission to add subjects if your App Registration is a root user. To add credentials, click Root Principals, then `Add Root Principal`. The issuer should be specified as https://app.rkvst.io/appidpv1 and the subject will be your client-id. 
-{{< /note >}}
-
  
 ```yaml
 ---
@@ -76,7 +78,7 @@ steps:
 
 
 
-3. Add the `Subject String` and `Name`/`subject_label`. `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+3. Add the `Subject String` and `Name`/`subject_label`. `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a friendly name for you to label the imported organization.
 
 {{< tabs name="add_subject" >}}
 {{{< tab name="UI" >}}

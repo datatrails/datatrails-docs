@@ -55,7 +55,12 @@ You will see the following Event creation form:
 {{< /tab >}}
 {{< tab name="YAML" >}}
 
-To create your Event, use the action `EVENTS_CREATE`.
+Fill out metadata about your Event. 
+
+* `operation` and `behaviour` detail what class of event is being performed
+
+The RKVST API uses the reserved attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`, respectively.
+
 ```yaml
 ---
 steps:
@@ -75,8 +80,8 @@ steps:
 
 3. You may enter both Event and Asset attributes.
 
-* `Event Attributes` - Attributes specific to an Event e.g. which device recorded the Event
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. overall weight of a container
+* `Event Attributes` - Attributes specific to an Event, i.e. which device recorded the Event
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
 
 
 {{< tabs name="add_event_attr" >}}
@@ -117,9 +122,7 @@ Every Event has an automatically generated `timestamp_accepted` and `principal_a
 
 There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
 
-PDFs or images can be recorded with an Event in the same way as an Asset. 
-
-This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
 4. Record your Event. 
 
@@ -131,7 +134,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file.
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
  
 ```bash
 $ archivist_runner \
@@ -159,7 +162,9 @@ Here we see the details entered earlier and also a tab that will show both the E
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The `EVENTS_LIST` action can be used to view all Events, or filtered to view details of a specific Event. To view all Events, use: 
+The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event. 
+
+To view all Events, use: 
 ```yaml
 ---
 steps:
@@ -186,5 +191,5 @@ steps:
 {{< /tabs >}}
 
 
-In the next section, we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
+In the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.
 

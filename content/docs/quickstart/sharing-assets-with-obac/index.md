@@ -18,7 +18,7 @@ toc: true
 {{< /caution >}}
 
 {{< warning >}}
-**Warning:** To use OBAC you will need to share with an external organization.
+**Warning:** To use OBAC, you will need to share with an external organization.
 {{< /warning >}}
 
 Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of Actor.
@@ -32,7 +32,7 @@ In order to share Assets and their details with another Organization or Tenant, 
 
 ### Finding Your Own ID
 
-1. As a Root User, navigate to `Access Policies`
+1. As a Root User, navigate to `Access Policies`.
 
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
@@ -48,9 +48,9 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
-2. Import subject.
+2. Import Subject.
 
-{{< tabs name="add_subject" >}}
+{{< tabs name="add_subject_OBAC" >}}
 {{{< tab name="UI" >}}
 Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
@@ -80,7 +80,7 @@ steps:
 
 3. Add the `Subject String` and `Name`/`subject_label`. `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a friendly name for you to label the imported organization.
 
-{{< tabs name="add_subject" >}}
+{{< tabs name="add_subject_string_OBAC" >}}
 {{{< tab name="UI" >}}
 You will be presented with a form to input your `Subject String` and `Name`. 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}

@@ -315,7 +315,6 @@ Extended Attributes are custom key-value pairs, such as `Frame_Ordered`, an Even
 It's good practice to include `confirm: true` which tells RKVST to finish commiting the Event before moving to the next step. 
 ```yaml
 ---
-
 steps:
   - step:
       action: EVENTS_CREATE
@@ -405,7 +404,7 @@ steps:
     attrs:
       arc_display_type: Frame ordered
     asset_attrs:
-      arc_display_name: My Bike 
+      arc_display_type: Bike
 ```
 {{< /tab >}}}
 {{< /tabs >}}

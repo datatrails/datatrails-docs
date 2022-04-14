@@ -16,14 +16,14 @@ toc: true
 ## Creating an Asset
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `jitsuin-archivist` python package.
+**Note:** To use the YAML Runner, you will need to install the `jitsuin-archivist` python package.
 
 [Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
 1. Create your Asset. 
 
-{{< tabs name="add_asset" >}}
+{{< tabs name="add_asset_tutorial" >}}
 {{{< tab name="UI" >}}
 Using the Sidebar, select 'Add Asset'.
 {{< img src="AssetAddNT.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
@@ -46,15 +46,15 @@ steps:
 
 2. Add details to your new Asset.
 
-{{< tabs name="add_asset_details" >}}
+{{< tabs name="add_asset_details_tutorial" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Here you can fill out some metadata about your Asset:
-* `selector` is the identifying attribute the yaml runner will use to check if your asset exists already before attempting to create it, in this case we use `arc_display_name` which represents the name of the Asset.
-* `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
+* `selector` is the identifying attribute the yaml runner will use to check if your asset exists already before attempting to create it. In this case, we use `arc_display_name` which represents the name of the Asset.
+* `behaviours` detail what class of events in your asset's lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
 
 ```yaml
 ---
@@ -77,10 +77,10 @@ steps:
 
 3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
 
-* `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
-* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types.
+* `Asset Name` - This is the unique name of the Asset, i.e. 'My First Container'.
+* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use. For example, if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types.
 
-{{< tabs name="add_asset_details_min" >}}
+{{< tabs name="add_asset_details_min_tutorial" >}}
 {{{< tab name="UI" >}}
 `Proof Mechanism` identifies how frequently Asset history information is committed to the blockchain. `Khipu` - or 'Transactional Immutability' - indicates that every Event is committed through smart contracts and immediately committed to the chain. `Simple Hash` - or 'Batched Immutability' - indicates that Events are processed in the RKVST tenancy and then periodically collected together and committed to the chain as a batch.
 
@@ -118,7 +118,7 @@ Extended Attributes are user-defined and added per unique Asset.
 
 To add a new Attribute to an Asset, enter your key-value pair. You may also add an attachment, such as an image of your Asset.
 
-{{< tabs name="add_extended_attributes" >}}
+{{< tabs name="add_extended_attributes_tutorial" >}}
 {{{< tab name="UI" >}}
 Select `Add Attribute`, and add your key-value pairs. 
 {{< img src="AssetExtendedAttributesQS.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
@@ -132,7 +132,7 @@ This example also adds a location to our Asset. To find out more about Locations
 
 The `attachments` argument indicates a file, file type, and file display name that will be attached to your Asset.
 
-It's also good practice to include `confirm: true` which tells RKVST to finish commiting the asset before moving to the next step. 
+It's also good practice to include `confirm: true`, which tells RKVST to finish commiting the asset before moving to the next step. 
 ```yaml 
 ---
 steps:
@@ -150,9 +150,9 @@ steps:
       arc_display_name: My Bike 
       arc_display_type: Bike
       arc_description: Replacement frame and upgraded tires
-      Top_Tube: 570mm
-      Seat_Tube: 420mm
-      Head_Tube: 112mm
+      Top_Tube: "570mm"
+      Seat_Tube: "420mm"
+      Head_Tube: "112mm"
     location: 
       selector: 
         - display_name
@@ -173,7 +173,7 @@ steps:
 
 5. Complete your Asset creation.
 
-{{< tabs name="finish_create_asset" >}}
+{{< tabs name="finish_create_asset_tutorial" >}}
 {{{< tab name="UI" >}}
 Click 'Create Asset'.
 {{< img src="AssetCreateQS.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
@@ -195,7 +195,7 @@ $ archivist_runner \
 
 6. View your Assets.
 
-{{< tabs name="view_all_assets" >}}
+{{< tabs name="view_all_assets_tutorial" >}}
 {{{< tab name="UI" >}}
 `Manage Assets` (default view) is where you may view a list of your Assets within the UI.
 {{< img src="AssetManageQS.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
@@ -216,7 +216,7 @@ steps:
 
 7. View details of the Asset you created.
 
-{{< tabs name="view_specific_asset" >}}
+{{< tabs name="view_specific_asset_tutorial" >}}
 {{{< tab name="UI" >}}
 To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
 {{< img src="AssetViewQS.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
@@ -244,7 +244,7 @@ The first Event in an Asset's Lifecycle will always be the 'Asset Creation' Even
 ## Creating Events
 
 1. Create an Event. 
-{{< tabs name="add_event" >}}
+{{< tabs name="add_event_tutorial" >}}
 {{{< tab name="UI" >}}
 When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecordQS.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
@@ -268,7 +268,7 @@ The `asset-id` must match the Asset ID found in the details of your Asset. See S
 
 2. Add Event type and description.
 
-{{< tabs name="add_event_type" >}}
+{{< tabs name="add_event_type_tutorial" >}}
 {{{< tab name="UI" >}}
 You will see the following Event creation form: 
 {{< img src="EventInformationQS.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
@@ -276,7 +276,7 @@ You will see the following Event creation form:
 {{< tab name="YAML" >}}
 As with your Asset, you can fill out metadata about your Event:
 
-* `behaviour` details what class of event is being performed
+* `operation` and `behaviour` detail what class of event is being performed
 
 The RKVST API uses the reserved attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`, respectively.
 
@@ -299,10 +299,10 @@ steps:
 
 3. Creating an Event enables you to enter both Event and Asset attributes.
 
-* `Event Attributes` - Attributes specific to an Event i.e. signifying _when_ a new frame was ordered
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event i.e. the color of the new frame
+* `Event Attributes` - Attributes specific to an Event, i.e. signifying _when_ a new frame was ordered
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. the color of the new frame
 
-{{< tabs name="add_event_attr" >}}
+{{< tabs name="add_event_attr_tutorial" >}}
 {{{< tab name="UI" >}}
 Select the `Add Attribute` button on each tab to add your key-value pairs.
 {{< img src="EventAttributesQS.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
@@ -310,7 +310,7 @@ Select the `Add Attribute` button on each tab to add your key-value pairs.
 {{< img src="EventAssetAttributesQS.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Extended Attributes are custom key-value pairs, such as `Frame_Ordered`, an Event Attribute, and `Frame_Color`, an Asset Attribute.
+Extended Attributes are custom key-value pairs. In this example, we have `Frame_Ordered`, an Event Attribute, and `Frame_Color`, an Asset Attribute.
 
 It's good practice to include `confirm: true` which tells RKVST to finish commiting the Event before moving to the next step. 
 ```yaml
@@ -336,15 +336,13 @@ steps:
 
 Here you see that someone noted a new frame has been ordered in the Event, and has also recorded the color of the frame using a newly defined `Frame Color` Asset Attribute.
 
-Note that every Event will always have a `timestamp_accepted` and `principal_accepted` Event Attributes once created, which records _when_ _who_ performed what, as submitted to RKVST; this is added automatically at Event Creation.
+Note that every Event will always have `timestamp_accepted` and `principal_accepted` Event Attributes once created, which record _when_ _who_ performed what, as submitted to RKVST. This is added automatically at Event Creation.
 
-Similarly, PDFs or images can also be attached to an Event in the same way as an Asset. 
-
-Attaching files is beneficial when storing contextual and associated material for posterity. For example, each `Frame Order` Event may have a copy of the invoice for the new frame and a datasheet attached ready for historical inspection and compliance checking.
+PDFs or images can also be attached to an Event in the same way as an Asset. Attaching files is beneficial when storing contextual and associated material for posterity. For example, each `Frame Order` Event may have a copy of the invoice for the new frame and a datasheet attached ready for historical inspection and compliance checking.
 
 4. Record your Event. 
 
-{{< tabs name="record_event" >}}
+{{< tabs name="record_event_tutorial" >}}
 {{{< tab name="UI" >}}
 Once you have entered all data, click the `Record Event` Button to add to your Asset.
 {{< img src="EventRecordedQS.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
@@ -368,7 +366,7 @@ $ archivist_runner \
 
 5. View your Event details. 
 
-{{< tabs name="view_event" >}}
+{{< tabs name="view_event_tutorial" >}}
 {{{< tab name="UI" >}}
 Click the Event row to inspect the Event:
 
@@ -440,13 +438,70 @@ Once you have an Asset defined, it can be shared both within your department or 
 
 {{< img src="PolicyManageNT.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 
-2. Select the Subjects Tab and then `Import Subject`.
+2. Import subject.
 
+{{< tabs name="add_subject_tutorial" >}}
+{{{< tab name="UI" >}}
+Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
 
-3. You will be presented with a new form: `Subject String` is the ID of the Organization that you wish to share Asset evidence with, `Name` is a Friendly Name for you to label the imported organization.
+{{< note >}}
+**Note:** Note: By default, newly created Applications will always have a Non-Root User permission to the API. You must add the Application as a Root User to elevate it’s permissions.
 
+You can add an App Registration as a Root User using the Manage RKVST screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration’s `CLIENT_ID`.
+{{< /note >}}
+
+The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
+
+In order to create a subject, we use the action `SUBJECTS_CREATE_FROM_B64`.
+ 
+```yaml
+---
+steps:
+  - step:
+      action: SUBJECTS_CREATE_FROM_B64
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
+3. Add the `Subject String` and `Name`/`subject_label`. `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name`/`subject_label` is a friendly name for you to label the imported organization.
+
+{{< tabs name="add_subject_string_tutorial" >}}
+{{{< tab name="UI" >}}
+You will be presented with a form to input your `Subject String` and `Name`. 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
+Click IMPORT to complete.
+{{< /tab >}}
+{{< tab name="YAML" >}}
+`subject_label` is not required, but must be present to reference the subject in later actions. 
+
+```yaml
+---
+steps:
+  - step:
+      action: SUBJECTS_CREATE_FROM_B64
+      description: Import a subjects entity.
+      print_response: true
+      subject_label: Example Subject
+    display_name: Example Subject
+    subject_string: >-
+      <subject-id-string>
+```
+
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      import_subject.yaml
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
 ## Creating an OBAC Sharing Policy
 

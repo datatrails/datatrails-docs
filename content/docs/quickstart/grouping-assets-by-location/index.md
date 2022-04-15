@@ -153,7 +153,6 @@ $ archivist_runner \
 {{{< tab name="UI" >}}
 Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
-
 {{< /tab >}}
 {{< tab name="YAML" >}}
  
@@ -201,7 +200,7 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset with pre-existing Location. 
-      asset_label: My Asset 
+      asset_label: My First Container 
     selector: 
       - attributes: 
         - arc_display_name
@@ -209,12 +208,39 @@ steps:
       - RecordEvidence
       - Attachments
     attributes: 
-      arc_display_name: My Asset 
-      arc_display_type: Example
+      arc_display_name: My First Container
+      arc_display_type: Shipping Container
+      arc_home_location_identity: <your-location-id>
+    confirm: true
+```
+A new location may also be created as an element of your Asset.
+
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset.
+      asset_label: My First Container 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    attributes: 
+      arc_display_name: My First Container
+      arc_display_type: Shipping Container
     location: 
       selector: 
-        - arc_home_location_identity
-      arc_home_location_identity: <your-location-id>
+        - display_name
+      display_name: UK Factory
+      description: Container Origin
+      latitude: 52.2025
+      longitude: 0.1311
+      attributes: 
+        action: LOCATIONS_CREATE_IF_NOT_EXISTS
+        location_label: UK Factory
     confirm: true
 ```
 {{< /tab >}}}
@@ -238,19 +264,26 @@ steps:
 {{< /tab >}}
 {{< tab name="YAML" >}}
 For more information on creating Events, please visit [Creating and Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
+{{< note >}}
+**Note** - The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
+{{< /note >}}
+
 ```yaml
 ---
 steps:
   - step:
       action: EVENTS_CREATE
       description: Add Location to existing Asset.
-      asset_id: <your-asset-id> 
+      asset_label: <your-asset-id> 
     operation: Record
     behaviour: RecordEvidence
+    event_attributes: 
+      new_event: Record Asset Location
     asset_attributes:
       arc_home_location_identity: <your-location-id>
     confirm: true
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}
 

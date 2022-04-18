@@ -147,37 +147,12 @@ $ archivist_runner \
 {{< /tabs >}}
 
 
-6. View a list of your existing Locations.
-
-{{< tabs name="list_locations_locations" >}}
-{{{< tab name="UI" >}}
-Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
+6. Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
-{{< /tab >}}
-{{< tab name="YAML" >}}
- 
-```yaml
-need added capability
-```
-{{< /tab >}}}
-{{< /tabs >}}
 
 
-
-7. You can inspect details of a single Location.
-
-{{< tabs name="location_details_locations" >}}
-{{{< tab name="UI" >}}
-Click the desired Location row. 
+7. You can inspect details of a single Location. Click the desired Location row. 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
-{{< /tab >}}
-{{< tab name="YAML" >}}
- 
-```yaml
-need added capability
-```
-{{< /tab >}}}
-{{< /tabs >}}
 
 
 ## Assigning a Location to an Asset

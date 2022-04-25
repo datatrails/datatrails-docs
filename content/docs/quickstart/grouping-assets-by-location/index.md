@@ -150,7 +150,6 @@ $ archivist_runner \
 6. Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
 
-
 7. You can inspect details of a single Location. Click the desired Location row. 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
 

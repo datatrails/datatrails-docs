@@ -86,14 +86,14 @@ steps:
 
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs.
-{{< img src="EventAttributes.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
+{{< img src="AddEventAttachment.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 
-Add your `event_attributes` and `asset_attributes` as key-value pairs.
+Add your `event_attributes` and `asset_attributes` as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
 ```yaml
 ---
 steps:
@@ -109,6 +109,10 @@ steps:
       Cargo: Rare Metals
     asset_attributes:
       Weight: "1192kg"
+    attachments: 
+      - filename: inspection_standards.pdf
+        content_type: document/pdf
+        display_name: Inspection Standards
     confirm: true
 ```
 {{< /tab >}}}

@@ -51,7 +51,7 @@ The following screen will appear:
 {{< img src="LocationDescribe.png" alt="Rectangle" caption="<em>The Location Webform</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-You may add a `description` and a `selector`. `selector` is the identifying attribute the YAML runner will use to check if your asset exists before attempting to create it. In this case, we use `display_name` which represents the name of the Location.
+You may add a `description` and a `selector`. The `selector` is the identifying attribute used to check if your location exists before attempting to create it. In this case, we use `display_name` which represents the name of the Location.
  
 ```yaml
 ---
@@ -73,7 +73,7 @@ steps:
 {{< img src="LocationForm.png" alt="Rectangle" caption="<em>Adding the Location Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-`latitude` and `longitude` pinpoint the Location when using the YAML Runner. 
+Use `latitude` and `longitude` to describe the physical location. 
  
 ```yaml
 ---
@@ -84,7 +84,7 @@ steps:
     selector:
       - display_name
     display_name: UK Factory
-    description: Factory in Bristol Harbor
+    description: Industrial Warehouse in Bristol Harbor
     latitude: 51.4477
     longitude: -2.5980
 ```
@@ -101,7 +101,7 @@ Use the `Extended Attributes` Tab.
 {{< img src="LocationAttributes.png" alt="Rectangle" caption="<em>Adding Extended Attributes to a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Extended attributes may also be added to your YAML file as key-value pairs. 
+Like Assets and Events Loacations may also have Extended Attributes added as key-value pairs. 
  
 ```yaml
 ---
@@ -168,7 +168,7 @@ Choose the desired Location from the Location drop-down.
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-A pre-exisitng Location can be added during Asset creation, using the Location ID as an identifier. 
+A pre-exisitng Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
 ```yaml
 ---
 steps:
@@ -188,7 +188,7 @@ steps:
       arc_home_location_identity: <your-location-id>
     confirm: true
 ```
-A new location may also be created as an element of your Asset.
+The YAML Runner also allows you to create new locations at Asset Creation.
 
 ```yaml
 ---
@@ -238,7 +238,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-For more information on creating Events, please visit [Creating and Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
+For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
 {{< note >}}
 **Note** - The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
 {{< /note >}}

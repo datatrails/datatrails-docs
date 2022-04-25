@@ -101,7 +101,7 @@ Use the `Extended Attributes` Tab.
 {{< img src="LocationAttributes.png" alt="Rectangle" caption="<em>Adding Extended Attributes to a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Like Assets and Events Loacations may also have Extended Attributes added as key-value pairs. 
+Like Assets and Events, Locations may also have Extended Attributes added as key-value pairs. 
  
 ```yaml
 ---
@@ -167,7 +167,7 @@ Choose the desired Location from the Location drop-down.
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-A pre-exisitng Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
+A pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
 ```yaml
 ---
 steps:

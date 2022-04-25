@@ -41,7 +41,7 @@ steps:
       asset_label: assets/<asset-id>
     behaviour: RecordEvidence
 ```
-The `asset_id` must match the Asset ID found in the details of your Asset. See Step 7 of [Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/) for instructions.
+The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -57,9 +57,9 @@ You will see the following Event creation form:
 
 Fill out metadata about your Event. 
 
-* `operation` and `behaviour` detail what class of event is being performed
+`operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
 
-The RKVST API uses the reserved attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`, respectively.
+In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
 ```yaml
 ---
@@ -124,7 +124,7 @@ Here we see someone noted the type of cargo loaded in the Event, and has also re
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
+There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it, creating a more detailed record.
 
 PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 

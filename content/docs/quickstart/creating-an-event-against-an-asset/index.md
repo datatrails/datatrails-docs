@@ -19,46 +19,144 @@ Asset Creation is the first Event. The more Events recorded against an Asset, th
 
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
+To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
+
 ## Creating Events
 
-1. When viewing your Asset, click the `Record Event` button.
-
+1. Create an Event. 
+{{< tabs name="add_event" >}}
+{{{< tab name="UI" >}}
+When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
 
-2. You will see the following screen, where you can enter an Event type and description.
+To create your Event, use the action `EVENTS_CREATE`.
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record event against My First Container.
+      asset_label: assets/<asset-id>
+    behaviour: RecordEvidence
+```
+The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
+{{< /tab >}}}
+{{< /tabs >}}
 
+
+2. Add Event type and description.
+
+{{< tabs name="add_event_type" >}}
+{{{< tab name="UI" >}}
+You will see the following Event creation form: 
 {{< img src="EventInformation.png" alt="Rectangle" caption="<em>Entering Event Details</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
 
-3. Tabs enable you to enter both Event and Asset attributes.
+Fill out metadata about your Event. 
 
-* `Event Attributes` - Attributes specific to an Event e.g. which device recorded the Event
-* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event e.g. overall weight of a container
+`operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
 
-Select the `Add Attribute` button on each field to add your Key-Value pairs.
+In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
-For example:
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record event against My First Container.
+      asset_label: assets/<asset-id> 
+    operation: Record
+    behaviour: RecordEvidence
+    event_attributes:
+      arc_description: Inspection Event
+      arc_display_type:  Inspection
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-{{< img src="EventAttributes.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+
+3. You may enter both Event and Asset attributes.
+
+* `Event Attributes` - Attributes specific to an Event, i.e. which device recorded the Event
+* `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
+
+
+{{< tabs name="add_event_attr" >}}
+{{{< tab name="UI" >}}
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
+{{< img src="AddEventAttachment.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+
+Add your `event_attributes` and `asset_attributes` as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_CREATE
+      description: Record event against My First Container.
+      asset_label: assets/<asset-id>
+    operation: Record
+    behaviour: RecordEvidence
+    event_attributes:
+      arc_description: Inspection Event
+      arc_display_type:  Inspection
+      Cargo: Rare Metals
+    asset_attributes:
+      Weight: "1192kg"
+    attachments: 
+      - filename: inspection_standards.pdf
+        content_type: document/pdf
+        display_name: Inspection Standards
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
 
 Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it. This option helps to create a detailed record.
+There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it, creating a more detailed record.
 
-PDFs or images can be recorded with an Event in the same way as an Asset. 
+PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
-This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+4. Record your Event. 
 
-4. Once you have entered all data, click the `Record Event` Button to add to your Asset.
-
+{{< tabs name="record_event" >}}
+{{{< tab name="UI" >}}
+Once you have entered all data, click the `Record Event` Button to add to your Asset.
+{{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
-{{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      my_first_container_inspection_event.yaml
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-5. Click the Event row to inspect the Event:
+
+
+5. View your Event details. 
+
+{{< tabs name="view_event" >}}
+{{{< tab name="UI" >}}
+Click the Event row to inspect the Event:
 
 {{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
@@ -66,5 +164,36 @@ Here we see the details entered earlier and also a tab that will show both the E
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
-In the next section, we will learn about using Locations to group items together for both logical grouping and then how to better manage access using ABAC and OBAC Policies.
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event. 
+
+To view all Events, use: 
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_LIST
+      description: List all events.
+      print_response: true
+```
+To view the details of the Event you just created for My First Container, use:
+```yaml
+---
+steps:
+  - step:
+      action: EVENTS_LIST
+      description: List inspection Events against the Asset 'My First Container'.
+      print_response: true
+      asset_label: assets/<asset-id>
+    attrs:
+      arc_display_type: Inspection
+    asset_attrs:
+      arc_display_type: Shipping Container 
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+
+In the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.
 

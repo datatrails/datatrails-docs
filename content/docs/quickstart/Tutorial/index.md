@@ -573,15 +573,15 @@ ABAC and OBAC Policy Creation has many fine-grained controls, head over to the [
 
 ## Putting Everything Together
 
-The YAML runner allows these steps to be done in succession by running a single file. For example, you may want to create the asset 'My Bike' now that you have ordered the frame. As such, you can create the asset and add a frame order event at the same time. Additionally, you may want to record the location where the frame will be delivered as part of your asset. To do so, you can create a single YAML file, such as this one: 
+The YAML runner allows these steps to be completed in succession by running a single file. For example, you may want to create the asset 'My Bike' now that you have ordered the frame. As such, you can create the asset and add a frame order event at the same time. To do so, you can create a single YAML file, such as this one: 
 
 {{< tabs name="all_together_tutorial" >}}
 {{< tab name="YAML" >}}
 {{< note >}}
-**Note:**  If steps are ran in the same file, previous steps may be referenced by label instead of ID. For example, events can be performed on My Bike with 'My Bike' as the `asset_label`. The same is true for referencing locations.
+**Note:**  If steps are ran in the same file, previous steps may be referenced by name instead of ID. For example, events can be performed on the asset My Bike using 'My Bike' as the `asset_label`.
 {{< /note >}}
 
-Remember to include `confirm: true`, which tells RKVST to finish commiting the action before moving to the next step. 
+Remember to include `confirm: true` when creating Assets or Events, which tells RKVST to finish commiting the action before moving to the next step. 
 
 ```yaml
 ---
@@ -603,27 +603,18 @@ steps:
       Top_Tube: "570mm"
       Seat_Tube: "420mm"
       Head_Tube: "112mm"
+    location: 
+      selector: 
+        - display_name
+      display_name: My Bike Location 
+      latitude: 30.2672
+      longitude: -97.7431
+      attributes:
+        address: Austin, Texas
     attachments: 
       - filename: my_bike.png
         content_type: image/png
         display_name: my_bike_image
-    confirm: true
-  - step:
-      action: LOCATIONS_CREATE_IF_NOT_EXISTS
-      description: Create the location of My Bike. 
-    selector: 
-      - display_name
-    display_name: My Bike Delivery Location
-    latitude: 30.2672
-    longitude: -97.7431
-    attributes:
-      address: Austin, Texas
-  - step:
-      action: EVENTS_CREATE
-      description: Add My Bike Delivery Location to asset.
-      asset_label: My Bike
-      asset_attributes:
-        arc_home_location_identity: My Bike Delivery Location
     confirm: true
   - step:
       action: EVENTS_CREATE
@@ -642,7 +633,7 @@ steps:
 {{< /tab >}}}
 {{< /tabs >}}
 
-View details of the asset and event you just created. 
+View details of the Asset and Event you just created. 
 
 {{< tabs name="all_together_view_tutorial" >}}
 {{< tab name="YAML" >}}
@@ -658,12 +649,10 @@ steps:
       arc_display_name: My Bike
   - step:
       action: EVENTS_LIST
-      description: List frame order Events against the Asset 'My Bike'.
+      description: List frame order Events.
       print_response: true
     attrs:
       arc_display_type: Frame ordered
-    asset_attrs:
-      arc_display_name: My Bike
 ```
 {{< /tab >}}}
 {{< /tabs >}}

@@ -132,7 +132,7 @@ This example also adds a location to our Asset. To find out more about Locations
 
 The `attachments` argument indicates a file, file type, and file display name that will be attached to your Asset.
 
-It's also good practice to include `confirm: true`, which tells RKVST to finish commiting the asset before moving to the next step. 
+It's also good practice to include `confirm: true`, which tells RKVST to finish commiting the Asset before moving to the next step. 
 ```yaml 
 ---
 steps:
@@ -569,3 +569,101 @@ By comparison our own Tenancy's Root User, Jill, can see the full details of the
 9. If Mandy wishes to then share what she can with Non-Root Users in her organization, it is her responsibility to create an ABAC Policy as she would any other Asset.
 
 ABAC and OBAC Policy Creation has many fine-grained controls, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/) to find out more.
+
+
+## Putting Everything Together
+
+The YAML runner allows these steps to be done in succession by running a single file. For example, you may want to create the asset 'My Bike' now that you have ordered the frame. As such, you can create the asset and add a frame order event at the same time. Additionally, you may want to record the location where the frame will be delivered as part of your asset. To do so, you can create a single YAML file, such as this one: 
+
+{{< tabs name="all_together_tutorial" >}}
+{{< tab name="YAML" >}}
+{{< note >}}
+**Note:**  If steps are ran in the same file, previous steps may be referenced by label instead of ID. For example, events can be performed on My Bike with 'My Bike' as the `asset_label`. The same is true for referencing locations.
+{{< /note >}}
+
+Remember to include `confirm: true`, which tells RKVST to finish commiting the action before moving to the next step. 
+
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset of a bike. 
+      asset_label: My Bike 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    attributes: 
+      arc_display_name: My Bike 
+      arc_display_type: Bike
+      arc_description: Replacement frame and upgraded tires
+      Top_Tube: "570mm"
+      Seat_Tube: "420mm"
+      Head_Tube: "112mm"
+    attachments: 
+      - filename: my_bike.png
+        content_type: image/png
+        display_name: my_bike_image
+    confirm: true
+  - step:
+      action: LOCATIONS_CREATE_IF_NOT_EXISTS
+      description: Create the location of My Bike. 
+    selector: 
+      - display_name
+    display_name: My Bike Delivery Location
+    latitude: 30.2672
+    longitude: -97.7431
+    attributes:
+      address: Austin, Texas
+  - step:
+      action: EVENTS_CREATE
+      description: Add My Bike Delivery Location to asset.
+      asset_label: My Bike
+      asset_attributes:
+        arc_home_location_identity: My Bike Delivery Location
+    confirm: true
+  - step:
+      action: EVENTS_CREATE
+      description: Record frame order and color of frame.
+      asset_label: My Bike
+    operation: Record
+    behaviour: RecordEvidence
+    event_attributes:
+      arc_description: Frame ordered
+      arc_display_type:  Frame ordered
+      Frame_Ordered: "1"
+    asset_attributes:
+      Frame_Color: Blue
+    confirm: true
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+View details of the asset and event you just created. 
+
+{{< tabs name="all_together_view_tutorial" >}}
+{{< tab name="YAML" >}}
+
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_LIST
+      description: Display Asset named My Bike.
+      print_response: true
+    attrs:
+      arc_display_name: My Bike
+  - step:
+      action: EVENTS_LIST
+      description: List frame order Events against the Asset 'My Bike'.
+      print_response: true
+    attrs:
+      arc_display_type: Frame ordered
+    asset_attrs:
+      arc_display_name: My Bike
+```
+{{< /tab >}}}
+{{< /tabs >}}

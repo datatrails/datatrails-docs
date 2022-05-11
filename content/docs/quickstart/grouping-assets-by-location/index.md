@@ -147,12 +147,52 @@ $ archivist_runner \
 {{< /tabs >}}
 
 
-6. Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
+6. View your Locations. 
+
+{{< tabs name="location_list_locations" >}}
+{{{< tab name="UI" >}}
+Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
 {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+You can view all Location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 
+
+```yaml
+---
+steps:
+  - step:
+      action: LOCATIONS_LIST
+      description: List all locations.
+      print_response: true
+```
+
+{{< /tab >}}}
+{{< /tabs >}}
 
 
-7. You can inspect details of a single Location. Click the desired Location row. 
+7. View details of the Location you just created. 
+
+{{< tabs name="specific_location_locations" >}}
+{{{< tab name="UI" >}}
+You can inspect details of a single Location. Click the desired Location row. 
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The `LOCATIONS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Location.
+
+```yaml
+---
+steps:
+  - step:
+      action: LOCATIONS_LIST
+      description: Display Location named UK Factory. 
+      print_response: true
+    attrs: 
+      arc_display_name: UK Factory
+```
+
+{{< /tab >}}}
+{{< /tabs >}}
 
 
 ## Assigning a Location to an Asset
@@ -225,9 +265,29 @@ steps:
 
 ### Adding to a pre-existing Asset
 
-1. To assign a pre-existing asset with a new Location, you need to identify the Location Identity. To do this, view the Location details by clicking the Location row. 
+1. To assign a pre-existing asset with a new Location, you need to identify the Location Identity.
 
+{{< tabs name="find_location_locations" >}}
+{{{< tab name="UI" >}}
+View the Location details by clicking the Location row. 
 {{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="YAML" >}}
+The `LOCATIONS_LIST` action can be filtered to view the details of a specific Location, including the Location ID.
+
+```yaml
+---
+steps:
+  - step:
+      action: LOCATIONS_LIST
+      description: Display Location named UK Factory. 
+      print_response: true
+    attrs: 
+      arc_display_name: UK Factory
+```
+
+{{< /tab >}}}
+{{< /tabs >}}
 
 2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. 
 

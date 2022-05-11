@@ -169,16 +169,12 @@ steps:
 {{< /tab >}}}
 {{< /tabs >}}
 
-<<<<<<< HEAD
 
 7. View details of the Location you just created. 
 
 {{< tabs name="specific_location_locations" >}}
 {{{< tab name="UI" >}}
 You can inspect details of a single Location. Click the desired Location row. 
-=======
-7. You can inspect details of a single Location. Click the desired Location row. 
->>>>>>> 85641c36bf067bc21f7f97e716b7df50df6ccae1
 {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

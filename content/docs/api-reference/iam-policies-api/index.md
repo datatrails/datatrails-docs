@@ -6,7 +6,7 @@ date: 2021-06-09T12:02:15+01:00
 lastmod: 2021-06-09T12:02:15+01:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "api-reference"
 weight: 108
@@ -107,7 +107,7 @@ The response is:
 }
 ```
 
-### IAM Policy Retrival
+### IAM Policy Retrieval
 
 IAM access policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 

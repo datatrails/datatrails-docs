@@ -14,7 +14,7 @@ toc: true
 ---
 ## Invites API Examples
 
-Invites can be used by a Root User to invite someone into the internal boundary of their tenancy to access assets and events.
+Invites can be used to invite a new user into a tenancy to access assets and events.
 
 For example, inviting a new member of the organization into their organization's tenancy.
 

@@ -14,19 +14,20 @@ toc: true
 ---
 ## Invites API Examples
 
-Invites can be used by a Root User to invite someone into the secure boundary of their tenancy to internally access their assets and events.
+Invites can be used by a Root User to invite someone into the internal boundary of their tenancy to access assets and events.
+
+For example, inviting a new member of the organization into their organization's tenancy.
 
 By default invited users will have no permissons, so need to be given access to manage specific assets and events using [ABAC policies](../../quickstart/managing-access-to-an-asset-with-abac/index.md) defined by a Root User.
 
 For sharing assets and events to other organizations and tenancies externally check out our tutorial on [OBAC policies](../../quickstart/sharing-assets-with-obac/index.md) or the [IAM Policies API Reference](../iam-policies-api/index.md).
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-
 ### Invite Creation
 
-Invite Creation will create an invite record as well as send an email invitation to the given email address.
+To create an invite you need at least the invitee's email address; once created it will be considered pending, once accepted the invite itself will be deleted.
 
-Create the invite:
+It is possible to add an optional custom message:
 
 ```bash
 curl -v -X POST \
@@ -49,7 +50,7 @@ The response is:
 
 ### Invite Retrieval
 
-If you know the unique identity of the invite, simply `GET` the resource:
+If you know the unique identity of a pending invite, `GET` the resource:
 
 ```bash
 curl -v -X GET \
@@ -71,7 +72,7 @@ The response is:
 
 ### Retrieve All Invites
 
-To fetch all invites, simply `GET` the `/invites` resource:
+To fetch all pending invites, simply `GET` the `/invites` resource:
 
 ```bash
 curl -v -X GET \
@@ -104,7 +105,7 @@ The response is:
 
 ### Invite Deletion
 
-To delete an invite, issue following request:
+To delete a pending invite, issue the following request:
 
 ```bash
 curl -v -X DELETE \
@@ -113,7 +114,7 @@ curl -v -X DELETE \
     "https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
 ```
 
-The response is empty.
+The response will be empty.
 
 
 ## Invites OpenAPI Docs

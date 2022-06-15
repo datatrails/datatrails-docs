@@ -231,5 +231,7 @@ steps:
 
 Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
 
+To update the details of your Asset after it has been created, you can add `Asset Attributes` through an event. [See here](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/) for more information.
+
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.
 

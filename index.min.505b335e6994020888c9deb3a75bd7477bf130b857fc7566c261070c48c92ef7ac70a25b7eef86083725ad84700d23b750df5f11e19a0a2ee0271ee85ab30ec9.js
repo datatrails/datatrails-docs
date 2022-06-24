@@ -6090,7 +6090,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI for uploading and downloading attachments.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Attachments0'\u003e\u003c/div\u003e
       
@@ -6101,7 +6101,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAttachments1'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments1' aria-expanded="true" aria-controls='collapseAttachments1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/attachments/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -6109,12 +6109,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/attachments/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet an attachment\u003c/h5\u003e
+                      \u003ch5\u003eDownloads an event attachment.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Returns the attachment associated with the relative resource name\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an event attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
 
+                      
+                        
+                      
+                        
                       
                         
                       
@@ -6144,17 +6148,17 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                         \u003c/thead\u003e
                         \u003ctbody\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.(streaming responses)\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the attachment.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when an attachment with the identity does not exist.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6173,7 +6177,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAttachments2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments2' aria-expanded="true" aria-controls='collapseAttachments2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/attachments/{uuid}/info\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -6181,12 +6185,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/attachments/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet attachment metadata\u003c/h5\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Gets the metadata associated an attachment uuid\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
 
+                      
+                        
+                      
+                        
                       
                         
                       
@@ -6209,12 +6217,18 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     \u003cpre\u003e\u003ccode\u003e{
   "hash": {
     "alg": "SHA256",
-    "value": "717903f32653f07cd895cfe89ca18ff4ca35f825afa7fe17bcb5cb13bf628be0"
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
   },
-  "identity": "attachments/20c97f42-87fc-482c-9d58-4d11abd33359",
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
-  "size": 1024,
-  "timestamp_accepted": "2019-06-22 14:41:32+00:00"
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -6234,35 +6248,77 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003cth\u003ehash\u003c/th\u003e
                                   \u003ctd\u003e\u003c/td\u003e
                                   
-                                    \u003ctd\u003e\u003c/td\u003e
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003eidentity\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eRelative resource name for the attachment. e.g. attachments/20c97f42-87fc-482c-9d58-4d11abd33359\u003c/td\u003e
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003emime_type\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eType of data e.g. image/jpeg\u003c/td\u003e
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eSize of blob in bytes\u003c/td\u003e
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003etimestamp_accepted\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eTimestamp of creation\u003c/td\u003e
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e
@@ -6292,11 +6348,901 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the attachment.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob metadata.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when an attachment with the identity does not exist.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments3' aria-expanded="true" aria-controls='collapseAttachments3'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments3' class="accordion-collapse collapse" aria-labelledby='headerAttachments3' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an asset attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an asset attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments4' aria-expanded="true" aria-controls='collapseAttachments4'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments4' class="accordion-collapse collapse" aria-labelledby='headerAttachments4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments4' aria-expanded="true" aria-controls='collapserequestAttachments4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments4' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob metadata.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments5' aria-expanded="true" aria-controls='collapseAttachments5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments5' class="accordion-collapse collapse" aria-labelledby='headerAttachments5' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an event attachment from public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an event attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments6' aria-expanded="true" aria-controls='collapseAttachments6'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments6' class="accordion-collapse collapse" aria-labelledby='headerAttachments6' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment from a public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments6' aria-expanded="true" aria-controls='collapserequestAttachments6'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments6' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments6' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments7' aria-expanded="true" aria-controls='collapseAttachments7'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments7' class="accordion-collapse collapse" aria-labelledby='headerAttachments7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an public asset attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an asset attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments8' aria-expanded="true" aria-controls='collapseAttachments8'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments8' class="accordion-collapse collapse" aria-labelledby='headerAttachments8' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment from a public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments8' aria-expanded="true" aria-controls='collapserequestAttachments8'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments8' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments8' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments9' aria-expanded="true" aria-controls='collapseAttachments9'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments:openapi\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments9' class="accordion-collapse collapse" aria-labelledby='headerAttachments9' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eGet OpenAPI spec for Attachments\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Get OpenAPI v2.0 spec for attachments\u003c/p\u003e
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments10' aria-expanded="true" aria-controls='collapseAttachments10'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments:openapi-ui\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments10' class="accordion-collapse collapse" aria-labelledby='headerAttachments10' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eGet OpenAPI html for attachments\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Get OpenAPI v2.0 html for attachments\u003c/p\u003e
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
@@ -22521,7 +23467,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI for uploading and downloading attachments.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Attachments0'\u003e\u003c/div\u003e
       
@@ -22532,7 +23478,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAttachments1'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments1' aria-expanded="true" aria-controls='collapseAttachments1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/attachments/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -22540,12 +23486,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/attachments/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet an attachment\u003c/h5\u003e
+                      \u003ch5\u003eDownloads an event attachment.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Returns the attachment associated with the relative resource name\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an event attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
 
+                      
+                        
+                      
+                        
                       
                         
                       
@@ -22575,17 +23525,17 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                         \u003c/thead\u003e
                         \u003ctbody\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.(streaming responses)\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the attachment.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when an attachment with the identity does not exist.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -22604,7 +23554,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAttachments2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments2' aria-expanded="true" aria-controls='collapseAttachments2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/attachments/{uuid}/info\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -22612,12 +23562,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/attachments/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet attachment metadata\u003c/h5\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Gets the metadata associated an attachment uuid\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
 
+                      
+                        
+                      
+                        
                       
                         
                       
@@ -22640,12 +23594,18 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     \u003cpre\u003e\u003ccode\u003e{
   "hash": {
     "alg": "SHA256",
-    "value": "717903f32653f07cd895cfe89ca18ff4ca35f825afa7fe17bcb5cb13bf628be0"
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
   },
-  "identity": "attachments/20c97f42-87fc-482c-9d58-4d11abd33359",
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
   "mime_type": "image/jpeg",
-  "size": 1024,
-  "timestamp_accepted": "2019-06-22 14:41:32+00:00"
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -22665,35 +23625,77 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003cth\u003ehash\u003c/th\u003e
                                   \u003ctd\u003e\u003c/td\u003e
                                   
-                                    \u003ctd\u003e\u003c/td\u003e
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003eidentity\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eRelative resource name for the attachment. e.g. attachments/20c97f42-87fc-482c-9d58-4d11abd33359\u003c/td\u003e
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003emime_type\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eType of data e.g. image/jpeg\u003c/td\u003e
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eSize of blob in bytes\u003c/td\u003e
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
                                   \u003cth\u003etimestamp_accepted\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
-                                    \u003ctd\u003eTimestamp of creation\u003c/td\u003e
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e
@@ -22723,11 +23725,901 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the attachment.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob metadata.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when an attachment with the identity does not exist.\u003c/td\u003e
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments3' aria-expanded="true" aria-controls='collapseAttachments3'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments3' class="accordion-collapse collapse" aria-labelledby='headerAttachments3' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an asset attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an asset attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments4' aria-expanded="true" aria-controls='collapseAttachments4'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments4' class="accordion-collapse collapse" aria-labelledby='headerAttachments4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments4' aria-expanded="true" aria-controls='collapserequestAttachments4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments4' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to get the blob metadata.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments5' aria-expanded="true" aria-controls='collapseAttachments5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments5' class="accordion-collapse collapse" aria-labelledby='headerAttachments5' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an event attachment from public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an event attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments6' aria-expanded="true" aria-controls='collapseAttachments6'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments6' class="accordion-collapse collapse" aria-labelledby='headerAttachments6' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/events/{event_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment from a public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; event atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments6' aria-expanded="true" aria-controls='collapserequestAttachments6'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments6' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments6' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the event.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments7' aria-expanded="true" aria-controls='collapseAttachments7'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments7' class="accordion-collapse collapse" aria-labelledby='headerAttachments7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eDownloads an public asset attachment.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Downloads an asset attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments8' aria-expanded="true" aria-controls='collapseAttachments8'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}/info\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments8' class="accordion-collapse collapse" aria-labelledby='headerAttachments8' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments/publicassets/{asset_uuid}/{uuid}/info\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieve metadata on an attachment from a public asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieve metadata on an attachment, if the given attachment is present in the \u0026lsquo;arc_attachments\u0026rsquo; asset atttribute.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAttachments8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAttachments8' aria-expanded="true" aria-controls='collapserequestAttachments8'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAttachments8' class="accordion-collapse collapse" aria-labelledby='headerresponseAttachments8' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"
+  },
+  "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
+  "issuer": "xxxx@example.com",
+  "mime_type": "image/jpeg",
+  "scanned_bad_reason": "",
+  "scanned_status": "SCANNED_OK",
+  "scanned_timestamp": "2019-11-07T15:31:49Z",
+  "size": 31424,
+  "subject": "user-xxxx@example.com",
+  "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "timestamp_accepted": "2019-11-07T15:31:49Z"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ehash\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob hash.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eblob identity.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eissuer\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal issuer.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003emime_type\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehttp mime type.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_bad_reason\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eif scanned as SCANNED_BAD contains a hint of scan result.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003estatus of scan.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003escanned_timestamp\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the attachments has been scanned.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esize\u003c/th\u003e
+                                  \u003ctd\u003einteger\u003c/td\u003e
+                                  
+                                    \u003ctd\u003esize of the blob.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003esubject\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal subject.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenantid\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of the tenant the blob belongs to.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003edate and time when the request has been received.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the underlying system can\u0026rsquo;t find the asset.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments9' aria-expanded="true" aria-controls='collapseAttachments9'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments:openapi\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments9' class="accordion-collapse collapse" aria-labelledby='headerAttachments9' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eGet OpenAPI spec for Attachments\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Get OpenAPI v2.0 spec for attachments\u003c/p\u003e
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAttachments10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments10' aria-expanded="true" aria-controls='collapseAttachments10'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/attachments:openapi-ui\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAttachments10' class="accordion-collapse collapse" aria-labelledby='headerAttachments10' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/attachments:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eGet OpenAPI html for attachments\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Get OpenAPI v2.0 html for attachments\u003c/p\u003e
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           

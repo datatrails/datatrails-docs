@@ -12,16 +12,24 @@ description: "Transparency through public attestation"
 lead: "Transparency through Public Attestation"
 date: 2021-05-18T14:52:25+01:00
 lastmod: 2021-05-18T14:52:25+01:00
+<<<<<<< HEAD
 draft: false
 >>>>>>> f45cca93 (rearranging docs structure)
+=======
+draft: true
+>>>>>>> d4f637a8 (temporary hide of 'beyond the basics')
 images: []
 menu:
   docs:
     parent: "beyond-the-basics"
 weight: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
 toc: false
 =======
 toc: true
 >>>>>>> f45cca93 (rearranging docs structure)
+=======
+toc: false
+>>>>>>> d4f637a8 (temporary hide of 'beyond the basics')
 ---

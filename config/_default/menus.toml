@@ -34,11 +34,19 @@
   identifier = "user-patterns"
   url = "/docs/user-patterns/"
 
+<<<<<<< HEAD
   #[[docs]]
   #name = "Beyond the Basics"
   #weight = 4
   #identifier = "beyond-the-basics"
   #url = "/docs/beyond-the-basics/"
+=======
+  [[docs]]
+  name = "Beyond the Basics"
+  weight = 4
+  identifier = "beyond-the-basics"
+  url = "/docs/beyond-the-basics/"
+>>>>>>> f45cca93 (rearranging docs structure)
 
 [[docs]]
   name = "RKVST Basics"

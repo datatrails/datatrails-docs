@@ -9,7 +9,11 @@ images: []
 menu:
   docs:
     parent: "rkvst-basics"
+<<<<<<< HEAD:content/docs/rkvst-basics/when-who-did-what-to-an-asset/index.md
 weight: 21
+=======
+weight: 20
+>>>>>>> f45cca93 (rearranging docs structure):content/docs/quickstart/when-who-did-what-to-an-asset/index.md
 toc: true
 ---
 

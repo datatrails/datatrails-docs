@@ -1240,6 +1240,11 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To update the details of your Asset after it has been created, you must create an event containing \u003ccode\u003eAsset Attributes\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003eFor more information on creating events, \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eclick here.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
 `},{id:7,href:"https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
@@ -15824,6 +15829,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -18617,6 +18624,11 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To update the details of your Asset after it has been created, you must create an event containing \u003ccode\u003eAsset Attributes\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003eFor more information on creating events, \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eclick here.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
 `}).add({id:7,href:"https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
@@ -33180,6 +33192,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
                       \u003cp\u003eDescription: Get ID of tenant associated with issuer and/or subject, and create if not exists.\u003c/p\u003e
 
+                      
+                        
                       
                         
                       

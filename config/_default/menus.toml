@@ -34,11 +34,11 @@
   identifier = "user-patterns"
   url = "/docs/user-patterns/"
 
-  [[docs]]
-  name = "Beyond the Basics"
-  weight = 4
-  identifier = "beyond-the-basics"
-  url = "/docs/beyond-the-basics/"
+  #[[docs]]
+  #name = "Beyond the Basics"
+  #weight = 4
+  #identifier = "beyond-the-basics"
+  #url = "/docs/beyond-the-basics/"
 
 [[docs]]
   name = "RKVST Basics"

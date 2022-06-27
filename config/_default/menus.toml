@@ -34,7 +34,7 @@
   identifier = "user-patterns"
   url = "/docs/user-patterns/"
 
-#[[docs]]
+  #[[docs]]
   #name = "Beyond the Basics"
   #weight = 4
   #identifier = "beyond-the-basics"

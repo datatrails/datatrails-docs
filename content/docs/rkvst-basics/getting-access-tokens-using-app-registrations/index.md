@@ -9,11 +9,15 @@ images: []
 menu: 
   docs:
     parent: "rkvst-basics"
+<<<<<<< HEAD
 <<<<<<< HEAD:content/docs/rkvst-basics/getting-access-tokens-using-app-registrations/index.md
 weight: 20
 =======
 weight: 21
 >>>>>>> f45cca93 (rearranging docs structure):content/docs/setup-and-administration/getting-access-tokens-using-app-registrations/index.md
+=======
+weight: 20
+>>>>>>> 802d83d2 (Changes to order + draft sections hidden)
 toc: true
 ---
 

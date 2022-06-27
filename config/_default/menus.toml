@@ -36,13 +36,17 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d4f637a8 (temporary hide of 'beyond the basics')
+=======
+>>>>>>> 802d83d2 (Changes to order + draft sections hidden)
   #[[docs]]
   #name = "Beyond the Basics"
   #weight = 4
   #identifier = "beyond-the-basics"
   #url = "/docs/beyond-the-basics/"
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   [[docs]]
@@ -53,6 +57,8 @@
 >>>>>>> f45cca93 (rearranging docs structure)
 =======
 >>>>>>> d4f637a8 (temporary hide of 'beyond the basics')
+=======
+>>>>>>> 802d83d2 (Changes to order + draft sections hidden)
 
 [[docs]]
   name = "RKVST Basics"

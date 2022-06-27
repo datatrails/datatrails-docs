@@ -9,15 +9,7 @@ images: []
 menu:
   docs:
     parent: "rkvst-basics"
-<<<<<<< HEAD
-<<<<<<< HEAD:content/docs/rkvst-basics/when-who-did-what-to-an-asset/index.md
 weight: 21
-=======
-weight: 20
->>>>>>> f45cca93 (rearranging docs structure):content/docs/quickstart/when-who-did-what-to-an-asset/index.md
-=======
-weight: 21
->>>>>>> 802d83d2 (Changes to order + draft sections hidden)
 toc: true
 ---
 

@@ -58,7 +58,7 @@ Typically, only Docs should be edited but permission to add to the other section
 .
 ├── _index.md
 ├── overview
-├── quickstart
+├── rkvst-basics
 ├── setup-and-administration
 └── user-patterns
 {{< /tab >}}
@@ -71,10 +71,10 @@ The documentation is primarily written in `Articles`, individual bodies of text,
 At a directory level this looks like this:
 
 ```bash
-./content/docs/quickstart/when-who-did-what-to-a-thing/index.md
+./content/docs/rkvst-basics/when-who-did-what-to-a-thing/index.md
 ```
 
-Where under the root content folder we can see the `docs` area, followed by the `quickstart` section, containing the article `when-who-did-what-to-a-thing`.
+Where under the root content folder we can see the `docs` area, followed by the `rkvst-basics` section, containing the article `when-who-did-what-to-a-thing`.
 
 Note that all of these are directories, ending in the file `index.md`, where the actual content of the article is written to.
 

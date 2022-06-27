@@ -237,7 +237,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
+For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/).
 {{< note >}}
 **Note** - The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
 {{< /note >}}

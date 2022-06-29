@@ -46,7 +46,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an asset using a curl command, create a JSON file to store the details. We will execute the command in a later step. 
+In order to create an asset using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
  {{< /tab >}}}
 {{< /tabs >}}
 
@@ -201,7 +201,7 @@ This example also adds a location to our asset, to find out more about Locations
         "Width": "2.43m",
         "Length": "6.06m",
         "Height": "2.59m",
-        "arc_home_location_identity": "locations/115340cf-f39e-4d43-a2ee-8017d672c6c6",
+        "arc_home_location_identity": "locations/<location-id>",
     }
 }
 ```
@@ -260,7 +260,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You can view all Asset data using the following curl command.
+You can view all Asset data using the following command.
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -296,7 +296,7 @@ Details of a specific asset can be retrieved using identifying `attrs`, such as 
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=Shipping%20Container
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Container
 ```
 
 {{< /tab >}}}

@@ -24,6 +24,7 @@ To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner
 ## Creating Events
 
 1. Create an Event. 
+
 {{< tabs name="add_event" >}}
 {{{< tab name="UI" >}}
 When viewing your Asset, click the `Record Event` button.
@@ -44,7 +45,7 @@ steps:
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an Event using a curl command, create a JSON file to store the details. We will execute the command in a later step.
+In order to create an Event using JSON format, create a file to store the details. We will execute a command to run the file in a later step.
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -268,5 +269,5 @@ curl -v -X GET \
 {{< /tabs >}}
 
 
-In the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.
+In the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
 

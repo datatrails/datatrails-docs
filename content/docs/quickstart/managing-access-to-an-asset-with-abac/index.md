@@ -80,11 +80,10 @@ Filters can use `and` or `or` to categorize assets.
     "display_name": "Bill Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=UK%20Factory",
-            "attributes.arc_home_location_identity=locations/141fba96-43c6-462b-b934-2110f6e94162"
+            "attributes.arc_home_location_identity=UK Factory"
         ]},
         { "or": [
-            "attributes.arc_display_type=Shipping%20Container"
+            "attributes.arc_display_type=Shipping Container"
         ]}
     ]
 }
@@ -109,7 +108,7 @@ To add users to the access policy using JSON, you will first need to retrieve th
 Save the following to a JSON file with your desired subject information. 
 ```json
 {
-    "display_name": "Friendly name",
+    "display_name": "Friendly Name",
     "wallet_pub_key": ["key1"],
     "tessera_pub_key": ["key2"]
 }
@@ -139,11 +138,10 @@ Add the desired permissions and the subject ID found in the previous step.
     "display_name": "Bill Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=UK%20Factory",
-            "attributes.arc_home_location_identity=locations/141fba96-43c6-462b-b934-2110f6e94162"
+            "attributes.arc_home_location_identity=UK Factory"
         ]},
         { "or": [
-            "attributes.arc_display_type=Shipping%20Container"
+            "attributes.arc_display_type=Shipping Container"
         ]}
     ],
     "access_permissions": [

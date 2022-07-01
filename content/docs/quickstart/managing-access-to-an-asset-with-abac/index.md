@@ -33,43 +33,157 @@ Consider the Shipping Container Asset we created. There may be many people withi
 
 We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create `Inspect` Events.
 
-1. Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
+1. Create your Access Policy. 
 
+{{< tabs name="access_policies_abac" >}}
+{{{< tab name="UI" >}}
+Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+In order to create an Access Policy using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
+{{< /tab >}}}
+{{< /tabs >}}
 
-2. Here you will see any existing policies and can select `Add Policy`.
+2. You may wish to view your existing policies before creating a new one. 
 
+{{< tabs name="existing_policies_abac" >}}
+{{{< tab name="UI" >}}
+Here you will see any existing policies and can select `Add Policy`.
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+You may view your existing policies before moving on to create your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/iam/v1/access_policies
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-3. When adding a Policy, you will see this form:
+3. Set the asset filters for your policy. 
 
+{{< tabs name="asset_filters_abac" >}}
+{{{< tab name="UI" >}}
+When adding a Policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-4. Here you can apply policy filters to the correct Assets.
-
-In this case, we shall apply the policy to any Asset in the `UK Factory` Location created earlier, as well as the type of Asset (`Shipping Container`).
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` Location created earlier, as well as the type of Asset (`Shipping Container`).
 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Filters can use `and` or `or` to categorize assets.
+```json
+{
+    "display_name": "Bill Inspect Policy",
+    "filters": [
+        { "or": [
+            "attributes.arc_home_location_identity=UK%20Factory",
+            "attributes.arc_home_location_identity=locations/141fba96-43c6-462b-b934-2110f6e94162"
+        ]},
+        { "or": [
+            "attributes.arc_display_type=Shipping%20Container"
+        ]}
+    ]
+}
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
-5. Next, we select the `Permissions` Tab to set Users' Asset and Event attribute access policy.
+4. Next, enter the desired `Permissions` to set Users' Asset and Event attribute access. 
 
+{{< tabs name="permissions_abac" >}}
+{{{< tab name="UI" >}}
+We select the `Permissions` Tab to set Users' Asset and Event attribute access policy.
 {{< img src="PolicyABACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-6. In this example, the `User` actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.
+In this example, the `User` actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.
 
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+To add users to the access policy using JSON, you will first need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
 
-7. Once all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+Save the following to a JSON file with your desired subject information. 
+```json
+{
+    "display_name": "Friendly name",
+    "wallet_pub_key": ["key1"],
+    "tessera_pub_key": ["key2"]
+}
+```
+Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your access policy. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/iam/v1/subjects
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+5. Once all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+{{< tabs name="complete_policy_abac" >}}
+{{{< tab name="UI" >}}
+Enter desired permissions and select `Add Permission Group`. 
+{{< img src="PolicyABACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}   
+
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Add the desired permissions and the subject ID found in the previous step. 
+```json
+{
+    "display_name": "Bill Inspect Policy",
+    "filters": [
+        { "or": [
+            "attributes.arc_home_location_identity=UK%20Factory",
+            "attributes.arc_home_location_identity=locations/141fba96-43c6-462b-b934-2110f6e94162"
+        ]},
+        { "or": [
+            "attributes.arc_display_type=Shipping%20Container"
+        ]}
+    ],
+    "access_permissions": [
+        {
+            "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
+            "subjects": [
+                "subjects/<subject-id>"
+            ]
+        }
+    ]
+}
+```
+{{< /tab >}}}
+{{< /tabs >}}
+    
 
 Note we have included RKVST-sigificant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`.
 
 `arc_*` attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other `arc_*` attributes are also available.
 
-{{< img src="PolicyABACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
+6. Once complete, finish creating the Access Policy.
 
-8. Once complete, select `Create Policy` and check the Asset is appropriately shared.
-
+{{< tabs name="execute_policy_abac" >}}
+{{{< tab name="UI" >}}
+Select `Create Policy`.
 {{< img src="PolicyABACSubmit.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/iam/v1/access_policies
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+7. Check the Asset is appropriately shared.
 
 Bill should only be allowed to see the Asset's Name, Location, Length, and Weight Attributes.
 

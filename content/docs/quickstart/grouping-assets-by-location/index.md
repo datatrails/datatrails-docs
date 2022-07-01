@@ -39,6 +39,10 @@ steps:
   - step:
       action: LOCATIONS_CREATE_IF_NOT_EXISTS
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+In order to create a Location using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
+
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -62,11 +66,21 @@ steps:
     selector:
       - display_name
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+You may add a `display_name` and `description` to identify your Location.
+ 
+```json
+{
+   "display_name": "UK Factory",
+   "description": "Industrial Warehouse in Bristol Harbor"
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
 
-3. Enter the required Location Name and Address, or in the case of the YAML Runner, Coordinates.
+3. Enter the required Location Name and Address, or in the case of the YAML Runner and JSON format, Coordinates.
 
 {{< tabs name="add_location_name_locations" >}}
 {{{< tab name="UI" >}}
@@ -87,6 +101,18 @@ steps:
     description: Industrial Warehouse in Bristol Harbor
     latitude: 51.4477
     longitude: -2.5980
+```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use `latitude` and `longitude` to describe the physical location. 
+ 
+```json
+{
+   "display_name": "UK Factory",
+   "description": "Industrial Warehouse in Bristol Harbor",
+   "lattitude": 51.4477,
+   "longitude": -2.5980
+}
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -120,6 +146,23 @@ steps:
       Primary_Contact: Jill Tiller
       Primary_Mobile_Number: +447700900077
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Like Assets and Events, Locations may also have Extended Attributes added as key-value pairs. 
+ 
+```json
+{
+   "display_name": "UK Factory",
+   "description": "Industrial Warehouse in Bristol Harbor",
+   "lattitude": 51.4477,
+   "longitude": -2.5980,
+   "attributes": {
+     "address": "Princes Wharf, Wapping Rd, Bristol BS1 4RN, UK",
+     "Primary_Contact": "Jill Tiller",
+     "Primary_Mobile_Number": "+447700900077"
+   }
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -142,6 +185,17 @@ $ archivist_runner \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       UK_factory_location.yaml
+```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/locations
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -217,6 +271,19 @@ steps:
         location_label: UK Factory
     confirm: true
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+A pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
+```json
+{
+    "behaviours": ["RecordEvidence", "Attachments"],
+    "attributes": {
+        "arc_display_name": "My First Container",
+        "arc_display_type": "Traffic light with violation camera",
+        "arc_home_location_identity": "locations/<location-id>"
+    }
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -230,6 +297,8 @@ steps:
 
 2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. 
 
+For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
+
 {{< tabs name="add_to_asset" >}}
 {{{< tab name="UI" >}}
 
@@ -237,7 +306,6 @@ steps:
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/).
 {{< note >}}
 **Note** - The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
 {{< /note >}}
@@ -248,15 +316,31 @@ steps:
   - step:
       action: EVENTS_CREATE
       description: Add Location to existing Asset.
-      asset_label: <your-asset-id> 
+      asset_label: assets/<asset-id> 
     operation: Record
     behaviour: RecordEvidence
     event_attributes: 
       new_event: Record Asset Location
     asset_attributes:
-      arc_home_location_identity: <your-location-id>
+      arc_home_location_identity: locations/<location-id>
     confirm: true
 ```
+
+{{< /tab >}}
+{{< tab name="JSON" >}}
+
+```json
+{
+  "operation": "Record",
+  "behaviour": "RecordEvidence",
+  "asset_attributes": {
+    "arc_home_location_identity": "locations/<location-id>"
+  }
+}
+```
+{{< note >}}
+**Note** - The Event must be recorded against the appropriate `assets/<asset-id>` when the curl command is executed. [See Step 4 here for more details.](https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/)
+{{< /note >}}
 
 {{< /tab >}}}
 {{< /tabs >}}

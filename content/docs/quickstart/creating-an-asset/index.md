@@ -46,8 +46,14 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an asset using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
- {{< /tab >}}}
+Create an empty file, in later steps we will add the correct JSON.
+
+```json
+{
+  
+}
+```
+{{< /tab >}}
 {{< /tabs >}}
 
 2. Add details to your new Asset.
@@ -78,7 +84,8 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Begin adding metadata for your Asset:
+In the file you created earlier, begin adding metadata for your Asset:
+
 * `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
 
 ```json

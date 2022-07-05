@@ -44,7 +44,16 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
 ```
-{{< /tab >}}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Create an empty file, in later steps we will add the correct JSON.
+
+```json
+{
+  
+}
+```
+{{< /tab >}}
 {{< /tabs >}}
 
 2. Add details to your new Asset.
@@ -73,9 +82,19 @@ steps:
       - RecordEvidence
       - Attachments
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+In the file you created earlier, begin adding metadata for your Asset:
+
+* `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
+
+```json
+{
+    "behaviours": ["RecordEvidence", "Attachments"]
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
-
 
 
 3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
@@ -105,6 +124,19 @@ steps:
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
+```
+
+{{< /tab >}}
+{{< tab name="JSON" >}}
+The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+```json
+{
+    "behaviours": ["RecordEvidence", "Attachments"],
+    "attributes": {
+        "arc_display_name": "My First Container",
+        "arc_display_type": "Shipping Container",
+    }
+}
 ```
 
 {{< /tab >}}}
@@ -160,6 +192,26 @@ steps:
       longitude: 0.1311
     confirm: true
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Extended Attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
+
+This example also adds a location to our asset, to find out more about Locations and how to find your Location ID, [click here](../grouping-assets-by-location/).
+
+```json
+{
+    "behaviours": ["RecordEvidence", "Attachments"],
+    "attributes": {
+        "arc_display_name": "My First Container",
+        "arc_display_type": "Shipping Container",
+        "arc_description": "Originally shipped from Shanghai",
+        "Width": "2.43m",
+        "Length": "6.06m",
+        "Height": "2.59m",
+        "arc_home_location_identity": "locations/<location-id>",
+    }
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -182,6 +234,17 @@ $ archivist_runner \
       --client-secret client_secret.txt \
       my_first_container.yaml
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -201,6 +264,14 @@ steps:
       action: ASSETS_LIST
       description: List all assets.
       print_response: true
+```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+You can view all Asset data using the following command.
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -224,6 +295,15 @@ steps:
       print_response: true
     attrs:
       arc_display_name: My First Container
+```
+
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Details of a specific asset can be retrieved using identifying `attrs`, such as name, type, or presence of a certain field.  
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Container
 ```
 
 {{< /tab >}}}

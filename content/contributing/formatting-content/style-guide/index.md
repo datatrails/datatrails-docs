@@ -665,7 +665,7 @@ To specify an image in a Tabbed Codeblock you need to remove the `codelang` valu
 {{< /tab >}}
 {{< tab name="JSON" codelang="json" >}}
 {
-    "behaviours": ["Firmware", "Maintenance", "RecordEvidence", "LocationUpdate", "Attachments"],
+    "behaviours": ["RecordEvidence", "Attachments"],
     "attributes": {
         "arc_firmware_version": "",
         "arc_serial_number": "",

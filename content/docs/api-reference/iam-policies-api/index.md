@@ -42,7 +42,7 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
             "asset_attributes_write":["toner_colour"],
-            "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+            "behaviours": [ "Attachments", "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
             "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -91,7 +91,7 @@ The response is:
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
             "asset_attributes_write":["toner_colour"],
-            "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+            "behaviours": [ "Attachments", "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
             "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -171,7 +171,7 @@ Each of these calls returns a list of matching IAM access_policies records in th
                 {
                     "asset_attributes_read": [ "toner_colour", "toner_type" ],
                     "asset_attributes_write":["toner_colour"],
-                    "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+                    "behaviours": [ "Attachments", "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
                     "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -195,7 +195,7 @@ Each of these calls returns a list of matching IAM access_policies records in th
                 {
                     "asset_attributes_read": [ "toner_colour", "toner_type" ],
                     "asset_attributes_write":["toner_colour"],
-                    "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+                    "behaviours": [ "Attachments", "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
                     "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -252,7 +252,7 @@ Define the `access_policies` parameters to be changed and store in `/path/to/jso
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
             "asset_attributes_write":["toner_colour"],
-            "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+            "behaviours": [ "Attachments", "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
             "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -301,7 +301,7 @@ The response is:
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
             "asset_attributes_write":["toner_colour"],
-            "behaviours": [ "Attachments", "Firmware", "Maintenance", "RecordEvidence" ],
+            "behaviours": [ "Attachments","RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
             "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
@@ -345,10 +345,7 @@ Each of these calls returns a list of matching Asset records in the form:
         {
         "identity": "assets/6a951b62-0a26-4c22-a886-1082297b063b",
         "behaviours": [
-            "Firmware",
-            "Maintenance",
             "RecordEvidence",
-            "LocationUpdate",
             "Attachments"
         ],
         "attributes": {
@@ -412,7 +409,7 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
                     ],
-                    "behaviours": [  "Attachments", "Firmware", "Maintenance", "RecordEvidence"  ],
+                    "behaviours": [  "Attachments", "RecordEvidence"  ],
                     "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
                     "user_attributes": [
                         {"or": ["group:maintainers", "group:supervisors"]}
@@ -432,7 +429,7 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
                     ],
-                    "behaviours": [ "Attachments", "Maintenance", "RecordEvidence" ],
+                    "behaviours": [ "Attachments", "RecordEvidence" ],
                     "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "user_attributes": [
                         {"or": ["group:maintainers", "group:supervisors"]}

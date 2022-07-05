@@ -940,6 +940,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset-1" type="button" role="tab" aria-controls="add_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset-2" type="button" role="tab" aria-controls="add_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset"\u003e\u003cdiv id="add_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset-0"\u003e
 \u003cp\u003eUsing the Sidebar, select \u0026lsquo;Add Asset\u0026rsquo;.\u003c/p\u003e
@@ -965,7 +968,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="2"\u003e
 \u003cli\u003eAdd details to your new Asset.\u003c/li\u003e
@@ -976,6 +985,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details-1" type="button" role="tab" aria-controls="add_asset_details-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details-2" type="button" role="tab" aria-controls="add_asset_details-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset_details"\u003e\u003cdiv id="add_asset_details-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset_details-0"\u003e
 \u003cp\u003eYou will see an Asset Creation form, where you provide details of your new Asset:\u003c/p\u003e
@@ -1012,7 +1024,16 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2"\u003e
+\u003cp\u003eIn the file you created earlier, begin adding metadata for your Asset:\u003c/p\u003e
+\u003cul\u003e
+\u003cli\u003e\u003ccode\u003ebehaviours\u003c/code\u003e detail what class of events in your assets lifecycle you might wish to record; \u003ccode\u003eRecordEvidence\u003c/code\u003e and \u003ccode\u003eAttachments\u003c/code\u003e are the standard and recommended behaviours for all assets.\u003c/li\u003e
+\u003c/ul\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
 \u003cli\u003eAt minimum, you will need to add an Asset Name and Asset Type to create an Asset:\u003c/li\u003e
@@ -1027,6 +1048,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details_min-1" type="button" role="tab" aria-controls="add_asset_details_min-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details_min-2" type="button" role="tab" aria-controls="add_asset_details_min-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset_details_min"\u003e\u003cdiv id="add_asset_details_min-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset_details_min-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -1061,7 +1085,17 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eMy First Container \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2"\u003e
+\u003cp\u003eThe RKVST API uses the reserved attributes \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e  to represent \u003ccode\u003eAsset Name\u003c/code\u003e and \u003ccode\u003eAsset Type\u003c/code\u003erespectively.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eAt this point, you may wish to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.\u003c/li\u003e
@@ -1076,6 +1110,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-1" type="button" role="tab" aria-controls="add_extended_attributes-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-2" type="button" role="tab" aria-controls="add_extended_attributes-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_extended_attributes"\u003e\u003cdiv id="add_extended_attributes-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_extended_attributes-0"\u003e
 \u003cp\u003eSelect \u0026lsquo;Add Attribute\u0026rsquo;, and add your key-value pairs.\u003c/p\u003e
@@ -1125,7 +1162,23 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003elatitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e52.2025\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003elongitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e0.1311\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_extended_attributes-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-2"\u003e
+\u003cp\u003eExtended Attributes are custom key-value pairs, such as \u003ccode\u003eWidth\u003c/code\u003e, \u003ccode\u003eLength\u003c/code\u003e, and \u003ccode\u003eHeight\u003c/code\u003e you see below.\u003c/p\u003e
+\u003cp\u003eThis example also adds a location to our asset, to find out more about Locations and how to find your Location ID, \u003ca href="../grouping-assets-by-location/"\u003eclick here\u003c/a\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Originally shipped from Shanghai\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Width\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2.43m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;6.06m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Height\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2.59m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
 \u003cli\u003eComplete your Asset creation.\u003c/li\u003e
@@ -1136,6 +1189,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_create_asset-1" type="button" role="tab" aria-controls="finish_create_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_create_asset-2" type="button" role="tab" aria-controls="finish_create_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="finish_create_asset"\u003e\u003cdiv id="finish_create_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="finish_create_asset-0"\u003e
 \u003cp\u003eClick \u0026lsquo;Create Asset\u0026rsquo;.\u003c/p\u003e
@@ -1161,6 +1217,14 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret client_secret.txt \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      my_first_container.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
@@ -1172,6 +1236,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_all_assets-1" type="button" role="tab" aria-controls="view_all_assets-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_all_assets-2" type="button" role="tab" aria-controls="view_all_assets-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_all_assets"\u003e\u003cdiv id="view_all_assets-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_all_assets-0"\u003e
 \u003cp\u003eNavigate to \u0026lsquo;Manage Assets\u0026rsquo; to see your Asset in the UI.\u003c/p\u003e
@@ -1198,7 +1265,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all assets.\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2"\u003e
+\u003cp\u003eYou can view all Asset data using the following command.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="7"\u003e
 \u003cli\u003eView details of the Asset you created.\u003c/li\u003e
@@ -1209,6 +1282,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_specific_asset-1" type="button" role="tab" aria-controls="view_specific_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_specific_asset-2" type="button" role="tab" aria-controls="view_specific_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_specific_asset"\u003e\u003cdiv id="view_specific_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_specific_asset-0"\u003e
 \u003cp\u003eTo view your Asset, click on the Asset row. You will see the detailed history of your Asset.\u003c/p\u003e
@@ -1237,7 +1313,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eMy First Container\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2"\u003e
+\u003cp\u003eDetails of a specific asset can be retrieved using identifying \u003ccode\u003eattrs\u003c/code\u003e, such as name, type, or presence of a certain field.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name\u003cspan class="o"\u003e=\u003c/span\u003eMy%20First%20Container
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
@@ -4839,6 +4921,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "SIMPLE_HASH",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     },
     {
@@ -4863,6 +4946,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "KHIPU",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     }
   ],
@@ -5099,6 +5183,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -5183,6 +5268,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
                                     \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -5310,6 +5402,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "timestamp_accepted": "2019-11-27T14:44:19Z",
   "timestamp_committed": "2019-11-27T14:44:19Z",
   "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -5408,6 +5501,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003etimestamp_accepted\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -5496,11 +5596,124 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAssets4'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets4' aria-expanded="true" aria-controls='collapseAssets4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
                   \u003cdiv id='collapseAssets4' class="accordion-collapse collapse" aria-labelledby='headerAssets4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves the public url for a specific Archivist event.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves the public url for a specific Archivist event.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets4' aria-expanded="true" aria-controls='collapserequestAssets4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAssets4' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublicurl\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view an Asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets5' aria-expanded="true" aria-controls='collapseAssets5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAssets5' class="accordion-collapse collapse" aria-labelledby='headerAssets5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -5523,12 +5736,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseAssets4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets4' aria-expanded="true" aria-controls='collapserequestAssets4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets5' aria-expanded="true" aria-controls='collapserequestAssets5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseAssets4' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseAssets5' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -5553,6 +5766,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -5640,6 +5854,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003etracked\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -5697,14 +5918,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets5' aria-expanded="true" aria-controls='collapseAssets5'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets6' aria-expanded="true" aria-controls='collapseAssets6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets5' class="accordion-collapse collapse" aria-labelledby='headerAssets5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets6' class="accordion-collapse collapse" aria-labelledby='headerAssets6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -5765,12 +5986,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseAssets5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets5' aria-expanded="true" aria-controls='collapserequestAssets5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets6' aria-expanded="true" aria-controls='collapserequestAssets6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseAssets5' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseAssets6' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -5804,6 +6025,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
         "issuer": "job.idp.server/1234",
         "subject": "bob@job"
       },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "timestamp_accepted": "2019-11-27T14:44:19Z",
       "timestamp_committed": "2019-11-27T14:44:19Z",
       "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -5839,6 +6061,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
         "issuer": "job.idp.server/1234",
         "subject": "bob@job"
       },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "timestamp_accepted": "2019-07-27T14:44:19Z",
       "timestamp_committed": "2019-07-27T14:44:19Z",
       "timestamp_declared": "2019-07-27T14:44:19Z",
@@ -5928,20 +6151,131 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     
         
           
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets7' aria-expanded="true" aria-controls='collapseAssets7'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}:publicurl\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAssets7' class="accordion-collapse collapse" aria-labelledby='headerAssets7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/assets/{uuid}:publicurl\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves the public url for a specific Archivist asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves the public url for a specific Archivist asset.\u003c/p\u003e
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets7' aria-expanded="true" aria-controls='collapserequestAssets7'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAssets7' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets7' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublicurl\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view an Asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
       
     
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets6' aria-expanded="true" aria-controls='collapseAssets6'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets8' aria-expanded="true" aria-controls='collapseAssets8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets6' class="accordion-collapse collapse" aria-labelledby='headerAssets6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets8' class="accordion-collapse collapse" aria-labelledby='headerAssets8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -5996,14 +6330,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets7' aria-expanded="true" aria-controls='collapseAssets7'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets9' aria-expanded="true" aria-controls='collapseAssets9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets7' class="accordion-collapse collapse" aria-labelledby='headerAssets7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets9' class="accordion-collapse collapse" aria-labelledby='headerAssets9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -9926,6 +10260,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "timestamp_accepted": "2019-11-27T14:44:19Z",
   "timestamp_committed": "2019-11-27T14:44:19Z",
   "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -10021,6 +10356,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003ctd\u003eobject\u003c/td\u003e
                                   
                                     \u003ctd\u003eprincipal provided by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -11481,6 +11823,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "SIMPLE_HASH",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     },
     {
@@ -11505,6 +11848,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "KHIPU",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     }
   ],
@@ -13853,8 +14197,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
       "display_name": "Macclesfield, Cheshire",
       "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-      "latitude": "53.2546799",
-      "longitude": "-2.1213956,14.54"
+      "latitude": 53.2546799,
+      "longitude": -2.1213956
     },
     {
       "attributes": {
@@ -13867,8 +14211,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "description": "Distribution Centre, Wales, Cardiff, Glamorganshire",
       "display_name": "Cardiff, Glamorganshire",
       "identity": "locations/19749457-d468-572c-6e3b-3acb0417ec13",
-      "latitude": "51.481583",
-      "longitude": "-3.179090"
+      "latitude": 51.481583,
+      "longitude": -3.17909
     }
   ],
   "next_page_token": "eyJvcmlnX3JlcSI6eyJwYWdlX3NpemUiOjJ9LCJza2lwIjoyfQ=="
@@ -13991,8 +14335,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   },
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                   \u003c/div\u003e
@@ -14075,8 +14419,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -14316,8 +14660,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -14489,8 +14833,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -18321,6 +18665,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset-1" type="button" role="tab" aria-controls="add_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset-2" type="button" role="tab" aria-controls="add_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset"\u003e\u003cdiv id="add_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset-0"\u003e
 \u003cp\u003eUsing the Sidebar, select \u0026lsquo;Add Asset\u0026rsquo;.\u003c/p\u003e
@@ -18346,7 +18693,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="2"\u003e
 \u003cli\u003eAdd details to your new Asset.\u003c/li\u003e
@@ -18357,6 +18710,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details-1" type="button" role="tab" aria-controls="add_asset_details-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details-2" type="button" role="tab" aria-controls="add_asset_details-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset_details"\u003e\u003cdiv id="add_asset_details-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset_details-0"\u003e
 \u003cp\u003eYou will see an Asset Creation form, where you provide details of your new Asset:\u003c/p\u003e
@@ -18393,7 +18749,16 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2"\u003e
+\u003cp\u003eIn the file you created earlier, begin adding metadata for your Asset:\u003c/p\u003e
+\u003cul\u003e
+\u003cli\u003e\u003ccode\u003ebehaviours\u003c/code\u003e detail what class of events in your assets lifecycle you might wish to record; \u003ccode\u003eRecordEvidence\u003c/code\u003e and \u003ccode\u003eAttachments\u003c/code\u003e are the standard and recommended behaviours for all assets.\u003c/li\u003e
+\u003c/ul\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
 \u003cli\u003eAt minimum, you will need to add an Asset Name and Asset Type to create an Asset:\u003c/li\u003e
@@ -18408,6 +18773,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details_min-1" type="button" role="tab" aria-controls="add_asset_details_min-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_asset_details_min-2" type="button" role="tab" aria-controls="add_asset_details_min-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_asset_details_min"\u003e\u003cdiv id="add_asset_details_min-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_asset_details_min-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -18442,7 +18810,17 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eMy First Container \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2"\u003e
+\u003cp\u003eThe RKVST API uses the reserved attributes \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e  to represent \u003ccode\u003eAsset Name\u003c/code\u003e and \u003ccode\u003eAsset Type\u003c/code\u003erespectively.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eAt this point, you may wish to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.\u003c/li\u003e
@@ -18457,6 +18835,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-1" type="button" role="tab" aria-controls="add_extended_attributes-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-2" type="button" role="tab" aria-controls="add_extended_attributes-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_extended_attributes"\u003e\u003cdiv id="add_extended_attributes-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_extended_attributes-0"\u003e
 \u003cp\u003eSelect \u0026lsquo;Add Attribute\u0026rsquo;, and add your key-value pairs.\u003c/p\u003e
@@ -18506,7 +18887,23 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003elatitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e52.2025\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003elongitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e0.1311\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_extended_attributes-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-2"\u003e
+\u003cp\u003eExtended Attributes are custom key-value pairs, such as \u003ccode\u003eWidth\u003c/code\u003e, \u003ccode\u003eLength\u003c/code\u003e, and \u003ccode\u003eHeight\u003c/code\u003e you see below.\u003c/p\u003e
+\u003cp\u003eThis example also adds a location to our asset, to find out more about Locations and how to find your Location ID, \u003ca href="../grouping-assets-by-location/"\u003eclick here\u003c/a\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Originally shipped from Shanghai\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Width\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2.43m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;6.06m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;Height\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2.59m\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
 \u003cli\u003eComplete your Asset creation.\u003c/li\u003e
@@ -18517,6 +18914,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_create_asset-1" type="button" role="tab" aria-controls="finish_create_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_create_asset-2" type="button" role="tab" aria-controls="finish_create_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="finish_create_asset"\u003e\u003cdiv id="finish_create_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="finish_create_asset-0"\u003e
 \u003cp\u003eClick \u0026lsquo;Create Asset\u0026rsquo;.\u003c/p\u003e
@@ -18542,6 +18942,14 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret client_secret.txt \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      my_first_container.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
@@ -18553,6 +18961,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_all_assets-1" type="button" role="tab" aria-controls="view_all_assets-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_all_assets-2" type="button" role="tab" aria-controls="view_all_assets-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_all_assets"\u003e\u003cdiv id="view_all_assets-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_all_assets-0"\u003e
 \u003cp\u003eNavigate to \u0026lsquo;Manage Assets\u0026rsquo; to see your Asset in the UI.\u003c/p\u003e
@@ -18579,7 +18990,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all assets.\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2"\u003e
+\u003cp\u003eYou can view all Asset data using the following command.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="7"\u003e
 \u003cli\u003eView details of the Asset you created.\u003c/li\u003e
@@ -18590,6 +19007,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_specific_asset-1" type="button" role="tab" aria-controls="view_specific_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_specific_asset-2" type="button" role="tab" aria-controls="view_specific_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_specific_asset"\u003e\u003cdiv id="view_specific_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_specific_asset-0"\u003e
 \u003cp\u003eTo view your Asset, click on the Asset row. You will see the detailed history of your Asset.\u003c/p\u003e
@@ -18618,7 +19038,13 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eMy First Container\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2"\u003e
+\u003cp\u003eDetails of a specific asset can be retrieved using identifying \u003ccode\u003eattrs\u003c/code\u003e, such as name, type, or presence of a certain field.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name\u003cspan class="o"\u003e=\u003c/span\u003eMy%20First%20Container
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
@@ -22220,6 +22646,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "SIMPLE_HASH",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     },
     {
@@ -22244,6 +22671,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "KHIPU",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     }
   ],
@@ -22480,6 +22908,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -22564,6 +22993,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
                                     \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -22691,6 +23127,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "timestamp_accepted": "2019-11-27T14:44:19Z",
   "timestamp_committed": "2019-11-27T14:44:19Z",
   "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -22789,6 +23226,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003etimestamp_accepted\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -22877,11 +23321,124 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerAssets4'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets4' aria-expanded="true" aria-controls='collapseAssets4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
                   \u003cdiv id='collapseAssets4' class="accordion-collapse collapse" aria-labelledby='headerAssets4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves the public url for a specific Archivist event.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves the public url for a specific Archivist event.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets4' aria-expanded="true" aria-controls='collapserequestAssets4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAssets4' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublicurl\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view an Asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets5' aria-expanded="true" aria-controls='collapseAssets5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAssets5' class="accordion-collapse collapse" aria-labelledby='headerAssets5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -22904,12 +23461,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseAssets4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets4' aria-expanded="true" aria-controls='collapserequestAssets4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets5' aria-expanded="true" aria-controls='collapserequestAssets5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseAssets4' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseAssets5' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -22934,6 +23491,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -23021,6 +23579,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003etracked\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -23078,14 +23643,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets5' aria-expanded="true" aria-controls='collapseAssets5'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets6' aria-expanded="true" aria-controls='collapseAssets6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets5' class="accordion-collapse collapse" aria-labelledby='headerAssets5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets6' class="accordion-collapse collapse" aria-labelledby='headerAssets6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -23146,12 +23711,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseAssets5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets5' aria-expanded="true" aria-controls='collapserequestAssets5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets6' aria-expanded="true" aria-controls='collapserequestAssets6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseAssets5' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseAssets6' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -23185,6 +23750,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
         "issuer": "job.idp.server/1234",
         "subject": "bob@job"
       },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "timestamp_accepted": "2019-11-27T14:44:19Z",
       "timestamp_committed": "2019-11-27T14:44:19Z",
       "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -23220,6 +23786,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
         "issuer": "job.idp.server/1234",
         "subject": "bob@job"
       },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "timestamp_accepted": "2019-07-27T14:44:19Z",
       "timestamp_committed": "2019-07-27T14:44:19Z",
       "timestamp_declared": "2019-07-27T14:44:19Z",
@@ -23309,20 +23876,131 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     
         
           
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets7' aria-expanded="true" aria-controls='collapseAssets7'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}:publicurl\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseAssets7' class="accordion-collapse collapse" aria-labelledby='headerAssets7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/assets/{uuid}:publicurl\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves the public url for a specific Archivist asset.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves the public url for a specific Archivist asset.\u003c/p\u003e
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseAssets7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseAssets7' aria-expanded="true" aria-controls='collapserequestAssets7'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseAssets7' class="accordion-collapse collapse" aria-labelledby='headerresponseAssets7' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublicurl\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view an Asset.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
       
     
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets6' aria-expanded="true" aria-controls='collapseAssets6'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets8' aria-expanded="true" aria-controls='collapseAssets8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets6' class="accordion-collapse collapse" aria-labelledby='headerAssets6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets8' class="accordion-collapse collapse" aria-labelledby='headerAssets8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -23377,14 +24055,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerAssets7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets7' aria-expanded="true" aria-controls='collapseAssets7'\u003e
+                  \u003ch3 class="accordion-header" id='headerAssets9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets9' aria-expanded="true" aria-controls='collapseAssets9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseAssets7' class="accordion-collapse collapse" aria-labelledby='headerAssets7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseAssets9' class="accordion-collapse collapse" aria-labelledby='headerAssets9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -27307,6 +27985,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "timestamp_accepted": "2019-11-27T14:44:19Z",
   "timestamp_committed": "2019-11-27T14:44:19Z",
   "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -27402,6 +28081,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003ctd\u003eobject\u003c/td\u003e
                                   
                                     \u003ctd\u003eprincipal provided by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -28862,6 +29548,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "SIMPLE_HASH",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     },
     {
@@ -28886,6 +29573,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
       "proof_mechanism": "KHIPU",
       "public": false,
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
     }
   ],
@@ -31234,8 +31922,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
       "display_name": "Macclesfield, Cheshire",
       "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-      "latitude": "53.2546799",
-      "longitude": "-2.1213956,14.54"
+      "latitude": 53.2546799,
+      "longitude": -2.1213956
     },
     {
       "attributes": {
@@ -31248,8 +31936,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
       "description": "Distribution Centre, Wales, Cardiff, Glamorganshire",
       "display_name": "Cardiff, Glamorganshire",
       "identity": "locations/19749457-d468-572c-6e3b-3acb0417ec13",
-      "latitude": "51.481583",
-      "longitude": "-3.179090"
+      "latitude": 51.481583,
+      "longitude": -3.17909
     }
   ],
   "next_page_token": "eyJvcmlnX3JlcSI6eyJwYWdlX3NpemUiOjJ9LCJza2lwIjoyfQ=="
@@ -31372,8 +32060,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   },
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                   \u003c/div\u003e
@@ -31456,8 +32144,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -31697,8 +32385,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e
@@ -31870,8 +32558,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   "description": "Manufacturing site, North West England, Macclesfield, Cheshire",
   "display_name": "Macclesfield, Cheshire",
   "identity": "locations/08838336-c357-460d-902a-3aba9528dd22",
-  "latitude": "53.2546799",
-  "longitude": "-2.1213956,14.54"
+  "latitude": 53.2546799,
+  "longitude": -2.1213956
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
                                 \u003c/div\u003e

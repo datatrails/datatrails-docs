@@ -45,7 +45,14 @@ steps:
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an Event using JSON format, create a file to store the details. We will execute a command to run the file in a later step.
+Create an empty file, in later steps we will add the correct JSON.
+
+```json
+{
+
+}
+```
+
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -81,9 +88,7 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-Fill out metadata about your Event. 
-
-`operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
+Fill out metadata about your Event; `operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
 
 In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
@@ -97,7 +102,8 @@ In the attributes section you should also add the required RKVST attributes `arc
   }
 }
 ```
-This Event will be POSTed to a specific Asset when the curl command is run. To do this, you will need the desired `assets/<asset-id>` string.
+
+This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired `assets/<asset-id>` string.
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -264,13 +270,16 @@ steps:
 {{< tab name="JSON" >}}
 Event data can be viewed using curl commands. 
 
-To view all Events, use: 
+To view all Events across all Assets, use:
+
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      https://app.rkvst.io/archivist/v2/assets/-/events
 ```
+
 To view the details of the Event you just created for My First Container, use:
+
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \

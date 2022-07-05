@@ -142,7 +142,18 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-Add your `event_attributes` and `asset_attributes` as key-value pairs. You may also add an attachment to your Event. To do so using JSON format, you will need to upload your attachment to RKVST using the [Blob API](https://docs.rkvst.com/docs/api-reference/blobs-api/). In this case, we have attached a pdf document labeled `Inspection Standards`. 
+You may add an attachment to your Event. To do so using JSON, you will need to upload your attachment to RKVST using the [Blob API](https://docs.rkvst.com/docs/api-reference/blobs-api/). In this case, we wish to upload a pdf document labeled `Inspection Standards`, so we will direct the command to that file path. 
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "content_type=document/pdf" \
+    -F "file=@/path/to/file" \
+    https://app.rkvst.io/archivist/v1/blobs
+```
+
+Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `blobs/<attachment-id>` returned from the curl command above as the `arc_attachment_identity` in your Event. 
+
 ```json
 {
   "operation": "Record",

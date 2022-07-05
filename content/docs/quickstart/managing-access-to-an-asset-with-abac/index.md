@@ -103,9 +103,12 @@ In this example, the `User` actor implies an ABAC policy, identified by email. T
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-To add users to the access policy using JSON, you will first need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
+In order to import a Subject using the base64 string, it will need to be decoded to access the `wallet_pub_key` and `tessera_pub_key` used in the next step. 
+ ```bash
+ echo $SUBJECT_STRING | base64 -d
+ ```
 
-Save the following to a JSON file with your desired subject information. 
+To add users to the access policy using JSON, you will then need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/). Save the following to a JSON file with your desired subject information. 
 ```json
 {
     "display_name": "Friendly Name",

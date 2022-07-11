@@ -1,5 +1,5 @@
 ---
-title: "Adding Articles to Jitsuin Docs"
+title: "Adding Articles to RKVST Docs"
 description: ""
 date: 2021-05-20T18:34:21+01:00
 lastmod: 2021-05-20T18:34:21+01:00
@@ -16,10 +16,10 @@ toc: true
 **Note:** For navigation purposes any new content is automatically added to the top level `content` folder and then follows the path you specify from there.
 {{< /note >}}
 
-1. To add a New Article use the `jitsuin-doks` command
+1. To add a New Article use the `rkvst-doks` command
 
 ```bash
-jitsuin-doks create contributing/adding-content/adding-articles-to-doks/index.md
+rkvst-doks create contributing/adding-content/adding-articles-to-doks/index.md
 ```
 Here you can see we have specified the `contributing` area, the `adding content` section and the name of our new article with a non-underscored `index.md` to indicate this is an article
 
@@ -47,7 +47,7 @@ toc: true
 
 There are a lot of attributes here but the key ones to set are as follows:
 
-* `title` - This is the title that users will see, this should be prefilled by the `jitsuin-doks` command
+* `title` - This is the title that users will see, this should be prefilled by the `rkvst-doks` command
 * `description` - A description of the articles
 * `draft` - If set to `true` this article will not be included or visible to Users (including the Developer Serve), this should be set to `false` when ready to publish
 * `menu` - This indicates the hierarchy of the article

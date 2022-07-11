@@ -19,7 +19,7 @@ It is important in any documentation to have a readable, sane and consistent exp
 
 Content is organized at a directory level using the standard Hugo format, we then have four separate areas of content.
 
-Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by Jitsuin Employees and Organizational Reviewers.
+Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by RKVST Employees and Organizational Reviewers.
 
 {{< tabs name="directory_structure" >}}
 {{< tab name="Root" codelang="bash" >}}
@@ -33,7 +33,7 @@ Typically, only Docs should be edited but permission to add to the other section
 ├── content
 ├── data
 ├── images
-├── jitsuin-doks
+├── rkvst-doks
 ├── layouts
 ├── LICENSE
 ├── netlify.toml
@@ -83,13 +83,13 @@ Every Article and Section contains an `index.md` file with some slight differenc
 * Articles use `index.md` which represents a standard content file
 * Sections use `_index.md` which has special significance as it will automatically index all of the sub-folders and their `index.md` files
 
-Both of these may be prefilled using a template described in the `Archetypes` folder when using the `jitsuin-doks` wrapper to create content.
+Both of these may be prefilled using a template described in the `Archetypes` folder when using the `rkvst-doks` wrapper to create content.
 
 In terms of naming convention, at the directory level you should always use a sluggified name that represents the title of the Article or Section you are creating.
 
 For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
-This is important as not only will that be represented at a URL level when accessing the docs; the `jitsuin-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates. 
+This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates. 
 
 {{< caution >}}
 **Caution:** Title rendering in templates is not perfect, you should always verify the title of an Article or Section is correct in the metadata manually.
@@ -615,7 +615,7 @@ While it is permitted to only specify the article name and not include a `#` ref
 
 ### External Links
 
-External Links are not generally permitted as Jitsuin has little to no control on the content being presented and if it is changed or moved in future.
+External Links are not generally permitted as RKVST has little to no control on the content being presented and if it is changed or moved in future.
 
 If you would like to include an external link then it will be decided on a case by case basis.
 

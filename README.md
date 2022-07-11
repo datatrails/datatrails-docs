@@ -30,7 +30,7 @@ cd rkvst-doks
 npm install
 ```
 
-4. To run a local RKVST Docs Server it is advisable to use the `jitsuin-doks` wrapper
+4. To run a local RKVST Docs Server it is advisable to use the `rkvst-doks` wrapper
 
 ```bash
 rkvst-doks start

@@ -25,7 +25,7 @@ By keeping all the component packages and release history for a software package
 
 Key to any successful RKVST integration is keeping the number of asset attributes manageable and meaningful. Do not add every entry in the SBOM as an Asset attribute. Instead preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and then put the full details of each released version in attachments and Events. 
 
-Note: There are good standards for storing and exchanging SBOM data such as [SWID/ISO/IEC 19770-2:2015](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf "NIST IR 8060"), [Cyclone DX](https://cyclonedx.org "Cyclone DX Homepage"), and [SPDX](https://spdx.github.io/spdx-spec/ "SPDX Specification"). Jitsuin recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.
+Note: There are good standards for storing and exchanging SBOM data such as [SWID/ISO/IEC 19770-2:2015](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf "NIST IR 8060"), [Cyclone DX](https://cyclonedx.org "Cyclone DX Homepage"), and [SPDX](https://spdx.github.io/spdx-spec/ "SPDX Specification"). RKVST recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.
 
 _SBOM as a living document:_ As a vendor, try to model each final software product as an Asset, and releases/updates to that software product as Events on that Asset. That way, a single Asset history contains all the patch versions of a pristine build standard.
 

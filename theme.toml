@@ -8,4 +8,4 @@ features = ["landing page", "documentation", "jitsuin", "rkvst", "blockchain", "
 min_version = "0.75.0"
 
 [author]
-  name = "Jitsuin, Inc"
+  name = "RKVST, Inc"

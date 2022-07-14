@@ -18,7 +18,7 @@ As the main branch of these docs is protected you will need to create a seperate
 1. Change into your cloned repo
 
 ```bash
-cd jitsuin-docs
+cd rkvst-docs
 ```
 
 2.  Checkout `main` Branch

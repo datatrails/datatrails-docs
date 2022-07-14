@@ -19,7 +19,7 @@ The examples below follow our [Style Guide](../style-guide).
 
 ## Code and Codeblocks
 
-There are three different ways to present code and references in Jitsuin Documentation.
+There are three different ways to present code and references RKVST Documentation.
 
 ### Inline Code
 

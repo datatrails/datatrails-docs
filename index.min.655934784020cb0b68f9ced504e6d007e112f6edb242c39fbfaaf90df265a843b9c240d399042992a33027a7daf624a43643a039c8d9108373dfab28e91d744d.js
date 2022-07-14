@@ -295,7 +295,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003eThese are all the basics of RKVST. With this knowledge you can now \u003ca href="../../api-reference/"\u003ejump straight into the API\u003c/a\u003e or \u003ca href="../../quickstart"\u003etry the Quickstart\u003c/a\u003e\u003c/p\u003e
 `},{id:2,href:"https://docs.rkvst.com/docs/setup-and-administration/registering-your-azure-active-directory-with-rkvst/",title:"Registering Your Azure Active Directory With RKVST",description:"Signing up with RKVST",content:`\u003cp\u003eTo obtain access to your RKVST tenancy you need to:\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eShare your Azure Directory ID with Jitsuin.\u003c/li\u003e
+\u003cli\u003eShare your Azure Directory ID with RKVST Support.\u003c/li\u003e
 \u003cli\u003eYou will then receive a link to access RKVST.\u003c/li\u003e
 \u003c/ol\u003e
 \u003ch2 id="finding-your-tenant-id"\u003eFinding Your Tenant ID\u003c/h2\u003e
@@ -323,7 +323,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
   
   \u003c/div\u003e
 \u003c/div\u003e
-\u003cp\u003eLocate the Tenant ID displayed on the Active Directory Overview blade and send this to Jitsuin.\u003c/p\u003e
+\u003cp\u003eLocate the Tenant ID displayed on the Active Directory Overview blade and send this to RKVST.\u003c/p\u003e
 
 
 \u003cfigure class="border-0"\u003e
@@ -3514,7 +3514,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eBy keeping all the component packages and release history for a software package in one easily identifiable and integrity protected location, all relevant stakeholders can be sure they have the best and most up-to-date information on what software is in their supply chain and how it got there, and can readily identify problems if this record diverges from observed reality.\u003c/p\u003e
 \u003ch3 id="considerations"\u003eConsiderations\u003c/h3\u003e
 \u003cp\u003eKey to any successful RKVST integration is keeping the number of asset attributes manageable and meaningful. Do not add every entry in the SBOM as an Asset attribute. Instead preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and then put the full details of each released version in attachments and Events.\u003c/p\u003e
-\u003cp\u003eNote: There are good standards for storing and exchanging SBOM data such as \u003ca href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf" title="NIST IR 8060"\u003eSWID/ISO/IEC 19770-2:2015\u003c/a\u003e, \u003ca href="https://cyclonedx.org" title="Cyclone DX Homepage"\u003eCyclone DX\u003c/a\u003e, and \u003ca href="https://spdx.github.io/spdx-spec/" title="SPDX Specification"\u003eSPDX\u003c/a\u003e. Jitsuin recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.\u003c/p\u003e
+\u003cp\u003eNote: There are good standards for storing and exchanging SBOM data such as \u003ca href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf" title="NIST IR 8060"\u003eSWID/ISO/IEC 19770-2:2015\u003c/a\u003e, \u003ca href="https://cyclonedx.org" title="Cyclone DX Homepage"\u003eCyclone DX\u003c/a\u003e, and \u003ca href="https://spdx.github.io/spdx-spec/" title="SPDX Specification"\u003eSPDX\u003c/a\u003e. RKVST recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eSBOM as a living document:\u003c/em\u003e As a vendor, try to model each final software product as an Asset, and releases/updates to that software product as Events on that Asset. That way, a single Asset history contains all the patch versions of a pristine build standard.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
@@ -4594,6 +4594,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                 \u003c/div\u003e
               \u003c/div\u003e
         
+      
+    
+        
+          
       
     
         
@@ -16563,11 +16567,114 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerUser Management7'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management7' aria-expanded="true" aria-controls='collapseUser Management7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
                   \u003cdiv id='collapseUser Management7' class="accordion-collapse collapse" aria-labelledby='headerUser Management7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003ePublic Tenant Information.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Return the publically avaialble tenant information.\u003c/p\u003e
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUser Management7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management7' aria-expanded="true" aria-controls='collapserequestUser Management7'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUser Management7' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management7' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "identity": "tenant/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "verified_domain": "exampleltd"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management8' aria-expanded="true" aria-controls='collapseUser Management8'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUser Management8' class="accordion-collapse collapse" aria-labelledby='headerUser Management8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16622,14 +16729,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser Management8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management8' aria-expanded="true" aria-controls='collapseUser Management8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management9' aria-expanded="true" aria-controls='collapseUser Management9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser Management8' class="accordion-collapse collapse" aria-labelledby='headerUser Management8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerUser Management9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16684,14 +16791,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser Management9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management9' aria-expanded="true" aria-controls='collapseUser Management9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management10' aria-expanded="true" aria-controls='collapseUser Management10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerUser Management9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUser Management10' class="accordion-collapse collapse" aria-labelledby='headerUser Management10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16710,12 +16817,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser Management9'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management9' aria-expanded="true" aria-controls='collapserequestUser Management9'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUser Management10'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management10' aria-expanded="true" aria-controls='collapserequestUser Management10'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management9' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUser Management10' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management10' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -18020,7 +18127,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003eThese are all the basics of RKVST. With this knowledge you can now \u003ca href="../../api-reference/"\u003ejump straight into the API\u003c/a\u003e or \u003ca href="../../quickstart"\u003etry the Quickstart\u003c/a\u003e\u003c/p\u003e
 `}).add({id:2,href:"https://docs.rkvst.com/docs/setup-and-administration/registering-your-azure-active-directory-with-rkvst/",title:"Registering Your Azure Active Directory With RKVST",description:"Signing up with RKVST",content:`\u003cp\u003eTo obtain access to your RKVST tenancy you need to:\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eShare your Azure Directory ID with Jitsuin.\u003c/li\u003e
+\u003cli\u003eShare your Azure Directory ID with RKVST Support.\u003c/li\u003e
 \u003cli\u003eYou will then receive a link to access RKVST.\u003c/li\u003e
 \u003c/ol\u003e
 \u003ch2 id="finding-your-tenant-id"\u003eFinding Your Tenant ID\u003c/h2\u003e
@@ -18048,7 +18155,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
   
   \u003c/div\u003e
 \u003c/div\u003e
-\u003cp\u003eLocate the Tenant ID displayed on the Active Directory Overview blade and send this to Jitsuin.\u003c/p\u003e
+\u003cp\u003eLocate the Tenant ID displayed on the Active Directory Overview blade and send this to RKVST.\u003c/p\u003e
 
 
 \u003cfigure class="border-0"\u003e
@@ -21239,7 +21346,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eBy keeping all the component packages and release history for a software package in one easily identifiable and integrity protected location, all relevant stakeholders can be sure they have the best and most up-to-date information on what software is in their supply chain and how it got there, and can readily identify problems if this record diverges from observed reality.\u003c/p\u003e
 \u003ch3 id="considerations"\u003eConsiderations\u003c/h3\u003e
 \u003cp\u003eKey to any successful RKVST integration is keeping the number of asset attributes manageable and meaningful. Do not add every entry in the SBOM as an Asset attribute. Instead preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and then put the full details of each released version in attachments and Events.\u003c/p\u003e
-\u003cp\u003eNote: There are good standards for storing and exchanging SBOM data such as \u003ca href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf" title="NIST IR 8060"\u003eSWID/ISO/IEC 19770-2:2015\u003c/a\u003e, \u003ca href="https://cyclonedx.org" title="Cyclone DX Homepage"\u003eCyclone DX\u003c/a\u003e, and \u003ca href="https://spdx.github.io/spdx-spec/" title="SPDX Specification"\u003eSPDX\u003c/a\u003e. Jitsuin recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.\u003c/p\u003e
+\u003cp\u003eNote: There are good standards for storing and exchanging SBOM data such as \u003ca href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf" title="NIST IR 8060"\u003eSWID/ISO/IEC 19770-2:2015\u003c/a\u003e, \u003ca href="https://cyclonedx.org" title="Cyclone DX Homepage"\u003eCyclone DX\u003c/a\u003e, and \u003ca href="https://spdx.github.io/spdx-spec/" title="SPDX Specification"\u003eSPDX\u003c/a\u003e. RKVST recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eSBOM as a living document:\u003c/em\u003e As a vendor, try to model each final software product as an Asset, and releases/updates to that software product as Events on that Asset. That way, a single Asset history contains all the patch versions of a pristine build standard.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
@@ -22319,6 +22426,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                 \u003c/div\u003e
               \u003c/div\u003e
         
+      
+    
+        
+          
       
     
         
@@ -34288,11 +34399,114 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                   \u003ch3 class="accordion-header" id='headerUser Management7'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management7' aria-expanded="true" aria-controls='collapseUser Management7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
                   \u003cdiv id='collapseUser Management7' class="accordion-collapse collapse" aria-labelledby='headerUser Management7' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003ePublic Tenant Information.\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Return the publically avaialble tenant information.\u003c/p\u003e
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUser Management7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management7' aria-expanded="true" aria-controls='collapserequestUser Management7'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUser Management7' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management7' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "identity": "tenant/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "verified_domain": "exampleltd"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management8' aria-expanded="true" aria-controls='collapseUser Management8'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUser Management8' class="accordion-collapse collapse" aria-labelledby='headerUser Management8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34347,14 +34561,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser Management8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management8' aria-expanded="true" aria-controls='collapseUser Management8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management9' aria-expanded="true" aria-controls='collapseUser Management9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser Management8' class="accordion-collapse collapse" aria-labelledby='headerUser Management8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerUser Management9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34409,14 +34623,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser Management9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management9' aria-expanded="true" aria-controls='collapseUser Management9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUser Management10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser Management10' aria-expanded="true" aria-controls='collapseUser Management10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerUser Management9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUser Management10' class="accordion-collapse collapse" aria-labelledby='headerUser Management10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34435,12 +34649,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser Management9'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management9' aria-expanded="true" aria-controls='collapserequestUser Management9'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUser Management10'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser Management10' aria-expanded="true" aria-controls='collapserequestUser Management10'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser Management9' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management9' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUser Management10' class="accordion-collapse collapse" aria-labelledby='headerresponseUser Management10' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{

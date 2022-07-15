@@ -23,24 +23,24 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
-    "attributes": {
-        "arc_firmware_version": "1.0",
-        "arc_serial_number": "vtl-x4-07",
-        "arc_display_name": "tcl.ppj.003",
-        "arc_description": "Traffic flow control light at A603 North East",
-        "arc_home_location_identity": "locations/115340cf-f39e-4d43-a2ee-8017d672c6c6",
-        "arc_display_type": "Traffic light with violation camera",
-        "some_custom_attribute": "value",
-        "arc_attachments": [
-            {
-                "arc_display_name": "arc_primary_image",
-                "arc_attachment_identity": "blobs/87b1a84c-1c6f-442b-923e-a97516f4d275",
-                "arc_hash_alg": "SHA256",
-                "arc_hash_value": "246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60"
-            }
-        ]
-    }
+  "attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    ],
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "behaviours": [
+    "RecordEvidence",
+    "Attachments"
+  ],
+  "proof_mechanism": "SIMPLE_HASH",
+  "public": false
 }
 ```
 
@@ -58,33 +58,52 @@ The response is:
 
 ```json
 {
-    "identity": "assets/3f5be24f-fd1b-40e2-af35-ec7c14c74d53",
-    "behaviours": [
-        "RecordEvidence",
-        "Attachments"
+  "at_time": "2019-11-27T14:44:19Z",
+  "attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
     ],
-    "attributes": {
-        "arc_serial_number": "vtl-x4-07",
-        "arc_display_name": "tcl.ppj.003",
-        "arc_description": "Traffic flow control light at A603 North East",
-        "arc_home_location_identity": "locations/115340cf-f39e-4d43-a2ee-8017d672c6c6",
-        "arc_display_type": "Traffic light with violation camera",
-        "arc_firmware_version": "1.0",
-        "some_custom_attribute": "value",
-        "arc_attachments": [
-            {
-                "arc_display_name": "arc_primary_image",
-                "arc_attachment_identity": "blobs/87b1a84c-1c6f-442b-923e-a97516f4d275",
-                "arc_hash_alg": "SHA256",
-                "arc_hash_value": "246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60"
-            }
-        ]
-    },
-    "confirmation_status": "PENDING",
-    "tracked": "TRACKED"
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "behaviours": [
+    "RecordEvidence"
+  ],
+  "confirmation_status": "PENDING",
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
+  "proof_mechanism": "SIMPLE_HASH",
+  "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "tracked": "TRACKED"
 }
 ```
+#### Creating a Public Asset
 
+{{< warning >}}
+**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards.
+{{< /warning >}}
+
+In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](../../quickstart/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
+
+However it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.
+
+Public Assets can be used for Public Attestation, where you may wish to publicly assert data you have published.
+
+For example, the vulnerability reports against an OpenSource software package, or perhaps the maintenance records for a public building.
+
+Creating a Public Asset just requires flipping the `public` value in the above request to `true`, from then on **only** the creating tenancy may update the asset and events on a Public Asset through their private, signed-in interface.
+
+All Public Assets are then given a read-only public URL that can be retrieved using [Fetch a Public Asset's URL](./#fetch-a-public-assets-url), any events added to that Public Asset will also get their own unique Public URL that can be retrieved with [Fetch a Public Asset's Event URL](./#fetch-a-public-assets-event-url).
+
+This link can be shared with anyone to give them read-only access to the asset or event without the need to sign in.
+
+To interact with the unauthenticated Public Interface for a Public Asset see the [Public Assets API Reference](../public-assets-api/). To update the Assets and Events as the creating tenant on a Public Asset's authenticated Private Interface you would still use the standard Assets and Events API as normal.
 ### Asset Record Retrieval
 
 Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
@@ -171,6 +190,10 @@ curl -g -v -X GET \
 
 Returns all assets which do not have `arc_display_name` or in which `arc_display_name` is empty.
 
+#### Fetch a Public Asset's URL
+
+
+#### Fetch a Public Asset's Event URL
 
 ## Asset OpenAPI Docs
 

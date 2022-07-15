@@ -34,11 +34,3 @@ _Link to real assets:_ In reality, not every machine is going to be patched and 
 _Access Policies:_ always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.
 
 Remember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.
-
-## Example 2: Connected Device Digital Bill of Materials (DBOM)
-
-Maintaining an up-to-date Software Bill of Materials (SBOM) is a great start to ensuring trustworthiness in your digital supply chain. However there is more to connected devices than monolithic software builds or firmware. Also crucial to understanding your assets' provenance are hardware build standards and components, software configuration, even trained AI models and their lineage. These collectively are known as the Digital Bill of Materials (DBOM). A change in any single one of these can alter the trustworthiness of the whole stack.
-
-### Considerations
-
-The pattern for DBOM is essentially the same as SBOM but with more stakeholders and more potential sources of change. This makes the Access Policy definition more complex for write operations but 

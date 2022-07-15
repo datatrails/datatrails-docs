@@ -192,8 +192,32 @@ Returns all assets which do not have `arc_display_name` or in which `arc_display
 
 #### Fetch a Public Asset's URL
 
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+```
+
+```json
+{
+  "publicurl":"https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4"
+}
+```
 
 #### Fetch a Public Asset's Event URL
+
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+```
+
+```json
+{
+  "publicurl":"https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721"
+}
+```
+
 
 ## Asset OpenAPI Docs
 

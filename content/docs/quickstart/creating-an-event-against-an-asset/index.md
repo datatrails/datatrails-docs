@@ -148,7 +148,7 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-You may add an attachment to your Event. To do so using JSON, you will need to upload your attachment to RKVST using the [Blob API](https://docs.rkvst.com/docs/api-reference/blobs-api/). In this case, we wish to upload a pdf document labeled `Inspection Standards`, so we will direct the command to that file path. 
+You may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the [Blobs API](https://docs.rkvst.com/docs/api-reference/blobs-api/).
 
 ```bash
 curl -v -X POST \

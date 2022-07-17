@@ -1334,14 +1334,17 @@ their roles.\u003c/p\u003e
 \u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003ch2 id="creating-events"\u003eCreating Events\u003c/h2\u003e
 \u003col\u003e
-\u003cli\u003e
-\u003cp\u003eCreate an Event.
+\u003cli\u003eCreate an Event.\u003c/li\u003e
+\u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_event" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true"\u003eUI\u003c/button\u003e
 		\u003c/li\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-1" type="button" role="tab" aria-controls="add_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-2" type="button" role="tab" aria-controls="add_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event"\u003e\u003cdiv id="add_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event-0"\u003e
 \u003cp\u003eWhen viewing your Asset, click the \u003ccode\u003eRecord Event\u003c/code\u003e button.\u003c/p\u003e
@@ -1370,12 +1373,16 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviour\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003easset_id\u003c/code\u003e must match the Asset ID found in the details of your Asset. See \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-asset/"\u003eStep 7 of Creating an Asset\u003c/a\u003e.\u003c/p\u003e
-\u003c/div\u003e\u003c/div\u003e
-\u003c/p\u003e
-\u003c/li\u003e
-\u003cli\u003e
-\u003cp\u003eAdd Event type and description.\u003c/p\u003e
-\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="add_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eAdd Event type and description.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_event_type" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_type-0" type="button" role="tab" aria-controls="add_event_type-0" aria-selected="true"\u003eUI\u003c/button\u003e
@@ -1383,6 +1390,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_type-1" type="button" role="tab" aria-controls="add_event_type-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_type-2" type="button" role="tab" aria-controls="add_event_type-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event_type"\u003e\u003cdiv id="add_event_type-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event_type-0"\u003e
 \u003cp\u003eYou will see the following Event creation form:\u003c/p\u003e
@@ -1416,7 +1426,20 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eevent_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_description\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection Event\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e  \u003c/span\u003e\u003cspan class="l"\u003eInspection\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_event_type-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-2"\u003e
+\u003cp\u003eFill out metadata about your Event; \u003ccode\u003eoperation\u003c/code\u003e and \u003ccode\u003ebehaviour\u003c/code\u003e detail what class of event is being performed, by default this should always be \u003ccode\u003eRecord\u003c/code\u003e and \u003ccode\u003eRecordEvidence\u003c/code\u003e, respectively.\u003c/p\u003e
+\u003cp\u003eIn the attributes section you should also add the required RKVST attributes \u003ccode\u003earc_description\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e to represent \u003ccode\u003eEvent Description\u003c/code\u003e and \u003ccode\u003eEvent Type\u003c/code\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Event\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThis Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired \u003ccode\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/code\u003e string.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
 \u003cli\u003eYou may enter both Event and Asset attributes.\u003c/li\u003e
@@ -1431,6 +1454,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_attr-1" type="button" role="tab" aria-controls="add_event_attr-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_attr-2" type="button" role="tab" aria-controls="add_event_attr-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event_attr"\u003e\u003cdiv id="add_event_attr-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event_attr-0"\u003e
 \u003cp\u003eSelect the \u003ccode\u003eAdd Attribute\u003c/code\u003e button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled \u003ccode\u003eInspection Standards\u003c/code\u003e.\u003c/p\u003e
@@ -1484,7 +1510,34 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003econtent_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edocument/pdf\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003edisplay_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection Standards\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2"\u003e
+\u003cp\u003eYou may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the \u003ca href="https://docs.rkvst.com/docs/api-reference/blobs-api/"\u003eBlobs API\u003c/a\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;content_type=document/pdf\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -F \u003cspan class="s2"\u003e\u0026#34;file=@/path/to/file\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v1/blobs
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eAdd your \u003ccode\u003eevent_attributes\u003c/code\u003e and \u003ccode\u003easset_attributes\u003c/code\u003e as key-value pairs. Use the \u003ccode\u003eblobs/\u0026lt;attachment-id\u0026gt;\u003c/code\u003e returned from the curl command above as the \u003ccode\u003earc_attachment_identity\u003c/code\u003e in your Event.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Event\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Cargo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Rare Metals\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Standards\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/\u0026lt;attachment-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1192kg\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/p\u003e
 \u003cp\u003eEvery Event has an automatically generated \u003ccode\u003etimestamp_accepted\u003c/code\u003e and \u003ccode\u003eprincipal_accepted\u003c/code\u003e attribute that records \u003cem\u003ewhen\u003c/em\u003e who performed what, as submitted to RKVST.\u003c/p\u003e
@@ -1499,6 +1552,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-1" type="button" role="tab" aria-controls="record_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-2" type="button" role="tab" aria-controls="record_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="record_event"\u003e\u003cdiv id="record_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="record_event-0"\u003e
 \u003cp\u003eOnce you have entered all data, click the \u003ccode\u003eRecord Event\u003c/code\u003e Button to add to your Asset.\u003c/p\u003e
@@ -1525,6 +1581,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      my_first_container_inspection_event.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
@@ -1536,6 +1600,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-1" type="button" role="tab" aria-controls="view_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-2" type="button" role="tab" aria-controls="view_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_event"\u003e\u003cdiv id="view_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_event-0"\u003e
 \u003cp\u003eClick the Event row to inspect the Event:\u003c/p\u003e
@@ -1590,9 +1657,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container \u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2"\u003e
+\u003cp\u003eEvent data can be viewed using curl commands.\u003c/p\u003e
+\u003cp\u003eTo view all Events across all Assets, use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/-/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eTo view the details of the Event you just created for My First Container, use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-\u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
+\u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
 `},{id:8,href:"https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e
@@ -19162,14 +19240,17 @@ their roles.\u003c/p\u003e
 \u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003ch2 id="creating-events"\u003eCreating Events\u003c/h2\u003e
 \u003col\u003e
-\u003cli\u003e
-\u003cp\u003eCreate an Event.
+\u003cli\u003eCreate an Event.\u003c/li\u003e
+\u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_event" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true"\u003eUI\u003c/button\u003e
 		\u003c/li\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-1" type="button" role="tab" aria-controls="add_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-2" type="button" role="tab" aria-controls="add_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event"\u003e\u003cdiv id="add_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event-0"\u003e
 \u003cp\u003eWhen viewing your Asset, click the \u003ccode\u003eRecord Event\u003c/code\u003e button.\u003c/p\u003e
@@ -19198,12 +19279,16 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviour\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003easset_id\u003c/code\u003e must match the Asset ID found in the details of your Asset. See \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-asset/"\u003eStep 7 of Creating an Asset\u003c/a\u003e.\u003c/p\u003e
-\u003c/div\u003e\u003c/div\u003e
-\u003c/p\u003e
-\u003c/li\u003e
-\u003cli\u003e
-\u003cp\u003eAdd Event type and description.\u003c/p\u003e
-\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="add_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eAdd Event type and description.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_event_type" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_type-0" type="button" role="tab" aria-controls="add_event_type-0" aria-selected="true"\u003eUI\u003c/button\u003e
@@ -19211,6 +19296,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_type-1" type="button" role="tab" aria-controls="add_event_type-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_type-2" type="button" role="tab" aria-controls="add_event_type-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event_type"\u003e\u003cdiv id="add_event_type-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event_type-0"\u003e
 \u003cp\u003eYou will see the following Event creation form:\u003c/p\u003e
@@ -19244,7 +19332,20 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eevent_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_description\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection Event\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e  \u003c/span\u003e\u003cspan class="l"\u003eInspection\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_event_type-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-2"\u003e
+\u003cp\u003eFill out metadata about your Event; \u003ccode\u003eoperation\u003c/code\u003e and \u003ccode\u003ebehaviour\u003c/code\u003e detail what class of event is being performed, by default this should always be \u003ccode\u003eRecord\u003c/code\u003e and \u003ccode\u003eRecordEvidence\u003c/code\u003e, respectively.\u003c/p\u003e
+\u003cp\u003eIn the attributes section you should also add the required RKVST attributes \u003ccode\u003earc_description\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e to represent \u003ccode\u003eEvent Description\u003c/code\u003e and \u003ccode\u003eEvent Type\u003c/code\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Event\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThis Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired \u003ccode\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/code\u003e string.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
 \u003cli\u003eYou may enter both Event and Asset attributes.\u003c/li\u003e
@@ -19259,6 +19360,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_attr-1" type="button" role="tab" aria-controls="add_event_attr-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event_attr-2" type="button" role="tab" aria-controls="add_event_attr-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_event_attr"\u003e\u003cdiv id="add_event_attr-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event_attr-0"\u003e
 \u003cp\u003eSelect the \u003ccode\u003eAdd Attribute\u003c/code\u003e button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled \u003ccode\u003eInspection Standards\u003c/code\u003e.\u003c/p\u003e
@@ -19312,7 +19416,34 @@ their roles.\u003c/p\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003econtent_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edocument/pdf\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003edisplay_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection Standards\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2"\u003e
+\u003cp\u003eYou may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the \u003ca href="https://docs.rkvst.com/docs/api-reference/blobs-api/"\u003eBlobs API\u003c/a\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;content_type=document/pdf\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -F \u003cspan class="s2"\u003e\u0026#34;file=@/path/to/file\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v1/blobs
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eAdd your \u003ccode\u003eevent_attributes\u003c/code\u003e and \u003ccode\u003easset_attributes\u003c/code\u003e as key-value pairs. Use the \u003ccode\u003eblobs/\u0026lt;attachment-id\u0026gt;\u003c/code\u003e returned from the curl command above as the \u003ccode\u003earc_attachment_identity\u003c/code\u003e in your Event.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Event\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Cargo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Rare Metals\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Inspection Standards\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/\u0026lt;attachment-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1192kg\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eHere we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/p\u003e
 \u003cp\u003eEvery Event has an automatically generated \u003ccode\u003etimestamp_accepted\u003c/code\u003e and \u003ccode\u003eprincipal_accepted\u003c/code\u003e attribute that records \u003cem\u003ewhen\u003c/em\u003e who performed what, as submitted to RKVST.\u003c/p\u003e
@@ -19327,6 +19458,9 @@ their roles.\u003c/p\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-1" type="button" role="tab" aria-controls="record_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-2" type="button" role="tab" aria-controls="record_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="record_event"\u003e\u003cdiv id="record_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="record_event-0"\u003e
 \u003cp\u003eOnce you have entered all data, click the \u003ccode\u003eRecord Event\u003c/code\u003e Button to add to your Asset.\u003c/p\u003e
@@ -19353,6 +19487,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      my_first_container_inspection_event.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
@@ -19364,6 +19506,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-1" type="button" role="tab" aria-controls="view_event-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-2" type="button" role="tab" aria-controls="view_event-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="view_event"\u003e\u003cdiv id="view_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_event-0"\u003e
 \u003cp\u003eClick the Event row to inspect the Event:\u003c/p\u003e
@@ -19418,9 +19563,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eInspection\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container \u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2"\u003e
+\u003cp\u003eEvent data can be viewed using curl commands.\u003c/p\u003e
+\u003cp\u003eTo view all Events across all Assets, use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/-/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eTo view the details of the Event you just created for My First Container, use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-\u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
+\u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
 `}).add({id:8,href:"https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e

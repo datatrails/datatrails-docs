@@ -24,6 +24,7 @@ To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner
 ## Creating Events
 
 1. Create an Event. 
+
 {{< tabs name="add_event" >}}
 {{{< tab name="UI" >}}
 When viewing your Asset, click the `Record Event` button.
@@ -42,6 +43,16 @@ steps:
     behaviour: RecordEvidence
 ```
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Create an empty file, in later steps we will add the correct JSON.
+
+```json
+{
+
+}
+```
+
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -74,6 +85,25 @@ steps:
       arc_description: Inspection Event
       arc_display_type:  Inspection
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+
+Fill out metadata about your Event; `operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
+
+In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
+
+```json
+{
+  "operation": "Record",
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Inspection Event",
+    "arc_display_type": "Inspection",
+  }
+}
+```
+
+This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired `assets/<asset-id>` string.
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -115,9 +145,43 @@ steps:
         display_name: Inspection Standards
     confirm: true
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+
+You may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the [Blobs API](https://docs.rkvst.com/docs/api-reference/blobs-api/).
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "content_type=document/pdf" \
+    -F "file=@/path/to/file" \
+    https://app.rkvst.io/archivist/v1/blobs
+```
+
+Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `blobs/<attachment-id>` returned from the curl command above as the `arc_attachment_identity` in your Event. 
+
+```json
+{
+  "operation": "Record",
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Inspection Event",
+    "arc_display_type": "Inspection",
+    "Cargo": "Rare Metals",
+    "arc_attachments": [
+      {
+      "arc_display_name": "Inspection Standards",
+      "arc_attachment_identity": "blobs/<attachment-id>"
+      }
+    ]
+  },
+  "asset_attributes": {
+    "Weight": "1192kg"
+  }
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
-
 
 
 Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
@@ -146,6 +210,17 @@ $ archivist_runner \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       my_first_container_inspection_event.yaml
+```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -191,9 +266,28 @@ steps:
     asset_attrs:
       arc_display_type: Shipping Container 
 ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Event data can be viewed using curl commands. 
+
+To view all Events across all Assets, use:
+
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets/-/events
+```
+
+To view the details of the Event you just created for My First Container, use:
+
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
 
-In the next section, we will learn about using Locations to group items together for both logical grouping and how to better manage access using ABAC and OBAC Policies.
+In the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
 

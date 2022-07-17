@@ -192,6 +192,8 @@ Returns all assets which do not have `arc_display_name` or in which `arc_display
 
 #### Fetch a Public Asset's URL
 
+Fetch the Public URL of a Public Asset
+
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -205,6 +207,8 @@ curl -g -v -X GET \
 ```
 
 #### Fetch a Public Asset's Event URL
+
+Fetch the Public URL of an Event on a Public Asset
 
 ```bash
 curl -g -v -X GET \

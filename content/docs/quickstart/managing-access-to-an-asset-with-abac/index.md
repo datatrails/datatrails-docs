@@ -74,13 +74,13 @@ Here you can apply policy filters to the correct Assets. In this case, we shall 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to categorize assets.
+Filters can use `and` or `or` to categorize assets.  [See here for instructions on finding your location ID.](https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/)
 ```json
 {
     "display_name": "Bill Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=UK Factory"
+            "attributes.arc_home_location_identity=locations/<location-id>"
         ]},
         { "or": [
             "attributes.arc_display_type=Shipping Container"
@@ -141,7 +141,7 @@ Add the desired permissions and the subject ID found in the previous step.
     "display_name": "Bill Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=UK Factory"
+            "attributes.arc_home_location_identity=locations/<location-id>"
         ]},
         { "or": [
             "attributes.arc_display_type=Shipping Container"

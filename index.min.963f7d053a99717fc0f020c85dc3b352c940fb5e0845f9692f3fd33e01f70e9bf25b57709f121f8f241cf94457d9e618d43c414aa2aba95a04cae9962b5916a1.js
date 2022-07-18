@@ -4813,24 +4813,24 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1.0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_serial_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;vtl-x4-07\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tcl.ppj.003\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic flow control light at A603 North East\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/115340cf-f39e-4d43-a2ee-8017d672c6c6\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;some_custom_attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_primary_image\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/87b1a84c-1c6f-442b-923e-a97516f4d275\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SHA256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Picture from yesterday\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;sha256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;3.2.1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003efalse\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eCreate the asset:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
@@ -4840,32 +4840,43 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe response is:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/3f5be24f-fd1b-40e2-af35-ec7c14c74d53\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;at_time\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Picture from yesterday\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;sha256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_serial_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;vtl-x4-07\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tcl.ppj.003\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic flow control light at A603 North East\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/115340cf-f39e-4d43-a2ee-8017d672c6c6\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1.0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;some_custom_attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_primary_image\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/87b1a84c-1c6f-442b-923e-a97516f4d275\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SHA256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;PENDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;3.2.1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;PENDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;owner\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003efalse\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="asset-record-retrieval"\u003eAsset Record Retrieval\u003c/h3\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch4 id="creating-a-public-asset"\u003eCreating a Public Asset\u003c/h4\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cp\u003eIn most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in \u003ca href="../../quickstart/sharing-assets-with-obac/"\u003eSharing Assets with OBAC\u003c/a\u003e or the \u003ca href="../iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eHowever it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.\u003c/p\u003e
+\u003cp\u003ePublic Assets can be used for Public Attestation, where you may wish to publicly assert data you have published.\u003c/p\u003e
+\u003cp\u003eFor example, the vulnerability reports against an OpenSource software package, or perhaps the maintenance records for a public building.\u003c/p\u003e
+\u003cp\u003eCreating a Public Asset just requires flipping the \u003ccode\u003epublic\u003c/code\u003e value in the above request to \u003ccode\u003etrue\u003c/code\u003e, from then on \u003cstrong\u003eonly\u003c/strong\u003e the creating tenancy may update the asset and events on a Public Asset through their private, signed-in interface.\u003c/p\u003e
+\u003cp\u003eAll Public Assets are then given a read-only public URL that can be retrieved using \u003ca href="./#fetch-a-public-assets-url"\u003eFetch a Public Asset\u0026rsquo;s URL\u003c/a\u003e, any events added to that Public Asset will also get their own unique Public URL that can be retrieved with \u003ca href="./#fetch-a-public-assets-event-url"\u003eFetch a Public Asset\u0026rsquo;s Event URL\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eThis link can be shared with anyone to give them read-only access to the asset or event without the need to sign in.\u003c/p\u003e
+\u003cp\u003eTo interact with the unauthenticated Public Interface for a Public Asset see the \u003ca href="../public-assets-api/"\u003ePublic Assets API Reference\u003c/a\u003e. To update the Assets and Events as the creating tenant on a Public Asset\u0026rsquo;s authenticated Private Interface you would still use the standard Assets and Events API as normal.\u003c/p\u003e
+\u003ch3 id="asset-record-retrieval"\u003eAsset Record Retrieval\u003c/h3\u003e
 \u003cp\u003eAsset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003eassets/12345678-90ab-cdef-1234-567890abcdef
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eIf you do not know the asset’s identity you can fetch asset records using other information you do know.\u003c/p\u003e
@@ -4907,7 +4918,23 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!\u003cspan class="o"\u003e=\u003c/span\u003e*
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eReturns all assets which do not have \u003ccode\u003earc_display_name\u003c/code\u003e or in which \u003ccode\u003earc_display_name\u003c/code\u003e is empty.\u003c/p\u003e
-\u003ch2 id="asset-openapi-docs"\u003eAsset OpenAPI Docs\u003c/h2\u003e
+\u003ch4 id="fetch-a-public-assets-url"\u003eFetch a Public Asset\u0026rsquo;s URL\u003c/h4\u003e
+\u003cp\u003eFetch the Public URL of a Public Asset\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;publicurl\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch4 id="fetch-a-public-assets-event-url"\u003eFetch a Public Asset\u0026rsquo;s Event URL\u003c/h4\u003e
+\u003cp\u003eFetch the Public URL of an Event on a Public Asset\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;publicurl\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="asset-openapi-docs"\u003eAsset OpenAPI Docs\u003c/h2\u003e
 
  
  
@@ -15413,7 +15440,861 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+\u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
+\u003cp\u003eThe methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/p\u003e
+\u003ch3 id="fetch-a-public-asset-record"\u003eFetch a Public Asset Record\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Builtin\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;AssetCreator\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e \u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;foo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;bar\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This asset is public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Public Asset\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;owner\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;at_time\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-15T14:26:40Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;storage_integrity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TENANT_STORAGE\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;chain_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;8275868384\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="fetch-all-of-a-public-assets-events-records"\u003eFetch all of a Public Asset\u0026rsquo;s Events Records\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;events\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/083f90fb-c379-40db-b56a-190564d53cd5\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Change\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24.681514884Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/10d252f2-3116-4c22-b34a-7e3f768895c9\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_always_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;0x4609ea6bbe85F61bc64760273ce6D89A632B569f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_event_arc_display_type_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;*\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;0x4609ea6bbe85F61bc64760273ce6D89A632B569f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;foo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;bar\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This asset is public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Public Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Asset\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;NewAsset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;AssetCreator\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:35.143791572Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;next_page_token\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="fetch-a-public-assets-specific-event-record"\u003eFetch a Public Asset\u0026rsquo;s specific Event Record\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/083f90fb-c379-40db-b56a-190564d53cd5\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Change\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24.681514884Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="public-assets-openapi-docs"\u003ePublic Assets OpenAPI Docs\u003c/h2\u003e
+
+ 
+ 
+  
+  
+  \u003cdiv class="\$openapi-spec-content"\u003e
+    \u003cdiv class="description"\u003e
+      \u003cp\u003eAPI for public asset and event management.\u003c/p\u003e
+    \u003c/div\u003e
+      \u003cdiv class="accordion" id='Public Assets0'\u003e\u003c/div\u003e
+      
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets1' aria-expanded="true" aria-controls='collapsePublic Assets1'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets1' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets1' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves Archivist event for public asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves a specific Archivist event for a public asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets1' aria-expanded="true" aria-controls='collapserequestPublic Assets1'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets1' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "asset_attributes": {
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "behaviour": "RecordEvidence",
+  "block_number": 12,
+  "confirmation_status": "CONFIRMED",
+  "event_attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    ]
+  },
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+  "operation": "Record",
+  "principal_accepted": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "principal_declared": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "timestamp_accepted": "2019-11-27T14:44:19Z",
+  "timestamp_committed": "2019-11-27T14:44:19Z",
+  "timestamp_declared": "2019-11-27T14:44:19Z",
+  "transaction_id": "0x07569",
+  "transaction_index": 5
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003easset_attributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of asset attributes\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003easset_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of a related asset resource \u003ccode\u003eassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ebehaviour\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eThe behaviour used to create event. \u003ccode\u003eRecordEvidence\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eblock_number\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003enumber of block event was commited on\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003econfirmation_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates if the event has been succesfully committed to the blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eevent_attributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of event attributes\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003efrom\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ewallet address for the creator of this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of a event resource\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eoperation\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eThe operation represented by the event. \u003ccode\u003eRecord\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eprincipal_accepted\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal recorded by the server\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eprincipal_declared\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal provided by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as recorded by the server\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_committed\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as recorded on blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_declared\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as declared by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etransaction_id\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehash of the transaction as a hex string \u003ccode\u003e0x11bf5b37e0b842e08dcfdc8c4aefc000\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etransaction_index\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindex of event within commited block\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets2' aria-expanded="true" aria-controls='collapsePublic Assets2'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets2' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets2' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves a specific public Archivist asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves a specific public Archivist asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets2' aria-expanded="true" aria-controls='collapserequestPublic Assets2'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets2' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "at_time": "2019-11-27T14:44:19Z",
+  "attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    ],
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "behaviours": [
+    "RecordEvidence"
+  ],
+  "confirmation_status": "PENDING",
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
+  "proof_mechanism": "SIMPLE_HASH",
+  "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "tracked": "TRACKED"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eaccess_policy\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of behaviour to private for keys\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eat_time\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates time the asset data is from\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eattributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of asset properties\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ebehaviours\u003c/th\u003e
+                                  \u003ctd\u003earray\u003c/td\u003e
+                                  
+                                    \u003ctd\u003elist of behaviours enabled for this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003echain_id\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003echain id of the blockchain associated with this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003econfirmation_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates if the asset has been succesfully committed to the blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003erelative resource address \u003ccode\u003eassets/{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eowner\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ewallet address of the asset owner\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eproof_mechanism\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ethe mechanism used to provide evidential proof\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublic\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ePublic asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003estorage_integrity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etracked\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates whether asset is still being tracked in the system\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets3' aria-expanded="true" aria-controls='collapsePublic Assets3'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets3' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets3' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eList Archivist events for a public asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Lists Archivist events for a public asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets3' aria-expanded="true" aria-controls='collapserequestPublic Assets3'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets3' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "events": [
+    {
+      "asset_attributes": {
+        "arc_firmware_version": "3.2.1",
+        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+      },
+      "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+      "behaviour": "RecordEvidence",
+      "block_number": 12,
+      "confirmation_status": "CONFIRMED",
+      "event_attributes": {
+        "arc_attachments": [
+          {
+            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+            "arc_display_name": "Picture from yesterday",
+            "arc_hash_alg": "sha256",
+            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+          }
+        ]
+      },
+      "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+      "operation": "Record",
+      "principal_accepted": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "principal_declared": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+      "timestamp_accepted": "2019-11-27T14:44:19Z",
+      "timestamp_committed": "2019-11-27T14:44:19Z",
+      "timestamp_declared": "2019-11-27T14:44:19Z",
+      "transaction_id": "0x07569",
+      "transaction_index": 5
+    },
+    {
+      "asset_attributes": {
+        "arc_firmware_version": "3.2.1",
+        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+      },
+      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "behaviour": "RecordEvidence",
+      "block_number": 13,
+      "confirmation_status": "CONFIRMED",
+      "event_attributes": {
+        "arc_attachments": [
+          {
+            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+            "arc_display_name": "Picture",
+            "arc_hash_alg": "sha256",
+            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+          }
+        ]
+      },
+      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "operation": "Record",
+      "principal_accepted": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "principal_declared": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+      "timestamp_accepted": "2019-07-27T14:44:19Z",
+      "timestamp_committed": "2019-07-27T14:44:19Z",
+      "timestamp_declared": "2019-07-27T14:44:19Z",
+      "transaction_id": "0x12569",
+      "transaction_index": 6
+    }
+  ],
+  "next_page_token": "abcd"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eevents\u003c/th\u003e
+                                  \u003ctd\u003earray\u003c/td\u003e
+                                  
+                                    
+                                    
+                                    
+                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003enext_page_token\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eToken to retrieve the next page of results or empty if there are none.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e206\u003c/th\u003e\u003ctd\u003eThe number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is \u0026lsquo;items 0-LIMIT/TOTAL\u0026rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+
+
+
+  \u003c/div\u003e
+
+
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -15766,7 +16647,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -16991,7 +17872,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -17888,7 +18769,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:30,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:31,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -17896,7 +18777,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:31,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:32,href:"https://docs.rkvst.com/docs/quickstart/",title:"Quickstart",description:"",content:`\u003cp\u003eThis Quickstart Guide will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:32,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:33,href:"https://docs.rkvst.com/docs/quickstart/",title:"Quickstart",description:"",content:`\u003cp\u003eThis Quickstart Guide will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -17904,7 +18785,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in the Quickstart Guide click on any of the following:\u003c/p\u003e
-`},{id:33,href:"https://docs.rkvst.com/docs/setup-and-administration/",title:"Setup and Administration",description:"",content:""},{id:34,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:34,href:"https://docs.rkvst.com/docs/setup-and-administration/",title:"Setup and Administration",description:"",content:""},{id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -22719,24 +23600,24 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1.0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_serial_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;vtl-x4-07\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tcl.ppj.003\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic flow control light at A603 North East\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/115340cf-f39e-4d43-a2ee-8017d672c6c6\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;some_custom_attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_primary_image\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/87b1a84c-1c6f-442b-923e-a97516f4d275\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SHA256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Picture from yesterday\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;sha256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;3.2.1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003efalse\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eCreate the asset:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
@@ -22746,32 +23627,43 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe response is:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/3f5be24f-fd1b-40e2-af35-ec7c14c74d53\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;at_time\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Picture from yesterday\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;sha256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_serial_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;vtl-x4-07\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tcl.ppj.003\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic flow control light at A603 North East\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/115340cf-f39e-4d43-a2ee-8017d672c6c6\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;1.0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;some_custom_attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_primary_image\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachment_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;blobs/87b1a84c-1c6f-442b-923e-a97516f4d275\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_alg\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SHA256\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_hash_value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;PENDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_firmware_version\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;3.2.1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;PENDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;owner\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003efalse\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="asset-record-retrieval"\u003eAsset Record Retrieval\u003c/h3\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch4 id="creating-a-public-asset"\u003eCreating a Public Asset\u003c/h4\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cp\u003eIn most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in \u003ca href="../../quickstart/sharing-assets-with-obac/"\u003eSharing Assets with OBAC\u003c/a\u003e or the \u003ca href="../iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eHowever it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.\u003c/p\u003e
+\u003cp\u003ePublic Assets can be used for Public Attestation, where you may wish to publicly assert data you have published.\u003c/p\u003e
+\u003cp\u003eFor example, the vulnerability reports against an OpenSource software package, or perhaps the maintenance records for a public building.\u003c/p\u003e
+\u003cp\u003eCreating a Public Asset just requires flipping the \u003ccode\u003epublic\u003c/code\u003e value in the above request to \u003ccode\u003etrue\u003c/code\u003e, from then on \u003cstrong\u003eonly\u003c/strong\u003e the creating tenancy may update the asset and events on a Public Asset through their private, signed-in interface.\u003c/p\u003e
+\u003cp\u003eAll Public Assets are then given a read-only public URL that can be retrieved using \u003ca href="./#fetch-a-public-assets-url"\u003eFetch a Public Asset\u0026rsquo;s URL\u003c/a\u003e, any events added to that Public Asset will also get their own unique Public URL that can be retrieved with \u003ca href="./#fetch-a-public-assets-event-url"\u003eFetch a Public Asset\u0026rsquo;s Event URL\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eThis link can be shared with anyone to give them read-only access to the asset or event without the need to sign in.\u003c/p\u003e
+\u003cp\u003eTo interact with the unauthenticated Public Interface for a Public Asset see the \u003ca href="../public-assets-api/"\u003ePublic Assets API Reference\u003c/a\u003e. To update the Assets and Events as the creating tenant on a Public Asset\u0026rsquo;s authenticated Private Interface you would still use the standard Assets and Events API as normal.\u003c/p\u003e
+\u003ch3 id="asset-record-retrieval"\u003eAsset Record Retrieval\u003c/h3\u003e
 \u003cp\u003eAsset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003eassets/12345678-90ab-cdef-1234-567890abcdef
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eIf you do not know the asset’s identity you can fetch asset records using other information you do know.\u003c/p\u003e
@@ -22813,7 +23705,23 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!\u003cspan class="o"\u003e=\u003c/span\u003e*
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eReturns all assets which do not have \u003ccode\u003earc_display_name\u003c/code\u003e or in which \u003ccode\u003earc_display_name\u003c/code\u003e is empty.\u003c/p\u003e
-\u003ch2 id="asset-openapi-docs"\u003eAsset OpenAPI Docs\u003c/h2\u003e
+\u003ch4 id="fetch-a-public-assets-url"\u003eFetch a Public Asset\u0026rsquo;s URL\u003c/h4\u003e
+\u003cp\u003eFetch the Public URL of a Public Asset\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;publicurl\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch4 id="fetch-a-public-assets-event-url"\u003eFetch a Public Asset\u0026rsquo;s Event URL\u003c/h4\u003e
+\u003cp\u003eFetch the Public URL of an Event on a Public Asset\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;publicurl\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="asset-openapi-docs"\u003eAsset OpenAPI Docs\u003c/h2\u003e
 
  
  
@@ -33319,7 +34227,861 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+\u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
+\u003cp\u003eThe methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/p\u003e
+\u003ch3 id="fetch-a-public-asset-record"\u003eFetch a Public Asset Record\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Builtin\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;AssetCreator\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e \u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;foo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;bar\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This asset is public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Public Asset\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tracked\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TRACKED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;owner\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;at_time\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-15T14:26:40Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;storage_integrity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;TENANT_STORAGE\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;chain_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;8275868384\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="fetch-all-of-a-public-assets-events-records"\u003eFetch all of a Public Asset\u0026rsquo;s Events Records\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;events\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/083f90fb-c379-40db-b56a-190564d53cd5\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Change\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24.681514884Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/10d252f2-3116-4c22-b34a-7e3f768895c9\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_always_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;0x4609ea6bbe85F61bc64760273ce6D89A632B569f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;attribute\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_access_policy_event_arc_display_type_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;SmL4PHAHXLdpkj/c6Xs+2br+hxqLmhcRk75Hkj5DyEQ=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tessera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;*\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                        \u003cspan class="nt"\u003e\u0026#34;0x4609ea6bbe85F61bc64760273ce6D89A632B569f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;wallet\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;foo\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;bar\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This asset is public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Public Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Asset\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;NewAsset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;AssetCreator\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T13:38:35.143791572Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;next_page_token\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch3 id="fetch-a-public-assets-specific-event-record"\u003eFetch a Public Asset\u0026rsquo;s specific Event Record\u003c/h3\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/083f90fb-c379-40db-b56a-190564d53cd5\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;asset_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;assets/86b61c4b-030e-4c07-9400-463612e6cee4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Change\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;A\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;B\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;timestamp_committed\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2022-07-06T14:56:24.681514884Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;principal_declared\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;principal_accepted\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;issuer\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;subject\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;email\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;confirmation_status\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;CONFIRMED\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transaction_id\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tenant_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="public-assets-openapi-docs"\u003ePublic Assets OpenAPI Docs\u003c/h2\u003e
+
+ 
+ 
+  
+  
+  \u003cdiv class="\$openapi-spec-content"\u003e
+    \u003cdiv class="description"\u003e
+      \u003cp\u003eAPI for public asset and event management.\u003c/p\u003e
+    \u003c/div\u003e
+      \u003cdiv class="accordion" id='Public Assets0'\u003e\u003c/div\u003e
+      
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets1' aria-expanded="true" aria-controls='collapsePublic Assets1'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets1' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets1' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves Archivist event for public asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves a specific Archivist event for a public asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets1' aria-expanded="true" aria-controls='collapserequestPublic Assets1'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets1' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "asset_attributes": {
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "behaviour": "RecordEvidence",
+  "block_number": 12,
+  "confirmation_status": "CONFIRMED",
+  "event_attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    ]
+  },
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+  "operation": "Record",
+  "principal_accepted": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "principal_declared": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "timestamp_accepted": "2019-11-27T14:44:19Z",
+  "timestamp_committed": "2019-11-27T14:44:19Z",
+  "timestamp_declared": "2019-11-27T14:44:19Z",
+  "transaction_id": "0x07569",
+  "transaction_index": 5
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003easset_attributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of asset attributes\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003easset_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of a related asset resource \u003ccode\u003eassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ebehaviour\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eThe behaviour used to create event. \u003ccode\u003eRecordEvidence\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eblock_number\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003enumber of block event was commited on\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003econfirmation_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates if the event has been succesfully committed to the blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eevent_attributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of event attributes\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003efrom\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ewallet address for the creator of this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eidentity of a event resource\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eoperation\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eThe operation represented by the event. \u003ccode\u003eRecord\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eprincipal_accepted\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal recorded by the server\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eprincipal_declared\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eprincipal provided by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this event\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_accepted\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as recorded by the server\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_committed\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as recorded on blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etimestamp_declared\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etime of event as declared by the user\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etransaction_id\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ehash of the transaction as a hex string \u003ccode\u003e0x11bf5b37e0b842e08dcfdc8c4aefc000\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etransaction_index\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindex of event within commited block\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets2' aria-expanded="true" aria-controls='collapsePublic Assets2'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets2' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets2' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eRetrieves a specific public Archivist asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Retrieves a specific public Archivist asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets2' aria-expanded="true" aria-controls='collapserequestPublic Assets2'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets2' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "at_time": "2019-11-27T14:44:19Z",
+  "attributes": {
+    "arc_attachments": [
+      {
+        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+        "arc_display_name": "Picture from yesterday",
+        "arc_hash_alg": "sha256",
+        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    ],
+    "arc_firmware_version": "3.2.1",
+    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+  },
+  "behaviours": [
+    "RecordEvidence"
+  ],
+  "confirmation_status": "PENDING",
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
+  "proof_mechanism": "SIMPLE_HASH",
+  "public": false,
+  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "tracked": "TRACKED"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eaccess_policy\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of behaviour to private for keys\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eat_time\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates time the asset data is from\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eattributes\u003c/th\u003e
+                                  \u003ctd\u003eobject\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ekey value mapping of asset properties\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003ebehaviours\u003c/th\u003e
+                                  \u003ctd\u003earray\u003c/td\u003e
+                                  
+                                    \u003ctd\u003elist of behaviours enabled for this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003echain_id\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003echain id of the blockchain associated with this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003econfirmation_status\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates if the asset has been succesfully committed to the blockchain\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003erelative resource address \u003ccode\u003eassets/{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eowner\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ewallet address of the asset owner\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eproof_mechanism\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ethe mechanism used to provide evidential proof\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003epublic\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003ePublic asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003estorage_integrity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etenant_identity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eIdentity of the tenant the that created this asset\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003etracked\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eindicates whether asset is still being tracked in the system\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerPublic Assets3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic Assets3' aria-expanded="true" aria-controls='collapsePublic Assets3'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapsePublic Assets3' class="accordion-collapse collapse" aria-labelledby='headerPublic Assets3' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eList Archivist events for a public asset\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Lists Archivist events for a public asset\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublic Assets3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic Assets3' aria-expanded="true" aria-controls='collapserequestPublic Assets3'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponsePublic Assets3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic Assets3' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "events": [
+    {
+      "asset_attributes": {
+        "arc_firmware_version": "3.2.1",
+        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+      },
+      "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+      "behaviour": "RecordEvidence",
+      "block_number": 12,
+      "confirmation_status": "CONFIRMED",
+      "event_attributes": {
+        "arc_attachments": [
+          {
+            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+            "arc_display_name": "Picture from yesterday",
+            "arc_hash_alg": "sha256",
+            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+          }
+        ]
+      },
+      "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+      "operation": "Record",
+      "principal_accepted": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "principal_declared": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+      "timestamp_accepted": "2019-11-27T14:44:19Z",
+      "timestamp_committed": "2019-11-27T14:44:19Z",
+      "timestamp_declared": "2019-11-27T14:44:19Z",
+      "transaction_id": "0x07569",
+      "transaction_index": 5
+    },
+    {
+      "asset_attributes": {
+        "arc_firmware_version": "3.2.1",
+        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+      },
+      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "behaviour": "RecordEvidence",
+      "block_number": 13,
+      "confirmation_status": "CONFIRMED",
+      "event_attributes": {
+        "arc_attachments": [
+          {
+            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+            "arc_display_name": "Picture",
+            "arc_hash_alg": "sha256",
+            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+          }
+        ]
+      },
+      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "operation": "Record",
+      "principal_accepted": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "principal_declared": {
+        "issuer": "job.idp.server/1234",
+        "subject": "bob@job"
+      },
+      "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+      "timestamp_accepted": "2019-07-27T14:44:19Z",
+      "timestamp_committed": "2019-07-27T14:44:19Z",
+      "timestamp_declared": "2019-07-27T14:44:19Z",
+      "transaction_id": "0x12569",
+      "transaction_index": 6
+    }
+  ],
+  "next_page_token": "abcd"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eevents\u003c/th\u003e
+                                  \u003ctd\u003earray\u003c/td\u003e
+                                  
+                                    
+                                    
+                                    
+                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003enext_page_token\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eToken to retrieve the next page of results or empty if there are none.\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e206\u003c/th\u003e\u003ctd\u003eThe number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is \u0026lsquo;items 0-LIMIT/TOTAL\u0026rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+
+
+
+  \u003c/div\u003e
+
+
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -33672,7 +35434,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -34897,7 +36659,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -35794,7 +37556,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:30,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:31,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -35802,7 +37564,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:31,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:32,href:"https://docs.rkvst.com/docs/quickstart/",title:"Quickstart",description:"",content:`\u003cp\u003eThis Quickstart Guide will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:32,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:33,href:"https://docs.rkvst.com/docs/quickstart/",title:"Quickstart",description:"",content:`\u003cp\u003eThis Quickstart Guide will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -35810,4 +37572,4 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in the Quickstart Guide click on any of the following:\u003c/p\u003e
-`}).add({id:33,href:"https://docs.rkvst.com/docs/setup-and-administration/",title:"Setup and Administration",description:"",content:""}).add({id:34,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:34,href:"https://docs.rkvst.com/docs/setup-and-administration/",title:"Setup and Administration",description:"",content:""}).add({id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

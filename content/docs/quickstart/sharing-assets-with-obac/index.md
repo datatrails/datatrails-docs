@@ -105,7 +105,12 @@ Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an Access Policy using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
+Create an empty file, in later steps we will add the correct JSON.
+```json
+{
+
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -117,7 +122,7 @@ Here you will see any existing policies and can select `Add Policy`.
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You may view your existing policies before moving on to create your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -169,7 +174,7 @@ In our case, we want the `Organization` actor, which implies OBAC. Type the Frie
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-To add users to the access policy using JSON, you will first need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
+To add an organization to the access policy, you will first need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
 
 Save the following to a JSON file with your desired subject information. 
 ```json
@@ -199,7 +204,7 @@ Enter desired permissions and select `Add Permission Group`.
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Add the desired permissions and the subject ID found in the previous step. 
+Add the desired permissions and the Subject ID found in the previous step. 
 ```json
 {
     "display_name": "Mandy Inspect Policy",

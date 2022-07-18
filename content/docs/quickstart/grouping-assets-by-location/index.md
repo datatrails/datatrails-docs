@@ -41,8 +41,12 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create a Location using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
+Create an empty file, in later steps we will add the correct JSON.
+```json
+{
 
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -80,7 +84,7 @@ You may add a `display_name` and `description` to identify your Location.
 {{< /tabs >}}
 
 
-3. Enter the required Location Name and Address, or in the case of the YAML Runner and JSON format, Coordinates.
+3. Enter the required Location Name and Address, or in the case of YAML and JSON, coordinates.
 
 {{< tabs name="add_location_name_locations" >}}
 {{{< tab name="UI" >}}

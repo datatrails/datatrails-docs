@@ -41,7 +41,12 @@ Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to create an Access Policy using JSON format, create a file to store the details. We will execute a command to run the file in a later step. 
+Create an empty file, in later steps we will add the correct JSON.
+```json
+{
+
+}
+```
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -53,7 +58,7 @@ Here you will see any existing policies and can select `Add Policy`.
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You may view your existing policies before moving on to create your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -103,27 +108,34 @@ In this example, the `User` actor implies an ABAC policy, identified by email. T
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-In order to import a Subject using the base64 string, it will need to be decoded to access the `wallet_pub_key` and `tessera_pub_key` used in the next step. 
- ```bash
- echo $SUBJECT_STRING | base64 -d
- ```
+There are a few ways you may add a `User` to your Access Policy using JSON. One way is to use the email address associated with their RKVST account. To do so, add the desired `user_attributes` to the `access_permissions` section.
 
-To add users to the access policy using JSON, you will then need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/). Save the following to a JSON file with your desired subject information. 
 ```json
-{
-    "display_name": "Friendly Name",
-    "wallet_pub_key": ["key1"],
-    "tessera_pub_key": ["key2"]
-}
+ "access_permissions": [
+        {
+            "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
+            "user_attributes": [
+               {"or": ["email=user@email.com"]}
+            ]
+        }
+    ]
 ```
-Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your access policy. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
-```bash
-curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
-    -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/subjects
+You may also grant permissions to an [App Registration](https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
+
+```json
+ "access_permissions": [
+        {
+            "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
+            "user_attributes": [
+               {"or": ["subject=<client-id>"]}
+            ]
+        }
+    ]
 ```
+{{< note >}}
+**Note:** This is different from adding `subjects` as a key in your `access_permissions`, for example, when adding an external Subject ID to an OBAC policy. The user attribute `subject` refers to the Client ID associated with an App Registration.
+{{< /note >}}
+
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -135,7 +147,7 @@ Enter desired permissions and select `Add Permission Group`.
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Add the desired permissions and the subject ID found in the previous step. 
+Add the desired permissions and the desired `user_attributes`. 
 ```json
 {
     "display_name": "Bill Inspect Policy",
@@ -150,8 +162,8 @@ Add the desired permissions and the subject ID found in the previous step.
     "access_permissions": [
         {
             "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
-            "subjects": [
-                "subjects/<subject-id>"
+            "user_attributes": [
+                {"or": ["email=bill@rkvst.com"]}
             ]
         }
     ]
@@ -196,4 +208,4 @@ For comparison with our Root User, Jill:
 
 We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location. 
 
-Our Root User Jill, can see every detail associated with the Asset.
+Our Root User, Jill, can see every detail associated with the Asset.

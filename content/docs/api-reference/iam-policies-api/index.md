@@ -19,6 +19,16 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 
 ### IAM Policy Creation
 
+Access Policies may be used to grant permissions within your tenancy or to external organizations. This is referred to as [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) and [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/), respectively. 
+
+An ABAC policy uses email addresses to share with non-root users within your tenancy. ABAC policies may also be used to grant permissions to App Registrations, identified by their Client ID. 
+
+Each App Registration is created with non-root privileges by default; you must create an ABAC policy to permit specific access to that App Registration like you would for any other non-root user.
+
+It is also possible to give these credentials Root User Access, but it is considered best practice to create specific ABAC policies preserving Principle of Least Privilege instead.
+
+To create an OBAC policy, you will first need to retrieve their Subject ID using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/). 
+
 Define the access_policies parameters and store in `/path/to/jsonfile`:
 
 ```json

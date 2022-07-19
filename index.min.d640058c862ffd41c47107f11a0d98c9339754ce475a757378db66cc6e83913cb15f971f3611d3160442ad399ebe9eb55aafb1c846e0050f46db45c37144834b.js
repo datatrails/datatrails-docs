@@ -1683,6 +1683,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_locations-1" type="button" role="tab" aria-controls="add_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_locations-2" type="button" role="tab" aria-controls="add_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_locations"\u003e\u003cdiv id="add_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_locations-0"\u003e
 \u003cp\u003eIn the Dashboard, select \u003ccode\u003eAdd Location\u003c/code\u003e in the Sidebar.\u003c/p\u003e
@@ -1708,7 +1711,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="2"\u003e
 \u003cli\u003eAdd information about the Location you are creating.\u003c/li\u003e
@@ -1719,6 +1728,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_info_locations-1" type="button" role="tab" aria-controls="add_location_info_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_info_locations-2" type="button" role="tab" aria-controls="add_location_info_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_info_locations"\u003e\u003cdiv id="add_location_info_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_info_locations-0"\u003e
 \u003cp\u003eThe following screen will appear:\u003c/p\u003e
@@ -1746,10 +1758,17 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate UK factory location. \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003edisplay_name\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_info_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_info_locations-2"\u003e
+\u003cp\u003eYou may add a \u003ccode\u003edisplay_name\u003c/code\u003e and \u003ccode\u003edescription\u003c/code\u003e to identify your Location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
-\u003cli\u003eEnter the required Location Name and Address, or in the case of the YAML Runner, Coordinates.\u003c/li\u003e
+\u003cli\u003eEnter the required Location Name and Address, or in the case of YAML and JSON, coordinates.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_location_name_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_name_locations-0" type="button" role="tab" aria-controls="add_location_name_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
@@ -1757,6 +1776,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_name_locations-1" type="button" role="tab" aria-controls="add_location_name_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_name_locations-2" type="button" role="tab" aria-controls="add_location_name_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_name_locations"\u003e\u003cdiv id="add_location_name_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_name_locations-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -1787,7 +1809,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eIndustrial Warehouse in Bristol Harbor\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003elatitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e51.4477\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003elongitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e-\u003cspan class="m"\u003e2.5980\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_name_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-2"\u003e
+\u003cp\u003eUse \u003ccode\u003elatitude\u003c/code\u003e and \u003ccode\u003elongitude\u003c/code\u003e to describe the physical location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;lattitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e51.4477\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;longitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e-2.5980\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eThere is an option to add Extended Attributes to a Location. This is useful to add metadata to a Location, i.e. a site contact\u0026rsquo;s number and email address.\u003c/li\u003e
@@ -1798,6 +1829,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_attributes_locations-1" type="button" role="tab" aria-controls="add_location_attributes_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_attributes_locations-2" type="button" role="tab" aria-controls="add_location_attributes_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_attributes_locations"\u003e\u003cdiv id="add_location_attributes_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_attributes_locations-0"\u003e
 \u003cp\u003eUse the \u003ccode\u003eExtended Attributes\u003c/code\u003e Tab.\u003c/p\u003e
@@ -1833,7 +1867,21 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaddress\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ePrinces Wharf, Wapping Rd, Bristol BS1 4RN, UK\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ePrimary_Contact\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJill Tiller\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ePrimary_Mobile_Number\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e+447700900077\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_attributes_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-2"\u003e
+\u003cp\u003eLike Assets and Events, Locations may also have Extended Attributes added as key-value pairs.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;lattitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e51.4477\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;longitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e-2.5980\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;address\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Princes Wharf, Wapping Rd, Bristol BS1 4RN, UK\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;Primary_Contact\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Jill Tiller\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;Primary_Mobile_Number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;+447700900077\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
 \u003cli\u003eComplete your Location.\u003c/li\u003e
@@ -1844,6 +1892,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_location_locations-1" type="button" role="tab" aria-controls="complete_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_location_locations-2" type="button" role="tab" aria-controls="complete_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="complete_location_locations"\u003e\u003cdiv id="complete_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_location_locations-0"\u003e
 \u003cp\u003eClick \u003ccode\u003eCreate Location\u003c/code\u003e.\u003c/p\u003e
@@ -1869,6 +1920,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      UK_factory_location.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="complete_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/locations
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
@@ -1936,6 +1995,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_at_asset_create-1" type="button" role="tab" aria-controls="add_at_asset_create-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_at_asset_create-2" type="button" role="tab" aria-controls="add_at_asset_create-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_at_asset_create"\u003e\u003cdiv id="add_at_asset_create-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_at_asset_create-0"\u003e
 \u003cp\u003eChoose the desired Location from the Location drop-down.\u003c/p\u003e
@@ -2000,7 +2062,18 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003elocation_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eUK Factory\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2"\u003e
+\u003cp\u003eA pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. \u003ccode\u003elocations/\u0026lt;UUID\u0026gt;\u003c/code\u003e).\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003ch3 id="adding-to-a-pre-existing-asset"\u003eAdding to a pre-existing Asset\u003c/h3\u003e
 \u003col\u003e
@@ -2032,12 +2105,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003col start="2"\u003e
 \u003cli\u003eThen create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the \u003ccode\u003earc_home_location_identity\u003c/code\u003e key.\u003c/li\u003e
 \u003c/ol\u003e
+\u003cp\u003eFor more information on creating Events, please visit \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eCreating an Event Against an Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cul class="nav nav-tabs" id="add_to_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_to_asset-0" type="button" role="tab" aria-controls="add_to_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
 		\u003c/li\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_to_asset-1" type="button" role="tab" aria-controls="add_to_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_to_asset-2" type="button" role="tab" aria-controls="add_to_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_to_asset"\u003e\u003cdiv id="add_to_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_to_asset-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -2056,7 +2133,6 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="add_to_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-1"\u003e
-\u003cp\u003eFor more information on creating Events, please visit \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eCreating an Event Against an Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - The \u003ccode\u003eEVENTS_CREATE\u003c/code\u003e action must contain at least one key-value pair for \u003ccode\u003eevent_attributes\u003c/code\u003e.\u003c/div\u003e
   \u003c/blockquote\u003e
@@ -2065,15 +2141,27 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eEVENTS_CREATE\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eAdd Location to existing Asset.\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e\u0026lt;your-asset-id\u0026gt; \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eassets/\u0026lt;asset-id\u0026gt; \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eoperation\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecord\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviour\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eevent_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003enew_event\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecord Asset Location\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_home_location_identity\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e\u0026lt;your-location-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_home_location_identity\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003elocations/\u0026lt;location-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_to_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - The Event must be recorded against the appropriate \u003ccode\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/code\u003e when the curl command is executed. \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eSee Step 4 here for more details.\u003c/a\u003e\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - You need to include the full \u003ccode\u003elocations/\u0026lt;UUID\u0026gt;\u003c/code\u003e reference as using only the \u003ccode\u003eUUID\u003c/code\u003e will not be recognized.\u003c/div\u003e
@@ -2116,216 +2204,287 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eConsider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.\u003c/p\u003e
 \u003cp\u003eWe shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create \u003ccode\u003eInspect\u003c/code\u003e Events.\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/li\u003e
+\u003cli\u003eCreate your Access Policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="access_policies_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_abac-0" type="button" role="tab" aria-controls="access_policies_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#access_policies_abac-1" type="button" role="tab" aria-controls="access_policies_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="access_policies_abac"\u003e\u003cdiv id="access_policies_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="access_policies_abac-0"\u003e
+\u003cp\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="access_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_abac-1"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
-\u003cli\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eYou may wish to view your existing policies before creating a new one.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="existing_policies_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_abac-0" type="button" role="tab" aria-controls="existing_policies_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#existing_policies_abac-1" type="button" role="tab" aria-controls="existing_policies_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="existing_policies_abac"\u003e\u003cdiv id="existing_policies_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="existing_policies_abac-0"\u003e
+\u003cp\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyAdd" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd.png" width="1824" height="661" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd.png" width="1824" height="661" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyAdd" tabindex="-1" aria-labelledby="PolicyAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" width="1824" height="661" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1824\u0026quot; height=\u0026quot;661\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1"\u003e
+\u003cp\u003eYou may view your existing policies before creating your new policy by executing the following curl command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="3"\u003e
-\u003cli\u003eWhen adding a Policy, you will see this form:\u003c/li\u003e
+\u003cli\u003eSet the asset filters for your policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="asset_filters_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_abac-0" type="button" role="tab" aria-controls="asset_filters_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#asset_filters_abac-1" type="button" role="tab" aria-controls="asset_filters_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="asset_filters_abac"\u003e\u003cdiv id="asset_filters_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="asset_filters_abac-0"\u003e
+\u003cp\u003eWhen adding a Policy, you will see this form:\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyForm" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm.png" width="939" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm.png" width="939" height="484" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePolicy Web Form\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyForm" tabindex="-1" aria-labelledby="PolicyForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" width="939" height="484" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;939\u0026quot; height=\u0026quot;484\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="4"\u003e
-\u003cli\u003eHere you can apply policy filters to the correct Assets.\u003c/li\u003e
-\u003c/ol\u003e
-\u003cp\u003eIn this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
-
-
+\u003cp\u003eHere you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACFilter" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter.png" width="945" height="491" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter.png" width="945" height="491" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFiltering for specific Assets and Locations\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACFilter" tabindex="-1" aria-labelledby="PolicyABACFilter" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" width="945" height="491" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;945\u0026quot; height=\u0026quot;491\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="5"\u003e
-\u003cli\u003eNext, we select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1"\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets.  \u003ca href="https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="permissions_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_abac-1" type="button" role="tab" aria-controls="permissions_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="permissions_abac"\u003e\u003cdiv id="permissions_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_abac-0"\u003e
+\u003cp\u003eWe select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACForm" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm.png" width="934" height="936" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm.png" width="934" height="936" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eDefault view of Policy Permissions\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACForm" tabindex="-1" aria-labelledby="PolicyABACForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" width="934" height="936" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w\u0026quot; width=\u0026quot;934\u0026quot; height=\u0026quot;936\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="6"\u003e
-\u003cli\u003eIn this example, the \u003ccode\u003eUser\u003c/code\u003e actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eIn this example, the \u003ccode\u003eUser\u003c/code\u003e actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACUsers" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers.png" width="890" height="233" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers.png" width="890" height="233" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a specific User to a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACUsers" tabindex="-1" aria-labelledby="PolicyABACUsers" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" width="890" height="233" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;890\u0026quot; height=\u0026quot;233\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="7"\u003e
-\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.\u003c/li\u003e
-\u003c/ol\u003e
-\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e, \u003ccode\u003earc_description\u003c/code\u003e, and \u003ccode\u003earc_home_location_identity\u003c/code\u003e.\u003c/p\u003e
-\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003c/div\u003e
+  \u003cdiv id="permissions_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="permissions_abac-1"\u003e
+\u003cp\u003eThere are a few ways you may add a \u003ccode\u003eUser\u003c/code\u003e to your Access Policy using JSON. One way is to use the email address associated with their RKVST account. To do so, add the desired \u003ccode\u003euser_attributes\u003c/code\u003e to the \u003ccode\u003eaccess_permissions\u003c/code\u003e section.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e \u003cspan class="s2"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="err"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e               \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;email=user@email.com\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eYou may also grant permissions to an \u003ca href="https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/"\u003eApp Registration\u003c/a\u003e within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e \u003cspan class="s2"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="err"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e               \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;subject=\u0026lt;client-id\u0026gt;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e This is different from adding \u003ccode\u003esubjects\u003c/code\u003e as a key in your \u003ccode\u003eaccess_permissions\u003c/code\u003e, for example, when adding an external Subject ID to an OBAC policy. The user attribute \u003ccode\u003esubject\u003c/code\u003e refers to the Client ID associated with an App Registration.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
 
-
+\u003col start="5"\u003e
+\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.
+\u003cul class="nav nav-tabs" id="complete_policy_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_abac-0" type="button" role="tab" aria-controls="complete_policy_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_abac-1" type="button" role="tab" aria-controls="complete_policy_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="complete_policy_abac"\u003e\u003cdiv id="complete_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_abac-0"\u003e
+\u003cp\u003eEnter desired permissions and select \u003ccode\u003eAdd Permission Group\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACPermissions" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="931" height="921" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="931" height="921" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePermitted Attributes on an Asset\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACPermissions" tabindex="-1" aria-labelledby="PolicyABACPermissions" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" width="931" height="921" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;931\u0026quot; height=\u0026quot;921\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
+\u003c/div\u003e   
 \u003c/div\u003e
-\u003col start="8"\u003e
-\u003cli\u003eOnce complete, select \u003ccode\u003eCreate Policy\u003c/code\u003e and check the Asset is appropriately shared.\u003c/li\u003e
+  \u003cdiv id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1"\u003e
+\u003cp\u003eAdd the desired permissions and the desired \u003ccode\u003euser_attributes\u003c/code\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;email=bill@rkvst.com\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e, \u003ccode\u003earc_description\u003c/code\u003e, and \u003ccode\u003earc_home_location_identity\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003col start="6"\u003e
+\u003cli\u003eOnce complete, finish creating the Access Policy.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="execute_policy_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#execute_policy_abac-0" type="button" role="tab" aria-controls="execute_policy_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#execute_policy_abac-1" type="button" role="tab" aria-controls="execute_policy_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="execute_policy_abac"\u003e\u003cdiv id="execute_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="execute_policy_abac-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eCreate Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACSubmit" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit.png" width="922" height="242" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit.png" width="922" height="242" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSubmitting a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACSubmit" tabindex="-1" aria-labelledby="PolicyABACSubmit" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" width="922" height="242" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;922\u0026quot; height=\u0026quot;242\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="execute_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="execute_policy_abac-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eCheck the Asset is appropriately shared.\u003c/li\u003e
+\u003c/ol\u003e
 \u003cp\u003eBill should only be allowed to see the Asset\u0026rsquo;s Name, Location, Length, and Weight Attributes.\u003c/p\u003e
 
 
@@ -2375,7 +2534,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
-\u003cp\u003eOur Root User Jill, can see every detail associated with the Asset.\u003c/p\u003e
+\u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
 `},{id:10,href:"https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
@@ -2442,274 +2601,374 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003ch3 id="importing-another-organizations-id"\u003eImporting another Organization\u0026rsquo;s ID\u003c/h3\u003e
 \u003col\u003e
-\u003cli\u003eAs a Root User, navigate to \u003ccode\u003eAccess Policies\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eUse the organization\u0026rsquo;s ID to create a new Subject.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="import_subject_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_obac-0" type="button" role="tab" aria-controls="import_subject_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#import_subject_obac-1" type="button" role="tab" aria-controls="import_subject_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="import_subject_obac"\u003e\u003cdiv id="import_subject_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="import_subject_obac-0"\u003e
+\u003cp\u003eAs a Root User, navigate to \u003ccode\u003eAccess Policies\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1"\u003e
+\u003cp\u003eIn order to import a Subject using the base64 string, it will need to be decoded to access the \u003ccode\u003ewallet_pub_key\u003c/code\u003e and \u003ccode\u003etessera_pub_key\u003c/code\u003e used in the next step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003eecho\u003c/span\u003e \u003cspan class="nv"\u003e\$SUBJECT_STRING\u003c/span\u003e \u003cspan class="p"\u003e|\u003c/span\u003e base64 -d
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
 \u003cli\u003eSelect the Subjects Tab and then \u003ccode\u003eImport Subject\u003c/code\u003e.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="import_subject_id_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_id_obac-0" type="button" role="tab" aria-controls="import_subject_id_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#import_subject_id_obac-1" type="button" role="tab" aria-controls="import_subject_id_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="import_subject_id_obac"\u003e\u003cdiv id="import_subject_id_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="import_subject_id_obac-0"\u003e
+\u003cp\u003eSelect the Subjects Tab and then \u003ccode\u003eImport Subject\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACSubjectImport" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport.png" width="1977" height="362" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport.png" width="1977" height="362" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eImporting a Subject\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACSubjectImport" tabindex="-1" aria-labelledby="PolicyOBACSubjectImport" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" width="1977" height="362" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1977\u0026quot; height=\u0026quot;362\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="3"\u003e
-\u003cli\u003eYou will be presented with a form; the \u003ccode\u003eSubject String\u003c/code\u003e is the ID of the Organization with which you wish to share Asset evidence. The \u003ccode\u003eName\u003c/code\u003e is a Friendly Name for you to label the imported organization.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eYou will be presented with a form; the \u003ccode\u003eSubject String\u003c/code\u003e is the ID of the Organization with which you wish to share Asset evidence. The \u003ccode\u003eName\u003c/code\u003e is a Friendly Name for you to label the imported organization.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACSubjectAdd" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd.png" width="587" height="333" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd.png" width="587" height="333" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding the Subject\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACSubjectAdd" tabindex="-1" aria-labelledby="PolicyOBACSubjectAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" width="587" height="333" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;587\u0026quot; height=\u0026quot;333\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="import_subject_id_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_id_obac-1"\u003e
+\u003cp\u003eTo add users to the access policy using JSON, you will first need to retrieve their subject IDs using the \u003ca href="https://docs.rkvst.com/docs/api-reference/iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eSave the following to a JSON file with your desired subject information.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Friendly Name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;wallet_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tessera_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key2\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eExecute the file, which will return the subject identity in the form \u003ccode\u003esubjects/\u0026lt;subject-id\u0026gt;\u003c/code\u003e to be used in your access policy. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003ch2 id="creating-an-obac-policy"\u003eCreating an OBAC Policy\u003c/h2\u003e
 \u003cp\u003eOBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.\u003c/p\u003e
 \u003cp\u003eIt is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/li\u003e
+\u003cli\u003eCreate your Access Policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="access_policies_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_obac-0" type="button" role="tab" aria-controls="access_policies_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#access_policies_obac-1" type="button" role="tab" aria-controls="access_policies_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="access_policies_obac"\u003e\u003cdiv id="access_policies_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="access_policies_obac-0"\u003e
+\u003cp\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="access_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_obac-1"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
-\u003cli\u003eHere you will see any existing policies, select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eYou may wish to view your existing policies before creating a new one.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="existing_policies_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_obac-0" type="button" role="tab" aria-controls="existing_policies_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#existing_policies_obac-1" type="button" role="tab" aria-controls="existing_policies_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="existing_policies_obac"\u003e\u003cdiv id="existing_policies_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="existing_policies_obac-0"\u003e
+\u003cp\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyAdd" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd.png" width="1824" height="661" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd.png" width="1824" height="661" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyAdd" tabindex="-1" aria-labelledby="PolicyAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" width="1824" height="661" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1824\u0026quot; height=\u0026quot;661\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1"\u003e
+\u003cp\u003eYou may view your existing policies before creating your new policy by executing the following curl command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="3"\u003e
-\u003cli\u003eWhen you add a policy the following form will appear:\u003c/li\u003e
+\u003cli\u003eSet the asset filters for your policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="asset_filters_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_obac-0" type="button" role="tab" aria-controls="asset_filters_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#asset_filters_obac-1" type="button" role="tab" aria-controls="asset_filters_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="asset_filters_obac"\u003e\u003cdiv id="asset_filters_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="asset_filters_obac-0"\u003e
+\u003cp\u003eWhen adding a Policy, you will see this form:\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyForm" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm.png" width="939" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm.png" width="939" height="484" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePolicy Web Form\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyForm" tabindex="-1" aria-labelledby="PolicyForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" width="939" height="484" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;939\u0026quot; height=\u0026quot;484\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="4"\u003e
-\u003cli\u003eHere you can begin applying filters to your Policy for the right assets. In this case, we\u0026rsquo;re going to filter for any Assets in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eHere you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACFilter" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter.png" width="949" height="496" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter.png" width="949" height="496" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFiltering for specific Assets and Locations\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACFilter" tabindex="-1" aria-labelledby="PolicyOBACFilter" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" width="949" height="496" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;949\u0026quot; height=\u0026quot;496\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="5"\u003e
-\u003cli\u003eNext, we select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="asset_filters_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_obac-1"\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. \u003ca href="https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="permissions_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_obac-0" type="button" role="tab" aria-controls="permissions_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_obac-1" type="button" role="tab" aria-controls="permissions_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="permissions_obac"\u003e\u003cdiv id="permissions_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_obac-0"\u003e
+\u003cp\u003eWe select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACForm" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm.png" width="934" height="936" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm.png" width="934" height="936" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eDefault view of Policy Permissions\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACForm" tabindex="-1" aria-labelledby="PolicyOBACForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" width="934" height="936" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w\u0026quot; width=\u0026quot;934\u0026quot; height=\u0026quot;936\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="6"\u003e
-\u003cli\u003eIn our case, we want the \u003ccode\u003eOrganization\u003c/code\u003e actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.\u003c/li\u003e
-\u003c/ol\u003e
+\u003cp\u003eIn our case, we want the \u003ccode\u003eOrganization\u003c/code\u003e actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e You will need to have imported another Organization\u0026rsquo;s ID before you can specify a policy to share information with that Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
-
-
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACUsers" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers.png" width="894" height="235" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers.png" width="894" height="235" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a specific User to a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACUsers" tabindex="-1" aria-labelledby="PolicyOBACUsers" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" width="894" height="235" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;894\u0026quot; height=\u0026quot;235\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="7"\u003e
-\u003cli\u003eWhen the relevant controls are in place, we then add the Permission Group to the policy.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="permissions_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="permissions_obac-1"\u003e
+\u003cp\u003eTo add an organization to the access policy, you will first need to retrieve their subject IDs using the \u003ca href="https://docs.rkvst.com/docs/api-reference/iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eSave the following to a JSON file with your desired subject information.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Friendly name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;wallet_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tessera_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key2\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eExecute the file, which will return the subject identity in the form \u003ccode\u003esubjects/\u0026lt;subject-id\u0026gt;\u003c/code\u003e to be used in your access policy. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="5"\u003e
+\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.\u003c/li\u003e
 \u003c/ol\u003e
-\u003cp\u003eNote we have included RKVST-significant atributes: \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e which brings visibility to the Name and Type of Asset being shared.\u003c/p\u003e
-
-
+\u003cul class="nav nav-tabs" id="complete_policy_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_obac-0" type="button" role="tab" aria-controls="complete_policy_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_obac-1" type="button" role="tab" aria-controls="complete_policy_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="complete_policy_obac"\u003e\u003cdiv id="complete_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_obac-0"\u003e
+\u003cp\u003eEnter desired permissions and select \u003ccode\u003eAdd Permission Group\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissions" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePermitted Attributes on an Asset\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACPermissions" tabindex="-1" aria-labelledby="PolicyOBACPermissions" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" width="907" height="243" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;907\u0026quot; height=\u0026quot;243\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="8"\u003e
-\u003cli\u003eOnce complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset\u0026rsquo;s custom \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1"\u003e
+\u003cp\u003eAdd the desired permissions and the Subject ID found in the previous step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;subjects\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="s2"\u003e\u0026#34;subjects/\u0026lt;subject-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name and Type of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003col start="6"\u003e
+\u003cli\u003eOnce complete, finish creating the Access Policy.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="finish_policy_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_policy_obac-0" type="button" role="tab" aria-controls="finish_policy_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_policy_obac-1" type="button" role="tab" aria-controls="finish_policy_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="finish_policy_obac"\u003e\u003cdiv id="finish_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="finish_policy_obac-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eCreate Policy\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissions" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSubmitting a Policy\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PolicyOBACPermissions" tabindex="-1" aria-labelledby="PolicyOBACPermissions" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;907\u0026quot; height=\u0026quot;243\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eOnce complete, check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset\u0026rsquo;s custom \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/li\u003e
 \u003c/ol\u003e
 
 
@@ -2758,7 +3017,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="9"\u003e
+\u003col start="8"\u003e
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
@@ -20470,6 +20729,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_locations-1" type="button" role="tab" aria-controls="add_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_locations-2" type="button" role="tab" aria-controls="add_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_locations"\u003e\u003cdiv id="add_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_locations-0"\u003e
 \u003cp\u003eIn the Dashboard, select \u003ccode\u003eAdd Location\u003c/code\u003e in the Sidebar.\u003c/p\u003e
@@ -20495,7 +20757,13 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-2"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="2"\u003e
 \u003cli\u003eAdd information about the Location you are creating.\u003c/li\u003e
@@ -20506,6 +20774,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_info_locations-1" type="button" role="tab" aria-controls="add_location_info_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_info_locations-2" type="button" role="tab" aria-controls="add_location_info_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_info_locations"\u003e\u003cdiv id="add_location_info_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_info_locations-0"\u003e
 \u003cp\u003eThe following screen will appear:\u003c/p\u003e
@@ -20533,10 +20804,17 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate UK factory location. \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003edisplay_name\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_info_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_info_locations-2"\u003e
+\u003cp\u003eYou may add a \u003ccode\u003edisplay_name\u003c/code\u003e and \u003ccode\u003edescription\u003c/code\u003e to identify your Location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="3"\u003e
-\u003cli\u003eEnter the required Location Name and Address, or in the case of the YAML Runner, Coordinates.\u003c/li\u003e
+\u003cli\u003eEnter the required Location Name and Address, or in the case of YAML and JSON, coordinates.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cul class="nav nav-tabs" id="add_location_name_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_name_locations-0" type="button" role="tab" aria-controls="add_location_name_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
@@ -20544,6 +20822,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_name_locations-1" type="button" role="tab" aria-controls="add_location_name_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_name_locations-2" type="button" role="tab" aria-controls="add_location_name_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_name_locations"\u003e\u003cdiv id="add_location_name_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_name_locations-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -20574,7 +20855,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eIndustrial Warehouse in Bristol Harbor\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003elatitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="m"\u003e51.4477\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003elongitude\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e-\u003cspan class="m"\u003e2.5980\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_name_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-2"\u003e
+\u003cp\u003eUse \u003ccode\u003elatitude\u003c/code\u003e and \u003ccode\u003elongitude\u003c/code\u003e to describe the physical location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;lattitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e51.4477\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;longitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e-2.5980\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eThere is an option to add Extended Attributes to a Location. This is useful to add metadata to a Location, i.e. a site contact\u0026rsquo;s number and email address.\u003c/li\u003e
@@ -20585,6 +20875,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_attributes_locations-1" type="button" role="tab" aria-controls="add_location_attributes_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_location_attributes_locations-2" type="button" role="tab" aria-controls="add_location_attributes_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_location_attributes_locations"\u003e\u003cdiv id="add_location_attributes_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_location_attributes_locations-0"\u003e
 \u003cp\u003eUse the \u003ccode\u003eExtended Attributes\u003c/code\u003e Tab.\u003c/p\u003e
@@ -20620,7 +20913,21 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaddress\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ePrinces Wharf, Wapping Rd, Bristol BS1 4RN, UK\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ePrimary_Contact\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJill Tiller\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ePrimary_Mobile_Number\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e+447700900077\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_location_attributes_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-2"\u003e
+\u003cp\u003eLike Assets and Events, Locations may also have Extended Attributes added as key-value pairs.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;UK Factory\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Industrial Warehouse in Bristol Harbor\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;lattitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e51.4477\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;longitude\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mf"\u003e-2.5980\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;address\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Princes Wharf, Wapping Rd, Bristol BS1 4RN, UK\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;Primary_Contact\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Jill Tiller\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e     \u003cspan class="nt"\u003e\u0026#34;Primary_Mobile_Number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;+447700900077\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="5"\u003e
 \u003cli\u003eComplete your Location.\u003c/li\u003e
@@ -20631,6 +20938,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_location_locations-1" type="button" role="tab" aria-controls="complete_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_location_locations-2" type="button" role="tab" aria-controls="complete_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="complete_location_locations"\u003e\u003cdiv id="complete_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_location_locations-0"\u003e
 \u003cp\u003eClick \u003ccode\u003eCreate Location\u003c/code\u003e.\u003c/p\u003e
@@ -20656,6 +20966,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      UK_factory_location.yaml
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="complete_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-2"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/locations
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
@@ -20723,6 +21041,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_at_asset_create-1" type="button" role="tab" aria-controls="add_at_asset_create-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_at_asset_create-2" type="button" role="tab" aria-controls="add_at_asset_create-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_at_asset_create"\u003e\u003cdiv id="add_at_asset_create-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_at_asset_create-0"\u003e
 \u003cp\u003eChoose the desired Location from the Location drop-down.\u003c/p\u003e
@@ -20787,7 +21108,18 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e\u003cspan class="nt"\u003elocation_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eUK Factory\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2"\u003e
+\u003cp\u003eA pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. \u003ccode\u003elocations/\u0026lt;UUID\u0026gt;\u003c/code\u003e).\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;My First Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Traffic light with violation camera\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003ch3 id="adding-to-a-pre-existing-asset"\u003eAdding to a pre-existing Asset\u003c/h3\u003e
 \u003col\u003e
@@ -20819,12 +21151,16 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003col start="2"\u003e
 \u003cli\u003eThen create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the \u003ccode\u003earc_home_location_identity\u003c/code\u003e key.\u003c/li\u003e
 \u003c/ol\u003e
+\u003cp\u003eFor more information on creating Events, please visit \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eCreating an Event Against an Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cul class="nav nav-tabs" id="add_to_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_to_asset-0" type="button" role="tab" aria-controls="add_to_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
 		\u003c/li\u003e
 	  
 		\u003cli class="nav-item"\u003e
 			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_to_asset-1" type="button" role="tab" aria-controls="add_to_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#add_to_asset-2" type="button" role="tab" aria-controls="add_to_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
 		\u003c/li\u003e\u003c/ul\u003e
 \u003cdiv class="tab-content" id="add_to_asset"\u003e\u003cdiv id="add_to_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_to_asset-0"\u003e
 \u003cfigure class="border-0"\u003e
@@ -20843,7 +21179,6 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="add_to_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-1"\u003e
-\u003cp\u003eFor more information on creating Events, please visit \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eCreating an Event Against an Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - The \u003ccode\u003eEVENTS_CREATE\u003c/code\u003e action must contain at least one key-value pair for \u003ccode\u003eevent_attributes\u003c/code\u003e.\u003c/div\u003e
   \u003c/blockquote\u003e
@@ -20852,15 +21187,27 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eEVENTS_CREATE\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eAdd Location to existing Asset.\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e\u0026lt;your-asset-id\u0026gt; \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eassets/\u0026lt;asset-id\u0026gt; \u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eoperation\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecord\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviour\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eevent_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003enew_event\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eRecord Asset Location\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_home_location_identity\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003e\u0026lt;your-location-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_home_location_identity\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003elocations/\u0026lt;location-id\u0026gt;\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="add_to_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;asset_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - The Event must be recorded against the appropriate \u003ccode\u003eassets/\u0026lt;asset-id\u0026gt;\u003c/code\u003e when the curl command is executed. \u003ca href="https://docs.rkvst.com/docs/quickstart/creating-an-event-against-an-asset/"\u003eSee Step 4 here for more details.\u003c/a\u003e\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote\u003c/strong\u003e - You need to include the full \u003ccode\u003elocations/\u0026lt;UUID\u0026gt;\u003c/code\u003e reference as using only the \u003ccode\u003eUUID\u003c/code\u003e will not be recognized.\u003c/div\u003e
@@ -20903,216 +21250,287 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eConsider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.\u003c/p\u003e
 \u003cp\u003eWe shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create \u003ccode\u003eInspect\u003c/code\u003e Events.\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/li\u003e
+\u003cli\u003eCreate your Access Policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="access_policies_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_abac-0" type="button" role="tab" aria-controls="access_policies_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#access_policies_abac-1" type="button" role="tab" aria-controls="access_policies_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="access_policies_abac"\u003e\u003cdiv id="access_policies_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="access_policies_abac-0"\u003e
+\u003cp\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="access_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_abac-1"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
-\u003cli\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eYou may wish to view your existing policies before creating a new one.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="existing_policies_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_abac-0" type="button" role="tab" aria-controls="existing_policies_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#existing_policies_abac-1" type="button" role="tab" aria-controls="existing_policies_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="existing_policies_abac"\u003e\u003cdiv id="existing_policies_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="existing_policies_abac-0"\u003e
+\u003cp\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyAdd" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd.png" width="1824" height="661" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd.png" width="1824" height="661" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyAdd" tabindex="-1" aria-labelledby="PolicyAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" width="1824" height="661" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1824\u0026quot; height=\u0026quot;661\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1"\u003e
+\u003cp\u003eYou may view your existing policies before creating your new policy by executing the following curl command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="3"\u003e
-\u003cli\u003eWhen adding a Policy, you will see this form:\u003c/li\u003e
+\u003cli\u003eSet the asset filters for your policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="asset_filters_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_abac-0" type="button" role="tab" aria-controls="asset_filters_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#asset_filters_abac-1" type="button" role="tab" aria-controls="asset_filters_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="asset_filters_abac"\u003e\u003cdiv id="asset_filters_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="asset_filters_abac-0"\u003e
+\u003cp\u003eWhen adding a Policy, you will see this form:\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyForm" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm.png" width="939" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm.png" width="939" height="484" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePolicy Web Form\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyForm" tabindex="-1" aria-labelledby="PolicyForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" width="939" height="484" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;939\u0026quot; height=\u0026quot;484\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="4"\u003e
-\u003cli\u003eHere you can apply policy filters to the correct Assets.\u003c/li\u003e
-\u003c/ol\u003e
-\u003cp\u003eIn this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
-
-
+\u003cp\u003eHere you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACFilter" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter.png" width="945" height="491" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter.png" width="945" height="491" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFiltering for specific Assets and Locations\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACFilter" tabindex="-1" aria-labelledby="PolicyABACFilter" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w" width="945" height="491" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACFilter_huf2c7f200c64acb72f7155a96854b34db_29526_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;945\u0026quot; height=\u0026quot;491\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="5"\u003e
-\u003cli\u003eNext, we select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1"\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets.  \u003ca href="https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="permissions_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_abac-1" type="button" role="tab" aria-controls="permissions_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="permissions_abac"\u003e\u003cdiv id="permissions_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_abac-0"\u003e
+\u003cp\u003eWe select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACForm" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm.png" width="934" height="936" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm.png" width="934" height="936" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eDefault view of Policy Permissions\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACForm" tabindex="-1" aria-labelledby="PolicyABACForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" width="934" height="936" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w\u0026quot; width=\u0026quot;934\u0026quot; height=\u0026quot;936\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="6"\u003e
-\u003cli\u003eIn this example, the \u003ccode\u003eUser\u003c/code\u003e actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eIn this example, the \u003ccode\u003eUser\u003c/code\u003e actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACUsers" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers.png" width="890" height="233" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers.png" width="890" height="233" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a specific User to a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACUsers" tabindex="-1" aria-labelledby="PolicyABACUsers" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w" width="890" height="233" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACUsers_huaac9b557b7f06d84a4271ac7c2ed6d38_15420_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;890\u0026quot; height=\u0026quot;233\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="7"\u003e
-\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.\u003c/li\u003e
-\u003c/ol\u003e
-\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e, \u003ccode\u003earc_description\u003c/code\u003e, and \u003ccode\u003earc_home_location_identity\u003c/code\u003e.\u003c/p\u003e
-\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003c/div\u003e
+  \u003cdiv id="permissions_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="permissions_abac-1"\u003e
+\u003cp\u003eThere are a few ways you may add a \u003ccode\u003eUser\u003c/code\u003e to your Access Policy using JSON. One way is to use the email address associated with their RKVST account. To do so, add the desired \u003ccode\u003euser_attributes\u003c/code\u003e to the \u003ccode\u003eaccess_permissions\u003c/code\u003e section.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e \u003cspan class="s2"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="err"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e               \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;email=user@email.com\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eYou may also grant permissions to an \u003ca href="https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/"\u003eApp Registration\u003c/a\u003e within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e \u003cspan class="s2"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="err"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e               \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;subject=\u0026lt;client-id\u0026gt;\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e This is different from adding \u003ccode\u003esubjects\u003c/code\u003e as a key in your \u003ccode\u003eaccess_permissions\u003c/code\u003e, for example, when adding an external Subject ID to an OBAC policy. The user attribute \u003ccode\u003esubject\u003c/code\u003e refers to the Client ID associated with an App Registration.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
 
-
+\u003col start="5"\u003e
+\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.
+\u003cul class="nav nav-tabs" id="complete_policy_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_abac-0" type="button" role="tab" aria-controls="complete_policy_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_abac-1" type="button" role="tab" aria-controls="complete_policy_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="complete_policy_abac"\u003e\u003cdiv id="complete_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_abac-0"\u003e
+\u003cp\u003eEnter desired permissions and select \u003ccode\u003eAdd Permission Group\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACPermissions" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="931" height="921" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="931" height="921" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePermitted Attributes on an Asset\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACPermissions" tabindex="-1" aria-labelledby="PolicyABACPermissions" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w" width="931" height="921" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu5032c15596795649b6de97c9e5f6861e_70417_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;931\u0026quot; height=\u0026quot;921\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
+\u003c/div\u003e   
 \u003c/div\u003e
-\u003col start="8"\u003e
-\u003cli\u003eOnce complete, select \u003ccode\u003eCreate Policy\u003c/code\u003e and check the Asset is appropriately shared.\u003c/li\u003e
+  \u003cdiv id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1"\u003e
+\u003cp\u003eAdd the desired permissions and the desired \u003ccode\u003euser_attributes\u003c/code\u003e.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_home_location_identity\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Length\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;user_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="p"\u003e{\u003c/span\u003e\u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;email=bill@rkvst.com\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e, \u003ccode\u003earc_description\u003c/code\u003e, and \u003ccode\u003earc_home_location_identity\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003col start="6"\u003e
+\u003cli\u003eOnce complete, finish creating the Access Policy.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="execute_policy_abac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#execute_policy_abac-0" type="button" role="tab" aria-controls="execute_policy_abac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#execute_policy_abac-1" type="button" role="tab" aria-controls="execute_policy_abac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="execute_policy_abac"\u003e\u003cdiv id="execute_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="execute_policy_abac-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eCreate Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACSubmit" img class="img-fluid responsive" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit.png" width="922" height="242" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit.png" width="922" height="242" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSubmitting a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyABACSubmit" tabindex="-1" aria-labelledby="PolicyABACSubmit" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w" width="922" height="242" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/PolicyABACSubmit_huc22edb211398edb8979ecaebf346361a_19962_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;922\u0026quot; height=\u0026quot;242\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="execute_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="execute_policy_abac-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eCheck the Asset is appropriately shared.\u003c/li\u003e
+\u003c/ol\u003e
 \u003cp\u003eBill should only be allowed to see the Asset\u0026rsquo;s Name, Location, Length, and Weight Attributes.\u003c/p\u003e
 
 
@@ -21162,7 +21580,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
-\u003cp\u003eOur Root User Jill, can see every detail associated with the Asset.\u003c/p\u003e
+\u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
 `}).add({id:10,href:"https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
@@ -21229,274 +21647,374 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003ch3 id="importing-another-organizations-id"\u003eImporting another Organization\u0026rsquo;s ID\u003c/h3\u003e
 \u003col\u003e
-\u003cli\u003eAs a Root User, navigate to \u003ccode\u003eAccess Policies\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eUse the organization\u0026rsquo;s ID to create a new Subject.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="import_subject_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_obac-0" type="button" role="tab" aria-controls="import_subject_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#import_subject_obac-1" type="button" role="tab" aria-controls="import_subject_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="import_subject_obac"\u003e\u003cdiv id="import_subject_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="import_subject_obac-0"\u003e
+\u003cp\u003eAs a Root User, navigate to \u003ccode\u003eAccess Policies\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1"\u003e
+\u003cp\u003eIn order to import a Subject using the base64 string, it will need to be decoded to access the \u003ccode\u003ewallet_pub_key\u003c/code\u003e and \u003ccode\u003etessera_pub_key\u003c/code\u003e used in the next step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003eecho\u003c/span\u003e \u003cspan class="nv"\u003e\$SUBJECT_STRING\u003c/span\u003e \u003cspan class="p"\u003e|\u003c/span\u003e base64 -d
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
 \u003cli\u003eSelect the Subjects Tab and then \u003ccode\u003eImport Subject\u003c/code\u003e.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="import_subject_id_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_id_obac-0" type="button" role="tab" aria-controls="import_subject_id_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#import_subject_id_obac-1" type="button" role="tab" aria-controls="import_subject_id_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="import_subject_id_obac"\u003e\u003cdiv id="import_subject_id_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="import_subject_id_obac-0"\u003e
+\u003cp\u003eSelect the Subjects Tab and then \u003ccode\u003eImport Subject\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACSubjectImport" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport.png" width="1977" height="362" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport.png" width="1977" height="362" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eImporting a Subject\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACSubjectImport" tabindex="-1" aria-labelledby="PolicyOBACSubjectImport" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w" width="1977" height="362" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectImport_hu8c6c4ec68d85da63434f8f4cc4ff891f_24732_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1977\u0026quot; height=\u0026quot;362\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="3"\u003e
-\u003cli\u003eYou will be presented with a form; the \u003ccode\u003eSubject String\u003c/code\u003e is the ID of the Organization with which you wish to share Asset evidence. The \u003ccode\u003eName\u003c/code\u003e is a Friendly Name for you to label the imported organization.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eYou will be presented with a form; the \u003ccode\u003eSubject String\u003c/code\u003e is the ID of the Organization with which you wish to share Asset evidence. The \u003ccode\u003eName\u003c/code\u003e is a Friendly Name for you to label the imported organization.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACSubjectAdd" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd.png" width="587" height="333" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd.png" width="587" height="333" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding the Subject\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACSubjectAdd" tabindex="-1" aria-labelledby="PolicyOBACSubjectAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w" width="587" height="333" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACSubjectAdd_huba16edd022425ca1ee94915fd44f8165_12861_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;587\u0026quot; height=\u0026quot;333\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="import_subject_id_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_id_obac-1"\u003e
+\u003cp\u003eTo add users to the access policy using JSON, you will first need to retrieve their subject IDs using the \u003ca href="https://docs.rkvst.com/docs/api-reference/iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eSave the following to a JSON file with your desired subject information.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Friendly Name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;wallet_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tessera_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key2\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eExecute the file, which will return the subject identity in the form \u003ccode\u003esubjects/\u0026lt;subject-id\u0026gt;\u003c/code\u003e to be used in your access policy. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003ch2 id="creating-an-obac-policy"\u003eCreating an OBAC Policy\u003c/h2\u003e
 \u003cp\u003eOBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.\u003c/p\u003e
 \u003cp\u003eIt is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.\u003c/p\u003e
 \u003col\u003e
-\u003cli\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/li\u003e
+\u003cli\u003eCreate your Access Policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="access_policies_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_obac-0" type="button" role="tab" aria-controls="access_policies_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#access_policies_obac-1" type="button" role="tab" aria-controls="access_policies_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="access_policies_obac"\u003e\u003cdiv id="access_policies_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="access_policies_obac-0"\u003e
+\u003cp\u003eNavigate to the \u003ccode\u003eAccess Policies\u003c/code\u003e section on the Sidebar of the RKVST Dashboard.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyManage" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage.png" width="2056" height="1019" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging Policies\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyManage" tabindex="-1" aria-labelledby="PolicyManage" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w" width="2056" height="1019" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyManage_hu622118ad9ea3066f5e568fa3caedd893_1448516_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2056\u0026quot; height=\u0026quot;1019\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="access_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_obac-1"\u003e
+\u003cp\u003eCreate an empty file, in later steps we will add the correct JSON.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="2"\u003e
-\u003cli\u003eHere you will see any existing policies, select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/li\u003e
+\u003cli\u003eYou may wish to view your existing policies before creating a new one.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="existing_policies_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_obac-0" type="button" role="tab" aria-controls="existing_policies_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#existing_policies_obac-1" type="button" role="tab" aria-controls="existing_policies_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="existing_policies_obac"\u003e\u003cdiv id="existing_policies_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="existing_policies_obac-0"\u003e
+\u003cp\u003eHere you will see any existing policies and can select \u003ccode\u003eAdd Policy\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyAdd" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd.png" width="1824" height="661" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd.png" width="1824" height="661" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyAdd" tabindex="-1" aria-labelledby="PolicyAdd" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w" width="1824" height="661" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyAdd_hu706a6eec8e4b414584b01bcd9a1bd918_62395_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1824\u0026quot; height=\u0026quot;661\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1"\u003e
+\u003cp\u003eYou may view your existing policies before creating your new policy by executing the following curl command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003col start="3"\u003e
-\u003cli\u003eWhen you add a policy the following form will appear:\u003c/li\u003e
+\u003cli\u003eSet the asset filters for your policy.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="asset_filters_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_obac-0" type="button" role="tab" aria-controls="asset_filters_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#asset_filters_obac-1" type="button" role="tab" aria-controls="asset_filters_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="asset_filters_obac"\u003e\u003cdiv id="asset_filters_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="asset_filters_obac-0"\u003e
+\u003cp\u003eWhen adding a Policy, you will see this form:\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyForm" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm.png" width="939" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm.png" width="939" height="484" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePolicy Web Form\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyForm" tabindex="-1" aria-labelledby="PolicyForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w" width="939" height="484" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyForm_huaff584fc98503c71aaba87fbe7ca6e96_22786_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;939\u0026quot; height=\u0026quot;484\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="4"\u003e
-\u003cli\u003eHere you can begin applying filters to your Policy for the right assets. In this case, we\u0026rsquo;re going to filter for any Assets in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier.\u003c/li\u003e
-\u003c/ol\u003e
-
-
+\u003cp\u003eHere you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the \u003ccode\u003eUK Factory\u003c/code\u003e Location created earlier, as well as the type of Asset (\u003ccode\u003eShipping Container\u003c/code\u003e).\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACFilter" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter.png" width="949" height="496" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter.png" width="949" height="496" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFiltering for specific Assets and Locations\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACFilter" tabindex="-1" aria-labelledby="PolicyOBACFilter" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w" width="949" height="496" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACFilter_hud0d6e9778474a5d24f0feb95326a97b2_30044_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;949\u0026quot; height=\u0026quot;496\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="5"\u003e
-\u003cli\u003eNext, we select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set which Organizations can read and write certain Asset attributes, as well as Event visibility.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="asset_filters_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_obac-1"\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. \u003ca href="https://docs.rkvst.com/docs/quickstart/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
 \u003c/ol\u003e
-
-
+\u003cul class="nav nav-tabs" id="permissions_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_obac-0" type="button" role="tab" aria-controls="permissions_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_obac-1" type="button" role="tab" aria-controls="permissions_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="permissions_obac"\u003e\u003cdiv id="permissions_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_obac-0"\u003e
+\u003cp\u003eWe select the \u003ccode\u003ePermissions\u003c/code\u003e Tab to set Users\u0026rsquo; Asset and Event attribute access policy.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACForm" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm.png" width="934" height="936" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm.png" width="934" height="936" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eDefault view of Policy Permissions\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACForm" tabindex="-1" aria-labelledby="PolicyOBACForm" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w" width="934" height="936" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACForm_huc3e3d251817a93f6fc1a6362184d4122_68953_500x0_resize_box_3.png 500w\u0026quot; width=\u0026quot;934\u0026quot; height=\u0026quot;936\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="6"\u003e
-\u003cli\u003eIn our case, we want the \u003ccode\u003eOrganization\u003c/code\u003e actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.\u003c/li\u003e
-\u003c/ol\u003e
+\u003cp\u003eIn our case, we want the \u003ccode\u003eOrganization\u003c/code\u003e actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e You will need to have imported another Organization\u0026rsquo;s ID before you can specify a policy to share information with that Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
-
-
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACUsers" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers.png" width="894" height="235" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers.png" width="894" height="235" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdding a specific User to a Policy\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACUsers" tabindex="-1" aria-labelledby="PolicyOBACUsers" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w" width="894" height="235" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACUsers_hu2c1ded2688d3e7d8a9641dff65362c23_16250_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;894\u0026quot; height=\u0026quot;235\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="7"\u003e
-\u003cli\u003eWhen the relevant controls are in place, we then add the Permission Group to the policy.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="permissions_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="permissions_obac-1"\u003e
+\u003cp\u003eTo add an organization to the access policy, you will first need to retrieve their subject IDs using the \u003ca href="https://docs.rkvst.com/docs/api-reference/iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e.\u003c/p\u003e
+\u003cp\u003eSave the following to a JSON file with your desired subject information.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Friendly name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;wallet_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;tessera_pub_key\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;key2\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eExecute the file, which will return the subject identity in the form \u003ccode\u003esubjects/\u0026lt;subject-id\u0026gt;\u003c/code\u003e to be used in your access policy. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="5"\u003e
+\u003cli\u003eOnce all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish.\u003c/li\u003e
 \u003c/ol\u003e
-\u003cp\u003eNote we have included RKVST-significant atributes: \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e which brings visibility to the Name and Type of Asset being shared.\u003c/p\u003e
-
-
+\u003cul class="nav nav-tabs" id="complete_policy_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_obac-0" type="button" role="tab" aria-controls="complete_policy_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_obac-1" type="button" role="tab" aria-controls="complete_policy_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="complete_policy_obac"\u003e\u003cdiv id="complete_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_obac-0"\u003e
+\u003cp\u003eEnter desired permissions and select \u003ccode\u003eAdd Permission Group\u003c/code\u003e.\u003c/p\u003e
 \u003cfigure class="border-0"\u003e
-  
   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissions" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" alt="Rectangle"\u003e\u003c/noscript\u003e
   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePermitted Attributes on an Asset\u003c/em\u003e\u003c/figcaption\u003e
 \u003c/figure\u003e
-
-
-
-
-
 \u003cdiv class="modal fade" id="PolicyOBACPermissions" tabindex="-1" aria-labelledby="PolicyOBACPermissions" aria-hidden="true"\u003e
   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
     
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" width="907" height="243" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;907\u0026quot; height=\u0026quot;243\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="8"\u003e
-\u003cli\u003eOnce complete, submit the policy and check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset\u0026rsquo;s custom \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/li\u003e
+\u003c/div\u003e
+  \u003cdiv id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1"\u003e
+\u003cp\u003eAdd the desired permissions and the Subject ID found in the previous step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity=locations/\u0026lt;location-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e \u003cspan class="nt"\u003e\u0026#34;or\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="s2"\u003e\u0026#34;attributes.arc_display_type=Shipping Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;access_permissions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;asset_attributes_read\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;Weight\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;subjects\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e                \u003cspan class="s2"\u003e\u0026#34;subjects/\u0026lt;subject-id\u0026gt;\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003cp\u003eNote we have included RKVST-sigificant attributes: \u003ccode\u003earc_display_name\u003c/code\u003e and \u003ccode\u003earc_display_type\u003c/code\u003e.\u003c/p\u003e
+\u003cp\u003e\u003ccode\u003earc_*\u003c/code\u003e attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name and Type of the Asset. Other \u003ccode\u003earc_*\u003c/code\u003e attributes are also available.\u003c/p\u003e
+\u003col start="6"\u003e
+\u003cli\u003eOnce complete, finish creating the Access Policy.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="finish_policy_obac" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_policy_obac-0" type="button" role="tab" aria-controls="finish_policy_obac-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#finish_policy_obac-1" type="button" role="tab" aria-controls="finish_policy_obac-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="finish_policy_obac"\u003e\u003cdiv id="finish_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="finish_policy_obac-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eCreate Policy\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissions" img class="img-fluid responsive" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w" src="/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions.png" width="907" height="243" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSubmitting a Policy\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PolicyOBACPermissions" tabindex="-1" aria-labelledby="PolicyOBACPermissions" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/PolicyOBACPermissions_hu896310823c8edbf1585ef184a05d7421_19531_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;907\u0026quot; height=\u0026quot;243\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file! See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/access_policies
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eOnce complete, check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset\u0026rsquo;s custom \u003ccode\u003eWeight\u003c/code\u003e attribute.\u003c/li\u003e
 \u003c/ol\u003e
 
 
@@ -21545,7 +22063,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-\u003col start="9"\u003e
+\u003col start="8"\u003e
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e

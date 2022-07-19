@@ -43,6 +43,7 @@ steps:
     behaviour: RecordEvidence
 ```
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Create an empty file, in later steps we will add the correct JSON.

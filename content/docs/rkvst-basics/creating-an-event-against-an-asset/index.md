@@ -42,25 +42,7 @@ steps:
       asset_label: assets/<asset-id>
     behaviour: RecordEvidence
 ```
-<<<<<<< HEAD:content/docs/rkvst-basics/creating-an-event-against-an-asset/index.md
-<<<<<<< HEAD
-The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
-{{< /tab >}}
-{{< tab name="JSON" >}}
-Create an empty file, in later steps we will add the correct JSON.
-
-```json
-{
-
-}
-```
-
-=======
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
->>>>>>> 17dcb6cb (updated links)
-=======
-The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
->>>>>>> 17dcb6cb293cfd2678e9df00e111dd9739993672:content/docs/quickstart/creating-an-event-against-an-asset/index.md
 {{< /tab >}}}
 {{< /tabs >}}
 

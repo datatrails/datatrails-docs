@@ -89,7 +89,7 @@ The response is:
 **Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards.
 {{< /warning >}}
 
-In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](../../quickstart/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
+In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](../../rkvst-basics/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
 
 However it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.
 

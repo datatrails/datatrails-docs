@@ -30,21 +30,21 @@
 
 [[docs]]
   name = "User Patterns"
-  weight = 4
+  weight = 2
   identifier = "user-patterns"
   url = "/docs/user-patterns/"
 
-[[docs]]
-  name = "Quickstart"
-  weight = 3
-  identifier = "quickstart"
-  url = "/docs/quickstart/"
+#[[docs]]
+  #name = "Beyond the Basics"
+  #weight = 4
+  #identifier = "beyond-the-basics"
+  #url = "/docs/beyond-the-basics/"
 
 [[docs]]
-  name = "Setup and Administration"
-  weight = 2
-  identifier = "setup-and-administration"
-  url = "/docs/setup-and-administration/"
+  name = "RKVST Basics"
+  weight = 3
+  identifier = "rkvst-basics"
+  url = "/docs/rkvst-basics/"
 
 [[docs]]
   name = "Overview"

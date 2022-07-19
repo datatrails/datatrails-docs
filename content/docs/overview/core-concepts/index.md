@@ -361,4 +361,4 @@ Compliance calls can be similarly modified to answer questions like "had I asked
 
 ## That's it!
 
-These are all the basics of RKVST. With this knowledge you can now [jump straight into the API](../../api-reference/) or [try the Quickstart](../../quickstart)
+These are all the basics of RKVST. With this knowledge you can now [jump straight into the API](../../api-reference/) or [try RKVST Basics](../../rkvst-basics).

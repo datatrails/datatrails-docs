@@ -44,6 +44,7 @@ steps:
 ```
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/quickstart/creating-an-asset/).
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -61,6 +62,9 @@ The `asset_id` must match the Asset ID found in the details of your Asset. See [
 =======
 The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
 >>>>>>> 17dcb6cb (updated links)
+=======
+The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
+>>>>>>> 4e646f64 (resolving conflicts)
 {{< /tab >}}}
 {{< /tabs >}}
 

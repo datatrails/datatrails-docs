@@ -13,6 +13,6 @@ RKVST Basics will quickly get you up and running by guiding you through:
 * Recording lifecycle Events on your Asset
 * creating data sharing policies to govern data access rights
 
-It gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to [the concepts section]({{< ref "/content/docs/overview/core-concepts/index.md" >}} "Core Concepts")
+It gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to [the concepts section.]({{< ref "/content/docs/overview/core-concepts/index.md" >}} "Core Concepts")
 
 To go to a specific section in RKVST Basics click on any of the following:

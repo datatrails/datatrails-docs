@@ -19,6 +19,8 @@ The App Registrations API enables you to create and manage application identitie
 
 It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned. 
 
+Each App Registration is created with non-root privileges by default; you must create an [ABAC policy](../iam-policies-api/) to permit specific access to that App Registration. It is also possible to give these credentials Root User Access, but it is considered best practice to create specific ABAC policies, preserving Principle of Least Privilege, instead.
+
 These can be used to request an access token from `https://app.rkvst.io/archivist/iam/v1/appidp/token`, used for application authentication to RKVST.
 
 ### Creating an Application

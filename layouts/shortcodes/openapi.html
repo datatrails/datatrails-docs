@@ -19,7 +19,7 @@ where fileName is the file's name with `.json` removed from the end
  {{ $.Scratch.Set "id" 0 }}
  {{ with $.Params.url }}
   {{ $openapi := getJSON $.Params.url }}
-  {{ $componentID := index (split $openapi.info.title " API") 0 }}
+  {{ $componentID := replace $openapi.info.title " " "_" }}
   <div class="$openapi-spec-content">
     <div class="description">
       <p>{{ $openapi.info.description }}</p>

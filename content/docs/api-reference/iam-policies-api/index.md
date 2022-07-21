@@ -17,17 +17,18 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
+An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials. which are created as non-root by default.
+
+To create an ABAC Policy you should use the `user_attributes` keyword and then specify `email` for invited users, and `subject`, using the client-id of your credentials for App Registrations.
+
+An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization. 
+
+To create an OBAC policy, you will first need to retrieve their Subject ID using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/) and import it.
+
+You would then use the `subjects` keyword and specify the Subject ID that you imported earlier.
+
+Once you know who you are sharing with the policy syntax should be similar.
 ### IAM Policy Creation
-
-Access Policies may be used to grant permissions within your tenancy or to external organizations. This is referred to as [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) and [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/), respectively. 
-
-An ABAC policy uses email addresses to share with non-root users within your tenancy. ABAC policies may also be used to grant permissions to App Registrations, identified by their Client ID. 
-
-Each App Registration is created with non-root privileges by default; you must create an ABAC policy to permit specific access to that App Registration, like you would for any other non-root user.
-
-It is also possible to give these credentials Root User Access, but it is considered best practice to create specific ABAC policies, preserving Principle of Least Privilege, instead.
-
-To create an OBAC policy, you will first need to retrieve their Subject ID using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/). 
 
 Define the access_policies parameters and store in `/path/to/jsonfile`:
 

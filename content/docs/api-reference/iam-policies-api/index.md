@@ -23,9 +23,9 @@ Access Policies may be used to grant permissions within your tenancy or to exter
 
 An ABAC policy uses email addresses to share with non-root users within your tenancy. ABAC policies may also be used to grant permissions to App Registrations, identified by their Client ID. 
 
-Each App Registration is created with non-root privileges by default; you must create an ABAC policy to permit specific access to that App Registration like you would for any other non-root user.
+Each App Registration is created with non-root privileges by default; you must create an ABAC policy to permit specific access to that App Registration, like you would for any other non-root user.
 
-It is also possible to give these credentials Root User Access, but it is considered best practice to create specific ABAC policies preserving Principle of Least Privilege instead.
+It is also possible to give these credentials Root User Access, but it is considered best practice to create specific ABAC policies, preserving Principle of Least Privilege, instead.
 
 To create an OBAC policy, you will first need to retrieve their Subject ID using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/). 
 

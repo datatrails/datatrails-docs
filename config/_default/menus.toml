@@ -34,11 +34,19 @@
   identifier = "user-patterns"
   url = "/docs/user-patterns/"
 
+<<<<<<< HEAD
 #[[docs]]
   #name = "Beyond the Basics"
   #weight = 3
   #identifier = "beyond-the-basics"
   #url = "/docs/beyond-the-basics/"
+=======
+[[docs]]
+  name = "Beyond the Basics"
+  weight = 4
+  identifier = "beyond-the-basics"
+  url = "/docs/beyond-the-basics/"
+>>>>>>> a98c21d6 (WIP - draft of public attestation section)
 
 [[docs]]
   name = "RKVST Basics"

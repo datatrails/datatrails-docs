@@ -347,6 +347,10 @@ As with Assets and Events, Compliance Policies are very flexible and can be conf
 **Note:** To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 {{< /note >}}
 
+## Verified Domain
+
+
+
 ## Perspectives 
 
 In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with RKVST it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.

@@ -4,7 +4,7 @@
 
 $body-bg-dark: $gray-900;
 $body-overlay-dark: darken($body-bg-dark, 2.5%);
-$border-dark: darken($body-bg-dark, 2.5%);
+$border-dark: darken($body-bg-dark, 3%);
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
 
@@ -188,13 +188,17 @@ body.dark .docs-navigation {
   border-top: 1px solid $border-dark;
 }
 
+body.dark code{
+  border-color: $border-dark;
+}
 body.dark pre code::-webkit-scrollbar-thumb {
-  background: $border-dark;
+  background: $body-overlay-dark;
 }
 
 body.dark code:not(.hljs) {
   background: $body-overlay-dark;
   color: $rkvst-blue;
+  border-color: $border-dark;
 }
 
 body.dark pre code:hover {
@@ -272,57 +276,6 @@ body.dark .card {
 body.dark .card.bg-light {
   background: $body-overlay-dark !important;
 }
-
-body.dark .accordian {
-  background: $body-bg-dark;
-}
-
-body.dark .accordion-item {
-  background: $body-bg-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-item.bg-light {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion.bg-light {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-button {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-button.bg-light {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-header {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-header.bg-light {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
-body.dark .accordion-body {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-  border: $rkvst-blue;
-}
-
-body.dark .accordion-body.bg-light {
-  background: $body-overlay-dark;
-  color: $body-color-dark;
-}
-
 
 body.dark .navbar .menu-icon .navicon {
   background: $navbar-dark-color;
@@ -420,4 +373,46 @@ body.dark .btn-toggle-nav a:focus {
 
 body.dark .btn-toggle-nav a.active {
   color: $link-color-dark;
+}
+
+body.dark .accordion {
+  background: $body-bg-dark;
+}
+
+body.dark .accordion-item {
+  background: $body-bg-dark;
+  color: $body-color-dark;
+}
+
+body.dark .accordion-button {
+  background: $body-overlay-dark;
+  color: $body-color-dark;
+  padding: 1.25rem;
+  border: solid $border-dark;
+  border-radius: calc(1em/3);
+  box-shadow: 0px 2px $border-dark;
+
+}
+
+body.dark .accordion-button:focus {
+  border: solid $rkvst-blue;  
+}
+
+body.dark .accordion-button:active {
+  border-color: $rkvst-blue;
+  border-width: 2px;
+}
+
+
+body.dark .accordion-header {
+  background: $body-overlay-dark;
+  color: $body-color-dark;
+}
+
+
+body.dark .accordion-body {
+  background: $body-overlay-dark;
+  color: $body-color-dark;
+  border: $rkvst-blue;
+  padding: 1rem;
 }

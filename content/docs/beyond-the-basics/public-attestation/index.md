@@ -161,7 +161,6 @@ curl -v -X POST \
 
 {{< img src="EventPublic.png" alt="Rectangle" caption="<em>Event Information</em>" class="border-0" >}}
 
-<<<<<<< HEAD
 3. You may also retrieve a public URL to the Event itself, using the [Assets API](https://docs.rkvst.com/docs/api-reference/assets-api/). 
 
 {{< tabs name="get_link_event_public" >}}
@@ -172,15 +171,5 @@ curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>:publicurl
 ```
-=======
-3. You may also retrieve a public URL to the Event itself. 
-
-{{< tabs name="get_link_event_public" >}}
-{{{< tab name="UI" >}}
-
-{{< /tab >}}
-{{< tab name="JSON" >}}
-
->>>>>>> a98c21d6 (WIP - draft of public attestation section)
 {{< /tab >}}
 {{< /tabs >}}

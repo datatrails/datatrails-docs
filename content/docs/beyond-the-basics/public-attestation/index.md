@@ -167,9 +167,14 @@ curl -v -X POST \
 
 {{< tabs name="get_link_event_public" >}}
 {{{< tab name="UI" >}}
-
+#need screenshot of UI equivalent
 {{< /tab >}}
 {{< tab name="JSON" >}}
-
+Use the following curl command, which will return the public URL for the Event.
+```bash 
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>:publicurl
+```
 {{< /tab >}}
 {{< /tabs >}}

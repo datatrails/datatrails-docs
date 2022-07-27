@@ -23,9 +23,9 @@ These credentials are then used to request an access token from `https://app.rkv
 
 Each App Registration is created with non-root privileges by default.
 
-To provide your credentials with access to the Assets and Events in your Tenancy it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions. 
+To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions. 
 
-If you did wish to give your credentials root user priviliges to access everything in your tenancy you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in either the `Manage RKVST` screen, or by using the [Root Users Endpoint in the Tenancies API](../tenancies-api/).
+If you wish to give your credentials root user priviliges to access everything in your tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in either the `Manage RKVST` screen, or by using the [Root Users Endpoint in the Tenancies API](../tenancies-api/).
 ### Creating an Application
 
 Create a JSON file with the parameters of your new application. Below is an example:

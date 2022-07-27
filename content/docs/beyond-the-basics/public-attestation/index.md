@@ -163,12 +163,9 @@ curl -v -X POST \
 
 {{< img src="EventPublic.png" alt="Rectangle" caption="<em>Event Information</em>" class="border-0" >}}
 
-3. You may also retrieve a public URL to the Event itself. 
+3. You may also retrieve a public URL to the Event itself, using the [Assets API](https://docs.rkvst.com/docs/api-reference/assets-api/). 
 
 {{< tabs name="get_link_event_public" >}}
-{{{< tab name="UI" >}}
-#need screenshot of UI equivalent
-{{< /tab >}}
 {{< tab name="JSON" >}}
 Use the following curl command, which will return the public URL for the Event.
 ```bash 

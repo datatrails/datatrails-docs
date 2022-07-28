@@ -17,7 +17,21 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
+An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as non-root by default.
+
+To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations.
+
+An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization.
+
+To begin sharing with OBAC you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [basics section](../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids).
+
+This will return a `subjects/<UUID>` object you would then specify with the `subjects` keyword to make it an OBAC policy.
+
+As both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.
+
 ### IAM Policy Creation
+
+The following example shows how you can mix the `user_attributes` keyword for ABAC and `subjects` keyword for OBAC.
 
 Define the access_policies parameters and store in `/path/to/jsonfile`:
 

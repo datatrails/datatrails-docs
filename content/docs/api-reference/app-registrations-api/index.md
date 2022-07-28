@@ -17,10 +17,15 @@ toc: true
 
 The App Registrations API enables you to create and manage application identities with access to your RKVST tenant. 
 
-It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned. 
+It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned.
 
-These can be used to request an access token from `https://app.rkvst.io/archivist/iam/v1/appidp/token`, used for application authentication to RKVST.
+These credentials are then used to request an access token from `https://app.rkvst.io/archivist/iam/v1/appidp/token`, which is used for API authentication to RKVST.
 
+Each App Registration is created with non-root privileges by default.
+
+To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions. 
+
+If you wish to give your credentials root user priviliges to access everything in your tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in either the `Manage RKVST` screen, or by using the [Root Users Endpoint in the Tenancies API](../tenancies-api/).
 ### Creating an Application
 
 Create a JSON file with the parameters of your new application. Below is an example:

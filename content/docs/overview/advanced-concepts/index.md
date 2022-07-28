@@ -1,7 +1,7 @@
 ---
 title: "Advanced Concepts"
 description: "RKVST Advanced Concepts"
-lead: "RKVST Advanced Concepts"
+lead: "This section goes into detail on the topics covered in Core Concepts, as well as additional advanced topics."
 date: 2021-06-14T10:57:58+01:00
 lastmod: 2021-06-14T10:57:58+01:00
 draft: false

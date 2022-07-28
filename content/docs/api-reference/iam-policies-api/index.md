@@ -21,15 +21,17 @@ An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-wit
 
 To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations.
 
-An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization. 
+An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization.
 
-To create an OBAC policy, you will first need to retrieve their Subject ID using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/) and import it.
+To begin sharing with OBAC you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [basics section](../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids).
 
-You would then use the `subjects` keyword and specify the Subject ID that you imported earlier.
+This will return a `subjects/<UUID>` object you would then specify with the `subjects` keyword to make it an OBAC policy.
 
-Once you know who you are sharing with, the policy syntax should be similar.
+As both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.
 
 ### IAM Policy Creation
+
+The following example shows how you can mix the `user_attributes` keyword for ABAC and `subjects` keyword for OBAC.
 
 Define the access_policies parameters and store in `/path/to/jsonfile`:
 

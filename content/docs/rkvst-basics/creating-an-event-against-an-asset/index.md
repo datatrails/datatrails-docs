@@ -11,6 +11,8 @@ menu:
     parent: "rkvst-basics"
 weight: 33
 toc: true
+aliases:
+  - ../quickstart/creating-an-event-against-an-asset
 ---
 
 If you wish to begin tracking your Asset history, you need to create Events.

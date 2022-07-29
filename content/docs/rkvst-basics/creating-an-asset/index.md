@@ -11,6 +11,9 @@ menu:
     parent: "rkvst-basics"
 weight: 32
 toc: true
+aliases:
+  - ../quickstart/creating-an-asset
+  - ../quickstart/tutorial
 ---
 
 An Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.

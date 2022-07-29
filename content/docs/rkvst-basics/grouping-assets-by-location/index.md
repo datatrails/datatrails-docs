@@ -11,6 +11,8 @@ menu:
     parent: "rkvst-basics"
 weight: 34
 toc: true
+aliases:
+  - ../quickstart/grouping-assets-by-location
 ---
 
 Locations associate an Asset with a 'home' that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.

@@ -11,6 +11,8 @@ menu:
     parent: "overview"
 weight: 3
 toc: true
+aliases:
+  - ../quickstart/when-who-did-what-to-an-asset
 ---
 
 ## Tenancies

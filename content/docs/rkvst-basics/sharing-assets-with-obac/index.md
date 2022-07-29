@@ -11,6 +11,8 @@ menu:
     parent: "rkvst-basics"
 weight: 36
 toc: true
+aliases:
+  - ../quickstart/sharing-assets-with-obac
 ---
 
 {{< caution >}}

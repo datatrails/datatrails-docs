@@ -11,6 +11,8 @@ menu:
     parent: "rkvst-basics"
 weight: 35
 toc: true
+aliases:
+  - ../quickstart/managing-access-to-an-asset-with-abac
 ---
 
 {{< caution >}}

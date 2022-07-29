@@ -1,1 +1,9 @@
 # redirects for Netlify - https://www.netlify.com/docs/redirects/
+../quickstart/when-who-did-what-to-an-asset /docs/overview/core-concepts/
+../setup-and-administration/getting-access-tokens-using-app-registrations /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
+../quickstart/creating-an-asset /docs/rkvst-basics/creating-an-asset/
+../quickstart/tutorial /docs/rkvst-basics/creating-an-asset/
+../quickstart/creating-an-event-against-an-asset /docs/rkvst-basics/creating-an-event-against-an-asset/
+../quickstart/grouping-assets-by-location /docs/rkvst-basics/grouping-assets-by-location/
+../quickstart/managing-access-to-an-asset-with-abac /docs/rkvst-basics/managing-access-to-an-asset-with-abac/
+../quickstart/sharing-assets-with-obac /docs/rkvst-basics/sharing-assets-with-obac/

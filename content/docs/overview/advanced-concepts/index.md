@@ -344,7 +344,7 @@ As with Assets and Events, Compliance Policies are very flexible and can be conf
 * *COMPLIANCE_DYNAMIC_TOLERANCE*: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
 
 {{< note >}}
-**Note:** To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
+**Note:** To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 {{< /note >}}
 
 ## Perspectives 

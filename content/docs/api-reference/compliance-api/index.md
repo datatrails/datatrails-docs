@@ -59,7 +59,7 @@ For example “Time since last Maintenance must be less than 72 hours”:
 
 This Compliance Policy will only pass if there is an associated answering event addressing a specified outstanding event.
 
-To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
+To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
 
 For example defining pairs of Events like `Maintenance Request` and `Maintenance Performed`: 
 
@@ -87,7 +87,7 @@ For example defining pairs of Events like `Maintenance Request` and `Maintenance
 
 This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold. 
 
-To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
+To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
 
 For example, a policy checking that the time between `Maintenance Request` and `Maintenance Performed` Events does not exceed the maximum 72 hours:
 ```json
@@ -116,7 +116,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
 
 This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined variability. 
 
-To correlate events define the attribute `arc_correlation_id` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
+To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
 
 For example, a policy checking that the time between `Maintenance Request` and `Maintenance Performed` Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:
 

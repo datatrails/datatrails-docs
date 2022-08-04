@@ -322,7 +322,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/li\u003e
 \u003c/ul\u003e
 \u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/div\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="perspectives"\u003ePerspectives\u003c/h2\u003e
 \u003cp\u003eIn the Asset example above there is an \u003ccode\u003eat_time\u003c/code\u003e property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with RKVST it is possible to go back in time and ask the question \u0026ldquo;what would that asset have looked like to me had I looked at it last week/last year/before the incident?\u0026rdquo;. Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.\u003c/p\u003e
@@ -7833,7 +7833,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_current_outstanding"\u003eCOMPLIANCE_CURRENT_OUTSTANDING\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if there is an associated answering event addressing a specified outstanding event.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example defining pairs of Events like \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_CURRENT_OUTSTANDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
@@ -7871,7 +7871,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_period_outstanding"\u003eCOMPLIANCE_PERIOD_OUTSTANDING\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example, a policy checking that the time between \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e Events does not exceed the maximum 72 hours:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_PERIOD_OUTSTANDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
@@ -7914,7 +7914,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_dynamic_tolerance"\u003eCOMPLIANCE_DYNAMIC_TOLERANCE\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined variability.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example, a policy checking that the time between \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_DYNAMIC_TOLERANCE\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
@@ -18214,7 +18214,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/li\u003e
 \u003c/ul\u003e
 \u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/div\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="perspectives"\u003ePerspectives\u003c/h2\u003e
 \u003cp\u003eIn the Asset example above there is an \u003ccode\u003eat_time\u003c/code\u003e property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with RKVST it is possible to go back in time and ask the question \u0026ldquo;what would that asset have looked like to me had I looked at it last week/last year/before the incident?\u0026rdquo;. Using its high integrity record of Asset lineage RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.\u003c/p\u003e
@@ -25725,7 +25725,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_current_outstanding"\u003eCOMPLIANCE_CURRENT_OUTSTANDING\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if there is an associated answering event addressing a specified outstanding event.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example defining pairs of Events like \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_CURRENT_OUTSTANDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
@@ -25763,7 +25763,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_period_outstanding"\u003eCOMPLIANCE_PERIOD_OUTSTANDING\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example, a policy checking that the time between \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e Events does not exceed the maximum 72 hours:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_PERIOD_OUTSTANDING\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
@@ -25806,7 +25806,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 \u003ch4 id="compliance_dynamic_tolerance"\u003eCOMPLIANCE_DYNAMIC_TOLERANCE\u003c/h4\u003e
 \u003cp\u003eThis Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined variability.\u003c/p\u003e
-\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_id\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
+\u003cp\u003eTo correlate events define the attribute \u003ccode\u003earc_correlation_value\u003c/code\u003e in the Event Attributes and set it to the same value on each pair of events that are to be associated.\u003c/p\u003e
 \u003cp\u003eFor example, a policy checking that the time between \u003ccode\u003eMaintenance Request\u003c/code\u003e and \u003ccode\u003eMaintenance Performed\u003c/code\u003e Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;compliance_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;COMPLIANCE_DYNAMIC_TOLERANCE\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e

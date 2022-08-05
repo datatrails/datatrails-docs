@@ -13,15 +13,13 @@
  toc: true
 ---
 
-Public Assets can be used for Public Attestation, to publicly assert data you have published.
+You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, the vulnerability reports against an OpenSource software package or the maintenance records for a building.
 
-Private Assets can only be shared through the creation of [Access Policies](../../rkvst-basics/sharing-assets-with-obac/). Public Assets, however, may be shared with a read-only public URL, similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox. 
-
-You may wish to publicly attest information to the general public. For example, the vulnerability reports against an OpenSource software package or the maintenance records for a public building. 
+Private Assets can only be shared through the creation of [Access Policies](../../rkvst-basics/sharing-assets-with-obac/). Public Assets, however, may be shared with a read-only `Public URL`, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox. 
 
 Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.
 
-Following the link to a Public Asset or Event will allow read-only access to its information, without the need to sign in to RKVST.
+Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.
 
 
 ## Creating a Publicly Attested Asset

@@ -32,19 +32,7 @@ Each Asset has a fixed identity across all stakeholders, ensuring that all relev
 
 Events are things that happen during an Asset's lifecycle. Each Event Record contributes to the ['Golden Thread'](./#the-golen-thread) of supply chain evidence by enriching the Asset's history. Events can be used to add or update Asset information if they change the Asset's state, but they also have their own attributes to add process detail and rich evidence.
 
-<<<<<<< HEAD
 Events can never be deleted or modified. Events provide details on Asset attributes, such as updating the weight of a shipment, and/or details about the event itself, such as a recording a shipment inspection.
-=======
-## Verified Domain
-
-
-
-## Verified Domain
-
-
-
-## Perspectives 
->>>>>>> a98c21d6 (WIP - draft of public attestation section)
 
 ## Access Policies 
 

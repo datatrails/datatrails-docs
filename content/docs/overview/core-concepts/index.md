@@ -39,6 +39,10 @@ Events can never be deleted or modified. Events provide details on Asset attribu
 
 
 
+## Verified Domain
+
+
+
 ## Perspectives 
 >>>>>>> a98c21d6 (WIP - draft of public attestation section)
 

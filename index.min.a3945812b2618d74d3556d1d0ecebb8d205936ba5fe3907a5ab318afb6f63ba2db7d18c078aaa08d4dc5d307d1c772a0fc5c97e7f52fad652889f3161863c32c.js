@@ -16888,8 +16888,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     \u003cpre\u003e\u003ccode\u003e{
   "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
   "tenants": [
-    "tenancies/01038663-c357-470d-912a-3abc9528dd21",
-    "tenancies/12147552-d466-381c-805b-4cbd1018ef30"
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
+    }
   ]
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -16917,7 +16923,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003cth\u003etenants\u003c/th\u003e
                                   \u003ctd\u003earray\u003c/td\u003e
                                   
-                                    \u003ctd\u003etenants in the form \u003ccode\u003etenancies/{UUID}\u003c/code\u003e\u003c/td\u003e
+                                    
+                                    
+                                    
+                                    \u003ctd\u003eTenant information for a user.\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e
@@ -34780,8 +34789,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     \u003cpre\u003e\u003ccode\u003e{
   "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
   "tenants": [
-    "tenancies/01038663-c357-470d-912a-3abc9528dd21",
-    "tenancies/12147552-d466-381c-805b-4cbd1018ef30"
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
+    }
   ]
 }\u003c/code\u003e\u003c/pre\u003e
                                   \u003c/div\u003e
@@ -34809,7 +34824,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                   \u003cth\u003etenants\u003c/th\u003e
                                   \u003ctd\u003earray\u003c/td\u003e
                                   
-                                    \u003ctd\u003etenants in the form \u003ccode\u003etenancies/{UUID}\u003c/code\u003e\u003c/td\u003e
+                                    
+                                    
+                                    
+                                    \u003ctd\u003eTenant information for a user.\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e

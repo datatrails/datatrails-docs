@@ -25,45 +25,20 @@ Following the link to a Public Asset or Public Event will allow read-only access
 ## Creating a Publicly Attested Asset
 
 {{< warning >}}
-**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards.
+**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. Any information published will be publicly accessible forever.
 {{< /warning >}}
 
-1. Create an Asset with your desired attributes. See [Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/) for detailed instructions. 
+1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/) for detailed instructions. 
 
 {{< tabs name="create_asset_public" >}}
 {{{< tab name="UI" >}}
 Select `Add Asset` from the sidebar and fill in the desired details.
 {{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
-{{< /tab >}}
-{{< tab name="JSON" >}}
-Create a JSON file with your desired Asset details. 
-
-```json
-{
-    "behaviours": ["RecordEvidence", "Attachments"],
-    "attributes": {
-        "arc_display_name": "Publicly Attested Asset",
-        "arc_display_type": "Example",
-        "arc_description": "This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST."
-    }
-}
-```
-{{< /tab >}}
-{{< /tabs >}}
-
-2. Set your Asset to public.
-
-{{< warning >}}
-**WARNING:** Once an Asset is made public, it cannot be made private. 
-{{< /warning >}}
-
-{{< tabs name="set_public_public" >}}
-{{{< tab name="UI" >}}
-Check the box next to `Make Asset Public`, then click `Create Asset` to complete your Public Asset creation. 
+Check the box next to `Make Asset Public`.
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Set keyword `public` to true. 
+Create a JSON file with your desired Asset details. Set keyword `public` to true.
 
 ```json
 {
@@ -76,6 +51,21 @@ Set keyword `public` to true.
     "public": true
 }
 ```
+{{< /tab >}}
+{{< /tabs >}}
+
+2. Publish your Public Asset.
+
+{{< warning >}}
+**WARNING:** Once an Asset is made public, it cannot be made private. Any information published will be publicly accessible forever.
+{{< /warning >}}
+
+{{< tabs name="set_public_public" >}}
+{{{< tab name="UI" >}}
+Click `Create Asset` to complete your Public Asset creation. 
+{{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Publish Your Asset</em>" class="border-0" >}}
+{{< /tab >}}
+{{< tab name="JSON" >}}
 Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here. 
 
 ```bash 

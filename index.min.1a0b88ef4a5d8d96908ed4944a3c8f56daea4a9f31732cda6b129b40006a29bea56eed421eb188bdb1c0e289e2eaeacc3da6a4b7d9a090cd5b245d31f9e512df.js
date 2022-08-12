@@ -2845,7 +2845,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Application Registrations.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='AppRegistrations_API0'\u003e\u003c/div\u003e
       
@@ -4176,7 +4176,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Asset.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Asset.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -5295,7 +5295,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Event.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -7508,7 +7508,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Blockchain.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='BlockChain_API0'\u003e\u003c/div\u003e
       
@@ -8050,7 +8050,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Compliance.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Compliance_API0'\u003e\u003c/div\u003e
       
@@ -9360,22 +9360,22 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage RecordEvidence Behaviour.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='RecordEvidence_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='BehaviourRecordEvidence_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerRecordEvidence_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseRecordEvidence_API1' aria-expanded="true" aria-controls='collapseRecordEvidence_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerBehaviourRecordEvidence_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBehaviourRecordEvidence_API1' aria-expanded="true" aria-controls='collapseBehaviourRecordEvidence_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerRecordEvidence_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseBehaviourRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerBehaviourRecordEvidence_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -9426,12 +9426,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseRecordEvidence_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseRecordEvidence_API1' aria-expanded="true" aria-controls='collapserequestRecordEvidence_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseBehaviourRecordEvidence_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseBehaviourRecordEvidence_API1' aria-expanded="true" aria-controls='collapserequestBehaviourRecordEvidence_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseRecordEvidence_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseBehaviourRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseBehaviourRecordEvidence_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10002,22 +10002,22 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003eAPI to manage Identity Access Management.\u003c/p\u003e
+      \u003cp\u003eAPI to manage Identity Access Management AccessPolicies.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='IAM_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='IAMAccessPolicies_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API1' aria-expanded="true" aria-controls='collapseIAM_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API1' class="accordion-collapse collapse" aria-labelledby='headerIAM_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API1' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -10046,12 +10046,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API1' aria-expanded="true" aria-controls='collapserequestIAM_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10184,14 +10184,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API2' aria-expanded="true" aria-controls='collapseIAM_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerIAM_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -10208,12 +10208,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestIAM_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestIAM_API2' aria-expanded="true" aria-controls='collapserequestIAM_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestIAMAccessPolicies_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API2'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestIAM_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10318,12 +10318,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API2' aria-expanded="true" aria-controls='collapserequestIAM_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10489,14 +10489,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API3' aria-expanded="true" aria-controls='collapseIAM_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API3' class="accordion-collapse collapse" aria-labelledby='headerIAM_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API3' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -10567,14 +10567,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API4' aria-expanded="true" aria-controls='collapseIAM_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API4' class="accordion-collapse collapse" aria-labelledby='headerIAM_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API4' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API4' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -10595,12 +10595,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API4' aria-expanded="true" aria-controls='collapserequestIAM_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API4'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API4' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10764,14 +10764,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API5' aria-expanded="true" aria-controls='collapseIAM_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API5' class="accordion-collapse collapse" aria-labelledby='headerIAM_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API5' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -10796,12 +10796,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API5' aria-expanded="true" aria-controls='collapserequestIAM_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -10967,14 +10967,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API6' aria-expanded="true" aria-controls='collapseIAM_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}/assets\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API6' class="accordion-collapse collapse" aria-labelledby='headerIAM_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API6' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -11001,12 +11001,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API6' aria-expanded="true" aria-controls='collapserequestIAM_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -11085,7 +11085,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Asset.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Asset.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -11158,14 +11158,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API7' aria-expanded="true" aria-controls='collapseIAM_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API7' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API7' class="accordion-collapse collapse" aria-labelledby='headerIAM_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API7' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -11220,14 +11220,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API8' aria-expanded="true" aria-controls='collapseIAM_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API8' class="accordion-collapse collapse" aria-labelledby='headerIAM_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -11282,14 +11282,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API9' aria-expanded="true" aria-controls='collapseIAM_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API9' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/assets/{uuid}/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API9' class="accordion-collapse collapse" aria-labelledby='headerIAM_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API9' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -11312,12 +11312,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API9'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API9' aria-expanded="true" aria-controls='collapserequestIAM_API9'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API9'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API9' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API9'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API9' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API9' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -11573,7 +11573,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Identity Access Management Subjects.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='IAMSubjects_API0'\u003e\u003c/div\u003e
       
@@ -12577,7 +12577,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Email Invites.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Invites_API0'\u003e\u003c/div\u003e
       
@@ -13344,20 +13344,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eAPI to manage locations.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='Location_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='Locations_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API1' aria-expanded="true" aria-controls='collapseLocation_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API1' class="accordion-collapse collapse" aria-labelledby='headerLocation_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API1' class="accordion-collapse collapse" aria-labelledby='headerLocations_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -13386,12 +13386,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API1' aria-expanded="true" aria-controls='collapserequestLocation_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API1' aria-expanded="true" aria-controls='collapserequestLocations_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -13503,14 +13503,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API2' aria-expanded="true" aria-controls='collapseLocation_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerLocation_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerLocations_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -13527,12 +13527,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestLocation_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestLocation_API2' aria-expanded="true" aria-controls='collapserequestLocation_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestLocations_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestLocations_API2' aria-expanded="true" aria-controls='collapserequestLocations_API2'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestLocation_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestLocations_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -13610,12 +13610,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API2' aria-expanded="true" aria-controls='collapserequestLocation_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API2' aria-expanded="true" aria-controls='collapserequestLocations_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -13753,14 +13753,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API3' aria-expanded="true" aria-controls='collapseLocation_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API3' class="accordion-collapse collapse" aria-labelledby='headerLocation_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API3' class="accordion-collapse collapse" aria-labelledby='headerLocations_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -13823,14 +13823,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API4' aria-expanded="true" aria-controls='collapseLocation_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API4' class="accordion-collapse collapse" aria-labelledby='headerLocation_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API4' class="accordion-collapse collapse" aria-labelledby='headerLocations_API4' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -13851,12 +13851,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API4' aria-expanded="true" aria-controls='collapserequestLocation_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API4' aria-expanded="true" aria-controls='collapserequestLocations_API4'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API4' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -13992,14 +13992,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API5' aria-expanded="true" aria-controls='collapseLocation_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API5' class="accordion-collapse collapse" aria-labelledby='headerLocation_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API5' class="accordion-collapse collapse" aria-labelledby='headerLocations_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14024,12 +14024,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API5' aria-expanded="true" aria-controls='collapserequestLocation_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API5' aria-expanded="true" aria-controls='collapserequestLocations_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -14167,14 +14167,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API6' aria-expanded="true" aria-controls='collapseLocation_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}/permissions\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API6' class="accordion-collapse collapse" aria-labelledby='headerLocation_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API6' class="accordion-collapse collapse" aria-labelledby='headerLocations_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14195,12 +14195,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API6' aria-expanded="true" aria-controls='collapserequestLocation_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API6' aria-expanded="true" aria-controls='collapserequestLocations_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -14289,14 +14289,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API7' aria-expanded="true" aria-controls='collapseLocation_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}/permissions\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API7' class="accordion-collapse collapse" aria-labelledby='headerLocation_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API7' class="accordion-collapse collapse" aria-labelledby='headerLocations_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14319,12 +14319,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API7' aria-expanded="true" aria-controls='collapserequestLocation_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API7' aria-expanded="true" aria-controls='collapserequestLocations_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -14419,14 +14419,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API8' aria-expanded="true" aria-controls='collapseLocation_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API8' aria-expanded="true" aria-controls='collapseLocations_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API8' class="accordion-collapse collapse" aria-labelledby='headerLocation_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API8' class="accordion-collapse collapse" aria-labelledby='headerLocations_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14481,14 +14481,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API9' aria-expanded="true" aria-controls='collapseLocation_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API9' aria-expanded="true" aria-controls='collapseLocations_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API9' class="accordion-collapse collapse" aria-labelledby='headerLocation_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API9' class="accordion-collapse collapse" aria-labelledby='headerLocations_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14715,20 +14715,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eAPI for public asset and event management.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='Public_Assets_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='PublicAssets_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API1' aria-expanded="true" aria-controls='collapsePublic_Assets_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API1' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14751,12 +14751,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API1' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API1' aria-expanded="true" aria-controls='collapserequestPublicAssets_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -14967,14 +14967,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API2' aria-expanded="true" aria-controls='collapsePublic_Assets_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API2' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -14997,12 +14997,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API2' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API2' aria-expanded="true" aria-controls='collapserequestPublicAssets_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -15174,14 +15174,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API3' aria-expanded="true" aria-controls='collapsePublic_Assets_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API3' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API3' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -15242,12 +15242,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API3' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API3' aria-expanded="true" aria-controls='collapserequestPublicAssets_API3'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -15348,7 +15348,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Event.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -15459,7 +15459,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003eAPI to manage an archivist node\u003c/p\u003e
+      \u003cp\u003eAPI to manage an archivist node.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='ArchivistNode_API0'\u003e\u003c/div\u003e
       
@@ -15793,7 +15793,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eSimple API for User Management\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='User_Management_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='UserManagement_API0'\u003e\u003c/div\u003e
       
         
           
@@ -15803,14 +15803,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API1' aria-expanded="true" aria-controls='collapseUser_Management_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/invitetokenhint\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API1' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -15835,12 +15835,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API1' aria-expanded="true" aria-controls='collapserequestUser_Management_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -15919,14 +15919,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API2' aria-expanded="true" aria-controls='collapseUser_Management_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/root_principals\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API2' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -15945,12 +15945,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API2' aria-expanded="true" aria-controls='collapserequestUser_Management_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API2' aria-expanded="true" aria-controls='collapserequestUserManagement_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16028,14 +16028,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API3' aria-expanded="true" aria-controls='collapseUser_Management_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API3' aria-expanded="true" aria-controls='collapseUserManagement_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/root_principals\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16052,12 +16052,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestUser_Management_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUser_Management_API3' aria-expanded="true" aria-controls='collapserequestUser_Management_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestUserManagement_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUser_Management_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUserManagement_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16107,12 +16107,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API3' aria-expanded="true" aria-controls='collapserequestUser_Management_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16196,14 +16196,143 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API4' aria-expanded="true" aria-controls='collapseUser_Management_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API4' aria-expanded="true" aria-controls='collapserequestUserManagement_API4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "display_name": "My First Tenancy",
+  "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
+  "verified_domain": "foo.com"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003edisplay_name\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eCustomer friendly name for the tenant.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etenant identity \u003ccode\u003e{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to perform this action.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the referenced tenant does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/tenantid\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API4' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16244,12 +16373,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API4' aria-expanded="true" aria-controls='collapserequestUser_Management_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -16335,14 +16464,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API5' aria-expanded="true" aria-controls='collapseUser_Management_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API5' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16371,12 +16500,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API5' aria-expanded="true" aria-controls='collapserequestUser_Management_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16477,14 +16606,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API6' aria-expanded="true" aria-controls='collapseUser_Management_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users/{user_uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API6' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16505,12 +16634,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API6' aria-expanded="true" aria-controls='collapserequestUser_Management_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16624,14 +16753,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API7' aria-expanded="true" aria-controls='collapseUser_Management_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API7' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16652,12 +16781,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API7' aria-expanded="true" aria-controls='collapserequestUser_Management_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -16727,14 +16856,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API8' aria-expanded="true" aria-controls='collapseUser_Management_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API8' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16789,14 +16918,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API9' aria-expanded="true" aria-controls='collapseUser_Management_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API9' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16851,14 +16980,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API10'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API10' aria-expanded="true" aria-controls='collapseUser_Management_API10'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API10' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API10' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -16877,12 +17006,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API10'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API10' aria-expanded="true" aria-controls='collapserequestUser_Management_API10'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API11'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API10' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API10' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -20746,7 +20875,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Application Registrations.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='AppRegistrations_API0'\u003e\u003c/div\u003e
       
@@ -22077,7 +22206,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Asset.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Asset.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -23196,7 +23325,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Event.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -25409,7 +25538,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Blockchain.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='BlockChain_API0'\u003e\u003c/div\u003e
       
@@ -25951,7 +26080,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Compliance.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Compliance_API0'\u003e\u003c/div\u003e
       
@@ -27261,22 +27390,22 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage RecordEvidence Behaviour.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='RecordEvidence_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='BehaviourRecordEvidence_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerRecordEvidence_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseRecordEvidence_API1' aria-expanded="true" aria-controls='collapseRecordEvidence_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerBehaviourRecordEvidence_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBehaviourRecordEvidence_API1' aria-expanded="true" aria-controls='collapseBehaviourRecordEvidence_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/assets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerRecordEvidence_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseBehaviourRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerBehaviourRecordEvidence_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -27327,12 +27456,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseRecordEvidence_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseRecordEvidence_API1' aria-expanded="true" aria-controls='collapserequestRecordEvidence_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseBehaviourRecordEvidence_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseBehaviourRecordEvidence_API1' aria-expanded="true" aria-controls='collapserequestBehaviourRecordEvidence_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseRecordEvidence_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseBehaviourRecordEvidence_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseBehaviourRecordEvidence_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -27903,22 +28032,22 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003eAPI to manage Identity Access Management.\u003c/p\u003e
+      \u003cp\u003eAPI to manage Identity Access Management AccessPolicies.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='IAM_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='IAMAccessPolicies_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API1' aria-expanded="true" aria-controls='collapseIAM_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API1' class="accordion-collapse collapse" aria-labelledby='headerIAM_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API1' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -27947,12 +28076,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API1' aria-expanded="true" aria-controls='collapserequestIAM_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28085,14 +28214,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API2' aria-expanded="true" aria-controls='collapseIAM_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerIAM_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -28109,12 +28238,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestIAM_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestIAM_API2' aria-expanded="true" aria-controls='collapserequestIAM_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestIAMAccessPolicies_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API2'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestIAM_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28219,12 +28348,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API2' aria-expanded="true" aria-controls='collapserequestIAM_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28390,14 +28519,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API3' aria-expanded="true" aria-controls='collapseIAM_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API3' class="accordion-collapse collapse" aria-labelledby='headerIAM_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API3' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -28468,14 +28597,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API4' aria-expanded="true" aria-controls='collapseIAM_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API4' class="accordion-collapse collapse" aria-labelledby='headerIAM_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API4' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API4' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -28496,12 +28625,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API4' aria-expanded="true" aria-controls='collapserequestIAM_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API4'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API4' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28665,14 +28794,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API5' aria-expanded="true" aria-controls='collapseIAM_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API5' class="accordion-collapse collapse" aria-labelledby='headerIAM_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API5' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -28697,12 +28826,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API5' aria-expanded="true" aria-controls='collapserequestIAM_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28868,14 +28997,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API6' aria-expanded="true" aria-controls='collapseIAM_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies/{uuid}/assets\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API6' class="accordion-collapse collapse" aria-labelledby='headerIAM_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API6' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -28902,12 +29031,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API6' aria-expanded="true" aria-controls='collapserequestIAM_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -28986,7 +29115,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Asset.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Asset.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -29059,14 +29188,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API7' aria-expanded="true" aria-controls='collapseIAM_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API7' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API7' class="accordion-collapse collapse" aria-labelledby='headerIAM_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API7' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -29121,14 +29250,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API8' aria-expanded="true" aria-controls='collapseIAM_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/access_policies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API8' class="accordion-collapse collapse" aria-labelledby='headerIAM_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -29183,14 +29312,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerIAM_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAM_API9' aria-expanded="true" aria-controls='collapseIAM_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerIAMAccessPolicies_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API9' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/iam/v1/assets/{uuid}/access_policies\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseIAM_API9' class="accordion-collapse collapse" aria-labelledby='headerIAM_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseIAMAccessPolicies_API9' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -29213,12 +29342,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseIAM_API9'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAM_API9' aria-expanded="true" aria-controls='collapserequestIAM_API9'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseIAMAccessPolicies_API9'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API9' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API9'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseIAM_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseIAM_API9' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseIAMAccessPolicies_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API9' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -29474,7 +29603,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Identity Access Management Subjects.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='IAMSubjects_API0'\u003e\u003c/div\u003e
       
@@ -30478,7 +30607,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003e\u003c/p\u003e
+      \u003cp\u003eAPI to manage Email Invites.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='Invites_API0'\u003e\u003c/div\u003e
       
@@ -31245,20 +31374,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eAPI to manage locations.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='Location_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='Locations_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API1' aria-expanded="true" aria-controls='collapseLocation_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API1' class="accordion-collapse collapse" aria-labelledby='headerLocation_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API1' class="accordion-collapse collapse" aria-labelledby='headerLocations_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -31287,12 +31416,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API1' aria-expanded="true" aria-controls='collapserequestLocation_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API1' aria-expanded="true" aria-controls='collapserequestLocations_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -31404,14 +31533,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API2' aria-expanded="true" aria-controls='collapseLocation_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epost\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerLocation_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerLocations_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -31428,12 +31557,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestLocation_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestLocation_API2' aria-expanded="true" aria-controls='collapserequestLocation_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestLocations_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestLocations_API2' aria-expanded="true" aria-controls='collapserequestLocations_API2'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestLocation_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestLocations_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -31511,12 +31640,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API2' aria-expanded="true" aria-controls='collapserequestLocation_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API2' aria-expanded="true" aria-controls='collapserequestLocations_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -31654,14 +31783,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API3' aria-expanded="true" aria-controls='collapseLocation_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API3' class="accordion-collapse collapse" aria-labelledby='headerLocation_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API3' class="accordion-collapse collapse" aria-labelledby='headerLocations_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -31724,14 +31853,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API4' aria-expanded="true" aria-controls='collapseLocation_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API4' class="accordion-collapse collapse" aria-labelledby='headerLocation_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API4' class="accordion-collapse collapse" aria-labelledby='headerLocations_API4' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -31752,12 +31881,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API4' aria-expanded="true" aria-controls='collapserequestLocation_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API4' aria-expanded="true" aria-controls='collapserequestLocations_API4'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API4' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -31893,14 +32022,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API5' aria-expanded="true" aria-controls='collapseLocation_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API5' class="accordion-collapse collapse" aria-labelledby='headerLocation_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API5' class="accordion-collapse collapse" aria-labelledby='headerLocations_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -31925,12 +32054,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API5' aria-expanded="true" aria-controls='collapserequestLocation_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API5' aria-expanded="true" aria-controls='collapserequestLocations_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -32068,14 +32197,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API6' aria-expanded="true" aria-controls='collapseLocation_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}/permissions\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API6' class="accordion-collapse collapse" aria-labelledby='headerLocation_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API6' class="accordion-collapse collapse" aria-labelledby='headerLocations_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32096,12 +32225,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API6' aria-expanded="true" aria-controls='collapserequestLocation_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API6' aria-expanded="true" aria-controls='collapserequestLocations_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -32190,14 +32319,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API7' aria-expanded="true" aria-controls='collapseLocation_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations/{uuid}/permissions\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API7' class="accordion-collapse collapse" aria-labelledby='headerLocation_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API7' class="accordion-collapse collapse" aria-labelledby='headerLocations_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32220,12 +32349,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseLocation_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocation_API7' aria-expanded="true" aria-controls='collapserequestLocation_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseLocations_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseLocations_API7' aria-expanded="true" aria-controls='collapserequestLocations_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseLocation_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseLocation_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseLocations_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseLocations_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -32320,14 +32449,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API8' aria-expanded="true" aria-controls='collapseLocation_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API8' aria-expanded="true" aria-controls='collapseLocations_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API8' class="accordion-collapse collapse" aria-labelledby='headerLocation_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API8' class="accordion-collapse collapse" aria-labelledby='headerLocations_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32382,14 +32511,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerLocation_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocation_API9' aria-expanded="true" aria-controls='collapseLocation_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerLocations_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API9' aria-expanded="true" aria-controls='collapseLocations_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/locations:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseLocation_API9' class="accordion-collapse collapse" aria-labelledby='headerLocation_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseLocations_API9' class="accordion-collapse collapse" aria-labelledby='headerLocations_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32616,20 +32745,20 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eAPI for public asset and event management.\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='Public_Assets_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='PublicAssets_API0'\u003e\u003c/div\u003e
       
         
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API1' aria-expanded="true" aria-controls='collapsePublic_Assets_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{asset_uuid}/events/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API1' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32652,12 +32781,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API1' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API1' aria-expanded="true" aria-controls='collapserequestPublicAssets_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -32868,14 +32997,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API2' aria-expanded="true" aria-controls='collapsePublic_Assets_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API2' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -32898,12 +33027,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API2' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API2' aria-expanded="true" aria-controls='collapserequestPublicAssets_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -33075,14 +33204,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerPublic_Assets_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublic_Assets_API3' aria-expanded="true" aria-controls='collapsePublic_Assets_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerPublicAssets_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v2/publicassets/{uuid}/events\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapsePublic_Assets_API3' class="accordion-collapse collapse" aria-labelledby='headerPublic_Assets_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapsePublicAssets_API3' class="accordion-collapse collapse" aria-labelledby='headerPublicAssets_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -33143,12 +33272,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponsePublic_Assets_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublic_Assets_API3' aria-expanded="true" aria-controls='collapserequestPublic_Assets_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponsePublicAssets_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponsePublicAssets_API3' aria-expanded="true" aria-controls='collapserequestPublicAssets_API3'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponsePublic_Assets_API3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublic_Assets_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponsePublicAssets_API3' class="accordion-collapse collapse" aria-labelledby='headerresponsePublicAssets_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -33249,7 +33378,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                                     
                                     
                                     
-                                    \u003ctd\u003eThis describes Jitsuin Event.\u003c/td\u003e
+                                    \u003ctd\u003eThis describes RKVST Event.\u003c/td\u003e
                                                
                                 
                                 \u003ctr\u003e
@@ -33360,7 +33489,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003cdiv class="\$openapi-spec-content"\u003e
     \u003cdiv class="description"\u003e
-      \u003cp\u003eAPI to manage an archivist node\u003c/p\u003e
+      \u003cp\u003eAPI to manage an archivist node.\u003c/p\u003e
     \u003c/div\u003e
       \u003cdiv class="accordion" id='ArchivistNode_API0'\u003e\u003c/div\u003e
       
@@ -33694,7 +33823,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
     \u003cdiv class="description"\u003e
       \u003cp\u003eSimple API for User Management\u003c/p\u003e
     \u003c/div\u003e
-      \u003cdiv class="accordion" id='User_Management_API0'\u003e\u003c/div\u003e
+      \u003cdiv class="accordion" id='UserManagement_API0'\u003e\u003c/div\u003e
       
         
           
@@ -33704,14 +33833,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API1'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API1' aria-expanded="true" aria-controls='collapseUser_Management_API1'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API1'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/invitetokenhint\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API1' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API1' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -33736,12 +33865,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API1'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API1' aria-expanded="true" aria-controls='collapserequestUser_Management_API1'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API1'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API1' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -33820,14 +33949,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API2'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API2' aria-expanded="true" aria-controls='collapseUser_Management_API2'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API2'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/root_principals\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API2' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API2' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -33846,12 +33975,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API2'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API2' aria-expanded="true" aria-controls='collapserequestUser_Management_API2'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API2'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API2' aria-expanded="true" aria-controls='collapserequestUserManagement_API2'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API2' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API2' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -33929,14 +34058,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API3'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API3' aria-expanded="true" aria-controls='collapseUser_Management_API3'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API3'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API3' aria-expanded="true" aria-controls='collapseUserManagement_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/root_principals\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API3' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API3' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -33953,12 +34082,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerrequestUser_Management_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUser_Management_API3' aria-expanded="true" aria-controls='collapserequestUser_Management_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerrequestUserManagement_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'\u003e
                                     \u003cspan\u003eExample Request\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapserequestUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUser_Management_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapserequestUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUserManagement_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -34008,12 +34137,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API3'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API3' aria-expanded="true" aria-controls='collapserequestUser_Management_API3'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API3'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API3' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API3' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -34097,14 +34226,143 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API4'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API4' aria-expanded="true" aria-controls='collapseUser_Management_API4'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API4'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API4' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API4'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API4' aria-expanded="true" aria-controls='collapserequestUserManagement_API4'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API4' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "display_name": "My First Tenancy",
+  "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
+  "verified_domain": "foo.com"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003edisplay_name\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eCustomer friendly name for the tenant.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etenant identity \u003ccode\u003e{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eReturned when the request is badly formed.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to perform this action.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the referenced tenant does not exist.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+    
+        
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/tenantid\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API4' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API4' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34145,12 +34403,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API4'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API4' aria-expanded="true" aria-controls='collapserequestUser_Management_API4'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API4' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -34236,14 +34494,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API5' aria-expanded="true" aria-controls='collapseUser_Management_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API5' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34272,12 +34530,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API5' aria-expanded="true" aria-controls='collapserequestUser_Management_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -34378,14 +34636,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API6' aria-expanded="true" aria-controls='collapseUser_Management_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users/{user_uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API6' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34406,12 +34664,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API6' aria-expanded="true" aria-controls='collapserequestUser_Management_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -34525,14 +34783,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API7' aria-expanded="true" aria-controls='collapseUser_Management_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API7' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34553,12 +34811,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API7' aria-expanded="true" aria-controls='collapserequestUser_Management_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -34628,14 +34886,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API8' aria-expanded="true" aria-controls='collapseUser_Management_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API8' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34690,14 +34948,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API9' aria-expanded="true" aria-controls='collapseUser_Management_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API9' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34752,14 +35010,14 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUser_Management_API10'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUser_Management_API10' aria-expanded="true" aria-controls='collapseUser_Management_API10'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUser_Management_API10' class="accordion-collapse collapse" aria-labelledby='headerUser_Management_API10' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -34778,12 +35036,12 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUser_Management_API10'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUser_Management_API10' aria-expanded="true" aria-controls='collapserequestUser_Management_API10'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API11'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUser_Management_API10' class="accordion-collapse collapse" aria-labelledby='headerresponseUser_Management_API10' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{

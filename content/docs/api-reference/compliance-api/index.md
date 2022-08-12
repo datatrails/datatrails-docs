@@ -42,7 +42,7 @@ For example “Time since last Maintenance must be less than 72 hours”:
     "display_name": "Regular Maintenance",
     "asset_filter": [
         { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
+    ],
     "event_display_type": "Maintenance Performed",
     "time_period_seconds": "259200"
 }
@@ -70,7 +70,7 @@ For example defining pairs of Events like `Maintenance Request` and `Maintenance
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
         { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
+    ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed"
 }
@@ -97,7 +97,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
         { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
+    ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed",
     "time_period_seconds": "259200"
@@ -123,11 +123,11 @@ For example, a policy checking that the time between `Maintenance Request` and `
 ```json
 {
     "compliance_type": "COMPLIANCE_DYNAMIC_TOLERANCE",
-    "description": "Average time between Maintenance Requested/Performed"
+    "description": "Average time between Maintenance Requested/Performed",
     "display_name": "outlying Maintenance Requests",
     "asset_filter": [
         { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
+    ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type": "Maintenance Performed",
     "dynamic_window": 604800,
@@ -165,7 +165,7 @@ Compliance is a signal, not a perfect answer. Therefore equivilence of floats is
 ```json
 {
     "compliance_type": "COMPLIANCE_RICHNESS",
-    "description": "Rad level is less than 7"
+    "description": "Rad level is less than 7",
     "display_name": "Rad limit",
     "asset_filter": [
         { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}

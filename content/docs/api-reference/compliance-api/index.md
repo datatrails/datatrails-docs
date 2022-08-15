@@ -41,7 +41,7 @@ For example “Time since last Maintenance must be less than 72 hours”:
     "description": "Maintenance should be performed every 72h",
     "display_name": "Regular Maintenance",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "event_display_type": "Maintenance Performed",
     "time_period_seconds": "259200"
@@ -69,7 +69,7 @@ For example defining pairs of Events like `Maintenance Request` and `Maintenance
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed"
@@ -96,7 +96,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed",
@@ -126,7 +126,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
     "description": "Average time between Maintenance Requested/Performed",
     "display_name": "outlying Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type": "Maintenance Performed",
@@ -168,7 +168,7 @@ Compliance is a signal, not a perfect answer. Therefore equivilence of floats is
     "description": "Rad level is less than 7",
     "display_name": "Rad limit",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "richness_assertions": [
         { "or": ["rad<7"]}
@@ -205,7 +205,7 @@ Sample response:
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ]
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed",

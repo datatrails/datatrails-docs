@@ -13,6 +13,8 @@
  toc: true
 ---
 
+## Creating a Compliance Policy
+
 Compliance policies are user-defined rule sets that Assets can be test against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
 
 For example, a policy might assert that “Maintenance Alarm Events must be answered with a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
@@ -40,9 +42,18 @@ steps:
     display_name: Regular Maintenance
     compliance_type: COMPLIANCE_SINCE
     asset_filter:
-      - or: [ "attributes.arc_location_identity=locations/<location-id>" ]
+      - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
     event_display_type: Maintenance Performed
     time_period_seconds: "259200"
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -52,11 +63,20 @@ steps:
     "description": "Maintenance should be performed every 72h",
     "display_name": "Regular Maintenance",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/<location-id>"]}
+        { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
     "event_display_type": "Maintenance Performed",
     "time_period_seconds": "259200"
 }
+```
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -84,9 +104,18 @@ steps:
     display_name: Outstanding Maintenance Requests
     compliance_type: COMPLIANCE_CURRENT_OUTSTANDING
     asset_filter:
-      - or: [ "attributes.arc_location_identity=locations/<location-id>" ]
+      - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
     event_display_type: Maintenance Requests
     closing_event_display_type: Maintenance Performed
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -96,11 +125,20 @@ steps:
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/<location-id>"]}
+        { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed"
 }
+```
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -128,10 +166,19 @@ steps:
     display_name: Outstanding Maintenance Requests 72hr
     compliance_type: COMPLIANCE_PERIOD_OUTSTANDING
     asset_filter:
-      - or: [ "attributes.arc_location_identity=locations/<location-id>" ]
+      - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
     event_display_type: Maintenance Requests
     closing_event_display_type: Maintenance Performed
     time_period_seconds: "259200"
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -141,12 +188,21 @@ steps:
     "description": "There should be no outstanding Maintenance Requests longer than 72hr",
     "display_name": "Outstanding Maintenance Requests 72hr",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/<location-id>"]}
+        { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type":  "Maintenance Performed",
     "time_period_seconds": "259200"
 }
+```
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -169,11 +225,20 @@ steps:
     display_name: Outlying Maintenance Requests
     compliance_type: COMPLIANCE_DYNAMIC_TOLERANCE
     asset_filter:
-      - or: [ "attributes.arc_location_identity=locations/<location-id>" ]
+      - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
     event_display_type: Maintenance Requests
     closing_event_display_type: Maintenance Performed
     dynamic_window: "604800"
     dynamic_variability: "0.5"
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -183,13 +248,22 @@ steps:
     "description": "Average time between Maintenance Requested/Performed",
     "display_name": "Outlying Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/<location-id>"]}
+        { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
     "event_display_type": "Maintenance Requests",
     "closing_event_display_type": "Maintenance Performed",
     "dynamic_window": 604800,
     "dynamic_variability": 0.5
 }
+```
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 {{< /tab >}}}
 {{< /tabs >}}
@@ -209,14 +283,23 @@ For example, "radiation level must be less than 7".
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: Rad level is less than 7
+      description: 'Rad level is less than 7'
       print_response: true
     display_name: Rad Limit
     compliance_type: COMPLIANCE_RICHNESS
     asset_filter:
-      - or: [ "attributes.arc_location_identity=locations/<location-id>" ]
+      - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
     richness_assertions: 
       - or: [ "radiation_level<7" ]
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -226,12 +309,71 @@ steps:
     "description": "Rad level is less than 7",
     "display_name": "Rad Limit",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/<location-id>"]}
+        { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
     "richness_assertions": [
         { "or": ["radiation_level<7"]}
     ],
 }
+```
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v1/compliance_policies
+```
+{{< /tab >}}}
+{{< /tabs >}}
+
+## Checking Compliance Status
+
+You may check the compliance status of a specific Asset within your tenancy.
+
+{{< tabs name="compliance_status" >}}
+{{{< tab name="UI" >}}
+Navigate to `Manage Assets`, then click the Asset you'd like to check. If your Asset is compliant with the relative policies you have created, there will be an RKVST blue tick with the message `No compliance policy failures`. 
+{{< img src="ComplianceStatus.png" alt="Rectangle" caption="<em>Add Asset Information</em>" class="border-0" >}}
+
+{{< /tab >}}
+{{< tab name="YAML" >}}
+Use the `asset_label` of a previously-created Asset you'd like to check. Set `report: true` to print the compliance status report.
+```yaml
+---
+steps:
+  - step:
+      action: COMPLIANCE_COMPLIANT_AT
+      description: Check Compliance of My First Container.
+      report: true
+      asset_label: My First Container
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
+```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Run the following command using the desired Asset ID to check its compliance status. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+ 
+```bash
+curl -v -X GET \
+    -H "@$BEARER_TOKEN_FILE" \
+    https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>
+```
+
+You may also determine compliance at a historical date by adding the desired date to the query.
+
+```bash
+curl -v -X GET \
+    -H "@$BEARER_TOKEN_FILE" \
+    https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>?compliant_at=2019-11-27T14:44:19Z
 ```
 {{< /tab >}}}
 {{< /tabs >}}

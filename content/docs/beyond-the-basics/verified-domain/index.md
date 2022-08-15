@@ -47,3 +47,13 @@ RKVST uses the following criteria to assess a request for domain verification:
 * Social media records such as LinkedIn and Twitter match the request
 
 If the request passes these criteria, our team will add your verified domain to your tenancy and notify you that your request has been completed.
+
+## Checking the Verified Domain of an External Organization
+
+If an organization has a verified domain with RKVST, it will be displayed when you view a public asset they have published. You may also retrieve this information via the API if you know the organization's Tenant ID.
+
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v1/tenancies/{uuid}:publicinfo
+```

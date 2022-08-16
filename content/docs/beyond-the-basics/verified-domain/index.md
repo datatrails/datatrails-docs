@@ -31,26 +31,15 @@ Without domain verification, the `Organisation` is noted as the publisher's Tena
 
 {{< img src="UnverifiedDomain.png" alt="Rectangle" caption="<em>Organisation without Verified Domain</em>" class="border-0" >}}
 
-##include image with verified domain#
+##include image with verified domain##
 
 ## How can I get my organization's domain verified? 
 
 The RKVST team is happy to help you obtain your verified domain badge. Please contact support@rkvst.com from an email address which includes the domain you wish to verify. For example, email us from @rkvst.com to verify the rkvst.com domain. 
 
-## How does RKVST verify my organization's domain?
-
-RKVST uses the following criteria to assess a request for domain verification:
-
-* The request email has come from the same domain as the organization (i.e. @rkvst.com for rkvst.com)
-* The email address is valid and has not been masked
-* If the user is known to the RKVST team, the request should match the records we have for their tenancy
-* Social media records such as LinkedIn and Twitter match the request
-
-If the request passes these criteria, our team will add your verified domain to your tenancy and notify you that your request has been completed.
-
 ## Checking the Verified Domain of an External Organization
 
-If an organization has a verified domain with RKVST, it will be displayed when you view a public asset they have published. You may also retrieve this information via the API if you know the organization's Tenant ID.
+If an organization has a verified domain with RKVST, it will be displayed when you view a Public Asset they have published. You may also retrieve this information via the API if you know the organization's Tenant ID.
 
 ```bash
 curl -v -X GET \

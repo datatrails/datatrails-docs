@@ -37,8 +37,9 @@ For example, "time since last maintenance must be less than 72 hours".
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: Maintenance should be performed every 72h
+      description: Create COMPLIANCE_SINCE policy
       print_response: true
+    description: Maintenance should be performed every 72h
     display_name: Regular Maintenance
     compliance_type: COMPLIANCE_SINCE
     asset_filter:
@@ -99,8 +100,9 @@ For example, "a Maintenance Request Event must be answered by a Maintenance Perf
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: 'There should be no outstanding Maintenance Requests'
+      description: Create COMPLIANCE_CURRENT_OUTSTANDING policy
       print_response: true
+    description: "There should be no outstanding Maintenance Requests"
     display_name: Outstanding Maintenance Requests
     compliance_type: COMPLIANCE_CURRENT_OUTSTANDING
     asset_filter:
@@ -161,8 +163,9 @@ For example, "a Maintenance Request Event must be answered by a Maintenance Perf
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: 'There should be no outstanding Maintenance Requests longer than 72hr'
+      description: Create COMPLIANCE_PERIOD_OUTSTANDING policy
       print_response: true
+    description: There should not be outstanding Maintenance Requests for longer than 72hr
     display_name: Outstanding Maintenance Requests 72hr
     compliance_type: COMPLIANCE_PERIOD_OUTSTANDING
     asset_filter:
@@ -220,8 +223,9 @@ For example, "the time between a Maintanence Request Event and Maintanence Perfo
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: Average time between Maintenance Requested/Performed
+      description: Create COMPLIANCE_DYNAMIC_TOLERANCE policy
       print_response: true
+    description: Average time between Maintenance Requested/Performed
     display_name: Outlying Maintenance Requests
     compliance_type: COMPLIANCE_DYNAMIC_TOLERANCE
     asset_filter:
@@ -283,8 +287,9 @@ For example, "radiation level must be less than 7".
 steps:
   - step:
       action: COMPLIANCE_POLICIES_CREATE
-      description: 'Rad level is less than 7'
+      description: Create COMPLIANCE_RICHNESS policy
       print_response: true
+    description: "Radiation level must be less than 7"
     display_name: Rad Limit
     compliance_type: COMPLIANCE_RICHNESS
     asset_filter:

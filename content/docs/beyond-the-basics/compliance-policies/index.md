@@ -217,7 +217,10 @@ To correlate Events, define the attribute `arc_correlation_value` in the Event A
 For example, "the time between a Maintanence Request Event and Maintanence Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean".
 
 {{< tabs name="compliance_dynamic_tolerance" >}}
-{{{< tab name="YAML" >}}
+{{{< tab name="UI" >}}
+This type of compliance policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
+{{< /tab >}}
+{{< tab name="YAML" >}}
 ```yaml
 ---
 steps:
@@ -281,7 +284,10 @@ The operator can be one of six relational operators: equal to (`=`), not equal t
 For example, "radiation level must be less than 7".
 
 {{< tabs name="compliance_richness" >}}
-{{{< tab name="YAML" >}}
+{{{< tab name="UI" >}}
+This type of compliance policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
+{{< /tab >}}
+{{< tab name="YAML" >}}
 ```yaml
 ---
 steps:
@@ -344,25 +350,7 @@ Navigate to `Manage Assets`, then click the Asset you'd like to check. If your A
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the `asset_label` of a previously-created Asset you'd like to check. Set `report: true` to print the compliance status report.
-```yaml
----
-steps:
-  - step:
-      action: COMPLIANCE_COMPLIANT_AT
-      description: Check Compliance of My First Container.
-      report: true
-      asset_label: My First Container
-```
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
- 
-```bash
-$ archivist_runner \
-      -u https://app.rkvst.io \
-      --client-id <your-client-id> \
-      --client-secret <your-client-secret> \
-      <path-to-yaml-file>
-```
+This action is not yet available in the YAML Runner. Check out our UI or JSON options!
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Run the following command using the desired Asset ID to check its compliance status. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.

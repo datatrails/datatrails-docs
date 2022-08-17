@@ -17,8 +17,6 @@
 
 Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization's tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.
 
-##include image of verified domain badge##
-
 {{< note >}}
 **Note:** Having a verified domain is different from a `Tenant Display Name`. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy. 
 {{< /note >}}
@@ -27,11 +25,11 @@ Domain verification assures that actors claiming to be part of an organization a
 
 Getting your organization's domain verified indicates that you are who you say you are to those you wish to share with. This helps close the trust gap inherent to information sharing between organizations or with the public.
 
-Without domain verification, the `Organisation` is noted as the publisher's Tenant ID. Verifying your domain not only shows that this information comes from a legitamate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have `rkvst.com`. 
+Without domain verification, the `Organisation` is noted as the publisher's Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have `rkvst.com`. 
 
 {{< img src="UnverifiedDomain.png" alt="Rectangle" caption="<em>Organisation without Verified Domain</em>" class="border-0" >}}
 
-##include image with verified domain##
+{{< img src="VerifiedDomain.png" alt="Rectangle" caption="<em>Organisation with Verified Domain</em>" class="border-0" >}}
 
 ## How can I get my organization's domain verified? 
 

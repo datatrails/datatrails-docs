@@ -29,7 +29,7 @@ Without domain verification, the `Organisation` is noted as the publisher's Tena
 
 {{< img src="UnverifiedDomain.png" alt="Rectangle" caption="<em>Organisation without Verified Domain</em>" class="border-0" >}}
 
-{{< img src="VerifiedDomain.png" alt="Rectangle" caption="<em>Organisation with Verified Domain</em>" class="border-0" >}}
+{{< img src="DomainBadge.png" alt="Rectangle" caption="<em>Organisation with Verified Domain</em>" class="border-0" >}}
 
 ## How can I get my organization's domain verified? 
 

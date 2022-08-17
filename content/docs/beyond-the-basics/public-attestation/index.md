@@ -15,7 +15,7 @@
 
 You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.
 
-Permissioned Assets can only be shared through the creation of [Access Policies](../../rkvst-basics/sharing-assets-with-obac/). Public Assets, however, may be shared with a read-only `Public URL`, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox. 
+Permissioned Assets can only be shared through the creation of [Access Policies](../../rkvst-basics/sharing-assets-with-obac/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox. 
 
 Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.
 
@@ -25,7 +25,7 @@ Following the link to a Public Asset or Public Event will allow read-only access
 ## Creating a Publicly Attested Asset
 
 {{< warning >}}
-**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. Any information published will be publicly accessible forever.
+**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.
 {{< /warning >}}
 
 1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/) for detailed instructions. 
@@ -34,7 +34,9 @@ Following the link to a Public Asset or Public Event will allow read-only access
 {{{< tab name="UI" >}}
 Select `Add Asset` from the sidebar and fill in the desired details.
 {{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
+
 Check the box next to `Make Asset Public`.
+
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -57,7 +59,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 2. Publish your Public Asset.
 
 {{< warning >}}
-**WARNING:** Once an Asset is made public, it cannot be made private. Any information published will be publicly accessible forever.
+**WARNING:** Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.
 {{< /warning >}}
 
 {{< tabs name="set_public_public" >}}

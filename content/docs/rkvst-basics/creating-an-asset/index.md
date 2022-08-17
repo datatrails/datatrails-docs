@@ -20,7 +20,7 @@ An Asset can be anything: a Connected Machine, a Shipping Container, or even a D
 
 Each Asset will have a history of any actions performed upon it by any actor.
 
-You may wish to publicly attest an Asset's history. For more information on how to do so, see [Public Attestation](https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/).
+You may share Assets and their history with specific stakeholders using [permissioned sharing](../managing-access-to-an-asset-with-abac/). RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see [Public Attestation](https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/).
 
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 ## Creating an Asset

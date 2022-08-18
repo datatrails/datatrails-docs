@@ -15,13 +15,13 @@
 
 ## Creating a Compliance Policy
 
-Compliance policies are user-defined rule sets that Assets can be test against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
+Compliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
 
 For example, a policy might assert that “Maintenance Alarm Events must be answered with a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
 
 RKVST allows for several types of Compliance Policies: 
 
-1. ***COMPLIANCE_SINCE:*** checks the time elapsed since a specific type of Event has met a certain threshold. 
+1. ***COMPLIANCE_SINCE:*** checks the time elapsed since a specific type of Event has not exceeded set threshold. 
 
 For example, "time since last maintenance must be less than 72 hours".
 
@@ -216,6 +216,8 @@ To correlate Events, define the attribute `arc_correlation_value` in the Event A
 
 For example, "the time between a Maintanence Request Event and Maintanence Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean".
 
+The `dynamic_window` is the time period to evaluate on, in this case, one week. The `dynamic_variability` is the number of standard deviations from the mean allowed, in this case, 0.5.
+
 {{< tabs name="compliance_dynamic_tolerance" >}}
 {{{< tab name="UI" >}}
 This type of compliance policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
@@ -366,7 +368,7 @@ You may also determine compliance at a historical date by adding the desired dat
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>?compliant_at=2019-11-27T14:44:19Z
+    "https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>?compliant_at=2019-11-27T14:44:19Z"
 ```
 {{< /tab >}}}
 {{< /tabs >}}

@@ -23,7 +23,7 @@ Domain verification assures that actors claiming to be part of an organization a
 
 ## Why is it important to verify my organization's domain?
 
-Getting your organization's domain verified indicates that you are who you say you are to those you wish to share with. This helps close the trust gap inherent to information sharing between organizations or with the public.
+Getting your organization's domain verified indicates that you are who you say you are. This helps close the trust gap inherent to information sharing between organizations or with the public.
 
 Without domain verification, the `Organisation` is noted as the publisher's Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have `rkvst.com`. 
 

@@ -157,7 +157,7 @@ To fetch all IAM `access_policies` with a specific name, `GET` the `iam/access_p
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description
+     "https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description"
 ```
 Each of these calls returns a list of matching IAM access_policies records in the form:
 

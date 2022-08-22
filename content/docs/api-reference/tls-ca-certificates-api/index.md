@@ -95,7 +95,7 @@ To fetch all TLS CA Certificates with a specific name, `GET` the `tlscacertifica
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme
+     "https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme"
 ```
 
 Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):

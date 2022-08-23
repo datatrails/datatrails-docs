@@ -17,7 +17,7 @@
 
 Compliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
 
-For example, a policy might assert that “Maintenance Alarm Events must be answered with a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
+For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
 
 RKVST allows for several types of Compliance Policies: 
 
@@ -82,11 +82,15 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-2. ***COMPLIANCE_CURRENT_OUTSTANDING:*** checks if there is an answering Event addressing an outstanding Event.
+2. ***COMPLIANCE_CURRENT_OUTSTANDING:*** checks if there is a closing Event addressing an outstanding Event.
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 
-For example, "a Maintenance Request Event must be answered by a Maintenance Performed Event".
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
+
+For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event".
 
 {{< tabs name="compliance_current_outstanding" >}}
 {{{< tab name="UI" >}}
@@ -107,7 +111,7 @@ steps:
     compliance_type: COMPLIANCE_CURRENT_OUTSTANDING
     asset_filter:
       - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
-    event_display_type: Maintenance Requests
+    event_display_type: Maintenance Request
     closing_event_display_type: Maintenance Performed
 ```
 Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
@@ -129,7 +133,7 @@ $ archivist_runner \
     "asset_filter": [
         { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
-    "event_display_type": "Maintenance Requests",
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type":  "Maintenance Performed"
 }
 ```
@@ -149,7 +153,11 @@ curl -v -X POST \
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 
-For example, "a Maintenance Request Event must be answered by a Maintenance Performed Event within 72 hours".
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
+
+For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event within 72 hours".
 
 {{< tabs name="compliance_period_outstanding" >}}
 {{{< tab name="UI" >}}
@@ -170,7 +178,7 @@ steps:
     compliance_type: COMPLIANCE_PERIOD_OUTSTANDING
     asset_filter:
       - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
-    event_display_type: Maintenance Requests
+    event_display_type: Maintenance Request
     closing_event_display_type: Maintenance Performed
     time_period_seconds: "259200"
 ```
@@ -193,7 +201,7 @@ $ archivist_runner \
     "asset_filter": [
         { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
-    "event_display_type": "Maintenance Requests",
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type":  "Maintenance Performed",
     "time_period_seconds": "259200"
 }
@@ -210,11 +218,15 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-4. ***COMPLIANCE_DYNAMIC_TOLERANCE:*** checks if time between correlated events does not exceed defined variability.
+4. ***COMPLIANCE_DYNAMIC_TOLERANCE:*** checks that the time between correlated events is not excessively different to the observed average normal duration for similar events.
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
 
-For example, "the time between a Maintanence Request Event and Maintanence Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean".
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
+
+For example, "the time between a Maintenance Request Event and Maintenance Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean".
 
 The `dynamic_window` is the time period to evaluate on, in this case, one week. The `dynamic_variability` is the number of standard deviations from the mean allowed, in this case, 0.5.
 
@@ -235,7 +247,7 @@ steps:
     compliance_type: COMPLIANCE_DYNAMIC_TOLERANCE
     asset_filter:
       - or: [ "attributes.arc_home_location_identity=locations/<location-id>" ]
-    event_display_type: Maintenance Requests
+    event_display_type: Maintenance Request
     closing_event_display_type: Maintenance Performed
     dynamic_window: "604800"
     dynamic_variability: "0.5"
@@ -259,7 +271,7 @@ $ archivist_runner \
     "asset_filter": [
         { "or": ["attributes.arc_home_location_identity=locations/<location-id>"]}
     ],
-    "event_display_type": "Maintenance Requests",
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type": "Maintenance Performed",
     "dynamic_window": 604800,
     "dynamic_variability": 0.5
@@ -277,7 +289,7 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-5. ***COMPLIANCE_RICHNESS:*** checks if the assertions conducted on an attribute value pass.
+5. ***COMPLIANCE_RICHNESS:*** checks whether Attributes are within expected bounds or otherwise meet defined conditions.
 
 This type of policy uses `richness_assertions`. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.
 
@@ -363,7 +375,7 @@ curl -v -X GET \
     https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>
 ```
 
-You may also determine compliance at a historical date by adding the desired date to the query.
+You may also determine compliance at a [historical date](https://docs.rkvst.com/docs/overview/advanced-concepts/#perspectives) by adding the desired date to the query.
 
 ```bash
 curl -v -X GET \

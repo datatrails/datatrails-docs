@@ -95,7 +95,7 @@ To fetch all locations with a specific name, `GET` the assets resource and filte
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire
+    "https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire"
 ```
 
 Each of these calls returns a list of matching asset records in the form:

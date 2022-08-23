@@ -88,7 +88,7 @@ To fetch all IAM subjects with a specific name, `GET` the `/subjects` resource a
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme
+     "https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme"
 ```
 
 Each of these calls returns a list of matching IAM subjects records in the form:

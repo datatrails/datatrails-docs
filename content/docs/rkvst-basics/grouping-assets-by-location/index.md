@@ -262,7 +262,7 @@ Use the [Locations API](https://docs.rkvst.com/docs/api-reference/locations-api/
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory
+     "https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory"
 ```
 {{< /tab >}}}
 {{< /tabs >}}

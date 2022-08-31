@@ -35,6 +35,8 @@ Without domain verification, the `Organisation` is noted as the publisher's Tena
 
 The RKVST team is happy to help you obtain your verified domain badge. Please contact support@rkvst.com from an email address which includes the domain you wish to verify. For example, email us from @rkvst.com to verify the rkvst.com domain. 
 
+In order to protect our user community, it is important for us to verify that the person making the request is authorized to do so by the owner of the domain. We will request evidence from you to prove that you own or control the domain in question. Typically, this will be in the form of public company information or domain registration records. Please be prepared to share this evidence with us.
+
 ## Checking the Verified Domain of an External Organization
 
 If an organization has a verified domain with RKVST, it will be displayed when you view a Public Asset they have published. You may also retrieve this information via the API if you know the organization's Tenant ID.

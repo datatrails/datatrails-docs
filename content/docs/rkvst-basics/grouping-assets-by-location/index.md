@@ -173,8 +173,6 @@ Like Assets and Events, Locations may also have Extended Attributes added as key
 {{< /tabs >}}
 
 
-
-
 5. Complete your Location. 
 
 {{< tabs name="complete_location_locations" >}}
@@ -206,13 +204,68 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
+6. View your Locations. 
 
-6. Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
-{{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
+ {{< tabs name="location_list_locations" >}}
+ {{{< tab name="UI" >}}
+ Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
+ {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
+ {{< /tab >}}
+ {{< tab name="YAML" >}}
+ You can view all Location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 
 
-7. You can inspect details of a single Location. Click the desired Location row. 
-{{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
+ ```yaml
+ ---
+ steps:
+   - step:
+       action: LOCATIONS_LIST
+       description: List all locations.
+       print_response: true
+ ```
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the [Locations API](https://docs.rkvst.com/docs/api-reference/locations-api/) to GET a list of existing locations.
+ 
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     https://app.rkvst.io/archivist/v2/locations
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
+7. View details of the Location you just created. 
+
+ {{< tabs name="specific_location_locations" >}}
+ {{{< tab name="UI" >}}
+ You can inspect details of a single Location. Click the desired Location row. 
+ {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
+ {{< /tab >}}
+ {{< tab name="YAML" >}}
+ The `LOCATIONS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Location.
+
+ ```yaml
+ ---
+ steps:
+   - step:
+       action: LOCATIONS_LIST
+       description: Display Location named UK Factory. 
+       print_response: true
+     attrs: 
+       arc_display_name: UK Factory
+ ```
+
+{{< /tab >}}
+{{< tab name="JSON" >}}
+Use the [Locations API](https://docs.rkvst.com/docs/api-reference/locations-api/) to GET the specific location by name.
+ 
+```bash
+curl -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     "https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory"
+```
+{{< /tab >}}}
+{{< /tabs >}}
 
 ## Assigning a Location to an Asset
 

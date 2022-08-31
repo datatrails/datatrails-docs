@@ -1625,59 +1625,99 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
-\u003cli\u003e
-\u003cp\u003eNavigate to \u003ccode\u003eManage Locations\u003c/code\u003e in the Sidebar to see a list of existing Locations.
-
-
-\u003cfigure class="border-0"\u003e
-  
-  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationView" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
-  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" alt="Rectangle"\u003e\u003c/noscript\u003e
-  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging a Location\u003c/em\u003e\u003c/figcaption\u003e
-\u003c/figure\u003e
-
-
-
-
-
-\u003cdiv class="modal fade" id="LocationView" tabindex="-1" aria-labelledby="LocationView" aria-hidden="true"\u003e
-  \u003cdiv class="modal-dialog modal-xl"\u003e
-    
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" width="1828" height="477" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
-  \u003c/div\u003e
-\u003c/div\u003e\u003c/p\u003e
-\u003c/li\u003e
-\u003cli\u003e
-\u003cp\u003eYou can inspect details of a single Location. Click the desired Location row.
-
-
-\u003cfigure class="border-0"\u003e
-  
-  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
-  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" alt="Rectangle"\u003e\u003c/noscript\u003e
-  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eViewing a Location\u003c/em\u003e\u003c/figcaption\u003e
-\u003c/figure\u003e
-
-
-
-
-
-\u003cdiv class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true"\u003e
-  \u003cdiv class="modal-dialog modal-xl"\u003e
-    
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" width="588" height="360" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
-  \u003c/div\u003e
-\u003c/div\u003e\u003c/p\u003e
-\u003c/li\u003e
+\u003cli\u003eView your Locations.\u003c/li\u003e
 \u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="location_list_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#location_list_locations-0" type="button" role="tab" aria-controls="location_list_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#location_list_locations-1" type="button" role="tab" aria-controls="location_list_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#location_list_locations-2" type="button" role="tab" aria-controls="location_list_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="location_list_locations"\u003e\u003cdiv id="location_list_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="location_list_locations-0"\u003e
+\u003cp\u003eNavigate to \u003ccode\u003eManage Locations\u003c/code\u003e in the Sidebar to see a list of existing Locations.\u003c/p\u003e
+ \u003cfigure class="border-0"\u003e
+   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationView" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" alt="Rectangle"\u003e\u003c/noscript\u003e
+   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging a Location\u003c/em\u003e\u003c/figcaption\u003e
+ \u003c/figure\u003e
+ \u003cdiv class="modal fade" id="LocationView" tabindex="-1" aria-labelledby="LocationView" aria-hidden="true"\u003e
+   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e   \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+     
+     \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1828\u0026quot; height=\u0026quot;477\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+   \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+   \u003c/div\u003e
+ \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1"\u003e
+\u003cp\u003eYou can view all Location data using the \u003ccode\u003eLOCATIONS_LIST\u003c/code\u003e action. Use the \u003ccode\u003eprint_response\u003c/code\u003e keyword to get the full output.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all locations.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="location_list_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-2"\u003e
+\u003cp\u003eUse the \u003ca href="https://docs.rkvst.com/docs/api-reference/locations-api/"\u003eLocations API\u003c/a\u003e to GET a list of existing locations.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/locations
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eView details of the Location you just created.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="specific_location_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#specific_location_locations-0" type="button" role="tab" aria-controls="specific_location_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-1" type="button" role="tab" aria-controls="specific_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-2" type="button" role="tab" aria-controls="specific_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="specific_location_locations"\u003e\u003cdiv id="specific_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="specific_location_locations-0"\u003e
+\u003cp\u003eYou can inspect details of a single Location. Click the desired Location row.\u003c/p\u003e
+ \u003cfigure class="border-0"\u003e
+   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" alt="Rectangle"\u003e\u003c/noscript\u003e
+   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eViewing a Location\u003c/em\u003e\u003c/figcaption\u003e
+ \u003c/figure\u003e
+ \u003cdiv class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true"\u003e
+   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e   \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+     
+     \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;588\u0026quot; height=\u0026quot;360\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+   \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+   \u003c/div\u003e
+ \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1"\u003e
+\u003cp\u003eThe \u003ccode\u003eLOCATIONS_LIST\u003c/code\u003e action can be filtered using identifying attributes (\u003ccode\u003eattrs\u003c/code\u003e) to view the details of a specific Location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eDisplay Location named UK Factory. \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eUK Factory\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="specific_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-2"\u003e
+\u003cp\u003eUse the \u003ca href="https://docs.rkvst.com/docs/api-reference/locations-api/"\u003eLocations API\u003c/a\u003e to GET the specific location by name.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003ch2 id="assigning-a-location-to-an-asset"\u003eAssigning a Location to an Asset\u003c/h2\u003e
 \u003ch3 id="adding-at-asset-creation"\u003eAdding at Asset Creation\u003c/h3\u003e
 \u003col\u003e
@@ -19655,59 +19695,99 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="6"\u003e
-\u003cli\u003e
-\u003cp\u003eNavigate to \u003ccode\u003eManage Locations\u003c/code\u003e in the Sidebar to see a list of existing Locations.
-
-
-\u003cfigure class="border-0"\u003e
-  
-  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationView" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
-  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" alt="Rectangle"\u003e\u003c/noscript\u003e
-  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging a Location\u003c/em\u003e\u003c/figcaption\u003e
-\u003c/figure\u003e
-
-
-
-
-
-\u003cdiv class="modal fade" id="LocationView" tabindex="-1" aria-labelledby="LocationView" aria-hidden="true"\u003e
-  \u003cdiv class="modal-dialog modal-xl"\u003e
-    
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" width="1828" height="477" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
-  \u003c/div\u003e
-\u003c/div\u003e\u003c/p\u003e
-\u003c/li\u003e
-\u003cli\u003e
-\u003cp\u003eYou can inspect details of a single Location. Click the desired Location row.
-
-
-\u003cfigure class="border-0"\u003e
-  
-  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
-  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" alt="Rectangle"\u003e\u003c/noscript\u003e
-  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eViewing a Location\u003c/em\u003e\u003c/figcaption\u003e
-\u003c/figure\u003e
-
-
-
-
-
-\u003cdiv class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true"\u003e
-  \u003cdiv class="modal-dialog modal-xl"\u003e
-    
-      \u003cdiv class="modal-body"\u003e
-        
-        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" width="588" height="360" alt="Rectangle"\u003e
-      \u003c/div\u003e
-  
-  \u003c/div\u003e
-\u003c/div\u003e\u003c/p\u003e
-\u003c/li\u003e
+\u003cli\u003eView your Locations.\u003c/li\u003e
 \u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="location_list_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#location_list_locations-0" type="button" role="tab" aria-controls="location_list_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#location_list_locations-1" type="button" role="tab" aria-controls="location_list_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#location_list_locations-2" type="button" role="tab" aria-controls="location_list_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="location_list_locations"\u003e\u003cdiv id="location_list_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="location_list_locations-0"\u003e
+\u003cp\u003eNavigate to \u003ccode\u003eManage Locations\u003c/code\u003e in the Sidebar to see a list of existing Locations.\u003c/p\u003e
+ \u003cfigure class="border-0"\u003e
+   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationView" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationView.png" width="1828" height="477" alt="Rectangle"\u003e\u003c/noscript\u003e
+   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eManaging a Location\u003c/em\u003e\u003c/figcaption\u003e
+ \u003c/figure\u003e
+ \u003cdiv class="modal fade" id="LocationView" tabindex="-1" aria-labelledby="LocationView" aria-hidden="true"\u003e
+   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e   \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+     
+     \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationView_hu2cdb7553ab48b83fd65f6aea3b46e85f_94646_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1828\u0026quot; height=\u0026quot;477\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+   \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+   \u003c/div\u003e
+ \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1"\u003e
+\u003cp\u003eYou can view all Location data using the \u003ccode\u003eLOCATIONS_LIST\u003c/code\u003e action. Use the \u003ccode\u003eprint_response\u003c/code\u003e keyword to get the full output.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all locations.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="location_list_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-2"\u003e
+\u003cp\u003eUse the \u003ca href="https://docs.rkvst.com/docs/api-reference/locations-api/"\u003eLocations API\u003c/a\u003e to GET a list of existing locations.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/locations
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="7"\u003e
+\u003cli\u003eView details of the Location you just created.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="specific_location_locations" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#specific_location_locations-0" type="button" role="tab" aria-controls="specific_location_locations-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-1" type="button" role="tab" aria-controls="specific_location_locations-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-2" type="button" role="tab" aria-controls="specific_location_locations-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="specific_location_locations"\u003e\u003cdiv id="specific_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="specific_location_locations-0"\u003e
+\u003cp\u003eYou can inspect details of a single Location. Click the desired Location row.\u003c/p\u003e
+ \u003cfigure class="border-0"\u003e
+   \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+   \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w" src="/docs/rkvst-basics/grouping-assets-by-location/LocationDetails.png" width="588" height="360" alt="Rectangle"\u003e\u003c/noscript\u003e
+   \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eViewing a Location\u003c/em\u003e\u003c/figcaption\u003e
+ \u003c/figure\u003e
+ \u003cdiv class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true"\u003e
+   \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e   \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+     
+     \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/LocationDetails_hu92f35a3ef0949a785b227065ff6f02da_25818_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;588\u0026quot; height=\u0026quot;360\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+   \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+   \u003c/div\u003e
+ \u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1"\u003e
+\u003cp\u003eThe \u003ccode\u003eLOCATIONS_LIST\u003c/code\u003e action can be filtered using identifying attributes (\u003ccode\u003eattrs\u003c/code\u003e) to view the details of a specific Location.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eLOCATIONS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eDisplay Location named UK Factory. \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eUK Factory\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="specific_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-2"\u003e
+\u003cp\u003eUse the \u003ca href="https://docs.rkvst.com/docs/api-reference/locations-api/"\u003eLocations API\u003c/a\u003e to GET the specific location by name.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
 \u003ch2 id="assigning-a-location-to-an-asset"\u003eAssigning a Location to an Asset\u003c/h2\u003e
 \u003ch3 id="adding-at-asset-creation"\u003eAdding at Asset Creation\u003c/h3\u003e
 \u003col\u003e

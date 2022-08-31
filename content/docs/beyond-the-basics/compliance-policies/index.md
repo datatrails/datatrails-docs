@@ -364,7 +364,26 @@ Navigate to `Manage Assets`, then click the Asset you'd like to check. If your A
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-This action is not yet available in the YAML Runner. Check out our UI or JSON options!
+Create a yaml file, using the desired Asset ID as your `asset_label`. Setting `report: true` will print the compliance information for the Asset when the file is run. 
+
+```yaml
+---
+steps:
+  - step:
+      action: COMPLIANCE_COMPLIANT_AT
+      description: Check Compliance of desired Asset.
+      asset_label: assets/<asset-id>
+    report: true
+```
+Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+ 
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
+```
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Run the following command using the desired Asset ID to check its compliance status. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.

@@ -618,6 +618,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
 `},{id:7,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
+\u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
@@ -2755,7 +2756,285 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`},{id:12,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`},{id:12,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+\u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
+\u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
+\u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
+\u003ch2 id="creating-a-publicly-attested-asset"\u003eCreating a Publicly Attested Asset\u003c/h2\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003col\u003e
+\u003cli\u003eCreate an Asset with your desired attributes and set it to public. See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e for detailed instructions.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="create_asset_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_asset_public-0" type="button" role="tab" aria-controls="create_asset_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#create_asset_public-1" type="button" role="tab" aria-controls="create_asset_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="create_asset_public"\u003e\u003cdiv id="create_asset_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_asset_public-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eAdd Asset\u003c/code\u003e from the sidebar and fill in the desired details.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#CreateAsset" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/CreateAsset.png" width="901" height="633" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/CreateAsset.png" width="901" height="633" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAsset Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="CreateAsset" tabindex="-1" aria-labelledby="CreateAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;901\u0026quot; height=\u0026quot;633\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eCheck the box next to \u003ccode\u003eMake Asset Public\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCheck Asset as Public\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;914\u0026quot; height=\u0026quot;706\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="create_asset_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_asset_public-1"\u003e
+\u003cp\u003eCreate a JSON file with your desired Asset details. Set keyword \u003ccode\u003epublic\u003c/code\u003e to true.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Publicly Attested Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Example\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003etrue\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003ePublish your Public Asset.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWARNING:\u003c/strong\u003e Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="set_public_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#set_public_public-0" type="button" role="tab" aria-controls="set_public_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#set_public_public-1" type="button" role="tab" aria-controls="set_public_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="set_public_public"\u003e\u003cdiv id="set_public_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="set_public_public-0"\u003e
+\u003cp\u003eClick \u003ccode\u003eCreate Asset\u003c/code\u003e to complete your Public Asset creation.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePublish Your Asset\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;914\u0026quot; height=\u0026quot;706\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="3"\u003e
+\u003cli\u003eRetrieve public link to share your Public Asset with others.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNOTE:\u003c/strong\u003e A Public Asset may only be updated by the tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="get_link_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_public-0" type="button" role="tab" aria-controls="get_link_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#get_link_public-1" type="button" role="tab" aria-controls="get_link_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="get_link_public"\u003e\u003cdiv id="get_link_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_public-0"\u003e
+\u003cp\u003eClick on the copy icon next to the green \u003ccode\u003ePUBLIC\u003c/code\u003e badge. This will copy the Asset\u0026rsquo;s public URL to your clipboard.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicAsset" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicAsset.png" width="1898" height="968" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicAsset.png" width="1898" height="968" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCopy the Public Link\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicAsset" tabindex="-1" aria-labelledby="PublicAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1898\u0026quot; height=\u0026quot;968\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1"\u003e
+\u003cp\u003eA Public Asset\u0026rsquo;s URL can be retrived via the \u003ca href="https://docs.rkvst.com/docs/api-reference/assets-api/"\u003eAssets API\u003c/a\u003e. Use the Asset ID returned in the previous step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eThe following screenshot shows the public view of the Asset when the link is followed.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicView" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePublic View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="PublicView" tabindex="-1" aria-labelledby="PublicView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" width="1428" height="715" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/li\u003e
+\u003c/ol\u003e
+\u003ch3 id="adding-an-event-to-a-public-asset"\u003eAdding an Event to a Public Asset\u003c/h3\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNOTE:\u003c/strong\u003e Any Events added to a Public Asset will also be public. Events may only be added by the tenancy that originally created the Public Asset.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003col\u003e
+\u003cli\u003eCreate an Event with your desired attributes. See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eCreating an Event\u003c/a\u003e for detailed instructions.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="create_event_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_event_public-0" type="button" role="tab" aria-controls="create_event_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#create_event_public-1" type="button" role="tab" aria-controls="create_event_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="create_event_public"\u003e\u003cdiv id="create_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_event_public-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eRecord Event\u003c/code\u003e from the Asset view and fill in the desired details. When finished, click \u003ccode\u003eRecord Event\u003c/code\u003e at the bottom right of the pop-up.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AddPublicEvent" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/AddPublicEvent.png" width="1826" height="1178" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/AddPublicEvent.png" width="1826" height="1178" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AddPublicEvent" tabindex="-1" aria-labelledby="AddPublicEvent" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1826\u0026quot; height=\u0026quot;1178\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1"\u003e
+\u003cp\u003eCreate a JSON file with your desired Event details.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Adding new information to public asset.\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Update\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Public Update\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;New Information\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eUse the curl command to run your JSON file. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eYour Event will be readable when the Public Asset link is followed.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicView" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Listed in Public View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="PublicView" tabindex="-1" aria-labelledby="PublicView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" width="1428" height="715" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#EventPublic" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/EventPublic.png" width="942" height="483" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/EventPublic.png" width="942" height="483" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Information\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="EventPublic" tabindex="-1" aria-labelledby="EventPublic" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" width="942" height="483" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003col start="3"\u003e
+\u003cli\u003eYou may also retrieve a public URL to the Event itself, using the \u003ca href="https://docs.rkvst.com/docs/api-reference/assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="get_link_event_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_event_public-0" type="button" role="tab" aria-controls="get_link_event_public-0" aria-selected="true"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e
+	  \u003c/ul\u003e
+\u003cdiv class="tab-content" id="get_link_event_public"\u003e\u003cdiv id="get_link_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_event_public-0"\u003e
+\u003cp\u003eUse the following curl command, which will return the public URL for the Event.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+`},{id:13,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -3946,7 +4225,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:13,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`},{id:14,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -5637,7 +5916,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:14,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`},{id:15,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -6846,7 +7125,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:15,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`},{id:16,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -7494,7 +7773,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:16,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:17,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha1"\u003eFetch Transactions for an event (v1alpha1)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -7826,7 +8105,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:17,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -9248,7 +9527,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -9680,7 +9959,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -11498,7 +11777,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -12544,7 +12823,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -13301,7 +13580,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -14585,7 +14864,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -15439,7 +15718,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -15792,7 +16071,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -17155,7 +17434,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -18052,7 +18331,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:28,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:29,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -18060,7 +18339,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:29,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:30,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:31,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -18068,7 +18347,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`},{id:31,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:32,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -18688,6 +18967,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
 `}).add({id:7,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
+\u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
@@ -20825,7 +21105,285 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`}).add({id:12,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`}).add({id:12,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+\u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
+\u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
+\u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
+\u003ch2 id="creating-a-publicly-attested-asset"\u003eCreating a Publicly Attested Asset\u003c/h2\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003col\u003e
+\u003cli\u003eCreate an Asset with your desired attributes and set it to public. See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e for detailed instructions.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="create_asset_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_asset_public-0" type="button" role="tab" aria-controls="create_asset_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#create_asset_public-1" type="button" role="tab" aria-controls="create_asset_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="create_asset_public"\u003e\u003cdiv id="create_asset_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_asset_public-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eAdd Asset\u003c/code\u003e from the sidebar and fill in the desired details.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#CreateAsset" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/CreateAsset.png" width="901" height="633" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/CreateAsset.png" width="901" height="633" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAsset Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="CreateAsset" tabindex="-1" aria-labelledby="CreateAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/CreateAsset_hu91cc9a9b02764f59084d268a3d7fa36d_174575_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;901\u0026quot; height=\u0026quot;633\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eCheck the box next to \u003ccode\u003eMake Asset Public\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCheck Asset as Public\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;914\u0026quot; height=\u0026quot;706\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="create_asset_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_asset_public-1"\u003e
+\u003cp\u003eCreate a JSON file with your desired Asset details. Set keyword \u003ccode\u003epublic\u003c/code\u003e to true.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Publicly Attested Asset\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Example\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;public\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="kc"\u003etrue\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003ePublish your Public Asset.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cblockquote class="warning callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWARNING:\u003c/strong\u003e Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="set_public_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#set_public_public-0" type="button" role="tab" aria-controls="set_public_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#set_public_public-1" type="button" role="tab" aria-controls="set_public_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="set_public_public"\u003e\u003cdiv id="set_public_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="set_public_public-0"\u003e
+\u003cp\u003eClick \u003ccode\u003eCreate Asset\u003c/code\u003e to complete your Public Asset creation.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicCheck.png" width="914" height="706" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePublish Your Asset\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicCheck_hu211d58bb75c9f9043593b16c02f6c250_191974_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;914\u0026quot; height=\u0026quot;706\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1"\u003e
+\u003cp\u003eUse the curl command to run your JSON file. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="3"\u003e
+\u003cli\u003eRetrieve public link to share your Public Asset with others.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNOTE:\u003c/strong\u003e A Public Asset may only be updated by the tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="get_link_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_public-0" type="button" role="tab" aria-controls="get_link_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#get_link_public-1" type="button" role="tab" aria-controls="get_link_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="get_link_public"\u003e\u003cdiv id="get_link_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_public-0"\u003e
+\u003cp\u003eClick on the copy icon next to the green \u003ccode\u003ePUBLIC\u003c/code\u003e badge. This will copy the Asset\u0026rsquo;s public URL to your clipboard.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicAsset" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicAsset.png" width="1898" height="968" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicAsset.png" width="1898" height="968" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCopy the Public Link\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="PublicAsset" tabindex="-1" aria-labelledby="PublicAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicAsset_hu1b3d2d0b69c78aa345d54cafbcc952ec_272837_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1898\u0026quot; height=\u0026quot;968\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1"\u003e
+\u003cp\u003eA Public Asset\u0026rsquo;s URL can be retrived via the \u003ca href="https://docs.rkvst.com/docs/api-reference/assets-api/"\u003eAssets API\u003c/a\u003e. Use the Asset ID returned in the previous step.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="4"\u003e
+\u003cli\u003eThe following screenshot shows the public view of the Asset when the link is followed.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicView" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003ePublic View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="PublicView" tabindex="-1" aria-labelledby="PublicView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" width="1428" height="715" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/li\u003e
+\u003c/ol\u003e
+\u003ch3 id="adding-an-event-to-a-public-asset"\u003eAdding an Event to a Public Asset\u003c/h3\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNOTE:\u003c/strong\u003e Any Events added to a Public Asset will also be public. Events may only be added by the tenancy that originally created the Public Asset.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003col\u003e
+\u003cli\u003eCreate an Event with your desired attributes. See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eCreating an Event\u003c/a\u003e for detailed instructions.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="create_event_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_event_public-0" type="button" role="tab" aria-controls="create_event_public-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#create_event_public-1" type="button" role="tab" aria-controls="create_event_public-1" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="create_event_public"\u003e\u003cdiv id="create_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_event_public-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eRecord Event\u003c/code\u003e from the Asset view and fill in the desired details. When finished, click \u003ccode\u003eRecord Event\u003c/code\u003e at the bottom right of the pop-up.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AddPublicEvent" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/AddPublicEvent.png" width="1826" height="1178" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/AddPublicEvent.png" width="1826" height="1178" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AddPublicEvent" tabindex="-1" aria-labelledby="AddPublicEvent" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/AddPublicEvent_huc73a4cd6549e906e4f0bbb20ba93c929_114935_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1826\u0026quot; height=\u0026quot;1178\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1"\u003e
+\u003cp\u003eCreate a JSON file with your desired Event details.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;operation\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Record\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;behaviour\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="nt"\u003e\u0026#34;event_attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_description\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Adding new information to public asset.\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Update\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;Public Update\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;New Information\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e  \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eUse the curl command to run your JSON file. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s2"\u003e\u0026#34;@/path/to/jsonfile\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eYour Event will be readable when the Public Asset link is followed.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#PublicView" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/PublicView.png" width="1428" height="715" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Listed in Public View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="PublicView" tabindex="-1" aria-labelledby="PublicView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/PublicView_hu6a1e6d5c53c1ef5e0466bac56cc59472_298426_200x0_resize_box_3.png 200w" width="1428" height="715" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#EventPublic" img class="img-fluid responsive" src="/docs/beyond-the-basics/public-attestation/EventPublic.png" width="942" height="483" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/public-attestation/EventPublic.png" width="942" height="483" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEvent Information\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="EventPublic" tabindex="-1" aria-labelledby="EventPublic" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/EventPublic_hu62fd2808bcf79f36e8a1903e203827fc_163932_200x0_resize_box_3.png 200w" width="942" height="483" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003col start="3"\u003e
+\u003cli\u003eYou may also retrieve a public URL to the Event itself, using the \u003ca href="https://docs.rkvst.com/docs/api-reference/assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="get_link_event_public" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_event_public-0" type="button" role="tab" aria-controls="get_link_event_public-0" aria-selected="true"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e
+	  \u003c/ul\u003e
+\u003cdiv class="tab-content" id="get_link_event_public"\u003e\u003cdiv id="get_link_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_event_public-0"\u003e
+\u003cp\u003eUse the following curl command, which will return the public URL for the Event.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+`}).add({id:13,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -22016,7 +22574,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:13,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`}).add({id:14,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -23707,7 +24265,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:14,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`}).add({id:15,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -24916,7 +25474,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:15,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`}).add({id:16,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -25564,7 +26122,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:16,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:17,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha1"\u003eFetch Transactions for an event (v1alpha1)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -25896,7 +26454,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:17,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -27318,7 +27876,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -27750,7 +28308,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -29568,7 +30126,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -30614,7 +31172,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -31371,7 +31929,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -32655,7 +33213,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -33509,7 +34067,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -33862,7 +34420,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -35225,7 +35783,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -36122,7 +36680,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:28,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:29,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -36130,7 +36688,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:29,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:30,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:31,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -36138,4 +36696,4 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`}).add({id:31,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:32,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

@@ -242,7 +242,7 @@ or if determining compliance at some historical date:
 ```bash
 curl -v -X GET \
     -H "@$BEARER_TOKEN_FILE" \
-    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z
+    "https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z"
 ```
 The response is:
 

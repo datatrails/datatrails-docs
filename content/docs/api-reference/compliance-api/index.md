@@ -23,7 +23,7 @@ Compliance Posture is measured against user-defined rule sets called Compliance 
 
 Compliance policies are created once and then Assets can be tested against them at any point in time. 
 
-For instance, a policy might state that “Maintenance Alarm Events must be answered with a Maintenance Report Event recorded in 72 hours”. 
+For instance, a policy might state that “Maintenance Alarm Events must be addressed with a Maintenance Report Event recorded in 72 hours”. 
 
 This creates a Compliance Policy object in the system against which any asset can be tested as needed.
 
@@ -41,8 +41,8 @@ For example “Time since last Maintenance must be less than 72 hours”:
     "description": "Maintenance should be performed every 72h",
     "display_name": "Regular Maintenance",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+    ],
     "event_display_type": "Maintenance Performed",
     "time_period_seconds": "259200"
 }
@@ -57,9 +57,13 @@ For example “Time since last Maintenance must be less than 72 hours”:
 
 #### COMPLIANCE_CURRENT_OUTSTANDING
 
-This Compliance Policy will only pass if there is an associated answering event addressing a specified outstanding event.
+This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.
 
 To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
+
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
 
 For example defining pairs of Events like `Maintenance Request` and `Maintenance Performed`: 
 
@@ -69,9 +73,9 @@ For example defining pairs of Events like `Maintenance Request` and `Maintenance
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
-    "event_display_type": "Maintenance Requests",
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+    ],
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type":  "Maintenance Performed"
 }
 ```
@@ -89,6 +93,10 @@ This Compliance Policy will only pass if the time between a pair of correlated e
 
 To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
 
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
+
 For example, a policy checking that the time between `Maintenance Request` and `Maintenance Performed` Events does not exceed the maximum 72 hours:
 ```json
 {
@@ -96,9 +104,9 @@ For example, a policy checking that the time between `Maintenance Request` and `
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
-    "event_display_type": "Maintenance Requests",
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+    ],
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type":  "Maintenance Performed",
     "time_period_seconds": "259200"
 }
@@ -114,21 +122,25 @@ For example, a policy checking that the time between `Maintenance Request` and `
 
 #### COMPLIANCE_DYNAMIC_TOLERANCE
 
-This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined variability. 
+This Compliance Policy will only pass if the time between correlated events is not excessively different to the observed average normal duration for similar events.
 
 To correlate events define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated. 
+
+{{< note >}}
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+{{< /note >}}
 
 For example, a policy checking that the time between `Maintenance Request` and `Maintenance Performed` Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:
 
 ```json
 {
     "compliance_type": "COMPLIANCE_DYNAMIC_TOLERANCE",
-    "description": "Average time between Maintenance Requested/Performed"
-    "display_name": "outlying Maintenance Requests",
+    "description": "Average time between Maintenance Requested/Performed",
+    "display_name": "Outlying Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
-    "event_display_type": "Maintenance Requests",
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+    ],
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type": "Maintenance Performed",
     "dynamic_window": 604800,
     "dynamic_variability": 0.5
@@ -146,7 +158,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
 
 #### COMPLIANCE_RICHNESS
 
-This Compliance Policy will only pass if the assertions conducted on an attribute value pass. 
+This Compliance Policy will only pass if Attributes are within expected bounds or otherwise meet defined conditions.
 
 An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example `rad<7`. 
 
@@ -165,10 +177,10 @@ Compliance is a signal, not a perfect answer. Therefore equivilence of floats is
 ```json
 {
     "compliance_type": "COMPLIANCE_RICHNESS",
-    "description": "Rad level is less than 7"
+    "description": "Rad level is less than 7",
     "display_name": "Rad limit",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
     ],
     "richness_assertions": [
         { "or": ["rad<7"]}
@@ -205,9 +217,9 @@ Sample response:
     "description": "There should be no outstanding Maintenance Requests",
     "display_name": "Outstanding Maintenance Requests",
     "asset_filter": [
-        { "or": ["attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
-    ]
-    "event_display_type": "Maintenance Requests",
+        { "or": ["attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"]}
+    ],
+    "event_display_type": "Maintenance Request",
     "closing_event_display_type":  "Maintenance Performed",
     "time_period_seconds": "259200"
 }

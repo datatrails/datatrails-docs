@@ -46,7 +46,7 @@ Fill in your desired details and run the command to send the invite.
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
     -H "Content-type: application/json" \
-    -d '{"message": "personalised message", "email": "john.doe@example.com"}' \
+    -d '{"message": "Join my RKVST tenancy!", "email": "user@rkvst.com"}' \
     "https://app.rkvst.io/archivist/iam/v1/invites"
 ```
 
@@ -56,6 +56,10 @@ See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/
 
 ### Can I name my tenancy? 
 
-There are two ways to name your RKVST tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own tenancy. The display name makes it easy to identify which tencancy you're currently working in and to switch between tenancies if you are part of multiple. 
+#### Tenant Display Name
+
+There are two ways to name your RKVST tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which tencancy you're currently working in and to switch between tenancies if you are part of multiple tenancies.
+
+#### Verified Domain 
 
 The second way to set your tenancy name is to [get your domain verified](../../beyond-the-basics/verified-domain) by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.

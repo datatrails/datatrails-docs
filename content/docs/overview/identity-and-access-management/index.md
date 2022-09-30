@@ -15,7 +15,7 @@ toc: true
 
 ## Tenancies and Accounts
 
-Each RKVST tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a tenancy if there are several members within an organization.
+Each RKVST tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple tenancies. 
 
 ### How do I add users to my organization?
 
@@ -59,6 +59,14 @@ See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/
 #### Tenant Display Name
 
 There are two ways to name your RKVST tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which tencancy you're currently working in and to switch between tenancies if you are part of multiple tenancies.
+
+To set your `Tenant Display Name`: 
+
+1. On the Sidebar, select `Manage RKVST`.
+{{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Select 'Manage RKVST'</em>" class="border-0" >}}
+
+2. Choose the `TENANCY` tab, add your desired name, then click `CHANGE DISPLAY NAME`.
+{{< img src="TenantDisplay.png" alt="Rectangle" caption="<em>Change Display Name</em>" class="border-0" >}}
 
 #### Verified Domain 
 

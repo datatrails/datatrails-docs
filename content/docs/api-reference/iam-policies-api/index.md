@@ -19,7 +19,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 
 An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as non-root by default.
 
-To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations. You may also set permissions based on JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim. For example, the key `jwt_foo` to match on claim `foo`.
+To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations.
 
 An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization.
 

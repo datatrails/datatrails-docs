@@ -122,7 +122,7 @@ There are a few ways you may add a `User` to your Access Policy using JSON. One 
         }
     ]
 ```
-You may also grant permissions to an [App Registration](https://docs.rkvst.com/docs/setup-and-administration/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
+You may also grant permissions to an [App Registration](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
 
 ```json
  "access_permissions": [
@@ -138,14 +138,14 @@ You may also grant permissions to an [App Registration](https://docs.rkvst.com/d
 **Note:** This is different from adding `subjects` as a key in your `access_permissions`, for example, when adding an external Subject ID to an OBAC policy. The user attribute `subject` refers to the Client ID associated with an App Registration.
 {{< /note >}}
 
-Additionally, you may set permissions based on JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim. For example, the `user_attributes` should contain the key `jwt_foo` to match on claim `foo`.
+Additionally, you may set permissions based on the Custom Claims of an [App Registration](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
  ```json
   "access_permissions": [
          {
              "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
              "user_attributes": [
-                {"or": ["jwt_foo=4e28571b-6bb5-45a5-97e1-b1ab8a71acb7-app1"]}
+                {"or": ["jwt_app_reg_role=tracker"]}
              ]
          }
      ]

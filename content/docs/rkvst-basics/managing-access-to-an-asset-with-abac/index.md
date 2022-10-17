@@ -81,7 +81,15 @@ Here you can apply policy filters to the correct Assets. In this case, we shall 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to categorize assets.  [See here for instructions on finding your location ID.](https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/)
+Filters can use `and` or `or` to categorize assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use: 
+
+```json
+"attributes.arc_home_location_identity!=*"
+```
+
+The `*` is a wildcard that could represent any value. This will match not only on string values, but list and map values as well. 
+
+Following our Shipping Container example, this is how we would set our Asset filters:
 ```json
 {
     "display_name": "Bill Inspect Policy",
@@ -95,6 +103,7 @@ Filters can use `and` or `or` to categorize assets.  [See here for instructions 
     ]
 }
 ```
+[See here for instructions on finding your location ID.](https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/)
 {{< /tab >}}}
 {{< /tabs >}}
 

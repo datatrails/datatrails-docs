@@ -13,6 +13,8 @@ weight: 51
 toc: true
 ---
 
+Select a term for more information.
+
 | **Term**            | **Definition**                                                                                                       |
 |---------------------|----------------------------------------------------------------------------------------------------------------------|
 | [ABAC](https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/)                | Attribute-Based Access Control; policy that allows you to grant fine-grain access to members of your tenancy         |

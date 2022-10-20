@@ -1,5 +1,5 @@
 ---
-title: "Blockchain API (v1alpha1)"
+title: "Blockchain API (v1alpha2)"
 description: "Blockchain API Reference"
 lead: "Blockchain API Reference"
 date: 2021-06-09T13:57:04+01:00
@@ -17,7 +17,7 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
-### Fetch Transactions for an event (v1alpha1)
+### Fetch Transactions for an event (v1alpha2)
 
 Blockchain transactions can be fetched from the blockchain endpoint using the asset's Event ID as a parameter:
 
@@ -30,7 +30,7 @@ To fetch all transactions for an asset event GET the blockchain resource:
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 ```
 
 Each of these calls returns a list of matching blockchain transactions in the form:
@@ -76,4 +76,4 @@ Each of these calls returns a list of matching blockchain transactions in the fo
 
 ## Blockchain OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blockchainv1alpha1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}

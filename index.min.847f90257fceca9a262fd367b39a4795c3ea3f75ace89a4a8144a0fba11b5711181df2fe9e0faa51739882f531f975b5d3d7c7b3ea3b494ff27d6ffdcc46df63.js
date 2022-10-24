@@ -8283,50 +8283,56 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
-\u003ch3 id="fetch-transactions-for-an-event-v1alpha1"\u003eFetch Transactions for an event (v1alpha1)\u003c/h3\u003e
+\u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003eassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eTo fetch all transactions for an asset event GET the blockchain resource:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eEach of these calls returns a list of matching blockchain transactions in the form:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transactions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e2\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockHash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockNumber\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e3\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transactionIndex\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x8912348621879462817634897216348712638941\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x1234689712638957682375682364892376487238\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;123450000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e314159\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gasPrice\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x57cb2fc4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e},\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e2\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockHash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockNumber\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e3\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transactionIndex\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x8912348621879462817634897216348712638941\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x1234689712638957682375682364892376487238\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;123450000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e314159\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gasPrice\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x57cb2fc4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;transactions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;transaction\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xbcb60deea8c70a1f4dea54d7666ca58b73f00e0febe59c099616ecb53d5909e4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockhash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xa25e4360cd08abade72e34e9a65c670fe6f965454b95021d37baf472e429dc69\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;786720\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="mi"\u003e1\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4b020ec02b0e88e5519fe43e2d2b33ca39f8807ebe2953c866b553df98ded5aa\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x75620ffa89a21404803201cc279a53f9afa770c16af312db7fb42899b9608d64\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x0C0c2c268261F767880f64cE84e088558B38b349\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;500000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas_price\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xdc6b7758811673be442b8a70ad1e37117c76b5abbabc716917a6e5f98f8247a68f6bf368fdce8bd7f685b9aa41148f5c059c8599e3d707f4481e13a8782a0b1a\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;kind\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;KHIPU\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;transaction\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4113596f7c9f825104f53ed50b262a116801d89b8e5ac15e9d8dc215e6f49ef0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockhash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xaf1b9b686bf7a1beea003f84d85da1d8ca4c8eaaeded29ac72fd549e6591f84b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;786722\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4833ad44bc2fc0bca2f08a958ce1e0f6d3667493c8773bc74e45837bee5de5be\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x3ca22bc844d963e908a19ccbc139543193411650dd97e4978d3e4f243d1295db\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x0C0c2c268261F767880f64cE84e088558B38b349\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;500000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas_price\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x06bbc3af74cd2fdd82a6036dfa3c69d0cec5d35782ba56dd4be0c928c9ca1ee3a0e19c97f1c5e5784c7cd305d53a2f5249b18937e1d613eec452c74ae9c619f4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;kind\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;KHIPU\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
@@ -8348,7 +8354,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API1'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -8356,7 +8362,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet the list of blockchain transactions that made up an Archivist Event\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -8388,38 +8394,35 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
+  "next_page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
   "transactions": [
     {
-      "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
-      "blockNumber": 3,
-      "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "gas": 314159,
-      "gasPrice": "2000000000000",
-      "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
-      "input": "0x57cb2fc4",
-      "nonce": 2,
-      "r": "0x8912348621879462817634897216348712638941",
-      "s": "0x1234689712638957682375682364892376487238",
-      "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
-      "transactionIndex": 0,
-      "v": "0x26",
-      "value": "123450000000000000"
-    },
-    {
-      "blockHash": "0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
-      "blockNumber": 3,
-      "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "gas": 314159,
-      "gasPrice": "2000000000000",
-      "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
-      "input": "0x57cb2fc4",
-      "nonce": 2,
-      "r": "0x8912348621879462817634897216348712638941",
-      "s": "0x1234689712638957682375682364892376487238",
-      "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
-      "transactionIndex": 0,
-      "v": "0x26",
-      "value": "123450000000000000"
+      "khipu_details": {},
+      "kind": "SIMPLE_HASH",
+      "simple_hash_details": {
+        "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
+        "api_query": "proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "end_time": "2022-10-05T10:02:03Z",
+        "event_count": 12000,
+        "hash_schema_version": 1,
+        "start_time": "2022-09-01T09:01:02Z"
+      },
+      "transaction": {
+        "blockHash": "0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
+        "blockNumber": 3,
+        "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+        "gas": 314159,
+        "gasPrice": "2000000000000",
+        "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
+        "input": "0x57cb2fc4",
+        "nonce": 2,
+        "r": "0x8912348621879462817634897216348712638941",
+        "s": "0x1234689712638957682375682364892376487238",
+        "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
+        "transactionIndex": 0,
+        "v": "0x26",
+        "value": "123450000000000000"
+      }
     }
   ]
 }\u003c/code\u003e\u003c/pre\u003e
@@ -8451,7 +8454,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     
                                     
                                     
-                                    \u003ctd\u003eTODO: add description here\u003c/td\u003e
+                                    \u003ctd\u003e\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e
@@ -8492,7 +8495,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API2' aria-expanded="true" aria-controls='collapseBlockChain_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -8500,7 +8503,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI spec for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -8554,7 +8557,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API3'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API3' aria-expanded="true" aria-controls='collapseBlockChain_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain:openapi-ui\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -8562,7 +8565,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI UI for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -27153,50 +27156,56 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha1)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
-\u003ch3 id="fetch-transactions-for-an-event-v1alpha1"\u003eFetch Transactions for an event (v1alpha1)\u003c/h3\u003e
+\u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003eassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eTo fetch all transactions for an asset event GET the blockchain resource:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha1/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eEach of these calls returns a list of matching blockchain transactions in the form:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;transactions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e2\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockHash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockNumber\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e3\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transactionIndex\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x8912348621879462817634897216348712638941\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x1234689712638957682375682364892376487238\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;123450000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e314159\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gasPrice\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x57cb2fc4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e},\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e{\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e2\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockHash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockNumber\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e3\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transactionIndex\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x8912348621879462817634897216348712638941\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x1234689712638957682375682364892376487238\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;123450000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="mi"\u003e314159\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gasPrice\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;2000000000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x57cb2fc4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e   \u003cspan class="nt"\u003e\u0026#34;transactions\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:[\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;transaction\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xbcb60deea8c70a1f4dea54d7666ca58b73f00e0febe59c099616ecb53d5909e4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockhash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xa25e4360cd08abade72e34e9a65c670fe6f965454b95021d37baf472e429dc69\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;786720\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="mi"\u003e1\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4b020ec02b0e88e5519fe43e2d2b33ca39f8807ebe2953c866b553df98ded5aa\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x75620ffa89a21404803201cc279a53f9afa770c16af312db7fb42899b9608d64\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x0C0c2c268261F767880f64cE84e088558B38b349\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;500000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas_price\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xdc6b7758811673be442b8a70ad1e37117c76b5abbabc716917a6e5f98f8247a68f6bf368fdce8bd7f685b9aa41148f5c059c8599e3d707f4481e13a8782a0b1a\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;kind\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;KHIPU\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;transaction\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;hash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4113596f7c9f825104f53ed50b262a116801d89b8e5ac15e9d8dc215e6f49ef0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;nonce\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;1\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;blockhash\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0xaf1b9b686bf7a1beea003f84d85da1d8ca4c8eaaeded29ac72fd549e6591f84b\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;block_number\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;786722\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;transaction_index\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="mi"\u003e0\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x4833ad44bc2fc0bca2f08a958ce1e0f6d3667493c8773bc74e45837bee5de5be\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;s\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x3ca22bc844d963e908a19ccbc139543193411650dd97e4978d3e4f243d1295db\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;from\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;to\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x0C0c2c268261F767880f64cE84e088558B38b349\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;value\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;500000000\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;gas_price\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;input\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x06bbc3af74cd2fdd82a6036dfa3c69d0cec5d35782ba56dd4be0c928c9ca1ee3a0e19c97f1c5e5784c7cd305d53a2f5249b18937e1d613eec452c74ae9c619f4\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e            \u003cspan class="nt"\u003e\u0026#34;v\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;0x26\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="p"\u003e},\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e         \u003cspan class="nt"\u003e\u0026#34;kind\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;KHIPU\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
@@ -27218,7 +27227,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API1'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -27226,7 +27235,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet the list of blockchain transactions that made up an Archivist Event\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -27258,38 +27267,35 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
+  "next_page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
   "transactions": [
     {
-      "blockHash": "0xef95f2f1ed3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
-      "blockNumber": 3,
-      "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "gas": 314159,
-      "gasPrice": "2000000000000",
-      "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
-      "input": "0x57cb2fc4",
-      "nonce": 2,
-      "r": "0x8912348621879462817634897216348712638941",
-      "s": "0x1234689712638957682375682364892376487238",
-      "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
-      "transactionIndex": 0,
-      "v": "0x26",
-      "value": "123450000000000000"
-    },
-    {
-      "blockHash": "0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
-      "blockNumber": 3,
-      "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
-      "gas": 314159,
-      "gasPrice": "2000000000000",
-      "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
-      "input": "0x57cb2fc4",
-      "nonce": 2,
-      "r": "0x8912348621879462817634897216348712638941",
-      "s": "0x1234689712638957682375682364892376487238",
-      "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
-      "transactionIndex": 0,
-      "v": "0x26",
-      "value": "123450000000000000"
+      "khipu_details": {},
+      "kind": "SIMPLE_HASH",
+      "simple_hash_details": {
+        "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
+        "api_query": "proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "end_time": "2022-10-05T10:02:03Z",
+        "event_count": 12000,
+        "hash_schema_version": 1,
+        "start_time": "2022-09-01T09:01:02Z"
+      },
+      "transaction": {
+        "blockHash": "0xef1234567d3ca60b048b4bf67cde2195961e0bba6f70bcbea9a2c4e133e34b46",
+        "blockNumber": 3,
+        "from": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+        "gas": 314159,
+        "gasPrice": "2000000000000",
+        "hash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
+        "input": "0x57cb2fc4",
+        "nonce": 2,
+        "r": "0x8912348621879462817634897216348712638941",
+        "s": "0x1234689712638957682375682364892376487238",
+        "to": "0x6295ee1b4f6dd65047762f924ecd367c17eabf8f",
+        "transactionIndex": 0,
+        "v": "0x26",
+        "value": "123450000000000000"
+      }
     }
   ]
 }\u003c/code\u003e\u003c/pre\u003e
@@ -27321,7 +27327,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     
                                     
                                     
-                                    \u003ctd\u003eTODO: add description here\u003c/td\u003e
+                                    \u003ctd\u003e\u003c/td\u003e
                                                
                                 
                               \u003c/tbody\u003e
@@ -27362,7 +27368,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API2' aria-expanded="true" aria-controls='collapseBlockChain_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -27370,7 +27376,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI spec for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -27424,7 +27430,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API3'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API3' aria-expanded="true" aria-controls='collapseBlockChain_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha1/blockchain:openapi-ui\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -27432,7 +27438,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha1/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI UI for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e

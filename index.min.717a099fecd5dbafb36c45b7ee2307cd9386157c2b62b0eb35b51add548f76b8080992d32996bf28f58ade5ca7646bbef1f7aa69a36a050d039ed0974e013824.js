@@ -2049,7 +2049,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1"\u003e
-\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets.  \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. You may also use filters on attribute values, such as \u003ccode\u003e=\u003c/code\u003e and \u003ccode\u003e!=\u003c/code\u003e for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity!=*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003e*\u003c/code\u003e is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.\u003c/p\u003e
+\u003cp\u003eFollowing our Shipping Container example, this is how we would set our Asset filters:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
@@ -2061,7 +2064,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
@@ -2548,7 +2552,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="asset_filters_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_obac-1"\u003e
-\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. You may also use filters on attribute values, such as \u003ccode\u003e=\u003c/code\u003e and \u003ccode\u003e!=\u003c/code\u003e for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity!=*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003e*\u003c/code\u003e is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.\u003c/p\u003e
+\u003cp\u003eFollowing our Shipping Container example, this is how we would set our Asset filters:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
@@ -2560,7 +2567,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
@@ -20932,7 +20940,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1"\u003e
-\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets.  \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. You may also use filters on attribute values, such as \u003ccode\u003e=\u003c/code\u003e and \u003ccode\u003e!=\u003c/code\u003e for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity!=*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003e*\u003c/code\u003e is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.\u003c/p\u003e
+\u003cp\u003eFollowing our Shipping Container example, this is how we would set our Asset filters:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Bill Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
@@ -20944,7 +20955,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e
@@ -21431,7 +21443,10 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="asset_filters_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_obac-1"\u003e
-\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003cp\u003eFilters can use \u003ccode\u003eand\u003c/code\u003e or \u003ccode\u003eor\u003c/code\u003e to categorize assets. You may also use filters on attribute values, such as \u003ccode\u003e=\u003c/code\u003e and \u003ccode\u003e!=\u003c/code\u003e for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="s2"\u003e\u0026#34;attributes.arc_home_location_identity!=*\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe \u003ccode\u003e*\u003c/code\u003e is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.\u003c/p\u003e
+\u003cp\u003eFollowing our Shipping Container example, this is how we would set our Asset filters:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Mandy Inspect Policy\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;filters\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e
@@ -21443,7 +21458,8 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="p"\u003e]}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eSee here for instructions on finding your location ID.\u003c/a\u003e\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
 
 \u003col start="4"\u003e
 \u003cli\u003eNext, enter the desired \u003ccode\u003ePermissions\u003c/code\u003e to set Users\u0026rsquo; Asset and Event attribute access.\u003c/li\u003e

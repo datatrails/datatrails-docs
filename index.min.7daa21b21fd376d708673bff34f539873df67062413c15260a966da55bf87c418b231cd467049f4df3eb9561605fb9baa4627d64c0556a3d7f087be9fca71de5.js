@@ -331,14 +331,149 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eCompliance calls can be similarly modified to answer questions like \u0026ldquo;had I asked this question at the time, what would the answer have been?\u0026rdquo; or \u0026ldquo;had the AI asked this question, would it have made a better decision?\u0026rdquo;. This can be done by adding a \u003ccode\u003ecompliant_at\u003c/code\u003e timestamp to the compliance request.\u003c/p\u003e
 \u003ch2 id="thats-it"\u003eThat\u0026rsquo;s it!\u003c/h2\u003e
 \u003cp\u003eThese are all the basics of RKVST. With this knowledge you can now \u003ca href="../../api-reference/"\u003ejump straight into the API\u003c/a\u003e or \u003ca href="../../rkvst-basics"\u003etry RKVST Basics\u003c/a\u003e.\u003c/p\u003e
-`},{id:3,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
+`},{id:3,href:"https://docs.rkvst.com/docs/overview/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`\u003ch2 id="tenancies-and-accounts"\u003eTenancies and Accounts\u003c/h2\u003e
+\u003cp\u003eEach RKVST tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple tenancies.\u003c/p\u003e
+\u003ch3 id="how-do-i-add-users-to-my-organization"\u003eHow do I add users to my organization?\u003c/h3\u003e
+\u003cp\u003eRKVST Invites make it easy to add accounts to your tenancy.\u003c/p\u003e
+\u003cp\u003eAs a \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003eroot user\u003c/a\u003e, create an invite and send it to the email address of the user you wish to add.\u003c/p\u003e
+\u003cp\u003eWhen the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your tenancy.\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="invite_user_iam" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#invite_user_iam-0" type="button" role="tab" aria-controls="invite_user_iam-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#invite_user_iam-1" type="button" role="tab" aria-controls="invite_user_iam-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#invite_user_iam-2" type="button" role="tab" aria-controls="invite_user_iam-2" aria-selected="false"\u003eCURL\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="invite_user_iam"\u003e\u003cdiv id="invite_user_iam-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="invite_user_iam-0"\u003e
+\u003cp\u003eOn the Sidebar, select \u003ccode\u003eManage RKVST\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ManageRKVST" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSelect 'Manage RKVST'\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="ManageRKVST" tabindex="-1" aria-labelledby="ManageRKVST" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2814\u0026quot; height=\u0026quot;1396\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eChoose the \u003ccode\u003eUSERS\u003c/code\u003e tab, then click \u003ccode\u003eINVITE NEW USER\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#InviteButton" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/InviteButton.png" width="2282" height="852" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/InviteButton.png" width="2282" height="852" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eInvite New User\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="InviteButton" tabindex="-1" aria-labelledby="InviteButton" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2282\u0026quot; height=\u0026quot;852\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eFill in the desired email and custom message. To finish, select \u003ccode\u003eSEND INVITE\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#InviteForm" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/InviteForm.png" width="1162" height="726" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/InviteForm.png" width="1162" height="726" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEnter Desired Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="InviteForm" tabindex="-1" aria-labelledby="InviteForm" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1162\u0026quot; height=\u0026quot;726\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="invite_user_iam-1" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-1"\u003e
+This action is not yet available in the YAML Runner. Check out our UI or curl command options!\u003c/div\u003e
+  \u003cdiv id="invite_user_iam-2" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-2"\u003e
+\u003cp\u003eFill in your desired details and run the command to send the invite.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s1"\u003e\u0026#39;{\u0026#34;message\u0026#34;: \u0026#34;Join my RKVST tenancy!\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;user@rkvst.com\u0026#34;}\u0026#39;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/iam/v1/invites\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eSee instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003ch3 id="can-i-name-my-tenancy"\u003eCan I name my tenancy?\u003c/h3\u003e
+\u003ch4 id="tenant-display-name"\u003eTenant Display Name\u003c/h4\u003e
+\u003cp\u003eThere are two ways to name your RKVST tenancy. The first way is to add a \u003ccode\u003eTenant Display Name\u003c/code\u003e. This name will be displayed only within your own tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which tencancy you\u0026rsquo;re currently working in and to switch between tenancies if you are part of multiple tenancies.\u003c/p\u003e
+\u003cp\u003eTo set your \u003ccode\u003eTenant Display Name\u003c/code\u003e:\u003c/p\u003e
+\u003col\u003e
+\u003cli\u003e
+\u003cp\u003eOn the Sidebar, select \u003ccode\u003eManage RKVST\u003c/code\u003e.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ManageRKVST" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSelect 'Manage RKVST'\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="ManageRKVST" tabindex="-1" aria-labelledby="ManageRKVST" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" width="2814" height="1396" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/p\u003e
+\u003c/li\u003e
+\u003cli\u003e
+\u003cp\u003eChoose the \u003ccode\u003eTENANCY\u003c/code\u003e tab, add your desired name, then click \u003ccode\u003eCHANGE DISPLAY NAME\u003c/code\u003e.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#TenantDisplay" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/TenantDisplay.png" width="2376" height="1216" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/TenantDisplay.png" width="2376" height="1216" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eChange Display Name\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="TenantDisplay" tabindex="-1" aria-labelledby="TenantDisplay" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" width="2376" height="1216" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/p\u003e
+\u003c/li\u003e
+\u003c/ol\u003e
+\u003ch4 id="verified-domain"\u003eVerified Domain\u003c/h4\u003e
+\u003cp\u003eThe second way to set your tenancy name is to \u003ca href="../../beyond-the-basics/verified-domain"\u003eget your domain verified\u003c/a\u003e by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.\u003c/p\u003e
+`},{id:4,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
 \u003ch2 id="example-evidential-documents-and-photographs"\u003eExample: Evidential documents and photographs\u003c/h2\u003e
 \u003cp\u003eThere are a great many documents that serve as evidence in formal discussions: pictures of a traffic accident; education diplomas; contracts; statements of account. RKVST adds strong integrity to any document to allow easy verification later.\u003c/p\u003e
 \u003ch3 id="considerations"\u003eConsiderations\u003c/h3\u003e
 \u003cp\u003e\u003cem\u003eUse Attachments:\u003c/em\u003e Create a very simple Asset structure with minimal attributes to identify the document and then store the file itself as an Asset attachment.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eCollections:\u003c/em\u003e If the document is strongly related to another one then consider adding and tracking them all as individual attachments in a single Asset record.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eVersions:\u003c/em\u003e If the document is a new version of something already stored in RKVST then use Events to replace the Asset attachment with the updated version. Any authorized stakeholder fetching the Asset record will automatically get the most up-to-date version without confusion, and prior versions can be retrieved if necessary from the Event history.\u003c/p\u003e
-`},{id:4,href:"https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`\u003cp\u003eNon-interactive access to the RKVST platform is managed by creating \u003ccode\u003eApplications\u003c/code\u003e with App Registrations, using either the Manage RKVST Menu in the UI or by using the App Registrations API directly.\u003c/p\u003e
+`},{id:5,href:"https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`\u003cp\u003eNon-interactive access to the RKVST platform is managed by creating \u003ccode\u003eApplications\u003c/code\u003e with App Registrations, using either the Manage RKVST Menu in the UI or by using the App Registrations API directly.\u003c/p\u003e
 \u003cp\u003e\u003ccode\u003eApplications\u003c/code\u003e have a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e that can then be used to authenticate to RKVST IAM Endpoints to issue a token (JWT) for accessing the rest of the RKVST API.\u003c/p\u003e
 \u003cp\u003eThis authentication flow uses the industry-standard OIDC \u0026lsquo;Client Credentials\u0026rsquo; Flow.\u003c/p\u003e
 \u003ch2 id="creating-an-app-registration"\u003eCreating an App Registration\u003c/h2\u003e
@@ -582,7 +717,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.\u003c/div\u003e
   \u003c/blockquote\u003e
-`},{id:5,href:"https://docs.rkvst.com/docs/user-patterns/bill-of-materials/",title:"Bill of Materials",description:"Using RKVST to track a Bill of Materials",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eBill of Materials\u003c/em\u003e pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.\u003c/p\u003e
+`},{id:6,href:"https://docs.rkvst.com/docs/user-patterns/bill-of-materials/",title:"Bill of Materials",description:"Using RKVST to track a Bill of Materials",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eBill of Materials\u003c/em\u003e pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;what is in my estate?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;how did it come to be here?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;who brought it in?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;what did it look like to me at the time? Can I show that I made the best possible decision?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-software-bill-of-materials-sbom"\u003eExample 1: Software Bill of Materials (SBOM)\u003c/h2\u003e
 \u003cp\u003eBy keeping all the component packages and release history for a software package in one easily identifiable and integrity protected location, all relevant stakeholders can be sure they have the best and most up-to-date information on what software is in their supply chain and how it got there, and can readily identify problems if this record diverges from observed reality.\u003c/p\u003e
@@ -593,7 +728,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
 \u003cp\u003eRemember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.\u003c/p\u003e
-`},{id:6,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
+`},{id:7,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;are my processes running smoothly?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;do I need to act?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;has this asset been correctly managed?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;who knew what at the time? Could process violations have been detected earlier?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-multi-party-change-management-and-approvals"\u003eExample 1: Multi-party change management and approvals\u003c/h2\u003e
 \u003cp\u003eThis pattern uses a purely virtual Asset to represent a policy or process and coordinate movement through that process, complete with multi-party inputs and approvals. The emphasis here is on Events rather than Asset Attributes: What Happened? Who Was There? What evidence was used to decide to move to the next sage of the process?\u003c/p\u003e
@@ -616,7 +751,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eGIS position information\u003c/em\u003e: Make good use of the =arc_gic_*= attributes of Events in order to trace \u003cem\u003eWhere\u003c/em\u003e Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 1:\u003c/em\u003e Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
-`},{id:7,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
+`},{id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
@@ -1023,7 +1158,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
-`},{id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
+`},{id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
@@ -1366,7 +1501,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
-`},{id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
+`},{id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e
 \u003col\u003e
@@ -1927,7 +2062,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-`},{id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`},{id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAttribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization.\u003c/p\u003e
@@ -2283,7 +2418,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
 \u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
-`},{id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`},{id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cblockquote class="warning callout"\u003e
@@ -2773,7 +2908,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`},{id:12,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
+`},{id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
 \u003cp\u003eCompliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter.\u003c/p\u003e
 \u003cp\u003eFor example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.\u003c/p\u003e
 \u003cp\u003eRKVST allows for several types of Compliance Policies:\u003c/p\u003e
@@ -3219,7 +3354,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v1/compliance/assets/\u0026lt;asset-id\u0026gt;?compliant_at=2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`},{id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+`},{id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
@@ -3497,7 +3632,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`},{id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
+`},{id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
 \u003cp\u003eDomain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization\u0026rsquo;s tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Having a verified domain is different from a \u003ccode\u003eTenant Display Name\u003c/code\u003e. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy.\u003c/div\u003e
@@ -3559,7 +3694,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:15,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -4750,7 +4885,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:16,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`},{id:17,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -6443,7 +6578,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:17,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -7652,7 +7787,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -8300,7 +8435,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -8635,7 +8770,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -10066,7 +10201,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -10498,7 +10633,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -12317,7 +12452,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -13363,7 +13498,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -14120,7 +14255,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -15404,7 +15539,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -16260,7 +16395,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -16613,7 +16748,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -17976,7 +18111,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -18873,7 +19008,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:31,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:32,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -18881,7 +19016,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:32,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:33,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:33,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:34,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -18889,7 +19024,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`},{id:34,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -19222,14 +19357,149 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eCompliance calls can be similarly modified to answer questions like \u0026ldquo;had I asked this question at the time, what would the answer have been?\u0026rdquo; or \u0026ldquo;had the AI asked this question, would it have made a better decision?\u0026rdquo;. This can be done by adding a \u003ccode\u003ecompliant_at\u003c/code\u003e timestamp to the compliance request.\u003c/p\u003e
 \u003ch2 id="thats-it"\u003eThat\u0026rsquo;s it!\u003c/h2\u003e
 \u003cp\u003eThese are all the basics of RKVST. With this knowledge you can now \u003ca href="../../api-reference/"\u003ejump straight into the API\u003c/a\u003e or \u003ca href="../../rkvst-basics"\u003etry RKVST Basics\u003c/a\u003e.\u003c/p\u003e
-`}).add({id:3,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
+`}).add({id:3,href:"https://docs.rkvst.com/docs/overview/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`\u003ch2 id="tenancies-and-accounts"\u003eTenancies and Accounts\u003c/h2\u003e
+\u003cp\u003eEach RKVST tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple tenancies.\u003c/p\u003e
+\u003ch3 id="how-do-i-add-users-to-my-organization"\u003eHow do I add users to my organization?\u003c/h3\u003e
+\u003cp\u003eRKVST Invites make it easy to add accounts to your tenancy.\u003c/p\u003e
+\u003cp\u003eAs a \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003eroot user\u003c/a\u003e, create an invite and send it to the email address of the user you wish to add.\u003c/p\u003e
+\u003cp\u003eWhen the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your tenancy.\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="invite_user_iam" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#invite_user_iam-0" type="button" role="tab" aria-controls="invite_user_iam-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#invite_user_iam-1" type="button" role="tab" aria-controls="invite_user_iam-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#invite_user_iam-2" type="button" role="tab" aria-controls="invite_user_iam-2" aria-selected="false"\u003eCURL\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="invite_user_iam"\u003e\u003cdiv id="invite_user_iam-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="invite_user_iam-0"\u003e
+\u003cp\u003eOn the Sidebar, select \u003ccode\u003eManage RKVST\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ManageRKVST" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSelect 'Manage RKVST'\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="ManageRKVST" tabindex="-1" aria-labelledby="ManageRKVST" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2814\u0026quot; height=\u0026quot;1396\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eChoose the \u003ccode\u003eUSERS\u003c/code\u003e tab, then click \u003ccode\u003eINVITE NEW USER\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#InviteButton" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/InviteButton.png" width="2282" height="852" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/InviteButton.png" width="2282" height="852" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eInvite New User\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="InviteButton" tabindex="-1" aria-labelledby="InviteButton" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteButton_huc369f1963f1ab4b5a81b9859c530811b_98108_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2282\u0026quot; height=\u0026quot;852\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eFill in the desired email and custom message. To finish, select \u003ccode\u003eSEND INVITE\u003c/code\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#InviteForm" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/InviteForm.png" width="1162" height="726" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/InviteForm.png" width="1162" height="726" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eEnter Desired Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="InviteForm" tabindex="-1" aria-labelledby="InviteForm" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/InviteForm_hu3bcbb73097e71b1b131ef86b6cb47311_55352_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1162\u0026quot; height=\u0026quot;726\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="invite_user_iam-1" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-1"\u003e
+This action is not yet available in the YAML Runner. Check out our UI or curl command options!\u003c/div\u003e
+  \u003cdiv id="invite_user_iam-2" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-2"\u003e
+\u003cp\u003eFill in your desired details and run the command to send the invite.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X POST \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -H \u003cspan class="s2"\u003e\u0026#34;Content-type: application/json\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    -d \u003cspan class="s1"\u003e\u0026#39;{\u0026#34;message\u0026#34;: \u0026#34;Join my RKVST tenancy!\u0026#34;, \u0026#34;email\u0026#34;: \u0026#34;user@rkvst.com\u0026#34;}\u0026#39;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/iam/v1/invites\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eSee instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003ch3 id="can-i-name-my-tenancy"\u003eCan I name my tenancy?\u003c/h3\u003e
+\u003ch4 id="tenant-display-name"\u003eTenant Display Name\u003c/h4\u003e
+\u003cp\u003eThere are two ways to name your RKVST tenancy. The first way is to add a \u003ccode\u003eTenant Display Name\u003c/code\u003e. This name will be displayed only within your own tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which tencancy you\u0026rsquo;re currently working in and to switch between tenancies if you are part of multiple tenancies.\u003c/p\u003e
+\u003cp\u003eTo set your \u003ccode\u003eTenant Display Name\u003c/code\u003e:\u003c/p\u003e
+\u003col\u003e
+\u003cli\u003e
+\u003cp\u003eOn the Sidebar, select \u003ccode\u003eManage RKVST\u003c/code\u003e.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ManageRKVST" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ManageRKVST.png" width="2814" height="1396" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSelect 'Manage RKVST'\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="ManageRKVST" tabindex="-1" aria-labelledby="ManageRKVST" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ManageRKVST_hude94d1813b14104105addd7ba588d6a5_268884_200x0_resize_box_3.png 200w" width="2814" height="1396" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/p\u003e
+\u003c/li\u003e
+\u003cli\u003e
+\u003cp\u003eChoose the \u003ccode\u003eTENANCY\u003c/code\u003e tab, add your desired name, then click \u003ccode\u003eCHANGE DISPLAY NAME\u003c/code\u003e.
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#TenantDisplay" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/TenantDisplay.png" width="2376" height="1216" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/TenantDisplay.png" width="2376" height="1216" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eChange Display Name\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="TenantDisplay" tabindex="-1" aria-labelledby="TenantDisplay" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/TenantDisplay_hu3c4ba5bd949661bd1c824b04e22f1f8d_168525_200x0_resize_box_3.png 200w" width="2376" height="1216" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e\u003c/p\u003e
+\u003c/li\u003e
+\u003c/ol\u003e
+\u003ch4 id="verified-domain"\u003eVerified Domain\u003c/h4\u003e
+\u003cp\u003eThe second way to set your tenancy name is to \u003ca href="../../beyond-the-basics/verified-domain"\u003eget your domain verified\u003c/a\u003e by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.\u003c/p\u003e
+`}).add({id:4,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
 \u003ch2 id="example-evidential-documents-and-photographs"\u003eExample: Evidential documents and photographs\u003c/h2\u003e
 \u003cp\u003eThere are a great many documents that serve as evidence in formal discussions: pictures of a traffic accident; education diplomas; contracts; statements of account. RKVST adds strong integrity to any document to allow easy verification later.\u003c/p\u003e
 \u003ch3 id="considerations"\u003eConsiderations\u003c/h3\u003e
 \u003cp\u003e\u003cem\u003eUse Attachments:\u003c/em\u003e Create a very simple Asset structure with minimal attributes to identify the document and then store the file itself as an Asset attachment.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eCollections:\u003c/em\u003e If the document is strongly related to another one then consider adding and tracking them all as individual attachments in a single Asset record.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eVersions:\u003c/em\u003e If the document is a new version of something already stored in RKVST then use Events to replace the Asset attachment with the updated version. Any authorized stakeholder fetching the Asset record will automatically get the most up-to-date version without confusion, and prior versions can be retrieved if necessary from the Event history.\u003c/p\u003e
-`}).add({id:4,href:"https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`\u003cp\u003eNon-interactive access to the RKVST platform is managed by creating \u003ccode\u003eApplications\u003c/code\u003e with App Registrations, using either the Manage RKVST Menu in the UI or by using the App Registrations API directly.\u003c/p\u003e
+`}).add({id:5,href:"https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`\u003cp\u003eNon-interactive access to the RKVST platform is managed by creating \u003ccode\u003eApplications\u003c/code\u003e with App Registrations, using either the Manage RKVST Menu in the UI or by using the App Registrations API directly.\u003c/p\u003e
 \u003cp\u003e\u003ccode\u003eApplications\u003c/code\u003e have a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e that can then be used to authenticate to RKVST IAM Endpoints to issue a token (JWT) for accessing the rest of the RKVST API.\u003c/p\u003e
 \u003cp\u003eThis authentication flow uses the industry-standard OIDC \u0026lsquo;Client Credentials\u0026rsquo; Flow.\u003c/p\u003e
 \u003ch2 id="creating-an-app-registration"\u003eCreating an App Registration\u003c/h2\u003e
@@ -19473,7 +19743,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.\u003c/div\u003e
   \u003c/blockquote\u003e
-`}).add({id:5,href:"https://docs.rkvst.com/docs/user-patterns/bill-of-materials/",title:"Bill of Materials",description:"Using RKVST to track a Bill of Materials",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eBill of Materials\u003c/em\u003e pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.\u003c/p\u003e
+`}).add({id:6,href:"https://docs.rkvst.com/docs/user-patterns/bill-of-materials/",title:"Bill of Materials",description:"Using RKVST to track a Bill of Materials",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eBill of Materials\u003c/em\u003e pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;what is in my estate?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;how did it come to be here?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;who brought it in?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;what did it look like to me at the time? Can I show that I made the best possible decision?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-software-bill-of-materials-sbom"\u003eExample 1: Software Bill of Materials (SBOM)\u003c/h2\u003e
 \u003cp\u003eBy keeping all the component packages and release history for a software package in one easily identifiable and integrity protected location, all relevant stakeholders can be sure they have the best and most up-to-date information on what software is in their supply chain and how it got there, and can readily identify problems if this record diverges from observed reality.\u003c/p\u003e
@@ -19484,7 +19754,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
 \u003cp\u003eRemember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.\u003c/p\u003e
-`}).add({id:6,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
+`}).add({id:7,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;are my processes running smoothly?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;do I need to act?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;has this asset been correctly managed?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;who knew what at the time? Could process violations have been detected earlier?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-multi-party-change-management-and-approvals"\u003eExample 1: Multi-party change management and approvals\u003c/h2\u003e
 \u003cp\u003eThis pattern uses a purely virtual Asset to represent a policy or process and coordinate movement through that process, complete with multi-party inputs and approvals. The emphasis here is on Events rather than Asset Attributes: What Happened? Who Was There? What evidence was used to decide to move to the next sage of the process?\u003c/p\u003e
@@ -19507,7 +19777,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003cp\u003e\u003cem\u003eGIS position information\u003c/em\u003e: Make good use of the =arc_gic_*= attributes of Events in order to trace \u003cem\u003eWhere\u003c/em\u003e Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 1:\u003c/em\u003e Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
-`}).add({id:7,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
+`}).add({id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
@@ -19914,7 +20184,7 @@ If an asset has an attachment named \u003ccode\u003earc_primary_image\u003c/code
 \u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
-`}).add({id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
+`}).add({id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
@@ -20257,7 +20527,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
-`}).add({id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
+`}).add({id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e
 \u003col\u003e
@@ -20818,7 +21088,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-`}).add({id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`}).add({id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAttribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization.\u003c/p\u003e
@@ -21174,7 +21444,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
 \u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
-`}).add({id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`}).add({id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cblockquote class="warning callout"\u003e
@@ -21664,7 +21934,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`}).add({id:12,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
+`}).add({id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
 \u003cp\u003eCompliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter.\u003c/p\u003e
 \u003cp\u003eFor example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.\u003c/p\u003e
 \u003cp\u003eRKVST allows for several types of Compliance Policies:\u003c/p\u003e
@@ -22110,7 +22380,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v1/compliance/assets/\u0026lt;asset-id\u0026gt;?compliant_at=2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`}).add({id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+`}).add({id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
@@ -22388,7 +22658,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`}).add({id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
+`}).add({id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
 \u003cp\u003eDomain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization\u0026rsquo;s tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Having a verified domain is different from a \u003ccode\u003eTenant Display Name\u003c/code\u003e. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy.\u003c/div\u003e
@@ -22450,7 +22720,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:15,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -23641,7 +23911,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:16,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`}).add({id:17,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -25334,7 +25604,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:17,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -26543,7 +26813,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -27191,7 +27461,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -27526,7 +27796,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -28957,7 +29227,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -29389,7 +29659,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -31208,7 +31478,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -32254,7 +32524,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -33011,7 +33281,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -34295,7 +34565,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -35151,7 +35421,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -35504,7 +35774,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -36867,7 +37137,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -37764,7 +38034,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:31,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:32,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -37772,7 +38042,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:32,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:33,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:33,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:34,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -37780,4 +38050,4 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`}).add({id:34,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

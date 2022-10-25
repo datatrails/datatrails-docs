@@ -3694,7 +3694,121 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+\u003ctable\u003e
+\u003cthead\u003e
+\u003ctr\u003e
+\u003cth\u003e\u003cstrong\u003eTerm\u003c/strong\u003e\u003c/th\u003e
+\u003cth\u003e\u003cstrong\u003eDefinition\u003c/strong\u003e\u003c/th\u003e
+\u003c/tr\u003e
+\u003c/thead\u003e
+\u003ctbody\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eAttribute-Based Access Control; policy that allows you to grant fine-grain access to members of your tenancy\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#access-policies"\u003eaccess policy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003egrants chosen asset and event access to stakeholders\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/#creating-an-app-registration"\u003eapp registration\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclient ID and client secret credentials that are used to access the RKVST API\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003easset\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ean RKVST asset is an entry in your tenancy, which has a collection of attributes that describes its current state and a complete life history of events\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003easset_attributes\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ekey-value pairs that represent information about an asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003ebearer token\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eaccess token for RKVST API; created using app registration credentials\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003ebehaviours\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003edetail what class of events in an asset lifecycle you might wish to record\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/"\u003ecompliance policy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003euser-defined rule sets that assets can be tested against\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#events"\u003eevent\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003etracks key moments of an asset lifecycle; details of Who Did What When to an Asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eevent_attributes\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ekey-value pairs that represent information about an event\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eOrganization-Based Access Control; policy allows sharing with the root user of another organization\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eoperation\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclass of event being performed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003epublic asset\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eassets that can be used to publicly assert data, accessible by URL without the need for an RKVST account\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/#creating-an-app-registration"\u003eroot user\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003euser with permission to see all asset and event information within a tenancy, and to grant access to other users\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003eselector\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eidentifying attribute the yaml runner will use to check if your asset exists already before attempting to create it\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003etenancy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ean organization’s private area within RKVST, containing asset and event data\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#tenant-display-name"\u003etenant display name\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003edisplayed only within own tenancy for easy identification and switching\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/"\u003everified domain\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003etenancy name visible to others you share with; must be verified by RKVST team\u003c/td\u003e
+\u003c/tr\u003e
+\u003c/tbody\u003e
+\u003c/table\u003e
+`},{id:17,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+\u003ctable\u003e
+\u003cthead\u003e
+\u003ctr\u003e
+\u003cth\u003e\u003cstrong\u003eAttribute\u003c/strong\u003e\u003c/th\u003e
+\u003cth\u003e\u003cstrong\u003eMeaning\u003c/strong\u003e\u003c/th\u003e
+\u003c/tr\u003e
+\u003c/thead\u003e
+\u003ctbody\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/#creating-a-compliance-policy"\u003earc_correlation_value\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003epairs events to be evaluated in a compliance policy\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_description\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ebrief description of asset or event being recorded\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_display_name\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003efriendly name identifier for assets, events, and policies\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_display_type\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclassification of assets or events that can be used for grouping\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/#assigning-a-location-to-an-asset"\u003earc_home_location_identity\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003elocation assigned to an asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003c/tbody\u003e
+\u003c/table\u003e
+`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -4885,7 +4999,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:17,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -6578,7 +6692,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -7787,7 +7901,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -8435,7 +8549,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -8770,7 +8884,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -10201,7 +10315,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -10633,7 +10747,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -12452,7 +12566,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -13498,7 +13612,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -14255,7 +14369,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -15539,7 +15653,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -16395,7 +16509,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -16748,7 +16862,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -18111,7 +18225,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:32,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -19008,7 +19122,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:32,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`},{id:33,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:34,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""},{id:35,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -19016,7 +19130,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:33,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:34,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:36,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:37,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -19024,7 +19138,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`},{id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:38,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -22720,7 +22834,121 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e\$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+\u003ctable\u003e
+\u003cthead\u003e
+\u003ctr\u003e
+\u003cth\u003e\u003cstrong\u003eTerm\u003c/strong\u003e\u003c/th\u003e
+\u003cth\u003e\u003cstrong\u003eDefinition\u003c/strong\u003e\u003c/th\u003e
+\u003c/tr\u003e
+\u003c/thead\u003e
+\u003ctbody\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eAttribute-Based Access Control; policy that allows you to grant fine-grain access to members of your tenancy\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#access-policies"\u003eaccess policy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003egrants chosen asset and event access to stakeholders\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/#creating-an-app-registration"\u003eapp registration\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclient ID and client secret credentials that are used to access the RKVST API\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003easset\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ean RKVST asset is an entry in your tenancy, which has a collection of attributes that describes its current state and a complete life history of events\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003easset_attributes\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ekey-value pairs that represent information about an asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003ebearer token\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eaccess token for RKVST API; created using app registration credentials\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003ebehaviours\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003edetail what class of events in an asset lifecycle you might wish to record\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/"\u003ecompliance policy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003euser-defined rule sets that assets can be tested against\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#events"\u003eevent\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003etracks key moments of an asset lifecycle; details of Who Did What When to an Asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eevent_attributes\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ekey-value pairs that represent information about an event\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eOrganization-Based Access Control; policy allows sharing with the root user of another organization\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eoperation\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclass of event being performed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003epublic asset\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eassets that can be used to publicly assert data, accessible by URL without the need for an RKVST account\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/#creating-an-app-registration"\u003eroot user\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003euser with permission to see all asset and event information within a tenancy, and to grant access to other users\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003eselector\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eidentifying attribute the yaml runner will use to check if your asset exists already before attempting to create it\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003etenancy\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ean organization’s private area within RKVST, containing asset and event data\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#tenant-display-name"\u003etenant display name\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003edisplayed only within own tenancy for easy identification and switching\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/"\u003everified domain\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003etenancy name visible to others you share with; must be verified by RKVST team\u003c/td\u003e
+\u003c/tr\u003e
+\u003c/tbody\u003e
+\u003c/table\u003e
+`}).add({id:17,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+\u003ctable\u003e
+\u003cthead\u003e
+\u003ctr\u003e
+\u003cth\u003e\u003cstrong\u003eAttribute\u003c/strong\u003e\u003c/th\u003e
+\u003cth\u003e\u003cstrong\u003eMeaning\u003c/strong\u003e\u003c/th\u003e
+\u003c/tr\u003e
+\u003c/thead\u003e
+\u003ctbody\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/#creating-a-compliance-policy"\u003earc_correlation_value\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003epairs events to be evaluated in a compliance policy\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_description\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003ebrief description of asset or event being recorded\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_display_name\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003efriendly name identifier for assets, events, and policies\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003earc_display_type\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eclassification of assets or events that can be used for grouping\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/#assigning-a-location-to-an-asset"\u003earc_home_location_identity\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003elocation assigned to an asset\u003c/td\u003e
+\u003c/tr\u003e
+\u003c/tbody\u003e
+\u003c/table\u003e
+`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -23911,7 +24139,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:17,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -25604,7 +25832,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -26813,7 +27041,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -27461,7 +27689,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -27796,7 +28024,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -29227,7 +29455,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -29659,7 +29887,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -31478,7 +31706,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -32524,7 +32752,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -33281,7 +33509,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -34565,7 +34793,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -35421,7 +35649,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -35774,7 +36002,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -37137,7 +37365,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:32,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -38034,7 +38262,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:32,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`}).add({id:33,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:34,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""}).add({id:35,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -38042,7 +38270,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:33,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:34,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:36,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:37,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -38050,4 +38278,4 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`}).add({id:35,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:38,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

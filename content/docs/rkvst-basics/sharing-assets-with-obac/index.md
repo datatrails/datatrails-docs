@@ -93,6 +93,10 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
+{{< note >}}
+**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue checkmark next to their subject name. 
+{{< /note >}}
+
 ## Creating an OBAC Policy
 
 OBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.

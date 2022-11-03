@@ -2573,6 +2573,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue checkmark next to their subject name.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-obac-policy"\u003eCreating an OBAC Policy\u003c/h2\u003e
 \u003cp\u003eOBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.\u003c/p\u003e
 \u003cp\u003eIt is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.\u003c/p\u003e
@@ -10755,6 +10758,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e policy is used to share with the root users of an external organization.\u003c/p\u003e
 \u003cp\u003eTo begin sharing with OBAC you must first import your collaborator\u0026rsquo;s Organization ID using either the \u003ca href="../iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e or the instructions in the \u003ca href="../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids"\u003ebasics section\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThis will return a \u003ccode\u003esubjects/\u0026lt;UUID\u0026gt;\u003c/code\u003e object you would then specify with the \u003ccode\u003esubjects\u003c/code\u003e keyword to make it an OBAC policy.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003cp\u003eAs both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.\u003c/p\u003e
 \u003ch3 id="iam-policy-creation"\u003eIAM Policy Creation\u003c/h3\u003e
 \u003cp\u003eThe following example shows how you can mix the \u003ccode\u003euser_attributes\u003c/code\u003e keyword for ABAC and \u003ccode\u003esubjects\u003c/code\u003e keyword for OBAC.\u003c/p\u003e
@@ -21713,6 +21719,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    https://app.rkvst.io/archivist/iam/v1/subjects
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue checkmark next to their subject name.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-obac-policy"\u003eCreating an OBAC Policy\u003c/h2\u003e
 \u003cp\u003eOBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.\u003c/p\u003e
 \u003cp\u003eIt is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.\u003c/p\u003e
@@ -29895,6 +29904,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e policy is used to share with the root users of an external organization.\u003c/p\u003e
 \u003cp\u003eTo begin sharing with OBAC you must first import your collaborator\u0026rsquo;s Organization ID using either the \u003ca href="../iam-subjects-api/"\u003eIAM Subjects API\u003c/a\u003e or the instructions in the \u003ca href="../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids"\u003ebasics section\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThis will return a \u003ccode\u003esubjects/\u0026lt;UUID\u0026gt;\u003c/code\u003e object you would then specify with the \u003ccode\u003esubjects\u003c/code\u003e keyword to make it an OBAC policy.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003cp\u003eAs both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.\u003c/p\u003e
 \u003ch3 id="iam-policy-creation"\u003eIAM Policy Creation\u003c/h3\u003e
 \u003cp\u003eThe following example shows how you can mix the \u003ccode\u003euser_attributes\u003c/code\u003e keyword for ABAC and \u003ccode\u003esubjects\u003c/code\u003e keyword for OBAC.\u003c/p\u003e

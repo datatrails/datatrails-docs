@@ -29,6 +29,10 @@ To begin sharing with OBAC you must first import your collaborator's Organizatio
 
 This will return a `subjects/<UUID>` object you would then specify with the `subjects` keyword to make it an OBAC policy.
 
+{{< note >}}
+**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other.
+{{< /note >}}
+
 As both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.
 
 ### IAM Policy Creation

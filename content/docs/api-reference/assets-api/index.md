@@ -166,6 +166,16 @@ curl -g -v -X GET \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
 
+#### Fetch Assets by Proof Mechanism
+
+To fetch all assets that use a specific proof mechanism, `GET` the assets resource and filter on `proof_mechanism`:
+
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     "https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+```
+
 #### Fetch Assets by Filtering for Presence of a Field
 
 To fetch all assets with a field set to any value, `GET` the assets resource and filter on most available fields. For example:

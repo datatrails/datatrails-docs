@@ -61,12 +61,14 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< /tab >}}
 {{< /tabs >}}
 
-2. Add details to your new Asset.
+2. Add details to your new Asset and select a `Proof Mechanism`.
+
+[`Simple Hash`] commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`] commits the details of your asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is a paid feature of RKVST. Please see our [Advanced Concepts] section for more information on selecting a proof mechanism for your Asset.
 
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:
-{{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateUpdated.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Here you can fill out some more metadata about your asset:
@@ -86,6 +88,7 @@ steps:
     behaviours: 
       - RecordEvidence
       - Attachments
+    proof_mechanism: SIMPLE_HASH
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -95,7 +98,8 @@ In the file you created earlier, begin adding metadata for your Asset:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"]
+    "behaviours": ["RecordEvidence", "Attachments"],
+    "proof_mechanism": "SIMPLE_HASH"
 }
 ```
 {{< /tab >}}}
@@ -109,7 +113,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
-{{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
+{{< img src="AssetCreationDetailsUpdated.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
@@ -126,6 +130,7 @@ steps:
     behaviours: 
       - RecordEvidence
       - Attachments
+    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
@@ -137,6 +142,7 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
 ```json
 {
     "behaviours": ["RecordEvidence", "Attachments"],
+    "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container",
@@ -159,13 +165,13 @@ For Example:
 
 {{< tabs name="add_extended_attributes" >}}
 {{{< tab name="UI" >}}
-Select 'Add Attribute', and add your key-value pairs. 
+Select `Add Attribute`, and add your key-value pairs. 
 {{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Extended Attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our asset, to find out more about Locations, [click here](../grouping-assets-by-location/)
+This example also adds a location to our asset, to find out more about Locations, [click here](../grouping-assets-by-location/).
 
 It's also good practice to include `confirm: true` which tells RKVST to finish commiting the asset before moving to the next step. 
 ```yaml 
@@ -181,6 +187,7 @@ steps:
     behaviours: 
       - RecordEvidence
       - Attachments
+    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
@@ -206,6 +213,7 @@ This example also adds a location to our asset, to find out more about Locations
 ```json
 {
     "behaviours": ["RecordEvidence", "Attachments"],
+    "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container",
@@ -226,7 +234,7 @@ This example also adds a location to our asset, to find out more about Locations
 
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
-Click 'Create Asset'.
+Click `CREATE ASSET`.
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

@@ -8633,9 +8633,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       \u003cdiv class="overflow-auto"\u003e
                       \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet the list of blockchain transactions that made up an Archivist Event\u003c/h5\u003e
+                      \u003ch5\u003eList of Blockchain Transactions associated with an event.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: \u003c/p\u003e
+                      \u003cp\u003eDescription: List of Blockchain Transactions associated with an event. If the event\u0026rsquo;s asset has a proof mechanism of khipu, this will be a list of transactions that compose the event. If the event\u0026rsquo;s asset has a proof mecahnism of simple hash, this will be a list containing one transaction, that describes the simple hash anchor transaction. If the list is empty, the event has not been anchored yet.\u003c/p\u003e
 
                       
                         
@@ -8670,7 +8670,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
       "kind": "SIMPLE_HASH",
       "simple_hash_details": {
         "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
-        "api_query": "proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
         "end_time": "2022-10-05T10:02:03Z",
         "event_count": 12000,
         "hash_schema_version": 1,
@@ -8733,6 +8733,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -8744,6 +8752,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view event\u0026rsquo;s blockchain transactions.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist. or the event with the id does not exist\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
@@ -27779,9 +27795,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       \u003cdiv class="overflow-auto"\u003e
                       \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eGet the list of blockchain transactions that made up an Archivist Event\u003c/h5\u003e
+                      \u003ch5\u003eList of Blockchain Transactions associated with an event.\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: \u003c/p\u003e
+                      \u003cp\u003eDescription: List of Blockchain Transactions associated with an event. If the event\u0026rsquo;s asset has a proof mechanism of khipu, this will be a list of transactions that compose the event. If the event\u0026rsquo;s asset has a proof mecahnism of simple hash, this will be a list containing one transaction, that describes the simple hash anchor transaction. If the list is empty, the event has not been anchored yet.\u003c/p\u003e
 
                       
                         
@@ -27816,7 +27832,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
       "kind": "SIMPLE_HASH",
       "simple_hash_details": {
         "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
-        "api_query": "proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
         "end_time": "2022-10-05T10:02:03Z",
         "event_count": 12000,
         "hash_schema_version": 1,
@@ -27879,6 +27895,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -27890,6 +27914,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to view event\u0026rsquo;s blockchain transactions.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist. or the event with the id does not exist\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           

@@ -33,7 +33,7 @@ Copy the `start time` and `end time` from the transaction details. These will be
 {{< img src="EventsOverview.png" alt="Rectangle" caption="<em>Transaction Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="Command Line" >}}
-The [Blockchain API](../../api-reference/blockchain-api/) allows you to fetch transactions for an event. 
+The [Blockchain API](../../api-reference/blockchain-api/) allows you to fetch transactions for an event. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 
 Using the Event ID as a parameter, run the following command: 
 
@@ -42,7 +42,6 @@ curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/<asset-id>/events/<event-id>
 ```
-See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 
 This will return a list of matching blockchain transactions, as well as the `simple_hash_details`. Copy the `start_time` and `end_time` values to be used as inputs to the [RKVST Simple Hash tool](https://github.com/jitsuin-inc/rkvst-simplehash-python).
 
@@ -59,52 +58,74 @@ Use Python pip utility to install the `rkvst-simplehash` package. This package i
 python3 -m pip install rkvst-simplehash
 ```
 
-You may then use the code to recreate the hash:
+You may then use the code to recreate the hash, using your [`BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) as the `auth_token` and the `start_date` and `end_date` copied in the last step:
 
 ```python
-from rkvst_simplehash.v1 import hash_events
+from rkvst_simplehash.v1 import (
+    anchor_events,
+    SimpleHashError,
+)
 
-simplehash = hash_events(events)
+with open("credentials/token", mode="r", encoding="utf-8") as tokenfile:
+    auth_token = tokenfile.read().strip()
+
+try:
+    simplehash = anchor_events(
+        "2022-10-07T07:01:34Z",
+        "2022-10-16T13:14:56Z",
+        "app.rkvst.io",
+        auth_token,
+    )
+except SimpleHashError as ex:
+    print("Error", ex)
+
+else:
+    print("simplehash=", simplehash)
 ```
+
+{{< note >}}
+**Note:** SimpleHashClientAuthError is raised if the auth token is invalid or expired.
+{{< /note >}}
 
 {{< /tab >}}
 {{< tab name="Command Line" >}}
 Enter the query information you copied in the last step and run the command. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 
-To install locally, execute this command after cloning the [repo](https://github.com/jitsuin-inc/rkvst-simplehash-python):
+Commands can be executed anywhere using a virtual environment and published wheel. Credentials are stored in files within the credentials directory. 
 
-```bash
-python3 -m pip install bencode.py~=4.0
-
-URL="https://app.rkvst.io/archivist/v2/assets/-/events"
-SINCE=timestamp_accepted_since=2022-10-19T00:00:00Z
-BEFORE=timestamp_accepted_before=2022-11-19T00:00:00Z
-BEARER_TOKEN_FILE=credentials/token
-
-curl -s -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     "$URL?proof_mechanism=SIMPLE_HASH&${SINCE}&${BEFORE}" | rkvst_simplehash/v1.py
-```
-
-Or, use a virtual environment and published wheel:
+Using an [`auth token`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) directly: 
 
 ```bash
 python3 -m venv simplehash-venv
 source simplehash-venv/bin/activate
-python3 -m pip install rkvst_simplehash
+python3 -m pip install -q rkvst_simplehash
 
-URL="https://app.rkvst.io/archivist/v2/assets/-/events"
-SINCE=timestamp_accepted_since=2022-10-19T00:00:00Z
-BEFORE=timestamp_accepted_before=2022-10-26T00:00:00Z
-BEARER_TOKEN_FILE=credentials/token
-
-curl -s -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     "$URL?proof_mechanism=SIMPLE_HASH&${SINCE}&${BEFORE}" | rkvst_simplehashv1
+rkvst_simplehashv1 \
+    --auth-token-file "credentials/token" \
+    --start-time "2022-11-16T00:00:00Z" \
+    --end-time "2022-11-17T00:00:00Z"
 
 deactivate
 rm -rf simplehash-venv
 ```
+
+Using a `Client ID` and `Client Secret`: 
+```bash
+python3 -m venv simplehash-venv
+source simplehash-venv/bin/activate
+python3 -m pip install -q rkvst_simplehash
+
+CLIENT_ID=$(cat credentials/client_id)
+rkvst_simplehashv1 \
+    --client-id "${CLIENT_ID}" \
+    --client-secret-file "credentials/client_secret" \
+    --start-time "2022-11-16T00:00:00Z" \
+    --end-time "2022-11-17T00:00:00Z"
+
+deactivate
+rm -rf simplehash-venv
+```
+
 {{< /tab >}}
 {{< /tabs >}}
 

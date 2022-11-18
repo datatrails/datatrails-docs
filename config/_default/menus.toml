@@ -29,6 +29,12 @@
   url = "/docs/api-reference/"
 
 [[docs]]
+  name = "YAML Runner Reference"
+  weight = 50
+  identifier = "yaml-reference"
+  url = "/docs/yaml-reference/"
+
+[[docs]]
   name = "User Patterns"
   weight = 2
   identifier = "user-patterns"

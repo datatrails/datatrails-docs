@@ -15,7 +15,7 @@ rssLimit = 10
   for = '/**'
   [server.headers.values]
     Strict-Transport-Security = 'max-age=31536000; includeSubDomains'
-    Content-Security-Policy-Report-Only = 'script-src unsafe-inline 127.0.0.1:1313 https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net'
+    Content-Security-Policy-Report-Only = 'script-src 127.0.0.1:1313 https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net'
     Referrer-Policy = 'no-referrer-when-downgrade'
     Permissions-Policy = 'autoplay "self"; cookie "self"'
     X-Content-Type-Options = 'nosniff'

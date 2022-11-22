@@ -9,6 +9,19 @@ languageCode = "en-GB"
 paginate = 7
 rssLimit = 10
 
+# security headers
+[server]
+[[server.headers]]
+  for = '/**'
+  [server.headers.values]
+    Strict-Transport-Security = 'max-age=31536000; includeSubDomains'
+    Content-Security-Policy-Report-Only = 'script-src 127.0.0.1:1313 https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net'
+    Referrer-Policy = 'no-referrer-when-downgrade'
+    Permissions-Policy = 'autoplay "self"; cookie "self"'
+    X-Content-Type-Options = 'nosniff'
+    X-Frame-Options = 'SAMEORIGIN'
+    X-XSS-Protection = '1; mode=block'
+
 # add redirects/headers
 [outputs]
 home = ["HTML", "RSS", "REDIRECTS", "HEADERS"]

@@ -13,7 +13,7 @@
  toc: true
 ---
 
-Verifying your Simple Hash events provides an additional layer of security to your data, so you can ensure the information you have at a given time has not changed.
+Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.
 
 To verify your data, you may use the [RKVST Simple Hash tool](https://github.com/jitsuin-inc/rkvst-simplehash-python), available on GitHub. 
 

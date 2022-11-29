@@ -45,3 +45,13 @@ steps:
 ```
 
 Depending on the action, some fields are required but others are optional. We will discuss each action in further detail in the upcoming sections.
+
+Once you have created a YAML file with your desired steps, run the file using the `archivist_runner` command to execute the actions you defined. The command follows this format: 
+
+```bash
+$ archivist_runner \
+      -u https://app.rkvst.io \
+      --client-id <your-client-id> \
+      --client-secret <your-client-secret> \
+      <path-to-yaml-file>
+```

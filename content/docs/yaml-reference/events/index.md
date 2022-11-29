@@ -21,7 +21,7 @@ toc: true
 
 ## Events Create
 
-The `asset_label` must match the setting when the asset was created in an earlier step. The asset_label may also be specified as the Asset ID of an existing asset, in the form assets/add30235-1424-4fda-840a-d5ef82c4c96fa. 
+The `asset_label` must match the setting when the asset was created in an earlier step. The `asset_label` may also be specified as the Asset ID of an existing asset, in the form `assets/add30235-1424-4fda-840a-d5ef82c4c96fa`. 
 
 There are a few optional settings that can be used when creating events. `attachments` uploads the attachment to RKVST and the response is added to the event before posting. `location` creates the location if it does not exist and adds it to the event. The `sbom` setting uploads the SBOM to RKVST and adds the response to the event before posting. 
 

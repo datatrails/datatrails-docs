@@ -124,11 +124,19 @@ When [creating an asset](../../rkvst-basics/creating-an-asset/), you may choose 
 
 ### Simple Hash
 
-The first option is Simple Hash. Simple Hash takes all the events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed. The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform. 
+The first option is Simple Hash. Simple Hash takes all the events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed. 
+
+{{< note >}}
+**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform. 
+{{< /note >}}
 
 ### Khipu
 
-The second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made, any time after the latest event is confirmed. The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.
+The second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made, any time after the latest event is confirmed. 
+
+{{< note >}}
+**Note:** The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.
+{{< /note >}}
 
 ## Access Policies
 

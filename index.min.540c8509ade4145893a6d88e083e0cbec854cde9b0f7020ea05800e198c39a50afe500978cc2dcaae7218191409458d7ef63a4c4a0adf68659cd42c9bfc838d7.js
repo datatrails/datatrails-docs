@@ -3747,12 +3747,20 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003ctd\u003ekey-value pairs that represent information about an event\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu"\u003ekhipu\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eproof mechanism that commits information directly to the RKVST blockchain so it can be verified any time after it is confirmed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eOrganization-Based Access Control; policy allows sharing with the root user of another organization\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eoperation\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eclass of event being performed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#proof-mechanisms"\u003eproof mechanism\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003emethod by which information on the RKVST blockchain can be verified; selected when an asset is created\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003epublic asset\u003c/a\u003e\u003c/td\u003e
@@ -3765,6 +3773,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003eselector\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eidentifying attribute the yaml runner will use to check if your asset exists already before attempting to create it\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash"\u003esimple hash\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eproof mechanism that commits information to the RKVST blockchain in batches; value can confirm that information in the batch has not changed\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003etenancy\u003c/a\u003e\u003c/td\u003e
@@ -5180,6 +5192,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
+                        
+                      
 
                       
                         
@@ -5201,20 +5217,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
     {
       "at_time": "2019-11-27T14:44:19Z",
       "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture from yesterday",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "arc_display_name": "My Garden Fence",
+        "arc_display_type": "Garden Fence",
+        "colour": "Plain wood"
       },
-      "behaviours": [
-        "RecordEvidence"
-      ],
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
@@ -5226,16 +5232,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
     {
       "at_time": "2019-11-27T14:44:19Z",
       "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/2865ca31-d01f-5e6f-4621-de562470732e",
-            "arc_display_name": "Picture",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "12bc4819d90b6fe911b091a7c05134b65edfce045e09b048caaa7916ecdd458c"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/53165a2c-6054-dd68-f093-a0e1e21304fd"
+        "arc_display_name": "My IoT Device",
+        "arc_display_type": "IoT Device",
+        "arc_firmware_version": "3.2.1"
       },
       "behaviours": [
         "RecordEvidence"
@@ -5365,16 +5364,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence",
@@ -5401,7 +5393,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cth\u003eattributes\u003c/th\u003e
                                     \u003ctd\u003eobject\u003c/td\u003e
                                     
-                                      \u003ctd\u003ekey value mapping of event attributes\u003c/td\u003e
+                                      \u003ctd\u003ekey value mapping of asset attributes\u003c/td\u003e
                                                          
                                   
                                   \u003ctr\u003e
@@ -5412,31 +5404,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                                          
                                   
                                   \u003ctr\u003e
-                                    \u003cth\u003echain_id\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003echain id of the blockchain associated with this asset\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
-                                    \u003cth\u003eproof_mechanism\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003especify the mechanism used to provide evidential proof for Events on this Asset\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
                                     \u003cth\u003epublic\u003c/th\u003e
                                     \u003ctd\u003eboolean\u003c/td\u003e
                                     
                                       \u003ctd\u003ePublic asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
-                                    \u003cth\u003estorage_integrity\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
                                                          
                                   
                                 \u003c/tbody\u003e 
@@ -5463,16 +5434,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cpre\u003e\u003ccode\u003e{
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence"
@@ -5674,22 +5638,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "asset_attributes": {
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "colour": "Midnight Blue"
   },
   "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
   "event_attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ]
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
   },
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",
@@ -6046,16 +6003,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cpre\u003e\u003ccode\u003e{
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence"
@@ -6279,6 +6229,8 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -6299,22 +6251,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
   "events": [
     {
       "asset_attributes": {
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "colour": "Midnight Blue"
       },
       "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 12,
       "confirmation_status": "CONFIRMED",
       "event_attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture from yesterday",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ]
+        "arc_description": "Painted the fence",
+        "arc_display_type": "Paint"
       },
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
       "operation": "Record",
@@ -6335,24 +6280,16 @@ This type of compliance policy is not yet available for creation via the UI. Che
     },
     {
       "asset_attributes": {
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "arc_firmware_version": "3.2.1"
       },
-      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "behaviour": "RecordEvidence",
       "block_number": 13,
       "confirmation_status": "CONFIRMED",
       "event_attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ]
+        "arc_display_type": "Update Firmware"
       },
-      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032/events/589bc700-4b04-4bf2-911e-d4ee4821f55e",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -10562,22 +10499,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "asset_attributes": {
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "colour": "Midnight Blue"
   },
   "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
   "event_attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ]
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
   },
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",
@@ -22909,12 +22839,20 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003ctd\u003ekey-value pairs that represent information about an event\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu"\u003ekhipu\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eproof mechanism that commits information directly to the RKVST blockchain so it can be verified any time after it is confirmed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eOrganization-Based Access Control; policy allows sharing with the root user of another organization\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/#creating-events"\u003eoperation\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eclass of event being performed\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#proof-mechanisms"\u003eproof mechanism\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003emethod by which information on the RKVST blockchain can be verified; selected when an asset is created\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003epublic asset\u003c/a\u003e\u003c/td\u003e
@@ -22927,6 +22865,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/#creating-an-asset"\u003eselector\u003c/a\u003e\u003c/td\u003e
 \u003ctd\u003eidentifying attribute the yaml runner will use to check if your asset exists already before attempting to create it\u003c/td\u003e
+\u003c/tr\u003e
+\u003ctr\u003e
+\u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash"\u003esimple hash\u003c/a\u003e\u003c/td\u003e
+\u003ctd\u003eproof mechanism that commits information to the RKVST blockchain in batches; value can confirm that information in the batch has not changed\u003c/td\u003e
 \u003c/tr\u003e
 \u003ctr\u003e
 \u003ctd\u003e\u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#tenancies"\u003etenancy\u003c/a\u003e\u003c/td\u003e
@@ -24342,6 +24284,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
+                        
+                      
 
                       
                         
@@ -24363,20 +24309,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
     {
       "at_time": "2019-11-27T14:44:19Z",
       "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture from yesterday",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "arc_display_name": "My Garden Fence",
+        "arc_display_type": "Garden Fence",
+        "colour": "Plain wood"
       },
-      "behaviours": [
-        "RecordEvidence"
-      ],
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
@@ -24388,16 +24324,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
     {
       "at_time": "2019-11-27T14:44:19Z",
       "attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/2865ca31-d01f-5e6f-4621-de562470732e",
-            "arc_display_name": "Picture",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "12bc4819d90b6fe911b091a7c05134b65edfce045e09b048caaa7916ecdd458c"
-          }
-        ],
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/53165a2c-6054-dd68-f093-a0e1e21304fd"
+        "arc_display_name": "My IoT Device",
+        "arc_display_type": "IoT Device",
+        "arc_firmware_version": "3.2.1"
       },
       "behaviours": [
         "RecordEvidence"
@@ -24527,16 +24456,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence",
@@ -24563,7 +24485,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cth\u003eattributes\u003c/th\u003e
                                     \u003ctd\u003eobject\u003c/td\u003e
                                     
-                                      \u003ctd\u003ekey value mapping of event attributes\u003c/td\u003e
+                                      \u003ctd\u003ekey value mapping of asset attributes\u003c/td\u003e
                                                          
                                   
                                   \u003ctr\u003e
@@ -24574,31 +24496,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                                          
                                   
                                   \u003ctr\u003e
-                                    \u003cth\u003echain_id\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003echain id of the blockchain associated with this asset\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
-                                    \u003cth\u003eproof_mechanism\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003especify the mechanism used to provide evidential proof for Events on this Asset\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
                                     \u003cth\u003epublic\u003c/th\u003e
                                     \u003ctd\u003eboolean\u003c/td\u003e
                                     
                                       \u003ctd\u003ePublic asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.\u003c/td\u003e
-                                                         
-                                  
-                                  \u003ctr\u003e
-                                    \u003cth\u003estorage_integrity\u003c/th\u003e
-                                    \u003ctd\u003estring\u003c/td\u003e
-                                    
-                                      \u003ctd\u003eDEPRECATED use proof_mechanism\u003c/td\u003e
                                                          
                                   
                                 \u003c/tbody\u003e 
@@ -24625,16 +24526,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cpre\u003e\u003ccode\u003e{
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence"
@@ -24836,22 +24730,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "asset_attributes": {
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "colour": "Midnight Blue"
   },
   "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
   "event_attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ]
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
   },
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",
@@ -25208,16 +25095,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                     \u003cpre\u003e\u003ccode\u003e{
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_display_name": "My Garden Fence",
+    "arc_display_type": "Garden Fence",
+    "colour": "Plain wood"
   },
   "behaviours": [
     "RecordEvidence"
@@ -25441,6 +25321,8 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -25461,22 +25343,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
   "events": [
     {
       "asset_attributes": {
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "colour": "Midnight Blue"
       },
       "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 12,
       "confirmation_status": "CONFIRMED",
       "event_attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture from yesterday",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ]
+        "arc_description": "Painted the fence",
+        "arc_display_type": "Paint"
       },
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
       "operation": "Record",
@@ -25497,24 +25372,16 @@ This type of compliance policy is not yet available for creation via the UI. Che
     },
     {
       "asset_attributes": {
-        "arc_firmware_version": "3.2.1",
-        "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+        "arc_firmware_version": "3.2.1"
       },
-      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "behaviour": "RecordEvidence",
       "block_number": 13,
       "confirmation_status": "CONFIRMED",
       "event_attributes": {
-        "arc_attachments": [
-          {
-            "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-            "arc_display_name": "Picture",
-            "arc_hash_alg": "sha256",
-            "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-          }
-        ]
+        "arc_display_type": "Update Firmware"
       },
-      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032/events/589bc700-4b04-4bf2-911e-d4ee4821f55e",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -29724,22 +29591,15 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
   "asset_attributes": {
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "colour": "Midnight Blue"
   },
   "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
   "event_attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ]
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
   },
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",

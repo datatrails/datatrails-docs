@@ -26,11 +26,11 @@ Please note that with Simple Hash, events are committed to the RKVST blockchain 
 {{< tabs name="retrieve-transaction-info" >}}
 {{{< tab name="UI" >}}
 Select `Auditor View` from the sidebar and select a `Transaction` from the Events Overview List.
-{{< img src="EventsOverview.png" alt="Rectangle" caption="<em>Auditor View</em>" class="border-0" >}}
+{{< img src="AuditorView.png" alt="Rectangle" caption="<em>Auditor View</em>" class="border-0" >}}
 
-Copy the `start time` and `end time` from the transaction details. These will be used as inputs to the [RKVST Simple Hash tool](https://github.com/jitsuin-inc/rkvst-simplehash-python).
+Copy the `start time` and `end time` from the Simple Hash Details. These will be used as inputs to the [RKVST Simple Hash tool](https://github.com/jitsuin-inc/rkvst-simplehash-python).
 
-{{< img src="EventsOverview.png" alt="Rectangle" caption="<em>Transaction Details</em>" class="border-0" >}}
+{{< img src="SimpleHashDetails.png" alt="Rectangle" caption="<em>Simple Hash Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="Command Line" >}}
 The [Blockchain API](../../api-reference/blockchain-api/) allows you to fetch transactions for an event. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.

@@ -125,6 +125,19 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 \u003cli\u003e\u003ccode\u003eprincipal_accepted\u003c/code\u003e - the actual user principal information belonging to the credential used to access the RKVST REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eFor more detailed information on Assets and how to implement them, please refer to \u003ca href="../../api-reference/events-api/"\u003ethe Events API Reference\u003c/a\u003e.\u003c/p\u003e
+\u003ch2 id="proof-mechanisms"\u003eProof Mechanisms\u003c/h2\u003e
+\u003cp\u003eAssets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.\u003c/p\u003e
+\u003cp\u003eWhen \u003ca href="../../rkvst-basics/creating-an-asset/"\u003ecreating an asset\u003c/a\u003e, you may choose between two proof mechanisms, which will be used for that asset and its events. This will determine how your data is recorded on the RKVST blockchain.\u003c/p\u003e
+\u003ch3 id="simple-hash"\u003eSimple Hash\u003c/h3\u003e
+\u003cp\u003eThe first option is Simple Hash. Simple Hash takes all the events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e The Simple Hash proof mechanism is available with \u003ca href="https://www.rkvst.com/pricing/"\u003eall tiers\u003c/a\u003e of the RKVST platform.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch3 id="khipu"\u003eKhipu\u003c/h3\u003e
+\u003cp\u003eThe second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e The Khipu proof mechanism is available on our \u003ca href="https://www.rkvst.com/pricing/"\u003eTeam and Enterprise tiers\u003c/a\u003e of RKVST.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="access-policies"\u003eAccess Policies\u003c/h2\u003e
 \u003cp\u003eSharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.\u003c/p\u003e
 \u003cp\u003eIn other scenarios, it is desirable to share basic maintenance information with a vendor or external maintenance company, whilst restricting critical operating information such as run cycles and cyber SLAs to a much smaller group.\u003c/p\u003e
@@ -19217,6 +19230,19 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003e\u003ccode\u003eprincipal_accepted\u003c/code\u003e - the actual user principal information belonging to the credential used to access the RKVST REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eFor more detailed information on Assets and how to implement them, please refer to \u003ca href="../../api-reference/events-api/"\u003ethe Events API Reference\u003c/a\u003e.\u003c/p\u003e
+\u003ch2 id="proof-mechanisms"\u003eProof Mechanisms\u003c/h2\u003e
+\u003cp\u003eAssets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.\u003c/p\u003e
+\u003cp\u003eWhen \u003ca href="../../rkvst-basics/creating-an-asset/"\u003ecreating an asset\u003c/a\u003e, you may choose between two proof mechanisms, which will be used for that asset and its events. This will determine how your data is recorded on the RKVST blockchain.\u003c/p\u003e
+\u003ch3 id="simple-hash"\u003eSimple Hash\u003c/h3\u003e
+\u003cp\u003eThe first option is Simple Hash. Simple Hash takes all the events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e The Simple Hash proof mechanism is available with \u003ca href="https://www.rkvst.com/pricing/"\u003eall tiers\u003c/a\u003e of the RKVST platform.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch3 id="khipu"\u003eKhipu\u003c/h3\u003e
+\u003cp\u003eThe second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e The Khipu proof mechanism is available on our \u003ca href="https://www.rkvst.com/pricing/"\u003eTeam and Enterprise tiers\u003c/a\u003e of RKVST.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="access-policies"\u003eAccess Policies\u003c/h2\u003e
 \u003cp\u003eSharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.\u003c/p\u003e
 \u003cp\u003eIn other scenarios, it is desirable to share basic maintenance information with a vendor or external maintenance company, whilst restricting critical operating information such as run cycles and cyber SLAs to a much smaller group.\u003c/p\u003e

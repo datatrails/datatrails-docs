@@ -116,6 +116,28 @@ Once committed to the RKVST system, each lifecycle event record carries 2 separa
 
 For more detailed information on Assets and how to implement them, please refer to [the Events API Reference](../../api-reference/events-api/).
 
+## Proof Mechanisms
+
+Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
+
+When [creating an asset](../../rkvst-basics/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that asset and its events. This will determine how your data is recorded on the RKVST blockchain.
+
+### Simple Hash
+
+The first option is Simple Hash. Simple Hash takes all the events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed. 
+
+{{< note >}}
+**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform. 
+{{< /note >}}
+
+### Khipu
+
+The second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made. 
+
+{{< note >}}
+**Note:** The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.
+{{< /note >}}
+
 ## Access Policies
 
 Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.

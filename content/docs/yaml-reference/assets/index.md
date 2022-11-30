@@ -94,7 +94,7 @@ The response printed was ev pump 1, the asset created in the `Assets Create` exa
 
 ```json
 Response {
-    "identity": "assets/acb65a94-c97d-4a89-9538-07478358ad8d",
+    "identity": "assets/<asset-id>",
     "behaviours": [
         "Attachments",
         "RecordEvidence",
@@ -115,7 +115,7 @@ Response {
     "proof_mechanism": "SIMPLE_HASH",
     "chain_id": "827586838445807967",
     "public": false,
-    "tenant_identity": "tenant/4c9a780b-4931-46be-8706-705c026a3ed9"
+    "tenant_identity": "tenant/<tenant-id>"
 }
 ```
 

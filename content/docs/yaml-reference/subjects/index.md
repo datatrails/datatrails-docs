@@ -69,7 +69,7 @@ steps:
 
 ## Subjects Update
 
-To update a subject's entity, the `subject_label` from a previous action in the YAML Runner steps is required. The `subject_label` may also be specified as the Subject ID of an existing subject, in the form `subjects/add30235-1424-4fda-840a-d5ef82c4c96fa`.
+To update a subject's entity, the `subject_label` from a previous action in the YAML Runner steps is required. The `subject_label` may also be specified as the Subject ID of an existing subject, in the form `subjects/<subject-id`.
 
 `display_name`, `wallet_pub_key`, and `tessera_pub_key` are optional, but at least one must be specified. 
 
@@ -94,7 +94,7 @@ steps:
 
 This action deletes the specified subject. 
 
-`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/add30235-1424-4fda-840a-d5ef82c4c96fa`.
+`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
 ```yaml 
 ---
@@ -110,7 +110,7 @@ steps:
 
 This action allows you to read the details for the specified subject. Setting `print_response: true` is necessary to print the full output. 
 
-`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/add30235-1424-4fda-840a-d5ef82c4c96fa`.
+`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
 ```yaml
 ---
@@ -119,7 +119,7 @@ steps:
       action: SUBJECTS_READ
       description: Read subject
       print_response: true
-      subject_label: subjects/add30235-1424-4fda-840a-d5ef82c4c96fa
+      subject_label: subjects/<subject-id>
 ```
 
 ## Subjects List
@@ -156,7 +156,7 @@ steps:
 
 This action tells the YAML Runner to wait before proceeding to the next step until all subjects that meet your specified criteria are confirmed. 
 
-`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/add30235-1424-4fda-840a-d5ef82c4c96fa`.
+`subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
 ```yaml
 ---

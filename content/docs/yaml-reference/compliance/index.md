@@ -47,7 +47,7 @@ steps:
 
 The `COMPLIANCE_COMPLIANT_AT` action checks an asset against its compliance policies. 
 
-`asset_label` is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form `assets/add30235-1424-4fda-840a-d5ef82c4c96fa`. Setting `report: true` will trigger a report to be printed on the assets compliance status. 
+`asset_label` is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form `assets/<asset-id>`. Setting `report: true` will trigger a report to be printed on the assets compliance status. 
 
 ```yaml
 ---

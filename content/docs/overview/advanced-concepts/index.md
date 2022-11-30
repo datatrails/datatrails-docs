@@ -120,7 +120,7 @@ For more detailed information on Assets and how to implement them, please refer 
 
 Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
 
-When [creating an asset](../../rkvst-basics/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that asset and its events. This will determine how your data is recorded on the RKVST shared blockchain.
+When [creating an asset](../../rkvst-basics/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that asset and its events. This will determine how your data is recorded on the RKVST blockchain.
 
 ### Simple Hash
 
@@ -132,7 +132,7 @@ The first option is Simple Hash. Simple Hash takes all the events within a past 
 
 ### Khipu
 
-The second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made, any time after the latest event is confirmed. 
+The second option is Khipu. With Khipu, all the details of your asset and events are committed to the RKVST blockchain. This way, you may compare to previous versions of your asset and identify exactly what changes have been made. 
 
 {{< note >}}
 **Note:** The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.

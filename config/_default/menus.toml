@@ -30,7 +30,7 @@
 
 [[docs]]
   name = "YAML Runner Reference"
-  weight = 50
+  weight = 51
   identifier = "yaml-reference"
   url = "/docs/yaml-reference/"
 

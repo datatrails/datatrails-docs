@@ -166,6 +166,25 @@ curl -g -v -X GET \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
 
+#### Fetch Assets by Proof Mechanism
+
+To fetch all assets that use a specific proof mechanism, `GET` the assets resource and filter on `proof_mechanism`:
+
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     "https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+```
+#### Fetch Events Ordered for SIMPLEHASHV1 Schema
+
+To fetch simple hash events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/jitsuin-inc/rkvst-simplehash-python), `GET` the assets resource, specifying a specific asset ID or using `assets/-/events` to fetch events for all assets:
+
+```bash
+curl -g -v -X GET \
+     -H "@$BEARER_TOKEN_FILE" \
+     "https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
+```
+
 #### Fetch Assets by Filtering for Presence of a Field
 
 To fetch all assets with a field set to any value, `GET` the assets resource and filter on most available fields. For example:

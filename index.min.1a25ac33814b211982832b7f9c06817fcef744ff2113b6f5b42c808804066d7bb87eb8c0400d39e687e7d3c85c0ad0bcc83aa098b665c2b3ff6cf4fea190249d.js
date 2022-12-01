@@ -3717,7 +3717,138 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
+\u003cp\u003eTo verify your data, you may use the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e, available on GitHub.\u003c/p\u003e
+\u003cp\u003ePlease note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a \u003ccode\u003eTransaction ID\u003c/code\u003e. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. \u003cstrong\u003eYour event(s) must have a blue tick for transaction details to be available for data verification.\u003c/strong\u003e\u003c/p\u003e
+\u003ch2 id="step-by-step-guide-for-using-the-simple-hash-tool"\u003eStep-by-Step Guide for Using the Simple Hash Tool\u003c/h2\u003e
+\u003col\u003e
+\u003cli\u003eRetrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of events.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="retrieve-transaction-info" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#retrieve-transaction-info-0" type="button" role="tab" aria-controls="retrieve-transaction-info-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#retrieve-transaction-info-1" type="button" role="tab" aria-controls="retrieve-transaction-info-1" aria-selected="false"\u003eCommand Line\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="retrieve-transaction-info"\u003e\u003cdiv id="retrieve-transaction-info-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="retrieve-transaction-info-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eAuditor View\u003c/code\u003e from the sidebar and select a \u003ccode\u003eTransaction\u003c/code\u003e from the Events Overview List.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AuditorView" img class="img-fluid responsive" src="/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView.png" width="2854" height="1284" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView.png" width="2854" height="1284" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAuditor View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AuditorView" tabindex="-1" aria-labelledby="AuditorView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2854\u0026quot; height=\u0026quot;1284\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eCopy the \u003ccode\u003estart time\u003c/code\u003e and \u003ccode\u003eend time\u003c/code\u003e from the Simple Hash Details. These will be used as inputs to the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#SimpleHashDetails" img class="img-fluid responsive" src="/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails.png" width="2008" height="582" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails.png" width="2008" height="582" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSimple Hash Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2008\u0026quot; height=\u0026quot;582\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="retrieve-transaction-info-1" class="tab-pane fade" role="tabpanel" aria-labelledby="retrieve-transaction-info-1"\u003e
+\u003cp\u003eThe \u003ca href="../../api-reference/blockchain-api/"\u003eBlockchain API\u003c/a\u003e allows you to fetch transactions for an event. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cp\u003eUsing the Event ID as a parameter, run the following command:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThis will return a list of matching blockchain transactions, as well as the \u003ccode\u003esimple_hash_details\u003c/code\u003e. Copy the \u003ccode\u003estart_time\u003c/code\u003e and \u003ccode\u003eend_time\u003c/code\u003e values to be used as inputs to the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eUse the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e to generate the hash of your events.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="simple-hash-script" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#simple-hash-script-0" type="button" role="tab" aria-controls="simple-hash-script-0" aria-selected="true"\u003ePython\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#simple-hash-script-1" type="button" role="tab" aria-controls="simple-hash-script-1" aria-selected="false"\u003eCommand Line\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="simple-hash-script"\u003e\u003cdiv id="simple-hash-script-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="simple-hash-script-0"\u003e
+\u003cp\u003eUse Python pip utility to install the \u003ccode\u003erkvst-simplehash\u003c/code\u003e package. This package is supported for Python versions 3.7, 3.8, 3.9, and 3.10.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install rkvst-simplehash
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eYou may then use the code to recreate the hash, using your \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003e\u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e as the \u003ccode\u003eauth_token\u003c/code\u003e and the \u003ccode\u003estart_date\u003c/code\u003e and \u003ccode\u003eend_date\u003c/code\u003e copied in the last step:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-python" data-lang="python"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="kn"\u003efrom\u003c/span\u003e \u003cspan class="nn"\u003erkvst_simplehash.v1\u003c/span\u003e \u003cspan class="kn"\u003eimport\u003c/span\u003e \u003cspan class="p"\u003e(\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eanchor_events\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eSimpleHashError\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003ewith\u003c/span\u003e \u003cspan class="nb"\u003eopen\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;credentials/token\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003emode\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003eencoding\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;utf-8\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e \u003cspan class="k"\u003eas\u003c/span\u003e \u003cspan class="n"\u003etokenfile\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eauth_token\u003c/span\u003e \u003cspan class="o"\u003e=\u003c/span\u003e \u003cspan class="n"\u003etokenfile\u003c/span\u003e\u003cspan class="o"\u003e.\u003c/span\u003e\u003cspan class="n"\u003eread\u003c/span\u003e\u003cspan class="p"\u003e()\u003c/span\u003e\u003cspan class="o"\u003e.\u003c/span\u003e\u003cspan class="n"\u003estrip\u003c/span\u003e\u003cspan class="p"\u003e()\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003etry\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003esimplehash\u003c/span\u003e \u003cspan class="o"\u003e=\u003c/span\u003e \u003cspan class="n"\u003eanchor_events\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;2022-10-07T07:01:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;2022-10-16T13:14:56Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;app.rkvst.io\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="n"\u003eauth_token\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003eexcept\u003c/span\u003e \u003cspan class="n"\u003eSimpleHashError\u003c/span\u003e \u003cspan class="k"\u003eas\u003c/span\u003e \u003cspan class="n"\u003eex\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nb"\u003eprint\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;Error\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003eex\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003eelse\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nb"\u003eprint\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;simplehash=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003esimplehash\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eRun your Python file to return the hash value.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e SimpleHashClientAuthError is raised if the auth token is invalid or expired.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e
+  \u003cdiv id="simple-hash-script-1" class="tab-pane fade" role="tabpanel" aria-labelledby="simple-hash-script-1"\u003e
+\u003cp\u003eEnter the query information you copied in the last step and run the command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cp\u003eCommands can be executed anywhere using a virtual environment and published wheel. Credentials are stored in files within the credentials directory.\u003c/p\u003e
+\u003cp\u003eUsing an \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003e\u003ccode\u003eauth token\u003c/code\u003e\u003c/a\u003e directly:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m venv simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003esource\u003c/span\u003e simplehash-venv/bin/activate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install -q rkvst_simplehash
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erkvst_simplehashv1 \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --auth-token-file \u003cspan class="s2"\u003e\u0026#34;credentials/token\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --start-time \u003cspan class="s2"\u003e\u0026#34;2022-11-16T00:00:00Z\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --end-time \u003cspan class="s2"\u003e\u0026#34;2022-11-17T00:00:00Z\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003edeactivate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erm -rf simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eUsing a \u003ccode\u003eClient ID\u003c/code\u003e and \u003ccode\u003eClient Secret\u003c/code\u003e:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m venv simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003esource\u003c/span\u003e simplehash-venv/bin/activate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install -q rkvst_simplehash
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nv"\u003eCLIENT_ID\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="k"\u003e$(\u003c/span\u003ecat credentials/client_id\u003cspan class="k"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erkvst_simplehashv1 \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --client-id \u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e\u003cspan class="si"\u003e\${\u003c/span\u003e\u003cspan class="nv"\u003eCLIENT_ID\u003c/span\u003e\u003cspan class="si"\u003e}\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --client-secret-file \u003cspan class="s2"\u003e\u0026#34;credentials/client_secret\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --start-time \u003cspan class="s2"\u003e\u0026#34;2022-11-16T00:00:00Z\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --end-time \u003cspan class="s2"\u003e\u0026#34;2022-11-17T00:00:00Z\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003edeactivate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erm -rf simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e If you are using an environment other than \u003ccode\u003eapp.rkvst.io\u003c/code\u003e, add the URL with the \u003ccode\u003e--fqdn\u003c/code\u003e option. For example, \u003ccode\u003e--fqdn \u0026quot;app.rkvst-poc.io\u0026quot;\u003c/code\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="3"\u003e
+\u003cli\u003eCompare the hash from your \u003ccode\u003eTransaction Details\u003c/code\u003e to the hash generated by the tool. If they match, your event history has not changed.\u003c/li\u003e
+\u003c/ol\u003e
+`},{id:17,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -3812,7 +3943,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`},{id:17,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+`},{id:18,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -3843,7 +3974,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`},{id:18,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -5034,7 +5165,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -6662,7 +6793,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -7871,7 +8002,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -8519,7 +8650,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -8904,7 +9035,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -10335,7 +10466,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -10760,7 +10891,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -12582,7 +12713,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -13628,7 +13759,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -14385,7 +14516,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -15669,7 +15800,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -16525,7 +16656,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -16878,7 +17009,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:32,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -18241,7 +18372,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:32,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:33,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -19138,7 +19269,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:33,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:34,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""},{id:35,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`},{id:34,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:35,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""},{id:36,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -19146,7 +19277,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:36,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:37,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:37,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:38,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -19154,7 +19285,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`},{id:38,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:39,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -22873,7 +23004,138 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
+\u003cp\u003eTo verify your data, you may use the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e, available on GitHub.\u003c/p\u003e
+\u003cp\u003ePlease note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a \u003ccode\u003eTransaction ID\u003c/code\u003e. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. \u003cstrong\u003eYour event(s) must have a blue tick for transaction details to be available for data verification.\u003c/strong\u003e\u003c/p\u003e
+\u003ch2 id="step-by-step-guide-for-using-the-simple-hash-tool"\u003eStep-by-Step Guide for Using the Simple Hash Tool\u003c/h2\u003e
+\u003col\u003e
+\u003cli\u003eRetrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of events.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="retrieve-transaction-info" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#retrieve-transaction-info-0" type="button" role="tab" aria-controls="retrieve-transaction-info-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#retrieve-transaction-info-1" type="button" role="tab" aria-controls="retrieve-transaction-info-1" aria-selected="false"\u003eCommand Line\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="retrieve-transaction-info"\u003e\u003cdiv id="retrieve-transaction-info-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="retrieve-transaction-info-0"\u003e
+\u003cp\u003eSelect \u003ccode\u003eAuditor View\u003c/code\u003e from the sidebar and select a \u003ccode\u003eTransaction\u003c/code\u003e from the Events Overview List.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AuditorView" img class="img-fluid responsive" src="/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView.png" width="2854" height="1284" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView.png" width="2854" height="1284" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAuditor View\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AuditorView" tabindex="-1" aria-labelledby="AuditorView" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/AuditorView_hub978bfbf2ff7325687bb046ee52154e3_309025_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2854\u0026quot; height=\u0026quot;1284\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eCopy the \u003ccode\u003estart time\u003c/code\u003e and \u003ccode\u003eend time\u003c/code\u003e from the Simple Hash Details. These will be used as inputs to the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#SimpleHashDetails" img class="img-fluid responsive" src="/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails.png" width="2008" height="582" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w" src="/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails.png" width="2008" height="582" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSimple Hash Details\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/SimpleHashDetails_hu3aa77d2c37950cb3db40e4625b7ee328_92224_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;2008\u0026quot; height=\u0026quot;582\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="retrieve-transaction-info-1" class="tab-pane fade" role="tabpanel" aria-labelledby="retrieve-transaction-info-1"\u003e
+\u003cp\u003eThe \u003ca href="../../api-reference/blockchain-api/"\u003eBlockchain API\u003c/a\u003e allows you to fetch transactions for an event. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cp\u003eUsing the Event ID as a parameter, run the following command:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThis will return a list of matching blockchain transactions, as well as the \u003ccode\u003esimple_hash_details\u003c/code\u003e. Copy the \u003ccode\u003estart_time\u003c/code\u003e and \u003ccode\u003eend_time\u003c/code\u003e values to be used as inputs to the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e.\u003c/p\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="2"\u003e
+\u003cli\u003eUse the \u003ca href="https://github.com/jitsuin-inc/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e to generate the hash of your events.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cul class="nav nav-tabs" id="simple-hash-script" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#simple-hash-script-0" type="button" role="tab" aria-controls="simple-hash-script-0" aria-selected="true"\u003ePython\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#simple-hash-script-1" type="button" role="tab" aria-controls="simple-hash-script-1" aria-selected="false"\u003eCommand Line\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="simple-hash-script"\u003e\u003cdiv id="simple-hash-script-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="simple-hash-script-0"\u003e
+\u003cp\u003eUse Python pip utility to install the \u003ccode\u003erkvst-simplehash\u003c/code\u003e package. This package is supported for Python versions 3.7, 3.8, 3.9, and 3.10.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install rkvst-simplehash
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eYou may then use the code to recreate the hash, using your \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003e\u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e as the \u003ccode\u003eauth_token\u003c/code\u003e and the \u003ccode\u003estart_date\u003c/code\u003e and \u003ccode\u003eend_date\u003c/code\u003e copied in the last step:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-python" data-lang="python"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="kn"\u003efrom\u003c/span\u003e \u003cspan class="nn"\u003erkvst_simplehash.v1\u003c/span\u003e \u003cspan class="kn"\u003eimport\u003c/span\u003e \u003cspan class="p"\u003e(\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eanchor_events\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eSimpleHashError\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003ewith\u003c/span\u003e \u003cspan class="nb"\u003eopen\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;credentials/token\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003emode\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;r\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003eencoding\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;utf-8\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e \u003cspan class="k"\u003eas\u003c/span\u003e \u003cspan class="n"\u003etokenfile\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003eauth_token\u003c/span\u003e \u003cspan class="o"\u003e=\u003c/span\u003e \u003cspan class="n"\u003etokenfile\u003c/span\u003e\u003cspan class="o"\u003e.\u003c/span\u003e\u003cspan class="n"\u003eread\u003c/span\u003e\u003cspan class="p"\u003e()\u003c/span\u003e\u003cspan class="o"\u003e.\u003c/span\u003e\u003cspan class="n"\u003estrip\u003c/span\u003e\u003cspan class="p"\u003e()\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003etry\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="n"\u003esimplehash\u003c/span\u003e \u003cspan class="o"\u003e=\u003c/span\u003e \u003cspan class="n"\u003eanchor_events\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;2022-10-07T07:01:34Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;2022-10-16T13:14:56Z\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="s2"\u003e\u0026#34;app.rkvst.io\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="n"\u003eauth_token\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003eexcept\u003c/span\u003e \u003cspan class="n"\u003eSimpleHashError\u003c/span\u003e \u003cspan class="k"\u003eas\u003c/span\u003e \u003cspan class="n"\u003eex\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nb"\u003eprint\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;Error\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003eex\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="k"\u003eelse\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nb"\u003eprint\u003c/span\u003e\u003cspan class="p"\u003e(\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;simplehash=\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="n"\u003esimplehash\u003c/span\u003e\u003cspan class="p"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eRun your Python file to return the hash value.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e SimpleHashClientAuthError is raised if the auth token is invalid or expired.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e
+  \u003cdiv id="simple-hash-script-1" class="tab-pane fade" role="tabpanel" aria-labelledby="simple-hash-script-1"\u003e
+\u003cp\u003eEnter the query information you copied in the last step and run the command. See instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cp\u003eCommands can be executed anywhere using a virtual environment and published wheel. Credentials are stored in files within the credentials directory.\u003c/p\u003e
+\u003cp\u003eUsing an \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003e\u003ccode\u003eauth token\u003c/code\u003e\u003c/a\u003e directly:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m venv simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003esource\u003c/span\u003e simplehash-venv/bin/activate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install -q rkvst_simplehash
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erkvst_simplehashv1 \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --auth-token-file \u003cspan class="s2"\u003e\u0026#34;credentials/token\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --start-time \u003cspan class="s2"\u003e\u0026#34;2022-11-16T00:00:00Z\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --end-time \u003cspan class="s2"\u003e\u0026#34;2022-11-17T00:00:00Z\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003edeactivate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erm -rf simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eUsing a \u003ccode\u003eClient ID\u003c/code\u003e and \u003ccode\u003eClient Secret\u003c/code\u003e:\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m venv simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nb"\u003esource\u003c/span\u003e simplehash-venv/bin/activate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003epython3 -m pip install -q rkvst_simplehash
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nv"\u003eCLIENT_ID\u003c/span\u003e\u003cspan class="o"\u003e=\u003c/span\u003e\u003cspan class="k"\u003e$(\u003c/span\u003ecat credentials/client_id\u003cspan class="k"\u003e)\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erkvst_simplehashv1 \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --client-id \u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e\u003cspan class="si"\u003e\${\u003c/span\u003e\u003cspan class="nv"\u003eCLIENT_ID\u003c/span\u003e\u003cspan class="si"\u003e}\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --client-secret-file \u003cspan class="s2"\u003e\u0026#34;credentials/client_secret\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --start-time \u003cspan class="s2"\u003e\u0026#34;2022-11-16T00:00:00Z\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    --end-time \u003cspan class="s2"\u003e\u0026#34;2022-11-17T00:00:00Z\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003edeactivate
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003erm -rf simplehash-venv
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e If you are using an environment other than \u003ccode\u003eapp.rkvst.io\u003c/code\u003e, add the URL with the \u003ccode\u003e--fqdn\u003c/code\u003e option. For example, \u003ccode\u003e--fqdn \u0026quot;app.rkvst-poc.io\u0026quot;\u003c/code\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003c/div\u003e\u003c/div\u003e
+
+\u003col start="3"\u003e
+\u003cli\u003eCompare the hash from your \u003ccode\u003eTransaction Details\u003c/code\u003e to the hash generated by the tool. If they match, your event history has not changed.\u003c/li\u003e
+\u003c/ol\u003e
+`}).add({id:17,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -22968,7 +23230,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`}).add({id:17,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+`}).add({id:18,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -22999,7 +23261,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`}).add({id:18,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -24190,7 +24452,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -25818,7 +26080,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -27027,7 +27289,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -27675,7 +27937,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -28060,7 +28322,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -29491,7 +29753,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -29916,7 +30178,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -31738,7 +32000,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -32784,7 +33046,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -33541,7 +33803,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -34825,7 +35087,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -35681,7 +35943,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -36034,7 +36296,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:32,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -37397,7 +37659,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:32,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:33,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -38294,7 +38556,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:33,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:34,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""}).add({id:35,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+`}).add({id:34,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:35,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""}).add({id:36,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -38302,7 +38564,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:36,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:37,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:37,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:38,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -38310,4 +38572,4 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`}).add({id:38,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:39,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

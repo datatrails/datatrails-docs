@@ -83,6 +83,8 @@ else:
     print("simplehash=", simplehash)
 ```
 
+Run your Python file to return the hash value.
+
 {{< note >}}
 **Note:** SimpleHashClientAuthError is raised if the auth token is invalid or expired.
 {{< /note >}}
@@ -125,6 +127,10 @@ rkvst_simplehashv1 \
 deactivate
 rm -rf simplehash-venv
 ```
+
+{{< note >}}
+**Note:** If you are using an environment other than `app.rkvst.io`, add the URL with the `--fqdn` option. For example, `--fqdn "app.rkvst-poc.io"`.
+{{< /note >}}
 
 {{< /tab >}}
 {{< /tabs >}}

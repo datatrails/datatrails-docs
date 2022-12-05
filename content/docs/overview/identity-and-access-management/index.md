@@ -71,3 +71,27 @@ To set your `Tenant Display Name`:
 #### Verified Domain 
 
 The second way to set your tenancy name is to [get your domain verified](../../beyond-the-basics/verified-domain) by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.
+
+## Enterprise Single Sign-On
+
+[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST.
+
+1. Navigate to `Manage RKVST` on the sidebar and select `Tenancy`.
+
+Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. 
+
+{{< img src="SSOConfig.png" alt="Rectangle" caption="<em>Configure SSO</em>" class="border-0" >}}
+
+{{< note >}}
+**NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. 
+{{< /note >}}
+
+2. Now that your details are saved, return to the RKVST sign-in screen. Select the `Single Sign-On` option. 
+
+{{< img src="SSOLogIn.png" alt="Rectangle" caption="<em>Single Sign-On</em>" class="border-0" >}}
+
+3. Enter your [Verified Domain Name](https://docs.rkvst.com/docs/overview/identity-and-access-management/#verified-domain). 
+
+#screenshot of form#
+
+You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.

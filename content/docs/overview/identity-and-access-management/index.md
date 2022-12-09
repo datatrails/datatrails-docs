@@ -86,6 +86,8 @@ Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`.
 **NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. 
 {{< /note >}}
 
+<br/>
+
 2. Now that your details are saved, return to the RKVST sign-in screen. Select the `Single Sign-On` option. 
 
 {{< img src="SSOLogIn.png" alt="Rectangle" caption="<em>Single Sign-On</em>" class="border-0" >}}

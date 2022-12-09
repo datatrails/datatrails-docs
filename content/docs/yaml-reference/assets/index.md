@@ -47,9 +47,9 @@ steps:
     confirm: true
 ```
 
-The output of this action would be:
+The output of this action is available in the [RKVST UI](https://app.rkvst.io):
 
-{{< img src="AssetsCreate.png" alt="Rectangle" caption="<em>ASSETS_CREATE Action</em>" class="border-0" >}}
+{{< img src="AssetsCreate.png" alt="Rectangle" caption="<em>ASSETS_CREATE Output</em>" class="border-0" >}}
 
 ## Assets Create If Not Exists
 

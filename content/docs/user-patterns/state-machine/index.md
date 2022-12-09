@@ -53,7 +53,7 @@ The 'State Machine' and 'Lifecycle Tracing' pattens are very similar, but the fo
 
 ### Considerations
 
-_GIS position information_: Make good use of the =arc_gic_*= attributes of Events in order to trace *Where* Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.
+_GIS position information_: Make good use of the =arc_gis_*= attributes of Events in order to trace *Where* Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.
 
 _Access Policies 1:_ Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody. 
 

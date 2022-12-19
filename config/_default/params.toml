@@ -19,7 +19,7 @@ schemaType = "Organization"
 schemaLogo = "RKVST_BlueTick_RBG.png"
 schemaTwitter = ""
 schemaLinkedIn = ""
-schemaGitHub = "https://github.com/jitsuin-inc"
+schemaGitHub = "https://github.com/rkvst"
 schemaSection = "blog"
 
 ## Sitelinks Search Box
@@ -43,7 +43,7 @@ alert = false
 alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
 
 # Edit Page
-docsRepo = "https://www.github.com/jitsuin-inc/rkvst-docs"
+docsRepo = "https://www.github.com/rkvst/rkvst-docs"
 editPage = true
 
 [options]

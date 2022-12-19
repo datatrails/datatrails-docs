@@ -494,7 +494,7 @@ One more usecase to consider is when a screenshotted example is used; this is di
 Rendering OpenAPI docs is done using another custom made shortcode:
 
 ```go
-{{</* openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
+{{</* openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
 ```
 
 When making an Article for API Docs the body should only contain the OpenAPI shortcode pointed at the URL of the OpenAPI spec to be rendered.

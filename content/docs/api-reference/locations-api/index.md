@@ -123,4 +123,4 @@ Each of these calls returns a list of matching asset records in the form:
 
 ## Locations OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/locationsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/locationsv2.swagger.json" >}}

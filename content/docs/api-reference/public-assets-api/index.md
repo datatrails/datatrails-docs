@@ -201,4 +201,4 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
 
 ## Public Assets OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/publicassetsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/publicassetsv2.swagger.json" >}}

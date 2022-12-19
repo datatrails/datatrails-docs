@@ -44,15 +44,15 @@ blockquote {
     border-radius: calc(1em/3);
   }
   .callout.caution {
-    border-left-color: $jitsuin-yellow;
+    border-left-color: $rkvst-yellow;
   }
 
   .callout.note {
-    border-left-color: $jitsuin-purple;
+    border-left-color: $rkvst-purple;
   }
 
   .callout.warning {
-    border-left-color: $jitsuin-red;
+    border-left-color: $rkvst-red;
   }
 
   h1:first-of-type + blockquote.callout {
@@ -85,7 +85,7 @@ blockquote {
   }
 
   .callout.warning {
-    border-left-color: $jitsuin-red;
+    border-left-color: $rkvst-red;
   }
 
   h1:first-of-type + blockquote.callout {

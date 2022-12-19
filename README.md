@@ -15,7 +15,7 @@ We'll happily review any suggestions!
 1. To begin pull the latest RKVST docs from Github.
 
 ```bash
-git clone git@github.com:jitsuin-inc/rkvst-docs.git
+git clone git@github.com:rkvst/rkvst-docs.git
 ```
 
 2. Move into the directory.

@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/h-enk/doks/blob/master/LICENSE"
 description = "Continuous Assurance to boost confidence in critical decisions."
 homepage = "https://rkvst.com/"
-tags = ["landing page", "documentation", "jitsuin", "rkvst", "blockchain", "multi-party", "trust", "data-assurance""]
-features = ["landing page", "documentation", "jitsuin", "rkvst", "blockchain", "multi-party", "trust", "data-assurance"]
+tags = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance""]
+features = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance"]
 min_version = "0.75.0"
 
 [author]

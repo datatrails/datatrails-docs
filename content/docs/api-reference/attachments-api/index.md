@@ -62,5 +62,5 @@ The response will include basic information about the attachment:
 
 ## Attachment OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/attachmentsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/attachmentsv2.swagger.json" >}}
 

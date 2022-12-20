@@ -14,7 +14,7 @@ toc: true
 ---
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `jitsuin-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
 
 [Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
 {{< /note >}}

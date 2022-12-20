@@ -121,4 +121,4 @@ Depending on the type of [proof mechanism](https://docs.rkvst.com/docs/overview/
 
 ## Blockchain OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}

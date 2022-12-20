@@ -129,7 +129,7 @@ We maintain up-to-date records of every API we present to users in an OpenAPI fo
 There will be no rendered output here as it will otherwise interrupt the document, however here is the reference to include when making an OpenAPI Page:
 
 ```go
-{{</* openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
+{{</* openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
 ```
 
 This shortcode will fetch the docs from the specified url and then render it completely fully templating out each method and endpoint, the parameters, responses and examples.

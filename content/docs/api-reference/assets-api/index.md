@@ -177,7 +177,7 @@ curl -g -v -X GET \
 ```
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
 
-To fetch simple hash events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/jitsuin-inc/rkvst-simplehash-python), `GET` the assets resource, specifying a specific asset ID or using `assets/-/events` to fetch events for all assets:
+To fetch simple hash events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/rkvst/rkvst-simplehash-python), `GET` the assets resource, specifying a specific asset ID or using `assets/-/events` to fetch events for all assets:
 
 ```bash
 curl -g -v -X GET \
@@ -244,4 +244,4 @@ curl -g -v -X GET \
 
 ## Asset OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}

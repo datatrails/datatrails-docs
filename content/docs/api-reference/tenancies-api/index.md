@@ -62,4 +62,4 @@ curl -v -X PATCH \
 
 ## Tenancies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/tenanciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/tenanciesv1.swagger.json" >}}

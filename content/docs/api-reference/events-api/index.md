@@ -189,4 +189,4 @@ You should see the response:
 ```
 ## Events OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/jitsuin-inc/archivist-docs/master/doc/openapi/b-recordevidencev2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/b-recordevidencev2.swagger.json" >}}

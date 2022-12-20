@@ -770,7 +770,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19270,7 +19270,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 
 
 `},{id:34,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19331,7 +19331,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      \u0026lt;path-to-yaml-file\u0026gt;
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:35,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19453,7 +19453,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_namespace\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ewipp\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:36,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19552,7 +19552,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edoor\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:37,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19600,7 +19600,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edirector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJohn Smith\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:38,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19708,7 +19708,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003esubject_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eA subject\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:39,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -19740,7 +19740,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ereport\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eev pump 1\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:40,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -20539,7 +20539,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39039,7 +39039,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 
 
 `}).add({id:34,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39100,7 +39100,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      \u0026lt;path-to-yaml-file\u0026gt;
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:35,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39222,7 +39222,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_namespace\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ewipp\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:36,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39321,7 +39321,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edoor\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:37,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39369,7 +39369,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edirector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJohn Smith\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:38,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39477,7 +39477,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003esubject_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eA subject\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:39,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e
@@ -39509,7 +39509,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ereport\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eev pump 1\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:40,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
-    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003ejitsuin-archivist\u003c/code\u003e python package.\u003c/p\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
   \u003c/blockquote\u003e

@@ -12,6 +12,11 @@ menu:
 weight: 107
 toc: true
 ---
+
+{{< note >}}
+For more information on creating an Event against an Asset, visit our [RKVST Basics guide](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/).
+{{< /note >}}
+
 ## Events API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.

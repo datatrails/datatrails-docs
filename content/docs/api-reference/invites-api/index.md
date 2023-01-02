@@ -23,6 +23,11 @@ By default invited users will have no permissons, so need to be given access to 
 For sharing assets and events to other organizations and tenancies externally check out our tutorial on [OBAC policies](../../rkvst-basics/sharing-assets-with-obac/index.md) or the [IAM Policies API Reference](../iam-policies-api/index.md).
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+
+{{< note >}}
+See [here](http://127.0.0.1:1313/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization) for additional instructions on inviting users to your tenancy.
+{{< /note >}}
+
 ### Invite Creation
 
 To create an invite you need at least the invitee's email address; once created it will be considered pending, once accepted the invite itself will be deleted.

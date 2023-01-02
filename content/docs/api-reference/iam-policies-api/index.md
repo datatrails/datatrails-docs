@@ -35,6 +35,10 @@ This will return a `subjects/<UUID>` object you would then specify with the `sub
 
 As both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.
 
+{{< note >}}
+Learn more about [ABAC](https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/) and [OBAC](https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/) policies in our RKVST Basics guides.
+{{< /note >}}
+
 ### IAM Policy Creation
 
 The following example shows how you can mix the `user_attributes` keyword for ABAC and `subjects` keyword for OBAC.

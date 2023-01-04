@@ -21,7 +21,9 @@ Asset Creation is the first Event. The more Events recorded against an Asset, th
 
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
-To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
+{{< note >}}
+Before creating an Event, follow [this guide](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/) to create your first example Asset.
+{{< /note >}}
 
 ## Creating Events
 
@@ -33,6 +35,7 @@ When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
+To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
 ```yaml

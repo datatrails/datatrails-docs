@@ -21,6 +21,10 @@ Any Events updating a Public Asset will also be public, and will each have their
 
 Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.
 
+{{< note >}}
+For more detailed Asset creation instructions, visit [Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/).
+{{< /note >}}
+
 
 ## Creating a Publicly Attested Asset
 

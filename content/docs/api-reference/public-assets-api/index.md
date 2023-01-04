@@ -22,6 +22,11 @@ To see more information about creating a Public Asset see [Creating a Public Ass
 Each Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for. 
 
 The methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard [Assets API](../assets-api/). 
+
+{{< note >}}
+Visit the [Public Attestation](https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/) guide for more information.
+{{< /note >}}
+
 ### Fetch a Public Asset Record
 
 ```bash

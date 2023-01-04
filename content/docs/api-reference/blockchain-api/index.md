@@ -119,6 +119,10 @@ Depending on the type of [proof mechanism](https://docs.rkvst.com/docs/overview/
 }
 ```
 
+{{< note >}}
+Check out our guide for [Verifying Assets and Events with Simple Hash](http://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/).
+{{< /note >}}
+
 ## Blockchain OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}

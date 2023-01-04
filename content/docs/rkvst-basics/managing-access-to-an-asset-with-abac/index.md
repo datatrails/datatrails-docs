@@ -29,6 +29,10 @@ It is possible to control policies based on types of Assets, their Location, and
 
 By default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
 
+{{< note >}}
+To create an ABAC policy, first [add users to your tenancy](https://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization).
+{{< /note >}}
+
 ## Creating an ABAC Policy
 
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.

@@ -13,6 +13,10 @@ weight: 102
 toc: true
 ---
 
+{{< note >}}
+For more information on Assets and Asset Creation, visit our [Core Concepts](https://docs.rkvst.com/docs/overview/core-concepts/#assets) and [Creating an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/) guide.
+{{< /note >}}
+
 ## Asset API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.

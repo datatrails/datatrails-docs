@@ -768,6 +768,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Check out our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e for more information on Assets.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
@@ -1181,7 +1184,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 `},{id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
-\u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Before creating an Event, follow \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003ethis guide\u003c/a\u003e to create your first example Asset.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-events"\u003eCreating Events\u003c/h2\u003e
 \u003col\u003e
 \u003cli\u003eCreate an Event.\u003c/li\u003e
@@ -1214,6 +1219,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1"\u003e
+\u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003cp\u003eTo create your Event, use the action \u003ccode\u003eEVENTS_CREATE\u003c/code\u003e.\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
@@ -2090,6 +2096,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eABAC policies can be granular, with users allowed to see only single Attributes at a time, if wished.\u003c/p\u003e
 \u003cp\u003eIt is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.\u003c/p\u003e
 \u003cp\u003eBy default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e To create an ABAC policy, first \u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization"\u003eadd users to your tenancy\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-abac-policy"\u003eCreating an ABAC Policy\u003c/h2\u003e
 \u003cp\u003eConsider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.\u003c/p\u003e
 \u003cp\u003eWe shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create \u003ccode\u003eInspect\u003c/code\u003e Events.\u003c/p\u003e
@@ -3381,6 +3390,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more detailed Asset creation instructions, visit \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-a-publicly-attested-asset"\u003eCreating a Publicly Attested Asset\u003c/h2\u003e
 \u003cblockquote class="warning callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
@@ -3981,6 +3993,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eEach App Registration is created with non-root privileges by default.\u003c/p\u003e
 \u003cp\u003eTo provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an \u003ca href="../iam-policies-api/"\u003eABAC policy\u003c/a\u003e with specific, declared permissions.\u003c/p\u003e
 \u003cp\u003eIf you wish to give your credentials root user priviliges to access everything in your tenancy, you would use the \u003ccode\u003eclient-id\u003c/code\u003e as the subject and \u003ccode\u003ehttps://app.rkvst.io/appidpv1\u003c/code\u003e as the issuer in either the \u003ccode\u003eManage RKVST\u003c/code\u003e screen, or by using the \u003ca href="../tenancies-api/"\u003eRoot Users Endpoint in the Tenancies API\u003c/a\u003e.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on App Registrations and Access Tokens, visit \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003eRKVST Basics\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="creating-an-application"\u003eCreating an Application\u003c/h3\u003e
 \u003cp\u003eCreate a JSON file with the parameters of your new application. Below is an example:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
@@ -4231,8 +4246,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -4250,8 +4263,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -4435,8 +4446,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -4456,8 +4465,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -4507,8 +4514,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -4528,8 +4533,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -4667,8 +4670,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -4688,8 +4689,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -4831,8 +4830,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -4852,8 +4849,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -4993,8 +4988,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5014,8 +5007,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -5063,8 +5054,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5080,8 +5069,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -5125,8 +5112,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5142,8 +5127,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -5165,7 +5148,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on Assets and Asset Creation, visit our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e guide.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -5455,8 +5441,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5476,8 +5460,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to list Assets.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -5721,8 +5703,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5742,8 +5722,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to create an Asset.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -5972,8 +5950,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -5993,8 +5969,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6085,8 +6059,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6106,8 +6078,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6290,8 +6260,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6311,8 +6279,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6514,8 +6480,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6535,8 +6499,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to list Events.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6625,8 +6587,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6646,8 +6606,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6695,8 +6653,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6712,8 +6668,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -6757,8 +6711,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -6774,8 +6726,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -7904,8 +7854,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -7921,8 +7869,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -7966,8 +7912,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -7983,8 +7927,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -8552,8 +8494,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -8569,8 +8509,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -8614,8 +8552,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -8631,8 +8567,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -8736,7 +8670,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Check out our guide for \u003ca href="http://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/"\u003eVerifying Assets and Events with Simple Hash\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
 
  
  
@@ -8802,7 +8739,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
       "kind": "SIMPLE_HASH",
       "simple_hash_details": {
         "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
-        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1\\u0026proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
         "end_time": "2022-10-05T10:02:03Z",
         "event_count": 12000,
         "hash_schema_version": 1,
@@ -8871,8 +8808,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -8892,8 +8827,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist. or the event with the id does not exist\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -8937,8 +8870,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -8954,8 +8885,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -8999,8 +8928,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -9016,8 +8943,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -9430,8 +9355,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -9453,8 +9376,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -9580,8 +9501,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -9601,8 +9520,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -9900,8 +9817,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -9923,8 +9838,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10101,8 +10014,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -10122,8 +10033,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10298,8 +10207,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -10319,8 +10226,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10368,8 +10273,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -10385,8 +10288,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10430,8 +10331,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -10447,8 +10346,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10466,7 +10363,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on creating an Event against an Asset, visit our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -10859,8 +10759,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -10872,8 +10770,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -10903,6 +10799,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAs both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Learn more about \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e policies in our RKVST Basics guides.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="iam-policy-creation"\u003eIAM Policy Creation\u003c/h3\u003e
 \u003cp\u003eThe following example shows how you can mix the \u003ccode\u003euser_attributes\u003c/code\u003e keyword for ABAC and \u003ccode\u003esubjects\u003c/code\u003e keyword for OBAC.\u003c/p\u003e
 \u003cp\u003eDefine the access_policies parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -11401,8 +11300,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -11424,8 +11321,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -11702,8 +11597,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -11727,8 +11620,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -11782,8 +11673,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -11807,8 +11696,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -11979,8 +11866,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12004,8 +11889,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12180,8 +12063,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12205,8 +12086,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12367,8 +12246,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12392,8 +12269,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12441,8 +12316,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12458,8 +12331,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12503,8 +12374,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12520,8 +12389,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12669,8 +12536,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12694,8 +12559,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -12942,8 +12805,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -12965,8 +12826,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13169,8 +13028,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13192,8 +13049,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13247,8 +13102,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13272,8 +13125,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13417,8 +13268,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13442,8 +13291,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13591,8 +13438,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13616,8 +13461,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13661,8 +13504,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13678,8 +13519,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13723,8 +13562,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13740,8 +13577,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -13765,6 +13600,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
 \u003cp\u003eFor sharing assets and events to other organizations and tenancies externally check out our tutorial on \u003ca href="../../rkvst-basics/sharing-assets-with-obac/index.md"\u003eOBAC policies\u003c/a\u003e or the \u003ca href="../iam-policies-api/index.md"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="http://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization"\u003ehere\u003c/a\u003e for additional instructions on inviting users to your tenancy.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="invite-creation"\u003eInvite Creation\u003c/h3\u003e
 \u003cp\u003eTo create an invite you need at least the invitee\u0026rsquo;s email address; once created it will be considered pending, once accepted the invite itself will be deleted.\u003c/p\u003e
 \u003cp\u003eIt is possible to add an optional custom message:\u003c/p\u003e
@@ -13939,8 +13777,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -13962,8 +13798,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14125,8 +13959,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14148,8 +13980,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14203,8 +14033,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14228,8 +14056,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14344,8 +14170,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14369,8 +14193,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14418,8 +14240,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14435,8 +14255,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14480,8 +14298,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14497,8 +14313,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14516,7 +14330,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eRKVST Basics\u003c/a\u003e for additional information on creating and using locations with RKVST.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -14724,8 +14541,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14743,8 +14558,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the location.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -14970,8 +14783,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -14991,8 +14802,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to create a location.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15042,8 +14851,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15063,8 +14870,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15211,8 +15016,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15232,8 +15035,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15384,8 +15185,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15405,8 +15204,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15508,8 +15305,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15529,8 +15324,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15632,8 +15425,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15653,8 +15444,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15702,8 +15491,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15719,8 +15506,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15764,8 +15549,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -15781,8 +15564,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -15805,6 +15586,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
 \u003cp\u003eThe methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Visit the \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e guide for more information.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="fetch-a-public-asset-record"\u003eFetch a Public Asset Record\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
@@ -16190,8 +15974,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16205,8 +15987,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -16397,8 +16177,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16412,8 +16190,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -16622,8 +16398,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16637,8 +16411,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e206\u003c/th\u003e\u003ctd\u003eThe number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is \u0026lsquo;items 0-LIMIT/TOTAL\u0026rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -16845,8 +16617,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16866,8 +16636,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified archivist node does not exist\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -16911,8 +16679,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16928,8 +16694,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -16973,8 +16737,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -16990,8 +16752,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -17140,8 +16900,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17159,8 +16917,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -17253,8 +17009,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17270,8 +17024,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to update the root principals.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -17417,8 +17169,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17437,8 +17187,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to update the root principals.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -17456,7 +17204,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerUserManagement_API4'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -17464,16 +17212,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003ch5\u003eGet tenant record\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+                      \u003cp\u003eDescription: Returns an administrator\u0026rsquo;s view of tenant for which they\u0026rsquo;re authenticated\u003c/p\u003e
 
-                      
-                        
-                      
-                        
                       
 
                       
@@ -17518,6 +17262,20 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_config\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_enabled\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003eidentity\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -17536,6 +17294,137 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eSupplied parameters were invalid\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "display_name": "My First Tenancy",
+  "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
+  "verified_domain": "foo.com"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003edisplay_name\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eCustomer friendly name for the tenant.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_config\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_enabled\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etenant identity \u003ccode\u003e{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
                         
                       
                         
@@ -17566,8 +17455,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the referenced tenant does not exist.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -17582,14 +17469,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/tenantid\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -17630,12 +17517,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -17685,8 +17572,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17705,8 +17590,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -17721,14 +17604,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -17757,12 +17640,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -17823,8 +17706,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17847,8 +17728,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -17863,14 +17742,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users/{user_uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -17891,12 +17770,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -17968,8 +17847,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -17990,8 +17867,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -18010,14 +17885,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -18038,12 +17913,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API9'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API9' aria-expanded="true" aria-controls='collapserequestUserManagement_API9'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API9' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -18083,8 +17958,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18096,8 +17969,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -18113,14 +17984,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -18141,8 +18012,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18159,8 +18028,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -18175,14 +18042,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -18203,8 +18070,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18221,8 +18086,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -18237,14 +18100,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API12'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API12' aria-expanded="true" aria-controls='collapseUserManagement_API12'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API12' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API12' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -18263,12 +18126,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API11'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API12'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API12' aria-expanded="true" aria-controls='collapserequestUserManagement_API12'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API12' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API12' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -18330,8 +18193,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18353,8 +18214,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified user don\u0026rsquo;t exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -18567,8 +18426,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18590,8 +18447,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -18747,8 +18602,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18772,8 +18625,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -18827,8 +18678,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18852,8 +18701,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -18960,8 +18807,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -18985,8 +18830,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -19097,8 +18940,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -19122,8 +18963,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -19171,8 +19010,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -19188,8 +19025,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -19233,8 +19068,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -19250,8 +19083,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -20537,6 +20368,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Check out our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e for more information on Assets.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-asset"\u003eCreating an Asset\u003c/h2\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
@@ -20950,7 +20784,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 `}).add({id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
-\u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Before creating an Event, follow \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003ethis guide\u003c/a\u003e to create your first example Asset.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-events"\u003eCreating Events\u003c/h2\u003e
 \u003col\u003e
 \u003cli\u003eCreate an Event.\u003c/li\u003e
@@ -20983,6 +20819,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/div\u003e
 \u003c/div\u003e
   \u003cdiv id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1"\u003e
+\u003cp\u003eTo use the YAML Runner, please visit \u003ca href="https://python.rkvst.com/runner/index.html"\u003ethis link\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003cp\u003eTo create your Event, use the action \u003ccode\u003eEVENTS_CREATE\u003c/code\u003e.\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
@@ -21859,6 +21696,9 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cp\u003eABAC policies can be granular, with users allowed to see only single Attributes at a time, if wished.\u003c/p\u003e
 \u003cp\u003eIt is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.\u003c/p\u003e
 \u003cp\u003eBy default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e To create an ABAC policy, first \u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization"\u003eadd users to your tenancy\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-an-abac-policy"\u003eCreating an ABAC Policy\u003c/h2\u003e
 \u003cp\u003eConsider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.\u003c/p\u003e
 \u003cp\u003eWe shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create \u003ccode\u003eInspect\u003c/code\u003e Events.\u003c/p\u003e
@@ -23150,6 +22990,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more detailed Asset creation instructions, visit \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch2 id="creating-a-publicly-attested-asset"\u003eCreating a Publicly Attested Asset\u003c/h2\u003e
 \u003cblockquote class="warning callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eWarning\u003c/strong\u003e: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.\u003c/div\u003e
@@ -23750,6 +23593,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eEach App Registration is created with non-root privileges by default.\u003c/p\u003e
 \u003cp\u003eTo provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an \u003ca href="../iam-policies-api/"\u003eABAC policy\u003c/a\u003e with specific, declared permissions.\u003c/p\u003e
 \u003cp\u003eIf you wish to give your credentials root user priviliges to access everything in your tenancy, you would use the \u003ccode\u003eclient-id\u003c/code\u003e as the subject and \u003ccode\u003ehttps://app.rkvst.io/appidpv1\u003c/code\u003e as the issuer in either the \u003ccode\u003eManage RKVST\u003c/code\u003e screen, or by using the \u003ca href="../tenancies-api/"\u003eRoot Users Endpoint in the Tenancies API\u003c/a\u003e.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on App Registrations and Access Tokens, visit \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003eRKVST Basics\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="creating-an-application"\u003eCreating an Application\u003c/h3\u003e
 \u003cp\u003eCreate a JSON file with the parameters of your new application. Below is an example:\u003c/p\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
@@ -24000,8 +23846,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24019,8 +23863,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24204,8 +24046,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24225,8 +24065,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24276,8 +24114,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24297,8 +24133,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24436,8 +24270,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24457,8 +24289,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24600,8 +24430,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24621,8 +24449,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24762,8 +24588,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24783,8 +24607,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the Application does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24832,8 +24654,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24849,8 +24669,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24894,8 +24712,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -24911,8 +24727,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -24934,7 +24748,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on Assets and Asset Creation, visit our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e guide.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="asset-record-creation"\u003eAsset Record Creation\u003c/h3\u003e
 \u003cp\u003eDefine the asset parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -25224,8 +25041,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -25245,8 +25060,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to list Assets.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -25490,8 +25303,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -25511,8 +25322,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to create an Asset.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -25741,8 +25550,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -25762,8 +25569,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -25854,8 +25659,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -25875,8 +25678,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -26059,8 +25860,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -26080,8 +25879,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -26283,8 +26080,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -26304,8 +26099,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to list Events.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -26394,8 +26187,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -26415,8 +26206,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -26464,8 +26253,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -26481,8 +26268,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -26526,8 +26311,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -26543,8 +26326,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -27673,8 +27454,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -27690,8 +27469,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -27735,8 +27512,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -27752,8 +27527,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -28321,8 +28094,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -28338,8 +28109,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -28383,8 +28152,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -28400,8 +28167,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -28505,7 +28270,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e      \u003cspan class="p"\u003e}\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e]\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Check out our guide for \u003ca href="http://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/"\u003eVerifying Assets and Events with Simple Hash\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="blockchain-openapi-docs"\u003eBlockchain OpenAPI Docs\u003c/h2\u003e
 
  
  
@@ -28571,7 +28339,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
       "kind": "SIMPLE_HASH",
       "simple_hash_details": {
         "anchor_hash": "da84e5104ec02982515127adda821ffc533acf7f07bd9b5839f31239e888feea",
-        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
+        "api_query": "https://app.rkvst.com/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1\\u0026proof_mechanism=SIMPLE_HASH\\u0026timestamp_accepted_since=2022-09-01T09:01:02Z\\u0026timestamp_accepted_before=2022-10-05T10:02:03Z",
         "end_time": "2022-10-05T10:02:03Z",
         "event_count": 12000,
         "hash_schema_version": 1,
@@ -28640,8 +28408,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -28661,8 +28427,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist. or the event with the id does not exist\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -28706,8 +28470,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -28723,8 +28485,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -28768,8 +28528,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -28785,8 +28543,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -29199,8 +28955,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -29222,8 +28976,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -29349,8 +29101,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -29370,8 +29120,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -29669,8 +29417,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -29692,8 +29438,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -29870,8 +29614,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -29891,8 +29633,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -30067,8 +29807,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -30088,8 +29826,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -30137,8 +29873,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -30154,8 +29888,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -30199,8 +29931,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -30216,8 +29946,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -30235,7 +29963,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on creating an Event against an Asset, visit our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="event-creation"\u003eEvent Creation\u003c/h3\u003e
 \u003cp\u003eDefine the event parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -30628,8 +30359,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -30641,8 +30370,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -30672,6 +30399,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e To accept a subject import request, both organizations must have imported the other\u0026rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAs both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Learn more about \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/"\u003eOBAC\u003c/a\u003e policies in our RKVST Basics guides.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="iam-policy-creation"\u003eIAM Policy Creation\u003c/h3\u003e
 \u003cp\u003eThe following example shows how you can mix the \u003ccode\u003euser_attributes\u003c/code\u003e keyword for ABAC and \u003ccode\u003esubjects\u003c/code\u003e keyword for OBAC.\u003c/p\u003e
 \u003cp\u003eDefine the access_policies parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -31170,8 +30900,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -31193,8 +30921,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -31471,8 +31197,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -31496,8 +31220,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -31551,8 +31273,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -31576,8 +31296,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -31748,8 +31466,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -31773,8 +31489,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -31949,8 +31663,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -31974,8 +31686,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32136,8 +31846,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32161,8 +31869,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32210,8 +31916,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32227,8 +31931,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32272,8 +31974,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32289,8 +31989,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32438,8 +32136,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32463,8 +32159,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32711,8 +32405,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32734,8 +32426,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -32938,8 +32628,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -32961,8 +32649,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33016,8 +32702,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33041,8 +32725,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33186,8 +32868,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33211,8 +32891,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33360,8 +33038,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33385,8 +33061,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33430,8 +33104,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33447,8 +33119,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33492,8 +33162,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33509,8 +33177,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33534,6 +33200,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
 \u003cp\u003eFor sharing assets and events to other organizations and tenancies externally check out our tutorial on \u003ca href="../../rkvst-basics/sharing-assets-with-obac/index.md"\u003eOBAC policies\u003c/a\u003e or the \u003ca href="../iam-policies-api/index.md"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="http://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization"\u003ehere\u003c/a\u003e for additional instructions on inviting users to your tenancy.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="invite-creation"\u003eInvite Creation\u003c/h3\u003e
 \u003cp\u003eTo create an invite you need at least the invitee\u0026rsquo;s email address; once created it will be considered pending, once accepted the invite itself will be deleted.\u003c/p\u003e
 \u003cp\u003eIt is possible to add an optional custom message:\u003c/p\u003e
@@ -33708,8 +33377,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33731,8 +33398,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33894,8 +33559,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33917,8 +33580,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -33972,8 +33633,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -33997,8 +33656,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34113,8 +33770,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34138,8 +33793,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34187,8 +33840,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34204,8 +33855,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34249,8 +33898,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34266,8 +33913,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34285,7 +33930,10 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eRKVST Basics\u003c/a\u003e for additional information on creating and using locations with RKVST.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="location-creation"\u003eLocation Creation\u003c/h3\u003e
 \u003cp\u003eDefine the location parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -34493,8 +34141,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34512,8 +34158,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to read the location.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34739,8 +34383,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34760,8 +34402,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to create a location.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34811,8 +34451,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -34832,8 +34470,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -34980,8 +34616,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35001,8 +34635,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35153,8 +34785,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35174,8 +34804,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35277,8 +34905,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35298,8 +34924,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35401,8 +35025,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35422,8 +35044,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified location does not exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35471,8 +35091,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35488,8 +35106,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35533,8 +35149,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35550,8 +35164,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -35574,6 +35186,9 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
 \u003cp\u003eThe methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e Visit the \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e guide for more information.\u003c/div\u003e
+  \u003c/blockquote\u003e
 \u003ch3 id="fetch-a-public-asset-record"\u003eFetch a Public Asset Record\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -H \u003cspan class="s2"\u003e\u0026#34;Content-Type: application/json\u0026#34;\u003c/span\u003e https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
@@ -35959,8 +35574,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -35974,8 +35587,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the event does not exist.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36166,8 +35777,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36181,8 +35790,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the asset with the id does not exist.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36391,8 +35998,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36406,8 +36011,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e206\u003c/th\u003e\u003ctd\u003eThe number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is \u0026lsquo;items 0-LIMIT/TOTAL\u0026rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36614,8 +36217,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36635,8 +36236,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified archivist node does not exist\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36680,8 +36279,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36697,8 +36294,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36742,8 +36337,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36759,8 +36352,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -36909,8 +36500,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -36928,8 +36517,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -37022,8 +36609,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37039,8 +36624,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to update the root principals.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -37186,8 +36769,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37206,8 +36787,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to update the root principals.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37225,7 +36804,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerUserManagement_API4'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -37233,16 +36812,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
-                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003ch5\u003eGet tenant record\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
-                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+                      \u003cp\u003eDescription: Returns an administrator\u0026rsquo;s view of tenant for which they\u0026rsquo;re authenticated\u003c/p\u003e
 
-                      
-                        
-                      
-                        
                       
 
                       
@@ -37287,6 +36862,20 @@ This type of compliance policy is not yet available for creation via the UI. Che
                                                
                                 
                                 \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_config\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_enabled\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
                                   \u003cth\u003eidentity\u003c/th\u003e
                                   \u003ctd\u003estring\u003c/td\u003e
                                   
@@ -37305,6 +36894,137 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      \u003ctable class="table table-striped table-bordered"\u003e
+                        \u003cthead\u003e
+                          \u003ctr\u003e
+                            \u003cth scope="col"\u003eResponses\u003c/th\u003e
+                            \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                          \u003c/tr\u003e
+                        \u003c/thead\u003e
+                        \u003ctbody\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e400\u003c/th\u003e\u003ctd\u003eSupplied parameters were invalid\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
+                          
+                            \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
+                          
+                        \u003c/tbody\u003e
+                      \u003c/table\u003e
+
+                    \u003c/div\u003e
+                  \u003c/div\u003e
+                \u003c/div\u003e
+              \u003c/div\u003e
+        
+      
+          
+          
+                \u003cdiv class="accordion-item"\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
+                        \u003cdiv class="overflow-hidden text-nowrap"\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/self\u003c/span\u003e
+                        \u003c/div\u003e
+                      \u003c/button\u003e
+                  \u003c/h3\u003e
+                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
+                  \u003cdiv class="accordion-body"\u003e
+                    \u003cdiv style="width: 100%;"\u003e
+                      \u003cdiv class="overflow-auto"\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003epatch\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1/tenancies/self\u003c/span\u003e\u003c/h4\u003e
+                      \u003c/div\u003e
+                      \u003ch5\u003eUpdate tenant record\u003c/h5\u003e
+                      \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
+                      \u003cp\u003eDescription: Enables a root principal of the tenant to update the tenant record.\u003c/p\u003e
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            \u003cdiv class="accordion-item"\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
+                                    \u003cspan\u003eExample Response\u003c/span\u003e
+                                  \u003c/button\u003e
+                              \u003c/h3\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
+                                \u003cdiv class="accordion-body"\u003e
+                                  \u003cdiv style="width: 100%;"\u003e
+                                    \u003cpre\u003e\u003ccode\u003e{
+  "display_name": "My First Tenancy",
+  "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
+  "verified_domain": "foo.com"
+}\u003c/code\u003e\u003c/pre\u003e
+                                  \u003c/div\u003e
+                                \u003c/div\u003e
+                              \u003c/div\u003e
+                            \u003c/div\u003e
+                            \u003ctable class="table table-striped table-bordered"\u003e
+                              \u003cthead\u003e
+                                \u003ctr\u003e
+                                  \u003cth scope="col"\u003eResponse Parameter\u003c/th\u003e
+                                  \u003cth scope="col"\u003eType\u003c/th\u003e
+                                  \u003cth scope="col"\u003eDescription\u003c/th\u003e
+                                \u003c/tr\u003e
+                              \u003c/thead\u003e
+                              \u003ctbody\u003e
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003edisplay_name\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003eCustomer friendly name for the tenant.\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_config\u003c/th\u003e
+                                  \u003ctd\u003e\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eenterprise_sso_enabled\u003c/th\u003e
+                                  \u003ctd\u003eboolean\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003eidentity\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003etenant identity \u003ccode\u003e{UUID}\u003c/code\u003e\u003c/td\u003e
+                                               
+                                
+                                \u003ctr\u003e
+                                  \u003cth\u003everified_domain\u003c/th\u003e
+                                  \u003ctd\u003estring\u003c/td\u003e
+                                  
+                                    \u003ctd\u003e\u003c/td\u003e
+                                               
+                                
+                              \u003c/tbody\u003e
+                            \u003c/table\u003e
+                           
                         
                       
                         
@@ -37335,8 +37055,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the referenced tenant does not exist.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37351,14 +37069,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API5'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/tenantid\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37399,12 +37117,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API5'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003enull\u003c/code\u003e\u003c/pre\u003e
@@ -37454,8 +37172,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37474,8 +37190,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e403\u003c/th\u003e\u003ctd\u003eReturned when the user is not authorized to retrieve the tenant id.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37490,14 +37204,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API6'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37526,12 +37240,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API6'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -37592,8 +37306,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37616,8 +37328,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37632,14 +37342,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API7'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003edelete\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/users/{user_uuid}\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37660,12 +37370,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API7'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -37737,8 +37447,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37759,8 +37467,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37779,14 +37485,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API8'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies/{uuid}:publicinfo\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37807,12 +37513,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API8'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API9'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API9' aria-expanded="true" aria-controls='collapserequestUserManagement_API9'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API9' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -37852,8 +37558,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                            
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37865,8 +37569,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                         \u003ctbody\u003e
                           
                             \u003ctr\u003e\u003cth\u003e200\u003c/th\u003e\u003ctd\u003eA successful response.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -37882,14 +37584,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API9'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37910,8 +37612,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37928,8 +37628,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -37944,14 +37642,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API10'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/tenancies:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -37972,8 +37670,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -37990,8 +37686,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
-                          
                         \u003c/tbody\u003e
                       \u003c/table\u003e
 
@@ -38006,14 +37700,14 @@ This type of compliance policy is not yet available for creation via the UI. Che
           
           
                 \u003cdiv class="accordion-item"\u003e
-                  \u003ch3 class="accordion-header" id='headerUserManagement_API11'\u003e
-                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'\u003e
+                  \u003ch3 class="accordion-header" id='headerUserManagement_API12'\u003e
+                      \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API12' aria-expanded="true" aria-controls='collapseUserManagement_API12'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
                           \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1/users/tenants\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
-                  \u003cdiv id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion"\u003e
+                  \u003cdiv id='collapseUserManagement_API12' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API12' data-parent="#accordion"\u003e
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
@@ -38032,12 +37726,12 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             
                             
                             \u003cdiv class="accordion-item"\u003e
-                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API11'\u003e
-                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'\u003e
+                              \u003ch3 class="accordion-header" id='headerresponseUserManagement_API12'\u003e
+                                  \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API12' aria-expanded="true" aria-controls='collapserequestUserManagement_API12'\u003e
                                     \u003cspan\u003eExample Response\u003c/span\u003e
                                   \u003c/button\u003e
                               \u003c/h3\u003e
-                              \u003cdiv id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion"\u003e
+                              \u003cdiv id='collapseresponseUserManagement_API12' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API12' data-parent="#accordion"\u003e
                                 \u003cdiv class="accordion-body"\u003e
                                   \u003cdiv style="width: 100%;"\u003e
                                     \u003cpre\u003e\u003ccode\u003e{
@@ -38099,8 +37793,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38122,8 +37814,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e404\u003c/th\u003e\u003ctd\u003eReturned when the identified user don\u0026rsquo;t exist.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38336,8 +38026,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38359,8 +38047,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38516,8 +38202,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38541,8 +38225,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38596,8 +38278,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38621,8 +38301,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38729,8 +38407,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38754,8 +38430,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38866,8 +38540,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38891,8 +38563,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e500\u003c/th\u003e\u003ctd\u003eReturned when the underlying storage system returns an error.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -38940,8 +38610,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -38957,8 +38625,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e
@@ -39002,8 +38668,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                       
                         
                       
-                        
-                      
 
                       \u003ctable class="table table-striped table-bordered"\u003e
                         \u003cthead\u003e
@@ -39019,8 +38683,6 @@ This type of compliance policy is not yet available for creation via the UI. Che
                             \u003ctr\u003e\u003cth\u003e401\u003c/th\u003e\u003ctd\u003eReturned when the user is not authenticated to the system.\u003c/td\u003e
                           
                             \u003ctr\u003e\u003cth\u003e429\u003c/th\u003e\u003ctd\u003eReturned when a user exceeds their subscription\u0026rsquo;s rate limit for requests.\u003c/td\u003e
-                          
-                            \u003ctr\u003e\u003cth\u003edefault\u003c/th\u003e\u003ctd\u003eAn unexpected error response.\u003c/td\u003e
                           
                         \u003c/tbody\u003e
                       \u003c/table\u003e

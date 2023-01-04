@@ -25,7 +25,7 @@ For sharing assets and events to other organizations and tenancies externally ch
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 {{< note >}}
-See [here](http://127.0.0.1:1313/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization) for additional instructions on inviting users to your tenancy.
+See [here](http://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization) for additional instructions on inviting users to your tenancy.
 {{< /note >}}
 
 ### Invite Creation

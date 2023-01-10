@@ -78,12 +78,23 @@ The second way to set your tenancy name is to [get your domain verified](../../b
 
 1. Navigate to `Manage RKVST` on the sidebar and select `Tenancy`.
 
-Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. 
+Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. Saving your configuration may take a moment.
 
 {{< img src="ESSOForm.png" alt="Rectangle" caption="<em>Configure SSO</em>" class="border-0" >}}
 
 {{< note >}}
-**NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. 
+**NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.
+
+**Login URI:**
+```
+https://app.rkvst.io/login
+```
+
+**Callback URL:**
+```
+https://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
+```
+
 {{< /note >}}
 
 <br/>

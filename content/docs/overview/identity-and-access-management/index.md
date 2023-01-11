@@ -74,7 +74,7 @@ The second way to set your tenancy name is to [get your domain verified](../../b
 
 ## Enterprise Single Sign-On
 
-[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST.
+[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a [Verified Domain](https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/).
 
 1. Navigate to `Manage RKVST` on the sidebar and select `Tenancy`.
 

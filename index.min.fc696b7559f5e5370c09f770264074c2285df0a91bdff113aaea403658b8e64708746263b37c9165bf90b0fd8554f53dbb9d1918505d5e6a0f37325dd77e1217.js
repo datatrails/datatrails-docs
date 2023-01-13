@@ -479,6 +479,97 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/ol\u003e
 \u003ch4 id="verified-domain"\u003eVerified Domain\u003c/h4\u003e
 \u003cp\u003eThe second way to set your tenancy name is to \u003ca href="../../beyond-the-basics/verified-domain"\u003eget your domain verified\u003c/a\u003e by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.\u003c/p\u003e
+\u003ch2 id="enterprise-single-sign-on"\u003eEnterprise Single Sign-On\u003c/h2\u003e
+\u003cp\u003e\u003ca href="https://www.rkvst.com/pricing/"\u003eEnterprise customers\u003c/a\u003e may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/"\u003eVerified Domain\u003c/a\u003e.\u003c/p\u003e
+\u003col\u003e
+\u003cli\u003eNavigate to \u003ccode\u003eManage RKVST\u003c/code\u003e on the sidebar and select \u003ccode\u003eTenancy\u003c/code\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cp\u003eEnter your SSO configuration, then select \u003ccode\u003eSAVE ENTERPRISE SSO CONFIG\u003c/code\u003e. Saving your configuration may take a moment.\u003c/p\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ESSOForm.png" width="1092" height="536" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ESSOForm.png" width="1092" height="536" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eConfigure SSO\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" width="1092" height="536" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNOTE:\u003c/strong\u003e To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.\u003c/p\u003e
+\u003cp\u003e\u003cstrong\u003eLogin URI:\u003c/strong\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-fallback" data-lang="fallback"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ehttps://app.rkvst.io/login
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eCallback URL:\u003c/strong\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-fallback" data-lang="fallback"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ehttps://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cbr/\u003e
+\u003col start="2"\u003e
+\u003cli\u003eNow that your details are saved, return to the RKVST sign-in screen. Select the \u003ccode\u003eSingle Sign-On\u003c/code\u003e option.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#SSOLogInButton" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/SSOLogInButton.png" width="1055" height="967" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/SSOLogInButton.png" width="1055" height="967" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSingle Sign-On\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="SSOLogInButton" tabindex="-1" aria-labelledby="SSOLogInButton" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" width="1055" height="967" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003col start="3"\u003e
+\u003cli\u003eEnter your \u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#verified-domain"\u003eVerified Domain Name\u003c/a\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#DomainName" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/DomainName.png" width="1055" height="967" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/DomainName.png" width="1055" height="967" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eVerified Domain\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="DomainName" tabindex="-1" aria-labelledby="DomainName" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" width="1055" height="967" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eYou will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.\u003c/p\u003e
 `},{id:4,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
 \u003ch2 id="example-evidential-documents-and-photographs"\u003eExample: Evidential documents and photographs\u003c/h2\u003e
 \u003cp\u003eThere are a great many documents that serve as evidence in formal discussions: pictures of a traffic accident; education diplomas; contracts; statements of account. RKVST adds strong integrity to any document to allow easy verification later.\u003c/p\u003e
@@ -20079,6 +20170,97 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/ol\u003e
 \u003ch4 id="verified-domain"\u003eVerified Domain\u003c/h4\u003e
 \u003cp\u003eThe second way to set your tenancy name is to \u003ca href="../../beyond-the-basics/verified-domain"\u003eget your domain verified\u003c/a\u003e by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.\u003c/p\u003e
+\u003ch2 id="enterprise-single-sign-on"\u003eEnterprise Single Sign-On\u003c/h2\u003e
+\u003cp\u003e\u003ca href="https://www.rkvst.com/pricing/"\u003eEnterprise customers\u003c/a\u003e may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/"\u003eVerified Domain\u003c/a\u003e.\u003c/p\u003e
+\u003col\u003e
+\u003cli\u003eNavigate to \u003ccode\u003eManage RKVST\u003c/code\u003e on the sidebar and select \u003ccode\u003eTenancy\u003c/code\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+\u003cp\u003eEnter your SSO configuration, then select \u003ccode\u003eSAVE ENTERPRISE SSO CONFIG\u003c/code\u003e. Saving your configuration may take a moment.\u003c/p\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/ESSOForm.png" width="1092" height="536" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/ESSOForm.png" width="1092" height="536" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eConfigure SSO\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/ESSOForm_hu531199929798a0fdaeb7d004f336cf8f_21146_200x0_resize_box_3.png 200w" width="1092" height="536" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNOTE:\u003c/strong\u003e To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.\u003c/p\u003e
+\u003cp\u003e\u003cstrong\u003eLogin URI:\u003c/strong\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-fallback" data-lang="fallback"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ehttps://app.rkvst.io/login
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cstrong\u003eCallback URL:\u003c/strong\u003e\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-fallback" data-lang="fallback"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ehttps://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cbr/\u003e
+\u003col start="2"\u003e
+\u003cli\u003eNow that your details are saved, return to the RKVST sign-in screen. Select the \u003ccode\u003eSingle Sign-On\u003c/code\u003e option.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#SSOLogInButton" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/SSOLogInButton.png" width="1055" height="967" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/SSOLogInButton.png" width="1055" height="967" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eSingle Sign-On\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="SSOLogInButton" tabindex="-1" aria-labelledby="SSOLogInButton" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/SSOLogInButton_hu5410a47fe8ae08cf83af66d30e53908c_86905_200x0_resize_box_3.png 200w" width="1055" height="967" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003col start="3"\u003e
+\u003cli\u003eEnter your \u003ca href="https://docs.rkvst.com/docs/overview/identity-and-access-management/#verified-domain"\u003eVerified Domain Name\u003c/a\u003e.\u003c/li\u003e
+\u003c/ol\u003e
+
+
+\u003cfigure class="border-0"\u003e
+  
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#DomainName" img class="img-fluid responsive" src="/docs/overview/identity-and-access-management/DomainName.png" width="1055" height="967" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" src="/docs/overview/identity-and-access-management/DomainName.png" width="1055" height="967" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eVerified Domain\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+
+
+
+
+
+\u003cdiv class="modal fade" id="DomainName" tabindex="-1" aria-labelledby="DomainName" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+    
+      \u003cdiv class="modal-body"\u003e
+        
+        \u003cimg class="img-fluid lazyload responsive" data-sizes="auto" src="/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/overview/identity-and-access-management/DomainName_huf2e34e46666088111e4652b166e9de52_64957_200x0_resize_box_3.png 200w" width="1055" height="967" alt="Rectangle"\u003e
+      \u003c/div\u003e
+  
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cp\u003eYou will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.\u003c/p\u003e
 `}).add({id:4,href:"https://docs.rkvst.com/docs/user-patterns/authenticity-and-attestation/",title:"Authenticity and Attestation",description:"Assurance with RKVST",content:`\u003cp\u003eA very simple yet powerful pattern for using RKVST is the \u003cem\u003eAuthenticity\u003c/em\u003e pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action files can be uploaded to RKVST and their integrity, origin, and timestamps can be verified forever. Stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.\u003c/p\u003e
 \u003ch2 id="example-evidential-documents-and-photographs"\u003eExample: Evidential documents and photographs\u003c/h2\u003e
 \u003cp\u003eThere are a great many documents that serve as evidence in formal discussions: pictures of a traffic accident; education diplomas; contracts; statements of account. RKVST adds strong integrity to any document to allow easy verification later.\u003c/p\u003e

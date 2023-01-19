@@ -23,6 +23,7 @@ Creating an Asset to represent a container is the same as creating any other ass
 
 {{< tabs name="shipping_container_asset" >}}
 {{{< tab name="UI" >}}
+{{< img src="ShippingContainer.png" alt="Rectangle" caption="<em>Create the Shipping Container</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
@@ -76,6 +77,10 @@ Now that we have created a `Shipping Container` Asset, we can create an Asset to
 
 {{< tabs name="box_asset" >}}
 {{{< tab name="UI" >}}
+{{< img src="BoxAsset.png" alt="Rectangle" caption="<em>Create the Box</em>" class="border-0" >}}
+
+{{< img src="WithinContainer.png" alt="Rectangle" caption="<em>Add an Extended Attribute</em>" class="border-0" >}}
+
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
@@ -129,6 +134,8 @@ To retrieve all Assets associated with a container, you can run a query with a f
 
 {{< tabs name="list_contents" >}}
 {{{< tab name="UI" >}}
+Go to the `Auditor View` and filter the Assets and Events within your tenancy.
+{{< img src="AssetFilter.png" alt="Rectangle" caption="<em>Filter Assets and Events</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}

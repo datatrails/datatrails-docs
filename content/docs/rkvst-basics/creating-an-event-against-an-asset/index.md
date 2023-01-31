@@ -73,7 +73,7 @@ You will see the following Event creation form:
 
 Fill out metadata about your Event. 
 
-`operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
+`operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
 In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
@@ -93,7 +93,7 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-Fill out metadata about your Event; `operation` and `behaviour` detail what class of event is being performed, by default this should always be `Record` and `RecordEvidence`, respectively.
+Fill out metadata about your Event; `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
 In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
@@ -121,14 +121,14 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled `Inspection Standards`. 
 {{< img src="AddEventAttachment.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 
-Add your `event_attributes` and `asset_attributes` as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
+Add your `event_attributes` and `asset_attributes` as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled `Inspection Standards`. 
 ```yaml
 ---
 steps:
@@ -189,11 +189,11 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
 {{< /tabs >}}
 
 
-Here we see someone noted the type of cargo loaded in the Event, and has also recorded the total weight of the cargo using a newly defined `Weight` attribute.
+Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined `Weight` attribute.
 
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.
 
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event. For example, if the Event happened offline or a third party reports it, creating a more detailed record.
+There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.
 
 PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
@@ -240,7 +240,7 @@ Click the Event row to inspect the Event:
 
 {{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here we see the details entered earlier and also a tab that will show both the Event Attributes and Asset Attributes:
+Here we see the details entered earlier and also a tab that will show both the Event attributes and Asset attributes:
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
@@ -294,5 +294,5 @@ curl -v -X GET \
 {{< /tabs >}}
 
 
-In the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
+In the next section, we will learn about using locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
 

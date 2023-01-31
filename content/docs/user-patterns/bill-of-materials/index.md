@@ -23,7 +23,7 @@ By keeping all the component packages and release history for a software package
 
 ### Considerations
 
-Key to any successful RKVST integration is keeping the number of asset attributes manageable and meaningful. Do not add every entry in the SBOM as an Asset attribute. Instead preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and then put the full details of each released version in attachments and Events. 
+Key to any successful RKVST integration is keeping the number of asset attributes manageable and meaningful. ***Do not add every entry in the SBOM as an Asset attribute.*** Instead preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and then put the full details of each released version in attachments and Events. 
 
 Note: There are good standards for storing and exchanging SBOM data such as [SWID/ISO/IEC 19770-2:2015](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf "NIST IR 8060"), [Cyclone DX](https://cyclonedx.org "Cyclone DX Homepage"), and [SPDX](https://spdx.github.io/spdx-spec/ "SPDX Specification"). RKVST recommends adopting standard data formats wherever possible as these vastly improve interoperability and utility of the data exchanged between RKVST participants.
 
@@ -33,4 +33,6 @@ _Link to real assets:_ In reality, not every machine is going to be patched and 
 
 _Access Policies:_ always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.
 
-Remember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.
+{{< note >}}
+**Remember that RKVST is a shared evidence platform.** It is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems, to ensure the security of the digital supply chain.
+{{< /note >}}

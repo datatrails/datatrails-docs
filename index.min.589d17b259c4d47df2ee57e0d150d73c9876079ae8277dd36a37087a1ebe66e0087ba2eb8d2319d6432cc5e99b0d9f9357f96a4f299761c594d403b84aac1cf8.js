@@ -832,7 +832,206 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
 \u003cp\u003eRemember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.\u003c/p\u003e
-`},{id:7,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
+`},{id:7,href:"https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using RKVST to Represent Containers",content:`\u003ch2 id="represent-containers-using-rkvst"\u003eRepresent Containers Using RKVST\u003c/h2\u003e
+\u003cp\u003eRKVST Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.\u003c/p\u003e
+\u003ch2 id="create-a-container-asset"\u003eCreate a Container Asset\u003c/h2\u003e
+\u003cp\u003eCreating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e. For this example, we will create a simple asset that we will call \u003ccode\u003eShipping Container\u003c/code\u003e. Note that with RKVST, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="shipping_container_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#shipping_container_asset-0" type="button" role="tab" aria-controls="shipping_container_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-1" type="button" role="tab" aria-controls="shipping_container_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-2" type="button" role="tab" aria-controls="shipping_container_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="shipping_container_asset"\u003e\u003cdiv id="shipping_container_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="shipping_container_asset-0"\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ShippingContainer" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/ShippingContainer.png" width="925" height="551" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/ShippingContainer.png" width="925" height="551" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCreate the Shipping Container\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="ShippingContainer" tabindex="-1" aria-labelledby="ShippingContainer" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;925\u0026quot; height=\u0026quot;551\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="shipping_container_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate a shipping container asset.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e- \u003cspan class="l"\u003earc_display_name\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eproof_mechanism\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eSIMPLE_HASH\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003ch2 id="associate-an-item-or-container-with-another-container"\u003eAssociate an Item or Container with Another Container\u003c/h2\u003e
+\u003cp\u003eNow that we have created a \u003ccode\u003eShipping Container\u003c/code\u003e Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom \u003ccode\u003eAsset Attribute\u003c/code\u003e that links it to our Shipping Container. For example, let\u0026rsquo;s create an Asset to represent a box that is being transported within the Shipping Container.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e For this example, we used the custom attribute \u003ccode\u003ewithin_container\u003c/code\u003e, but you could use any key to associate the Assets that does not contain the reserved \u0026lsquo;arc_\u0026rsquo; prefix.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="box_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#box_asset-0" type="button" role="tab" aria-controls="box_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-1" type="button" role="tab" aria-controls="box_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-2" type="button" role="tab" aria-controls="box_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="box_asset"\u003e\u003cdiv id="box_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="box_asset-0"\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#BoxAsset" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/BoxAsset.png" width="917" height="546" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/BoxAsset.png" width="917" height="546" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCreate the Box\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="BoxAsset" tabindex="-1" aria-labelledby="BoxAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;917\u0026quot; height=\u0026quot;546\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#WithinContainer" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/WithinContainer.png" width="915" height="394" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/WithinContainer.png" width="915" height="394" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdd an Extended Attribute\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="WithinContainer" tabindex="-1" aria-labelledby="WithinContainer" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;915\u0026quot; height=\u0026quot;394\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="box_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate a box asset and associate with Shipping Container.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e- \u003cspan class="l"\u003earc_display_name\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eproof_mechanism\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eSIMPLE_HASH\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ewithin_container\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Box\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Box\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;within_container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003cp\u003eIt is now recorded that there is a \u003ccode\u003eBox\u003c/code\u003e within the container \u003ccode\u003eShipping Container\u003c/code\u003e. We repeat this process to create another Asset and record what was inside the \u003ccode\u003eBox\u003c/code\u003e.\u003c/p\u003e
+\u003ch2 id="list-all-assets-asssociated-with-a-container"\u003eList All Assets Asssociated with a Container\u003c/h2\u003e
+\u003cp\u003eTo retrieve all Assets associated with a container, you can run a query with a filter that will identify which Assets have the attribute \u003ccode\u003ewithin_container\u003c/code\u003e set to the desired value. To list all Assets inside of \u003ccode\u003eShipping Container\u003c/code\u003e:\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="list_contents" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#list_contents-0" type="button" role="tab" aria-controls="list_contents-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-1" type="button" role="tab" aria-controls="list_contents-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-2" type="button" role="tab" aria-controls="list_contents-2" aria-selected="false"\u003eCURL\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="list_contents"\u003e\u003cdiv id="list_contents-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="list_contents-0"\u003e
+\u003cp\u003eGo to the \u003ccode\u003eAuditor View\u003c/code\u003e and filter the Assets and Events within your tenancy.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AssetFilter" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/AssetFilter.png" width="1608" height="478" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/AssetFilter.png" width="1608" height="478" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFilter Assets and Events\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AssetFilter" tabindex="-1" aria-labelledby="AssetFilter" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1608\u0026quot; height=\u0026quot;478\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="list_contents-1" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all assets within Shipping Container.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ewithin_container\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2"\u003e
+\u003cp\u003eSee instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+`},{id:8,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;are my processes running smoothly?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;do I need to act?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;has this asset been correctly managed?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;who knew what at the time? Could process violations have been detected earlier?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-multi-party-change-management-and-approvals"\u003eExample 1: Multi-party change management and approvals\u003c/h2\u003e
 \u003cp\u003eThis pattern uses a purely virtual Asset to represent a policy or process and coordinate movement through that process, complete with multi-party inputs and approvals. The emphasis here is on Events rather than Asset Attributes: What Happened? Who Was There? What evidence was used to decide to move to the next sage of the process?\u003c/p\u003e
@@ -855,7 +1054,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003e\u003cem\u003eGIS position information\u003c/em\u003e: Make good use of the =arc_gis_*= attributes of Events in order to trace \u003cem\u003eWhere\u003c/em\u003e Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 1:\u003c/em\u003e Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
-`},{id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
+`},{id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
@@ -1272,7 +1471,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
-`},{id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
+`},{id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
@@ -1618,7 +1817,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
-`},{id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
+`},{id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e
 \u003col\u003e
@@ -2179,7 +2378,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-`},{id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`},{id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAttribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization.\u003c/p\u003e
@@ -2538,7 +2737,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
 \u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
-`},{id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`},{id:13,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cblockquote class="warning callout"\u003e
@@ -3031,7 +3230,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`},{id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
+`},{id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
 \u003cp\u003eCompliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter.\u003c/p\u003e
 \u003cp\u003eFor example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.\u003c/p\u003e
 \u003cp\u003eRKVST allows for several types of Compliance Policies:\u003c/p\u003e
@@ -3477,7 +3676,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v1/compliance/assets/\u0026lt;asset-id\u0026gt;?compliant_at=2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`},{id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+`},{id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
@@ -3758,7 +3957,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`},{id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
+`},{id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
 \u003cp\u003eDomain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization\u0026rsquo;s tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Having a verified domain is different from a \u003ccode\u003eTenant Display Name\u003c/code\u003e. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy.\u003c/div\u003e
@@ -3820,7 +4019,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:17,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
 \u003cp\u003eTo verify your data, you may use the \u003ca href="https://github.com/rkvst/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e, available on GitHub.\u003c/p\u003e
 \u003cp\u003ePlease note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a \u003ccode\u003eTransaction ID\u003c/code\u003e. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. \u003cstrong\u003eYour event(s) must have a blue tick for transaction details to be available for data verification.\u003c/strong\u003e\u003c/p\u003e
 \u003ch2 id="step-by-step-guide-for-using-the-simple-hash-tool"\u003eStep-by-Step Guide for Using the Simple Hash Tool\u003c/h2\u003e
@@ -3951,7 +4150,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003col start="3"\u003e
 \u003cli\u003eCompare the hash from your \u003ccode\u003eTransaction Details\u003c/code\u003e to the hash generated by the tool. If they match, your event history has not changed.\u003c/li\u003e
 \u003c/ol\u003e
-`},{id:17,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+`},{id:18,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -4046,7 +4245,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`},{id:18,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+`},{id:19,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -4077,7 +4276,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`},{id:19,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -5239,7 +5438,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
+`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on Assets and Asset Creation, visit our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e guide.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
@@ -6834,7 +7033,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:21,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -8035,7 +8234,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:22,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -8675,7 +8874,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:23,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -9051,7 +9250,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:24,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -10454,7 +10653,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
+`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on creating an Event against an Asset, visit our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
@@ -10878,7 +11077,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -12667,7 +12866,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -13685,7 +13884,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:28,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -14421,7 +14620,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
+`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eRKVST Basics\u003c/a\u003e for additional information on creating and using locations with RKVST.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
@@ -15672,7 +15871,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:30,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -16519,7 +16718,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:31,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`},{id:32,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -16860,7 +17059,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:32,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`},{id:33,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -18322,7 +18521,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:33,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`},{id:34,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -19191,7 +19390,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`},{id:34,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+`},{id:35,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19252,7 +19451,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      \u0026lt;path-to-yaml-file\u0026gt;
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:35,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:36,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19374,7 +19573,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eWait for all assets in the wipp namespace to be confirmed\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_namespace\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ewipp\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:36,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:37,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19473,7 +19672,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eopen\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edoor\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:37,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:38,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19521,7 +19720,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edirector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJohn Smith\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:38,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:39,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19629,7 +19828,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eWait for all subjects to be confirmed\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003esubject_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eA subject\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:39,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:40,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19661,7 +19860,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCheck Compliance of EV pump 1.\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ereport\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eev pump 1\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:40,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:41,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -19673,7 +19872,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCOMPOSITE_ESTATE_INFO\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eEstate Info Report\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:41,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:42,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""},{id:43,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`},{id:42,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""},{id:43,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""},{id:44,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -19681,7 +19880,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`},{id:44,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:45,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`},{id:45,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""},{id:46,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -19689,7 +19888,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`},{id:46,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
+`},{id:47,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}];e.add({id:0,href:"https://docs.rkvst.com/docs/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`\u003cp\u003eRKVST is a Data Assurance Service that continuously proves Who Did What When to an Asset.\u003c/p\u003e
 \u003cp\u003eRKVST enables enterprises to build trust in Multi-Party assets, including software and devices, ensuring processes are fit for purpose to comply with IT Controls, Corporate Policies and Government Regulations.\u003c/p\u003e
 \u003cp\u003eRKVST permanently records shared asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:\u003c/p\u003e
 \u003cp\u003e\u003cstrong\u003eMetadata Governance\u003c/strong\u003e - Empower the right people in organizations to set, enforce and execute complex data sharing policies.\u003c/p\u003e
@@ -20523,7 +20722,206 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003e\u003cem\u003eLink to real assets:\u003c/em\u003e In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies:\u003c/em\u003e always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically very few parties need to update the SBOM record but many people will need to read it.\u003c/p\u003e
 \u003cp\u003eRemember that RKVST is a shared evidence platform: it is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems to ensure the security of the digital supply chain.\u003c/p\u003e
-`}).add({id:7,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
+`}).add({id:7,href:"https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using RKVST to Represent Containers",content:`\u003ch2 id="represent-containers-using-rkvst"\u003eRepresent Containers Using RKVST\u003c/h2\u003e
+\u003cp\u003eRKVST Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.\u003c/p\u003e
+\u003ch2 id="create-a-container-asset"\u003eCreate a Container Asset\u003c/h2\u003e
+\u003cp\u003eCreating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e. For this example, we will create a simple asset that we will call \u003ccode\u003eShipping Container\u003c/code\u003e. Note that with RKVST, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="shipping_container_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#shipping_container_asset-0" type="button" role="tab" aria-controls="shipping_container_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-1" type="button" role="tab" aria-controls="shipping_container_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-2" type="button" role="tab" aria-controls="shipping_container_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="shipping_container_asset"\u003e\u003cdiv id="shipping_container_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="shipping_container_asset-0"\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#ShippingContainer" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/ShippingContainer.png" width="925" height="551" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/ShippingContainer.png" width="925" height="551" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCreate the Shipping Container\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="ShippingContainer" tabindex="-1" aria-labelledby="ShippingContainer" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/ShippingContainer_hu5c52d401072de6f59d0bee50cc020be4_47883_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;925\u0026quot; height=\u0026quot;551\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="shipping_container_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate a shipping container asset.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e- \u003cspan class="l"\u003earc_display_name\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eproof_mechanism\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eSIMPLE_HASH\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003ch2 id="associate-an-item-or-container-with-another-container"\u003eAssociate an Item or Container with Another Container\u003c/h2\u003e
+\u003cp\u003eNow that we have created a \u003ccode\u003eShipping Container\u003c/code\u003e Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom \u003ccode\u003eAsset Attribute\u003c/code\u003e that links it to our Shipping Container. For example, let\u0026rsquo;s create an Asset to represent a box that is being transported within the Shipping Container.\u003c/p\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e For this example, we used the custom attribute \u003ccode\u003ewithin_container\u003c/code\u003e, but you could use any key to associate the Assets that does not contain the reserved \u0026lsquo;arc_\u0026rsquo; prefix.\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cul class="nav nav-tabs" id="box_asset" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#box_asset-0" type="button" role="tab" aria-controls="box_asset-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-1" type="button" role="tab" aria-controls="box_asset-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-2" type="button" role="tab" aria-controls="box_asset-2" aria-selected="false"\u003eJSON\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="box_asset"\u003e\u003cdiv id="box_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="box_asset-0"\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#BoxAsset" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/BoxAsset.png" width="917" height="546" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/BoxAsset.png" width="917" height="546" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eCreate the Box\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="BoxAsset" tabindex="-1" aria-labelledby="BoxAsset" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/BoxAsset_hu2b98ec48f0c3974f0c67b3f487f17d42_137924_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;917\u0026quot; height=\u0026quot;546\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#WithinContainer" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/WithinContainer.png" width="915" height="394" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/WithinContainer.png" width="915" height="394" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eAdd an Extended Attribute\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="WithinContainer" tabindex="-1" aria-labelledby="WithinContainer" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/WithinContainer_hu14ec8b805acdf6aba09975f6e6607b8e_92566_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;915\u0026quot; height=\u0026quot;394\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="box_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_CREATE_IF_NOT_EXISTS\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCreate a box asset and associate with Shipping Container.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox \u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eselector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e        \u003c/span\u003e- \u003cspan class="l"\u003earc_display_name\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003ebehaviours\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eRecordEvidence\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e- \u003cspan class="l"\u003eAttachments\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eproof_mechanism\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eSIMPLE_HASH\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattributes\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e 
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_name\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eBox\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ewithin_container\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003econfirm\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2"\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-json" data-lang="json"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;behaviours\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e[\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;RecordEvidence\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Attachments\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e],\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;proof_mechanism\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;SIMPLE_HASH\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="nt"\u003e\u0026#34;attributes\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="p"\u003e{\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_name\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Box\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;arc_display_type\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Box\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e        \u003cspan class="nt"\u003e\u0026#34;within_container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e \u003cspan class="s2"\u003e\u0026#34;Shipping Container\u0026#34;\u003c/span\u003e\u003cspan class="p"\u003e,\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e    \u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="p"\u003e}\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+\u003cp\u003eIt is now recorded that there is a \u003ccode\u003eBox\u003c/code\u003e within the container \u003ccode\u003eShipping Container\u003c/code\u003e. We repeat this process to create another Asset and record what was inside the \u003ccode\u003eBox\u003c/code\u003e.\u003c/p\u003e
+\u003ch2 id="list-all-assets-asssociated-with-a-container"\u003eList All Assets Asssociated with a Container\u003c/h2\u003e
+\u003cp\u003eTo retrieve all Assets associated with a container, you can run a query with a filter that will identify which Assets have the attribute \u003ccode\u003ewithin_container\u003c/code\u003e set to the desired value. To list all Assets inside of \u003ccode\u003eShipping Container\u003c/code\u003e:\u003c/p\u003e
+\u003cul class="nav nav-tabs" id="list_contents" role="tablist"\u003e\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link active" data-bs-target="#list_contents-0" type="button" role="tab" aria-controls="list_contents-0" aria-selected="true"\u003eUI\u003c/button\u003e
+		\u003c/li\u003e
+	  
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-1" type="button" role="tab" aria-controls="list_contents-1" aria-selected="false"\u003eYAML\u003c/button\u003e
+		\u003c/li\u003e
+		\u003cli class="nav-item"\u003e
+			\u003cbutton data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-2" type="button" role="tab" aria-controls="list_contents-2" aria-selected="false"\u003eCURL\u003c/button\u003e
+		\u003c/li\u003e\u003c/ul\u003e
+\u003cdiv class="tab-content" id="list_contents"\u003e\u003cdiv id="list_contents-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="list_contents-0"\u003e
+\u003cp\u003eGo to the \u003ccode\u003eAuditor View\u003c/code\u003e and filter the Assets and Events within your tenancy.\u003c/p\u003e
+\u003cfigure class="border-0"\u003e
+  \u003cinput type="image" data-bs-toggle="modal" data-bs-target="#AssetFilter" img class="img-fluid responsive" src="/docs/developer-patterns/containers-as-assets/AssetFilter.png" width="1608" height="478" data-sizes="auto" data-srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w" alt="Rectangle"\u003e
+  \u003cnoscript\u003e\u003cimg class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w" src="/docs/developer-patterns/containers-as-assets/AssetFilter.png" width="1608" height="478" alt="Rectangle"\u003e\u003c/noscript\u003e
+  \u003cfigcaption class="figure-caption"\u003e\u003cem\u003eFilter Assets and Events\u003c/em\u003e\u003c/figcaption\u003e
+\u003c/figure\u003e
+\u003cdiv class="modal fade" id="AssetFilter" tabindex="-1" aria-labelledby="AssetFilter" aria-hidden="true"\u003e
+  \u003cdiv class="modal-dialog modal-xl"\u003e
+\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;modal-body\u0026quot;\u0026gt;
+    
+    \u0026lt;img class=\u0026quot;img-fluid lazyload responsive\u0026quot; data-sizes=\u0026quot;auto\u0026quot; src=\u0026quot;/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_100x0_resize_box_3.png\u0026quot; data-srcset=\u0026quot;https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_900x0_resize_box_3.png 900w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_800x0_resize_box_3.png 800w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_500x0_resize_box_3.png 500w,https://docs.rkvst.com/docs/developer-patterns/containers-as-assets/AssetFilter_huc5744d236b8bc57c0a546a0b4fbd42a2_157621_200x0_resize_box_3.png 200w\u0026quot; width=\u0026quot;1608\u0026quot; height=\u0026quot;478\u0026quot; alt=\u0026quot;Rectangle\u0026quot;\u0026gt;
+  \u0026lt;/div\u0026gt;
+\u003c/code\u003e\u003c/pre\u003e
+  \u003c/div\u003e
+\u003c/div\u003e
+\u003c/div\u003e
+  \u003cdiv id="list_contents-1" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-1"\u003e
+\u003cblockquote class="note callout"\u003e
+    \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
+\u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
+\u003c/div\u003e
+  \u003c/blockquote\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-yaml" data-lang="yaml"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="nn"\u003e---\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e\u003c/span\u003e\u003cspan class="nt"\u003esteps\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eASSETS_LIST\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eList all assets within Shipping Container.\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ewithin_container\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eShipping Container\u003c/span\u003e\u003cspan class="w"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e
+  \u003cdiv id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2"\u003e
+\u003cp\u003eSee instructions for \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/"\u003ecreating your \u003ccode\u003eBEARER_TOKEN_FILE\u003c/code\u003e\u003c/a\u003e here.\u003c/p\u003e
+\u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -g -v -X GET \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container\u0026#34;\u003c/span\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
+
+`}).add({id:8,href:"https://docs.rkvst.com/docs/user-patterns/state-machine/",title:"State Machine and Supply Chains",description:"Using RKVST to map a process",content:`\u003cp\u003eA common pattern for tracking asset lifecycles is the \u003cem\u003eState Machine\u003c/em\u003e pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.\u003c/p\u003e
 \u003cp\u003eModelling such systems in RKVST can help to rapidly answer questions like \u003cem\u003e\u0026ldquo;are my processes running smoothly?\u0026rdquo;\u003c/em\u003e, \u003cem\u003e\u0026ldquo;do I need to act?\u0026rdquo;\u003c/em\u003e, and \u003cem\u003e\u0026ldquo;has this asset been correctly managed?\u0026rdquo;\u003c/em\u003e. In audit situations the Asset histories also allow stakeholders to look back in time and ask \u003cem\u003e\u0026ldquo;who knew what at the time? Could process violations have been detected earlier?\u0026rdquo;\u003c/em\u003e\u003c/p\u003e
 \u003ch2 id="example-1-multi-party-change-management-and-approvals"\u003eExample 1: Multi-party change management and approvals\u003c/h2\u003e
 \u003cp\u003eThis pattern uses a purely virtual Asset to represent a policy or process and coordinate movement through that process, complete with multi-party inputs and approvals. The emphasis here is on Events rather than Asset Attributes: What Happened? Who Was There? What evidence was used to decide to move to the next sage of the process?\u003c/p\u003e
@@ -20546,7 +20944,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003cp\u003e\u003cem\u003eGIS position information\u003c/em\u003e: Make good use of the =arc_gis_*= attributes of Events in order to trace \u003cem\u003eWhere\u003c/em\u003e Who Did What When. Remember that physical environment can make a lot of difference to the virtual security of your Assets.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 1:\u003c/em\u003e Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Nonetheless complete supply chain operations are complex and thought must be given to Access Policy configuration to account for changes of custody.\u003c/p\u003e
 \u003cp\u003e\u003cem\u003eAccess Policies 2:\u003c/em\u003e Consider how far up or down the supply chain visibility should be offered. For example, a customer/operator should be able to see manufacturing data but the manufacturer may or may not be entitled to see usage data.\u003c/p\u003e
-`}).add({id:8,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
+`}).add({id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`\u003cp\u003eAn Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.\u003c/p\u003e
 \u003cp\u003eEach Asset will have a history of any actions performed upon it by any actor.\u003c/p\u003e
 \u003cp\u003eYou may share Assets and their history with specific stakeholders using \u003ca href="../managing-access-to-an-asset-with-abac/"\u003epermissioned sharing\u003c/a\u003e. RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see \u003ca href="https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/"\u003ePublic Attestation\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eThe creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.\u003c/p\u003e
@@ -20963,7 +21361,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 \u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eThe first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.\u003c/p\u003e
-`}).add({id:9,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
+`}).add({id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`\u003cp\u003eIf you wish to begin tracking your Asset history, you need to create Events.\u003c/p\u003e
 \u003cp\u003eAsset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.\u003c/p\u003e
 \u003cp\u003eEvents track key moments of an Asset\u0026rsquo;s lifecycle; details of Who Did What When to an Asset.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
@@ -21309,7 +21707,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
 \u003cp\u003eIn the next section, we will learn about using Locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.\u003c/p\u003e
-`}).add({id:10,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
+`}).add({id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`\u003cp\u003eLocations associate an Asset with a \u0026lsquo;home\u0026rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.\u003c/p\u003e
 \u003cp\u003eIt may be useful to indicate an Asset\u0026rsquo;s origin. For example, if tracking traveling consultant\u0026rsquo;s Laptops, you may wish to associate them with a \u0026lsquo;home\u0026rsquo; office.\u003c/p\u003e
 \u003ch2 id="creating-a-location"\u003eCreating a Location\u003c/h2\u003e
 \u003col\u003e
@@ -21870,7 +22268,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   
   \u003c/div\u003e
 \u003c/div\u003e
-`}).add({id:11,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`}).add({id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your Organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cp\u003eAttribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization.\u003c/p\u003e
@@ -22229,7 +22627,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003c/div\u003e
 \u003cp\u003eWe can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location.\u003c/p\u003e
 \u003cp\u003eOur Root User, Jill, can see every detail associated with the Asset.\u003c/p\u003e
-`}).add({id:12,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
+`}).add({id:13,href:"https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/",title:"Sharing Assets With OBAC",description:"Sharing Access outside your Tenant",content:`\u003cblockquote class="caution callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eCaution:\u003c/strong\u003e You will only have access to the \u003ccode\u003eAccess Policies\u003c/code\u003e screen if you are a Root User in your organization.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003cblockquote class="warning callout"\u003e
@@ -22722,7 +23120,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 \u003cli\u003eIf Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.\u003c/li\u003e
 \u003c/ol\u003e
 \u003cp\u003eThere are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the \u003ca href="../../api-reference/iam-policies-api/"\u003eIAM Policies API Reference\u003c/a\u003e.\u003c/p\u003e
-`}).add({id:13,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
+`}).add({id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`\u003ch2 id="creating-a-compliance-policy"\u003eCreating a Compliance Policy\u003c/h2\u003e
 \u003cp\u003eCompliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter.\u003c/p\u003e
 \u003cp\u003eFor example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.\u003c/p\u003e
 \u003cp\u003eRKVST allows for several types of Compliance Policies:\u003c/p\u003e
@@ -23168,7 +23566,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e    \u003cspan class="s2"\u003e\u0026#34;https://app.rkvst.io/archivist/v1/compliance/assets/\u0026lt;asset-id\u0026gt;?compliant_at=2019-11-27T14:44:19Z\u0026#34;\u003c/span\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`}).add({id:14,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
+`}).add({id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`\u003cp\u003eYou may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. \u003ccode\u003ePublic Assets\u003c/code\u003e can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.\u003c/p\u003e
 \u003cp\u003ePermissioned Assets can only be shared through the creation of \u003ca href="../../rkvst-basics/sharing-assets-with-obac/"\u003eAccess Policies\u003c/a\u003e. Public Assets, however, may be shared with a \u003ccode\u003ePublic URL\u003c/code\u003e that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.\u003c/p\u003e
 \u003cp\u003eAny Events updating a Public Asset will also be public, and will each have their own unique Public URL.\u003c/p\u003e
 \u003cp\u003eFollowing the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.\u003c/p\u003e
@@ -23449,7 +23847,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v2/assets/\u0026lt;asset-id\u0026gt;/events/\u0026lt;event-id\u0026gt;:publicurl
 \u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e
 
-`}).add({id:15,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
+`}).add({id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`\u003ch2 id="what-is-domain-verification"\u003eWhat is domain verification?\u003c/h2\u003e
 \u003cp\u003eDomain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization\u0026rsquo;s tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.\u003c/p\u003e
 \u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cstrong\u003eNote:\u003c/strong\u003e Having a verified domain is different from a \u003ccode\u003eTenant Display Name\u003c/code\u003e. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy.\u003c/div\u003e
@@ -23511,7 +23909,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v -X GET \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     -H \u003cspan class="s2"\u003e\u0026#34;@\u003c/span\u003e\u003cspan class="nv"\u003e$BEARER_TOKEN_FILE\u003c/span\u003e\u003cspan class="s2"\u003e\u0026#34;\u003c/span\u003e \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e     https://app.rkvst.io/archivist/v1/tenancies/\u003cspan class="o"\u003e{\u003c/span\u003euuid\u003cspan class="o"\u003e}\u003c/span\u003e:publicinfo
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:16,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:17,href:"https://docs.rkvst.com/docs/beyond-the-basics/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`\u003cp\u003eVerifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.\u003c/p\u003e
 \u003cp\u003eTo verify your data, you may use the \u003ca href="https://github.com/rkvst/rkvst-simplehash-python"\u003eRKVST Simple Hash tool\u003c/a\u003e, available on GitHub.\u003c/p\u003e
 \u003cp\u003ePlease note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a \u003ccode\u003eTransaction ID\u003c/code\u003e. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. \u003cstrong\u003eYour event(s) must have a blue tick for transaction details to be available for data verification.\u003c/strong\u003e\u003c/p\u003e
 \u003ch2 id="step-by-step-guide-for-using-the-simple-hash-tool"\u003eStep-by-Step Guide for Using the Simple Hash Tool\u003c/h2\u003e
@@ -23642,7 +24040,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003col start="3"\u003e
 \u003cli\u003eCompare the hash from your \u003ccode\u003eTransaction Details\u003c/code\u003e to the hash generated by the tool. If they match, your event history has not changed.\u003c/li\u003e
 \u003c/ol\u003e
-`}).add({id:17,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
+`}).add({id:18,href:"https://docs.rkvst.com/docs/glossary/common-rkvst-terms/",title:"Common RKVST Terms",description:"",content:`\u003cp\u003eSelect a term for more information.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -23737,7 +24135,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`}).add({id:18,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
+`}).add({id:19,href:"https://docs.rkvst.com/docs/glossary/reserved-attributes/",title:"Reserved Attributes",description:"",content:`\u003cp\u003eSelect an attribute to see an example.\u003c/p\u003e
 \u003ctable\u003e
 \u003cthead\u003e
 \u003ctr\u003e
@@ -23768,7 +24166,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/tr\u003e
 \u003c/tbody\u003e
 \u003c/table\u003e
-`}).add({id:19,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
+`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`\u003ch2 id="app-registrations-api-examples"\u003eApp Registrations API Examples\u003c/h2\u003e
 \u003cp\u003eThe App Registrations API enables you to create and manage application identities with access to your RKVST tenant.\u003c/p\u003e
 \u003cp\u003eIt supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a \u003ccode\u003eCLIENT_ID\u003c/code\u003e and \u003ccode\u003eSECRET\u003c/code\u003e are generated and returned.\u003c/p\u003e
 \u003cp\u003eThese credentials are then used to request an access token from \u003ccode\u003ehttps://app.rkvst.io/archivist/iam/v1/appidp/token\u003c/code\u003e, which is used for API authentication to RKVST.\u003c/p\u003e
@@ -24930,7 +25328,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
+`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on Assets and Asset Creation, visit our \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/#assets"\u003eCore Concepts\u003c/a\u003e and \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-asset/"\u003eCreating an Asset\u003c/a\u003e guide.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="asset-api-examples"\u003eAsset API Examples\u003c/h2\u003e
@@ -26525,7 +26923,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:21,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
+`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`\u003ch2 id="attachment-api-examples"\u003eAttachment API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-a-specific-attachment-on-an-asset"\u003eRetrieve a Specific Attachment on an Asset\u003c/h3\u003e
 \u003cdiv class="highlight"\u003e\u003cpre tabindex="0" class="chroma"\u003e\u003ccode class="language-bash" data-lang="bash"\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003ecurl -v \u003cspan class="se"\u003e\\
@@ -27726,7 +28124,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
+`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`\u003ch2 id="blob-api-examples"\u003eBlob API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="upload-a-blob"\u003eUpload a Blob\u003c/h3\u003e
 \u003cp\u003eUpload the blob stored at /path/to/file:\u003c/p\u003e
@@ -28366,7 +28764,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
+`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`\u003ch2 id="blockchain-api-examples"\u003eBlockchain API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="fetch-transactions-for-an-event-v1alpha2"\u003eFetch Transactions for an event (v1alpha2)\u003c/h3\u003e
 \u003cp\u003eBlockchain transactions can be fetched from the blockchain endpoint using the asset\u0026rsquo;s Event ID as a parameter:\u003c/p\u003e
@@ -28742,7 +29140,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
+`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`\u003ch2 id="compliance-api-examples"\u003eCompliance API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="types-of-compliance-policies"\u003eTypes of Compliance Policies\u003c/h3\u003e
 \u003cp\u003eCompliance Posture is measured against user-defined rule sets called Compliance Policies.\u003c/p\u003e
@@ -30145,7 +30543,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
+`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e For more information on creating an Event against an Asset, visit our \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/"\u003eRKVST Basics guide\u003c/a\u003e.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="events-api-examples"\u003eEvents API Examples\u003c/h2\u003e
@@ -30569,7 +30967,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
+`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`\u003ch2 id="iam-policies-api-examples"\u003eIAM Policies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003cp\u003eAn \u003ca href="https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/"\u003eABAC\u003c/a\u003e policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the \u003ca href="../invites-api/"\u003eInvites API\u003c/a\u003e or could be an App Registration used for client credentials, which are created as non-root by default.\u003c/p\u003e
 \u003cp\u003eTo create an ABAC Policy, you should use the \u003ccode\u003euser_attributes\u003c/code\u003e keyword. Specify \u003ccode\u003eemail\u003c/code\u003e for invited users, and \u003ccode\u003esubject\u003c/code\u003e, using the client-id of your credentials, for App Registrations.\u003c/p\u003e
@@ -32358,7 +32756,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
+`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`\u003ch2 id="iam-subjects-api-examples"\u003eIAM Subjects API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="iam-subjects-creation"\u003eIAM Subjects Creation\u003c/h3\u003e
 \u003cp\u003eDefine the subjects parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e:\u003c/p\u003e
@@ -33376,7 +33774,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
+`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`\u003ch2 id="invites-api-examples"\u003eInvites API Examples\u003c/h2\u003e
 \u003cp\u003eInvites can be used to invite a new user into a tenancy to access assets and events.\u003c/p\u003e
 \u003cp\u003eFor example, inviting a new member of the organization into their organization\u0026rsquo;s tenancy.\u003c/p\u003e
 \u003cp\u003eBy default invited users will have no permissons, so need to be given access to manage specific assets and events using \u003ca href="../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md"\u003eABAC policies\u003c/a\u003e defined by a Root User.\u003c/p\u003e
@@ -34112,7 +34510,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
+`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e See \u003ca href="https://docs.rkvst.com/docs/rkvst-basics/grouping-assets-by-location/"\u003eRKVST Basics\u003c/a\u003e for additional information on creating and using locations with RKVST.\u003c/div\u003e
   \u003c/blockquote\u003e
 \u003ch2 id="locations-api-examples"\u003eLocations API Examples\u003c/h2\u003e
@@ -35363,7 +35761,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:30,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
+`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`\u003ch2 id="public-assets-api-examples"\u003ePublic Assets API Examples\u003c/h2\u003e
 \u003cp\u003ePublic Assets are created using the \u003ca href="../assets-api/"\u003eAssets API\u003c/a\u003e and setting the value of \u003ccode\u003epublic\u003c/code\u003e to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e
 \u003cp\u003eTo see more information about creating a Public Asset see \u003ca href="../assets-api/#creating-a-public-asset"\u003eCreating a Public Asset\u003c/a\u003e.\u003c/p\u003e
 \u003cp\u003eEach Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for.\u003c/p\u003e
@@ -36210,7 +36608,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:31,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
+`}).add({id:32,href:"https://docs.rkvst.com/docs/api-reference/system-api/",title:"System API",description:"System API Reference",content:`\u003ch2 id="system-api-examples"\u003eSystem API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="querying-blockchain-status"\u003eQuerying Blockchain Status\u003c/h3\u003e
 \u003cp\u003eThe \u003ccode\u003earchivistnode\u003c/code\u003e endpoint reports on the status of the blockchain.\u003c/p\u003e
@@ -36551,7 +36949,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:32,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
+`}).add({id:33,href:"https://docs.rkvst.com/docs/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`\u003ch2 id="tenancies-api-examples"\u003eTenancies API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="retrieve-the-current-list-of-root-principals"\u003eRetrieve the Current List of Root Principals\u003c/h3\u003e
 \u003cp\u003eTo fetch the list of root principals, simply \u003ccode\u003eGET\u003c/code\u003e the \u003ccode\u003etenancies/root_principals\u003c/code\u003e resource:\u003c/p\u003e
@@ -38013,7 +38411,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:33,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
+`}).add({id:34,href:"https://docs.rkvst.com/docs/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`\u003ch2 id="tls-ca-certificates-api-examples"\u003eTLS CA Certificates API Examples\u003c/h2\u003e
 \u003cp\u003eCreate the \u003ca href="../../setup-and-administration/getting-access-tokens-using-app-registrations"\u003ebearer_token\u003c/a\u003e and store in a file in a secure local directory with 0600 permissions.\u003c/p\u003e
 \u003ch3 id="tls-ca-certificate-upload"\u003eTLS CA Certificate Upload\u003c/h3\u003e
 \u003cp\u003eDefine the TLS CA certificate parameters and store in \u003ccode\u003e/path/to/jsonfile\u003c/code\u003e (certificate field shortened for brevity):\u003c/p\u003e
@@ -38882,7 +39280,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
   \u003c/div\u003e
 
 
-`}).add({id:34,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+`}).add({id:35,href:"https://docs.rkvst.com/docs/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -38943,7 +39341,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-id \u0026lt;your-client-id\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      --client-secret \u0026lt;your-client-secret\u0026gt; \u003cspan class="se"\u003e\\
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="se"\u003e\u003c/span\u003e      \u0026lt;path-to-yaml-file\u0026gt;
-\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:35,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:36,href:"https://docs.rkvst.com/docs/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39065,7 +39463,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eWait for all assets in the wipp namespace to be confirmed\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_namespace\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003ewipp\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:36,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:37,href:"https://docs.rkvst.com/docs/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39164,7 +39562,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eopen\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003easset_attrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003earc_display_type\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003edoor\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:37,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:38,href:"https://docs.rkvst.com/docs/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39212,7 +39610,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e    \u003c/span\u003e\u003cspan class="nt"\u003eattrs\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edirector\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eJohn Smith\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:38,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:39,href:"https://docs.rkvst.com/docs/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39320,7 +39718,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eWait for all subjects to be confirmed\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eprint_response\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003esubject_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eA subject\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:39,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:40,href:"https://docs.rkvst.com/docs/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39352,7 +39750,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCheck Compliance of EV pump 1.\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003ereport\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="kc"\u003etrue\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003easset_label\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eev pump 1\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:40,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:41,href:"https://docs.rkvst.com/docs/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`\u003cblockquote class="note callout"\u003e
     \u003cdiv\u003e\u003cstrong\u003e\u003c/strong\u003e \u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e To use the YAML Runner you will need to install the \u003ccode\u003erkvst-archivist\u003c/code\u003e python package.\u003c/p\u003e
 \u003cp\u003e\u003ca href="https://python.rkvst.com/runner/index.html"\u003eClick here\u003c/a\u003e for installation instructions.\u003c/p\u003e
 \u003c/div\u003e
@@ -39364,7 +39762,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e  \u003c/span\u003e- \u003cspan class="nt"\u003estep\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003eaction\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eCOMPOSITE_ESTATE_INFO\u003c/span\u003e\u003cspan class="w"\u003e
 \u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003cspan class="line"\u003e\u003cspan class="cl"\u003e\u003cspan class="w"\u003e      \u003c/span\u003e\u003cspan class="nt"\u003edescription\u003c/span\u003e\u003cspan class="p"\u003e:\u003c/span\u003e\u003cspan class="w"\u003e \u003c/span\u003e\u003cspan class="l"\u003eEstate Info Report\u003c/span\u003e\u003cspan class="w"\u003e
-\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:41,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:42,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""}).add({id:43,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
+\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e`}).add({id:42,href:"https://docs.rkvst.com/docs/api-reference/",title:"Api Reference",description:"",content:""}).add({id:43,href:"https://docs.rkvst.com/docs/glossary/",title:"glossary",description:"",content:""}).add({id:44,href:"https://docs.rkvst.com/docs/user-patterns/",title:"User Patterns",description:"",content:`\u003cp\u003eRKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.\u003c/p\u003e
 \u003cp\u003eThe three most common patterns are:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eAuthenticity and Attestation: proving the state of documents and data at a point in time. Also known as \u0026lsquo;Provenance\u0026rsquo;.\u003c/li\u003e
@@ -39372,7 +39770,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003cli\u003eState Machine and Supply Chains: following the progress of an asset as it moves through a business process or lifecycle states.\u003c/li\u003e
 \u003c/ul\u003e
 \u003cp\u003eThese are laid out in more detail here:\u003c/p\u003e
-`}).add({id:44,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:45,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
+`}).add({id:45,href:"https://docs.rkvst.com/docs/overview/",title:"Overview",description:"",content:""}).add({id:46,href:"https://docs.rkvst.com/docs/rkvst-basics/",title:"RKVST Basics",description:"",content:`\u003cp\u003eRKVST Basics will quickly get you up and running by guiding you through:\u003c/p\u003e
 \u003cul\u003e
 \u003cli\u003eCreating your first Asset\u003c/li\u003e
 \u003cli\u003eRecording lifecycle Events on your Asset\u003c/li\u003e
@@ -39380,4 +39778,4 @@ This type of compliance policy is not yet available for creation via the UI. Che
 \u003c/ul\u003e
 \u003cp\u003eIt gives simple but sufficient overview of the core concepts of RKVST to get you going. For more complete coverage of the core concepts please refer to \u003ca href="https://docs.rkvst.com/docs/overview/core-concepts/" title="Core Concepts"\u003ethe concepts section.\u003c/a\u003e\u003c/p\u003e
 \u003cp\u003eTo go to a specific section in RKVST Basics click on any of the following:\u003c/p\u003e
-`}).add({id:46,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+`}).add({id:47,href:"https://docs.rkvst.com/docs/",title:"Docs",description:"RKVST Docs.",content:""}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,r=this.value,o=e.search(r,{limit:5,index:["content"],enrich:!0}),i=suggestions.childNodes,s=0,c=o.length;for(suggestions.classList.remove("d-none"),o.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.result[s].doc.href,t.textContent=e.result[s].doc.title,d.textContent=e.result[s].doc.description,suggestions.appendChild(n)});i.length>c;)suggestions.removeChild(i[s])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

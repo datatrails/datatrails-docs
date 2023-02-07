@@ -17,11 +17,15 @@ Verifying your Simple Hash events provides an additional layer of assurance to y
 
 To verify your data, you may use the [RKVST Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python), available on GitHub. 
 
-Please note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a `Transaction ID`. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. **Your event(s) must have a blue tick for transaction details to be available for data verification.**
+Please note that with Simple Hash, events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a `Transaction ID`. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. **Your event(s) must have a blue tick for transaction details to be available for data verification.**
 
 ## Step-by-Step Guide for Using the Simple Hash Tool 
 
 1. Retrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of events. 
+
+{{< note >}}
+For Public Assets, retrieve the transaction information from the public view of the Asset and Events, or from the [Public Assets Endpoint](https://docs.rkvst.com/docs/api-reference/public-assets-api/).
+{{< / note >}}
 
 {{< tabs name="retrieve-transaction-info" >}}
 {{{< tab name="UI" >}}

@@ -125,6 +125,10 @@ In this example, the `User` actor implies an ABAC policy, identified by email. T
 {{< tab name="JSON" >}}
 There are a few ways you may add a `User` to your Access Policy using JSON. One way is to use the email address associated with their RKVST account. To do so, add the desired `user_attributes` to the `access_permissions` section.
 
+{{< note >}}
+You may grant access to specific attachments by specifying the corresponding key in the `access_permissions`.
+{{< /note >}}
+
 ```json
  "access_permissions": [
         {

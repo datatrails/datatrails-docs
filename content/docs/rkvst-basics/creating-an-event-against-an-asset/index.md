@@ -173,12 +173,14 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
     "arc_description": "Inspection Event",
     "arc_display_type": "Inspection",
     "Cargo": "Rare Metals",
-    "arc_attachments": [
-      {
+    "attachment": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/<blob-id>",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "standards.pdf",
       "arc_display_name": "Inspection Standards",
-      "arc_attachment_identity": "blobs/<attachment-id>"
-      }
-    ]
+      },
   },
   "asset_attributes": {
     "Weight": "1192kg"

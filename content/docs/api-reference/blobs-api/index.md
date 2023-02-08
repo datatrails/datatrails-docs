@@ -33,14 +33,19 @@ The response is:
 
 ```json
 {
-    "identity": "blobs/08838336-c357-460d-902a-3aba9528dd22",
-    "hash": {
-        "alg": "SHA256",
-        "value": "xxxxxxxxxxxxxxxxxxxxxxx"
-    },
-    "mime_type": "image/jpeg",
-    "timestamp_accepted": "2019-11-07T15:31:49Z",
-    "size": 31424
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"  },
+  "identity": "blobs/<blob-id>",
+  "issuer": "local",
+  "mime_type": "image/jpeg",
+  "size": 81254,
+  "subject": "user@rkvst.com",
+  "tenantid": "tenant/<tenant-id>",
+  "timestamp_accepted": "2023-02-06T16:04:31Z",
+  "scanned_status": "NOT_SCANNED",
+  "scanned_bad_reason": "",
+  "scanned_timestamp": ""
 }
 ```
 
@@ -60,14 +65,19 @@ The response is:
 
 ```json
 {
-    "identity": "blobsV1/08838336-c357-460d-902a-3aba9528dd22",
-    "hash": {
-        "alg": "SHA256",
-        "value": "xxxxxxxxxxxxxxxxxxxxxxx"
-    },
-    "mime_type": "image/jpeg",
-    "timestamp_accepted": "2019-11-07T15:31:49Z",
-    "size": 31424
+  "hash": {
+    "alg": "SHA256",
+    "value": "xxxxxxxxxxxxxxxxxxxxxxx"  },
+  "identity": "blobs/<blob-id>",
+  "issuer": "local",
+  "mime_type": "image/jpeg",
+  "size": 81254,
+  "subject": "user@rkvst.com",
+  "tenantid": "tenant/<tenant-id>",
+  "timestamp_accepted": "2023-02-06T16:04:31Z",
+  "scanned_status": "NOT_SCANNED",
+  "scanned_bad_reason": "",
+  "scanned_timestamp": ""
 }
 ```
 

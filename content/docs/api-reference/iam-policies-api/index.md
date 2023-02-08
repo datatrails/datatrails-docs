@@ -380,14 +380,14 @@ Each of these calls returns a list of matching Asset records in the form:
             "arc_description": "Pump at A603 North East",
             "arc_display_name": "tcl.ccj.003",
             "some_custom_attribute": "value",
-            "arc_attachments": [
-                {
-                    "arc_display_name": "arc_primary_image",
-                    "arc_attachment_identity": "blobs/87b1a84c-1c6f-442b-923e-a97516f4d275",
-                    "arc_hash_alg": "SHA256",
-                    "arc_hash_value": "246c316e2cd6971ce5c83a3e61f9880fa6e2f14ae2976ee03500eb282fd03a60"
-                }
-        ]
+            "attachment": {
+                "arc_attribute_type": "arc_attachment",
+                "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+                "arc_blob_hash_alg": "SHA256",
+                "arc_file_name": "somepic.jpeg",
+                "arc_display_name": "arc_primary_image",
+            },
         },
         "confirmation_status": "CONFIRMED",
         "tracked": "TRACKED"

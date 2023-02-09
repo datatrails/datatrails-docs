@@ -39,7 +39,7 @@ It’s also possible to retrieve information about specific attachment using thi
 
 This information includes the `scanned_status` of the attachment. Attachment scanning happens each day.
 
-To do so, simply issue request as above with a suffix `/info`.
+To do so, simply issue a request as above with the suffix `/info`.
 
 ```bash
 curl -v \

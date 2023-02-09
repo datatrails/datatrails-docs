@@ -98,7 +98,7 @@ blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
 
-Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either you Asset or Event.
+Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.
 
 The following example shows you usage with both the `event_attributes` and the `asset_attributes`:
 

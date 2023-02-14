@@ -9138,7 +9138,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API2' aria-expanded="true" aria-controls='collapseBlockChain_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -9146,7 +9146,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets:openapi\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI spec for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -9196,7 +9196,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API3'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API3' aria-expanded="true" aria-controls='collapseBlockChain_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -9204,7 +9204,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets:openapi-ui\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI UI for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -29031,7 +29031,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API2'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API2' aria-expanded="true" aria-controls='collapseBlockChain_API2'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets:openapi\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -29039,7 +29039,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets:openapi\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI spec for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e
@@ -29089,7 +29089,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003ch3 class="accordion-header" id='headerBlockChain_API3'\u003e
                       \u003cbutton class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API3' aria-expanded="true" aria-controls='collapseBlockChain_API3'\u003e
                         \u003cdiv class="overflow-hidden text-nowrap"\u003e
-                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e
+                          \u003cspan style="text-transform: uppercase; color: #00AEEF;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan style="width: 100%; overflow-wrap: break-word;"\u003e/archivist/v1alpha2/blockchain/assets:openapi-ui\u003c/span\u003e
                         \u003c/div\u003e
                       \u003c/button\u003e
                   \u003c/h3\u003e
@@ -29097,7 +29097,7 @@ This type of compliance policy is not yet available for creation via the UI. Che
                   \u003cdiv class="accordion-body"\u003e
                     \u003cdiv style="width: 100%;"\u003e
                       \u003cdiv class="overflow-auto"\u003e
-                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain:openapi-ui\u003c/span\u003e\u003c/h4\u003e
+                      \u003ch4\u003e\u003cspan style="color: #00AEEF; text-transform: uppercase;"\u003eget\u003c/span\u003e\u0026nbsp;\u0026nbsp;\u003cspan\u003e/archivist/v1alpha2/blockchain/assets:openapi-ui\u003c/span\u003e\u003c/h4\u003e
                       \u003c/div\u003e
                       \u003ch5\u003eGet OpenAPI UI for Blockchain\u003c/h5\u003e
                       \u003cp\u003e\u003ca href=""\u003e\u003c/a\u003e\u003c/p\u003e

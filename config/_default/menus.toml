@@ -73,11 +73,6 @@
 [[main]]
   name = "Contributing"
   url = "/contributing/getting-started/pulling-and-building-rkvst-docs"
-  weight = 40
-
-[[main]]
-  name = "Sales"
-  url = "https://www.rkvst.com/beta/"
   weight = 30
 
 [[main]]

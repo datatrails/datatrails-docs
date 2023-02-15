@@ -51,7 +51,6 @@ Typically, only Docs should be edited but permission to add to the other section
 ├── docs
 ├── _index.md
 ├── privacy-policy
-├── sales
 └── support
 {{< /tab >}}
 {{< tab name="Docs" codelang="bash" >}}

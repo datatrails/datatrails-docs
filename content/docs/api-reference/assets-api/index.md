@@ -28,7 +28,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 ```json
 {
   "attributes": {
-    "attachment": {
+    "picture_from_yesterday": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
@@ -64,7 +64,7 @@ The response is:
 {
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "attachment": {
+    "picture_from_yesterday": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",

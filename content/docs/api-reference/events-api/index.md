@@ -110,7 +110,7 @@ The following example shows you usage with both the `event_attributes` and the `
     "arc_display_type": "Safety Conformance",
     "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
     "arc_evidence": "DVA Conformance Report attached",
-    "attachment": {
+    "conformance_report": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
@@ -120,7 +120,7 @@ The following example shows you usage with both the `event_attributes` and the `
     },
   },
   "asset_attributes": {
-    "attachment": {
+    "latest_conformance_report": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
@@ -159,7 +159,7 @@ You should see the response:
     "arc_display_type": "Safety Conformance",
     "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
     "arc_evidence": "DVA Conformance Report attached",
-    "attachment": {
+    "conformance_report": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
@@ -169,7 +169,7 @@ You should see the response:
     },
   },
   "asset_attributes": {
-    "attachment": {
+    "latest_conformance_report": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",

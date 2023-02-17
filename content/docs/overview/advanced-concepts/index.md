@@ -38,7 +38,7 @@ A simple Asset might look like this:
         "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 
         // attribute with "arc_attribute_type": "arc_attachment" is a collection of BLOBs attached to the Asset
-        "attachment": {
+        "primary_image": {
           "arc_attribute_type": "arc_attachment",
           "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
           "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",

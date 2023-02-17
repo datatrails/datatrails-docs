@@ -17,11 +17,11 @@ toc: true
 
 Public Assets are created using the [Assets API](../assets-api/) and setting the value of `public` to `true`.
 
-To see more information about creating a Public Asset see [Creating a Public Asset](../assets-api/#creating-a-public-asset).
+To see more information about creating a Public Asset, see [Creating a Public Asset](../assets-api/#creating-a-public-asset).
 
-Each Public Asset has a Private and a Public Interface, the Private Interface is used to update the asset by the creating tenancy, the Public is a read-only view of the Asset that you do not need to be authenticated for. 
+Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for. 
 
-The methods described below cover interacting with the Public Interface Only, to interact with the Private Interface, use the standard [Assets API](../assets-api/). 
+The methods described below cover interacting with the public interface only. To interact with the private interface, use the standard [Assets API](../assets-api/). 
 
 {{< note >}}
 Visit the [Public Attestation](https://docs.rkvst.com/docs/beyond-the-basics/public-attestation/) guide for more information.
@@ -56,7 +56,7 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
 }
 ```
 
-### Fetch all of a Public Asset's Events Records
+### Fetch All Of a Public Asset's Events Records
 
 ```bash
 curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events
@@ -161,7 +161,7 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
 ```
 
 
-### Fetch a Public Asset's specific Event Record
+### Fetch a Public Asset's Specific Event Record
 
 ```bash
 curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721

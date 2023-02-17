@@ -22,7 +22,7 @@ For more information on creating an Event against an Asset, visit our [RKVST Bas
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 ### Event Creation
 
-Define the event parameters and store in `/path/to/jsonfile`:
+Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -46,7 +46,7 @@ Define the event parameters and store in `/path/to/jsonfile`:
 **Note:** `RecordEvidence` is the primary, default behaviour for creating Events.
 {{< /note >}}
 
-Add the request to the Asset Record by POSTing it to the resource:
+Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \

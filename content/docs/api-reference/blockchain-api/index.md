@@ -19,13 +19,13 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 
 ### Fetch Transactions for an event (v1alpha2)
 
-Blockchain transactions can be fetched from the blockchain endpoint using the asset's Event ID as a parameter:
+Blockchain transactions can be fetched from the blockchain endpoint using the Asset's Event ID as a parameter:
 
 ```bash
 assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
 ```
 
-To fetch all transactions for an asset's events GET the blockchain resource:
+To fetch all transactions for an Asset's Events GET the blockchain resource:
 
 ```bash
 curl -v -X GET \

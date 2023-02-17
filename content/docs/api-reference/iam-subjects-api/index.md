@@ -19,7 +19,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 
 ### IAM Subjects Creation
 
-Define the subjects parameters and store in `/path/to/jsonfile`:
+Define the Subject parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -29,7 +29,7 @@ Define the subjects parameters and store in `/path/to/jsonfile`:
 }
 ```
 
-Create the IAM subject:
+Create the IAM Subject:
 
 ```bash
 curl -v -X POST \
@@ -53,17 +53,17 @@ The response is:
 
 ### IAM Subjects Retrieval
 
-IAM subject records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Subject records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 subjects/12345678-90ab-cdef-1234-567890abcdef
 ```
 
-If you do not know the subjects’s identity you can fetch IAM subject records using other information you do know, such as the subject’s name.
+If you do not know the Subjects’s identity you can fetch IAM Subject records using other information you do know, such as the Subject’s name.
 
-#### Fetch all IAM subjects (v1)
+#### Fetch all IAM Subjects (v1)
 
-To fetch all IAM subjects records, simply `GET` the `/subjects` resource:
+To fetch all IAM Subjects records, simply `GET` the `/subjects` resource:
 
 ```bash
 curl -v -X GET \
@@ -73,7 +73,7 @@ curl -v -X GET \
 
 #### Fetch specific IAM Subject by identity (v1)
 
-If you know the unique identity of the IAM subject Record simply `GET` the resource:
+If you know the unique identity of the IAM Subject record simply `GET` the resource:
 
 ```bash
 curl -v -X GET \
@@ -81,7 +81,7 @@ curl -v -X GET \
      https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
-#### Fetch IAM Subjects by name (v1)
+#### Fetch IAM Subjects by Name (v1)
 
 To fetch all IAM subjects with a specific name, `GET` the `/subjects` resource and filter on `display_name`:
 
@@ -91,7 +91,7 @@ curl -g -v -X GET \
      "https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme"
 ```
 
-Each of these calls returns a list of matching IAM subjects records in the form:
+Each of these calls returns a list of matching IAM Subjects records in the form:
 
 ```json
 {
@@ -116,7 +116,7 @@ Each of these calls returns a list of matching IAM subjects records in the form:
 
 ### IAM Subject Deletion
 
-To delete an IAM subject, issue the following request:
+To delete an IAM Subject, issue the following request:
 
 ```bash
 curl -v -X DELETE \
@@ -129,7 +129,7 @@ The response is `{}`.
 
 ### IAM Subject Update
 
-Define the subjects parameters to be changed and store in `/path/to/jsonfile`:
+Define the Subject parameters to be changed and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -162,7 +162,7 @@ The response is:
 
 ### IAM Subject Self Entry
 
-There is an immutable entry in the subjects API called `Self` that contains the keys for the hosting organisation of the RKVST Tenant.
+There is an immutable entry in the Subjects API called `Self` that contains the keys for the hosting organization of the RKVST Tenant.
 
 This entry cannot be deleted or updated.
 
@@ -172,7 +172,7 @@ This special identity is:
 subjects/00000000-0000-0000-0000-000000000000
 ```
 
-#### Fetch self IAM Subject by identity (v1)
+#### Fetch Self IAM Subject by Identity (v1)
 
 ```bash
 curl -v -X GET \

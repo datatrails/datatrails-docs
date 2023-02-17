@@ -17,23 +17,23 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
-An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with non-root users within your tenancy. A non-root user could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as non-root by default.
+An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with Non-Root Users within your Tenancy. A Non-Root User could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
 
 To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations. 
 
 You may also set permissions based on the Custom Claims of an [App Registration](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
-An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the root users of an external organization.
+An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the Root Users of an external organization.
 
-To begin sharing with OBAC you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [basics section](../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids).
+To begin sharing with OBAC, you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [basics section](../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids).
 
-This will return a `subjects/<UUID>` object you would then specify with the `subjects` keyword to make it an OBAC policy.
+This will return a `subjects/<UUID>` object you would then specify with the `subjects` keyword to make it an OBAC Policy.
 
 {{< note >}}
-**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other.
+**Note:** To accept a Subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other.
 {{< /note >}}
 
-As both ABAC and OBAC use the same filter syntax it is possible to have a mix of internal and external sharing within a single policy.
+As both ABAC and OBAC use the same filter syntax, it is possible to have a mix of internal and external sharing within a single policy.
 
 {{< note >}}
 Learn more about [ABAC](https://docs.rkvst.com/docs/rkvst-basics/managing-access-to-an-asset-with-abac/) and [OBAC](https://docs.rkvst.com/docs/rkvst-basics/sharing-assets-with-obac/) policies in our RKVST Basics guides.
@@ -81,7 +81,7 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
     ]
 }
 ```
-Create the access policy:
+Create the Access Policy:
 
 ```bash
 curl -v -X POST \
@@ -133,12 +133,12 @@ The response is:
 
 ### IAM Policy Retrieval
 
-IAM access policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Access Policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 access_policies/12345678-90ab-cdef-1234-567890abcdef
 ```
-If you do not know the `access_policy` identity you can fetch IAM access policy records using other information you do know, such as the `access_policy` name.
+If you do not know the Access Policy ID you can fetch IAM Access Policy records using other information you do know, such as the Access Policy name.
 
 #### Fetch all IAM access_policies (v1)
 
@@ -169,7 +169,7 @@ curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
      "https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description"
 ```
-Each of these calls returns a list of matching IAM access_policies records in the form:
+Each of these calls returns a list of matching IAM Access Policies records in the form:
 
 ```json
 {
@@ -238,7 +238,7 @@ Each of these calls returns a list of matching IAM access_policies records in th
 ```
 ### IAM Policy Deletion
 
-To delete an IAM access policy, issue following request:
+To delete an IAM Access Policy, issue following request:
 
 ```bash
 curl -v -X DELETE \
@@ -255,7 +255,7 @@ The response is:
 
 ### IAM Policy Update
 
-Define the `access_policies` parameters to be changed and store in `/path/to/jsonfile`:
+Define the Access Policy parameters to be changed and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -292,7 +292,7 @@ Define the `access_policies` parameters to be changed and store in `/path/to/jso
 }
 ```
 
-Update the access policy:
+Update the Access Policy:
 
 ```bash
 curl -v -X PATCH \
@@ -343,17 +343,17 @@ The response is:
 
 ### Matching Assets with IAM Policies
 
-IAM access policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Access Policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 access_policies/12345678-90ab-cdef-1234-567890abcdef
 ```
 
-If you do not know the `access_policy` identity you can fetch IAM access policy records using other information you do know, such as the `access_policy` name.
+If you do not know the Access Policy ID you can fetch IAM Access Policy records using other information you do know, such as the Access Policy name.
 
-#### Fetch all Assets Matching Specific IAM access_policy (v1)
+#### Fetch all Assets Matching Specific IAM Access Policy (v1)
 
-If you know the unique identity of the IAM access policy Record simply GET the resource:
+If you know the unique identity of the IAM Access Policy Record simply GET the resource:
 
 ```bash
 curl -v -X GET \

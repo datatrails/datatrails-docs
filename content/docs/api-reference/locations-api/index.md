@@ -94,7 +94,7 @@ curl -v -X GET \
 
 #### Fetch Location by Name
 
-To fetch all locations with a specific name, `GET` the assets resource and filter on `display_name`:
+To fetch all locations with a specific name, `GET` the Assets resource and filter on `display_name`:
 
 ```bash
 curl -v -X GET \
@@ -102,7 +102,7 @@ curl -v -X GET \
     "https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire"
 ```
 
-Each of these calls returns a list of matching asset records in the form:
+Each of these calls returns a list of matching Asset records in the form:
 
 ```json
 {

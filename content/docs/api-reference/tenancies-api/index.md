@@ -19,7 +19,7 @@ Create the [bearer_token](../../setup-and-administration/getting-access-tokens-u
 
 ### Retrieve the Current List of Root Principals
 
-To fetch the list of root principals, simply `GET` the `tenancies/root_principals` resource:
+To fetch the list of Root Users, simply `GET` the `tenancies/root_principals` resource:
 
 ```bash
 curl -v -X GET \
@@ -50,7 +50,7 @@ Define the update parameters and store in `/path/to/jsonfile`:
 }
 ```
 
-Update the root principals by PATCHing the `tenancies/root_principals` resource:
+Update the Root Users by PATCHing the `tenancies/root_principals` resource:
 
 ```bash
 curl -v -X PATCH \

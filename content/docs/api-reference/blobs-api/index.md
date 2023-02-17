@@ -46,7 +46,7 @@ The response is:
 
 ### Retrieve a Blob
 
-Retrieve a specific Attachment
+Retrieve a specific attachment:
 
 ```bash
 curl -v \

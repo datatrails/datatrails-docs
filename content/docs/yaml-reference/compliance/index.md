@@ -21,9 +21,9 @@ toc: true
 
 ## Compliance Policies Create
 
-This action creates a compliance policy that assets may be tested against.
+This action creates a Compliance Policy that assets may be tested against.
 
-The specific fields required for creating compliance policies vary depending on the type of policy being used. Please see the [Compliance Policies](https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/) section for details regarding compliance policy types and YAML Runner examples of each.
+The specific fields required for creating Compliance Policies vary depending on the type of policy being used. Please see the [Compliance Policies](https://docs.rkvst.com/docs/beyond-the-basics/compliance-policies/) section for details regarding Compliance Policy types and YAML Runner examples of each.
 
 For example, a `COMPLIANCE_RICHNESS` policy that asserts radiation level must be less than 7:
 
@@ -45,9 +45,9 @@ steps:
 
 ## Compliance Compliant At
 
-The `COMPLIANCE_COMPLIANT_AT` action checks an asset against its compliance policies. 
+The `COMPLIANCE_COMPLIANT_AT` action checks an Asset against its Compliance Policies. 
 
-`asset_label` is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form `assets/<asset-id>`. Setting `report: true` will trigger a report to be printed on the assets compliance status. 
+`asset_label` is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form `assets/<asset-id>`. Setting `report: true` will trigger a report to be printed on the Asset's compliance status. 
 
 ```yaml
 ---

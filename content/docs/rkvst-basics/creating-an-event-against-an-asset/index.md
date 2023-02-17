@@ -121,8 +121,8 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
-{{< img src="AddEventAttachment.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. Select the symbol to upload a file. In this case, we will attach a pdf document labeled `Inspection Standards`. 
+{{< img src="AttachmentUpload.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 {{< /tab >}}

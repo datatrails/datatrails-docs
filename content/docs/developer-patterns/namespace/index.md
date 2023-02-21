@@ -15,3 +15,29 @@ toc: true
 
 Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.
 
+Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.
+
+To add namespace as an attribute to your files, use the `arc_namespace` key. For example:
+
+```json
+{
+    "behaviours": ["RecordEvidence", "Attachments"],
+    "attributes": {
+        "arc_display_name": "My First Container",
+        "arc_display_type": "Shipping Container",
+        "arc_description": "Originally shipped from Shanghai",
+        "arc_namespace": "test_02-17-23",
+        "Width": "2.43m",
+        "Length": "6.06m",
+        "Height": "2.59m",
+    }
+}
+```
+
+To use namespace as a variable, such as the date, add the argument to your bash environment:
+
+```bash
+ export TEST_NAMESPACE=date
+```
+
+See [TEST_NAMESPACE](https://github.com/rkvst/rkvst-samples/blob/main/DEVELOPERS.md#test_namespace) in our GitHub repository for more information. `TEST_NAMESPACE` can also be added to your bash profile to be automatically picked up when testing.

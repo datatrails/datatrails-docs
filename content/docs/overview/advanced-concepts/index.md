@@ -37,15 +37,15 @@ A simple Asset might look like this:
         "arc_serial_number": "5a",
         "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 
-        // arc_attachments is a collection of BLOBs attached to the Asset
-        "arc_attachments": [
-          {
-            "arc_display_name": "arc_primary_image",
-            "arc_hash_alg": "SHA256",
-            "arc_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "arc_attachment_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-          }
-        ],
+        // attribute with "arc_attribute_type": "arc_attachment" is a collection of BLOBs attached to the Asset
+        "primary_image": {
+          "arc_attribute_type": "arc_attachment",
+          "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+          "arc_blob_hash_alg": "SHA256",
+          "arc_file_name": "somepic.jpeg",
+          "arc_display_name": "arc_primary_image",
+          },
         
         // All others are user-defined attributes
         "bhp": "145",
@@ -305,7 +305,7 @@ Adding an Attachment to an Event allows recording and communication of evidence 
 * a software manifest to support an update.
 * an x-ray image.
 
-To add Attachments to an Event simply specify an `arc_attachments` list in the `event_attributes` of the request when posting an event.
+To add attachments to an Event, simply specify an attribute with `"arc_attribute_type": "arc_attachment"` inside a dictionary of blob information in the `event_attributes` of the request when posting an Event.
 
 {{< note >}}
 **Note:** Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event and can only be downloaded by users with appropriate access rights to that Asset or Event.

@@ -673,14 +673,6 @@ To specify an image in a Tabbed Codeblock you need to remove the `codelang` valu
         "arc_home_location_identity": "",
         "arc_display_type": "",
         "some_custom_attribute": "",
-        "arc_attachments": [
-            {
-                "arc_display_name": "",
-                "arc_attachment_identity": "",
-                "arc_hash_alg": "",
-                "arc_hash_value": ""
-            }
-        ]
     }
 }
 {{< /tab >}}

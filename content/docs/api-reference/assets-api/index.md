@@ -28,14 +28,14 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 ```json
 {
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
+    "picture_from_yesterday": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "somepic.jpeg",
+      "arc_display_name": "Picture from yesterday",
+    },
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
   },
@@ -64,14 +64,14 @@ The response is:
 {
   "at_time": "2019-11-27T14:44:19Z",
   "attributes": {
-    "arc_attachments": [
-      {
-        "arc_attachment_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-        "arc_display_name": "Picture from yesterday",
-        "arc_hash_alg": "sha256",
-        "arc_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-      }
-    ],
+    "picture_from_yesterday": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "somepic.jpeg",
+      "arc_display_name": "Picture from yesterday",
+    },
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
   },

@@ -121,8 +121,8 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. In this case, we have attached a pdf document labeled `Inspection Standards`. 
-{{< img src="AddEventAttachment.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. Select the symbol to upload a file. In this case, we will attach a pdf document labeled `Inspection Standards`. 
+{{< img src="AttachmentUpload.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
 {{< /tab >}}
@@ -173,12 +173,14 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
     "arc_description": "Inspection Event",
     "arc_display_type": "Inspection",
     "Cargo": "Rare Metals",
-    "arc_attachments": [
-      {
+    "inspection_standards": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/<blob-id>",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "standards.pdf",
       "arc_display_name": "Inspection Standards",
-      "arc_attachment_identity": "blobs/<attachment-id>"
-      }
-    ]
+      },
   },
   "asset_attributes": {
     "Weight": "1192kg"

@@ -98,7 +98,7 @@ blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
 
-Once you've uploaded your file you can use the `arc_attachments` attribute to add the attachment to either you Asset or Event.
+Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.
 
 The following example shows you usage with both the `event_attributes` and the `asset_attributes`:
 
@@ -110,22 +110,24 @@ The following example shows you usage with both the `event_attributes` and the `
     "arc_display_type": "Safety Conformance",
     "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
     "arc_evidence": "DVA Conformance Report attached",
-    "arc_attachments": [
-      {
-        "arc_display_name": "Conformance Report",
-        "arc_attachment_identity": "blobs/e2a1d16c-03cd-45a1-8cd0-690831df1273",
-        "arc_hash_value": "8a1eef8ab0ad431b7e2a900fc15ad8216f010fd8e4bf739604cec39fb1f94049",
-        "arc_hash_alg": "SHA-256"
-      }]
+    "conformance_report": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "safety_conformance.pdf",
+      "arc_display_name": "Conformance Report",
+    },
   },
   "asset_attributes": {
-    "arc_attachments": [
-      {
-        "arc_display_name": "Latest Conformance Report",
-        "arc_attachment_identity": "blobs/e2a1d16c-03cd-45a1-8cd0-690831df1273",
-        "arc_hash_value": "8a1eef8ab0ad431b7e2a900fc15ad8216f010fd8e4bf739604cec39fb1f94049",
-        "arc_hash_alg": "SHA-256"
-      }]
+    "latest_conformance_report": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "safety_conformance.pdf",
+      "arc_display_name": "Latest Conformance Report",
+    },
   },
   "timestamp_declared": "2019-11-27T14:44:19Z",
   "principal_declared": {
@@ -157,22 +159,24 @@ You should see the response:
     "arc_display_type": "Safety Conformance",
     "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
     "arc_evidence": "DVA Conformance Report attached",
-    "arc_attachments": [
-      {
-        "arc_display_name": "Conformance Report",
-        "arc_attachment_identity": "blobs/e2a1d16c-03cd-45a1-8cd0-690831df1273",
-        "arc_hash_value": "8a1eef8ab0ad431b7e2a900fc15ad8216f010fd8e4bf739604cec39fb1f94049",
-        "arc_hash_alg": "SHA-256"
-      }]
+    "conformance_report": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "safety_conformance.pdf",
+      "arc_display_name": "Conformance Report",
+    },
   },
   "asset_attributes": {
-    "arc_attachments": [
-      {
-        "arc_display_name": "Latest Conformance Report",
-        "arc_attachment_identity": "blobs/e2a1d16c-03cd-45a1-8cd0-690831df1273",
-        "arc_hash_value": "8a1eef8ab0ad431b7e2a900fc15ad8216f010fd8e4bf739604cec39fb1f94049",
-        "arc_hash_alg": "SHA-256"
-      }]
+    "latest_conformance_report": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "safety_conformance.pdf",
+      "arc_display_name": "Latest Conformance Report",
+    },
   },
   "timestamp_accepted": "2019-11-27T15:13:21Z",
   "timestamp_declared": "2019-11-27T14:44:19Z",

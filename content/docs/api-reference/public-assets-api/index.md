@@ -69,7 +69,6 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
             "identity": "assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/083f90fb-c379-40db-b56a-190564d53cd5",
             "asset_identity": "assets/86b61c4b-030e-4c07-9400-463612e6cee4",
             "event_attributes": {
-                "arc_attachments": [],
                 "arc_display_type": "Change"
             },
             "asset_attributes": {
@@ -126,7 +125,6 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
             },
             "asset_attributes": {
                 "foo": "bar",
-                "arc_attachments": [],
                 "arc_description": "This asset is public",
                 "arc_display_name": "Public Asset",
                 "arc_display_type": "Asset"
@@ -173,7 +171,6 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
     "asset_identity": "assets/86b61c4b-030e-4c07-9400-463612e6cee4",
     "event_attributes": {
         "arc_display_type": "Change",
-        "arc_attachments": []
     },
     "asset_attributes": {
         "A": "B"

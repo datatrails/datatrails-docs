@@ -74,9 +74,9 @@ A simple Asset might look like this:
 **Note:** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easy traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
 {{< /note >}}
 
-### Deleting Assets
+### Deleting Assets (untracking)
 
-An essential value of storing evidence in RKVST is that data is always available to stakeholders and cannot be shredded or manipulated later. Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
+An essential value of storing evidence in RKVST is that data is always available to stakeholders and cannot be shredded or manipulated later. Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
 
 To accommodate this need RKVST separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting). When for any reason it becomes desirable to remove an Asset, the Asset owner can make it _untracked_ so that it does not appear in lists or searches. 
 

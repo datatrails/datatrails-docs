@@ -247,13 +247,13 @@ curl -g -v -X GET \
 
 ### Tracking and Untracking Assets
 
-While deleting Assets is not possible it is possible to hide them from default searches so that old or obsolete records don't crowd out the tenant estate or show up in partner tenancies when they shouldn't. 
+While deleting Assets is not possible, it is possible to hide them from default searches so that old or obsolete records don't crowd out the tenant estate or show up in partner tenancies when they shouldn't. 
 
 #### Untracking an Asset
 
-Untracking is actually an Event on in the Asset lifecycle, so it is necessary to know the asset identity and POST to it directly. Here we assume we are working with an asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
 
-Define the event parameters and store in `/path/to/jsonfile`:
+Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -262,7 +262,7 @@ Define the event parameters and store in `/path/to/jsonfile`:
 }
 ```
 
-Untrack the asset:
+Untrack the Asset:
 
 ```bash
 curl -v -X POST \
@@ -305,9 +305,9 @@ The response is:
 
 #### (Re-)Tracking an Asset
 
-It is possible to reverse an untracking event by tracking the Asset again, assuming you know the asset identity. Here we assume we are working with an asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
 
-Define the event parameters and store in `/path/to/jsonfile`:
+Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
@@ -316,7 +316,7 @@ Define the event parameters and store in `/path/to/jsonfile`:
 }
 ```
 
-Track the asset:
+Track the Asset:
 
 ```bash
 curl -v -X POST \

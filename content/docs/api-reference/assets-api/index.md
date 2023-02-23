@@ -245,6 +245,117 @@ curl -g -v -X GET \
 }
 ```
 
+### Tracking and Untracking Assets
+
+While deleting Assets is not possible it is possible to hide them from default searches so that old or obsolete records don't crowd out the tenant estate or show up in partner tenancies when they shouldn't. 
+
+#### Untracking an Asset
+
+Untracking is actually an Event on in the Asset lifecycle, so it is necessary to know the asset identity and POST to it directly. Here we assume we are working with an asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+
+Define the event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+  "operation": "StopTracking",
+  "behaviour": "Builtin"
+}
+```
+
+Untrack the asset:
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+```
+
+The response is:
+
+```json
+{
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a",
+  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "event_attributes": {},
+  "asset_attributes": {},
+  "operation": "StopTracking",
+  "behaviour": "Builtin",
+  "timestamp_declared": "2023-02-23T19:55:44Z",
+  "timestamp_accepted": "2023-02-23T19:55:44Z",
+  "timestamp_committed": "1970-01-01T00:00:00Z",
+  "principal_declared": {
+    "issuer": "idp.synsation.io/1234",
+    "subject": "phil.b",
+    "email": "phil.b@synsation.io"
+  },
+  "principal_accepted": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "confirmation_status": "PENDING",
+  "transaction_id": "",
+  "block_number": 0,
+  "transaction_index": 0,
+  "from": "",
+  "tenant_identity": ""
+}
+```
+
+#### (Re-)Tracking an Asset
+
+It is possible to reverse an untracking event by tracking the Asset again, assuming you know the asset identity. Here we assume we are working with an asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+
+Define the event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+  "operation": "StartTracking",
+  "behaviour": "Builtin"
+}
+```
+
+Track the asset:
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+```
+
+The response is:
+
+```json
+{
+  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a",
+  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "event_attributes": {},
+  "asset_attributes": {},
+  "operation": "StartTracking",
+  "behaviour": "Builtin",
+  "timestamp_declared": "2023-02-23T19:55:44Z",
+  "timestamp_accepted": "2023-02-23T19:55:44Z",
+  "timestamp_committed": "1970-01-01T00:00:00Z",
+  "principal_declared": {
+    "issuer": "idp.synsation.io/1234",
+    "subject": "phil.b",
+    "email": "phil.b@synsation.io"
+  },
+  "principal_accepted": {
+    "issuer": "job.idp.server/1234",
+    "subject": "bob@job"
+  },
+  "confirmation_status": "PENDING",
+  "transaction_id": "",
+  "block_number": 0,
+  "transaction_index": 0,
+  "from": "",
+  "tenant_identity": ""
+}
+```
 
 ## Asset OpenAPI Docs
 

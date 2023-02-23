@@ -14,23 +14,23 @@ toc: true
 ---
 ## Invites API Examples
 
-Invites can be used to invite a new user into a tenancy to access assets and events.
+Invites can be used to invite a new user into a Tenancy to access Assets and Events.
 
 For example, inviting a new member of the organization into their organization's tenancy.
 
-By default invited users will have no permissons, so need to be given access to manage specific assets and events using [ABAC policies](../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md) defined by a Root User.
+By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using [ABAC policies](../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md) defined by a Root User.
 
-For sharing assets and events to other organizations and tenancies externally check out our tutorial on [OBAC policies](../../rkvst-basics/sharing-assets-with-obac/index.md) or the [IAM Policies API Reference](../iam-policies-api/index.md).
+For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on [OBAC policies](../../rkvst-basics/sharing-assets-with-obac/index.md) or the [IAM Policies API Reference](../iam-policies-api/index.md).
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 {{< note >}}
-See [here](http://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization) for additional instructions on inviting users to your tenancy.
+See [here](http://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization) for additional instructions on inviting users to your Tenancy.
 {{< /note >}}
 
 ### Invite Creation
 
-To create an invite you need at least the invitee's email address; once created it will be considered pending, once accepted the invite itself will be deleted.
+To create an invite you need at least the invitee's email address. Once created, it will be considered pending and once accepted the invite itself will be deleted.
 
 It is possible to add an optional custom message:
 

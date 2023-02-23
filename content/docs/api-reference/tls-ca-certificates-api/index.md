@@ -68,7 +68,7 @@ tlscacertificates/12345678-90ab-cdef-1234-567890abcdef
 
 If you do not know the certificate’s identity you can fetch TLS CA Certificate records using other information you do know, such as the certificate’s name.
 
-#### Fetch all TLS CA Certificates
+#### Fetch All TLS CA Certificates
 
 To fetch all TLS CA certificates records, simply `GET` the `tlscacertificates` resource:
 
@@ -78,7 +78,7 @@ curl -v -X GET \
      https://app.rkvst.io/archivist/v1/tlscacertificates
 ```
 
-#### Fetch specific TLS CA Certificate by Identity
+#### Fetch Specific TLS CA Certificate by Identity
 
 If you know the unique identity of the TLS CA certificate Record simply `GET` the resource:
 

@@ -88,7 +88,7 @@ curl -v -X POST \
 3. Retrieve public link to share your Public Asset with others. 
 
 {{< note >}}
-**NOTE:** A Public Asset may only be updated by the tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.
+**NOTE:** A Public Asset may only be updated by the Tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.
 {{< /note >}}
 
 {{< tabs name="get_link_public" >}}

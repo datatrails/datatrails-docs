@@ -15,7 +15,7 @@ toc: true
 
 ## Tenancies and Accounts
 
-Each RKVST tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple tenancies. 
+Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple Tenancies. 
 
 ### How do I add users to my organization?
 
@@ -23,7 +23,7 @@ RKVST Invites make it easy to add accounts to your tenancy.
 
 As a [root user](https://docs.rkvst.com/docs/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add. 
 
-When the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your tenancy. 
+When the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your Tenancy. 
 
 {{< tabs name="invite_user_IAM" >}}
 {{{< tab name="UI" >}}
@@ -58,7 +58,7 @@ See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/
 
 #### Tenant Display Name
 
-There are two ways to name your RKVST tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which tencancy you're currently working in and to switch between tenancies if you are part of multiple tenancies.
+There are two ways to name your RKVST Tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tencancy you're currently working in and to switch between Tenancies if you are part of multiple Tenancies.
 
 To set your `Tenant Display Name`: 
 

@@ -15,7 +15,7 @@
 
 ## Creating a Compliance Policy
 
-Compliance policies are user-defined rule sets that Assets can be tested against. Compliance policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
+Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter. 
 
 For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
 
@@ -84,10 +84,10 @@ curl -v -X POST \
 
 2. ***COMPLIANCE_CURRENT_OUTSTANDING:*** checks if there is a closing Event addressing an outstanding Event.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
+To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
-**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
 {{< /note >}}
 
 For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event".
@@ -149,12 +149,12 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-3. ***COMPLIANCE_PERIOD_OUTSTANDING:*** checks if the time between correlated events does not exceed set threshold.
+3. ***COMPLIANCE_PERIOD_OUTSTANDING:*** checks if the time between correlated Events does not exceed set threshold.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
+To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
-**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
 {{< /note >}}
 
 For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event within 72 hours".
@@ -218,12 +218,12 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-4. ***COMPLIANCE_DYNAMIC_TOLERANCE:*** checks that the time between correlated events is not excessively different to the observed average normal duration for similar events.
+4. ***COMPLIANCE_DYNAMIC_TOLERANCE:*** checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of events that are to be associated.
+To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
-**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of events.
+**Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
 {{< /note >}}
 
 For example, "the time between a Maintenance Request Event and Maintenance Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean".
@@ -232,7 +232,7 @@ The `dynamic_window` is the time period to evaluate on, in this case, one week. 
 
 {{< tabs name="compliance_dynamic_tolerance" >}}
 {{{< tab name="UI" >}}
-This type of compliance policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
+This type of Compliance Policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
 {{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
@@ -299,7 +299,7 @@ For example, "radiation level must be less than 7".
 
 {{< tabs name="compliance_richness" >}}
 {{{< tab name="UI" >}}
-This type of compliance policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
+This type of Compliance Policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
 {{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml

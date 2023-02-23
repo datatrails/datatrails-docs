@@ -23,17 +23,17 @@ aliases:
 **Warning:** To use OBAC you will need to share with an external organization.
 {{< /warning >}}
 
-Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of Actor.
+Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor.
 
-Where they differ is that OBAC shares only with Root Users of an External Organization; the External Root User must then apply ABAC to establish appropriate access for their own organization's Non-Root Users.
+Where they differ is that OBAC shares only with Root Users of an external organization. The external Root User must then apply ABAC to establish appropriate access for their own organization's Non-Root Users.
 
 ## Adding External Organizations to Allow Sharing
 
-In order to share Assets and their details with another Organization or Tenant, we must first import the ID of the External Organization.
+In order to share Assets and their details with another organization or Tenancy, we must first import the ID of the external organization.
 
 ### Finding Your Own ID
 
-1. As a Root User, navigate to `Access Policies`
+1. As a Root User, navigate to `Access Policies`.
 
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
@@ -67,7 +67,7 @@ echo $SUBJECT_STRING | base64 -d
 Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 
-You will be presented with a form; the `Subject String` is the ID of the Organization with which you wish to share Asset evidence. The `Name` is a Friendly Name for you to label the imported organization.
+You will be presented with a form; the `Subject String` is the ID of the organization you wish to share Asset evidence with. The `Name` is a friendly name for you to label the imported organization.
 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
 {{< /tab >}}
@@ -82,7 +82,7 @@ Save the following to a JSON file with your desired subject information.
     "tessera_pub_key": ["key2"]
 }
 ```
-Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your access policy. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your Access Policy. See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
@@ -94,7 +94,7 @@ curl -v -X POST \
 {{< /tabs >}}
 
 {{< note >}}
-**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue checkmark next to their subject name. 
+**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue symbol next to their subject name. 
 {{< /note >}}
 
 ## Creating an OBAC Policy
@@ -107,7 +107,7 @@ It is possible to mix-and-match ABAC and OBAC Permission Groups in the same poli
 
 {{< tabs name="access_policies_obac" >}}
 {{{< tab name="UI" >}}
-Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
+Navigate to the `Access Policies` section on the sidebar of the RKVST dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -141,10 +141,10 @@ curl -v -X GET \
 
 {{< tabs name="asset_filters_obac" >}}
 {{{< tab name="UI" >}}
-When adding a Policy, you will see this form:
+When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` Location created earlier, as well as the type of Asset (`Shipping Container`).
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` location created earlier, as well as the type of Asset (`Shipping Container`).
 
 {{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
@@ -180,17 +180,18 @@ Following our Shipping Container example, this is how we would set our Asset fil
 
 {{< tabs name="permissions_obac" >}}
 {{{< tab name="UI" >}}
-We select the `Permissions` Tab to set Users' Asset and Event attribute access policy.
+We select the `Permissions` tab to set users' Asset and Event attribute access policy.
 {{< img src="PolicyOBACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-In our case, we want the `Organization` actor, which implies OBAC. Type the Friendly Name of the Organization we wish to share with into the box and we should see a prepopulated drop-down search.
+In our case, we want the `Organization` actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a prepopulated drop-down search.
 
-{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization. {{< /note >}}
+{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that 0rganization. 
+{{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-To add an organization to the access policy, you will first need to retrieve their subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
+To add an organization to the access policy, you will first need to retrieve their Subject IDs using the [IAM Subjects API](https://docs.rkvst.com/docs/api-reference/iam-subjects-api/).
 
 Save the following to a JSON file with your desired subject information. 
 ```json
@@ -211,7 +212,7 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-5. Once all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+5. Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish. 
 
 {{< tabs name="complete_policy_obac" >}}
 {{{< tab name="UI" >}}
@@ -247,7 +248,7 @@ Add the desired permissions and the Subject ID found in the previous step.
 
 Note we have included RKVST-sigificant attributes: `arc_display_name` and `arc_display_type`.
 
-`arc_*` attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
+`arc_*` attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
 
 6. Once complete, finish creating the Access Policy.
 

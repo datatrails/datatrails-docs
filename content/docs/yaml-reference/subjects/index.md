@@ -21,7 +21,7 @@ toc: true
 
 ## Subjects Create
 
-This action creates a subject using their `wallet_pub_key` and `tessera_pub_key`. Adding a `subject_label` allows the subject to be referenced in later YAML Runner steps.
+This action creates a Subject using their `wallet_pub_key` and `tessera_pub_key`. Adding a `subject_label` allows the Subject to be referenced in later YAML Runner steps.
 
 ```yaml
 ---
@@ -40,7 +40,7 @@ steps:
 
 ## Subjects Create From base64
 
-This action creates a subject using their base64 `subject_string`. Adding a `subject_label` allows the subject to be referenced in later YAML Runner steps.
+This action creates a Subject using their base64 `subject_string`. Adding a `subject_label` allows the Subject to be referenced in later YAML Runner steps.
 
 For example:
 
@@ -69,7 +69,7 @@ steps:
 
 ## Subjects Update
 
-To update a subject's entity, the `subject_label` from a previous action in the YAML Runner steps is required. The `subject_label` may also be specified as the Subject ID of an existing subject, in the form `subjects/<subject-id`.
+To update a Subject's entity, the `subject_label` from a previous action in the YAML Runner steps is required. The `subject_label` may also be specified as the Subject ID of an existing Subject, in the form `subjects/<subject-id`.
 
 `display_name`, `wallet_pub_key`, and `tessera_pub_key` are optional, but at least one must be specified. 
 
@@ -92,7 +92,7 @@ steps:
 
 ## Subjects Delete
 
-This action deletes the specified subject. 
+This action deletes the specified Subject. 
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
@@ -108,7 +108,7 @@ steps:
 
 ## Subjects Read
 
-This action allows you to read the details for the specified subject. Setting `print_response: true` is necessary to print the full output. 
+This action allows you to read the details for the specified Subject. Setting `print_response: true` is necessary to print the full output. 
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
@@ -124,9 +124,9 @@ steps:
 
 ## Subjects List
 
-This action returns a list of all subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a list of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
 
-For example, to list all subjects with the name John Doe: 
+For example, to list all Subjects with the name John Doe: 
 
 ```yaml
 ---
@@ -140,7 +140,7 @@ steps:
 
 ## Subjects Count
 
-This action returns a count of all subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a count of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
 
 ```yaml
 ---
@@ -154,7 +154,7 @@ steps:
 
 ## Subjects Wait for Confirmation
 
-This action tells the YAML Runner to wait before proceeding to the next step until all subjects that meet your specified criteria are confirmed. 
+This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed. 
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 

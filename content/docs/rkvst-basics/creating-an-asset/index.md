@@ -16,7 +16,7 @@ aliases:
   - ../quickstart/tutorial
 ---
 
-An Asset can be anything: a Connected Machine, a Shipping Container, or even a Data Set. It can be any physical or digital object with an associated Name, Description, and Attributes.
+An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.
 
 Each Asset will have a history of any actions performed upon it by any actor.
 
@@ -40,13 +40,13 @@ Check out our [Core Concepts](https://docs.rkvst.com/docs/overview/core-concepts
 
 {{< tabs name="add_asset" >}}
 {{{< tab name="UI" >}}
-Using the Sidebar, select 'Add Asset'.
+Using the sidebar, select 'Add Asset'.
 {{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
-In order to create an asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
+In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
  
 ```yaml
 ---
@@ -68,7 +68,7 @@ Create an empty file, in later steps we will add the correct JSON.
 
 2. Add details to your new Asset and select a `Proof Mechanism`.
 
-[`Simple Hash`](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`](https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu) commits the details of your asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST. Please see our [Advanced Concepts](https://docs.rkvst.com/docs/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a proof mechanism for your Asset.
+[`Simple Hash`](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`](https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu) commits the details of your Asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST. Please see our [Advanced Concepts](https://docs.rkvst.com/docs/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Asset.
 
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
@@ -77,8 +77,8 @@ You will see an Asset Creation form, where you provide details of your new Asset
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Here you can fill out some more metadata about your asset:
-* `selector` is the identifying attribute the yaml runner will use to check if your asset exists already before attempting to create it, in this case we use `arc_display_name` which represents the name of the Asset.
-* `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
+* `selector` is the identifying attribute the yaml runner will use to check if your Asset exists already before attempting to create it. In this case, we use `arc_display_name` which represents the name of the Asset.
+* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all Assets.
 
 ```yaml
 ---
@@ -99,7 +99,7 @@ steps:
 {{< tab name="JSON" >}}
 In the file you created earlier, begin adding metadata for your Asset:
 
-* `behaviours` detail what class of events in your assets lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all assets.
+* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all Assets.
 
 ```json
 {
@@ -114,14 +114,14 @@ In the file you created earlier, begin adding metadata for your Asset:
 3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
 
 * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
-* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container` which will then be pre-populated for future Assets to use as their own types.
+* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container`, which will then be pre-populated for future Assets to use as their own types.
 
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
 {{< img src="AssetCreationDetailsUpdated.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The YAML Runner uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
 ```yaml
 ---
 steps:
@@ -160,11 +160,11 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
 
 4. At this point, you may wish to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.
 
-Extended Attributes are user-defined and can be added to each unique Asset. 
+Extended attributes are user-defined and can be added to each unique Asset. 
 
-Not all Assets of a specific type need to have the same Extended Attributes, but in most cases it is better to do so for consistency. 
+Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency. 
 
-To add a new Attribute to an Asset, enter your key-value pair.
+To add a new attribute to an Asset, enter your key-value pair.
 
 For Example:
 
@@ -174,11 +174,11 @@ Select `Add Attribute`, and add your key-value pairs.
 {{< img src="AssetExtendedAttributes.png" alt="Rectangle" caption="<em>Asset Extended Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Extended Attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
+Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our asset, to find out more about Locations, [click here](../grouping-assets-by-location/).
+This example also adds a location to our asset. To find out more about locations, [click here](../grouping-assets-by-location/).
 
-It's also good practice to include `confirm: true` which tells RKVST to finish commiting the asset before moving to the next step. 
+It's also good practice to include `confirm: true` which tells RKVST to finish commiting the Asset before moving to the next step. 
 ```yaml 
 ---
 steps:
@@ -211,9 +211,9 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Extended Attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
+Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our asset, to find out more about Locations and how to find your Location ID, [click here](../grouping-assets-by-location/).
+This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, [click here](../grouping-assets-by-location/).
 
 ```json
 {
@@ -274,7 +274,7 @@ Navigate to 'Manage Assets' to see your Asset in the UI.
 {{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-You can view all Asset data using the `ASSETS_LIST` action, use the `print_response` keyword to get the full output.
+You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.
 ```yaml  
 ---
 steps:
@@ -303,7 +303,7 @@ To view your Asset, click on the Asset row. You will see the detailed history of
 {{< img src="AssetView.png" alt="Rectangle" caption="<em>Viewing an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The `ASSETS_LIST` action can be filtered using identifying `attrs` to view the details of a specific Asset.
+The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
 ```yaml  
 ---
 steps:
@@ -317,7 +317,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Details of a specific asset can be retrieved using identifying `attrs`, such as name, type, or presence of a certain field.  
+Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.  
 ```bash
 curl -g -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -327,12 +327,12 @@ curl -g -v -X GET \
 {{< /tab >}}}
 {{< /tabs >}}
 
-Here we see all details entered: The Extended Attributes and a history of Events recorded on the Asset.
+Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.
 
 {{< note >}}
-**Note:** To update the details of your Asset after it has been created, you must create an event containing `Asset Attributes`. 
+**Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes`. 
 
-For more information on creating events, [click here.](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/)
+For more information on creating Events, [click here.](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/)
 {{< /note >}}
 
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.

@@ -15,10 +15,10 @@
 
 ## What is domain verification?
 
-Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization's tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.
+Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization's Tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.
 
 {{< note >}}
-**Note:** Having a verified domain is different from a `Tenant Display Name`. Tenant display names are internal, appearing only within your own tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your tenancy. 
+**Note:** Having a verified domain is different from a `Tenant Display Name`. Tenant display names are internal, appearing only within your own Tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your Tenancy. 
 {{< /note >}}
 
 ## Why is it important to verify my organization's domain?

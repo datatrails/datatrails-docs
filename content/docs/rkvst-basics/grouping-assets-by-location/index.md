@@ -17,23 +17,23 @@ aliases:
 
 Locations associate an Asset with a 'home' that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.
 
-It may be useful to indicate an Asset's origin. For example, if tracking traveling consultant's Laptops, you may wish to associate them with a 'home' office.
+It may be useful to indicate an Asset's origin. For example, if tracking traveling consultant's laptops, you may wish to associate them with a 'home' office.
 
 
 ## Creating a Location
 
-1. Create your Location.
+1. Create your location.
 
 
 {{< tabs name="add_location_locations" >}}
 {{{< tab name="UI" >}}
-In the Dashboard, select `Add Location` in the Sidebar.
+In the dashboard, select `Add Location` in the sidebar.
 {{< img src="LocationAdd.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
-In order to create a Location, we use the action `LOCATIONS_CREATE_IF_NOT_EXISTS`.
+In order to create a location, we use the action `LOCATIONS_CREATE_IF_NOT_EXISTS`.
  
 ```yaml
 ---
@@ -53,7 +53,7 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< /tabs >}}
 
 
-2. Add information about the Location you are creating. 
+2. Add information about the location you are creating. 
 
 {{< tabs name="add_location_info_locations" >}}
 {{{< tab name="UI" >}}
@@ -61,7 +61,7 @@ The following screen will appear:
 {{< img src="LocationDescribe.png" alt="Rectangle" caption="<em>The Location Webform</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-You may add a `description` and a `selector`. The `selector` is the identifying attribute used to check if your location exists before attempting to create it. In this case, we use `display_name` which represents the name of the Location.
+You may add a `description` and a `selector`. The `selector` is the identifying attribute used to check if your location exists before attempting to create it. In this case, we use `display_name` which represents the name of the location.
  
 ```yaml
 ---
@@ -74,7 +74,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You may add a `display_name` and `description` to identify your Location.
+You may add a `display_name` and `description` to identify your location.
  
 ```json
 {
@@ -86,7 +86,7 @@ You may add a `display_name` and `description` to identify your Location.
 {{< /tabs >}}
 
 
-3. Enter the required Location Name and Address, or in the case of YAML and JSON, coordinates.
+3. Enter the required location name and address, or in the case of YAML and JSON, coordinates.
 
 {{< tabs name="add_location_name_locations" >}}
 {{{< tab name="UI" >}}
@@ -125,15 +125,15 @@ Use `latitude` and `longitude` to describe the physical location.
 
 
 
-4. There is an option to add Extended Attributes to a Location. This is useful to add metadata to a Location, i.e. a site contact's number and email address.
+4. There is an option to add extended attributes to a location. This is useful to add metadata to a location, i.e. a site contact's number and email address.
 
 {{< tabs name="add_location_attributes_locations" >}}
 {{{< tab name="UI" >}}
-Use the `Extended Attributes` Tab.
+Use the `Extended Attributes` tab.
 {{< img src="LocationAttributes.png" alt="Rectangle" caption="<em>Adding Extended Attributes to a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Like Assets and Events, Locations may also have Extended Attributes added as key-value pairs. 
+Like Assets and Events, locations may also have extended attributes added as key-value pairs. 
  
 ```yaml
 ---
@@ -154,7 +154,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Like Assets and Events, Locations may also have Extended Attributes added as key-value pairs. 
+Like Assets and Events, locations may also have extended attributes added as key-value pairs. 
  
 ```json
 {
@@ -173,7 +173,7 @@ Like Assets and Events, Locations may also have Extended Attributes added as key
 {{< /tabs >}}
 
 
-5. Complete your Location. 
+5. Complete your location. 
 
 {{< tabs name="complete_location_locations" >}}
 {{{< tab name="UI" >}}
@@ -204,15 +204,15 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-6. View your Locations. 
+6. View your locations. 
 
  {{< tabs name="location_list_locations" >}}
  {{{< tab name="UI" >}}
- Navigate to `Manage Locations` in the Sidebar to see a list of existing Locations.
+ Navigate to `Manage Locations` in the sidebar to see a list of existing locations.
  {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
  {{< /tab >}}
  {{< tab name="YAML" >}}
- You can view all Location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 
+ You can view all location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 
 
  ```yaml
  ---
@@ -234,15 +234,15 @@ curl -v -X GET \
 {{< /tab >}}}
 {{< /tabs >}}
 
-7. View details of the Location you just created. 
+7. View details of the location you just created. 
 
  {{< tabs name="specific_location_locations" >}}
  {{{< tab name="UI" >}}
- You can inspect details of a single Location. Click the desired Location row. 
+ You can inspect details of a single location. Click the desired location row. 
  {{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Viewing a Location</em>" class="border-0" >}}
  {{< /tab >}}
  {{< tab name="YAML" >}}
- The `LOCATIONS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Location.
+ The `LOCATIONS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific location.
 
  ```yaml
  ---
@@ -271,16 +271,16 @@ curl -v -X GET \
 
 ### Adding at Asset Creation
 
-1. To assign a pre-existing Location to an Asset during Asset creation, you need only select it. 
+1. To assign a pre-existing location to an Asset during Asset creation, you need only select it. 
 
 {{< tabs name="add_at_asset_create" >}}
 {{{< tab name="UI" >}}
-Choose the desired Location from the Location drop-down.
+Choose the desired location from the location drop-down.
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-A pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
+A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<location-id>`). 
 ```yaml
 ---
 steps:
@@ -332,7 +332,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-A pre-exisiting Location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<UUID>`). 
+A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<location-id>`). 
 ```json
 {
     "behaviours": ["RecordEvidence", "Attachments"],
@@ -350,11 +350,11 @@ A pre-exisiting Location can be added during Asset creation, using the Location 
 
 ### Adding to a pre-existing Asset
 
-1. To assign a pre-existing asset with a new Location, you need to identify the Location Identity. To do this, view the Location details by clicking the Location row. 
+1. To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row. 
 
 {{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
 
-2. Then create an Event for the Asset and specify the identity of the new Location as noted in step 1, against the `arc_home_location_identity` key. 
+2. Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the `arc_home_location_identity` key. 
 
 For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/).
 
@@ -406,10 +406,10 @@ steps:
 
 
 {{< note >}}
-**Note** - You need to include the full `locations/<UUID>` reference as using only the `UUID` will not be recognized.
+**Note** - You need to include the full `locations/<location-id>` reference as using only the `UUID` will not be recognized.
 {{< /note >}}
 
-3. In the following screenshot, note the Location of our Asset has been updated.
+3. In the following screenshot, note the location of our Asset has been updated.
 
 {{< img src="LocationUpdateComplete.png" alt="Rectangle" caption="<em>Completed update of Asset Location</em>" class="border-0" >}}
 

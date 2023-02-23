@@ -21,11 +21,11 @@ toc: true
 
 ## Assets Create
 
-Adding an `asset_label` allows your asset to be referenced in later steps of the story. For example, if you want to add a compliance policy for the asset after it is created.
+Adding an `asset_label` allows your Asset to be referenced in later steps of the story. For example, if you want to add a Compliance Policy for the Asset after it is created.
 
-The `arc_namespace` (for the asset) and the `namespace` (for the location) are used to distinguish between assets and locations created between runs of the story. Usually these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
+The `arc_namespace` (for the Asset) and the `namespace` (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
 
-The optional `confirm: true` entry means that the YAML Runner will wait for the asset to be confirmed before moving on to the next step. This is beneficial if the asset will be referenced in later steps.
+The optional `confirm: true` entry means that the YAML Runner will wait for the Asset to be confirmed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.
 
 For example:
 
@@ -53,7 +53,7 @@ The output of this action is available in the [RKVST UI](https://app.rkvst.io):
 
 ## Assets Create If Not Exists
 
-This action is similar to `ASSETS_CREATE`, with the additional functionality of checking if an asset with the same identifier exists before executing the creation of a new one. 
+This action is similar to `ASSETS_CREATE`, with the additional functionality of checking if an Asset with the same identifier exists before executing the creation of a new one. 
 
 ```yaml
 ---
@@ -75,9 +75,9 @@ steps:
 
 ## Assets List
 
-This action returns a list of all assets that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a list of all Assets that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
 
-In the example below, our action will return a list of all assets with `arc_display_type: pump`.
+In the example below, our action will return a list of all Assets with `arc_display_type: pump`.
 
 ```yaml
 ---
@@ -90,7 +90,7 @@ steps:
       arc_display_type: pump
 ```
 
-The response printed was ev pump 1, the asset created in the `Assets Create` example: 
+The response printed was ev pump 1, the Asset created in the `Assets Create` example: 
 
 ```json
 Response {
@@ -121,9 +121,9 @@ Response {
 
 ## Assets Count
 
-This action returns a count of all assets that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a count of all Assets that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
 
-In the example below, our action will return a count of all assets with `arc_display_type: pump`.
+In the example below, our action will return a count of all Assets with `arc_display_type: pump`.
 
 ```yaml
 ---
@@ -138,14 +138,14 @@ steps:
 
 ## Assets Wait For Confirmed
 
-This action tells the YAML Runner to wait before proceeding to the next step until all assets that meet your specified criteria are confirmed. 
+This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed. 
 
 ```yaml
 ---
 steps:
   - step:
       action: ASSETS_WAIT_FOR_CONFIRMED
-      description: Wait for all assets in the wipp namespace to be confirmed
+      description: Wait for all Assets in the wipp namespace to be confirmed
     attrs:
       arc_namespace: wipp
 ```

@@ -16,16 +16,16 @@ aliases:
 ---
 
 {{< caution >}}
-**Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your Organization.
+**Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your organization.
 {{< /caution >}}
 
-Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their Attributes, and Events within a single Organization. 
+Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization. 
 
-Specifically, ABAC policies are created by Root Users to share information with Non-Root Users in the same Tenancy.
+Specifically, ***ABAC policies are created by Root Users to share information with Non-Root Users in the same Tenancy***.
 
-ABAC policies can be granular, with users allowed to see only single Attributes at a time, if wished. 
+ABAC policies can be granular, with users only allowed to see single attributes at a time. 
 
-It is possible to control policies based on types of Assets, their Location, and whether Users can read or write any information in an Asset.
+It is possible to control policies based on types of Assets, their location, and whether Users can read or write any information in an Asset.
 
 By default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
 
@@ -35,7 +35,7 @@ To create an ABAC policy, first [add users to your tenancy](https://docs.rkvst.c
 
 ## Creating an ABAC Policy
 
-Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific Attributes of the container.
+Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.
 
 We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create `Inspect` Events.
 
@@ -43,7 +43,7 @@ We shall create a policy for someone who needs to share some standard dimensions
 
 {{< tabs name="access_policies_abac" >}}
 {{{< tab name="UI" >}}
-Navigate to the `Access Policies` section on the Sidebar of the RKVST Dashboard.
+Navigate to the `Access Policies` section on the sidebar of the RKVST dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -77,15 +77,15 @@ curl -v -X GET \
 
 {{< tabs name="asset_filters_abac" >}}
 {{{< tab name="UI" >}}
-When adding a Policy, you will see this form:
+When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` Location created earlier, as well as the type of Asset (`Shipping Container`).
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` location created earlier, as well as the type of Asset (`Shipping Container`).
 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to categorize assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use: 
+Filters can use `and` or `or` to categorize Assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use: 
 
 ```json
 "attributes.arc_home_location_identity!=*"
@@ -111,14 +111,14 @@ Following our Shipping Container example, this is how we would set our Asset fil
 {{< /tab >}}}
 {{< /tabs >}}
 
-4. Next, enter the desired `Permissions` to set Users' Asset and Event attribute access. 
+4. Next, enter the desired `Permissions` to set user's Asset and Event attribute access. 
 
 {{< tabs name="permissions_abac" >}}
 {{{< tab name="UI" >}}
 We select the `Permissions` Tab to set Users' Asset and Event attribute access policy.
 {{< img src="PolicyABACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
-In this example, the `User` actor implies an ABAC policy, identified by email. Type the relevant email address and hit Enter; you may also see a dropdown list of users within your tenancy.
+In this example, the `User` actor implies an ABAC policy, identified by email. Type the relevant email address and hit enter; you may also see a dropdown list of users within your tenancy.
 
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
@@ -172,7 +172,7 @@ Additionally, you may set permissions based on the Custom Claims of an [App Regi
 {{< /tab >}}}
 {{< /tabs >}}
 
-5. Once all relevant details are complete, add the Permission Group to the policy. You may add multiple permission groups per policy if you wish. 
+5. Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish. 
 {{< tabs name="complete_policy_abac" >}}
 {{{< tab name="UI" >}}
 Enter desired permissions and select `Add Permission Group`. 
@@ -231,7 +231,7 @@ curl -v -X POST \
 
 7. Check the Asset is appropriately shared.
 
-Bill should only be allowed to see the Asset's Name, Location, Length, and Weight Attributes.
+Bill should only be allowed to see the Asset's Name, Location, Length, and Weight attributes.
 
 {{< img src="PolicyABACBillView.png" alt="Rectangle" caption="<em>Bill's view as a Non-Root User</em>" class="border-0" >}}
 
@@ -239,6 +239,6 @@ For comparison with our Root User, Jill:
 
 {{< img src="PolicyABACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
 
-We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the Location. 
+We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the location. 
 
 Our Root User, Jill, can see every detail associated with the Asset.

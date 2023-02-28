@@ -40,7 +40,7 @@ Check out our [Core Concepts](https://docs.rkvst.com/docs/overview/core-concepts
 
 {{< tabs name="add_asset" >}}
 {{{< tab name="UI" >}}
-Using the sidebar, select 'Add Asset'.
+Using the sidebar, select `Add Asset`.
 {{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

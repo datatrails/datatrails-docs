@@ -18,7 +18,7 @@ Invites can be used to invite a new user into a Tenancy to access Assets and Eve
 
 For example, inviting a new member of the organization into their organization's tenancy.
 
-By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using [ABAC policies](../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md) defined by a Root User.
+By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using [ABAC policies](../../rkvst-basics/managing-access-to-an-asset-with-abac/index.md) defined by an Administrator.
 
 For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on [OBAC policies](../../rkvst-basics/sharing-assets-with-obac/index.md) or the [IAM Policies API Reference](../iam-policies-api/index.md).
 

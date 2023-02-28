@@ -16,7 +16,7 @@ aliases:
 ---
 
 {{< caution >}}
-**Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your organization.
+**Caution:** You will only have access to the `Access Policies` screen if you are an Administrator in your organization.
 {{< /caution >}}
 
 {{< warning >}}
@@ -25,7 +25,7 @@ aliases:
 
 Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor.
 
-Where they differ is that OBAC shares only with Root Users of an external organization. The external Root User must then apply ABAC to establish appropriate access for their own organization's Non-Root Users.
+Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization's Non-Administrators.
 
 ## Adding External Organizations to Allow Sharing
 
@@ -33,7 +33,7 @@ In order to share Assets and their details with another organization or Tenancy,
 
 ### Finding Your Own ID
 
-1. As a Root User, navigate to `Access Policies`.
+1. As an Administrator, navigate to `Access Policies`.
 
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
@@ -49,7 +49,7 @@ This string is the one you should share with a 3rd Party who wants to share thei
 
 {{< tabs name="import_subject_obac" >}}
 {{{< tab name="UI" >}}
-As a Root User, navigate to `Access Policies`.
+As an Administrator, navigate to `Access Policies`.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -273,12 +273,12 @@ curl -v -X POST \
 
 7. Once complete, check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset's custom `Weight` attribute.
 
-{{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Root User of the External Organization</em>" class="border-0" >}}
+{{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as an Administrator of the External Organization</em>" class="border-0" >}}
 
-By comparison, our Root User, Jill, can see the full details of the Asset:
+By comparison, our Administrator, Jill, can see the full details of the Asset:
 
-{{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
+{{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as an Administrator</em>" class="border-0" >}}
 
-8. If Mandy wishes to share what she can to Non-Root Users within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
+8. If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
 There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).

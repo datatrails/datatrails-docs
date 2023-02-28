@@ -21,11 +21,11 @@ It supports the OpenID Connect Client Credentials Flow, which means that for eac
 
 These credentials are then used to request an access token from `https://app.rkvst.io/archivist/iam/v1/appidp/token`, which is used for API authentication to RKVST.
 
-Each App Registration is created with Non-Root User privileges by default.
+Each App Registration is created with Non-Administrator privileges by default.
 
 To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions. 
 
-If you wish to give your credentials Root User priviliges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in the `Manage RKVST` screen or by using the [Root Users Endpoint in the Tenancies API](../tenancies-api/).
+If you wish to give your credentials Administrator priviliges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).
 
 {{< note >}}
 For more information on App Registrations and access tokens, visit [RKVST Basics](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/).

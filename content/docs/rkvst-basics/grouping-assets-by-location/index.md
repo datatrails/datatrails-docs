@@ -27,8 +27,8 @@ It may be useful to indicate an Asset's origin. For example, if tracking traveli
 
 {{< tabs name="add_location_locations" >}}
 {{{< tab name="UI" >}}
-In the dashboard, select `Add Location` in the sidebar.
-{{< img src="LocationAdd.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
+In the dashboard, select `Locations`, then `Add Location`.
+{{< img src="LocationAddNew.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
@@ -208,8 +208,8 @@ curl -v -X POST \
 
  {{< tabs name="location_list_locations" >}}
  {{{< tab name="UI" >}}
- Navigate to `Manage Locations` in the sidebar to see a list of existing locations.
- {{< img src="LocationView.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
+ Navigate to `Locations` in the sidebar to see a list of existing locations.
+ {{< img src="LocationAddNew.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
  {{< /tab >}}
  {{< tab name="YAML" >}}
  You can view all location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 

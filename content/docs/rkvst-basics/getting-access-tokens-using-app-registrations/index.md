@@ -15,7 +15,7 @@ aliases:
   - ../setup-and-administration/getting-access-tokens-using-app-registrations
 ---
 
-Non-interactive access to the RKVST platform is managed by creating `Applications` with App Registrations, using either the `Manage RKVST` Menu in the UI or by using the App Registrations API directly.
+Non-interactive access to the RKVST platform is managed by creating `Applications` with App Registrations, using either the `Settings` Menu in the UI or by using the App Registrations API directly.
 
 `Applications` have a `CLIENT_ID` and `SECRET` that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
 
@@ -24,16 +24,16 @@ This authentication flow uses the industry-standard OIDC 'Client Credentials' Fl
 ## Creating an App Registration
 
 {{< warning >}}
-**Warning:** You may only create and manage App Registrations with a **Root User**.
+**Warning:** You may only create and manage App Registrations with an **Administrator**.
 {{< /warning >}}
 
 When enabling non-interactive access to RKVST, you ***must*** create your first App Registration in the **RKVST UI**.
 
 ### Using the RKVST UI to create an App Registration (First-Time Setup)
 
-1. As a Root User, open the `Manage RKVST` interface.
+1. As an Administrator, open the `Settings` interface.
 
-{{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Manage RKVST</em>" class="border-0" >}}
+{{< img src="Settings.png" alt="Rectangle" caption="<em>Settings</em>" class="border-0" >}}
 
 2. Navigate to the `APP REGISTRATIONS` tab.
 
@@ -62,14 +62,14 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 5. Now that you have created your App Registration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
-**Note:** By default, newly created Applications will always have a Non-Root User permission to the API, you must add the Application as a Root User to elevate it's permissions.
+**Note:** By default, newly created Applications will always have a Non-Administrator permission to the API, you must add the Application as an Administrator to elevate it's permissions.
 
-You can add an App Registration as a Root User using the `Manage RKVST` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration's `CLIENT_ID`.
+You can add an App Registration as an Administrator using the `Settings` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration's `CLIENT_ID`.
 {{< /note >}}
 
 ### Using the App Registrations API to create an App Registration
 
-The following assumes you have at least one `App Registration` that has already been configured with Root User permissions and that you are comfortable generating tokens and using the RKVST API.
+The following assumes you have at least one `App Registration` that has already been configured with Administrator permissions and that you are comfortable generating tokens and using the RKVST API.
 
 If you do not yet have an App Registration configured please follow the [first-time setup guide](./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup) to get started.
 

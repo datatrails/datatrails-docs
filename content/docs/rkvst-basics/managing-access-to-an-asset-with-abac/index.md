@@ -16,18 +16,18 @@ aliases:
 ---
 
 {{< caution >}}
-**Caution:** You will only have access to the `Access Policies` screen if you are a Root User in your organization.
+**Caution:** You will only have access to the `Access Policies` screen if you are an Administrator in your organization.
 {{< /caution >}}
 
 Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization. 
 
-Specifically, ***ABAC policies are created by Root Users to share information with Non-Root Users in the same Tenancy***.
+Specifically, ***ABAC policies are created by Administrators to share information with Non-Administrators in the same Tenancy***.
 
 ABAC policies can be granular, with users only allowed to see single attributes at a time. 
 
 It is possible to control policies based on types of Assets, their location, and whether Users can read or write any information in an Asset.
 
-By default, no Non-Root Users will see any existing Assets and Events unless a Root User explicitly creates an ABAC policy to allow it.
+By default, no Non-Administrators will see any existing Assets and Events unless an Administrator explicitly creates an ABAC policy to allow it.
 
 {{< note >}}
 To create an ABAC policy, first [add users to your tenancy](https://docs.rkvst.com/docs/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization).
@@ -233,12 +233,12 @@ curl -v -X POST \
 
 Bill should only be allowed to see the Asset's Name, Location, Length, and Weight attributes.
 
-{{< img src="PolicyABACBillView.png" alt="Rectangle" caption="<em>Bill's view as a Non-Root User</em>" class="border-0" >}}
+{{< img src="PolicyABACBillView.png" alt="Rectangle" caption="<em>Bill's view as a Non-Administrator</em>" class="border-0" >}}
 
-For comparison with our Root User, Jill:
+For comparison with our Administrator, Jill:
 
-{{< img src="PolicyABACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Root User</em>" class="border-0" >}}
+{{< img src="PolicyABACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Administrator</em>" class="border-0" >}}
 
 We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the location. 
 
-Our Root User, Jill, can see every detail associated with the Asset.
+Our Administrator, Jill, can see every detail associated with the Asset.

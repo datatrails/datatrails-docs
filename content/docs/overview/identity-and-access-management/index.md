@@ -21,14 +21,14 @@ Each RKVST Tenancy represents an organization, and each RKVST account represents
 
 RKVST Invites make it easy to add accounts to your tenancy. 
 
-As a [root user](https://docs.rkvst.com/docs/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add. 
+As an [administrator](https://docs.rkvst.com/docs/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add. 
 
 When the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your Tenancy. 
 
 {{< tabs name="invite_user_IAM" >}}
 {{{< tab name="UI" >}}
-On the Sidebar, select `Manage RKVST`.
-{{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Select 'Manage RKVST'</em>" class="border-0" >}}
+On the Sidebar, select `Settings`.
+{{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings'</em>" class="border-0" >}}
 
 Choose the `USERS` tab, then click `INVITE NEW USER`.
 {{< img src="InviteButton.png" alt="Rectangle" caption="<em>Invite New User</em>" class="border-0" >}}
@@ -62,8 +62,8 @@ There are two ways to name your RKVST Tenancy. The first way is to add a `Tenant
 
 To set your `Tenant Display Name`: 
 
-1. On the Sidebar, select `Manage RKVST`.
-{{< img src="ManageRKVST.png" alt="Rectangle" caption="<em>Select 'Manage RKVST'</em>" class="border-0" >}}
+1. On the Sidebar, select `Settings`.
+{{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings'</em>" class="border-0" >}}
 
 2. Choose the `TENANCY` tab, add your desired name, then click `CHANGE DISPLAY NAME`.
 {{< img src="TenantDisplay.png" alt="Rectangle" caption="<em>Change Display Name</em>" class="border-0" >}}
@@ -76,7 +76,7 @@ The second way to set your tenancy name is to [get your domain verified](../../b
 
 [Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a [Verified Domain](https://docs.rkvst.com/docs/beyond-the-basics/verified-domain/).
 
-1. Navigate to `Manage RKVST` on the sidebar and select `Tenancy`.
+1. Navigate to `Settings` on the sidebar and select `Tenancy`.
 
 Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. Saving your configuration may take a moment.
 

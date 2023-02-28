@@ -17,13 +17,13 @@ toc: true
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
-An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with Non-Root Users within your Tenancy. A Non-Root User could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
+An [ABAC](https://docs.rkvst.com/docs/quickstart/managing-access-to-an-asset-with-abac/) policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
 
 To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations. 
 
 You may also set permissions based on the Custom Claims of an [App Registration](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
-An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the Root Users of an external organization.
+An [OBAC](https://docs.rkvst.com/docs/quickstart/sharing-assets-with-obac/) policy is used to share with the Administrators of an external organization.
 
 To begin sharing with OBAC, you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [basics section](../../quickstart/sharing-assets-with-obac/#importing-another-organizations-ids).
 

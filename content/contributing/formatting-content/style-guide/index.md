@@ -242,10 +242,10 @@ We do not permit use of underscored `_` emphasis, only asterisks`*` will be acce
 For example:
 
 ```md
-This action is available ***only*** to **Root Users**. 
+This action is available ***only*** to **Administrators**. 
 ```
 
-This action is available ***only*** to **Root Users**.
+This action is available ***only*** to **Administrators**.
 
 Follow this link for more information on using [Emphasis](../basic-markdown-formatting/#emphasis) in markdown
 

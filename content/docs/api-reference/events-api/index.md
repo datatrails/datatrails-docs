@@ -13,13 +13,10 @@ weight: 107
 toc: true
 ---
 
-{{< note >}}
-For more information on creating an Event against an Asset, visit our [RKVST Basics guide](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/).
-{{< /note >}}
-
 ## Events API Examples
 
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+
 ### Event Creation
 
 Define the Event parameters and store in `/path/to/jsonfile`:
@@ -89,7 +86,7 @@ The response is:
 ```
 ### Adding Attachments
 
-The following assumes that an attachment has been uploaded to RKVST using the [Blob API](../blobs-api). 
+The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api). 
 
 This attachment uuid is generically referred to as:
 
@@ -117,6 +114,14 @@ The following example shows you usage with both the `event_attributes` and the `
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",
+    },
+    "arc_primary_image": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30",
+      "arc_blob_identity": "blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "photo.jpg",
+      "arc_display_name": "arc_primary_image",
     },
   },
   "asset_attributes": {
@@ -163,6 +168,14 @@ You should see the response:
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "safety_conformance.pdf",
+      "arc_display_name": "Conformance Report",
+    },
+    "arc_primary_image": {
+      "arc_attribute_type": "arc_attachment",
+      "arc_blob_hash_value": "3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30",
+      "arc_blob_identity": "blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",

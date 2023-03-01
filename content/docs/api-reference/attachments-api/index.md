@@ -15,6 +15,8 @@ toc: true
 
 ## Attachment API Examples
 
+The Attachments API enables you to query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger. For details of how to actually attach these BLOBs to Events and Assets, see the [the Events API Reference](../../api-reference/events-api/#adding-attachments).
+
 Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### Retrieve a Specific Attachment on an Asset

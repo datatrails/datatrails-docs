@@ -37,8 +37,8 @@ A simple Asset might look like this:
         "arc_serial_number": "5a",
         "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 
-        // attribute with "arc_attribute_type": "arc_attachment" is a collection of BLOBs attached to the Asset
-        "primary_image": {
+        // attribute with "arc_attribute_type": "arc_attachment" is a reference to a BLOB attached to the Asset
+        "arc_primary_image": {
           "arc_attribute_type": "arc_attachment",
           "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
           "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
@@ -284,34 +284,36 @@ Revoking access can therefore be achieved in a number of ways, any of which may 
 **Note:** As with any fair decentralized system it is not possible to 'unsee' information. Any change in OBAC access policies _including revoking OBAC access to a value chain partner_ only applies to new information contributed _after_ the policy change. This ensures continued fair access to the historic evidence base for all legitimate participants whilst also maintaining control of future operations with the Asset owner.
 {{< /note >}}
 
-## Attachments
+## Attachments and Blobs
 
 Attachments in RKVST enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.
 
-### Attachments on Assets
-
-Adding an attachment to an Asset enables recording of characteristics of the Asset that are very difficult to capture in the rigid structured data of Asset attributes. For example, a device’s rating plate or latest service manual. While Asset attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a service manual PDF.
-
-#### The Primary Image
-
-Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the RKVST services: `arc_primary_image`.
-If an asset has an attachment named `arc_primary_image`, then this will be used by the SaaS user interface and other tools to represent the asset.
-
-### Attachments on Events
-
-Adding an Attachment to an Event allows recording and communication of evidence that is difficult to capture in the rigid structured data of Event attributes. For example:
+Adding an attachment to an Asset or Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:
 * a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection
 * a PDF of a safety conformance report to support a maintenance event
 * a software manifest to support an update
 * an x-ray image
 
-To add attachments to an Event, simply specify an attribute with `"arc_attribute_type": "arc_attachment"` inside a dictionary of blob information in the `event_attributes` of the request when posting an Event.
+Attaching rich evidence to an Asset or Event is a two step process:
+1. First a Binary Large OBject (BLOB) is uploaded
+2. Then a reference to that blob is attached to the Event or Asset. 
+
+To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`. To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
+
+For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments API Reference](../../api-reference/attachments-api/)
+
+### The Primary Image
+
+Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the RKVST services: `arc_primary_image`.
+If an asset has an attachment attribute named `arc_primary_image`, then this will be used by the SaaS user interface and other tools to represent the asset.
 
 {{< note >}}
-**Note:** Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event and can only be downloaded by users with appropriate access rights to that attachment.
+**Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. 
 {{< /note >}}
 
-For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments API Reference](../../api-reference/assets-api/)
+{{< note >}}
+**Note:** While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.
+{{< /note >}}
 
 ## Locations
 

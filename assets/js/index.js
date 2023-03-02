@@ -88,6 +88,7 @@ Source:
     {{ end -}}
   ];
 
+
   {{ $list := (where .Site.Pages "Section" "docs") -}}
   {{ $len := (len $list) -}}
 
@@ -112,14 +113,13 @@ Source:
   function show_results(){
 
     var value = this.value;
-    var results = index.search(value, { limit: 5, index: ["content"], enrich: true });
+    var results = index.search(value, { limit: 10, index: ["content"], enrich: true });
     var entry, childs = suggestions.childNodes;
-    var i = 0, len = results.length;
+    var len = results[0].result.length;
 
     suggestions.classList.remove('d-none');
 
-    results.forEach(function(results) {
-
+    results[0].result.forEach(function(article) {
       entry = document.createElement('div');
 
       entry.innerHTML = '<a href><span></span><span></span></a>';
@@ -128,29 +128,25 @@ Source:
       t = entry.querySelector('span:first-child'),
       d = entry.querySelector('span:nth-child(2)');
 
-      a.href = results.result[i].doc.href;
-      t.textContent = results.result[i].doc.title;
-      d.textContent = results.result[i].doc.description;
+      a.href = article.doc.href;
+      t.textContent = article.doc.title;
+      d.textContent = article.doc.description;
 
       suggestions.appendChild(entry);
 
     });
 
     while(childs.length > len){
-
-        suggestions.removeChild(childs[i])
+      suggestions.removeChild(childs[0])
     }
-
   }
 
   function accept_suggestion(){
+    while(suggestions.lastChild){
+        suggestions.removeChild(suggestions.lastChild);
+    }
 
-      while(suggestions.lastChild){
-
-          suggestions.removeChild(suggestions.lastChild);
-      }
-
-      return false;
+    return false;
   }
 
 }());

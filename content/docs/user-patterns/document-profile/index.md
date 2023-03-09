@@ -19,7 +19,7 @@ The RKVST document profile is a set of suggested Asset and Event attributes that
 The `document_` prefix is used to designate attributes that are part of the profile.
 {{< /note >}}
 
-### Asset Attributes
+### Asset Attributes 
 
 | Attribute              | Meaning                                                                                        | Requirement                 |
 |------------------------|------------------------------------------------------------------------------------------------|-----------------------------|

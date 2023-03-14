@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/jitsuin/0629f48c-3979-4bbc-9026-cb06b3dfd0ae/291fa371-1bc4-4424-b88a-96b6f89c9a66/_apis/work/boardbadge/423c32a8-aeab-4b37-91eb-d1a4d04348b3)](https://dev.azure.com/jitsuin/0629f48c-3979-4bbc-9026-cb06b3dfd0ae/_boards/board/t/291fa371-1bc4-4424-b88a-96b6f89c9a66/Microsoft.RequirementCategory)
 # RKVST Documentation
 
 This is the Home of the RKVST Documentation.

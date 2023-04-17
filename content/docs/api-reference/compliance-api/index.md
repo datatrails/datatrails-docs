@@ -206,7 +206,7 @@ curl -v -X POST \
     https://app.rkvst.io/archivist/v1/compliance_policies
 ```
 
-Using data from `/path/to/jsonfile` in the format described in [Types of Compliance Policies](./types-of-compliance-policies).
+Using data from `/path/to/jsonfile` in the format described in [Types of Compliance Policies](#types-of-compliance-policies).
 
 Sample response:
 

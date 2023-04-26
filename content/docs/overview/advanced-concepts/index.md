@@ -356,6 +356,8 @@ Policies can also declare relative tolerances,  such as:
 
 Individual assets either pass or fail, and organizations can calculate their overall security/compliance posture based on what proportion of their assets are breaching their policy set. Compliance signals can also be used to identify where risk lies in an organization and help to prioritize remedial activities.
 
+#### Types of Compliance Policy
+
 As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:
 
 * *COMPLIANCE RICHNESS*: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example, "Weight attribute must be less than 1000 kg"

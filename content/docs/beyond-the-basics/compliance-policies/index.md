@@ -19,6 +19,10 @@ Compliance Policies are user-defined rule sets that Assets can be tested against
 
 For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
 
+{{< note >}}
+**Note:** Creation and editing of Compliance Policies is only supported through the API.
+{{< /note >}}
+
 RKVST allows for several types of Compliance Policies: 
 
 1. ***COMPLIANCE_SINCE:*** checks the time elapsed since a specific type of Event has not exceeded set threshold. 
@@ -26,11 +30,6 @@ RKVST allows for several types of Compliance Policies:
 For example, "time since last maintenance must be less than 72 hours".
 
 {{< tabs name="compliance_since" >}}
-{{{< tab name="UI" >}}
-{{< img src="ComplianceSinceAsset.png" alt="Rectangle" caption="<em>Add Asset Information</em>" class="border-0" >}}
-{{< img src="ComplianceSinceCompliance.png" alt="Rectangle" caption="<em>Add Compliance Information</em>" class="border-0" >}}
-
-{{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
 ---
@@ -93,11 +92,6 @@ To correlate Events, define the attribute `arc_correlation_value` in the Event A
 For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event".
 
 {{< tabs name="compliance_current_outstanding" >}}
-{{{< tab name="UI" >}}
-{{< img src="ComplianceOutstandingAsset.png" alt="Rectangle" caption="<em>Add Asset Information</em>" class="border-0" >}}
-{{< img src="ComplianceOutstandingCompliance.png" alt="Rectangle" caption="<em>Add Compliance Information</em>" class="border-0" >}}
-
-{{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
 ---
@@ -160,11 +154,6 @@ To correlate Events, define the attribute `arc_correlation_value` in the Event A
 For example, "a Maintenance Request Event must be addressed by a Maintenance Performed Event within 72 hours".
 
 {{< tabs name="compliance_period_outstanding" >}}
-{{{< tab name="UI" >}}
-{{< img src="CompliancePeriodAsset.png" alt="Rectangle" caption="<em>Add Asset Information</em>" class="border-0" >}}
-{{< img src="CompliancePeriodCompliance.png" alt="Rectangle" caption="<em>Add Compliance Information</em>" class="border-0" >}}
-
-{{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
 ---
@@ -231,9 +220,6 @@ For example, "the time between a Maintenance Request Event and Maintenance Perfo
 The `dynamic_window` is the time period to evaluate on, in this case, one week. The `dynamic_variability` is the number of standard deviations from the mean allowed, in this case, 0.5.
 
 {{< tabs name="compliance_dynamic_tolerance" >}}
-{{{< tab name="UI" >}}
-This type of Compliance Policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
-{{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
 ---
@@ -298,9 +284,6 @@ The operator can be one of six relational operators: equal to (`=`), not equal t
 For example, "radiation level must be less than 7".
 
 {{< tabs name="compliance_richness" >}}
-{{{< tab name="UI" >}}
-This type of Compliance Policy is not yet available for creation via the UI. Check out our YAML or JSON format options!
-{{< /tab >}}
 {{< tab name="YAML" >}}
 ```yaml
 ---
@@ -358,11 +341,6 @@ curl -v -X POST \
 You may check the compliance status of a specific Asset within your tenancy.
 
 {{< tabs name="compliance_status" >}}
-{{{< tab name="UI" >}}
-Navigate to `Manage Assets`, then click the Asset you'd like to check. If your Asset is compliant with the relative policies you have created, there will be an RKVST blue tick with the message `No compliance policy failures`. 
-{{< img src="ComplianceStatus.png" alt="Rectangle" caption="<em>Add Asset Information</em>" class="border-0" >}}
-
-{{< /tab >}}
 {{< tab name="YAML" >}}
 Create a yaml file, using the desired Asset ID as your `asset_label`. Setting `report: true` will print the compliance information for the Asset when the file is run. 
 

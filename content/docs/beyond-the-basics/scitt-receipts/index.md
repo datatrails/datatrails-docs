@@ -13,11 +13,15 @@
  toc: true
 ---
 
+{{< note >}}
+**Note:** Currently, receipts can only be retrieved for Khipu Events. 
+{{< / note >}}
+
 ## What are receipts?
 
 Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independently of RKVST. 
 
-Receipts can be retrieved for [Simple Hash](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) and [Khipu](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and anchored.
+Receipts can be retrieved for [Khipu](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and anchored.
 
 A user may get a receipt or any Event they recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
@@ -45,4 +49,50 @@ In the SCITT model, a claim is then presented to a trusted service to obtain a r
 
 ## How do I retrieve a receipt?
 
-RKVST provides a Python script that can be used to retrieve a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
+As a convenience, RKVST provides a Python script that can be used to retrieve a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
+
+This can also be done with independent tools. 
+
+Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/), [Event ID](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
+
+1. Get a claim for the Event identity.
+
+```bash
+CLAIM=$(curl -s -d "{\"identity\":\"$EVENT_IDENTITY\"}" \
+        -X POST -H "Authorization: Bearer ${TOKEN}" \
+        https://app.rkvst.io/archivist/v1/notary/claims/events \
+        | jq -r .claim)
+```
+
+2. Next, get the corresponding receipt for the claim. 
+
+```bash
+RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
+        -X POST -H "Authorization: Bearer ${TOKEN}" \
+        https://app.rkvst.io/archivist/v1/notary/receipts \
+        | jq -r .receipt)
+```
+
+3. Get the block details.
+
+Get the block number using:
+
+```bash
+echo $RECEIPT | base64 -d | less
+```
+
+Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decode output and set the value in the environment, for example: `BLOCK="0x1234"`.
+
+Next, get the private state root:
+
+```bash
+WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
+            https://app.rkvst.io/archivist/v1/archivistnode/block?number="$BLOCK" \
+            | jq -r .privateStateRoot)
+```
+
+4. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.
+
+```bash
+echo $RECEIPT | rkvst_receipt_scittv1 verify -d --worldroot $WORLDROOT
+```

@@ -217,7 +217,7 @@ curl -v -X POST \
 {{< tabs name="complete_policy_obac" >}}
 {{{< tab name="UI" >}}
 Enter desired permissions and select `Add Permission Group`. 
-{{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
+{{< img src="PolicyOBACPermissionGroup.png" alt="Rectangle" caption="<em>Permitted Attributes on an Asset</em>" class="border-0" >}}
 
 {{< /tab >}}
 {{< tab name="JSON" >}}

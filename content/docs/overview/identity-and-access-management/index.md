@@ -65,7 +65,7 @@ To set your `Tenant Display Name`:
 1. On the Sidebar, select `Settings`.
 {{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings'</em>" class="border-0" >}}
 
-2. Choose the `TENANCY` tab, add your desired name, then click `CHANGE DISPLAY NAME`.
+2. Add your desired name, then click `CHANGE DISPLAY NAME`.
 {{< img src="TenantDisplay.png" alt="Rectangle" caption="<em>Change Display Name</em>" class="border-0" >}}
 
 #### Verified Domain 

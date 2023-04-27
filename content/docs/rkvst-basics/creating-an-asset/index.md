@@ -40,8 +40,8 @@ Check out our [Core Concepts](https://docs.rkvst.com/docs/overview/core-concepts
 
 {{< tabs name="add_asset" >}}
 {{{< tab name="UI" >}}
-Using the sidebar, select `Add Asset`.
-{{< img src="AssetAdd.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
+Using the sidebar, select `Register Asset`.
+{{< img src="AssetRegister.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
@@ -73,7 +73,7 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:
-{{< img src="AssetCreateUpdated.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
+{{< img src="AssetCreateUpdate.png" alt="Rectangle" caption="<em>Creating an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Here you can fill out some more metadata about your asset:
@@ -118,7 +118,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
-{{< img src="AssetCreationDetailsUpdated.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
+{{< img src="AssetCreateUpdate.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The YAML Runner uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
@@ -270,8 +270,8 @@ curl -v -X POST \
 
 {{< tabs name="view_all_assets" >}}
 {{{< tab name="UI" >}}
-Navigate to 'Manage Assets' to see your Asset in the UI.
-{{< img src="AssetManage.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
+Navigate to 'Assets' to see your Asset in the UI.
+{{< img src="Asset.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.

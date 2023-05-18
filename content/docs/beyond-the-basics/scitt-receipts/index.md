@@ -13,10 +13,6 @@
  toc: true
 ---
 
-{{< note >}}
-**Note:** Currently, receipts can only be retrieved for Khipu Events. 
-{{< / note >}}
-
 ## What are receipts?
 
 Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independently of RKVST. 
@@ -39,7 +35,7 @@ Receipts for Public Events can be obtained by any authenticated API request.
 
 The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.rkvst.com/what-is-scitt-and-how-does-rkvst-help/).
 
-Regardless of how the standards evolve, any receipt you obtain today will remain non-repudiable proof of posting for the Event.
+Regardless of how the standards evolve, any receipt you obtain today cannot be repudiated as proof of posting for the Event.
 
 {{< warning >}}
 **Warning:** The complete contents of the Event are present in the receipt in clear text. If the Event information is sensitive, the receipt should be regarded as sensitive material as well. 
@@ -67,7 +63,7 @@ First, save the identity of an event in `EVENT_IDENTITY`.
 ```bash
 EVENT_TRANSACTION_ID=$(curl -s \
         -X GET -H "Authorization: Bearer ${TOKEN}" \
-        https://app.rkvst.io/archivist/v2/$EVENT_IDENTITY \
+        https://app.rkvst.io/archivist/v2/${EVENT_IDENTITY} \
         | jq -r .transaction_id)
 ```
 
@@ -78,7 +74,7 @@ The transaction_id is available once the event has been committed to the blockch
 2. Get a claim for the Event identity.
 
 ```bash
-CLAIM=$(curl -s -d "{\"transaction_id\":\"$EVENT_TRANSACTION_ID\"}" \
+CLAIM=$(curl -s -d "{\"transaction_id\":\"${EVENT_TRANSACTION_ID}\"}" \
         -X POST -H "Authorization: Bearer ${TOKEN}" \
         https://app.rkvst.io/archivist/v1/notary/claims/events \
         | jq -r .claim)
@@ -98,21 +94,21 @@ RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
 Get the block number using:
 
 ```bash
-echo $RECEIPT | base64 -d | less
+echo ${RECEIPT} | base64 -d | less
 ```
 
-Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decode output and set the value in the environment, for example: `BLOCK="0x1234"`.
+Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decoded output and set the value in the environment, for example: `BLOCK="0x1234"`.
 
 Next, get the private state root:
 
 ```bash
 WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
-            https://app.rkvst.io/archivist/v1/archivistnode/block?number="$BLOCK" \
+            https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
             | jq -r .privateStateRoot)
 ```
 
 4. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.
 
 ```bash
-echo $RECEIPT | rkvst_receipt_scittv1 verify -d --worldroot $WORLDROOT
+echo ${RECEIPT} | rkvst_receipt_scittv1 verify -d --worldroot ${WORLDROOT}
 ```

@@ -21,7 +21,11 @@
 
 Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independently of RKVST. 
 
-Receipts can be retrieved for [Khipu](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and anchored.
+
+Receipts can be retrieved for [Simple Hash](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and  [anchored](https://docs.rkvst.com/docs/glossary/common-rkvst-terms/)
+
+Receipts can be retrieved for [Khipu](https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu) Events once they have been confirmed.
+
 
 A user may get a receipt or any Event they recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
@@ -55,16 +59,32 @@ This can also be done with independent tools.
 
 Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/), [Event ID](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
 
-1. Get a claim for the Event identity.
+
+First, save the identity of an event in `EVENT_IDENTITY`.
+
+1. Get the transaction_id from the Event.
 
 ```bash
-CLAIM=$(curl -s -d "{\"identity\":\"$EVENT_IDENTITY\"}" \
+EVENT_TRANSACTION_ID=$(curl -s \
+        -X GET -H "Authorization: Bearer ${TOKEN}" \
+        https://app.rkvst.io/archivist/v2/$EVENT_IDENTITY \
+        | jq -r .transaction_id)
+```
+
+{{< warning >}}
+The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash `proof_mechansim` it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.
+{{< / warning>}}
+
+2. Get a claim for the Event identity.
+
+```bash
+CLAIM=$(curl -s -d "{\"transaction_id\":\"$EVENT_TRANSACTION_ID\"}" \
         -X POST -H "Authorization: Bearer ${TOKEN}" \
         https://app.rkvst.io/archivist/v1/notary/claims/events \
         | jq -r .claim)
 ```
 
-2. Next, get the corresponding receipt for the claim. 
+3. Next, get the corresponding receipt for the claim. 
 
 ```bash
 RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
@@ -73,7 +93,7 @@ RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
         | jq -r .receipt)
 ```
 
-3. Get the block details.
+4. Get the block details.
 
 Get the block number using:
 

@@ -15,7 +15,7 @@
 
 ## What are receipts?
 
-Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independently of RKVST. 
+Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST. 
 
 
 Receipts can be retrieved for [Simple Hash](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and  [anchored](https://docs.rkvst.com/docs/glossary/common-rkvst-terms/)

@@ -23,7 +23,7 @@ Receipts can be retrieved for [Simple Hash](https://docs.rkvst.com/docs/overview
 Receipts can be retrieved for [Khipu](https://docs.rkvst.com/docs/overview/advanced-concepts/#khipu) Events once they have been confirmed.
 
 
-A user may get a receipt or any Event they recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
+A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
 Receipts for Public Events can be obtained by any authenticated API request.
 

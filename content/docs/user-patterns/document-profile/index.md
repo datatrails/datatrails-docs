@@ -34,7 +34,7 @@ The `document_` prefix is used to designate attributes that are part of the prof
 
 {{< note >}}
 ##### Uploading Documents as Attachments
-Please see this guidance for the correct format to upload documents as attachments: http://localhost:1313/docs/api-reference/events-api/#adding-attachments
+For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments section of the Events API](../../api-reference/events-api/#adding-attachments)
 {{< /note >}}
 
 ### Publish Event

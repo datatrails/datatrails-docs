@@ -168,4 +168,4 @@ curl -g -v -X GET \
      https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>:publicurl
 ```
 {{< /tab >}}
-{{< /tabs >}}
+{{< /tabs >}} 

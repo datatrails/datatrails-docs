@@ -6,7 +6,7 @@ RKVST provides Continuous Assurance as a Service to attest trustworthiness of As
 
 ## Contributing
 
-To contribute to these Docs, please refer to our [Contributing Guidelines](https://docs.rkvst.com/contributing/getting-started/pulling-and-building-rkvst-docs/).
+To contribute to these Docs, please refer to our [Contributing Guidelines](/contributing/getting-started/pulling-and-building-rkvst-docs/).
 
 We'll happily review any suggestions!
 

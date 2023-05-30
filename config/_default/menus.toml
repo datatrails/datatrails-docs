@@ -21,69 +21,88 @@
   weight = 1
   identifier = "getting-started"
   url = "/contributing/getting-started/"
-  
-[[docs]]
-  name = "API Reference"
-  weight = 50
-  identifier = "api-reference"
-  url = "/docs/api-reference/"
 
-[[docs]]
-  name = "YAML Runner Reference"
-  weight = 51
-  identifier = "yaml-reference"
-  url = "/docs/yaml-reference/"
 
-[[docs]]
-  name = "User Patterns"
-  weight = 2
-  identifier = "user-patterns"
-  url = "/docs/user-patterns/"
 
-[[docs]]
+[[developers]]
   name = "Developer Patterns"
-  weight = 3
+  weight = 10
   identifier = "developer-patterns"
-  url = "/docs/developer-patterns/"
+  url = "/developers/developer-patterns/"
 
-[[docs]]
-  name = "Beyond the Basics"
-  weight = 5
-  identifier = "beyond-the-basics"
-  url = "/docs/beyond-the-basics/"
+[[developers]]
+  name = "API Reference"
+  weight = 20
+  identifier = "api-reference"
+  url = "/developers/api-reference/"
 
-[[docs]]
-  name = "RKVST Basics"
-  weight = 4
-  identifier = "rkvst-basics"
-  url = "/docs/rkvst-basics/"
+[[developers]]
+  name = "YAML Runner Reference"
+  weight = 30
+  identifier = "yaml-reference"
+  url = "/developers/yaml-reference/"
 
-[[docs]]
-  name = "Glossary"
-  weight = 6
-  identifier = "glossary"
-  url = "/docs/glossary/"
 
-[[docs]]
-  name = "Overview"
-  weight = 1
+
+[[platform]]
+  name = "Overview new"
+  weight = 10
   identifier = "overview"
-  url = "/docs/overview/"
+  url = "/platform/overview/"
+
+[[platform]]
+  name = "RKVST Basics"
+  weight = 20
+  identifier = "rkvst-basics"
+  url = "/platform/rkvst-basics/"
+
+[[platform]]
+  name = "Beyond the Basics"
+  weight = 30
+  identifier = "beyond-the-basics"
+  url = "/platform/beyond-the-basics/"
+
+[[platform]]
+  name = "User Patterns"
+  weight = 40
+  identifier = "user-patterns"
+  url = "/platform/user-patterns/"
+
+[[platform]]
+  name = "Glossary"
+  weight = 50
+  identifier = "glossary"
+  url = "/platform/glossary/"
+
+
 
 [[main]]
-  name = "Contributing"
-  url = "/contributing/getting-started/pulling-and-building-rkvst-docs"
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[main]]
+  name = "Developers"
+  url = "/developers/api-reference"
+  weight = 20
+
+[[main]]
+  name = "Platform"
+  url = "/platform/overview/introduction"
   weight = 30
 
 [[main]]
   name = "Support"
   url = "https://support.rkvst.com"
-  weight = 20
+  weight = 40
 
 [[main]]
-  name = "Docs"
-  url = "/docs/overview/introduction"
-  weight = 10
+  name = "Contributing"
+  url = "/contributing/getting-started/pulling-and-building-rkvst-docs"
+  weight = 50
+
+
+
 
 [[social]]
   name = "Twitter"
@@ -94,7 +113,7 @@
 [[social]]
   name = "GitHub"
   pre = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-github\"><path d=\"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22\"></path></svg>"
-  url = "https://github.com/rkvst/rkvst-docs"
+  url = "https://github.com/rkvst/"
   post = "v0.1.0"
   weight = 20
 

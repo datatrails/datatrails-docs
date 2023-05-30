@@ -178,7 +178,7 @@ Like Assets and Events, locations may also have extended attributes added as key
 {{< tabs name="complete_location_locations" >}}
 {{{< tab name="UI" >}}
 Click `Create Location`.
-{{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
+{{< img src="LocationAttributes.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
@@ -352,7 +352,7 @@ A pre-exisiting location can be added during Asset creation, using the Location 
 
 1. To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row. 
 
-{{< img src="LocationIdentity.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
+{{< img src="LocationDetails.png" alt="Rectangle" caption="<em>Location Identity</em>" class="border-0" >}}
 
 2. Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the `arc_home_location_identity` key. 
 

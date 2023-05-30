@@ -36,7 +36,7 @@ For more detailed Asset creation instructions, visit [Creating an Asset](https:/
 
 {{< tabs name="create_asset_public" >}}
 {{{< tab name="UI" >}}
-Select `Add Asset` from the sidebar and fill in the desired details.
+Select `Register Asset` from the sidebar and fill in the desired details.
 {{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
 
 Check the box next to `Make Asset Public`.

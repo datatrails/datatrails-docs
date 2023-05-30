@@ -29,7 +29,7 @@ For Public Assets, retrieve the transaction information from the public view of 
 
 {{< tabs name="retrieve-transaction-info" >}}
 {{{< tab name="UI" >}}
-Select `Audit/Search` from the sidebar and select a `Transaction` from the Events Overview List.
+Select `Audit/Filters` from the sidebar and select a `Transaction` from the Events Overview List.
 {{< img src="AuditSearch.png" alt="Rectangle" caption="<em>Audit/Search</em>" class="border-0" >}}
 
 Copy the `start time` and `end time` from the Simple Hash Details. These will be used as inputs to the [RKVST Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python).

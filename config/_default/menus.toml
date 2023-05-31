@@ -83,7 +83,7 @@
 
 [[main]]
   name = "Developers"
-  url = "/developers/api-reference"
+  url = "/developers/developer-patterns/containers-as-assets/"
   weight = 20
 
 [[main]]

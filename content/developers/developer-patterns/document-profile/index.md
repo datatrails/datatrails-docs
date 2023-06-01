@@ -7,9 +7,9 @@ lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
 images: []
 menu:
-  platform:
-    parent: "user-patterns"
-weight: 34
+  developers:
+    parent: "developer-patterns"
+weight: 35
 toc: true
 ---
 

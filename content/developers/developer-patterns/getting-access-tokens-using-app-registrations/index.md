@@ -7,8 +7,8 @@ lastmod: 2021-06-16T11:12:25+01:00
 draft: false
 images: []
 menu: 
-  platform:
-    parent: "rkvst-basics"
+  developers:
+    parent: "developer-patterns"
 weight: 31
 toc: true
 aliases:

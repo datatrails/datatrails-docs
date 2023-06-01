@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 32
+weight: 34
 toc: true
 ---
 

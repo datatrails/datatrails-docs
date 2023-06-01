@@ -7,9 +7,9 @@
  draft: false
  images: []
  menu:
-   platform:
-     parent: "beyond-the-basics"
- weight: 44
+   developers:
+     parent: "developer-patterns"
+ weight: 34
  toc: true
 ---
 

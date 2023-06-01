@@ -8,8 +8,8 @@ draft: false
 images: []
 menu:
   platform:
-    parent: "rkvst-basics"
-weight: 35
+    parent: "administration"
+weight: 43
 toc: true
 aliases:
   - ../quickstart/managing-access-to-an-asset-with-abac

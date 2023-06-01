@@ -9,7 +9,7 @@ images: []
 menu: 
   platform:
     parent: "overview"
-weight: 3
+weight: 31
 toc: true
 aliases:
   - ../quickstart/when-who-did-what-to-an-asset

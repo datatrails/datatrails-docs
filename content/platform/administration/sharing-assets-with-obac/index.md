@@ -8,8 +8,8 @@ draft: false
 images: []
 menu:
   platform:
-    parent: "rkvst-basics"
-weight: 36
+    parent: "administration"
+weight: 44
 toc: true
 aliases:
   - ../quickstart/sharing-assets-with-obac

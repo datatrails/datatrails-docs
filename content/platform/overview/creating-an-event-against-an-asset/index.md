@@ -8,8 +8,8 @@ draft: false
 images: []
 menu:
   platform:
-    parent: "rkvst-basics"
-weight: 33
+    parent: "overview"
+weight: 34
 toc: true
 aliases:
   - ../quickstart/creating-an-event-against-an-asset

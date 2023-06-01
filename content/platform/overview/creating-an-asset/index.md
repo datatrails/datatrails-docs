@@ -8,8 +8,8 @@ draft: false
 images: []
 menu:
   platform:
-    parent: "rkvst-basics"
-weight: 32
+    parent: "overview"
+weight: 33
 toc: true
 aliases:
   - ../quickstart/creating-an-asset

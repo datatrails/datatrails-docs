@@ -8,8 +8,8 @@
  images: []
  menu:
    platform:
-     parent: "beyond-the-basics"
- weight: 41
+     parent: "administration"
+ weight: 44
  toc: true
 ---
 

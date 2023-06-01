@@ -45,22 +45,16 @@
 
 
 [[platform]]
-  name = "Overview new"
+  name = "Overview"
   weight = 10
   identifier = "overview"
   url = "/platform/overview/"
 
 [[platform]]
-  name = "RKVST Basics"
+  name = "Administration"
   weight = 20
-  identifier = "rkvst-basics"
-  url = "/platform/rkvst-basics/"
-
-[[platform]]
-  name = "Beyond the Basics"
-  weight = 30
-  identifier = "beyond-the-basics"
-  url = "/platform/beyond-the-basics/"
+  identifier = "administration"
+  url = "/platform/administration/"
 
 [[platform]]
   name = "User Patterns"

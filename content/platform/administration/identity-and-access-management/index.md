@@ -8,8 +8,8 @@ draft: false
 images: []
 menu: 
   platform:
-    parent: "overview"
-weight: 5
+    parent: "administration"
+weight: 41
 toc: true
 ---
 

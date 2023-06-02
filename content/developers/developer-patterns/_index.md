@@ -9,4 +9,4 @@ images: []
 weight: 997
 toc: true
 ---
-Need some introductory developer content here
+Some common developer use cases are described in the options below:

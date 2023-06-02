@@ -7,4 +7,4 @@ draft: false
 images: []
 ---
 
-Need some introductory platform content here
+Select an option to find out more about the RKVST platform.

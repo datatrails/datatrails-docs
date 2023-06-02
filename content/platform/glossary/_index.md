@@ -1,5 +1,5 @@
 ---
-title: "glossary"
+title: "Glossary"
 description: ""
 lead: ""
 date: 2021-06-09T10:19:37+01:00
@@ -9,3 +9,4 @@ images: []
 weight: 999
 toc: true
 ---
+Select an option to to find out more about the terms used by RKVST.

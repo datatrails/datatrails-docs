@@ -56,17 +56,21 @@
   identifier = "administration"
   url = "/platform/administration/"
 
-[[platform]]
-  name = "User Patterns"
-  weight = 40
-  identifier = "user-patterns"
-  url = "/platform/user-patterns/"
 
-[[platform]]
+
+[[usecases]]
+  name = "Use Cases & Examples"
+  weight = 40
+  identifier = "usecases"
+  url = "/platform/usecases/"
+
+
+
+[[glossary]]
   name = "Glossary"
   weight = 50
   identifier = "glossary"
-  url = "/platform/glossary/"
+  url = "/glossary/"
 
 
 

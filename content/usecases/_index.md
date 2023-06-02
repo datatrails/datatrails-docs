@@ -1,5 +1,5 @@
 ---
-title: "User Patterns"
+title: "Use Cases & Examples"
 description: ""
 lead: ""
 date: 2021-05-20T17:42:10+01:00

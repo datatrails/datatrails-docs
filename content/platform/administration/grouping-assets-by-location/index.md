@@ -7,9 +7,9 @@ lastmod: 2021-05-18T15:32:27+01:00
 draft: false
 images: []
 menu:
-  docs:
-    parent: "rkvst-basics"
-weight: 34
+  platform:
+    parent: "administration"
+weight: 46
 toc: true
 aliases:
   - ../quickstart/grouping-assets-by-location

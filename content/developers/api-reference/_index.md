@@ -9,5 +9,5 @@ images: []
 weight: 998
 toc: true
 ---
-Need some introductory developer content here
+Select an API endpoint for more information.
 

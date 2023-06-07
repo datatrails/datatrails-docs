@@ -192,7 +192,7 @@ $ archivist_runner \
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -224,7 +224,7 @@ curl -v -X POST \
  ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the [Locations API](https://docs.rkvst.com/docs/api-reference/locations-api/) to GET a list of existing locations.
+Use the [Locations API](/developers/api-reference/locations-api/) to GET a list of existing locations.
  
 ```bash
 curl -v -X GET \
@@ -257,7 +257,7 @@ curl -v -X GET \
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the [Locations API](https://docs.rkvst.com/docs/api-reference/locations-api/) to GET the specific location by name.
+Use the [Locations API](/developers/api-reference/locations-api/) to GET the specific location by name.
  
 ```bash
 curl -v -X GET \
@@ -356,7 +356,7 @@ A pre-exisiting location can be added during Asset creation, using the Location 
 
 2. Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the `arc_home_location_identity` key. 
 
-For more information on creating Events, please visit [Creating an Event Against an Asset](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/).
+For more information on creating Events, please visit [Creating an Event Against an Asset](/platform/overview/creating-an-event-against-an-asset/).
 
 {{< tabs name="add_to_asset" >}}
 {{{< tab name="UI" >}}
@@ -398,7 +398,7 @@ steps:
 }
 ```
 {{< note >}}
-**Note** - The Event must be recorded against the appropriate `assets/<asset-id>` when the curl command is executed. [See Step 4 here for more details.](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/)
+**Note** - The Event must be recorded against the appropriate `assets/<asset-id>` when the curl command is executed. [See Step 4 here for more details.](/platform/overview/creating-an-event-against-an-asset/)
 {{< /note >}}
 
 {{< /tab >}}}

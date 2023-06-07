@@ -30,7 +30,7 @@ It is possible to control policies based on types of Assets, their location, and
 By default, no Non-Administrators will see any existing Assets and Events unless an Administrator explicitly creates an ABAC policy to allow it.
 
 {{< note >}}
-To create an ABAC policy, first [add users to your tenancy](/platform/overview/identity-and-access-management/#how-do-i-add-users-to-my-organization).
+To create an ABAC policy, first [add users to your tenancy](/platform/administration/identity-and-access-management/#how-do-i-add-users-to-my-organization).
 {{< /note >}}
 
 ## Creating an ABAC Policy
@@ -64,7 +64,7 @@ Here you will see any existing policies and can select `Add Policy`.
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -107,7 +107,7 @@ Following our Shipping Container example, this is how we would set our Asset fil
     ]
 }
 ```
-[See here for instructions on finding your location ID.](/platform/rkvst-basics/grouping-assets-by-location/)
+[See here for instructions on finding your location ID.](/platform/administration/grouping-assets-by-location/)
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -139,7 +139,7 @@ You may grant access to specific attachments by specifying the corresponding key
         }
     ]
 ```
-You may also grant permissions to an [App Registration](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
+You may also grant permissions to an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
 
 ```json
  "access_permissions": [
@@ -155,7 +155,7 @@ You may also grant permissions to an [App Registration](/platform/rkvst-basics/g
 **Note:** This is different from adding `subjects` as a key in your `access_permissions`, for example, when adding an external Subject ID to an OBAC policy. The user attribute `subject` refers to the Client ID associated with an App Registration.
 {{< /note >}}
 
-Additionally, you may set permissions based on the Custom Claims of an [App Registration](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
+Additionally, you may set permissions based on the Custom Claims of an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
  ```json
   "access_permissions": [
@@ -217,8 +217,8 @@ Note we have included RKVST-sigificant attributes: `arc_display_name`, `arc_desc
 Select `Create Policy`.
 {{< img src="PolicyABACSubmit.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
 {{< /tab >}}
-{{< tab name="JSON" >}}
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+{{< tab name="JSON" >}}fo
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \

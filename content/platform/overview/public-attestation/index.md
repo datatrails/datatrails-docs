@@ -15,14 +15,14 @@
 
 You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.
 
-Permissioned Assets can only be shared through the creation of [Access Policies](../../rkvst-basics/sharing-assets-with-obac/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox. 
+Permissioned Assets can only be shared through the creation of [Access Policies](/platform/administration/sharing-assets-with-obac/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox. 
 
 Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.
 
 Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.
 
 {{< note >}}
-For more detailed Asset creation instructions, visit [Creating an Asset](/platform/rkvst-basics/creating-an-asset/).
+For more detailed Asset creation instructions, visit [Creating an Asset](/platform/overview/creating-an-asset/).
 {{< /note >}}
 
 
@@ -32,7 +32,7 @@ For more detailed Asset creation instructions, visit [Creating an Asset](/platfo
 **Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.
 {{< /warning >}}
 
-1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](/platform/rkvst-basics/creating-an-asset/) for detailed instructions. 
+1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](/platform/overview/creating-an-asset/) for detailed instructions. 
 
 {{< tabs name="create_asset_public" >}}
 {{{< tab name="UI" >}}
@@ -72,7 +72,7 @@ Click `Create Asset` to complete your Public Asset creation.
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Publish Your Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here. 
+Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here. 
 
 ```bash 
 curl -v -X POST \
@@ -117,7 +117,7 @@ curl -g -v -X GET \
 **NOTE:** Any Events added to a Public Asset will also be public. Events may only be added by the tenancy that originally created the Public Asset.
 {{< /note >}}
 
-1. Create an Event with your desired attributes. See [Creating an Event](/platform/rkvst-basics/creating-an-event-against-an-asset/) for detailed instructions. 
+1. Create an Event with your desired attributes. See [Creating an Event](/platform/overview/creating-an-event-against-an-asset/) for detailed instructions. 
 
 {{< tabs name="create_event_public" >}}
 {{{< tab name="UI" >}}
@@ -139,7 +139,7 @@ Create a JSON file with your desired Event details.
 }
 ```
 
-Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here. 
+Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here. 
 
 ```bash 
 curl -v -X POST \

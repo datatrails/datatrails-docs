@@ -18,7 +18,7 @@
 Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST. 
 
 
-Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/platform/glossary/common-rkvst-terms/).
+Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/glossary/common-rkvst-terms/).
 
 Receipts can be retrieved for [Khipu](/platform/overview/advanced-concepts/#khipu) Events once they have been confirmed.
 
@@ -53,7 +53,7 @@ As a convenience, RKVST provides a Python script that can be used to retrieve a 
 
 This can also be done with independent tools. 
 
-Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/), [Event ID](/platform/rkvst-basics/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
+Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
 
 
 First, save the identity of an event in `EVENT_IDENTITY`.

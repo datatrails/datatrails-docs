@@ -18,10 +18,10 @@ toc: true
 The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger. 
 
 {{< note >}}
-**Note:** Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to [the Events API Reference](../../api-reference/events-api/#adding-attachments).
+**Note:** Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to [the Events API Reference](../events-api/#adding-attachments).
 {{< /note >}}
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### Upload a Blob
 

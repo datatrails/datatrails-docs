@@ -19,7 +19,7 @@ RKVST Assets can be used to track the status, contents, location, and other key 
 
 ## Create a Container Asset
 
-Creating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our [RKVST Basics guide](/platform/rkvst-basics/creating-an-asset/). For this example, we will create a simple asset that we will call `Shipping Container`. Note that with RKVST, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
+Creating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our [RKVST Overview guide](/platform/overview/creating-an-asset/). For this example, we will create a simple asset that we will call `Shipping Container`. Note that with RKVST, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
 
 {{< tabs name="shipping_container_asset" >}}
 {{{< tab name="UI" >}}
@@ -156,7 +156,7 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="CURL" >}}
-See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 
 ```bash
 curl -g -v -X GET \

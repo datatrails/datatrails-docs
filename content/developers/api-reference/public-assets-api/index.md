@@ -24,7 +24,7 @@ Each Public Asset has a private and a public interface. The private interface is
 The methods described below cover interacting with the public interface only. To interact with the private interface, use the standard [Assets API](../assets-api/). 
 
 {{< note >}}
-Visit the [Public Attestation](/platform/beyond-the-basics/public-attestation/) guide for more information.
+Visit the [Public Attestation](/platform/overview/public-attestation/) guide for more information.
 {{< /note >}}
 
 ### Fetch a Public Asset Record

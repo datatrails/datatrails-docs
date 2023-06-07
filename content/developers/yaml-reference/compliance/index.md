@@ -23,7 +23,7 @@ toc: true
 
 This action creates a Compliance Policy that assets may be tested against.
 
-The specific fields required for creating Compliance Policies vary depending on the type of policy being used. Please see the [Compliance Policies](/platform/beyond-the-basics/compliance-policies/) section for details regarding Compliance Policy types and YAML Runner examples of each.
+The specific fields required for creating Compliance Policies vary depending on the type of policy being used. Please see the [Compliance Policies](/platform/administration/compliance-policies/) section for details regarding Compliance Policy types and YAML Runner examples of each.
 
 For example, a `COMPLIANCE_RICHNESS` policy that asserts radiation level must be less than 7:
 

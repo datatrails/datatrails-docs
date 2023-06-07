@@ -22,7 +22,7 @@ Asset Creation is the first Event. The more Events recorded against an Asset, th
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
 {{< note >}}
-Before creating an Event, follow [this guide](/platform/rkvst-basics/creating-an-asset/) to create your first example Asset.
+Before creating an Event, follow [this guide](/platform/overview/creating-an-asset/) to create your first example Asset.
 {{< /note >}}
 
 ## Creating Events
@@ -47,7 +47,7 @@ steps:
       asset_label: assets/<asset-id>
     behaviour: RecordEvidence
 ```
-The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](/platform/rkvst-basics/creating-an-asset/).
+The `asset_id` must match the Asset ID found in the details of your Asset. See [Step 7 of Creating an Asset](/platform/overview/creating-an-asset/).
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Create an empty file, in later steps we will add the correct JSON.
@@ -220,7 +220,7 @@ $ archivist_runner \
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \

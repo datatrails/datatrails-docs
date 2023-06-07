@@ -69,7 +69,7 @@ $ archivist_runner \
     "time_period_seconds": "259200"
 }
 ```
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -131,7 +131,7 @@ $ archivist_runner \
     "closing_event_display_type":  "Maintenance Performed"
 }
 ```
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -195,7 +195,7 @@ $ archivist_runner \
     "time_period_seconds": "259200"
 }
 ```
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -263,7 +263,7 @@ $ archivist_runner \
     "dynamic_variability": 0.5
 }
 ```
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -324,7 +324,7 @@ $ archivist_runner \
     ],
 }
 ```
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -364,7 +364,7 @@ $ archivist_runner \
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Run the following command using the desired Asset ID to check its compliance status. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Run the following command using the desired Asset ID to check its compliance status. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X GET \

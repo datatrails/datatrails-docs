@@ -20,7 +20,7 @@ An Asset can be anything: a connected machine, a shipping container, or even a d
 
 Each Asset will have a history of any actions performed upon it by any actor.
 
-You may share Assets and their history with specific stakeholders using [permissioned sharing](../managing-access-to-an-asset-with-abac/). RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see [Public Attestation](/platform/beyond-the-basics/public-attestation/).
+You may share Assets and their history with specific stakeholders using [permissioned sharing](/platform/administration/managing-access-to-an-asset-with-abac/). RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see [Public Attestation](/platform/overview/public-attestation/).
 
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
@@ -176,7 +176,7 @@ Select `Add Attribute`, and add your key-value pairs.
 {{< tab name="YAML" >}}
 Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our asset. To find out more about locations, [click here](../grouping-assets-by-location/).
+This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
 It's also good practice to include `confirm: true` which tells RKVST to finish commiting the Asset before moving to the next step. 
 ```yaml 
@@ -213,7 +213,7 @@ steps:
 {{< tab name="JSON" >}}
 Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, [click here](../grouping-assets-by-location/).
+This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, [click here](/platform/administration/grouping-assets-by-location/).
 
 ```json
 {
@@ -254,7 +254,7 @@ $ archivist_runner \
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
  
 ```bash
 curl -v -X POST \
@@ -332,7 +332,7 @@ Here we see all details entered: The extended attributes and a history of Events
 {{< note >}}
 **Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes`. 
 
-For more information on creating Events, [click here.](/platform/rkvst-basics/creating-an-event-against-an-asset/)
+For more information on creating Events, [click here.](/platform/overview/creating-an-event-against-an-asset/)
 {{< /note >}}
 
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.

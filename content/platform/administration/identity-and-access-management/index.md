@@ -50,7 +50,7 @@ curl -v -X POST \
     "https://app.rkvst.io/archivist/iam/v1/invites"
 ```
 
-See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -70,11 +70,11 @@ To set your `Tenant Display Name`:
 
 #### Verified Domain 
 
-The second way to set your tenancy name is to [get your domain verified](../../beyond-the-basics/verified-domain) by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.
+The second way to set your tenancy name is to [get your domain verified](/platform/administration/verified-domain/) by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.
 
 ## Enterprise Single Sign-On
 
-[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a [Verified Domain](/platform/beyond-the-basics/verified-domain/).
+[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a [Verified Domain](/platform/administration/verified-domain/).
 
 1. Navigate to `Settings` on the sidebar and select `Tenancy`.
 

@@ -28,7 +28,7 @@ To provide your credentials with access to the Assets and Events in your Tenancy
 If you wish to give your credentials Administrator priviliges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).
 
 {{< note >}}
-For more information on App Registrations and access tokens, visit [RKVST Basics](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/).
+For more information on App Registrations and access tokens, visit [RKVST Developer Patterns](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
 {{< /note >}}
 
 ### Creating an Application

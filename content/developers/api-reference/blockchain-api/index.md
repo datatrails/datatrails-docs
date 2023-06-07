@@ -15,7 +15,7 @@ toc: true
 
 ## Blockchain API Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### Fetch Transactions for an event (v1alpha2)
 
@@ -120,7 +120,7 @@ Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/
 ```
 
 {{< note >}}
-Check out our guide for [Verifying Assets and Events with Simple Hash](http://docs.rkvst.com/platform/beyond-the-basics/verifying-with-simple-hash/).
+Check out our guide for [Verifying Assets and Events with Simple Hash](/developers/developer-patterns/verifying-with-simple-hash/).
 {{< /note >}}
 
 ## Blockchain OpenAPI Docs

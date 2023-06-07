@@ -46,7 +46,7 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 3. Enter any display name you'd like, then click `CREATE APP REGISTRATION`.
 
 {{< note >}}
- You can optionally add any Custom Claims at this step. You must ensure they do not start with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](../managing-access-to-an-asset-with-abac/) to grant permissions. 
+ You can optionally add any Custom Claims at this step. You must ensure they do not start with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](/platform/administration/managing-access-to-an-asset-with-abac) to grant permissions. 
 {{< /note >}}
 
 {{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}

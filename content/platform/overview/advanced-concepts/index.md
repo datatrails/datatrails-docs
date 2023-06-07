@@ -84,7 +84,7 @@ To accommodate this need RKVST separates the Asset estate into 2 classes: tracke
 **Caution:** Untracking an Asset does not remove it or its Event history from the system; all stakeholders who previously had access to the record will continue to have access to the Event history, _including_ the untracking event, if they look for it.
 {{< /caution >}}
 
-For more detailed information on Assets and how to implement them, please refer to [the Assets API Reference](../../api-reference/assets-api/).
+For more detailed information on Assets and how to implement them, please refer to [the Assets API Reference](/developers/api-reference/assets-api/).
 
 ## Events
 
@@ -114,13 +114,13 @@ Once committed to the RKVST system, each lifecycle Event record carries 2 separa
 * `principal_declared` - an optional user-supplied value that tells who performed an Event. This is useful for cases where the user principal/credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
 * `principal_accepted` - the actual user principal information belonging to the credential used to access the RKVST REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
 
-For more detailed information on Events and how to implement them, please refer to [the Events API Reference](../../api-reference/events-api/).
+For more detailed information on Events and how to implement them, please refer to [the Events API Reference](/developers/api-reference/events-api/).
 
 ## Proof Mechanisms
 
 Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
 
-When [creating an Asset](../../rkvst-basics/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that Asset and its Events. This will determine how your data is recorded on the RKVST blockchain.
+When [creating an Asset](/platform/overview/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that Asset and its Events. This will determine how your data is recorded on the RKVST blockchain.
 
 ### Simple Hash
 
@@ -300,7 +300,7 @@ Attaching rich evidence to an Asset or Event is a two step process:
 
 To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`. To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
 
-For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments API Reference](../../api-reference/attachments-api/)
+For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](/developers/api-reference/blobs-api/) and [the Attachments API Reference](/developers/api-reference/attachments-api/)
 
 ### The Primary Image
 
@@ -387,4 +387,4 @@ Compliance calls can be similarly modified to answer questions like "had I asked
 
 ## That's it!
 
-These are all the basics of RKVST. With this knowledge you can now [jump straight into the API](../../api-reference/) or [try RKVST Basics](../../rkvst-basics).
+These are all the basics of RKVST. With this knowledge you can now [jump straight into the API](/developers/api-reference/) or try other topic on the [RKVST Platform](/platform/).

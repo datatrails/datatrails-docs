@@ -14,12 +14,12 @@ toc: true
 ---
 
 {{< note >}}
-For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/rkvst-basics/creating-an-asset/) guide.
+For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/overview/creating-an-asset/) guide.
 {{< /note >}}
 
 ## Asset API Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### Asset Record Creation
 
@@ -93,7 +93,7 @@ The response is:
 **Warning**: Assets can only be made public at Asset creation and cannot be made private afterwards.
 {{< /warning >}}
 
-In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](../../rkvst-basics/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
+In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](/platform/administration/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
 
 However, it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.
 

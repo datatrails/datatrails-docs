@@ -82,7 +82,7 @@ Save the following to a JSON file with your desired subject information.
     "tessera_pub_key": ["key2"]
 }
 ```
-Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your Access Policy. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your Access Policy. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
@@ -128,7 +128,7 @@ Here you will see any existing policies and can select `Add Policy`.
 {{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X GET \
      -H "@$BEARER_TOKEN_FILE" \
@@ -172,7 +172,7 @@ Following our Shipping Container example, this is how we would set our Asset fil
 }
 ```
 
-[See here for instructions on finding your location ID.](/platform/rkvst-basics/grouping-assets-by-location/)
+[See here for instructions on finding your location ID.](/platform/administration/grouping-assets-by-location/)
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -201,7 +201,7 @@ Save the following to a JSON file with your desired subject information.
     "tessera_pub_key": ["key2"]
 }
 ```
-Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your access policy. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Execute the file, which will return the subject identity in the form `subjects/<subject-id>` to be used in your access policy. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
@@ -259,7 +259,7 @@ Select `Create Policy`.
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
@@ -281,4 +281,4 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 
 8. If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.
 
-There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies API Reference](../../api-reference/iam-policies-api/).
+There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the [IAM Policies API Reference](/developers/api-reference/iam-policies-api/).

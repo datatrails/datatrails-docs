@@ -37,7 +37,7 @@ Copy the `start time` and `end time` from the Simple Hash Details. These will be
 {{< img src="SimpleHashDetails.png" alt="Rectangle" caption="<em>Simple Hash Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="Command Line" >}}
-The [Blockchain API](../../api-reference/blockchain-api/) allows you to fetch transactions for an Event. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+The [Blockchain API](/developers/api-reference/blockchain-api/) allows you to fetch transactions for an Event. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 
 Using the Event ID as a parameter, run the following command: 
 
@@ -62,7 +62,7 @@ Use Python pip utility to install the `rkvst-simplehash` package. This package i
 python3 -m pip install rkvst-simplehash
 ```
 
-You may then use the code to recreate the hash, using your [`BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) as the `auth_token` and the `start_date` and `end_date` copied in the last step:
+You may then use the code to recreate the hash, using your [`BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) as the `auth_token` and the `start_date` and `end_date` copied in the last step:
 
 ```python
 from rkvst_simplehash.v1 import (
@@ -95,11 +95,11 @@ Run your Python file to return the hash value.
 
 {{< /tab >}}
 {{< tab name="Command Line" >}}
-Enter the query information you copied in the last step and run the command. See instructions for [creating your `BEARER_TOKEN_FILE`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) here.
+Enter the query information you copied in the last step and run the command. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
 
 Commands can be executed anywhere using a virtual environment and published wheel. Credentials are stored in files within the credentials directory. 
 
-Using an [`auth token`](/platform/rkvst-basics/getting-access-tokens-using-app-registrations/) directly: 
+Using an [`auth token`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) directly: 
 
 ```bash
 python3 -m venv simplehash-venv

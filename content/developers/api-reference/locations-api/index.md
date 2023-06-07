@@ -14,12 +14,12 @@ toc: true
 ---
 
 {{< note >}}
-See [RKVST Basics](/platform/rkvst-basics/grouping-assets-by-location/) for additional information on creating and using locations with RKVST.
+See [RKVST Administration](/platform/administration/grouping-assets-by-location/) for additional information on creating and using locations with RKVST.
 {{< /note >}}
 
 ## Locations API Examples
 
-Create the [bearer_token](../../setup-and-administration/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 ### Location Creation
 

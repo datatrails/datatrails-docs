@@ -15,7 +15,7 @@
 
 ## What are receipts?
 
-Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST. 
+Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.
 
 
 Receipts can be retrieved for [Simple Hash](https://docs.rkvst.com/docs/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](https://docs.rkvst.com/docs/glossary/common-rkvst-terms/).
@@ -28,7 +28,7 @@ A user may get a receipt for any Event they have recorded on the system. You mus
 Receipts for Public Events can be obtained by any authenticated API request.
 
 {{< note >}}
-**Note:** Receipts are currently an API-only feature. In order to obtain a receipt, you will need an App Registration. 
+**Note:** Receipts are currently an API-only feature. In order to obtain a receipt, you will need an App Registration.
 {{< / note >}}
 
 ## What is in a receipt?
@@ -38,22 +38,22 @@ The Receipts API is provided as an integration with emerging standards driven by
 Regardless of how the standards evolve, any receipt you obtain today cannot be repudiated as proof of posting for the Event.
 
 {{< warning >}}
-**Warning:** The complete contents of the Event are present in the receipt in clear text. If the Event information is sensitive, the receipt should be regarded as sensitive material as well. 
+**Warning:** The complete contents of the Event are present in the receipt in clear text. If the Event information is sensitive, the receipt should be regarded as sensitive material as well.
 {{< / warning >}}
 
 <br>
 
 The `/archivist/v1/notary/claims/events` API is a convenience API to create a claim for an RKVST event.
 
-In the SCITT model, a claim is then presented to a trusted service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, RKVST is acting as the trusted service in the SCITT model. The response from that API is a (draft) standards-compatible receipt proving that you recorded your Event on the RKVST Blockchain. 
+In the SCITT model, a claim is then presented to a trusted service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, RKVST is acting as the trusted service in the SCITT model. The response from that API is a (draft) standards-compatible receipt proving that you recorded your Event on the RKVST Blockchain.
 
 ## How do I retrieve a receipt?
 
 As a convenience, RKVST provides a Python script that can be used to retrieve a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
 
-This can also be done with independent tools. 
+This can also be done with independent tools.
 
-Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/), [Event ID](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
+Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](https://docs.rkvst.com/docs/rkvst-basics/getting-access-tokens-using-app-registrations/), [Event ID](https://docs.rkvst.com/docs/rkvst-basics/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed.
 
 
 First, save the identity of an event in `EVENT_IDENTITY`.
@@ -80,7 +80,7 @@ CLAIM=$(curl -s -d "{\"transaction_id\":\"${EVENT_TRANSACTION_ID}\"}" \
         | jq -r .claim)
 ```
 
-3. Next, get the corresponding receipt for the claim. 
+3. Next, get the corresponding receipt for the claim.
 
 ```bash
 RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
@@ -99,7 +99,16 @@ echo ${RECEIPT} | base64 -d | less
 
 Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decoded output and set the value in the environment, for example: `BLOCK="0x1234"`.
 
-Next, get the private state root:
+Next, get the appropriate state root. To verify a Simple Hash receipt get the block
+stateRoot:
+
+```bash
+WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
+            https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
+            | jq -r .stateRoot)
+```
+
+To verify a khipu receipt get the privateStateRoot:
 
 ```bash
 WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \

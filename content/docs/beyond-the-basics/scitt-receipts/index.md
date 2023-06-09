@@ -99,8 +99,8 @@ echo ${RECEIPT} | base64 -d | less
 
 Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decoded output and set the value in the environment, for example: `BLOCK="0x1234"`.
 
-Next, get the appropriate state root. To verify a Simple Hash receipt get the block
-stateRoot:
+Next, get the appropriate state root field from the block details. To verify a Simple Hash receipt get the
+`stateRoot`:
 
 ```bash
 WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
@@ -108,7 +108,7 @@ WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
             | jq -r .stateRoot)
 ```
 
-To verify a khipu receipt get the privateStateRoot:
+To verify a khipu receipt get the `privateStateRoot` field:
 
 ```bash
 WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \

@@ -1,7 +1,7 @@
 name = "RKVST"
 license = "MIT"
 licenselink = "https://github.com/h-enk/doks/blob/master/LICENSE"
-description = "Continuous Assurance to boost confidence in critical decisions."
+description = "Data provenance with a simple API"
 homepage = "https://rkvst.com/"
 tags = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance""]
 features = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance"]

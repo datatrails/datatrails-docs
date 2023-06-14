@@ -70,7 +70,7 @@ The documentation is primarily written in `Articles`, individual bodies of text,
 At a directory level this looks like this:
 
 ```bash
-./content/docs/overview/when-who-did-what-to-a-thing/index.md
+./content/platform/overview/when-who-did-what-to-a-thing/index.md
 ```
 
 Where under the root content folder we can see the `docs` area, followed by the `overview` section, containing the article `when-who-did-what-to-a-thing`.

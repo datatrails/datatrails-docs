@@ -6,7 +6,8 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "docs/overview/introduction" | relURL }}" role="button">Get started</a>
+      <p class="sublead">{{ .Params.sublead | safeHTML }}</p>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "platform/overview/introduction" | relURL }}" role="button">Get started</a>
     </div>
   </div>
 </section>
@@ -17,29 +18,38 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-xs-9 col-sm-11 col-lg-4">
-      	<div class="card" style="width: 20rem;">
-  		        <div class="card-body">
-    			           <h5 class="card-title">RKVST Basics</h5>
-    			            <p class="card-text">Learn RKVST Fundamentals including creating your Assets, adding Events and sharing them</p>
-    			            <a href="/docs/rkvst-basics/creating-an-asset" class="btn btn-primary">Jump In</a>
-  		       </div>
-      	</div>
-      </div>
-      <div class=" col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="max-width: 25rem;">
                 <div class="card-body">
-                        <h5 class="card-title">User Patterns</h5>
-                        <p class="card-text">Find out how other Users leverage RKVST to bring automated trust to their business</p>
-                        <a href="/docs/user-patterns/authenticity-and-attestation" class="btn btn-primary">Be Inspired</a>
+                        <h5 class="card-title">Developers</h5>
+                        <p class="card-text">Start adding provenance to your apps and data using our simple APIs</p>
+                        <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations" class="btn btn-primary">Start Developing</a>
                 </div>
         </div>
       </div>
       <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="width: 20rem;">
+      	<div class="card" style="max-width: 25rem;">
+  		        <div class="card-body">
+    			           <h5 class="card-title">Platform</h5>
+    			            <p class="card-text">Learn RKVST Fundamentals including creating your Assets, adding Events and sharing them</p>
+    			            <a href="/platform/overview/introduction/" class="btn btn-primary">Jump In</a>
+  		       </div>
+      	</div>
+      </div>      
+      <div class=" col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
                 <div class="card-body">
-                        <h5 class="card-title">API Reference</h5>
-                        <p class="card-text">Start developing your Assurance Solution with RKVST and our easy to use APIs</p>
-                        <a href="/docs/api-reference/assets-api" class="btn btn-primary">Start Developing</a>
+                        <h5 class="card-title">Use Cases & Examples</h5>
+                        <p class="card-text">Find out how other Users leverage RKVST to bring automated trust to their business</p>
+                        <a href="/usecases/authenticity-and-attestation/" class="btn btn-primary">Be Inspired</a>
+                </div>
+        </div>
+      </div>      
+      <div class="col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
+                <div class="card-body">
+                        <h5 class="card-title">Glossary</h5>
+                        <p class="card-text">We strive for clarity but jargon is unavoidable! Decode ours here.<br><br></p>
+                        <a href="/glossary/common-rkvst-terms/" class="btn btn-primary">Find Out</a>
                 </div>
         </div>
       </div>

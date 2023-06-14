@@ -2,11 +2,11 @@
 
 This is the Home of the RKVST Documentation.
 
-RKVST provides Continuous Assurance as a Service to attest trustworthiness of Assets and boost confidence in critical decisions.  Find out more on our [website](https://rkvst.com).
+RKVST provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://rkvst.com).
 
 ## Contributing
 
-To contribute to these Docs, please refer to our [Contributing Guidelines](https://docs.rkvst.com/contributing/getting-started/pulling-and-building-rkvst-docs/).
+To contribute to these Docs, please refer to our [Contributing Guidelines](/contributing/getting-started/pulling-and-building-rkvst-docs/).
 
 We'll happily review any suggestions!
 

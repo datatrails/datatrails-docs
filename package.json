@@ -60,7 +60,7 @@
     "rimraf": "^5.0",
     "shx": "^0.3.3",
     "standard-version": "^9.2",
-    "stylelint": "^13.13",
-    "stylelint-config-standard": "^22.0"
+    "stylelint": "^15.7",
+    "stylelint-config-standard": "^33.0"
   }
 }

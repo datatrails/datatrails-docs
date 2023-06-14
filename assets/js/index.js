@@ -77,7 +77,7 @@ Source:
   });
 
   var docs = [
-    {{ range $index, $page := (where .Site.Pages "Section" "docs") -}}
+    {{ range $index, $page := (where .Site.Pages "Section" "developers") -}}
       {
         id: {{ $index }},
         href: "{{ .Permalink }}",
@@ -89,7 +89,7 @@ Source:
   ];
 
 
-  {{ $list := (where .Site.Pages "Section" "docs") -}}
+  {{ $list := (where .Site.Pages "Section" "developers") -}}
   {{ $len := (len $list) -}}
 
   index.add(

@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 105
 toc: true
+aliases: 
+  - /docs/api-reference/blockchain-api/
 ---
 
 ## Blockchain API Examples

@@ -14,6 +14,7 @@ toc: true
 aliases:
   - ../quickstart/creating-an-asset
   - ../quickstart/tutorial
+  - /docs/rkvst-basics/creating-an-asset/
 ---
 
 An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.

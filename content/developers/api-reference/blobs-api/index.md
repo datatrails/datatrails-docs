@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 104
 toc: true
+aliases: 
+  - /docs/api-reference/blobs-api/
 ---
 
 ## Blob API Examples

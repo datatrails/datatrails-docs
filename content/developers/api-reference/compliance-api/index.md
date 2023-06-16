@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 106
 toc: true
+aliases: 
+  - /docs/api-reference/compliance-api/
 ---
 
 ## Compliance API Examples

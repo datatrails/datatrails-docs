@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 114
 toc: true
+aliases: 
+  - /docs/api-reference/tenancies-api/
 ---
 
 ## Tenancies API Examples

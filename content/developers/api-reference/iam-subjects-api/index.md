@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 109
 toc: true
+aliases: 
+  - /docs/api-reference/iam-subjects-api/
 ---
 
 ## IAM Subjects API Examples

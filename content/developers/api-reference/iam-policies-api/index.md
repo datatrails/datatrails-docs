@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 108
 toc: true
+aliases: 
+  - /docs/api-reference/iam-policies-api/
 ---
 
 ## IAM Policies API Examples

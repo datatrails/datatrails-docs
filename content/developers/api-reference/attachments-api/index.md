@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 103
 toc: true
+aliases: 
+  - /docs/api-reference/attachments-api/
 ---
 
 ## Attachment API Examples

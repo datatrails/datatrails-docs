@@ -11,6 +11,8 @@ menu:
     parent: "overview"
 weight: 30
 toc: true
+aliases:
+  - /docs/overview/introduction/
 ---
 
 RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset. 

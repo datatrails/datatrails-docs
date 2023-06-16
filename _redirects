@@ -1,5 +1,6 @@
 # redirects for Netlify - https://www.netlify.com/docs/redirects/
 ../setup-and-administration/getting-access-tokens-using-app-registrations /developers/developer-patterns/getting-access-tokens-using-app-registrations/
+/docs/rkvst-basics/getting-access-tokens-using-app-registrations/ /developers/developer-patterns/getting-access-tokens-using-app-registrations/
 ../quickstart/when-who-did-what-to-an-asset /platform/overview/core-concepts/
 ../quickstart/creating-an-asset /platform/overview/creating-an-asset/
 ../quickstart/tutorial /platform/overview/creating-an-asset/

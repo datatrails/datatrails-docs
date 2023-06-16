@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 113
 toc: true
+aliases: 
+  - /docs/api-reference/system-api/
 ---
 
 ## System API Examples

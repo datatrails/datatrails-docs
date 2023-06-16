@@ -68,7 +68,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 
 {{< tabs name="set_public_public" >}}
 {{{< tab name="UI" >}}
-Click `Create Asset` to complete your Public Asset creation. 
+Click `Register Asset` to complete your Public Asset creation. 
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Publish Your Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -92,8 +92,8 @@ curl -v -X POST \
 {{< /note >}}
 
 {{< tabs name="get_link_public" >}}
-{{{< tab name="UI" >}}
-Click on the copy icon next to the green `PUBLIC` badge. This will copy the Asset's public URL to your clipboard. 
+{{< tab name="UI" >}}
+Click on the **Copy Public URL** icon next to the green `PUBLIC` badge. This will copy the Asset's public URL to your clipboard. 
 {{< img src="PublicAsset.png" alt="Rectangle" caption="<em>Copy the Public Link</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}

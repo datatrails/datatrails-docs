@@ -209,7 +209,7 @@ curl -v -X POST \
  {{< tabs name="location_list_locations" >}}
  {{{< tab name="UI" >}}
  Navigate to `Locations` in the sidebar to see a list of existing locations.
- {{< img src="LocationAddNew.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
+ {{< img src="LocationAdded.png" alt="Rectangle" caption="<em>Managing a Location</em>" class="border-0" >}}
  {{< /tab >}}
  {{< tab name="YAML" >}}
  You can view all location data using the `LOCATIONS_LIST` action. Use the `print_response` keyword to get the full output. 

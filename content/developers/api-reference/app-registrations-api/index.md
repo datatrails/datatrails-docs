@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 101
 toc: true
+aliases: 
+  - /docs/api-reference/app-registrations-api/
 ---
 
 ## App Registrations API Examples

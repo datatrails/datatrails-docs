@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 112
 toc: true
+aliases: 
+  - /docs/api-reference/public-assets-api/
 ---
 
 ## Public Assets API Examples

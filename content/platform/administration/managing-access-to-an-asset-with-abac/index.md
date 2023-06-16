@@ -60,8 +60,8 @@ Create an empty file, in later steps we will add the correct JSON.
 
 {{< tabs name="existing_policies_abac" >}}
 {{{< tab name="UI" >}}
-Here you will see any existing policies and can select `Add Policy`.
-{{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
+Here you will see any existing policies and can select `Create Policy`.
+{{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Creating a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
 You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
@@ -231,14 +231,14 @@ curl -v -X POST \
 
 7. Check the Asset is appropriately shared.
 
-Bill should only be allowed to see the Asset's Name, Location, Length, and Weight attributes.
+Mandy should only be allowed to see the Asset's Name, Location, Length, and Weight attributes.
 
-{{< img src="PolicyABACBillView.png" alt="Rectangle" caption="<em>Bill's view as a Non-Administrator</em>" class="border-0" >}}
+{{< img src="PolicyABACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Non-Administrator</em>" class="border-0" >}}
 
 For comparison with our Administrator, Jill:
 
 {{< img src="PolicyABACJillView.png" alt="Rectangle" caption="<em>Jill's view as a Administrator</em>" class="border-0" >}}
 
-We can see that Bill can only view the Attributes specified in the policy. He can also see the Event where we updated the location. 
+We can see that Mandy can only view the Attributes specified in the policy. She can also see the Event where we updated the location. 
 
 Our Administrator, Jill, can see every detail associated with the Asset.

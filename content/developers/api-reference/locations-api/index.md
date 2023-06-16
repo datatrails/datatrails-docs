@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 111
 toc: true
+aliases: 
+  - /docs/api-reference/locations-api/
 ---
 
 {{< note >}}

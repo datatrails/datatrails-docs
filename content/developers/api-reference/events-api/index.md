@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 107
 toc: true
+aliases: 
+  - /docs/api-reference/events-api/
 ---
 
 ## Events API Examples

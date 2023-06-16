@@ -8,6 +8,8 @@ draft: false
 images: []
 weight: 998
 toc: true
+aliases:
+    - /docs/api-reference/
 ---
 Select an API endpoint for more information.
 

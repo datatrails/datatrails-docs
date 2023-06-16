@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 115
 toc: true
+aliases: 
+  - /docs/api-reference/tls-ca-certificates-api/
 ---
 
 ## TLS CA Certificates API Examples

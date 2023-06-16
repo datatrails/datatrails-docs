@@ -11,6 +11,8 @@ menu:
     parent: "api-reference"
 weight: 102
 toc: true
+aliases: 
+  - /docs/api-reference/assets-api/
 ---
 
 {{< note >}}

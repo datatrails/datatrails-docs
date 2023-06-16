@@ -13,6 +13,7 @@ weight: 31
 toc: true
 aliases:
   - ../setup-and-administration/getting-access-tokens-using-app-registrations
+  - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
 Non-interactive access to the RKVST platform is managed by creating `Applications` with App Registrations, using either the `Settings` Menu in the UI or by using the App Registrations API directly.

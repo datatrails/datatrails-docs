@@ -11,6 +11,8 @@ menu:
     parent: "usecases"
 weight: 32
 toc: true
+aliases:
+    - /docs/user-patterns/state-machine/
 ---
 
 A common pattern for tracking Asset lifecycles is the *State Machine* pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in RKVST not only ensures transparency and accountability among parties, but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.

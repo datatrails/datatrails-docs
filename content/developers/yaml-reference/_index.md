@@ -8,5 +8,7 @@ draft: false
 images: []
 weight: 999
 toc: true
+aliases: 
+  - /docs/yaml-reference/
 ---
 Need some introductory developer content here

@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 203
 toc: true
+aliases: 
+  - /docs/yaml-reference/events/
 ---
 
 {{< note >}}

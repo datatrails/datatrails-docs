@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 204
 toc: true
+aliases: 
+  - /docs/yaml-reference/locations/
 ---
 
 {{< note >}}

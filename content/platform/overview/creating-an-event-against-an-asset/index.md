@@ -13,6 +13,7 @@ weight: 34
 toc: true
 aliases:
   - ../quickstart/creating-an-event-against-an-asset
+  - /docs/rkvst-basics/creating-an-event-against-an-asset/
 ---
 
 If you wish to begin tracking your Asset history, you need to create Events.

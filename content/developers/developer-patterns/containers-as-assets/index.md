@@ -11,6 +11,8 @@ menu:
     parent: "developer-patterns"
 weight: 32
 toc: true
+aliases: 
+  - /docs/developer-patterns/containers-as-assets/
 ---
 
 ## Represent Containers Using RKVST

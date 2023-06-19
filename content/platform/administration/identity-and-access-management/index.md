@@ -11,6 +11,8 @@ menu:
     parent: "administration"
 weight: 41
 toc: true
+aliases: 
+  - /docs/overview/identity-and-access-management/
 ---
 
 ## Tenancies and Accounts

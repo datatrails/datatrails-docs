@@ -8,5 +8,7 @@ draft: false
 images: []
 weight: 999
 toc: true
+aliases: 
+  - /docs/glossary/
 ---
 Select an option to to find out more about the terms used by RKVST.

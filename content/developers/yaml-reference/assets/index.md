@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 202
 toc: true
+aliases: 
+  - /docs/yaml-reference/assets/
 ---
 
 {{< note >}}

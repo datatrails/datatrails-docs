@@ -11,6 +11,8 @@ menu:
     parent: "glossary"
 weight: 52
 toc: true
+aliases: 
+  - /docs/glossary/reserved-attributes/
 ---
 
 Reserved attributes are asset attributes that are used by the RKVST platform and have a specific purpose.

@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 201
 toc: true
+aliases: 
+  - /docs/yaml-reference/story-runner-components/
 ---
 
 {{< note >}}

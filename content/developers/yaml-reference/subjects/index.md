@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 205
 toc: true
+aliases: 
+  - /docs/yaml-reference/subjects/
 ---
 
 {{< note >}}

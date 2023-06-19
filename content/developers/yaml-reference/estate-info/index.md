@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 207
 toc: true
+aliases: 
+  - /docs/yaml-reference/estate-info/
 ---
 
 {{< note >}}

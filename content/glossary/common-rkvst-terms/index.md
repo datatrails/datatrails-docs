@@ -11,6 +11,8 @@ menu:
     parent: "glossary"
 weight: 51
 toc: true
+aliases: 
+  - /docs/glossary/common-rkvst-terms/
 ---
 
 Select a term for more information.

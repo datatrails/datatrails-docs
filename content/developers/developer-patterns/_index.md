@@ -8,5 +8,7 @@ draft: false
 images: []
 weight: 997
 toc: true
+aliases: 
+  - /docs/developer-patterns/
 ---
 Some common developer use cases are described in the options below:

@@ -11,6 +11,8 @@
      parent: "overview"
  weight: 35
  toc: true
+ aliases:
+  - /docs/beyond-the-basics/public-attestation/
 ---
 
 You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.

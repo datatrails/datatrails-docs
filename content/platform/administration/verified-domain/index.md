@@ -11,6 +11,8 @@
      parent: "administration"
  weight: 42
  toc: true
+ aliases:
+  - /docs/beyond-the-basics/verified-domain/
 ---
 
 ## What is domain verification?

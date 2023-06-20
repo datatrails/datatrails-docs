@@ -11,6 +11,8 @@ menu:
     parent: "developer-patterns"
 weight: 34
 toc: true
+aliases: 
+  - /docs/developer-patterns/namespace/
 ---
 
 Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.

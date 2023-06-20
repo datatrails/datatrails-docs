@@ -8,6 +8,8 @@ draft: false
 images: []
 weight: 999
 toc: true
+aliases:
+    - /docs/user-patterns/
 ---
 
 RKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.

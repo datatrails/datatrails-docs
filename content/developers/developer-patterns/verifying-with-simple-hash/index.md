@@ -11,6 +11,8 @@
      parent: "developer-patterns"
  weight: 34
  toc: true
+ aliases: 
+  - /docs/beyond-the-basics/verifying-with-simple-hash/
 ---
 
 Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.

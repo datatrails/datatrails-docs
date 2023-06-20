@@ -11,6 +11,8 @@ menu:
     parent: "yaml-reference"
 weight: 206
 toc: true
+aliases: 
+  - /docs/yaml-reference/compliance/
 ---
 
 {{< note >}}

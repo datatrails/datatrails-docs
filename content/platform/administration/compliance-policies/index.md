@@ -11,6 +11,8 @@
      parent: "administration"
  weight: 45
  toc: true
+ aliases: 
+  - /docs/beyond-the-basics/compliance-policies/
 ---
 
 ## Creating a Compliance Policy

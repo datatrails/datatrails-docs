@@ -11,6 +11,8 @@ menu:
     parent: "overview"
 weight: 32
 toc: true
+aliases: 
+  - /docs/overview/advanced-concepts/
 ---
 
 ## Assets

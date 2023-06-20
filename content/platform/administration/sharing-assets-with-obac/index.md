@@ -13,6 +13,7 @@ weight: 44
 toc: true
 aliases:
   - ../quickstart/sharing-assets-with-obac
+  - /docs/rkvst-basics/sharing-assets-with-obac/
 ---
 
 {{< caution >}}

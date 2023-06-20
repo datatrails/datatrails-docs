@@ -11,6 +11,8 @@ menu:
     parent: "usecases"
 weight: 30
 toc: true
+aliases:
+  - /docs/user-patterns/authenticity-and-attestation/
 ---
 
 A very simple yet powerful pattern for using RKVST is the *Authenticity* pattern. This is a good choice when dealing with data or documents that need to be broadly proven. In a single action, files can be uploaded to RKVST so their integrity, origin, and timestamps can be verified forever. Both private and public stakeholders relying on these files can verify that what they see on their screen is authentic and untampered.

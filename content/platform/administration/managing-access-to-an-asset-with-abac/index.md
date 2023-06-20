@@ -13,6 +13,7 @@ weight: 43
 toc: true
 aliases:
   - ../quickstart/managing-access-to-an-asset-with-abac
+  - /docs/rkvst-basics/managing-access-to-an-asset-with-abac/
 ---
 
 {{< caution >}}

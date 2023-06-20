@@ -11,6 +11,8 @@ menu:
     parent: "usecases"
 weight: 31
 toc: true
+aliases:
+  - /docs/user-patterns/bill-of-materials/
 ---
 
 A common pattern for tracking asset lifecycles is the *Bill of Materials* pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.

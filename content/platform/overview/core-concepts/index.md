@@ -13,6 +13,7 @@ weight: 31
 toc: true
 aliases:
   - ../quickstart/when-who-did-what-to-an-asset
+  - /docs/overview/core-concepts/
 ---
 
 ## Tenancies

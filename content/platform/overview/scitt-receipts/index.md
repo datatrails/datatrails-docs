@@ -35,7 +35,7 @@ Receipts for Public Events can be obtained by any authenticated API request.
 
 The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.rkvst.com/what-is-scitt-and-how-does-rkvst-help/).
 
-Regardless of how the standards evolve, any receipt you obtain today cannot be repudiated as proof of posting for the Event.
+Regardless of how the standards evolve, any receipt you obtain today will remain valid proof of posting for the Event.
 
 {{< warning >}}
 **Warning:** The complete contents of the Event are present in the receipt in clear text. If the Event information is sensitive, the receipt should be regarded as sensitive material as well.
@@ -43,15 +43,15 @@ Regardless of how the standards evolve, any receipt you obtain today cannot be r
 
 <br>
 
-The `/archivist/v1/notary/claims/events` API is a convenience API to create a claim for an RKVST event.
+The `/archivist/v1/notary/claims/events` API creates a SCITT claim for an RKVST event.
 
-In the SCITT model, a claim is then presented to a trusted service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, RKVST is acting as the trusted service in the SCITT model. The response from that API is a (draft) standards-compatible receipt proving that you recorded your Event on the RKVST Blockchain.
+In the SCITT model, this claim is then presented to a transparency service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, RKVST is acting as the transparency service and returns a (draft) standards-compatible receipt proving that you recorded your Event on the RKVST Blockchain.
 
-## How do I retrieve a receipt?
+## How do I retrieve and verify a receipt?
 
-As a convenience, RKVST provides a Python script that can be used to retrieve a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
+Once retrieved, receipts are fully verifiable offline and without calls to the RKVST system using independent OSS tooling.
 
-This can also be done with independent tools.
+However, for your convenience RKVST provides a Python script that can be used to retrieve a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
 
 Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
 

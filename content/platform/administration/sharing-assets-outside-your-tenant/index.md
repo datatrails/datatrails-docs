@@ -14,6 +14,7 @@ toc: true
 aliases:
   - ../quickstart/sharing-assets-with-obac
   - /docs/rkvst-basics/sharing-assets-with-obac/
+  - /platform/administration/sharing-assets-with-obac/
 ---
 
 Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organisation.
@@ -185,7 +186,7 @@ We select the `Permissions` tab to set users' Asset and Event attribute access p
 
 In our case, we want the `Organization` actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a prepopulated drop-down search.
 
-{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that 0rganization. 
+{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization. 
 {{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}

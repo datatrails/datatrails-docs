@@ -21,8 +21,9 @@
 /docs/beyond-the-basics/verified-domain/ /platform/administration/verified-domain/
 ../quickstart/managing-access-to-an-asset-with-abac /platform/administration/managing-access-to-an-asset-with-abac/
 /docs/rkvst-basics/managing-access-to-an-asset-with-abac/ /platform/administration/managing-access-to-an-asset-with-abac/
-../quickstart/sharing-assets-with-obac /platform/administration/sharing-assets-with-obac/
-/docs/rkvst-basics/sharing-assets-with-obac/ /platform/administration/sharing-assets-with-obac/
+../quickstart/sharing-assets-with-obac /platform/administration/sharing-assets-outside-your-tenant/
+/docs/rkvst-basics/sharing-assets-with-obac/ /platform/administration/sharing-assets-outside-your-tenant/
+/platform/administration/sharing-assets-with-obac/ /platform/administration/sharing-assets-outside-your-tenant/
 /docs/beyond-the-basics/compliance-policies/ /platform/administration/compliance-policies/
 ../quickstart/grouping-assets-by-location /platform/administration/grouping-assets-by-location/
 /docs/rkvst-basics/grouping-assets-by-location/ /platform/administration/grouping-assets-by-location/

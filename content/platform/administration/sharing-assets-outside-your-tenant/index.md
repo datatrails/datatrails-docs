@@ -29,7 +29,7 @@ OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) po
 
 ## Adding External Organizations to Allow Sharing
 
-In order to share Assets and their details with another organization or Tenancy, we must first import the ID of the external organization.
+In order to share Assets and their details with another organization or Tenancy, we must first import the subject ID of the external organization. The external organization will also need to import your subject ID. The process below shows how to enter an external organization's subject ID and for obtaining your own subject ID.
 
 
 ### Importing another Organization's ID

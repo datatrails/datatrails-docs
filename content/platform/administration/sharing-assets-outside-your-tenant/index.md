@@ -1,6 +1,6 @@
 ---
-title: "Sharing Assets With OBAC"
-description: "Sharing Access outside your Tenant"
+title: "Sharing Assets outside your Tenant"
+description: "Sharing Assets With Organization-Based Access Control (OBAC)"
 lead: "Sharing Access outside your Tenant"
 date: 2021-05-18T15:33:31+01:00
 lastmod: 2021-05-18T15:33:31+01:00
@@ -14,39 +14,27 @@ toc: true
 aliases:
   - ../quickstart/sharing-assets-with-obac
   - /docs/rkvst-basics/sharing-assets-with-obac/
+  - /platform/administration/sharing-assets-with-obac/
 ---
 
-{{< caution >}}
-**Caution:** You will only have access to the `Access Policies` screen if you are an Administrator in your organization.
-{{< /caution >}}
+Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.
 
-{{< warning >}}
-**Warning:** To use OBAC you will need to share with an external organization.
-{{< /warning >}}
+OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization's Non-Administrators, should they require the shared assets to be visible.
 
-Organization-Based Access Control (OBAC) policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor.
+{{< note >}}
 
-Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization's Non-Administrators.
+**Pre-requisites:** To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.
+   
+{{< /note >}}
 
 ## Adding External Organizations to Allow Sharing
 
-In order to share Assets and their details with another organization or Tenancy, we must first import the ID of the external organization.
+In order to share Assets and their details with another organization or Tenancy, we must first import the subject ID of the external organization. The external organization will also need to import your subject ID. The process below shows how to enter an external organization's subject ID and for obtaining your own subject ID.
 
-### Finding Your Own ID
-
-1. As an Administrator, navigate to `Access Policies`.
-
-{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
-
-2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
-
-This string is the one you should share with a 3rd Party who wants to share their data with you.
-
-{{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 
 ### Importing another Organization's ID
 
-1. Use the organization's ID to create a new Subject.
+1. Obtain the external organization's subject ID to create a new Subject.
 
 {{< tabs name="import_subject_obac" >}}
 {{{< tab name="UI" >}}
@@ -94,8 +82,20 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
+### Finding Your Own ID
+
+1. As an Administrator, navigate to `Access Policies`.
+
+{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+
+2. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
+
+This string is the one you should share with a 3rd Party who wants to share their data with you.
+
+{{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+
 {{< note >}}
-**Note:** To accept a subject import request, both organizations must have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, there will be a blue symbol next to their subject name. 
+**Note:** The imported subjects will show a grey "disconnected" icon until both sides have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, the grey disconnected icon will no longer show. 
 {{< /note >}}
 
 ## Creating an OBAC Policy
@@ -186,7 +186,7 @@ We select the `Permissions` tab to set users' Asset and Event attribute access p
 
 In our case, we want the `Organization` actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a prepopulated drop-down search.
 
-{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that 0rganization. 
+{{< note >}} **Note:** You will need to have imported another Organization's ID before you can specify a policy to share information with that Organization. 
 {{< /note >}}
 
 {{< img src="PolicyOBACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}

@@ -19,9 +19,9 @@ toc: true
 1. To add a New Content Section use the `rkvst-doks` command
 
 ```bash
-rkvst-doks create docs/user-patterns/_index.md
+rkvst-doks create platform/usecases/_index.md
 ```
-Here you can see we have specified the `docs` area, the name of our new section and we use the underscored `_index.md` to indicate it is an indexing section of content
+Here you can see we have specified the `platform` area, the name of our new section and we use the underscored `_index.md` to indicate it is an indexing section of content
 
 {{< note >}}
 **Note:** The name of each folder should be sluggified 
@@ -31,14 +31,14 @@ Here you can see we have specified the `docs` area, the name of our new section 
 2. This will create the space in the docs folder for your new section, to then make it visible in the sidebar add it to `config/_default/menus.toml` using the following format:
 
 ```toml
-[[docs]]
-  name = "User Patterns"
-  weight = 4
-  identifier = "user-patterns"
-  url = "/docs/user-patterns/"
+[[usecases]]
+  name = "Use Cases & Examples"
+  weight = 40
+  identifier = "usecases"
+  url = "/platform/usecases/"
 ```
 
-Where the value in the square brackets is the area of content you are contributing to, in this case `docs`
+Where the value in the square brackets is the area of content you are contributing to, in this case `usecases`
 
 You must also specify the following values:
 

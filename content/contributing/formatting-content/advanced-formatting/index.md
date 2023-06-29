@@ -256,10 +256,10 @@ Image formatting and sizing can also be very difficult to get consistently right
 Your image should be saved to the same directory as the article's index.md to use the following examples when adding a screenshot or picture:
 
 ```go
-{{</* img src="Jitsuin_Logo_RGB_Spot.png" alt="Rectangle" caption="<em>Jitsuin Logo Example</em>" class="border-0" */>}}
+{{</* img src="RKVST_BlueTick_RGB.jpg" alt="Rectangle" caption="<em>RKVST Blue Tick Example</em>" class="border-0" */>}}
 ```
 
-{{< img src="Jitsuin_Logo_RGB_Spot.png" alt="Rectangle" caption="<em>Jitsuin Logo Example</em>" class="border-0" >}}
+{{< img src="RKVST_BlueTick_RGB.jpg" alt="Rectangle" caption="<em>RKVST Logo Example</em>" class="border-0" >}}
 
 ### Light Mode and Dark Mode Images
 
@@ -270,7 +270,7 @@ We have added some customised shortcode that allows you to specify two individua
 The behaviour matches the original image shortcode but adds an extra `srcDrk` variable which refers to the Dark Mode image you wish to add .
 
 ```go
-{{</* imgDark src="Jitsuin_Logo_RGB.png" srcDrk="Jitsuin_WhtType_RGB.png" alt="Rectangle" caption="<em>Jitsuin Dark Mode Logo Example</em>" class="border-0" */>}}
+{{</* imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" */>}}
 ```
 
-{{< imgDark src="Jitsuin_Logo_RGB.png" srcDrk="Jitsuin_WhtType_RGB.png" alt="Rectangle" caption="<em>Jitsuin Dark Mode Logo Example</em>" class="border-0" >}}
+{{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" >}}

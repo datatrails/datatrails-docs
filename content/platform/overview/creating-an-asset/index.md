@@ -16,7 +16,6 @@ aliases:
   - ../quickstart/tutorial
   - /docs/rkvst-basics/creating-an-asset/
 ---
-
 An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.
 
 Each Asset will have a history of any actions performed upon it by any actor.
@@ -307,7 +306,9 @@ To view your Asset, click on the Asset row. You will see the detailed history of
 The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
 ```yaml  
 ---
-steps:
+steps:An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.
+
+Each
   - step:
       action: ASSETS_LIST
       description: Display Asset named My First Container.

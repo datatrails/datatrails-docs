@@ -53,6 +53,32 @@ Check the box next to `Make Asset Public`.
 
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
+{{< tab name="YAML" >}}
+Create a YAML file with your desired Asset details. Set keyword `public` to true.
+
+```yaml
+---
+steps:
+  - step:
+      action: ASSETS_CREATE_IF_NOT_EXISTS
+      description: Create an asset.
+      asset_label: Publicly Attested Asset 
+    selector: 
+      - attributes: 
+        - arc_display_name
+    behaviours: 
+      - RecordEvidence
+      - Attachments
+    proof_mechanism: SIMPLE_HASH
+    public: true
+    attributes: 
+      arc_display_name: Publicly Attested Asset 
+      arc_display_type: Example
+      arc_description: This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.
+      some_custom_attribute: anything you like
+    confirm: true
+```
+{{< /tab >}}
 {{< tab name="JSON" >}}
 Create a JSON file with your desired Asset details. Set keyword `public` to true.
 

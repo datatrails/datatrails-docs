@@ -9,7 +9,7 @@
  menu:
    platform:
      parent: "overview"
- weight: 35
+ weight: 36
  toc: true
  aliases:
   - /docs/beyond-the-basics/public-attestation/

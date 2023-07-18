@@ -759,7 +759,748 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </tr>
 </tbody>
 </table>
-`},{id:5,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
+`},{id:5,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
+<p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
+<p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
+<p>The RKVST Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
+<p>As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.</p>
+<p>If a particular Software Package has constituent components composed of other Software Package Assets this would be tracked within the SBOM of the component Supplied Software Package, ensuring full traceability across the Supply Chain.</p>
+<h2 id="software-package-profile-asset-attributes">Software Package Profile Asset Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Asset Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component,(arc_display_name if appropriate)</td>
+<td>The name of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the package version</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="software-package-profile-attribute-namespace">Software Package Profile Attribute Namespace</h5>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<h5 id="public-sbom">Public SBOM</h5>
+<p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
+<ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#create_sbom_public-1" type="button" role="tab" aria-controls="create_sbom_public-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#create_sbom_public-2" type="button" role="tab" aria-controls="create_sbom_public-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="create_sbom_public"><div id="create_sbom_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_sbom_public-0">
+<p>Select <code>Register Asset</code> from the sidebar and fill in the desired details.
+Check the box next to <code>Make Asset Public</code>.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/developers/developer-patterns/software-package-profile/PublicCheck.png" width="943" height="765" data-sizes="auto" data-srcset="https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/software-package-profile/PublicCheck.png" width="943" height="765" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Check Asset as Public</em></figcaption>
+</figure>
+<div class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w&quot; width=&quot;943&quot; height=&quot;765&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="create_sbom_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-1">
+<p>Create a YAML file with your desired Asset details. Set keyword <code>public</code> to true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create an asset.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">Attachments</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Example</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">some_custom_attribute</span><span class="p">:</span><span class="w"> </span><span class="l">anything you like</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="create_sbom_public-2" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-2">
+<p>Create a JSON file with your desired Asset details. Set keyword <code>public</code> to true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span> <span class="s2">&#34;Attachments&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Publicly Attested Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<h2 id="software-package-profile-event-types-and-attributes">Software Package Profile Event Types and Attributes</h2>
+<h3 id="release-event">Release Event</h3>
+<p>A Release is the event used by a Supplier to provide an SBOM for their Software Package in RKVST.</p>
+<p>The Release attributes tracked in RKVST should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release</code></td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component</td>
+<td>The name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the release</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_exception</td>
+<td>If included value is always <code>true</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_vuln_reference</td>
+<td>If this release resolves a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Asset Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component,(arc_display_name if appropriate)</td>
+<td>The name of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the packaversion</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="exception">Exception</h5>
+<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</div>
+  </blockquote>
+<h3 id="release-plan-and-release-accepted">Release Plan and Release Accepted</h3>
+<p>Release events can be optionally enhanced by using ‘Release Plan’ and ‘Release Accepted’ events alongside them.</p>
+<p>Release Plan events demonstrate an intent to introduce a new release, it should describe which version you want to release and who wants to release it. For example, it could include draft release notes explaining what is being updated and why it should be updated.</p>
+<p>Release Accepted events demonstrate an approval on a Release Plan to go forward, it may be that the plan details a need to introduce a fix for a specific vulnerability and the security team is needed to sign off the release going forward.</p>
+<p>These events are not essential to the process so can be omitted in a standard or minimal deployment but they are actively encouraged. As they should not affect the information about the latest Software Package Release there should be no Asset Attributes included, other NTIA attributes may also not be necessary or not available until release (e.g. Component Hash).</p>
+<p>The Key Attribute that should be recorded is the version of the release that is being planned and accepted.</p>
+<h3 id="release-plan">Release Plan</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-plan-event-attribute-namespace">Release Plan Event Attribute Namespace</h5>
+<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release Plan</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_planned_component</td>
+<td>The planned name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_planned_version</td>
+<td>The planned version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_reference</td>
+<td>A reference number for the plan (such as internal change request number)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_date</td>
+<td>The planned release date</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_captain</td>
+<td>The planned Release Captain (a common term for someone who is responsible for performing a Release; someone like an Owner in Agile serves a different purpose but may also be used if appropriate). This is mandatory as it describes who should be responsible for the release</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_planned_author</td>
+<td>The planned name of the Package Author</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_planned_supplier</td>
+<td>The planned name of the Package Supplier</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_planned_hash</td>
+<td>The planned hash of the component files/installation (per version)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_planned_uuid</td>
+<td>The planned unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_license</td>
+<td>If there is an intended change to the license this may be needed</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_vuln_reference</td>
+<td>If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="release-accepted-event">Release Accepted Event</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-accepted-event-attribute-namespace">Release Accepted Event Attribute Namespace</h5>
+<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release Accepted</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_accepted_component</td>
+<td>The accepted name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_accepted_version</td>
+<td>The accepted version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_reference</td>
+<td>The reference number of the associated plan</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_date</td>
+<td>The accepted release date</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_captain</td>
+<td>The accepted Release Captain (a common term for someone who is responsible for performing a Release; someone like an Owner in Agile serves a different purpose but may also be used if appropriate). This is mandatory as it describes who should be responsible for the release</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_approver</td>
+<td>Describes who has accepted the plan</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_accepted_author</td>
+<td>The accepted name of the Package Author</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_accepted_supplier</td>
+<td>The accepted name of the Package Supplier</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_accepted_hash</td>
+<td>The accepted hash of the component files/installation (per version)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_accepted_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_vuln_reference</td>
+<td>If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-event">Patch Event</h3>
+<p>Patches are often supplied to customer in an Out-Of-Band procedure to address critical bugs or vulnerabilities, usually with a short-term turnaround that can be outside the normal release cadence.</p>
+<p>It is typically expected a Patch should contain its own SBOM separate to the Primary SBOM.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="patch-event-attribute-namespace">Patch Event Attribute Namespace</h5>
+<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Patch</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_patch_target_component</td>
+<td>The component the Patch targets</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_patch_version</td>
+<td>The version string of the Patch</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_patch_author</td>
+<td>The name of the Patch Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_patch_supplier</td>
+<td>The name of the Patch Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_patch_hash</td>
+<td>The hash of the Patch files/installation (per version)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_patch_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_target_version</td>
+<td>The version of the component the patch is targeted/built from</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_repo</td>
+<td>Link to the Git Repo/Fork/Branch of the Component (if different to the latest release repo)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_license</td>
+<td>The licensing used by the component (if specified and different to the latest release license)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_vuln_reference</td>
+<td>If this patch resolves a specific vulnerability you can highlight a shared Vulnerability reference number</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vulnerability-disclosure-and-update">Vulnerability Disclosure and Update</h3>
+<p>These Event types are used for vulnerability management.
+The first is to disclose knowledge of a vulnerability and the second is to update the status of the vulnerability after investigation is complete.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="vulnerability-disclosure-event-attribute-namespace">Vulnerability Disclosure Event Attribute Namespace</h5>
+<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.</div>
+  </blockquote>
+<h4 id="vulnerability-disclosure">Vulnerability Disclosure</h4>
+<table>
+<thead>
+<tr>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Vulnerability Disclosure</code></td>
+</tr>
+<tr>
+<td>vuln_name</td>
+<td>Friendly Name for the Vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_reference</td>
+<td>Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_id</td>
+<td>Specific ID of Vulnerability (e.g CVE-2018-0171)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_category</td>
+<td>Type of Vulnerability (e.g. CVE)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_severity</td>
+<td>Severity of Vulnerability (e.g. HIGH)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_status</td>
+<td>Whether the Vulnerability actually affects your component or is being investigated (e.g Known_not_affected)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_author</td>
+<td>Author of Vulnerability Disclosure</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_component</td>
+<td>Affected Component</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_version</td>
+<td>Affected Version(s)</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vulnerability-update">Vulnerability Update</h4>
+<table>
+<thead>
+<tr>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Vulnerability Update</code></td>
+</tr>
+<tr>
+<td>vuln_name</td>
+<td>Friendly Name for the Vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_reference</td>
+<td>Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_id</td>
+<td>Specific ID of Vulnerability (e.g CVE-2018-0171)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_category</td>
+<td>Type of Vulnerability (e.g. CVE)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_severity</td>
+<td>Severity of Vulnerability (e.g. HIGH)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_status</td>
+<td>Whether the Vulnerability actually affects your component or is being investigated (e.g Known_not_affected)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_author</td>
+<td>Author of Vulnerability Disclosure</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_component</td>
+<td>Affected Component</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_version</td>
+<td>Affected Version(s)</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eol-event">EOL Event</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="eol-event-attribute-namespace">EOL Event Attribute Namespace</h5>
+<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.</div>
+  </blockquote>
+<p>An event to mark the Package as End of Life.</p>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>EOL</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_eol_target_component</td>
+<td>The component the EOL targets</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_eol_target_version</td>
+<td>The version string affected by the EOL</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_eol_author</td>
+<td>The name of the EOL Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_eol_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_eol_target_date</td>
+<td>The date on which the EOL will be active</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+`},{id:6,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
@@ -1863,7 +2604,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:6,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
+`},{id:7,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> For more information on Assets and Asset creation, visit our <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> and <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="asset-api-examples">Asset API Examples</h2>
@@ -3482,7 +4223,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:7,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
+`},{id:8,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
 <p>The Attachments API enables you to query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger. For details of how to actually attach these BLOBs to Events and Assets, see the <a href="../events-api/#adding-attachments">the Events API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
@@ -4632,7 +5373,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:8,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
+`},{id:9,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
 <p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
@@ -5228,7 +5969,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:9,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
+`},{id:10,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="fetch-transactions-for-an-event-v1alpha2">Fetch Transactions for an event (v1alpha2)</h3>
 <p>Blockchain transactions can be fetched from the blockchain endpoint using the Asset&rsquo;s Event ID as a parameter:</p>
@@ -5546,7 +6287,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:10,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
+`},{id:11,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
 <p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
@@ -6891,7 +7632,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:11,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
+`},{id:12,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -7332,7 +8073,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:12,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
+`},{id:13,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <p>An <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC</a> policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the <a href="../invites-api/">Invites API</a> or could be an App Registration used for client credentials, which are created as Non-Root by default.</p>
 <p>To create an ABAC Policy, you should use the <code>user_attributes</code> keyword. Specify <code>email</code> for invited users, and <code>subject</code>, using the client-id of your credentials, for App Registrations.</p>
@@ -9063,7 +9804,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:13,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
+`},{id:14,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="iam-subjects-creation">IAM Subjects Creation</h3>
 <p>Define the Subject parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -10023,7 +10764,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:14,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
+`},{id:15,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
 <p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
@@ -10701,7 +11442,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:15,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
+`},{id:16,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> See <a href="/platform/administration/grouping-assets-by-location/">RKVST Administration</a> for additional information on creating and using locations with RKVST.</div>
   </blockquote>
 <h2 id="locations-api-examples">Locations API Examples</h2>
@@ -11894,7 +12635,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:16,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
+`},{id:17,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
 <p>Public Assets are created using the <a href="../assets-api/">Assets API</a> and setting the value of <code>public</code> to <code>true</code>.</p>
 <p>To see more information about creating a Public Asset, see <a href="../assets-api/#creating-a-public-asset">Creating a Public Asset</a>.</p>
 <p>Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for.</p>
@@ -12738,7 +13479,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:17,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
+`},{id:18,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="querying-blockchain-status">Querying Blockchain Status</h3>
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
@@ -13234,7 +13975,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:18,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
+`},{id:19,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
@@ -14638,7 +15379,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:19,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
+`},{id:20,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="tls-ca-certificate-upload">TLS CA Certificate Upload</h3>
 <p>Define the TLS CA certificate parameters and store in <code>/path/to/jsonfile</code> (certificate field shortened for brevity):</p>
@@ -15449,7 +16190,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`},{id:20,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:21,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15510,7 +16251,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:21,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:22,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15632,7 +16373,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:22,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:23,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15731,7 +16472,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:23,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:24,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15779,7 +16520,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:24,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:25,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15887,7 +16628,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all subjects to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
-</span></span></span></code></pre></div>`},{id:25,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:26,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15919,7 +16660,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:26,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:27,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -15931,10 +16672,10 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:27,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
-`},{id:28,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
-`},{id:29,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
-`},{id:30,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
+</span></span></span></code></pre></div>`},{id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
+`},{id:29,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
+`},{id:30,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
+`},{id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
 `}];e.add({id:0,href:"https://docs.rkvst.com/developers/developer-patterns/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`<p>Non-interactive access to the RKVST platform is managed by creating <code>Applications</code> with App Registrations, using either the <code>Settings</code> Menu in the UI or by using the App Registrations API directly.</p>
 <p><code>Applications</code> have a <code>CLIENT_ID</code> and <code>SECRET</code> that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.</p>
 <p>This authentication flow uses the industry-standard OIDC &lsquo;Client Credentials&rsquo; Flow.</p>
@@ -16696,7 +17437,748 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </tr>
 </tbody>
 </table>
-`}).add({id:5,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
+`}).add({id:5,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
+<p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
+<p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
+<p>The RKVST Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
+<p>As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.</p>
+<p>If a particular Software Package has constituent components composed of other Software Package Assets this would be tracked within the SBOM of the component Supplied Software Package, ensuring full traceability across the Supply Chain.</p>
+<h2 id="software-package-profile-asset-attributes">Software Package Profile Asset Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Asset Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component,(arc_display_name if appropriate)</td>
+<td>The name of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the package version</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="software-package-profile-attribute-namespace">Software Package Profile Attribute Namespace</h5>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<h5 id="public-sbom">Public SBOM</h5>
+<p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
+<ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#create_sbom_public-1" type="button" role="tab" aria-controls="create_sbom_public-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#create_sbom_public-2" type="button" role="tab" aria-controls="create_sbom_public-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="create_sbom_public"><div id="create_sbom_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="create_sbom_public-0">
+<p>Select <code>Register Asset</code> from the sidebar and fill in the desired details.
+Check the box next to <code>Make Asset Public</code>.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#PublicCheck" img class="img-fluid responsive" src="/developers/developer-patterns/software-package-profile/PublicCheck.png" width="943" height="765" data-sizes="auto" data-srcset="https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/software-package-profile/PublicCheck.png" width="943" height="765" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Check Asset as Public</em></figcaption>
+</figure>
+<div class="modal fade" id="PublicCheck" tabindex="-1" aria-labelledby="PublicCheck" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_900x0_resize_box_3.png 900w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_800x0_resize_box_3.png 800w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_500x0_resize_box_3.png 500w,https://docs.rkvst.com/developers/developer-patterns/software-package-profile/PublicCheck_hu3467eba0a1868e936830839da8deb36c_88665_200x0_resize_box_3.png 200w&quot; width=&quot;943&quot; height=&quot;765&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="create_sbom_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-1">
+<p>Create a YAML file with your desired Asset details. Set keyword <code>public</code> to true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create an asset.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">Attachments</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Example</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">some_custom_attribute</span><span class="p">:</span><span class="w"> </span><span class="l">anything you like</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="create_sbom_public-2" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-2">
+<p>Create a JSON file with your desired Asset details. Set keyword <code>public</code> to true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span> <span class="s2">&#34;Attachments&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Publicly Attested Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<h2 id="software-package-profile-event-types-and-attributes">Software Package Profile Event Types and Attributes</h2>
+<h3 id="release-event">Release Event</h3>
+<p>A Release is the event used by a Supplier to provide an SBOM for their Software Package in RKVST.</p>
+<p>The Release attributes tracked in RKVST should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release</code></td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component</td>
+<td>The name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the release</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_exception</td>
+<td>If included value is always <code>true</code></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_vuln_reference</td>
+<td>If this release resolves a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Asset Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author Name</td>
+<td>sbom_author</td>
+<td>The name of the Package Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_supplier</td>
+<td>The name of the Package Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_component,(arc_display_name if appropriate)</td>
+<td>The name of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_version</td>
+<td>The version of the Software Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_uuid</td>
+<td>A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_repo</td>
+<td>Link to the Git Repo of the Component</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_release_notes</td>
+<td>Link to the release notes of the packaversion</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_license</td>
+<td>The licensing used by the component (if specified)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="exception">Exception</h5>
+<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</div>
+  </blockquote>
+<h3 id="release-plan-and-release-accepted">Release Plan and Release Accepted</h3>
+<p>Release events can be optionally enhanced by using ‘Release Plan’ and ‘Release Accepted’ events alongside them.</p>
+<p>Release Plan events demonstrate an intent to introduce a new release, it should describe which version you want to release and who wants to release it. For example, it could include draft release notes explaining what is being updated and why it should be updated.</p>
+<p>Release Accepted events demonstrate an approval on a Release Plan to go forward, it may be that the plan details a need to introduce a fix for a specific vulnerability and the security team is needed to sign off the release going forward.</p>
+<p>These events are not essential to the process so can be omitted in a standard or minimal deployment but they are actively encouraged. As they should not affect the information about the latest Software Package Release there should be no Asset Attributes included, other NTIA attributes may also not be necessary or not available until release (e.g. Component Hash).</p>
+<p>The Key Attribute that should be recorded is the version of the release that is being planned and accepted.</p>
+<h3 id="release-plan">Release Plan</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-plan-event-attribute-namespace">Release Plan Event Attribute Namespace</h5>
+<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release Plan</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_planned_component</td>
+<td>The planned name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_planned_version</td>
+<td>The planned version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_reference</td>
+<td>A reference number for the plan (such as internal change request number)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_date</td>
+<td>The planned release date</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_captain</td>
+<td>The planned Release Captain (a common term for someone who is responsible for performing a Release; someone like an Owner in Agile serves a different purpose but may also be used if appropriate). This is mandatory as it describes who should be responsible for the release</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_planned_author</td>
+<td>The planned name of the Package Author</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_planned_supplier</td>
+<td>The planned name of the Package Supplier</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_planned_hash</td>
+<td>The planned hash of the component files/installation (per version)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_planned_uuid</td>
+<td>The planned unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_license</td>
+<td>If there is an intended change to the license this may be needed</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_planned_vuln_reference</td>
+<td>If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="release-accepted-event">Release Accepted Event</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="release-accepted-event-attribute-namespace">Release Accepted Event Attribute Namespace</h5>
+<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Release Accepted</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_accepted_component</td>
+<td>The accepted name of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_accepted_version</td>
+<td>The accepted version of the Package</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_reference</td>
+<td>The reference number of the associated plan</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_date</td>
+<td>The accepted release date</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_captain</td>
+<td>The accepted Release Captain (a common term for someone who is responsible for performing a Release; someone like an Owner in Agile serves a different purpose but may also be used if appropriate). This is mandatory as it describes who should be responsible for the release</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_approver</td>
+<td>Describes who has accepted the plan</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_accepted_author</td>
+<td>The accepted name of the Package Author</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_accepted_supplier</td>
+<td>The accepted name of the Package Supplier</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_accepted_hash</td>
+<td>The accepted hash of the component files/installation (per version)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_accepted_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_accepted_vuln_reference</td>
+<td>If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patch-event">Patch Event</h3>
+<p>Patches are often supplied to customer in an Out-Of-Band procedure to address critical bugs or vulnerabilities, usually with a short-term turnaround that can be outside the normal release cadence.</p>
+<p>It is typically expected a Patch should contain its own SBOM separate to the Primary SBOM.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="patch-event-attribute-namespace">Patch Event Attribute Namespace</h5>
+<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.</div>
+  </blockquote>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Patch</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_patch_target_component</td>
+<td>The component the Patch targets</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_patch_version</td>
+<td>The version string of the Patch</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_patch_author</td>
+<td>The name of the Patch Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Supplier Name</td>
+<td>sbom_patch_supplier</td>
+<td>The name of the Patch Supplier</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Component Hash</td>
+<td>sbom_patch_hash</td>
+<td>The hash of the Patch files/installation (per version)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_patch_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_target_version</td>
+<td>The version of the component the patch is targeted/built from</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_repo</td>
+<td>Link to the Git Repo/Fork/Branch of the Component (if different to the latest release repo)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_license</td>
+<td>The licensing used by the component (if specified and different to the latest release license)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_patch_vuln_reference</td>
+<td>If this patch resolves a specific vulnerability you can highlight a shared Vulnerability reference number</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vulnerability-disclosure-and-update">Vulnerability Disclosure and Update</h3>
+<p>These Event types are used for vulnerability management.
+The first is to disclose knowledge of a vulnerability and the second is to update the status of the vulnerability after investigation is complete.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="vulnerability-disclosure-event-attribute-namespace">Vulnerability Disclosure Event Attribute Namespace</h5>
+<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.</div>
+  </blockquote>
+<h4 id="vulnerability-disclosure">Vulnerability Disclosure</h4>
+<table>
+<thead>
+<tr>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Vulnerability Disclosure</code></td>
+</tr>
+<tr>
+<td>vuln_name</td>
+<td>Friendly Name for the Vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_reference</td>
+<td>Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_id</td>
+<td>Specific ID of Vulnerability (e.g CVE-2018-0171)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_category</td>
+<td>Type of Vulnerability (e.g. CVE)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_severity</td>
+<td>Severity of Vulnerability (e.g. HIGH)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_status</td>
+<td>Whether the Vulnerability actually affects your component or is being investigated (e.g Known_not_affected)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_author</td>
+<td>Author of Vulnerability Disclosure</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_component</td>
+<td>Affected Component</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_version</td>
+<td>Affected Version(s)</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vulnerability-update">Vulnerability Update</h4>
+<table>
+<thead>
+<tr>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>Vulnerability Update</code></td>
+</tr>
+<tr>
+<td>vuln_name</td>
+<td>Friendly Name for the Vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_reference</td>
+<td>Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_id</td>
+<td>Specific ID of Vulnerability (e.g CVE-2018-0171)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_category</td>
+<td>Type of Vulnerability (e.g. CVE)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_severity</td>
+<td>Severity of Vulnerability (e.g. HIGH)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_status</td>
+<td>Whether the Vulnerability actually affects your component or is being investigated (e.g Known_not_affected)</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_author</td>
+<td>Author of Vulnerability Disclosure</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_component</td>
+<td>Affected Component</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>vuln_target_version</td>
+<td>Affected Version(s)</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<h3 id="eol-event">EOL Event</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <h5 id="eol-event-attribute-namespace">EOL Event Attribute Namespace</h5>
+<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.</div>
+  </blockquote>
+<p>An event to mark the Package as End of Life.</p>
+<table>
+<thead>
+<tr>
+<th>NTIA Attribute Name</th>
+<th>Event Attributes</th>
+<th>Meaning</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>arc_display_type</td>
+<td>Tells RKVST how to interpret Event</td>
+<td>Required, must set to <code>EOL</code></td>
+</tr>
+<tr>
+<td>Component Name</td>
+<td>sbom_eol_target_component</td>
+<td>The component the EOL targets</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Version String</td>
+<td>sbom_eol_target_version</td>
+<td>The version string affected by the EOL</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Author Name</td>
+<td>sbom_eol_author</td>
+<td>The name of the EOL Author</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Unique Identifier</td>
+<td>sbom_eol_uuid</td>
+<td>The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>sbom_eol_target_date</td>
+<td>The date on which the EOL will be active</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+`}).add({id:6,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
@@ -17800,7 +19282,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:6,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:7,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> For more information on Assets and Asset creation, visit our <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> and <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="asset-api-examples">Asset API Examples</h2>
@@ -19419,7 +20901,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:7,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
+`}).add({id:8,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
 <p>The Attachments API enables you to query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger. For details of how to actually attach these BLOBs to Events and Assets, see the <a href="../events-api/#adding-attachments">the Events API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
@@ -20569,7 +22051,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:8,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
+`}).add({id:9,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
 <p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
@@ -21165,7 +22647,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:9,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
+`}).add({id:10,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="fetch-transactions-for-an-event-v1alpha2">Fetch Transactions for an event (v1alpha2)</h3>
 <p>Blockchain transactions can be fetched from the blockchain endpoint using the Asset&rsquo;s Event ID as a parameter:</p>
@@ -21483,7 +22965,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:10,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
+`}).add({id:11,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
 <p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
@@ -22828,7 +24310,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:11,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
+`}).add({id:12,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -23269,7 +24751,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:12,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
+`}).add({id:13,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <p>An <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC</a> policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the <a href="../invites-api/">Invites API</a> or could be an App Registration used for client credentials, which are created as Non-Root by default.</p>
 <p>To create an ABAC Policy, you should use the <code>user_attributes</code> keyword. Specify <code>email</code> for invited users, and <code>subject</code>, using the client-id of your credentials, for App Registrations.</p>
@@ -25000,7 +26482,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:13,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
+`}).add({id:14,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="iam-subjects-creation">IAM Subjects Creation</h3>
 <p>Define the Subject parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -25960,7 +27442,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:14,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
+`}).add({id:15,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
 <p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
@@ -26638,7 +28120,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:15,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
+`}).add({id:16,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> See <a href="/platform/administration/grouping-assets-by-location/">RKVST Administration</a> for additional information on creating and using locations with RKVST.</div>
   </blockquote>
 <h2 id="locations-api-examples">Locations API Examples</h2>
@@ -27831,7 +29313,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:16,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
+`}).add({id:17,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
 <p>Public Assets are created using the <a href="../assets-api/">Assets API</a> and setting the value of <code>public</code> to <code>true</code>.</p>
 <p>To see more information about creating a Public Asset, see <a href="../assets-api/#creating-a-public-asset">Creating a Public Asset</a>.</p>
 <p>Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for.</p>
@@ -28675,7 +30157,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:17,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
+`}).add({id:18,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="querying-blockchain-status">Querying Blockchain Status</h3>
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
@@ -29171,7 +30653,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:18,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
+`}).add({id:19,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
@@ -30575,7 +32057,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:19,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
+`}).add({id:20,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="tls-ca-certificate-upload">TLS CA Certificate Upload</h3>
 <p>Define the TLS CA certificate parameters and store in <code>/path/to/jsonfile</code> (certificate field shortened for brevity):</p>
@@ -31386,7 +32868,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
   </div>
 
 
-`}).add({id:20,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:21,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31447,7 +32929,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:21,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:22,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31569,7 +33051,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:22,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:23,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31668,7 +33150,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:23,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:24,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31716,7 +33198,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:24,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:25,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31824,7 +33306,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all subjects to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:25,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:26,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31856,7 +33338,7 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:26,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:27,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -31868,8 +33350,8 @@ var suggestions=document.getElementById("suggestions"),userinput=document.getEle
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:27,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
-`}).add({id:28,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
-`}).add({id:29,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
-`}).add({id:30,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
+</span></span></span></code></pre></div>`}).add({id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
+`}).add({id:29,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
+`}).add({id:30,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
+`}).add({id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
 `}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,i=this.value,s=e.search(i,{limit:10,index:["content"],enrich:!0}),o=suggestions.childNodes,r=s[0].result.length;for(suggestions.classList.remove("d-none"),s[0].result.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.doc.href,t.textContent=e.doc.title,d.textContent=e.doc.description,suggestions.appendChild(n)});o.length>r;)suggestions.removeChild(o[0])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

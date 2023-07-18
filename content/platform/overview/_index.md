@@ -17,8 +17,9 @@ aliases:
       <p><a href="/platform/overview/introduction/">Introduction &rarr;</a><br>
       <a href="/platform/overview/core-concepts/">Core Concepts &rarr;</a><br>
       <a href="/platform/overview/advanced-concepts/">Advanced Concepts &rarr;</a><br>
-      <a href="/platform/overview/creating-an-asset/">Creating an  &rarr;</a><br>
+      <a href="/platform/overview/creating-an-asset/">Creating an Asset  &rarr;</a><br>
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
+      <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
       <a href="/platform/overview/scitt-receipts/">Verify RKVST SCITT Receipts &rarr;</a></p>
     </div>

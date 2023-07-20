@@ -2,21 +2,19 @@
 <div class="row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-8">
     <article>
-      <h1 class="text-center">{{ .Title }}</h1>
+      <h1 class="text-left">{{ .Title }}</h1>
       <div class="text">{{ .Content }}</div>
-			<div class="card-list">
+			<div>
 				{{ $currentSection := .CurrentSection }}
 				{{ range where .Site.RegularPages.ByTitle "Section" .Section }}
 					{{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
-						<div class="card my-3">
-							<div class="card-body">
-								<a class="stretched-link" href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
-							</div>
+						<div>
+							<a href="{{ .RelPermalink }}">{{ .Params.title | title }} &rarr;</a>
 						</div>
 					{{ end }}
 				{{ end }}
 			</div>
-    </article>
+    </article><br>
   </div>
 </div>
 {{ end }}

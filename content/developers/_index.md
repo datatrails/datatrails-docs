@@ -13,7 +13,7 @@ aliases:
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
     You may be building a new application or looking for a way to add functionality to something that you already use every day.</p>
-    <p>The RKVST API or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
+    <p>The RKVST REST API, python SDK, or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
     <p> Check out the sub-sections below for more information!</p>
     </div>
 </div>

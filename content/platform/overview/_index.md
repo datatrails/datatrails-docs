@@ -21,6 +21,7 @@ aliases:
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/scitt-receipts/">Verify RKVST SCITT Receipts &rarr;</a></p>
+      <a href="/platform/overview/scitt-receipts/">Verify RKVST SCITT Receipts &rarr;</a><br>
+      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>

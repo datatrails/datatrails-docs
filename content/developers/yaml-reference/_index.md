@@ -22,6 +22,6 @@ aliases:
       <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
-      <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a><br></p>
+      <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>

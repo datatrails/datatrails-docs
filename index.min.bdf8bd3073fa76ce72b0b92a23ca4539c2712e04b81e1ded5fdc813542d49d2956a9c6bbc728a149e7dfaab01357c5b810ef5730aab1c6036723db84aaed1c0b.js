@@ -16672,10 +16672,100 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
-`},{id:29,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
-`},{id:30,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
-`},{id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
+</span></span></span></code></pre></div>`},{id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>Developer Patterns</h1>
+      <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
+      <p>You will find articles on common developer tasks and concept guides that are relevant to developers.</p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
+      <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
+      <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
+      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
+      <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
+      <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
+    </div>
+</div>`},{id:29,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>YAML Runner Reference</h1>
+      <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the RKVST YAML Runner.<br></p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/yaml-reference/story-runner-components/">YAML Runner Components &rarr;</a><br>
+      <a href="/developers/yaml-reference/assets/">Assets YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
+    </div>
+</div>`},{id:30,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>API Reference</h1>
+      <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/api-reference/app-registrations-api/">App Registrations API Registrations &rarr;</a><br>
+      <a href="/developers/api-reference/assets-api/">Assets API &rarr;</a><br>
+      <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
+      <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
+      <a href="/developers/api-reference/blockchain-api/">Blockchain API (v1alpha2) &rarr;</a><br>
+      <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
+      <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
+      <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
+      <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
+      <a href="/developers/api-reference/invites-api/">Invites API &rarr;</a><br>
+      <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
+      <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
+      <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
+      <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
+      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+    </div>
+</div>`},{id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+    <h1>Developers</h1>
+    <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
+    You may be building a new application or looking for a way to add functionality to something that you already use every day.</p>
+    <p>The RKVST REST API, python SDK, or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
+    <p> Check out the sub-sections below for more information!</p>
+    </div>
+</div>
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Developer Patterns</h5>
+             <p class="card-text">Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
+             <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations" class="btn btn-primary">Go to Patterns</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9 col-sm-11 col-lg-4">
+      	<div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">API Reference</h5>
+            <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
+            <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
+          </div>
+      	</div>
+      </div>      
+      <div class=" col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">YAML Runner Reference</h5>
+            <p class="card-text">The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.</p><br>
+            <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+        <p>Additional resources are available from our <a href="https://pypi.org/project/rkvst-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/rkvst/rkvst-samples" target="_blank">Python Samples</a>.</p>
+    </div>
+</div>
 `}];e.add({id:0,href:"https://docs.rkvst.com/developers/developer-patterns/getting-access-tokens-using-app-registrations/",title:"Getting Access Tokens using App Registrations",description:"Getting Access Tokens using App Registrations",content:`<p>Non-interactive access to the RKVST platform is managed by creating <code>Applications</code> with App Registrations, using either the <code>Settings</code> Menu in the UI or by using the App Registrations API directly.</p>
 <p><code>Applications</code> have a <code>CLIENT_ID</code> and <code>SECRET</code> that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.</p>
 <p>This authentication flow uses the industry-standard OIDC &lsquo;Client Credentials&rsquo; Flow.</p>
@@ -33350,8 +33440,98 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<p>Some common developer use cases are described in the options below:</p>
-`}).add({id:29,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<p>Select an API endpoint for more information.</p>
-`}).add({id:30,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<p>Need some introductory developer content here</p>
-`}).add({id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<p>Information for developers can be found here:</p>
+</span></span></span></code></pre></div>`}).add({id:28,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>Developer Patterns</h1>
+      <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
+      <p>You will find articles on common developer tasks and concept guides that are relevant to developers.</p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
+      <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
+      <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
+      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
+      <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
+      <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
+    </div>
+</div>`}).add({id:29,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>YAML Runner Reference</h1>
+      <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the RKVST YAML Runner.<br></p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/yaml-reference/story-runner-components/">YAML Runner Components &rarr;</a><br>
+      <a href="/developers/yaml-reference/assets/">Assets YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
+      <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
+    </div>
+</div>`}).add({id:30,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+      <h1>API Reference</h1>
+      <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
+      <p> Check out the articles below for more information!</p><br>
+      <p><a href="/developers/api-reference/app-registrations-api/">App Registrations API Registrations &rarr;</a><br>
+      <a href="/developers/api-reference/assets-api/">Assets API &rarr;</a><br>
+      <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
+      <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
+      <a href="/developers/api-reference/blockchain-api/">Blockchain API (v1alpha2) &rarr;</a><br>
+      <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
+      <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
+      <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
+      <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
+      <a href="/developers/api-reference/invites-api/">Invites API &rarr;</a><br>
+      <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
+      <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
+      <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
+      <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
+      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+    </div>
+</div>`}).add({id:31,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+    <h1>Developers</h1>
+    <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
+    You may be building a new application or looking for a way to add functionality to something that you already use every day.</p>
+    <p>The RKVST REST API, python SDK, or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
+    <p> Check out the sub-sections below for more information!</p>
+    </div>
+</div>
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">Developer Patterns</h5>
+             <p class="card-text">Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
+             <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations" class="btn btn-primary">Go to Patterns</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9 col-sm-11 col-lg-4">
+      	<div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">API Reference</h5>
+            <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
+            <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
+          </div>
+      	</div>
+      </div>      
+      <div class=" col-xs-9 col-sm-11 col-lg-4">
+        <div class="card" style="max-width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">YAML Runner Reference</h5>
+            <p class="card-text">The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.</p><br>
+            <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+<div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+        <p>Additional resources are available from our <a href="https://pypi.org/project/rkvst-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/rkvst/rkvst-samples" target="_blank">Python Samples</a>.</p>
+    </div>
+</div>
 `}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,i=this.value,s=e.search(i,{limit:10,index:["content"],enrich:!0}),o=suggestions.childNodes,r=s[0].result.length;for(suggestions.classList.remove("d-none"),s[0].result.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.doc.href,t.textContent=e.doc.title,d.textContent=e.doc.description,suggestions.appendChild(n)});o.length>r;)suggestions.removeChild(o[0])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

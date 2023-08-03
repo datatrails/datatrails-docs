@@ -296,6 +296,5 @@ curl -v -X GET \
 {{< /tab >}}}
 {{< /tabs >}}
 
-
-In the next section, we will learn about using locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
+Please see the [Administation](/platform/administration/) section for information on how to manage your assets.
 

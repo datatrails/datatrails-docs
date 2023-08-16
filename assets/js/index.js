@@ -76,8 +76,10 @@ Source:
     }
   });
 
+  {{ $searchIndex := .Param "searchIndex" }}
+  
   var docs = [
-    {{ range $index, $page := (where .Site.Pages "Section" "in" .Site.Params.searchIndex) -}}
+    {{ range $index, $page := (where .Site.Pages "Section" "in" $searchIndex) -}}
       {
         id: {{ $index }},
         href: "{{ .Permalink }}",
@@ -88,8 +90,9 @@ Source:
     {{ end -}}
   ];
 
+  console.log("{{$searchIndex}}")
 
-  {{ $list := (where .Site.Pages "Section" "in" .Site.Params.searchIndex) -}}
+  {{ $list := (where .Site.Pages "Section" "in" $searchIndex) -}}
   {{ $len := (len $list) -}}
 
   index.add(

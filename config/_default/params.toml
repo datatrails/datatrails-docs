@@ -46,6 +46,9 @@ alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/
 docsRepo = "https://www.github.com/rkvst/rkvst-docs"
 editPage = true
 
+# Search Sections
+searchIndex = ["developers", "platform"]
+
 [options]
   lazySizes = true
   clipBoard = true

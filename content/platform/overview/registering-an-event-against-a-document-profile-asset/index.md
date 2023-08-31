@@ -72,11 +72,12 @@ In addition to the Asset and Event attributes that are part of the Document Prof
 * `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.
 {{< /note >}}
 <br>
-2. Add New Version.
+2. Adding a New Version.
 
 {{< tabs name="add_new_version" >}}
 {{{< tab name="UI" >}}
-Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document the new version can be dragged into the Auto-fill box or you can manually enter the document hash. 
+Click on the `Add New Version` button.<br> 
+Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash. 
 {{< img src="AddNewVersion.png" alt="Rectangle" caption="<em>Document Information</em>" class="border-0" >}}
 The Advanced Options tab is for additional Asset and Event attributes that are not part of the document profile.
 {{< img src="AddNewVersionDetails.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
@@ -157,10 +158,10 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 {{< /tabs >}}
 <br>
 
-3. Withdraw Event.
+3. The Withdraw Event.
 {{< tabs name="withdraw_event" >}}
 {{{< tab name="UI" >}}
-This option is the final Event in the document lifecycle. When a document is no longer to be used it is withdrawn. 
+If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in RKVST by publishing a new version.
 {{< img src="WithdrawEvent.png" alt="Rectangle" caption="<em>Withdraw Event</em>" class="border-0" >}}
 
 {{< /tab >}}
@@ -203,9 +204,9 @@ Use the attibute/value pairs in the example below to register a `Withdraw` event
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-4. Record Event.
+4. Recording a Generic Event.
 
-An Event type for generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.
+The `Record Event` button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.
 
 See [Creating an Event Against an Asset](/platform/overview/creating-an-event-against-an-asset/) for more information on this event type.
 {{< tabs name="record_event" >}}
@@ -215,8 +216,6 @@ See [Creating an Event Against an Asset](/platform/overview/creating-an-event-ag
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
- 
 ```yaml
 ---
 steps:
@@ -247,10 +246,10 @@ steps:
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-5. Register the Event
+5. Registering the Event
 {{< tabs name="register_event" >}}
 {{{< tab name="UI" >}}
-Click on the `Record Event` button to register the event.
+Once your form is complete, click on the `Record Event` button to register the event.
 {{< img src="RecordEvent.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -277,15 +276,16 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-6. View your Event details. 
+6. Viewing Event details. 
 
 {{< tabs name="view_event" >}}
 {{{< tab name="UI" >}}
-Click the Event row to inspect the Event:
+The Event History can be seen in the Asset Overview from step 1, simply click on any Event row to view it.<br>
+The Document tab shows information about the document version that you are viewing and also provides a drag-and-drop box that allows you to check any locally stored versions of the document that you have against this specific version.
 
 {{< img src="EventDetails.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here we see the details entered earlier and also a tab that will show both the Event attributes and Asset attributes:
+The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.
 
 {{< img src="MoreEventDetails.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 

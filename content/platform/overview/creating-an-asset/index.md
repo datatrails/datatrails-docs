@@ -64,7 +64,7 @@ Create an empty file, in later steps we will add the correct JSON.
 }
 ```
 {{< /tab >}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 2. Add details to your new Asset and select a `Proof Mechanism`.
 
@@ -108,7 +108,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 }
 ```
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 
 3. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
@@ -156,9 +156,9 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
 ```
 
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
-4. At this point, you may wish to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.
+4. At this point, you may wish to use the `Advanced Options` tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.
 
 Extended attributes are user-defined and can be added to each unique Asset. 
 
@@ -231,15 +231,13 @@ This example also adds a location to our Asset. To find out more about locations
 }
 ```
 {{< /tab >}}}
-{{< /tabs >}}
-
-
+{{< /tabs >}}<br>
 
 5. Complete your Asset creation.
 
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
-Click `CREATE ASSET`.
+Click `Register Asset`.
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -264,7 +262,7 @@ curl -v -X POST \
     https://app.rkvst.io/archivist/v2/assets
 ```
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 6. View your Assets.
 
@@ -292,7 +290,7 @@ curl -v -X GET \
      https://app.rkvst.io/archivist/v2/assets
 ```
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 
 7. View details of the Asset you created.

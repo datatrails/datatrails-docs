@@ -60,7 +60,7 @@ Create an empty file, in later steps we will add the correct JSON.
 ```
 
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 
 2. Add Event type and description.
@@ -111,7 +111,7 @@ In the attributes section you should also add the required RKVST attributes `arc
 
 This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired `assets/<asset-id>` string.
 {{< /tab >}}}
-{{< /tabs >}}
+{{< /tabs >}}<br>
 
 
 3. You may enter both Event and Asset attributes.
@@ -231,9 +231,7 @@ curl -v -X POST \
     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
 ```
 {{< /tab >}}}
-{{< /tabs >}}
-
-
+{{< /tabs >}}<br>
 
 5. View your Event details. 
 
@@ -297,5 +295,5 @@ curl -v -X GET \
 {{< /tabs >}}
 
 
-In the next section, we will learn about using locations to group items together for both logical grouping and to better manage access using ABAC and OBAC Policies.
+In the next section we look at a specific type of Asset, the Document Profile Asset.
 

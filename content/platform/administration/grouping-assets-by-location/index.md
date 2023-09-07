@@ -178,7 +178,7 @@ Like Assets and Events, locations may also have extended attributes added as key
 
 {{< tabs name="complete_location_locations" >}}
 {{{< tab name="UI" >}}
-Click `Create Location`.
+Click `Add Location`.
 {{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -276,7 +276,7 @@ curl -v -X GET \
 
 {{< tabs name="add_at_asset_create" >}}
 {{{< tab name="UI" >}}
-Choose the desired location from the location drop-down.
+Choose the desired location from the `Location` drop-down.
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
 
 {{< /tab >}}

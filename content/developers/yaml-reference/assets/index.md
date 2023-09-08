@@ -39,7 +39,6 @@ steps:
       description: Create new EV Pump with id 1.
       asset_label: ev pump 1
     behaviours:
-      - Attachments
       - RecordEvidence
     attributes:
       arc_display_name: ev pump 1
@@ -65,7 +64,6 @@ steps:
       description: Create new EV Pump with id 1.
       asset_label: ev pump 1
     behaviours:
-      - Attachments
       - RecordEvidence
     attributes:
       arc_display_name: ev pump 1
@@ -98,7 +96,6 @@ The response printed was ev pump 1, the Asset created in the `Assets Create` exa
 Response {
     "identity": "assets/<asset-id>",
     "behaviours": [
-        "Attachments",
         "RecordEvidence",
         "Builtin",
         "AssetCreator"

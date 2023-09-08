@@ -49,7 +49,7 @@ You must express `public` as an asset attribute and have `true` as a property to
 {{< tabs name="create_sbom_public" >}}
 {{{< tab name="UI" >}}
 Select `Register Asset` from the sidebar and fill in the desired details.
-Check the box next to `Make Asset Public`.
+Set the `Attest Publicly` toggle to `On`.
 
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}

@@ -294,7 +294,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     attributes: 
       arc_display_name: My First Container
       arc_display_type: Shipping Container
@@ -315,7 +314,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     attributes: 
       arc_display_name: My First Container
       arc_display_type: Shipping Container
@@ -336,7 +334,7 @@ steps:
 A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<location-id>`). 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Traffic light with violation camera",

@@ -46,7 +46,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Shipping Container
@@ -58,7 +57,7 @@ steps:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "Shipping Container",
@@ -103,7 +102,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Box
@@ -116,7 +114,7 @@ steps:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "Box",

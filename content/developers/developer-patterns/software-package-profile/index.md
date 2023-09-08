@@ -68,7 +68,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
@@ -84,7 +83,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "Publicly Attested Asset",
         "arc_display_type": "Example",

@@ -23,7 +23,7 @@ To add namespace as an attribute to your files, use the `arc_namespace` key. For
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container",

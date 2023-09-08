@@ -178,7 +178,7 @@ Like Assets and Events, locations may also have extended attributes added as key
 
 {{< tabs name="complete_location_locations" >}}
 {{{< tab name="UI" >}}
-Click `Create Location`.
+Click `Add Location`.
 {{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -276,7 +276,7 @@ curl -v -X GET \
 
 {{< tabs name="add_at_asset_create" >}}
 {{{< tab name="UI" >}}
-Choose the desired location from the location drop-down.
+Choose the desired location from the `Location` drop-down.
 {{< img src="LocationAssetCreation.png" alt="Rectangle" caption="<em>Creating an Asset with an Existing Location</em>" class="border-0" >}}
 
 {{< /tab >}}
@@ -294,7 +294,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     attributes: 
       arc_display_name: My First Container
       arc_display_type: Shipping Container
@@ -315,7 +314,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     attributes: 
       arc_display_name: My First Container
       arc_display_type: Shipping Container
@@ -336,7 +334,7 @@ steps:
 A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. `locations/<location-id>`). 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Traffic light with violation camera",

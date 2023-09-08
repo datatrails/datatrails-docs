@@ -42,8 +42,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
   },
   "behaviours": [
-    "RecordEvidence",
-    "Attachments"
+    "RecordEvidence"
   ],
   "proof_mechanism": "SIMPLE_HASH",
   "public": false

@@ -41,7 +41,7 @@ For more detailed Asset creation instructions, visit [Creating an Asset](/platfo
 Select `Register Asset` from the sidebar and fill in the desired details.
 {{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
 
-Check the box next to `Make Asset Public`.
+Set the toggle next to `Attest Publicly` to `ON`.
 
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
@@ -50,7 +50,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "Publicly Attested Asset",
         "arc_display_type": "Example",
@@ -95,7 +95,7 @@ curl -v -X POST \
 
 {{< tabs name="get_link_public" >}}
 {{< tab name="UI" >}}
-Click on the **Copy Public URL** icon next to the green `PUBLIC` badge. This will copy the Asset's public URL to your clipboard. 
+Click on the **Share** button next to the green `PUBLIC` badge. This will open a pop-up containing options for copying the public and private links of the Asset. 
 {{< img src="PublicAsset.png" alt="Rectangle" caption="<em>Copy the Public Link</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -109,7 +109,7 @@ curl -g -v -X GET \
 {{< /tab >}}
 {{< /tabs >}}
 
-4. The following screenshot shows the public view of the Asset when the link is followed. 
+4. The following screenshot shows the public view of the Asset when the public link is followed. 
 {{< img src="PublicView.png" alt="Rectangle" caption="<em>Public View</em>" class="border-0" >}}
 
 
@@ -155,7 +155,7 @@ curl -v -X POST \
 
 2. Your Event will be readable when the Public Asset link is followed. 
 
-{{< img src="PublicView.png" alt="Rectangle" caption="<em>Event Listed in Public View</em>" class="border-0" >}}
+{{< img src="PublicViewEvent.png" alt="Rectangle" caption="<em>Event Listed in Public View</em>" class="border-0" >}}
 
 {{< img src="EventPublic.png" alt="Rectangle" caption="<em>Event Information</em>" class="border-0" >}}
 

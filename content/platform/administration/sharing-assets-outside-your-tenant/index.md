@@ -125,8 +125,8 @@ Create an empty file, in later steps we will add the correct JSON.
 
 {{< tabs name="existing_policies_obac" >}}
 {{{< tab name="UI" >}}
-Here you will see any existing policies and can select `Add Policy`.
-{{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Adding a Policy</em>" class="border-0" >}}
+Here you will see any existing policies and can select `Create Policy`.
+{{< img src="PolicyAdd.png" alt="Rectangle" caption="<em>Creating a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
 You may view your existing policies before creating your new policy by executing the following curl command. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.

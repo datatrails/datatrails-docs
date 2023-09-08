@@ -49,7 +49,7 @@ You must express `public` as an asset attribute and have `true` as a property to
 {{< tabs name="create_sbom_public" >}}
 {{{< tab name="UI" >}}
 Select `Register Asset` from the sidebar and fill in the desired details.
-Check the box next to `Make Asset Public`.
+Set the `Attest Publicly` toggle to `On`.
 
 {{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
@@ -68,7 +68,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
@@ -84,7 +83,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "Publicly Attested Asset",
         "arc_display_type": "Example",

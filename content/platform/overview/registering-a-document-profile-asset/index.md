@@ -83,7 +83,7 @@ Additional options:
 {{< tab name="YAML" >}}
 Here you can fill out some more metadata about your asset:
 * `selector` is the identifying attribute the yaml runner will use to check if your Asset exists already before attempting to create it. In this case, we use `arc_display_name` which represents the name of the Asset.
-* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all Assets.
+* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behaviour for all Assets.
 
 ```yaml
 ---
@@ -97,7 +97,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -111,7 +110,7 @@ steps:
 {{< tab name="JSON" >}}
 In the file you created earlier, begin adding metadata for your Asset:
 
-* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` and `Attachments` are the standard and recommended behaviours for all Assets.
+* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behaviour for all Assets.
 * `public` determines whether your docuemnt is public (*true*) or private (*false*)
 
 ```json
@@ -123,7 +122,7 @@ In the file you created earlier, begin adding metadata for your Asset:
         "document_hash_alg":"sha256",
         "document_version":"1"
     },  
-   "behaviours": ["RecordEvidence", "Attachments"],
+   "behaviours": ["RecordEvidence"],
    "public": true
 }
 ```
@@ -154,7 +153,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
@@ -179,7 +177,7 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
         "document_version":"1"
 
     },
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
@@ -221,7 +219,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
@@ -258,7 +255,7 @@ This example also adds a location to our Asset. To find out more about locations
         "some_custom_attribute":"anything you like"
 
     },
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }

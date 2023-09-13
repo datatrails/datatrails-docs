@@ -46,7 +46,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Shipping Container
@@ -58,7 +57,7 @@ steps:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "Shipping Container",
@@ -103,7 +102,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-      - Attachments
     proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Box
@@ -116,7 +114,7 @@ steps:
 
 ```json
 {
-    "behaviours": ["RecordEvidence", "Attachments"],
+    "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "Box",
@@ -136,7 +134,7 @@ To retrieve all Assets associated with a container, you can run a query with a f
 
 {{< tabs name="list_contents" >}}
 {{{< tab name="UI" >}}
-Go to the `Audit/Search` page and filter the Assets and Events within your tenancy.
+Go to the `Audit/Filter` page and filter the Assets and Events within your tenancy.
 {{< img src="AssetFilter.png" alt="Rectangle" caption="<em>Filter Assets and Events</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

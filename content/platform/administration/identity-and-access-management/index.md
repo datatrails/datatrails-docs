@@ -17,7 +17,7 @@ aliases:
 
 ## Tenancies and Accounts
 
-Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple Tenancies. 
+Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an individual user can be part of multiple Tenancies. 
 
 ### How do I add users to my organization?
 

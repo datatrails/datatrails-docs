@@ -23,32 +23,32 @@ Each time a new file is created a corresponding asset will also be created on RK
 ### Connecting RKVST to DropBox
 
 1. Select **Settings** from the side bar and then the **Integrations** tab.  
-{{< img src="DropBoxStart.png" alt="Dropbox Integration" caption="<em>Settings</em>" >}}
+{{< img src="DropBoxStart.png" alt="Dropbox Integration" caption="<em>Settings</em>" class="border-0">}}
 
 2. Select **DropBox** and then **Proceed**.
-{{< img src="DropBoxProceed.png" alt="Dropbox Integration" caption="<em>Proceed</em>" >}}
+{{< img src="DropBoxProceed.png" alt="Dropbox Integration" caption="<em>Proceed</em>" class="border-0">}}
 {{< note >}}
 **Note:** If you are setting up the integration while logged into DropBox this DropBox account will be used to connect to RKVST. If you are not logged in then DropBox will ask you to authenticate.  
 {{< /note >}}
-{{< img src="DropBoxAuth.png" alt="Dropbox Integration" caption="<em>Log in to DropBox</em>" >}}
+{{< img src="DropBoxAuth.png" alt="Dropbox Integration" caption="<em>Log in to DropBox</em>" class="border-0">}}
 
 3. DropBox will display an alert message. Click **Continue**.
-{{< img src="DropBoxAlert.png" alt="Dropbox Integration" caption="<em>Select Continue</em>" >}}
+{{< img src="DropBoxAlert.png" alt="Dropbox Integration" caption="<em>Select Continue</em>" class="border-0">}}
 
 4. Following the alert, click **Allow** to give RKVST permission to access your DropBox Folders.
-{{< img src="DropBoxRKVSTAllow.png" alt="Dropbox Integration" caption="<em>Select Allow</em>" >}}
+{{< img src="DropBoxRKVSTAllow.png" alt="Dropbox Integration" caption="<em>Select Allow</em>" class="border-0">}}
 
 5. Select the folder on DropBox that you wish to connect to RKVST and then secect **Confirm**. The contents of this folder and *all its subfolders* will be added to RKVST as public Document Profile Assets.
-{{< img src="DropBoxConfirm.png" alt="Dropbox Integration" caption="<em>Select Folder and Confirm</em>" >}}
+{{< img src="DropBoxConfirm.png" alt="Dropbox Integration" caption="<em>Select Folder and Confirm</em>" class="border-0">}}
 
 6. You will see a success message and DropBox will be connected.
-{{< img src="DropBoxSuccess.png" alt="Dropbox Integration" caption="<em>Success!</em>" >}}
+{{< img src="DropBoxSuccess.png" alt="Dropbox Integration" caption="<em>Success!</em>" class="border-0">}}
 
 Click on an icon on the right to edit the connection or to disconnect.
-{{< img src="DropBoxConnected.png" alt="Dropbox Integration" caption="<em>Connected</em>" >}}
+{{< img src="DropBoxConnected.png" alt="Dropbox Integration" caption="<em>Connected</em>" class="border-0">}}
 
 7. Check the Asset Overview to see your DropBox files.
-{{< img src="DropBoxAssets.png" alt="Dropbox Integration" caption="<em>Assets</em>" >}}
+{{< img src="DropBoxAssets.png" alt="Dropbox Integration" caption="<em>Assets</em>" class="border-0">}}
 {{< note >}}
 **Note:** The filenames of the DropBox files is masked using the format <em>xxx...</em>  
 {{< /note >}}
@@ -56,11 +56,11 @@ Click on an icon on the right to edit the connection or to disconnect.
 ### Disconnecting RKVST from DropBox
 To uncouple RKVST and DropBox you must disconnect using both applications.
 1. Select the Disconnect icon in RKVST.
-{{< img src="RKVSTDisconnect.png" alt="Dropbox Integration" caption="<em>Disconnect DropBox</em>" >}}
+{{< img src="RKVSTDisconnect.png" alt="Dropbox Integration" caption="<em>Disconnect DropBox</em>" class="border-0">}}
 You will see a warning message.
-{{< img src="DisconnectWarning.png" alt="Dropbox Integration" caption="<em>Disconnect Warning</em>" >}}
+{{< img src="DisconnectWarning.png" alt="Dropbox Integration" caption="<em>Disconnect Warning</em>" class="border-0">}}
 
 2. In DropBox, select your account and then **Settings** followed by the **Apps** tab. Select RKVST and then **Disconnect**. 
-{{< img src="DropBoxDisconnectApp.png" alt="Dropbox Integration" caption="<em>Disconnect RKVST</em>" >}}
+{{< img src="DropBoxDisconnectApp.png" alt="Dropbox Integration" caption="<em>Disconnect RKVST</em>" class="border-0">}}
 
 This is how to connect and disconnect RKVST and DropBox, it is that simple!

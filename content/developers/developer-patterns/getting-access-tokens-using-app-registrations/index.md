@@ -1,7 +1,7 @@
 ---
-title: "Getting Access Tokens using App Registrations"
-description: "Getting Access Tokens using App Registrations"
-lead: "Creating App Registrations for RKVST"
+title: "Getting Access Tokens using a Custom Integration"
+description: "Getting Access Tokens using a Custom Integration"
+lead: "Creating Access Tokens for RKVST"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2021-06-16T11:12:25+01:00
 draft: false
@@ -16,41 +16,44 @@ aliases:
   - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
-Non-interactive access to the RKVST platform is managed by creating `Applications` with App Registrations, using either the `Settings` Menu in the UI or by using the App Registrations API directly.
-
-`Applications` have a `CLIENT_ID` and `SECRET` that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
+Non-interactive access to the RKVST platform is managed by creating `Integrations` with either a Custom Integration or one of our built-in Integrations. This is done using either the `Settings` Menu in the UI or by using the App Registrations API directly.
+{{< note >}}
+**Note:** App Registration is the previous name for an Integration.
+{{< /note >}}
+ 
+`Integrations` have a `CLIENT_ID` and `SECRET` that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
 
 This authentication flow uses the industry-standard OIDC 'Client Credentials' Flow. 
 
-## Creating an App Registration
+## Creating a Custom Integration
 
 {{< warning >}}
-**Warning:** You may only create and manage App Registrations with an **Administrator**.
+**Warning:** You may only create and manage App Registrations with an **Administrator** level account.
 {{< /warning >}}
 
-When enabling non-interactive access to RKVST, you ***must*** create your first App Registration in the **RKVST UI**.
+When enabling non-interactive access to RKVST, you ***must*** create your first Integration in the **RKVST UI**.
 
-### Using the RKVST UI to create an App Registration (First-Time Setup)
+### Using the RKVST UI to create an Integration (First-Time Setup)
 
 1. As an Administrator, open the `Settings` interface.
 
 {{< img src="Settings.png" alt="Rectangle" caption="<em>Settings</em>" class="border-0" >}}
 
-2. Navigate to the `APP REGISTRATIONS` tab.
+2. Navigate to the `Integrations` tab.
 
-{{< img src="AppRegistrationsTab.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS</em>" class="border-0" >}}
+{{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Integrations</em>" class="border-0" >}}
 
-3. Click `CREATE APP REGISTRATION` and the following form should appear:
+3. Click the `Custom` box and the following form should appear:
 
-{{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
+{{< img src="CreateCustomForm.png" alt="Rectangle" caption="<em>Custom Integration Webform</em>" class="border-0" >}}
 
-3. Enter any display name you'd like, then click `CREATE APP REGISTRATION`.
+3. Enter any display name you'd like, then click `Confirm`.
 
 {{< note >}}
  You can optionally add any Custom Claims at this step. You must ensure they do not start with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](/platform/administration/managing-access-to-an-asset-with-abac) to grant permissions. 
 {{< /note >}}
 
-{{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
+{{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
 
 4.  You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
 
@@ -60,21 +63,25 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 
-5. Now that you have created your App Registration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
+5. Now that you have created your Custom Integration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
-**Note:** By default, newly created Applications will always have a Non-Administrator permission to the API, you must add the Application as an Administrator to elevate it's permissions.
+**Note:** By default, newly created Integrations will always have a Non-Administrator permission to the API, you must add the Integration as an Administrator to elevate it's permissions.
 
-You can add an App Registration as an Administrator using the `Settings` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your App Registration's `CLIENT_ID`.
+You can add a Custom Integration as an Administrator using the `Settings` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your Integration's `CLIENT_ID`.
 {{< /note >}}
 
-### Using the App Registrations API to create an App Registration
+### Using the App Registrations API to create an Integration
 
-The following assumes you have at least one `App Registration` that has already been configured with Administrator permissions and that you are comfortable generating tokens and using the RKVST API.
+{{< note >}}
+**Note:** App Registration is the previous name for an Integration.
+{{< /note >}}
 
-If you do not yet have an App Registration configured please follow the [first-time setup guide](./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup) to get started.
+The following assumes you have at least one `Custom Integration` that has already been configured with Administrator permissions and that you are comfortable generating tokens and using the RKVST API.
 
-1. Define your new Application JSON and save it to a file locally.
+If you do not yet have an Integration configured please follow the [first-time setup guide](./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup) to get started.
+
+1. Define your new Integration JSON and save it to a file locally.
 
 ```json
 {
@@ -86,7 +93,7 @@ If you do not yet have an App Registration configured please follow the [first-t
 }
 ```
 
-2. Generate a token using your pre-existing `App Registration` details.
+2. Generate a token using your pre-existing `Custom Integration` details.
 
 ```bash
 curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
@@ -121,7 +128,7 @@ curl -X POST \
      https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
-You should see a response with details about the App Registration's `CLIENT_ID` and `SECRET`:
+You should see a response with details about the Integration's `CLIENT_ID` and `SECRET`:
 
 ```json
 {
@@ -147,15 +154,15 @@ You should see a response with details about the App Registration's `CLIENT_ID` 
 **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
 {{< /caution >}}
 
-4. You should now have a newly configured App Registration and recorded its `CLIENT_ID` and `SECRET`. It can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).
+4. You should now have a newly configured Integration and recorded its `CLIENT_ID` and `SECRET`. It can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).
 
 For further details on using this API check out our [App Registrations API Reference](../../api-reference/app-registrations-api) which contains more detailed usage examples and has the full OpenAPI Reference.
 
-## Getting a Token With Your App Registration
+## Getting a Token With Your Integration
 
-Having completed the steps at [Creating an App Registration](./#creating-an-app-registration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
+Having completed the steps at [Creating a Custom Integration](./#creating-a-custom-integration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
 
-Replace `$CLIENT_ID` with the Application ID, and `$SECRET` with your secret from the App Registration.
+Replace `$CLIENT_ID` with the Application ID, and `$SECRET` with your secret from the Integration.
 
 ```bash
 curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
@@ -192,7 +199,7 @@ curl -v -X GET \
      https://app.rkvst.io/archivist/v2/assets
 ```
 
-If successful, you should then see a list of the assets your Application has access to in the tenancy. Note this may be an empty response if no assets are being shared with the user; this is an expected behaviour.
+If successful, you should then see a list of the assets your Integration has access to in the tenancy. Note this may be an empty response if no assets are being shared with the user; this is an expected behaviour.
 
 Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#assets-openapi-reference) for more detailed information on the response codes you may expect if authentication fails and what they mean.
 

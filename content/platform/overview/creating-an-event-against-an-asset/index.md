@@ -294,6 +294,10 @@ curl -v -X GET \
 {{< /tab >}}}
 {{< /tabs >}}
 
+<<<<<<< HEAD
+Please see the [Administation](/platform/administration/) section for information on how to manage your assets.
+=======
 
 In the next section we look at a specific type of Asset, the Document Profile Asset.
+>>>>>>> main
 

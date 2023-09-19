@@ -9,7 +9,7 @@ images: []
 menu: 
   platform:
     parent: "overview"
-weight: 38
+weight: 37
 toc: true
 ---
 Instaproof provides data provenance and authenticity with a simple drag-and-drop. 

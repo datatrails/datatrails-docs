@@ -16,9 +16,16 @@ toc: true
 ## The DropBox Integration
 This integration allows you to link your RKVST tenancy directly with DropBox to automatically add provenance to your files. 
 
-Any files found in the specified directories, and their subfolders, will be added as a public [Document Profile Asset](/developers/developer-patterns/document-profile/) in RKVST that can be verified using [Instaproof](/platform/overview/instaproof/).
+During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a **public** [Document Profile Asset](/developers/developer-patterns/document-profile/). These assets can be verified using [Instaproof](/platform/overview/instaproof/).
 
-Each time a new file is created a corresponding asset will also be created on RKVST and modifications a file will be registered as a [Publish Event](/developers/developer-patterns/document-profile/#publish-event) on the correct asset. 
+From then on, each time a new file is created a corresponding asset will also be created on RKVST and any modifications to an existing file will be registered as a [Publish Event](/developers/developer-patterns/document-profile/#publish-event) on the correct asset. 
+
+{{< note >}}
+**Note:** RKVST will **never** upload a copy of the file.
+
+The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by DropBox.<br>
+Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed. 
+{{< /note >}}
 
 ### Connecting RKVST to DropBox
 
@@ -27,9 +34,8 @@ Each time a new file is created a corresponding asset will also be created on RK
 
 2. Select **DropBox** and then **Proceed**.
 {{< img src="DropBoxProceed.png" alt="Dropbox Integration" caption="<em>Proceed</em>" class="border-0">}}
-{{< note >}}
-**Note:** If you are setting up the integration while logged into DropBox this DropBox account will be used to connect to RKVST. If you are not logged in then DropBox will ask you to authenticate.  
-{{< /note >}}
+If you are already logged into DropBox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then DropBox will ask you to authenticate.  
+
 {{< img src="DropBoxAuth.png" alt="Dropbox Integration" caption="<em>Log in to DropBox</em>" class="border-0">}}
 
 3. DropBox will display an alert message. Click **Continue**.
@@ -50,7 +56,7 @@ Click on an icon on the right to edit the connection or to disconnect.
 7. Check the Asset Overview to see your DropBox files.
 {{< img src="DropBoxAssets.png" alt="Dropbox Integration" caption="<em>Assets</em>" class="border-0">}}
 {{< note >}}
-**Note:** The filenames of the DropBox files is masked using the format <em>xxx...</em>  
+**Remember:** The filenames of the DropBox files are masked using the format <em>xxx...</em>  
 {{< /note >}}
 
 ### Disconnecting RKVST from DropBox

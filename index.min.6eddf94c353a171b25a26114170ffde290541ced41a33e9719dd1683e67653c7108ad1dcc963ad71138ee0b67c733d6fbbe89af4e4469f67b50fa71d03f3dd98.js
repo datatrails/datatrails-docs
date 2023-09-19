@@ -1570,7 +1570,24 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
 
+<h1 id="please-see-the-administationplatformadministration-section-for-information-on-how-to-manage-your-assets">&laquo;&laquo;&laquo;&lt; HEAD
+Please see the <a href="/platform/administration/">Administation</a> section for information on how to manage your assets.</h1>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>main</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 `},{id:8,href:"https://docs.rkvst.com/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
 <p>To verify your data, you may use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
@@ -2339,7 +2356,421 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </tr>
 </tbody>
 </table>
-`},{id:11,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
+`},{id:11,href:"https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
+<p>If you need to update your registered Document Profile Asset you can record this as an Event. The <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
+<p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
+<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classifiation.</p>
+<p>When the document version is no longer to be used there is a Withdraw Event.</p>
+<p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Before registering an Event, follow <a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset.</div>
+  </blockquote>
+<h2 id="registering-events">Registering Events</h2>
+<ol>
+<li>Open the Asset Overview for a Document Profile Asset.</li>
+</ol>
+<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-1" type="button" role="tab" aria-controls="add_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-2" type="button" role="tab" aria-controls="add_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="add_event"><div id="add_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event-0">
+<p>When viewing your Document, you have the choice of <code>Add New Version</code> (publish a new version), <code>Withdraw Document</code> (the document has reached End of Life) or <code>Record Event</code> (any other event that you wish to record).</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AssetOverview" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview.png" width="1438" height="920" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview.png" width="1438" height="920" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Asset Overview</em></figcaption>
+</figure>
+<div class="modal fade" id="AssetOverview" tabindex="-1" aria-labelledby="AssetOverview" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w&quot; width=&quot;1438&quot; height=&quot;920&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
+<p>To use the YAML Runner, please visit <a href="https://python.rkvst.com/runner/index.html">this link</a> for installation instructions.</p>
+<p>To create your Event, use the action <code>EVENTS_CREATE</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>asset_id</code> must match the Asset ID found in the details of your Document. See <a href="/platform/overview/registering-a-document-profile-asset/">Step 7 of Registering a Document Profile Asset</a>.</p>
+</div>
+  <div id="add_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-2">
+<p>Create an empty file, in later steps we will add the correct JSON.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br>
+<blockquote class="note callout">
+    <div><strong></strong> <p>In addition to the Asset and Event attributes that are part of the Document Profile, it is possible to record other attributes that are not part of the profile. These are:</p>
+<ul>
+<li><code>Event Attributes</code> - Attributes specific to an Event, i.e. a new author.</li>
+<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.</li>
+</ul>
+</div>
+  </blockquote>
+<br>
+2. Adding a New Version.</p>
+<p><ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_new_version-0" type="button" role="tab" aria-controls="add_new_version-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_new_version-1" type="button" role="tab" aria-controls="add_new_version-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_new_version-2" type="button" role="tab" aria-controls="add_new_version-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="add_new_version"><div id="add_new_version-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_new_version-0">
+<p>Click on the <code>Add New Version</code> button.<br>
+Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AddNewVersion" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion.png" width="846" height="641" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion.png" width="846" height="641" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Information</em></figcaption>
+</figure>
+<div class="modal fade" id="AddNewVersion" tabindex="-1" aria-labelledby="AddNewVersion" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w&quot; width=&quot;846&quot; height=&quot;641&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+The Advanced Options tab is for additional Asset and Event attributes that are not part of the document profile.
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AddNewVersionDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails.png" width="848" height="718" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails.png" width="848" height="718" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Advanced Options</em></figcaption>
+</figure>
+<div class="modal fade" id="AddNewVersionDetails" tabindex="-1" aria-labelledby="AddNewVersionDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w&quot; width=&quot;848&quot; height=&quot;718&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="add_new_version-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-1">
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
+<p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
+<p>In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is <code>document_hash_value</code>, the hash algorithm is <code>document_hash_alg</code> and the <code>document_status</code> which must be <code>Published</code>.</p>
+<p>In the event attributes section you should also add the required RKVST event attribute <code>arc_display_type</code> together with any other event specific attributes. The Document Profile specifies that <code>arc_display_type</code> must be <code>Publish</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">84684c83afd5e9cb3a83439872eae74798979ff5754b15931dbe768092174ec9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_status</span><span class="p">:</span><span class="w"> </span><span class="l">Published</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Publish version 2 of My First Document</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version_authors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Dee Author</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">dee@writeme.org</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Anne Author</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">anne@writeme.org  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="add_new_version-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-2">
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
+<p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
+<p>In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is <code>document_hash_value</code>, the hash algorithm is <code>document_hash_alg</code> and the <code>document_status</code> which must be <code>Published</code>.</p>
+<p>In the event attributes section you should also add the required RKVST event attribute <code>arc_display_type</code> together with any other event specific attributes. The Document Profile specifies that <code>arc_display_type</code> must be <code>Publish</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;84684c83afd5e9cb3a83439872eae74798979ff5754b15931dbe768092174ec9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish version 2 of My First Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Dee Author&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;dee@writeme.org&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Anne Author&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;anne@writeme.org&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">]</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need to include the correct <code>assets/&lt;asset-id&gt;</code> string for the asset in the URL.</p>
+</div></div>
+
+<br></p>
+<ol start="3">
+<li>The Withdraw Event.
+<ul class="nav nav-tabs" id="withdraw_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#withdraw_event-0" type="button" role="tab" aria-controls="withdraw_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#withdraw_event-1" type="button" role="tab" aria-controls="withdraw_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#withdraw_event-2" type="button" role="tab" aria-controls="withdraw_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="withdraw_event"><div id="withdraw_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="withdraw_event-0">
+<p>If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in RKVST by publishing a new version.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#WithdrawEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent.png" width="408" height="239" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent.png" width="408" height="239" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Withdraw Event</em></figcaption>
+</figure>
+<div class="modal fade" id="WithdrawEvent" tabindex="-1" aria-labelledby="WithdrawEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w&quot; width=&quot;408&quot; height=&quot;239&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
+<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_status</span><span class="p">:</span><span class="w"> </span><span class="l">Withdrawn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
+<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw My First Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br></li>
+<li>Recording a Generic Event.</li>
+</ol>
+<p>The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
+<p>See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a> for more information on this event type.
+<ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-1" type="button" role="tab" aria-controls="record_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-2" type="button" role="tab" aria-controls="record_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="record_event"><div id="record_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="record_event-0">
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RecordEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Submitting the Event</em></figcaption>
+</figure>
+<div class="modal fade" id="RecordEvent" tabindex="-1" aria-labelledby="RecordEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;550&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="record_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Document review</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w">  </span><span class="l">Review</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Document Review&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Review&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br>
+5. Registering the Event
+<ul class="nav nav-tabs" id="register_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#register_event-0" type="button" role="tab" aria-controls="register_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#register_event-1" type="button" role="tab" aria-controls="register_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#register_event-2" type="button" role="tab" aria-controls="register_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="register_event"><div id="register_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="register_event-0">
+<p>Once your form is complete, click on the <code>Record Event</code> button to register the event.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RecordEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Submitting the Event</em></figcaption>
+</figure>
+<div class="modal fade" id="RecordEvent" tabindex="-1" aria-labelledby="RecordEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;550&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="register_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-1">
+<p>Use the <a href="https://python.rkvst.com/runner/index.html">archivist_runner</a> to run your YAML file!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.rkvst.io <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      my_first_document_event.yaml
+</span></span></code></pre></div></div>
+  <div id="register_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-2">
+<p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
+</span></span></code></pre></div></div></div>
+
+<br>
+6. Viewing Event details.</p>
+<ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-1" type="button" role="tab" aria-controls="view_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-2" type="button" role="tab" aria-controls="view_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="view_event"><div id="view_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_event-0">
+<p>The Event History can be seen in the Asset Overview from step 1, simply click on any Event row to view it.<br>
+The Document tab shows information about the document version that you are viewing and also provides a drag-and-drop box that allows you to check any locally stored versions of the document that you have against this specific version.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#EventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails.png" width="752" height="818" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails.png" width="752" height="818" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing an Event</em></figcaption>
+</figure>
+<div class="modal fade" id="EventDetails" tabindex="-1" aria-labelledby="EventDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w&quot; width=&quot;752&quot; height=&quot;818&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+<p>The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#MoreEventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing Event Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id="MoreEventDetails" tabindex="-1" aria-labelledby="MoreEventDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w&quot; width=&quot;729&quot; height=&quot;452&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>To view all Events, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_LIST</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List all events.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>To view the details of the Event you just created for My First Container, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_LIST</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List Events against the Document &#39;My First Document&#39;.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/59e2b78b-d555-49a0-8775-f336b640122e </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
+<p>Event data can be viewed using curl commands.</p>
+<p>To view all Events across all Assets, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
+</span></span></code></pre></div><p>To view the details of the Event you just created for My First Document, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
+</span></span></code></pre></div></div></div>
+
+`},{id:12,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
 <p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
 <p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
 <p>The RKVST Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
@@ -3079,7 +3510,243 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </tr>
 </tbody>
 </table>
-`},{id:12,href:"https://docs.rkvst.com/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<p>You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. <code>Public Assets</code> can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.</p>
+`},{id:13,href:"https://docs.rkvst.com/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof provides data provenance and authenticity with a simple drag-and-drop.</p>
+<p>Instaproof will search amongst the assets that have been registered with the document profile and return a list of all assets that have a matching hash value.</p>
+<p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
+<h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
+<ol>
+<li><strong>Open Instaproof</strong>.</li>
+</ol>
+<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofStart" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofStart.png" width="1655" height="943" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofStart.png" width="1655" height="943" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Instaproof Search Area</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofStart" tabindex="-1" aria-labelledby="InstaproofStart" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" width="1655" height="943" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<ol start="2">
+<li><strong>Document not found</strong>.</li>
+</ol>
+<p>If the document that you are verifying has not been found, you will see a red response banner.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofNotFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Not Found</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofNotFound" tabindex="-1" aria-labelledby="InstaproofNotFound" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" width="1835" height="733" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>The possible reasons for this outcome are:</p>
+<ul>
+<li>The document owner has not registered the document in their RKVST tenancy.</li>
+<li>The document owner has not published this version of the document as an event.</li>
+<li>The document has been modified since it was registered with RKVST!</li>
+</ul>
+<p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
+<ol start="3">
+<li><strong>Document Found</strong>.</li>
+</ol>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
+  </blockquote>
+<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Found</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofFound" tabindex="-1" aria-labelledby="InstaproofFound" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" width="1830" height="882" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
+<p>You can check additional documents by dragging them on top of here.</p>
+<p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
+<p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
+<p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
+<p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
+<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
+<ol>
+<li><strong>Provenance Record</strong></li>
+</ol>
+<p>Click on a result to see details of the provenance record.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResults" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Results Tab</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofResults" tabindex="-1" aria-labelledby="InstaproofResults" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" width="2185" height="1555" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p>The <strong>Document</strong> tab shows the asset and event attributes that relate to the document profile.</p>
+<p><strong>Public</strong> - If this is green then the document is publicly accessible using the public URL. Otherwise it is private and requires shared access to be enabled for a user to be able to view it.</p>
+<p><strong>Tick</strong> - The anchor status of the document on the blockchain. A blue tick means that is has been anchored.</p>
+<p><strong>Details</strong> - The current version, the parent asset link (to the original version), the organization and Verified Domain badge, if applicable.</p>
+<p><strong>Compare Local Copy</strong> - Drag a copy here if you have a local copy of the document and you don&rsquo;t know which version it is. You do this by clicking on a version in the <strong>Browse Events</strong> section and then dragging a file to find if it matches this version.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofLocalCopy" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Comparing a Local Copy</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofLocalCopy" tabindex="-1" aria-labelledby="InstaproofLocalCopy" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" width="1967" height="1538" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>The <strong>More Details</strong> tab shows the asset details and attributes that are common to all RKVST assets.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResultsDetails" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>More Details Results Tab</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofResultsDetails" tabindex="-1" aria-labelledby="InstaproofResultsDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" width="2297" height="702" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
+<p><strong>Description</strong> - An optional decription of the event.</p>
+<p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
+<p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
+<p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofTransaction" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Transaction Details</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofTransaction" tabindex="-1" aria-labelledby="InstaproofTransaction" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" width="1542" height="1841" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong>
+The share button allows you to access and copy the private and public (if enabled) links for the asset to share with other users. Private links are for logged in users with assigned permissions, Public links are for everyone.</div>
+  </blockquote>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofShare" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Share Links</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofShare" tabindex="-1" aria-labelledby="InstaproofShare" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" width="1097" height="732" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+`},{id:14,href:"https://docs.rkvst.com/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<p>You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. <code>Public Assets</code> can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.</p>
 <p>Permissioned Assets can only be shared through the creation of <a href="/platform/administration/sharing-assets-with-obac/">Access Policies</a>. Public Assets, however, may be shared with a <code>Public URL</code> that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.</p>
 <p>Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.</p>
 <p>Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.</p>
@@ -3360,7 +4027,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
 
-`},{id:13,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
+`},{id:15,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
 <p>Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#khipu">Khipu</a> Events once they have been confirmed.</p>
@@ -3426,243 +4093,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <li>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> rkvst_receipt_scittv1 verify -d --worldroot <span class="si">\${</span><span class="nv">WORLDROOT</span><span class="si">}</span>
-</span></span></code></pre></div>`},{id:14,href:"https://docs.rkvst.com/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof provides data provenance and authenticity with a simple drag-and-drop.</p>
-<p>Instaproof will search amongst the assets that have been registered with the document profile and return a list of all assets that have a matching hash value.</p>
-<p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
-<h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
-<ol>
-<li><strong>Open Instaproof</strong>.</li>
-</ol>
-<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofStart" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofStart.png" width="1812" height="917" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofStart.png" width="1812" height="917" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Instaproof Search Area</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofStart" tabindex="-1" aria-labelledby="InstaproofStart" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" width="1812" height="917" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<ol start="2">
-<li><strong>Document not found</strong>.</li>
-</ol>
-<p>If the document that you are verifying has not been found, you will see a red response banner.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofNotFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Not Found</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofNotFound" tabindex="-1" aria-labelledby="InstaproofNotFound" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" width="1835" height="733" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>The possible reasons for this outcome are:</p>
-<ul>
-<li>The document owner has not registered the document in their RKVST tenancy.</li>
-<li>The document owner has not published this version of the document as an event.</li>
-<li>The document has been modified since it was registered with RKVST!</li>
-</ul>
-<p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
-<ol start="3">
-<li><strong>Document Found</strong>.</li>
-</ol>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
-  </blockquote>
-<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Found</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofFound" tabindex="-1" aria-labelledby="InstaproofFound" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" width="1830" height="882" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
-<p>You can check additional documents by dragging them on top of here.</p>
-<p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
-<p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
-<p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
-<p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
-<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
-<ol>
-<li><strong>Provenance Record</strong></li>
-</ol>
-<p>Click on a result to see details of the provenance record.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResults" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Results Tab</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofResults" tabindex="-1" aria-labelledby="InstaproofResults" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" width="2185" height="1555" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p>The <strong>Document</strong> tab shows the asset and event attributes that relate to the document profile.</p>
-<p><strong>Public</strong> - If this is green then the document is publicly accessible using the public URL. Otherwise it is private and requires shared access to be enabled for a user to be able to view it.</p>
-<p><strong>Tick</strong> - The anchor status of the document on the blockchain. A blue tick means that is has been anchored.</p>
-<p><strong>Details</strong> - The current version, the parent asset link (to the original version), the organization and Verified Domain badge, if applicable.</p>
-<p><strong>Compare Local Copy</strong> - Drag a copy here if you have a local copy of the document and you don&rsquo;t know which version it is. You do this by clicking on a version in the <strong>Browse Events</strong> section and then dragging a file to find if it matches this version.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofLocalCopy" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Comparing a Local Copy</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofLocalCopy" tabindex="-1" aria-labelledby="InstaproofLocalCopy" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" width="1967" height="1538" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>The <strong>More Details</strong> tab shows the asset details and attributes that are common to all RKVST assets.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResultsDetails" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>More Details Results Tab</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofResultsDetails" tabindex="-1" aria-labelledby="InstaproofResultsDetails" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" width="2297" height="702" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
-<p><strong>Description</strong> - An optional decription of the event.</p>
-<p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
-<p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
-<p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofTransaction" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Transaction Details</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofTransaction" tabindex="-1" aria-labelledby="InstaproofTransaction" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" width="1542" height="1841" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong>
-The share button allows you to access and copy the private and public (if enabled) links for the asset to share with other users. Private links are for logged in users with assigned permissions, Public links are for everyone.</div>
-  </blockquote>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofShare" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Share Links</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofShare" tabindex="-1" aria-labelledby="InstaproofShare" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" width="1097" height="732" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-`},{id:15,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+</span></span></code></pre></div>`},{id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple Tenancies.</p>
 <h3 id="how-do-i-add-users-to-my-organization">How do I add users to my organization?</h3>
 <p>RKVST Invites make it easy to add accounts to your tenancy.</p>
@@ -3888,7 +4319,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   </div>
 </div>
 <p>You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
-`},{id:16,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`},{id:17,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Having a verified domain is different from a <code>Tenant Display Name</code>. Tenant display names are internal, appearing only within your own Tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your Tenancy.</div>
@@ -3950,7 +4381,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`},{id:17,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`},{id:18,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
@@ -4313,7 +4744,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 <p>We can see that Mandy can only view the Attributes specified in the policy. She can also see the Event where we updated the location.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`},{id:18,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`},{id:19,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization&rsquo;s Non-Administrators, should they require the shared assets to be visible.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Pre-requisites:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -4803,7 +5234,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <li>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
 </ol>
 <p>There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
-`},{id:19,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`},{id:20,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <blockquote class="note callout">
@@ -5123,7 +5554,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div></div></div>
 
-`},{id:20,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+`},{id:21,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
@@ -5682,7 +6113,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-`},{id:21,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
+`},{id:22,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
@@ -6786,7 +7217,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:22,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
+`},{id:23,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> For more information on Assets and Asset creation, visit our <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> and <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="asset-api-examples">Asset API Examples</h2>
@@ -8750,7 +9181,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:23,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
+`},{id:24,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
 <p>The Attachments API enables you to query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger. For details of how to actually attach these BLOBs to Events and Assets, see the <a href="../events-api/#adding-attachments">the Events API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
@@ -9900,7 +10331,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:24,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
+`},{id:25,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
 <p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
@@ -10496,7 +10927,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:25,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
+`},{id:26,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="fetch-transactions-for-an-event-v1alpha2">Fetch Transactions for an event (v1alpha2)</h3>
 <p>Blockchain transactions can be fetched from the blockchain endpoint using the Asset&rsquo;s Event ID as a parameter:</p>
@@ -10814,7 +11245,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:26,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
+`},{id:27,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
 <p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
@@ -12159,7 +12590,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:27,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
+`},{id:28,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -14067,7 +14498,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:28,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
+`},{id:29,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <p>An <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC</a> policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the <a href="../invites-api/">Invites API</a> or could be an App Registration used for client credentials, which are created as Non-Root by default.</p>
 <p>To create an ABAC Policy, you should use the <code>user_attributes</code> keyword. Specify <code>email</code> for invited users, and <code>subject</code>, using the client-id of your credentials, for App Registrations.</p>
@@ -15797,7 +16228,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:29,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
+`},{id:30,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="iam-subjects-creation">IAM Subjects Creation</h3>
 <p>Define the Subject parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -16757,7 +17188,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:30,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
+`},{id:31,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
 <p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
@@ -17435,7 +17866,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:31,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
+`},{id:32,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> See <a href="/platform/administration/grouping-assets-by-location/">RKVST Administration</a> for additional information on creating and using locations with RKVST.</div>
   </blockquote>
 <h2 id="locations-api-examples">Locations API Examples</h2>
@@ -18630,7 +19061,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:32,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
+`},{id:33,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
 <p>Public Assets are created using the <a href="../assets-api/">Assets API</a> and setting the value of <code>public</code> to <code>true</code>.</p>
 <p>To see more information about creating a Public Asset, see <a href="../assets-api/#creating-a-public-asset">Creating a Public Asset</a>.</p>
 <p>Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for.</p>
@@ -19480,7 +19911,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:33,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
+`},{id:34,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="querying-blockchain-status">Querying Blockchain Status</h3>
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
@@ -19993,7 +20424,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:34,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
+`},{id:35,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
@@ -21397,7 +21828,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:35,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
+`},{id:36,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="tls-ca-certificate-upload">TLS CA Certificate Upload</h3>
 <p>Define the TLS CA certificate parameters and store in <code>/path/to/jsonfile</code> (certificate field shortened for brevity):</p>
@@ -22208,7 +22639,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`},{id:36,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:37,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22269,7 +22700,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:37,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:38,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22388,7 +22819,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:38,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:39,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22487,7 +22918,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:39,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:40,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22535,7 +22966,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:40,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22643,7 +23074,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all subjects to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
-</span></span></span></code></pre></div>`},{id:41,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22675,7 +23106,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:42,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:43,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -22687,7 +23118,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:43,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:44,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -22700,7 +23131,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
-</div>`},{id:44,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+</div>`},{id:45,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -22713,7 +23144,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`},{id:45,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:46,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the RKVST YAML Runner.<br></p>
@@ -22726,7 +23157,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
-</div>`},{id:46,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+</div>`},{id:47,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
@@ -22748,7 +23179,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
     </div>
 </div>
-`},{id:47,href:"https://docs.rkvst.com/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.rkvst.com/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your RKVST journey here.<br></p>
@@ -22764,7 +23195,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
-`},{id:48,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -22811,7 +23242,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
         <p>Additional resources are available from our <a href="https://pypi.org/project/rkvst-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/rkvst/rkvst-samples" target="_blank">Python Samples</a>.</p>
     </div>
 </div>
-`},{id:49,href:"https://docs.rkvst.com/platform/",title:"Platform",description:"RKVST Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:50,href:"https://docs.rkvst.com/platform/",title:"Platform",description:"RKVST Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to RKVST, this is the place to start.<br></p>
@@ -24416,7 +24847,24 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
 
+<h1 id="please-see-the-administationplatformadministration-section-for-information-on-how-to-manage-your-assets">&laquo;&laquo;&laquo;&lt; HEAD
+Please see the <a href="/platform/administration/">Administation</a> section for information on how to manage your assets.</h1>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>main</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 `}).add({id:8,href:"https://docs.rkvst.com/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
 <p>To verify your data, you may use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
@@ -25185,7 +25633,421 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </tr>
 </tbody>
 </table>
-`}).add({id:11,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
+`}).add({id:11,href:"https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
+<p>If you need to update your registered Document Profile Asset you can record this as an Event. The <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
+<p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
+<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classifiation.</p>
+<p>When the document version is no longer to be used there is a Withdraw Event.</p>
+<p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Before registering an Event, follow <a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset.</div>
+  </blockquote>
+<h2 id="registering-events">Registering Events</h2>
+<ol>
+<li>Open the Asset Overview for a Document Profile Asset.</li>
+</ol>
+<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-1" type="button" role="tab" aria-controls="add_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_event-2" type="button" role="tab" aria-controls="add_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="add_event"><div id="add_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_event-0">
+<p>When viewing your Document, you have the choice of <code>Add New Version</code> (publish a new version), <code>Withdraw Document</code> (the document has reached End of Life) or <code>Record Event</code> (any other event that you wish to record).</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AssetOverview" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview.png" width="1438" height="920" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview.png" width="1438" height="920" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Asset Overview</em></figcaption>
+</figure>
+<div class="modal fade" id="AssetOverview" tabindex="-1" aria-labelledby="AssetOverview" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AssetOverview_hua936bb003aa963b9228085c4dc56cc9d_442005_200x0_resize_box_3.png 200w&quot; width=&quot;1438&quot; height=&quot;920&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
+<p>To use the YAML Runner, please visit <a href="https://python.rkvst.com/runner/index.html">this link</a> for installation instructions.</p>
+<p>To create your Event, use the action <code>EVENTS_CREATE</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span></code></pre></div><p>The <code>asset_id</code> must match the Asset ID found in the details of your Document. See <a href="/platform/overview/registering-a-document-profile-asset/">Step 7 of Registering a Document Profile Asset</a>.</p>
+</div>
+  <div id="add_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-2">
+<p>Create an empty file, in later steps we will add the correct JSON.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br>
+<blockquote class="note callout">
+    <div><strong></strong> <p>In addition to the Asset and Event attributes that are part of the Document Profile, it is possible to record other attributes that are not part of the profile. These are:</p>
+<ul>
+<li><code>Event Attributes</code> - Attributes specific to an Event, i.e. a new author.</li>
+<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.</li>
+</ul>
+</div>
+  </blockquote>
+<br>
+2. Adding a New Version.</p>
+<p><ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_new_version-0" type="button" role="tab" aria-controls="add_new_version-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_new_version-1" type="button" role="tab" aria-controls="add_new_version-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_new_version-2" type="button" role="tab" aria-controls="add_new_version-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="add_new_version"><div id="add_new_version-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_new_version-0">
+<p>Click on the <code>Add New Version</code> button.<br>
+Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AddNewVersion" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion.png" width="846" height="641" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion.png" width="846" height="641" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Information</em></figcaption>
+</figure>
+<div class="modal fade" id="AddNewVersion" tabindex="-1" aria-labelledby="AddNewVersion" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersion_huac01b3ab518039a4838b9d6942a415b7_48033_200x0_resize_box_3.png 200w&quot; width=&quot;846&quot; height=&quot;641&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+The Advanced Options tab is for additional Asset and Event attributes that are not part of the document profile.
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#AddNewVersionDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails.png" width="848" height="718" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails.png" width="848" height="718" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Advanced Options</em></figcaption>
+</figure>
+<div class="modal fade" id="AddNewVersionDetails" tabindex="-1" aria-labelledby="AddNewVersionDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/AddNewVersionDetails_hu1a269a7842a1ef687de6af9d021f4ab4_54574_200x0_resize_box_3.png 200w&quot; width=&quot;848&quot; height=&quot;718&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="add_new_version-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-1">
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
+<p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
+<p>In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is <code>document_hash_value</code>, the hash algorithm is <code>document_hash_alg</code> and the <code>document_status</code> which must be <code>Published</code>.</p>
+<p>In the event attributes section you should also add the required RKVST event attribute <code>arc_display_type</code> together with any other event specific attributes. The Document Profile specifies that <code>arc_display_type</code> must be <code>Publish</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">84684c83afd5e9cb3a83439872eae74798979ff5754b15931dbe768092174ec9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_status</span><span class="p">:</span><span class="w"> </span><span class="l">Published</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Publish version 2 of My First Document</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version_authors</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Dee Author</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">dee@writeme.org</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Anne Author</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">anne@writeme.org  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="add_new_version-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-2">
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
+<p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
+<p>In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is <code>document_hash_value</code>, the hash algorithm is <code>document_hash_alg</code> and the <code>document_status</code> which must be <code>Published</code>.</p>
+<p>In the event attributes section you should also add the required RKVST event attribute <code>arc_display_type</code> together with any other event specific attributes. The Document Profile specifies that <code>arc_display_type</code> must be <code>Publish</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;84684c83afd5e9cb3a83439872eae74798979ff5754b15931dbe768092174ec9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish version 2 of My First Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Dee Author&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;dee@writeme.org&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Anne Author&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;anne@writeme.org&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">]</span>  
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need to include the correct <code>assets/&lt;asset-id&gt;</code> string for the asset in the URL.</p>
+</div></div>
+
+<br></p>
+<ol start="3">
+<li>The Withdraw Event.
+<ul class="nav nav-tabs" id="withdraw_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#withdraw_event-0" type="button" role="tab" aria-controls="withdraw_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#withdraw_event-1" type="button" role="tab" aria-controls="withdraw_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#withdraw_event-2" type="button" role="tab" aria-controls="withdraw_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="withdraw_event"><div id="withdraw_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="withdraw_event-0">
+<p>If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in RKVST by publishing a new version.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#WithdrawEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent.png" width="408" height="239" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent.png" width="408" height="239" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Withdraw Event</em></figcaption>
+</figure>
+<div class="modal fade" id="WithdrawEvent" tabindex="-1" aria-labelledby="WithdrawEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/WithdrawEvent_hub4bcd279d5a0750b07e9d4ef7168b44e_14876_200x0_resize_box_3.png 200w&quot; width=&quot;408&quot; height=&quot;239&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
+<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_status</span><span class="p">:</span><span class="w"> </span><span class="l">Withdrawn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
+<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw My First Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br></li>
+<li>Recording a Generic Event.</li>
+</ol>
+<p>The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
+<p>See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a> for more information on this event type.
+<ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-1" type="button" role="tab" aria-controls="record_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#record_event-2" type="button" role="tab" aria-controls="record_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="record_event"><div id="record_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="record_event-0">
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RecordEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Submitting the Event</em></figcaption>
+</figure>
+<div class="modal fade" id="RecordEvent" tabindex="-1" aria-labelledby="RecordEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;550&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="record_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_CREATE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Record event against My First Document.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Document review</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w">  </span><span class="l">Review</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Document Review&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Review&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+<br>
+5. Registering the Event
+<ul class="nav nav-tabs" id="register_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#register_event-0" type="button" role="tab" aria-controls="register_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#register_event-1" type="button" role="tab" aria-controls="register_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#register_event-2" type="button" role="tab" aria-controls="register_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="register_event"><div id="register_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="register_event-0">
+<p>Once your form is complete, click on the <code>Record Event</code> button to register the event.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RecordEvent" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent.png" width="851" height="550" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Submitting the Event</em></figcaption>
+</figure>
+<div class="modal fade" id="RecordEvent" tabindex="-1" aria-labelledby="RecordEvent" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/RecordEvent_hua19c9cf235a074f13afbaedd81fa9833_32647_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;550&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="register_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-1">
+<p>Use the <a href="https://python.rkvst.com/runner/index.html">archivist_runner</a> to run your YAML file!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.rkvst.io <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      my_first_document_event.yaml
+</span></span></code></pre></div></div>
+  <div id="register_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-2">
+<p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
+</span></span></code></pre></div></div></div>
+
+<br>
+6. Viewing Event details.</p>
+<ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-1" type="button" role="tab" aria-controls="view_event-1" aria-selected="false">YAML</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#view_event-2" type="button" role="tab" aria-controls="view_event-2" aria-selected="false">JSON</button>
+		</li></ul>
+<div class="tab-content" id="view_event"><div id="view_event-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="view_event-0">
+<p>The Event History can be seen in the Asset Overview from step 1, simply click on any Event row to view it.<br>
+The Document tab shows information about the document version that you are viewing and also provides a drag-and-drop box that allows you to check any locally stored versions of the document that you have against this specific version.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#EventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails.png" width="752" height="818" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails.png" width="752" height="818" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing an Event</em></figcaption>
+</figure>
+<div class="modal fade" id="EventDetails" tabindex="-1" aria-labelledby="EventDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/EventDetails_hu8b129dd5254582ef8cbadf99c162ccc5_49843_500x0_resize_box_3.png 500w&quot; width=&quot;752&quot; height=&quot;818&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+<p>The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#MoreEventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing Event Attributes</em></figcaption>
+</figure>
+<div class="modal fade" id="MoreEventDetails" tabindex="-1" aria-labelledby="MoreEventDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w&quot; width=&quot;729&quot; height=&quot;452&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+  </div>
+</div>
+</div>
+  <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>To view all Events, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_LIST</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List all events.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>To view the details of the Event you just created for My First Container, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">EVENTS_LIST</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List Events against the Document &#39;My First Document&#39;.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/59e2b78b-d555-49a0-8775-f336b640122e </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
+</span></span></span></code></pre></div></div>
+  <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
+<p>Event data can be viewed using curl commands.</p>
+<p>To view all Events across all Assets, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
+</span></span></code></pre></div><p>To view the details of the Event you just created for My First Document, use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
+</span></span></code></pre></div></div></div>
+
+`}).add({id:12,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
 <p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
 <p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
 <p>The RKVST Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
@@ -25925,7 +26787,243 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </tr>
 </tbody>
 </table>
-`}).add({id:12,href:"https://docs.rkvst.com/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<p>You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. <code>Public Assets</code> can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.</p>
+`}).add({id:13,href:"https://docs.rkvst.com/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof provides data provenance and authenticity with a simple drag-and-drop.</p>
+<p>Instaproof will search amongst the assets that have been registered with the document profile and return a list of all assets that have a matching hash value.</p>
+<p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
+<h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
+<ol>
+<li><strong>Open Instaproof</strong>.</li>
+</ol>
+<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofStart" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofStart.png" width="1655" height="943" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofStart.png" width="1655" height="943" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Instaproof Search Area</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofStart" tabindex="-1" aria-labelledby="InstaproofStart" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hue5d6ad7d649514a8d4a9617b2c57cb4e_210148_200x0_resize_box_3.png 200w" width="1655" height="943" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<ol start="2">
+<li><strong>Document not found</strong>.</li>
+</ol>
+<p>If the document that you are verifying has not been found, you will see a red response banner.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofNotFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Not Found</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofNotFound" tabindex="-1" aria-labelledby="InstaproofNotFound" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" width="1835" height="733" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>The possible reasons for this outcome are:</p>
+<ul>
+<li>The document owner has not registered the document in their RKVST tenancy.</li>
+<li>The document owner has not published this version of the document as an event.</li>
+<li>The document has been modified since it was registered with RKVST!</li>
+</ul>
+<p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
+<ol start="3">
+<li><strong>Document Found</strong>.</li>
+</ol>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
+  </blockquote>
+<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Found</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofFound" tabindex="-1" aria-labelledby="InstaproofFound" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" width="1830" height="882" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
+<p>You can check additional documents by dragging them on top of here.</p>
+<p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
+<p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
+<p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
+<p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
+<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
+<ol>
+<li><strong>Provenance Record</strong></li>
+</ol>
+<p>Click on a result to see details of the provenance record.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResults" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Document Results Tab</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofResults" tabindex="-1" aria-labelledby="InstaproofResults" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" width="2185" height="1555" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p>The <strong>Document</strong> tab shows the asset and event attributes that relate to the document profile.</p>
+<p><strong>Public</strong> - If this is green then the document is publicly accessible using the public URL. Otherwise it is private and requires shared access to be enabled for a user to be able to view it.</p>
+<p><strong>Tick</strong> - The anchor status of the document on the blockchain. A blue tick means that is has been anchored.</p>
+<p><strong>Details</strong> - The current version, the parent asset link (to the original version), the organization and Verified Domain badge, if applicable.</p>
+<p><strong>Compare Local Copy</strong> - Drag a copy here if you have a local copy of the document and you don&rsquo;t know which version it is. You do this by clicking on a version in the <strong>Browse Events</strong> section and then dragging a file to find if it matches this version.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofLocalCopy" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Comparing a Local Copy</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofLocalCopy" tabindex="-1" aria-labelledby="InstaproofLocalCopy" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" width="1967" height="1538" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>The <strong>More Details</strong> tab shows the asset details and attributes that are common to all RKVST assets.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResultsDetails" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>More Details Results Tab</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofResultsDetails" tabindex="-1" aria-labelledby="InstaproofResultsDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" width="2297" height="702" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+<p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
+<p><strong>Description</strong> - An optional decription of the event.</p>
+<p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
+<p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
+<p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofTransaction" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Transaction Details</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofTransaction" tabindex="-1" aria-labelledby="InstaproofTransaction" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" width="1542" height="1841" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong>
+The share button allows you to access and copy the private and public (if enabled) links for the asset to share with other users. Private links are for logged in users with assigned permissions, Public links are for everyone.</div>
+  </blockquote>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofShare" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Share Links</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="InstaproofShare" tabindex="-1" aria-labelledby="InstaproofShare" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" width="1097" height="732" alt="Rectangle">
+      </div>
+  
+  </div>
+</div>
+`}).add({id:14,href:"https://docs.rkvst.com/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<p>You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. <code>Public Assets</code> can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.</p>
 <p>Permissioned Assets can only be shared through the creation of <a href="/platform/administration/sharing-assets-with-obac/">Access Policies</a>. Public Assets, however, may be shared with a <code>Public URL</code> that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.</p>
 <p>Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.</p>
 <p>Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.</p>
@@ -26206,7 +27304,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
 
-`}).add({id:13,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
+`}).add({id:15,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
 <p>Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#khipu">Khipu</a> Events once they have been confirmed.</p>
@@ -26272,243 +27370,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <li>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> rkvst_receipt_scittv1 verify -d --worldroot <span class="si">\${</span><span class="nv">WORLDROOT</span><span class="si">}</span>
-</span></span></code></pre></div>`}).add({id:14,href:"https://docs.rkvst.com/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof provides data provenance and authenticity with a simple drag-and-drop.</p>
-<p>Instaproof will search amongst the assets that have been registered with the document profile and return a list of all assets that have a matching hash value.</p>
-<p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
-<h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
-<ol>
-<li><strong>Open Instaproof</strong>.</li>
-</ol>
-<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofStart" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofStart.png" width="1812" height="917" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofStart.png" width="1812" height="917" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Instaproof Search Area</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofStart" tabindex="-1" aria-labelledby="InstaproofStart" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofStart_hu41c18da7e2b440651c913de92cba048b_86838_200x0_resize_box_3.png 200w" width="1812" height="917" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<ol start="2">
-<li><strong>Document not found</strong>.</li>
-</ol>
-<p>If the document that you are verifying has not been found, you will see a red response banner.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofNotFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofNotFound.png" width="1835" height="733" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Not Found</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofNotFound" tabindex="-1" aria-labelledby="InstaproofNotFound" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofNotFound_hu9bc27ad955b05033e42e36537d393c21_158848_200x0_resize_box_3.png 200w" width="1835" height="733" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>The possible reasons for this outcome are:</p>
-<ul>
-<li>The document owner has not registered the document in their RKVST tenancy.</li>
-<li>The document owner has not published this version of the document as an event.</li>
-<li>The document has been modified since it was registered with RKVST!</li>
-</ul>
-<p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
-<ol start="3">
-<li><strong>Document Found</strong>.</li>
-</ol>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
-  </blockquote>
-<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofFound" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofFound.png" width="1830" height="882" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Found</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofFound" tabindex="-1" aria-labelledby="InstaproofFound" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofFound_hub935b4620808efeb74e2ffb0ae060cfe_153365_200x0_resize_box_3.png 200w" width="1830" height="882" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
-<p>You can check additional documents by dragging them on top of here.</p>
-<p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
-<p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
-<p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
-<p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
-<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
-<ol>
-<li><strong>Provenance Record</strong></li>
-</ol>
-<p>Click on a result to see details of the provenance record.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResults" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResults.png" width="2185" height="1555" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Document Results Tab</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofResults" tabindex="-1" aria-labelledby="InstaproofResults" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResults_hud9498a91bff9dc01c08f5f7d0902f81b_182149_200x0_resize_box_3.png 200w" width="2185" height="1555" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p>The <strong>Document</strong> tab shows the asset and event attributes that relate to the document profile.</p>
-<p><strong>Public</strong> - If this is green then the document is publicly accessible using the public URL. Otherwise it is private and requires shared access to be enabled for a user to be able to view it.</p>
-<p><strong>Tick</strong> - The anchor status of the document on the blockchain. A blue tick means that is has been anchored.</p>
-<p><strong>Details</strong> - The current version, the parent asset link (to the original version), the organization and Verified Domain badge, if applicable.</p>
-<p><strong>Compare Local Copy</strong> - Drag a copy here if you have a local copy of the document and you don&rsquo;t know which version it is. You do this by clicking on a version in the <strong>Browse Events</strong> section and then dragging a file to find if it matches this version.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofLocalCopy" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofLocalCopy.png" width="1967" height="1538" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Comparing a Local Copy</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofLocalCopy" tabindex="-1" aria-labelledby="InstaproofLocalCopy" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofLocalCopy_huf71d65b866856422f683915522a6c34e_176579_200x0_resize_box_3.png 200w" width="1967" height="1538" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>The <strong>More Details</strong> tab shows the asset details and attributes that are common to all RKVST assets.</p>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofResultsDetails" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofResultsDetails.png" width="2297" height="702" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>More Details Results Tab</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofResultsDetails" tabindex="-1" aria-labelledby="InstaproofResultsDetails" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofResultsDetails_hu17a98b29858acee57e4ee87ea31b0bb0_143845_200x0_resize_box_3.png 200w" width="2297" height="702" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-<p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
-<p><strong>Description</strong> - An optional decription of the event.</p>
-<p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
-<p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
-<p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofTransaction" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" src="/platform/overview/instaproof/InstaproofTransaction.png" width="1542" height="1841" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Transaction Details</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofTransaction" tabindex="-1" aria-labelledby="InstaproofTransaction" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofTransaction_hu3558502cfce4afa984cce945d77acdc3_279602_500x0_resize_box_3.png 500w" width="1542" height="1841" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong>
-The share button allows you to access and copy the private and public (if enabled) links for the asset to share with other users. Private links are for logged in users with assigned permissions, Public links are for everyone.</div>
-  </blockquote>
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#InstaproofShare" img class="img-fluid responsive" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" src="/platform/overview/instaproof/InstaproofShare.png" width="1097" height="732" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Share Links</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="InstaproofShare" tabindex="-1" aria-labelledby="InstaproofShare" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/instaproof/InstaproofShare_hua1cefc61d4e146f935a65aec3546ad5f_106013_200x0_resize_box_3.png 200w" width="1097" height="732" alt="Rectangle">
-      </div>
-  
-  </div>
-</div>
-`}).add({id:15,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+</span></span></code></pre></div>`}).add({id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an indivudual user can be part of multiple Tenancies.</p>
 <h3 id="how-do-i-add-users-to-my-organization">How do I add users to my organization?</h3>
 <p>RKVST Invites make it easy to add accounts to your tenancy.</p>
@@ -26734,7 +27596,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   </div>
 </div>
 <p>You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
-`}).add({id:16,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`}).add({id:17,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Having a verified domain is different from a <code>Tenant Display Name</code>. Tenant display names are internal, appearing only within your own Tenancy, and are not visible to anyone you share with. A verified domain name must be set by the RKVST team, and will be visible to actors outside your Tenancy.</div>
@@ -26796,7 +27658,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`}).add({id:17,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`}).add({id:18,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
@@ -27159,7 +28021,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 <p>We can see that Mandy can only view the Attributes specified in the policy. She can also see the Event where we updated the location.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`}).add({id:18,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`}).add({id:19,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization&rsquo;s Non-Administrators, should they require the shared assets to be visible.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Pre-requisites:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -27649,7 +28511,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <li>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
 </ol>
 <p>There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
-`}).add({id:19,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`}).add({id:20,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <blockquote class="note callout">
@@ -27969,7 +28831,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div></div></div>
 
-`}).add({id:20,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+`}).add({id:21,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
@@ -28528,7 +29390,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-`}).add({id:21,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
+`}).add({id:22,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
@@ -29632,7 +30494,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:22,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:23,href:"https://docs.rkvst.com/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> For more information on Assets and Asset creation, visit our <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> and <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="asset-api-examples">Asset API Examples</h2>
@@ -31596,7 +32458,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:23,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
+`}).add({id:24,href:"https://docs.rkvst.com/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<h2 id="attachment-api-examples">Attachment API Examples</h2>
 <p>The Attachments API enables you to query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger. For details of how to actually attach these BLOBs to Events and Assets, see the <a href="../events-api/#adding-attachments">the Events API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
@@ -32746,7 +33608,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:24,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
+`}).add({id:25,href:"https://docs.rkvst.com/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<h2 id="blob-api-examples">Blob API Examples</h2>
 <p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
@@ -33342,7 +34204,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:25,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
+`}).add({id:26,href:"https://docs.rkvst.com/developers/api-reference/blockchain-api/",title:"Blockchain API (v1alpha2)",description:"Blockchain API Reference",content:`<h2 id="blockchain-api-examples">Blockchain API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="fetch-transactions-for-an-event-v1alpha2">Fetch Transactions for an event (v1alpha2)</h3>
 <p>Blockchain transactions can be fetched from the blockchain endpoint using the Asset&rsquo;s Event ID as a parameter:</p>
@@ -33660,7 +34522,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:26,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
+`}).add({id:27,href:"https://docs.rkvst.com/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<h2 id="compliance-api-examples">Compliance API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
 <p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
@@ -35005,7 +35867,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:27,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
+`}).add({id:28,href:"https://docs.rkvst.com/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -36913,7 +37775,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:28,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
+`}).add({id:29,href:"https://docs.rkvst.com/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<h2 id="iam-policies-api-examples">IAM Policies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <p>An <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC</a> policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the <a href="../invites-api/">Invites API</a> or could be an App Registration used for client credentials, which are created as Non-Root by default.</p>
 <p>To create an ABAC Policy, you should use the <code>user_attributes</code> keyword. Specify <code>email</code> for invited users, and <code>subject</code>, using the client-id of your credentials, for App Registrations.</p>
@@ -38643,7 +39505,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:29,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
+`}).add({id:30,href:"https://docs.rkvst.com/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<h2 id="iam-subjects-api-examples">IAM Subjects API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="iam-subjects-creation">IAM Subjects Creation</h3>
 <p>Define the Subject parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -39603,7 +40465,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:30,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
+`}).add({id:31,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
 <p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
@@ -40281,7 +41143,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:31,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
+`}).add({id:32,href:"https://docs.rkvst.com/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> See <a href="/platform/administration/grouping-assets-by-location/">RKVST Administration</a> for additional information on creating and using locations with RKVST.</div>
   </blockquote>
 <h2 id="locations-api-examples">Locations API Examples</h2>
@@ -41476,7 +42338,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:32,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
+`}).add({id:33,href:"https://docs.rkvst.com/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<h2 id="public-assets-api-examples">Public Assets API Examples</h2>
 <p>Public Assets are created using the <a href="../assets-api/">Assets API</a> and setting the value of <code>public</code> to <code>true</code>.</p>
 <p>To see more information about creating a Public Asset, see <a href="../assets-api/#creating-a-public-asset">Creating a Public Asset</a>.</p>
 <p>Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for.</p>
@@ -42326,7 +43188,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:33,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
+`}).add({id:34,href:"https://docs.rkvst.com/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<h2 id="system-api-examples">System API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="querying-blockchain-status">Querying Blockchain Status</h3>
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
@@ -42839,7 +43701,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:34,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
+`}).add({id:35,href:"https://docs.rkvst.com/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<h2 id="tenancies-api-examples">Tenancies API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
@@ -44243,7 +45105,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:35,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
+`}).add({id:36,href:"https://docs.rkvst.com/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<h2 id="tls-ca-certificates-api-examples">TLS CA Certificates API Examples</h2>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="tls-ca-certificate-upload">TLS CA Certificate Upload</h3>
 <p>Define the TLS CA certificate parameters and store in <code>/path/to/jsonfile</code> (certificate field shortened for brevity):</p>
@@ -45054,7 +45916,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   </div>
 
 
-`}).add({id:36,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:37,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45115,7 +45977,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:37,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:38,href:"https://docs.rkvst.com/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45234,7 +46096,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:38,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.rkvst.com/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45333,7 +46195,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.rkvst.com/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45381,7 +46243,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.rkvst.com/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45489,7 +46351,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all subjects to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.rkvst.com/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45521,7 +46383,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.rkvst.com/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -45533,7 +46395,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.rkvst.com/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -45546,7 +46408,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
-</div>`}).add({id:44,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+</div>`}).add({id:45,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -45559,7 +46421,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`}).add({id:45,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:46,href:"https://docs.rkvst.com/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the RKVST YAML Runner.<br></p>
@@ -45572,7 +46434,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
-</div>`}).add({id:46,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+</div>`}).add({id:47,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
@@ -45594,7 +46456,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:47,href:"https://docs.rkvst.com/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.rkvst.com/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your RKVST journey here.<br></p>
@@ -45610,7 +46472,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
-`}).add({id:48,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.rkvst.com/developers/",title:"Developers",description:"RKVST developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -45657,7 +46519,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
         <p>Additional resources are available from our <a href="https://pypi.org/project/rkvst-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/rkvst/rkvst-samples" target="_blank">Python Samples</a>.</p>
     </div>
 </div>
-`}).add({id:49,href:"https://docs.rkvst.com/platform/",title:"Platform",description:"RKVST Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:50,href:"https://docs.rkvst.com/platform/",title:"Platform",description:"RKVST Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to RKVST, this is the place to start.<br></p>

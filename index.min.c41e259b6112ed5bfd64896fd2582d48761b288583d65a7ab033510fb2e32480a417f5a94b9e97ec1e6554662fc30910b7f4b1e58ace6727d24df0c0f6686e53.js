@@ -6119,17 +6119,17 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-`},{id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with DropBox",content:`<h2 id="the-dropbox-integration">The DropBox Integration</h2>
-<p>This integration allows you to link your RKVST tenancy directly with DropBox to automatically add provenance to your files.</p>
+`},{id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+<p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
 <p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
 <p>From then on, each time a new file is created a corresponding asset will also be created on RKVST and any modifications to an existing file will be registered as a <a href="/developers/developer-patterns/document-profile/#publish-event">Publish Event</a> on the correct asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> RKVST will <strong>never</strong> upload a copy of the file.</p>
-<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by DropBox.<br>
+<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
 Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.</p>
 </div>
   </blockquote>
-<h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to DropBox</h3>
+<h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to Dropbox</h3>
 <ol>
 <li>
 <p>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab.<br>
@@ -6137,7 +6137,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxStart" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxStart" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Settings</em></figcaption>
 </figure>
@@ -6146,7 +6146,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 
 
-<div class="modal fade" id="DropBoxStart" tabindex="-1" aria-labelledby="DropBoxStart" aria-hidden="true">
+<div class="modal fade" id="DropboxStart" tabindex="-1" aria-labelledby="DropboxStart" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6158,12 +6158,12 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 </div></p>
 </li>
 <li>
-<p>Select <strong>DropBox</strong> and then <strong>Proceed</strong>.
+<p>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxProceed" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxProceed" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Proceed</em></figcaption>
 </figure>
@@ -6172,7 +6172,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 
 
-<div class="modal fade" id="DropBoxProceed" tabindex="-1" aria-labelledby="DropBoxProceed" aria-hidden="true">
+<div class="modal fade" id="DropboxProceed" tabindex="-1" aria-labelledby="DropboxProceed" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6182,23 +6182,23 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   
   </div>
 </div>
-If you are already logged into DropBox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then DropBox will ask you to authenticate.</p>
+If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.</p>
 </li>
 </ol>
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAuth" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAuth" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Log in to DropBox</em></figcaption>
+  <figcaption class="figure-caption"><em>Log in to Dropbox</em></figcaption>
 </figure>
 
 
 
 
 
-<div class="modal fade" id="DropBoxAuth" tabindex="-1" aria-labelledby="DropBoxAuth" aria-hidden="true">
+<div class="modal fade" id="DropboxAuth" tabindex="-1" aria-labelledby="DropboxAuth" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6210,12 +6210,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div>
 <ol start="3">
 <li>
-<p>DropBox will display an alert message. Click <strong>Continue</strong>.
+<p>Dropbox will display an alert message. Click <strong>Continue</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Continue</em></figcaption>
 </figure>
@@ -6224,7 +6224,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxAlert" tabindex="-1" aria-labelledby="DropBoxAlert" aria-hidden="true">
+<div class="modal fade" id="DropboxAlert" tabindex="-1" aria-labelledby="DropboxAlert" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6236,12 +6236,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your DropBox Folders.
+<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxRKVSTAllow" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxRKVSTAllow" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Allow</em></figcaption>
 </figure>
@@ -6250,7 +6250,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxRKVSTAllow" tabindex="-1" aria-labelledby="DropBoxRKVSTAllow" aria-hidden="true">
+<div class="modal fade" id="DropboxRKVSTAllow" tabindex="-1" aria-labelledby="DropboxRKVSTAllow" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6262,12 +6262,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>Select the folder on DropBox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+<p>Select the folder on Dropbox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Folder and Confirm</em></figcaption>
 </figure>
@@ -6276,7 +6276,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxConfirm" tabindex="-1" aria-labelledby="DropBoxConfirm" aria-hidden="true">
+<div class="modal fade" id="DropboxConfirm" tabindex="-1" aria-labelledby="DropboxConfirm" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6288,12 +6288,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>You will see a success message and DropBox will be connected.
+<p>You will see a success message and Dropbox will be connected.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxSuccess" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxSuccess" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Success!</em></figcaption>
 </figure>
@@ -6302,7 +6302,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxSuccess" tabindex="-1" aria-labelledby="DropBoxSuccess" aria-hidden="true">
+<div class="modal fade" id="DropboxSuccess" tabindex="-1" aria-labelledby="DropboxSuccess" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6319,7 +6319,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Connected</em></figcaption>
 </figure>
@@ -6328,7 +6328,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxConnected" tabindex="-1" aria-labelledby="DropBoxConnected" aria-hidden="true">
+<div class="modal fade" id="DropboxConnected" tabindex="-1" aria-labelledby="DropboxConnected" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6339,12 +6339,12 @@ If you are already logged into DropBox on the device that you are using to set u
   </div>
 </div></p>
 <ol start="7">
-<li>Check the Asset Overview to see your DropBox files.
+<li>Check the Asset Overview to see your Dropbox files.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAssets" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAssets" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Assets</em></figcaption>
 </figure>
@@ -6353,7 +6353,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxAssets" tabindex="-1" aria-labelledby="DropBoxAssets" aria-hidden="true">
+<div class="modal fade" id="DropboxAssets" tabindex="-1" aria-labelledby="DropboxAssets" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6364,11 +6364,11 @@ If you are already logged into DropBox on the device that you are using to set u
   </div>
 </div>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Remember:</strong> The filenames of the DropBox files are masked using the format <em>xxx&hellip;</em></div>
+    <div><strong></strong> <strong>Remember:</strong> The filenames of the Dropbox files are masked using the format <em>xxx&hellip;</em></div>
   </blockquote></li>
 </ol>
-<h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from DropBox</h3>
-<p>To uncouple RKVST and DropBox you must disconnect using both applications.</p>
+<h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
+<p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
 <ol>
 <li>
 <p>Select the Disconnect icon in RKVST.
@@ -6378,7 +6378,7 @@ If you are already logged into DropBox on the device that you are using to set u
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#RKVSTDisconnect" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Disconnect DropBox</em></figcaption>
+  <figcaption class="figure-caption"><em>Disconnect Dropbox</em></figcaption>
 </figure>
 
 
@@ -6421,12 +6421,12 @@ You will see a warning message.
 </div></p>
 </li>
 <li>
-<p>In DropBox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
+<p>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxDisconnectApp" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxDisconnectApp" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Disconnect RKVST</em></figcaption>
 </figure>
@@ -6435,7 +6435,7 @@ You will see a warning message.
 
 
 
-<div class="modal fade" id="DropBoxDisconnectApp" tabindex="-1" aria-labelledby="DropBoxDisconnectApp" aria-hidden="true">
+<div class="modal fade" id="DropboxDisconnectApp" tabindex="-1" aria-labelledby="DropboxDisconnectApp" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -6447,7 +6447,7 @@ You will see a warning message.
 </div></p>
 </li>
 </ol>
-<p>This is how to connect and disconnect RKVST and DropBox, it is that simple!</p>
+<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `},{id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
@@ -29731,17 +29731,17 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-`}).add({id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with DropBox",content:`<h2 id="the-dropbox-integration">The DropBox Integration</h2>
-<p>This integration allows you to link your RKVST tenancy directly with DropBox to automatically add provenance to your files.</p>
+`}).add({id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+<p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
 <p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
 <p>From then on, each time a new file is created a corresponding asset will also be created on RKVST and any modifications to an existing file will be registered as a <a href="/developers/developer-patterns/document-profile/#publish-event">Publish Event</a> on the correct asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> RKVST will <strong>never</strong> upload a copy of the file.</p>
-<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by DropBox.<br>
+<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
 Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.</p>
 </div>
   </blockquote>
-<h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to DropBox</h3>
+<h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to Dropbox</h3>
 <ol>
 <li>
 <p>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab.<br>
@@ -29749,7 +29749,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxStart" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxStart" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxStart_hu3f23cda3bd469255a7cafc7fca0f74fa_60040_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxStart.png" width="802" height="460" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Settings</em></figcaption>
 </figure>
@@ -29758,7 +29758,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 
 
-<div class="modal fade" id="DropBoxStart" tabindex="-1" aria-labelledby="DropBoxStart" aria-hidden="true">
+<div class="modal fade" id="DropboxStart" tabindex="-1" aria-labelledby="DropboxStart" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29770,12 +29770,12 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 </div></p>
 </li>
 <li>
-<p>Select <strong>DropBox</strong> and then <strong>Proceed</strong>.
+<p>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxProceed" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxProceed" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxProceed_hu491a7a4e90e561ebca35d70b22c11a8c_38847_500x0_resize_box_3.png 500w" src="/platform/administration/dropbox-integration/DropBoxProceed.png" width="383" height="499" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Proceed</em></figcaption>
 </figure>
@@ -29784,7 +29784,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 
 
 
-<div class="modal fade" id="DropBoxProceed" tabindex="-1" aria-labelledby="DropBoxProceed" aria-hidden="true">
+<div class="modal fade" id="DropboxProceed" tabindex="-1" aria-labelledby="DropboxProceed" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29794,23 +29794,23 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   
   </div>
 </div>
-If you are already logged into DropBox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then DropBox will ask you to authenticate.</p>
+If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.</p>
 </li>
 </ol>
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAuth" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAuth" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAuth_hu050d957b1a8a1a8a3336500acb73d1bc_40033_500x0_resize_box_3.png 500w" src="/platform/administration/dropbox-integration/DropBoxAuth.png" width="378" height="656" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Log in to DropBox</em></figcaption>
+  <figcaption class="figure-caption"><em>Log in to Dropbox</em></figcaption>
 </figure>
 
 
 
 
 
-<div class="modal fade" id="DropBoxAuth" tabindex="-1" aria-labelledby="DropBoxAuth" aria-hidden="true">
+<div class="modal fade" id="DropboxAuth" tabindex="-1" aria-labelledby="DropboxAuth" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29822,12 +29822,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div>
 <ol start="3">
 <li>
-<p>DropBox will display an alert message. Click <strong>Continue</strong>.
+<p>Dropbox will display an alert message. Click <strong>Continue</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Continue</em></figcaption>
 </figure>
@@ -29836,7 +29836,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxAlert" tabindex="-1" aria-labelledby="DropBoxAlert" aria-hidden="true">
+<div class="modal fade" id="DropboxAlert" tabindex="-1" aria-labelledby="DropboxAlert" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29848,12 +29848,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your DropBox Folders.
+<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxRKVSTAllow" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxRKVSTAllow" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxRKVSTAllow_hu148295ed5febb99cd47a953afac5dc89_33688_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxRKVSTAllow.png" width="640" height="449" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Allow</em></figcaption>
 </figure>
@@ -29862,7 +29862,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxRKVSTAllow" tabindex="-1" aria-labelledby="DropBoxRKVSTAllow" aria-hidden="true">
+<div class="modal fade" id="DropboxRKVSTAllow" tabindex="-1" aria-labelledby="DropboxRKVSTAllow" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29874,12 +29874,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>Select the folder on DropBox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+<p>Select the folder on Dropbox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Select Folder and Confirm</em></figcaption>
 </figure>
@@ -29888,7 +29888,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxConfirm" tabindex="-1" aria-labelledby="DropBoxConfirm" aria-hidden="true">
+<div class="modal fade" id="DropboxConfirm" tabindex="-1" aria-labelledby="DropboxConfirm" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29900,12 +29900,12 @@ If you are already logged into DropBox on the device that you are using to set u
 </div></p>
 </li>
 <li>
-<p>You will see a success message and DropBox will be connected.
+<p>You will see a success message and Dropbox will be connected.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxSuccess" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxSuccess" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxSuccess_hu57a251c539ff0336b4d8dc284938ac2c_15554_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxSuccess.png" width="383" height="244" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Success!</em></figcaption>
 </figure>
@@ -29914,7 +29914,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxSuccess" tabindex="-1" aria-labelledby="DropBoxSuccess" aria-hidden="true">
+<div class="modal fade" id="DropboxSuccess" tabindex="-1" aria-labelledby="DropboxSuccess" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29931,7 +29931,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Connected</em></figcaption>
 </figure>
@@ -29940,7 +29940,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxConnected" tabindex="-1" aria-labelledby="DropBoxConnected" aria-hidden="true">
+<div class="modal fade" id="DropboxConnected" tabindex="-1" aria-labelledby="DropboxConnected" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29951,12 +29951,12 @@ If you are already logged into DropBox on the device that you are using to set u
   </div>
 </div></p>
 <ol start="7">
-<li>Check the Asset Overview to see your DropBox files.
+<li>Check the Asset Overview to see your Dropbox files.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxAssets" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAssets" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAssets_hu8ddb8f4496934f3efd141a8a80b024b1_38563_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAssets.png" width="1576" height="260" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Assets</em></figcaption>
 </figure>
@@ -29965,7 +29965,7 @@ If you are already logged into DropBox on the device that you are using to set u
 
 
 
-<div class="modal fade" id="DropBoxAssets" tabindex="-1" aria-labelledby="DropBoxAssets" aria-hidden="true">
+<div class="modal fade" id="DropboxAssets" tabindex="-1" aria-labelledby="DropboxAssets" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -29976,11 +29976,11 @@ If you are already logged into DropBox on the device that you are using to set u
   </div>
 </div>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Remember:</strong> The filenames of the DropBox files are masked using the format <em>xxx&hellip;</em></div>
+    <div><strong></strong> <strong>Remember:</strong> The filenames of the Dropbox files are masked using the format <em>xxx&hellip;</em></div>
   </blockquote></li>
 </ol>
-<h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from DropBox</h3>
-<p>To uncouple RKVST and DropBox you must disconnect using both applications.</p>
+<h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
+<p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
 <ol>
 <li>
 <p>Select the Disconnect icon in RKVST.
@@ -29990,7 +29990,7 @@ If you are already logged into DropBox on the device that you are using to set u
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#RKVSTDisconnect" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Disconnect DropBox</em></figcaption>
+  <figcaption class="figure-caption"><em>Disconnect Dropbox</em></figcaption>
 </figure>
 
 
@@ -30033,12 +30033,12 @@ You will see a warning message.
 </div></p>
 </li>
 <li>
-<p>In DropBox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
+<p>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
 
 
 <figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropBoxDisconnectApp" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxDisconnectApp" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxDisconnectApp_hu4db767d5fdc6149dc1c0fc8365c048e0_53168_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxDisconnectApp.png" width="1182" height="787" alt="Dropbox Integration"></noscript>
   <figcaption class="figure-caption"><em>Disconnect RKVST</em></figcaption>
 </figure>
@@ -30047,7 +30047,7 @@ You will see a warning message.
 
 
 
-<div class="modal fade" id="DropBoxDisconnectApp" tabindex="-1" aria-labelledby="DropBoxDisconnectApp" aria-hidden="true">
+<div class="modal fade" id="DropboxDisconnectApp" tabindex="-1" aria-labelledby="DropboxDisconnectApp" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     
       <div class="modal-body">
@@ -30059,7 +30059,7 @@ You will see a warning message.
 </div></p>
 </li>
 </ol>
-<p>This is how to connect and disconnect RKVST and DropBox, it is that simple!</p>
+<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `}).add({id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>

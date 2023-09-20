@@ -7,7 +7,7 @@ lastmod: {{ .Date }}
 draft: false
 images: []
 menu: 
-  usecases:
+  examples:
     parent: ""
 weight: 999
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: "Use Cases & Examples"
+title: "Examples"
 description: ""
 lead: ""
 date: 2021-05-20T17:42:10+01:00
@@ -10,6 +10,7 @@ weight: 999
 toc: true
 aliases:
     - /docs/user-patterns/
+    - /usecases/
 ---
 
 RKVST is a very flexible system, and enables users to record Who Did What When to almost anything. To get the best out of the system, however, it is important to model your real-world assets and business processes efficiently into RKVST Assets and Events.

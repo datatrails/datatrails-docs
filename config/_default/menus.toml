@@ -58,11 +58,11 @@
 
 
 
-[[usecases]]
-  name = "Use Cases & Examples"
+[[examples]]
+  name = "Examples"
   weight = 40
-  identifier = "usecases"
-  url = "/platform/usecases/"
+  identifier = "examples"
+  url = "/platform/examples/"
 
 
 
@@ -90,15 +90,19 @@
   weight = 30
 
 [[main]]
+  name = "Examples"
+  url = "/examples/"
+  weight = 40
+
+[[main]]
+  name = "Glossary"
+  url = "/glossary/"
+  weight = 50    
+
+[[main]]
   name = "Support"
   url = "https://support.rkvst.com"
   weight = 60
-
-[[main]]
-  name = "Contributing"
-  url = "/contributing/getting-started/pulling-and-building-rkvst-docs"
-  weight = 70
-
 
 
 [[social]]

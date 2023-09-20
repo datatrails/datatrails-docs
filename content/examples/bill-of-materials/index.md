@@ -7,8 +7,8 @@ lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
 images: []
 menu:
-  usecases:
-    parent: "usecases"
+  examples:
+    parent: "examples"
 weight: 31
 toc: true
 aliases:

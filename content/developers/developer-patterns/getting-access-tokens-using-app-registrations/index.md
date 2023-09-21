@@ -32,35 +32,23 @@ When enabling non-interactive access to RKVST, you ***must*** create your first 
 
 ### Using the RKVST UI to create an App Registration (First-Time Setup)
 
-1. As an Administrator, open the `Settings` interface.
-
-{{< img src="Settings.png" alt="Rectangle" caption="<em>Settings</em>" class="border-0" >}}
-
-2. Navigate to the `APP REGISTRATIONS` tab.
-
-{{< img src="AppRegistrationsTab.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS</em>" class="border-0" >}}
-
-3. Click `CREATE APP REGISTRATION` and the following form should appear:
-
-{{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
-
-3. Enter any display name you'd like, then click `CREATE APP REGISTRATION`.
-
-{{< note >}}
- You can optionally add any Custom Claims at this step. You must ensure they do not start with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](/platform/administration/managing-access-to-an-asset-with-abac) to grant permissions. 
-{{< /note >}}
-
-{{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
-
-4.  You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
-
-{{< caution >}}
-**Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
-{{< /caution >}}
-
-{{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
-
-5. Now that you have created your App Registration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
+1. As an Administrator, open the [RKVST Portal](https://app.rkvst.io/)
+2. Open the `Settings` interface.  
+  {{< img src="AppRegistrationsSettings.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS then SETTINGS</em>" class="border-0" >}}
+3. Navigate to the `APP REGISTRATIONS` tab.
+4. Click `CREATE APP REGISTRATION` and the following form should appear:  
+  {{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
+5. Enter any display name you'd like, then click `CREATE APP REGISTRATION`.  
+  {{< note >}}
+  You can optionally add any Custom Claims at this step. You must ensure they _do not start_ with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](/platform/administration/managing-access-to-an-asset-with-abac) to grant permissions. 
+  {{< /note >}}  
+  {{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
+6.  You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
+  {{< caution >}}
+  **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
+  {{< /caution >}}  
+  {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
+7. Now that you have created your App Registration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
 
 {{< note >}}
 **Note:** By default, newly created Applications will always have a Non-Administrator permission to the API, you must add the Application as an Administrator to elevate it's permissions.
@@ -100,6 +88,11 @@ The token is found in the `.access_token` field as a base64 encoded [JSON Web To
 A common method to extract the token is to use `jq`, where `$RESPONSE` is the output of your curl command:
 
 ```bash
+RESPONSE=$(curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
+            --data-urlencode "grant_type=client_credentials" \
+            --data-urlencode "client_id=${CLIENT_ID}" \
+            --data-urlencode "client_secret=${SECRET}")
+
 TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
 ```
 
@@ -107,11 +100,13 @@ You should then save the token to a local `bearer_token` file with `0600` permis
 
 ```bash
 Authorization: Bearer $TOKEN
+echo Authorization: Bearer $TOKEN > bearer.txt
+BEARER_TOKEN_FILE=bearer.txt
 ```
 
 Where `$TOKEN` is the extracted token value.
 
-3. Submit your new Application JSON to the App Registration API endpoint. 
+1. Submit your new Application JSON to the App Registration API endpoint. 
 
 ```bash
 curl -X POST \
@@ -202,10 +197,39 @@ The header and payload of the `TOKEN` may be examined with the following command
 
 ```shell
 # Header
-echo -n $TOKEN | cut -d '.' -f 1 | base64 -D
+echo -n $TOKEN | cut -d '.' -f 1 | base64 -d | jq
+```
 
+Generates output similar to:
+
+```json
+{
+  "alg": "RS256",
+  "typ": "at+jwt",
+  "kid": "devidp"
+}
+```
+
+```shell
 # Payload
-echo -n $TOKEN | cut -d '.' -f 2 | base64 -D
+echo -n $TOKEN | cut -d '.' -f 2 | base64 -d | jq
+```
+
+Generates output similar to:
+
+```json
+{
+  "jit_tenant_id": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "my-token",
+  "jit_tier": "FREE",
+  "jti": "CCIH_QsZsM6FKzwBR6L5Z",
+  "sub": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "iat": 1695254038,
+  "exp": 1695257698,
+  "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "iss": "https://app.rkvst.io/appidpv1",
+  "aud": "https://app.rkvst.io/archivist"
+}
 ```
 
 This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.

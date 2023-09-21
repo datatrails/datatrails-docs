@@ -30,6 +30,8 @@ cd rkvst-docs
 npm install
 ```
 
+4. Install HUGO. (See [HUGO Installation](https://gohugo.io/installation/) for details.)
+
 Note: If you do not have npm installed please use the following guide:
 
 {{< tabs name="tab_with_code" >}}

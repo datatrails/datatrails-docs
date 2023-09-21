@@ -6,7 +6,7 @@ RKVST provides Provenance as a Service to attest trustworthiness of Assets and b
 
 ## Contributing
 
-To contribute to these Docs, please refer to our [Contributing Guidelines](/contributing/getting-started/pulling-and-building-rkvst-docs/).
+To contribute to these Docs, please refer to our [Contributing Guidelines](./content/contributing/getting-started/pulling-and-building-rkvst-docs/index.md).
 
 We'll happily review any suggestions!
 

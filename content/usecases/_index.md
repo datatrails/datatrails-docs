@@ -1,5 +1,5 @@
 ---
-title: "Use Cases & Examples"
+title: "Use Cases"
 description: ""
 lead: ""
 date: 2021-05-20T17:42:10+01:00

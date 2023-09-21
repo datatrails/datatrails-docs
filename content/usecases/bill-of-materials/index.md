@@ -15,7 +15,7 @@ aliases:
   - /docs/user-patterns/bill-of-materials/
 ---
 
-A common pattern for tracking an assets lifecycle is the *Bill of Materials* pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.
+A common pattern for tracking an asset's lifecycle is the *Bill of Materials* pattern. This is a good choice when dealing with multi-stakeholder systems which change over time, and it is important for the stakeholders to understand the composition of that system no matter who - or what - has changed things.
 
 Modelling such systems in RKVST can help to rapidly answer questions like _"what is in my estate?"_, _"how did it come to be here?"_, and _"who brought it in?"_. In audit situations the Asset histories also allow stakeholders to look back in time and ask _"what did it look like to me at the time? Can I show that I made the best possible decision?"_
 

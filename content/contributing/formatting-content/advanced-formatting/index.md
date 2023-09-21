@@ -265,9 +265,9 @@ Your image should be saved to the same directory as the article's index.md to us
 
 For readability it may be necessary to have two images, one that suits light mode and another dark mode, so that when the mode is toggled it renders correctly.
 
-We have added some customised shortcode that allows you to specify two individual images.
+We have added some customized shortcode that allows you to specify two individual images.
 
-The behaviour matches the original image shortcode but adds an extra `srcDrk` variable which refers to the Dark Mode image you wish to add .
+The behavior matches the original image shortcode but adds an extra `srcDrk` variable which refers to the Dark Mode image you wish to add .
 
 ```go
 {{</* imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" */>}}

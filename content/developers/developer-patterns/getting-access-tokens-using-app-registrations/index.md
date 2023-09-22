@@ -1,6 +1,6 @@
 ---
-title: "Getting Access Tokens using a Custom Integration"
-description: "Getting Access Tokens using a Custom Integration"
+title: "Creating Access Tokens Using a Custom Integration"
+description: "Creating Access Tokens Using a Custom Integration"
 lead: "Creating Access Tokens for RKVST"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2021-06-16T11:12:25+01:00
@@ -16,231 +16,253 @@ aliases:
   - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
-Non-interactive access to the RKVST platform is managed by creating `Integrations` with either a Custom Integration or one of our built-in Integrations. This is done using either the `Settings` Menu in the UI or by using the App Registrations API directly.
+Non-interactive access to the RKVST platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` Menu in the Portal or by using the App Registrations API directly.
 {{< note >}}
 **Note:** App Registration is the previous name for an Integration.
 {{< /note >}}
  
-`Integrations` have a `CLIENT_ID` and `SECRET` that can then be used to authenticate to RKVST IAM endpoints to issue a token (JWT) for accessing the rest of the RKVST API.
+`Integrations` have a `CLIENT_ID` and `SECRET` used to authenticate with RKVST IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
 
-This authentication flow uses the industry-standard OIDC 'Client Credentials' Flow. 
+RKVST authentication uses the industry-standard OIDC Client Credentials Flow.
 
 ## Creating a Custom Integration
 
-{{< warning >}}
-**Warning:** You may only create and manage App Registrations with an **Administrator** level account.
-{{< /warning >}}
-
-When enabling non-interactive access to RKVST, you ***must*** create your first Integration in the **RKVST UI**.
-
-### Using the RKVST UI to create an Integration (First-Time Setup)
-
-1. As an Administrator, open the [RKVST Portal](https://app.rkvst.io/)
-2. Open the `Settings` interface.  
-  {{< img src="AppRegistrationsSettings.png" alt="Rectangle" caption="<em>Navigate to APP REGISTRATIONS then SETTINGS</em>" class="border-0" >}}
-3. Navigate to the `APP REGISTRATIONS` tab.
-4. Click `CREATE APP REGISTRATION` and the following form should appear:  
-  {{< img src="AppRegistrationForm.png" alt="Rectangle" caption="<em>App Registration Webform</em>" class="border-0" >}}
-5. Enter any display name you'd like, then click `CREATE APP REGISTRATION`.  
-  {{< note >}}
-  You can optionally add any Custom Claims at this step. You must ensure they _do not start_ with `jit_` or use any of the [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims). The Custom Claims can be used in an [Attribute-Based Access Control (ABAC) policy](/platform/administration/managing-access-to-an-asset-with-abac) to grant permissions. 
-  {{< /note >}}  
-  {{< img src="CreateAppRegistration.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
-6.  You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint.
-  {{< caution >}}
-  **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
-  {{< /caution >}}  
-  {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
-7. Now that you have created your App Registration, follow the steps below to [test generating a token](./#getting-a-token-with-your-app-registration) and [ensure you can access the RKVST API](./#testing-your-access).
-
 {{< note >}}
-**Note:** By default, newly created Integrations will always have a Non-Administrator permission to the API, you must add the Integration as an Administrator to elevate it's permissions.
-
-You can add a Custom Integration as an Administrator using the `Settings` screen, where the issuer will be `https://app.rkvst.io/appidpv1` and the subject will be your Integration's `CLIENT_ID`.
+**Note:** Creating App Registrations requires **Administrator** privileges.  
+If `Settings` does not appear in the navigation, see your RKVST Administrator for access.
 {{< /note >}}
 
-### Using the App Registrations API to create an Integration
+### Using the Rkvst Portal to Create an Integration (First-Time Setup)
+
+1. As an Administrator, open the <a href="https://app.rkvst.io/" target="_blank">RKVST Portal</a>
+1. Navigate to `Settings` on the sidebar
+1. Navigate to the `Integrations` tab
+  {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
+1. Click the `Custom` box to create a Custom Integration:
+1. Enter any `Display Name` you'd like
+  {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
+  {{< note >}}
+  Optionally add any `Custom claims` at this step by clicking the `+ Add` button. Ensure the `Name` _does not start_ with `jit_` (RKVST reserved names) or use any other [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
+  {{< /note >}}  
+1. Once complete, click `Confirm` to complete the custom integration
+1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
+    {{< caution >}}
+    **Caution:** Save the `CLIENT_ID` and `SECRET` to a password manager or secret management service as the `SECRET` can **not** be viewed again. A new `SECRET` can be regenerated by editing the Integration, invalidating the previous `SECRET`.
+    {{< /caution >}}  
+    {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
+2. Skip to [Grant Permissions to Custom Integration](#grant-permissions-to-custom-integration) to configure an Access Policy
+
+### Using the App Registrations API to Create an Integration
 
 {{< note >}}
 **Note:** App Registration is the previous name for an Integration.
 {{< /note >}}
 
-The following assumes you have at least one `Custom Integration` that has already been configured with Administrator permissions and that you are comfortable generating tokens and using the RKVST API.
+The following assumes you have at least one `Custom Integration` with Administrator permissions and that you are comfortable generating tokens using the RKVST API.
 
 If you do not yet have an Integration configured please follow the [first-time setup guide](./#using-the-rkvst-ui-to-create-an-app-registration-first-time-setup) to get started.
 
-1. Define your new Integration JSON and save it to a file locally.
-
-```json
-{
-    "display_name": "TrafficLight101",
-    "custom_claims": {
-      "serial_number": "TL1000000101",
-      "has_cyclist_light": "true"
-    }
-}
-```
-
-2. Generate a token using your pre-existing `Custom Integration` details.
-
-```bash
-curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=${CLIENT_ID}" \
-    --data-urlencode "client_secret=${SECRET}"
-```
-
-The token is found in the `.access_token` field as a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
-
-A common method to extract the token is to use `jq`, where `$RESPONSE` is the output of your curl command:
-
-```bash
-RESPONSE=$(curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
-            --data-urlencode "grant_type=client_credentials" \
-            --data-urlencode "client_id=${CLIENT_ID}" \
-            --data-urlencode "client_secret=${SECRET}")
-
-TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
-```
-
-You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
-
-```bash
-Authorization: Bearer $TOKEN
-echo Authorization: Bearer $TOKEN > bearer.txt
-BEARER_TOKEN_FILE=bearer.txt
-```
-
-Where `$TOKEN` is the extracted token value.
-
-1. Submit your new Application JSON to the App Registration API endpoint. 
-
-```bash
-curl -X POST \
-     -H "@$BEARER_TOKEN_FILE" \
-     -H "Content-Type: application/json" \
-     -d "@/path/to/jsonfile" \
-     https://app.rkvst.io/archivist/iam/v1/applications
-```
-
-You should see a response with details about the Integration's `CLIENT_ID` and `SECRET`:
-
-```json
-{
-    "identity": "applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
-    "display_name": "TrafficLight101",
-    "client_id": "d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
-    "tenant_id": "tenant/53e6bed7-6f4c-4a37-8c4f-cf889f2b1aa6",
-    "credentials": [
-        {
-            "secret":"a0c09972b6ac912a4d67815fef88093c81a99b49977d35ecf6d162631aa29173",
-            "valid_from": "2021-09-21T16:43:19Z",
-            "valid_until": "2022-09-21T16:43:19Z"
+1. Define your new Integration JSON and save it to a file locally
+    ```json
+    {
+        "display_name": "TrafficLight101",
+        "custom_claims": {
+          "serial_number": "TL1000000101",
+          "has_cyclist_light": "true"
         }
-    ],
-    "custom_claims": {
-        "serial_number": "TL1000000101",
-        "has_cyclist_light": "true"
     }
-}
-```
+    ```
+2. Submit your new Application JSON to the App Registration API endpoint
+    ```bash
+    curl -X POST \
+        -H "@$BEARER_TOKEN_FILE" \
+        -H "Content-Type: application/json" \
+        -d "@/path/to/jsonfile" \
+        https://app.rkvst.io/archivist/iam/v1/applications
+    ```
+    Generates a response with details about the Integration's `CLIENT_ID` and `SECRET`:
+    ```json
+    {
+        "identity": "applications/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "TrafficLight101",
+        "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "tenant_id": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "credentials": [
+            {
+                "secret":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "valid_from": "2021-09-21T16:43:19Z",
+                "valid_until": "2022-09-21T16:43:19Z"
+            }
+        ],
+        "custom_claims": {
+            "serial_number": "TL1000000101",
+            "has_cyclist_light": "true"
+        }
+    }
+    ```
+  {{< caution >}}
+  **Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
+  {{< /caution >}}
+1. You should now have a newly configured Integration and recorded its `CLIENT_ID` and `SECRET`. It can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).
 
-{{< caution >}}
-**Caution:** You **must** take note of the `SECRET` at this point - it can **not** be viewed again later and you will have to generate a new one.
-{{< /caution >}}
+For further details on using this API check out the [App Registrations API Reference](../../api-reference/app-registrations-api) which contains more detailed usage examples and has the full OpenAPI Reference.
 
-4. You should now have a newly configured Integration and recorded its `CLIENT_ID` and `SECRET`. It can be used to [generate a token](./#getting-a-token-with-your-app-registration) and [access the RKVST API](./#testing-your-access).
+### Grant Permissions to Custom Integration
 
-For further details on using this API check out our [App Registrations API Reference](../../api-reference/app-registrations-api) which contains more detailed usage examples and has the full OpenAPI Reference.
+Integrations are secured by default, with no permissions within RKVST. Create and assign an Access Policy to create and read RKVST information.
 
-## Getting a Token With Your Integration
+1. Navigate to `Access Policies` on the sidebar
+  {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
+1. Click `CREATE POLICY`, setting the `Name` and `Asset Types`=`*` for all types
+  {{< note >}}
+  Asset types can be filtered as needed. List existing `Asset Types` by typing at least two characters of a known type
+  {{< /note >}}
+  {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Create Access Policy Form</em>" class="border-0" >}}
+1. Click `Permissions` to set a scope for the policy
+1. Set Actors to the `USER_ID` of the Custom Integration
+   - `User`
+   - `Subject Identifier`
+   - Paste the `CLIENT_ID` from the previous step
+  {{< img src="PolicyPermissionActor.png" alt="Rectangle" caption="<em>Filter on User by Subject Identifier using the CLIENT_ID</em>" class="border-0" >}}
+1. Set **Attribute Access** and **Event Visibility** to `All`
+  {{< note >}}
+  Each policy can be configured with multiple access rights
+  {{< /note >}}
+  {{< img src="PolicyPermissionAccess.png" alt="Rectangle" caption="<em>Set Attribute Access and Event Visibility</em>" class="border-0" >}}
+1. Click the `ADD PERMISSION GROUP` for this policy
+1. Click the `CREATE POLICY` to complete the creation of this policy
+
+## Getting a Token With the Custom Integration
 
 Having completed the steps at [Creating a Custom Integration](./#creating-a-custom-integration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
 
-Replace `$CLIENT_ID` with the Application ID, and `$SECRET` with your secret from the Integration.
+1. Save the `CLIENT_ID` and `SECRET` saved from above, to local variables
+  {{< note >}}
+   You can regenerate the secret, which will invalidate any previous usage
+  {{< /note >}}
+   ```bash
+   CLIENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   ```
+1. Generate a token using your pre-existing `Custom Integration` details, saving to a `RESPONSE` variable
+    ```bash
+    RESPONSE=$(curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
+                --data-urlencode "grant_type=client_credentials" \
+                --data-urlencode "client_id=${CLIENT_ID}" \
+                --data-urlencode "client_secret=${SECRET}")
+    echo $RESPONSE
+    ```
+2. Save the base64 encoded `JWT` using `jq` to find `.access_token` (See [./jq](https://jqlang.github.io/jq/) for more info)  
+    ```bash
+    TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
+    echo $TOKEN
+    ```
+3. Create a Bearer Token file with `0600` permissions for reference by `curl` commands
+    ```bash
+    echo Authorization: Bearer $TOKEN > rkvst-bearer.txt
+    cat rkvst-bearer.txt
+    ```
 
-```bash
-curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_id=${CLIENT_ID}" \
-    --data-urlencode "client_secret=${SECRET}"
-```
+## Testing Token Creation
 
-The token is found in the `.access_token` field and it is a base64 encoded [JSON Web Token](https://jwt.io/introduction/).
+You can test access to the RKVST API using any of the standard API calls. GETing `Assets` is a simple test.
 
-A common method to extract the token is to use `jq`, where `$RESPONSE` is the output returned from your curl command:
-
-```bash
-TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
-```
-
-You should then save the token to a local `bearer_token` file with `0600` permissions in the following format:
-
-```bash
-Authorization: Bearer $TOKEN
-```
-
-Where `$TOKEN` is the extracted token value.
-
-### Testing Your Access
-
-You can test access to the RKVST API using any of our standard calls. Doing a GET Assets is a very simple test.
-
-For example:
-
-```bash
-curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets
-```
-
-If successful, you should then see a list of the assets your Integration has access to in the tenancy. Note this may be an empty response if no assets are being shared with the user; this is an expected behaviour.
+If successful, you will see a list of the assets the Integration has access to in the tenancy.
+{{< note >}}
+Note this may be an empty response if no assets are being shared with the user; this is an expected secure by default behavior.
+{{< /note >}}
 
 Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#assets-openapi-reference) for more detailed information on the response codes you may expect if authentication fails and what they mean.
 
+### View Existing Assets
+
+To test the creation of the Custom integration and the configuration of the bearer token file (`rkvst-bearer.txt`), query the assets API
+```bash
+curl -H "@rkvst-bearer.txt" \
+    https://app.rkvst.io/archivist/v2/assets | jq
+```
+
+If you have existing assets, the output will be similar to:
+```json
+{
+  "assets": [
+    {
+      "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "behaviours": [
+        "AssetCreator",
+        "RecordEvidence",
+        "Builtin"
+      ],
+      "attributes": {
+        "length": "40'",
+        "weight": "20000-lbs",
+        "width": "8'",
+        "arc_description": "A shipping container being tracked",
+        "arc_display_name": "New Shipping Container #1",
+        "arc_display_type": "Shipping Container",
+        "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "height": "8'"
+      },
+      "confirmation_status": "CONFIRMED",
+      "tracked": "TRACKED",
+      "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "at_time": "2023-09-22T03:39:46Z",
+      "storage_integrity": "TENANT_STORAGE",
+      "proof_mechanism": "SIMPLE_HASH",
+      "chain_id": "8275868384",
+      "public": false,
+      "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    }
+  ],
+  "next_page_token": ""
+}
+```
+
+If the output is an empty structure, you may either not have any assets, or misconfigured the Access Policy.
+```json
+{
+  "assets": [],
+  "next_page_token": ""
+}
+```
+
+In the <a href="https://app.rkvst.io/" target="_blank">RKVST Portal</a>, Navigate to `Assets` confirm existing assets. If assets exist, confirm the `CLIENT_ID`, `SECRET` and `Access Policy` are configured and referenced properly.
+
 ### Troubleshooting Token Generation
+The header and payload of the `TOKEN` may be examined with the following commands. This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.
 
-The header and payload of the `TOKEN` may be examined with the following commands:
+{{< warning >}}
+**Warning:** Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.
+{{< /warning >}}
 
-```shell
-# Header
-echo -n $TOKEN | cut -d '.' -f 1 | base64 -d | jq
-```
-
-Generates output similar to:
-
-```json
-{
-  "alg": "RS256",
-  "typ": "at+jwt",
-  "kid": "devidp"
-}
-```
-
-```shell
-# Payload
-echo -n $TOKEN | cut -d '.' -f 2 | base64 -d | jq
-```
-
-Generates output similar to:
-
-```json
-{
-  "jit_tenant_id": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "my-token",
-  "jit_tier": "FREE",
-  "jti": "CCIH_QsZsM6FKzwBR6L5Z",
-  "sub": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "iat": 1695254038,
-  "exp": 1695257698,
-  "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "iss": "https://app.rkvst.io/appidpv1",
-  "aud": "https://app.rkvst.io/archivist"
-}
-```
-
-This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.
-
-{{< note >}}
-**Note:** Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.
-{{< /note >}}
+1. View the Header
+    ```bash
+    echo -n $TOKEN | cut -d '.' -f 1 | base64 -d | jq
+    ```
+    Generates output similar to:
+    ```json
+    {
+      "alg": "RS256",
+      "typ": "at+jwt",
+      "kid": "devidp"
+    }
+    ```
+1. View the Payload
+    ```bash
+    echo -n $TOKEN | cut -d '.' -f 2 | base64 -d | jq
+    ```
+    Generates output similar to:
+    ```json
+    {
+      "jit_tenant_id": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "my-token",
+      "jit_tier": "FREE",
+      "jti": "CCIH_QsZsM6FKzwBR6L5Z",
+      "sub": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "iat": 1695254038,
+      "exp": 1695257698,
+      "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "iss": "https://app.rkvst.io/appidpv1",
+      "aud": "https://app.rkvst.io/archivist"
+    }
+    ```

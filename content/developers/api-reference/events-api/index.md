@@ -86,6 +86,174 @@ The response is:
   "transaction_id": "0x07569"
 }
 ```
+
+### Document Profile Event Creation
+There are two [Document Profile Events](/developers/developer-patterns/document-profile/) that are available as part of the document lifecycle. These are to `publish` a new version and to `withdraw` the document from use.
+
+#### Publish
+Define the Event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+    "behaviour": "RecordEvidence",
+    "operation": "Record",
+    "asset_attributes": {
+        "document_hash_value":"799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_alg":"sha256",
+        "document_status": "Published",
+        "document_version":"2"
+    },
+    "event_attributes": {
+        "arc_description":"Publish version 2 of Test Document",
+        "arc_display_type":"Publish",
+        "document_version_authors": [
+                        {
+                "display_name": "George",
+                "email": "george@rainbow.tv"
+            },
+            {
+                "display_name": "Zippy",
+                "email": "zippy@rainbow.tv"
+            },
+            {
+                "display_name": "Bungle",
+                "email": "bungle@rainbow.tv"
+            }
+        ]
+    }
+}
+```
+
+Add the request to the Asset record by POSTing it to the resource:
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f/events/1cdfe161-7f7f-4455-9c8b-b6ddc81c6202",
+    "asset_identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f",
+    "event_attributes": {
+        "document_version_authors": [
+            {
+                "display_name": "George",
+                "email": "george@rainbow.tv"
+            },
+            {
+                "display_name": "Zippy",
+                "email": "zippy@rainbow.tv"
+            },
+            {
+                "display_name": "Bungle",
+                "email": "bungle@rainbow.tv"
+            }
+        ],
+        "arc_description": "Publish version 2 of Test Document",
+        "arc_display_type": "Publish"
+    },
+    "asset_attributes": {
+        "document_status": "Published",
+        "document_version": "2",
+        "document_hash_value": "799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_alg": "sha256"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2023-09-27T12:55:16Z",
+    "timestamp_accepted": "2023-09-27T12:55:16Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "1f76f825-f1ef-4b6a-ba37-1ce9a6f8db15",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "1f76f825-f1ef-4b6a-ba37-1ce9a6f8db15",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": ""
+}
+```
+#### Withdraw
+Define the Event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+    "behaviour": "RecordEvidence",
+    "operation": "Record",
+    "asset_attributes": {
+        "document_status":"Withdrawn"
+    },
+    "event_attributes": {
+        "arc_description":"Withdraw the Test Document",
+        "arc_display_type":"Withdraw"
+    }
+}
+```
+
+Add the request to the Asset record by POSTing it to the resource:
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f/events/964404f6-86fe-43cc-9d8c-a36ff1ba527d",
+    "asset_identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f",
+    "event_attributes": {
+        "arc_description": "Withdraw the Test Document",
+        "arc_display_type": "Withdraw"
+    },
+    "asset_attributes": {
+        "document_status": "Withdrawn"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2023-09-27T13:08:32Z",
+    "timestamp_accepted": "2023-09-27T13:08:32Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "1f76f825-f1ef-4b6a-ba37-1ce9a6f8db15",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "1f76f825-f1ef-4b6a-ba37-1ce9a6f8db15",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": ""
+}
+```
 ### Adding Attachments
 
 The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api). 

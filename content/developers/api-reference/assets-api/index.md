@@ -109,6 +109,78 @@ All Public Assets are then given a read-only public URL that can be retrieved us
 This link can be shared with anyone to give them read-only access to the Asset or Event without the need to sign in.
 
 To interact with the unauthenticated Public Interface for a Public Asset see the [Public Assets API Reference](../public-assets-api/). To update the Assets and Events as the creating Tenant on a Public Asset's authenticated Private Interface, you would still use the standard Assets and Events API as normal.
+
+#### Creating a Document Profile Asset
+This class of Asset conforms to the [Document Profile Developer Pattern](/developers/developer-patterns/document-profile/), which allows you to trace the lifecyle of a document.
+
+Define the asset parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+    "attributes": {
+        "arc_description":"Test Document",
+        "arc_display_type":"Marketing glossy",
+        "arc_display_name":"Test Document Profile Asset",
+        "arc_profile":"Document",
+        "document_hash_value":"799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_alg":"sha256",
+        "document_version":"1",
+        "document_status":"Published",
+        "some_custom_attribute":"anything you like"
+    },
+    "chain_id":"",
+    "behaviours": [
+        "Builtin",
+        "RecordEvidence"
+    ],
+    "proof_mechanism":"SIMPLE_HASH"
+}
+```
+{{< note >}}
+**Note**: Document Profile Assets must be set to `public` to be compatible with [Instaproof](/platform/overview/instaproof/) verification.
+{{< /note >}}
+
+Create the Asset:
+
+```bash
+curl -v -X POST \
+    -H "@$BEARER_TOKEN_FILE" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f",
+    "behaviours": [
+        "Builtin",
+        "RecordEvidence"
+    ],
+    "attributes": {
+        "arc_profile": "Document",
+        "document_version": "1",
+        "some_custom_attribute": "anything you like",
+        "document_status": "Published",
+        "arc_description": "Test Document",
+        "arc_display_type": "Marketing glossy",
+        "document_hash_value": "799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "arc_display_name": "Test Document Profile Asset",
+        "document_hash_alg": "sha256"
+    },
+    "confirmation_status": "PENDING",
+    "tracked": "TRACKED",
+    "owner": "",
+    "at_time": "2023-09-27T11:32:22Z",
+    "storage_integrity": "TENANT_STORAGE",
+    "proof_mechanism": "SIMPLE_HASH",
+    "chain_id": "8275868384",
+    "public": false,
+    "tenant_identity": ""
+}
+```
 ### Asset Record Retrieval
 
 Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:

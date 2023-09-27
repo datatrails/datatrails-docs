@@ -85,13 +85,18 @@ Now that we have created a `Shipping Container` Asset, we can create an Asset to
 {{< note >}}
 **Note:** For this example, we used the custom attribute `within_container`, but you could use any key to associate the Assets that does not contain the reserved `arc_` prefix.
 {{< /note >}}
-
 {{< tabs name="box_asset" >}}
 {{{< tab name="UI" >}}
-{{< img src="BoxAsset.png" alt="Rectangle" caption="<em>Create the Box</em>" class="border-0" >}}
+</br>
 
-{{< img src="WithinContainer.png" alt="Rectangle" caption="<em>Add an Extended Attribute</em>" class="border-0" >}}
-
+1. Set the `Name` and `Type`  
+    {{< img src="BoxAsset.png" alt="Rectangle" caption="<em>Create the Box</em>" class="border-0" >}}
+1. Click `Advanced Options`  
+    {{< img src="WithinContainer.png" alt="Rectangle" caption="<em>Add an Extended Attribute</em>" class="border-0" >}}
+1. Click `ADD ATTRIBUTE` to set `Extended Attributes`
+1. Add Attribute = `within_container` and Value = `Shipping Container`
+1. Click `REGISTER ASSET` to complete the association of the box within the container
+1. Repeat the above a few times, editing the `Name` to add several boxes within the `Shipping Container`
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
@@ -119,6 +124,7 @@ steps:
       within_container: Shipping Container
     confirm: true
 ```
+Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
@@ -143,12 +149,13 @@ curl -X POST \
      -d "@asset-box.json" \
      https://app.rkvst.io/archivist/v2/assets | jq
 ```
+Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`
+
 If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. The `Box` has been recorded as being within the `Shipping Container`.
-1. Edit `"arc_display_name"` within the `asset-box.json` file, and repeat this process creating additional Assets within the `Box`.
+The `Box(es)` have been recorded as being within the `Shipping Container`.
 
 ## List All Assets Associated With a Container
 
@@ -156,8 +163,13 @@ To retrieve all Assets associated with a container, you can run a query with a f
 
 {{< tabs name="list_contents" >}}
 {{{< tab name="UI" >}}
-Go to the `Audit/Filter` page and filter the Assets and Events within your tenancy.
-{{< img src="AssetFilter.png" alt="Rectangle" caption="<em>Filter Assets and Events</em>" class="border-0" >}}
+</br>
+
+1. Select `Audit/Filter` in the navigation to filter Assets and Events within your tenancy
+1. Select `ADD FILTER`
+1. Select `Asset Attribute`, set the name to `within_container` and the value to `Shipping Container`
+1. Select `APPLY FILTERS` to view the subset of Assets created  
+    {{< img src="AssetFilter.png" alt="Rectangle" caption="<em>Filter Assets and Events</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}

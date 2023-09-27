@@ -54,17 +54,27 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="JSON" >}}
-
 ```json
+cat > asset.json <<EOF
 {
-    "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
-    "attributes": {
-        "arc_display_name": "Shipping Container",
-        "arc_display_type": "Shipping Container",
-    }
+  "behaviours": ["RecordEvidence"],
+  "proof_mechanism": "SIMPLE_HASH",
+  "attributes": {
+      "arc_display_name": "Shipping Container",
+      "arc_display_type": "Shipping Container"
+  }
 }
+EOF
 ```
+Use `curl` to `POST`` the asset, viewing the result with `jq`:
+```bash
+curl -X POST \
+     -H "@rkvst-bearer.txt" \
+     -H "Content-Type: application/json" \
+     -d "@asset.json" \
+     https://app.rkvst.io/archivist/v2/assets | jq
+```
+If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -73,7 +83,7 @@ steps:
 Now that we have created a `Shipping Container` Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom `Asset Attribute` that links it to our Shipping Container. For example, let's create an Asset to represent a box that is being transported within the Shipping Container. 
 
 {{< note >}}
-**Note:** For this example, we used the custom attribute `within_container`, but you could use any key to associate the Assets that does not contain the reserved 'arc_' prefix.
+**Note:** For this example, we used the custom attribute `within_container`, but you could use any key to associate the Assets that does not contain the reserved `arc_` prefix.
 {{< /note >}}
 
 {{< tabs name="box_asset" >}}
@@ -104,7 +114,7 @@ steps:
       - RecordEvidence
     proof_mechanism: SIMPLE_HASH
     attributes: 
-      arc_display_name: Box
+      arc_display_name: Box-1
       arc_display_type: Box
       within_container: Shipping Container
     confirm: true
@@ -113,22 +123,34 @@ steps:
 {{< tab name="JSON" >}}
 
 ```json
+cat > asset-box.json <<EOF
 {
     "behaviours": ["RecordEvidence"],
     "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
-        "arc_display_name": "Box",
+        "arc_display_name": "Box-1",
         "arc_display_type": "Box",
-        "within_container": "Shipping Container",
+        "within_container": "Shipping Container"
     }
 }
+EOF
 ```
+Use `curl` to `POST`` the asset, viewing the result with `jq`:
+```bash
+curl -X POST \
+     -H "@rkvst-bearer.txt" \
+     -H "Content-Type: application/json" \
+     -d "@asset-box.json" \
+     https://app.rkvst.io/archivist/v2/assets | jq
+```
+If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
 {{< /tab >}}}
 {{< /tabs >}}
 
-It is now recorded that there is a `Box` within the container `Shipping Container`. We repeat this process to create another Asset and record what was inside the `Box`.
+1. The `Box` has been recorded as being within the `Shipping Container`.
+1. Edit `"arc_display_name"` within the `asset-box.json` file, and repeat this process creating additional Assets within the `Box`.
 
-## List All Assets Asssociated with a Container
+## List All Assets Associated With a Container
 
 To retrieve all Assets associated with a container, you can run a query with a filter that will identify which Assets have the attribute `within_container` set to the desired value. To list all Assets inside of `Shipping Container`:
 
@@ -156,12 +178,10 @@ steps:
 ```
 {{< /tab >}}
 {{< tab name="CURL" >}}
-See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
-
 ```bash
-curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container"
+curl -g -X GET \
+     -H "@rkvst-bearer.txt" \
+     "https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container" | jq
 ```
 {{< /tab >}}}
 {{< /tabs >}}

@@ -84,7 +84,7 @@ Every Article and Section contains an `index.md` file with some slight differenc
 
 Both of these may be prefilled using a template described in the `Archetypes` folder when using the `rkvst-doks` wrapper to create content.
 
-In terms of naming convention, at the directory level you should always use a sluggified name that represents the title of the Article or Section you are creating.
+In terms of naming convention, at the directory level you should always use a slugified name that represents the title of the Article or Section you are creating.
 
 For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
@@ -117,7 +117,7 @@ toc: true
 ---
 ```
 
-While most of this will come prefilled you will need to make sure the correct details are filled in when publishing, some parameters ar enot required but should not be deleted.
+While most of this will come prefilled you will need to make sure the correct details are filled in when publishing, some parameters are not required but should not be deleted.
 
 {{< table >}}
 |Parameter|Required|Description|
@@ -129,14 +129,16 @@ While most of this will come prefilled you will need to make sure the correct de
 |`lastmod`|False|This is the last time the document was modified, this is not necessary as we can use Git Blame to track when something was changed more effectively|
 |`draft`|True|When set to `true` the article will not be published on the site, by default this is set to `false` as drafting should be done locally before being merged|
 |`images`|False|This is not needed as images should be in the same directory|
-|`menu`|True|This is required to have the left-sidebar work correctly, you should mark the `Area` this article belongs to as a key and then the `Section` aginst the `parent` value like the example|
-|`weight`|True|This is required to place the article in the correct order on the left-sidebar and also the navigation buttons on the bottom of the page it will affect the order acros the entire `Area`, not just the `Section`|
+|`menu`|True|This is required to have the left-sidebar work correctly, you should mark the `Area` this article belongs to as a key and then the `Section` against the `parent` value like the example|
+|`weight`|True|This is required to place the article in the correct order on the left-sidebar and also the navigation buttons on the bottom of the page it will affect the order across the entire `Area`, not just the `Section`|
 |`toc`|True|Standing for 'Table of Contents' this enables the Article to be listed in the left-sidebar, should be set to `true` by default|
 {{< /table >}}
 
 ## Headings
 
-When seperating Articles into Topics and Subsections it is preferred to use Headings as a delimiter instead of alternatives like Horizontal Rules.
+When separating Articles into Topics and Subsections it is preferred to use Headings as a delimiter instead of alternatives like Horizontal Rules.
+
+Headings follow Title Case. [Capitalize My Title](https://capitalizemytitle.com/) is a good tool for copy/pasting formats.
 
 Markdown does support different formats for defining Headers including underlining text with either `=` or `-`; as those formats only apply to `#Header 1` and `Header 2` respectively, for consistency across all Header sizes we have opted to use `#` instead.
 
@@ -177,13 +179,14 @@ It is relevant to note that the authors of this documentation are primarily nati
 This includes:
 * Use of the Oxford Comma
 * Use of 'z' instead of 's' in words like 'Organization'
-* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor' 
+* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor'
+* Use of `behavior` instead of `behaviour`
 
 We expect any contributors to also match these standards.
 
 ### Sentences
 
-One-liner Sentences are preferable to paragraphs where possible and should be seperated by newlines in a semi-bullet standard.
+One-liner Sentences are preferable to paragraphs where possible and should be separated by newlines in a semi-bullet standard.
 
 Sentences should preferably be between 1-2 clauses where possible, using 3 clauses is permitted but should be minimized.
 
@@ -197,7 +200,7 @@ This is another sentence, this one does use commas though.
 
 ### Paragraphs
 
-Pargraphs consist of 2 or more sentences and are better suited to creating conceptual narratives.
+Paragraphs consist of 2 or more sentences and are better suited to creating conceptual narratives.
 
 In order to not overwhelm users they should be kept to a minimum and only used for expository reasons such as describing a specific concept or topic in more detail than a single sentence would permit.
 
@@ -486,7 +489,7 @@ Preferably:
 {{< /tab>}}
 {{< /tabs >}}
 
-One more usecase to consider is when a screenshotted example is used; this is discussed below in [Inserting Example Screenshots](./#inserting-example-screenshots)
+One more use case to consider is when a screenshot example is used; this is discussed below in [Inserting Example Screenshots](./#inserting-example-screenshots)
 
 ### OpenAPI Docs
 
@@ -557,7 +560,7 @@ To add a warning use the following syntax, warnings are always highlighted by a 
 
 While use of callouts is freely permitted, use of pure blockquotes is restricted to specific cases:
 
-* A longer quote is emplyed
+* A longer quote is employed
 * A piece of text, neither or callout, needs to be differentiated from the main body
 
 Blockquotes do not always read as well as other elements so should not be relied on extensively.
@@ -604,7 +607,7 @@ To reference another part of the docs you should always as be as specific as pos
 [The links formatting guide](../advanced-formatting/#links)
 ```
 
-In this example `../` implies the content is in another article, `advanced-formatting` is the sluggified name of the article, `#` can then be used to specify the sluggified name of the topic in that article (in this case `#links`).
+In this example `../` implies the content is in another article, `advanced-formatting` is the slugified name of the article, `#` can then be used to specify the slugified name of the topic in that article (in this case `#links`).
 
 To refer to a topic in the same article use `./#your-section` instead of `
 

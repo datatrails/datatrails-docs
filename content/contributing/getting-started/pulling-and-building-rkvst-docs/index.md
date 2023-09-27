@@ -19,29 +19,38 @@ RKVST Docs depend on npm version 14.
     {{< tabs name="tab_with_code" >}}  {{{<tab name="Ubuntu" codelang="bash">}}apt install npm{{< /tab >}}
     {{<tab name="Cent OS/RHEL" codelang="bash">}}yum install npm{{< /tab >}}}
     {{< tab name="MacOS" codelang="bash" >}}brew install npm{{< /tab >}}  {{< /tabs >}}
-2. To begin pull the latest RKVST docs from Github.
+1. To begin pull the latest RKVST docs from Github.
     ```bash
     git clone git@github.com:rkvst/rkvst-docs.git
     ```
-3. Move into the directory.
+1. Move into the directory.
     ```bash
     cd rkvst-docs
     ```
-4. Resolve npm dependencies and build the site.
+1. Assure the npm version is at least 14
+   ```bash
+   npm version
+   ```
+   Look for `node: '14.21.3'` or greater
+2. Either install npm version 14 or greater, or use a npm virtual environment such as [nvm](https://github.com/nvm-sh/nvm)
+   ```bash
+   nvm use 14
+   ```
+3. Resolve npm dependencies and build the site.
     ```bash
     npm ci
     npm run build
     ```  
-5. To run a local RKVST Docs Server it is advisable to use the `rkvst-doks` wrapper.
+4. To run a local RKVST Docs Server it is advisable to use the `rkvst-doks` wrapper.
     ```bash
-    rkvst-doks start
+    ./rkvst-doks start
     ```
     This will build a local version of the server that can be accessed at [http://localhost:1313](http://localhost:1313).
     You can keep this running in the background while making any edits and the developer server should automatically pick up your changes for you.
     {{< note >}}
     **Note:** The development server logs to stdout by default, you will need to keep the Terminal Session open while in use.
     {{< /note>}}
-6. To stop the Doks Server use `ctrl+c` in the Terminal Session you started it in.
+5. To stop the Doks Server use `ctrl+c` in the Terminal Session you started it in.
 
 
 

@@ -22,10 +22,10 @@ toc: true
     ```
     Here you can see we have specified the `platform` area, the name of our new section and we use the underscored `_index.md` to indicate it is an indexing section of content
     {{< note >}}
-    **Note:** The name of each folder should be sluggified 
+    **Note:** The name of each folder should be slugified 
       The command can then prefill the metadata accordingly
     {{< /note >}}
-2. This will create the space in the docs folder for your new section, to then make it visible in the sidebar add it to `config/_default/menus.toml` using the following format:
+1. This will create the space in the docs folder for your new section, to then make it visible in the sidebar add it to `config/_default/menus.toml` using the following format:
     ```toml
     [[usecases]]
       name = "Use Cases & Examples"
@@ -37,6 +37,6 @@ toc: true
     You must also specify the following values:
    * `name` - The name of the new section as it should appear to Users
    * `weight` - Where the new section should be added to in the Tables of Content on the left (in numerical order)
-   * `identifier` - A unique identifier for your content section, this should be the sluggified version of the `name`
+   * `identifier` - A unique identifier for your content section, this should be the slugified version of the `name`
    * `url` - where the new section header will lead to, this should match the directory structure of the command in Step 1
-3. You should now see your new section on the left
+1. You should now see your new section on the left

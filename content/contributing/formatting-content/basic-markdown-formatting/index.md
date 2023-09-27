@@ -25,7 +25,7 @@ The examples below follow our [Style Guide](../style-guide).
 
 Headings in markdown can be added using the `#` character at the beginning of a line of text, the more`#` you use the smaller the heading will be.
 
-All headers, once rendered, in an article can be permalinked to easily share a specific topic quickly.
+All headers, once rendered, in an article can be a permalink to easily share a specific topic quickly.
 
 ```md
 ## Example Header 2
@@ -55,7 +55,7 @@ Emphasis includes Bolding and Italicizing but ***not*** Underlining.
 
 ## Linebreaks
 
-While Markdown is usually very respectful of where a new line should be implemented it is sometimes necessary to add artifical breaks.
+While Markdown is usually very respectful of where a new line should be implemented it is sometimes necessary to add artificial breaks.
 
 This can be done using the `<br>` tag.
 

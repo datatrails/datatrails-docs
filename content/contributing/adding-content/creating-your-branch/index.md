@@ -19,15 +19,15 @@ As the main branch of these docs is protected you will need to create a separate
     ```bash
     cd rkvst-docs
     ```
-2.  Checkout `main` Branch
+1.  Checkout `main` Branch
     ```bash
     git checkout main
     ```
-3. Make sure `main` is up to date with the latest changes
+1. Make sure `main` is up to date with the latest changes
     ```bash
     git pull
     ```
-4. Create a new branch and check it out automatically
+1. Create a new branch and check it out automatically
     ```bash
     git branch -M <your-branch-name>
     ```

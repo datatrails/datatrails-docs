@@ -6,6 +6,7 @@
     "Callouts",
     "codelang",
     "doks",
+    "infographics",
     "lastmod",
     "Linebreaks",
     "OIDC",
@@ -14,6 +15,7 @@
     "RKVST",
     "shortcode",
     "slugified",
+    "templating",
     "urlencode",
     "Webform"
   ]

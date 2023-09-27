@@ -3,7 +3,7 @@ title: "Creating Access Tokens Using a Custom Integration"
 description: "Creating Access Tokens Using a Custom Integration"
 lead: "Creating Access Tokens for RKVST"
 date: 2021-06-16T11:12:25+01:00
-lastmod: 2021-06-16T11:12:25+01:00
+lastmod: 2023-09-27T11:12:25+01:00
 draft: false
 images: []
 menu: 

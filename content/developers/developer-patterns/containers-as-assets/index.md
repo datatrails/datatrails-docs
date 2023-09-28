@@ -34,7 +34,7 @@ Creating an Asset to represent a container is the same as creating any other ass
 [Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -52,8 +52,10 @@ steps:
       arc_display_type: Shipping Container
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
+
 ```json
 cat > asset.json <<EOF
 {
@@ -66,7 +68,9 @@ cat > asset.json <<EOF
 }
 EOF
 ```
-Use `curl` to `POST`` the asset, viewing the result with `jq`:
+
+Use `curl` to `POST` the asset, viewing the result with `jq`:
+
 ```bash
 curl -X POST \
      -H "@rkvst-bearer.txt" \
@@ -74,13 +78,14 @@ curl -X POST \
      -d "@asset.json" \
      https://app.rkvst.io/archivist/v2/assets | jq
 ```
+
 If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
 {{< /tab >}}}
 {{< /tabs >}}
 
 ## Associate an Item or Container with Another Container
 
-Now that we have created a `Shipping Container` Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom `Asset Attribute` that links it to our Shipping Container. For example, let's create an Asset to represent a box that is being transported within the Shipping Container. 
+Now that we have created a `Shipping Container` Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom `Asset Attribute` that links it to our Shipping Container. For example, let's create an Asset to represent a box that is being transported within the Shipping Container.
 
 {{< note >}}
 **Note:** For this example, we used the custom attribute `within_container`, but you could use any key to associate the Assets that does not contain the reserved `arc_` prefix.
@@ -105,7 +110,7 @@ Now that we have created a `Shipping Container` Asset, we can create an Asset to
 [Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -124,6 +129,7 @@ steps:
       within_container: Shipping Container
     confirm: true
 ```
+
 Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -141,7 +147,9 @@ cat > asset-box.json <<EOF
 }
 EOF
 ```
-Use `curl` to `POST`` the asset, viewing the result with `jq`:
+
+Use `curl` to `POST` the asset, viewing the result with `jq`:
+
 ```bash
 curl -X POST \
      -H "@rkvst-bearer.txt" \
@@ -149,6 +157,7 @@ curl -X POST \
      -d "@asset-box.json" \
      https://app.rkvst.io/archivist/v2/assets | jq
 ```
+
 Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`
 
 If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
@@ -178,7 +187,7 @@ To retrieve all Assets associated with a container, you can run a query with a f
 [Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -188,12 +197,15 @@ steps:
     attrs:
       within_container: Shipping Container
 ```
+
 {{< /tab >}}
 {{< tab name="CURL" >}}
+
 ```bash
 curl -g -X GET \
      -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container" | jq
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}

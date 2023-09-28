@@ -207,7 +207,7 @@ Extended attributes are custom key-value pairs, such as `document_version`, `for
 This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
 It's also good practice to include `confirm: true` which tells RKVST to finish commiting the Asset before moving to the next step. 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -303,7 +303,8 @@ Navigate to 'Assets' to see your Asset in the UI.
 {{< /tab >}}
 {{< tab name="YAML" >}}
 You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.
-```yaml  
+
+```yaml
 ---
 steps:
   - step:
@@ -335,7 +336,8 @@ The extended attributes are in the `More Details` tab.
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
-```yaml  
+
+```yaml
 ---
 steps:An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.
 

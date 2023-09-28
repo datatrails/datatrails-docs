@@ -23,13 +23,13 @@ aliases:
 
 ## Events Create
 
-The `asset_label` must match the setting when the Asset was created in an earlier step. The `asset_label` may also be specified as the Asset ID of an existing Asset, in the form `assets/<asset-id>`. 
+The `asset_label` must match the setting when the Asset was created in an earlier step. The `asset_label` may also be specified as the Asset ID of an existing Asset, in the form `assets/<asset-id>`.
 
-There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to RKVST and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to RKVST and adds the response to the Event before posting. 
+There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to RKVST and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to RKVST and adds the response to the Event before posting.
 
 `confirm: true` tells the YAML Runner to wait for the Event to be confirmed before moving to the next step.
 
-For example: 
+For example:
 
 ```yaml
 ---
@@ -67,11 +67,11 @@ steps:
     confirm: true
 ```
 
-This example creates an Event with custom Event attributes, creates and adds a location, and adds an image attachment. 
+This example creates an Event with custom Event attributes, creates and adds a location, and adds an image attachment.
 
-Events may also be used to release a software package as an SBOM, such as the example below: 
+Events may also be used to release a software package as an SBOM, such as the example below:
 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -96,13 +96,13 @@ steps:
 
 ## Events List
 
-This action returns a list of all Events that meet your specified criteria. The `asset_label` can be identified as the friendly name of an Asset created in a previous step, or as an Asset ID for an existing Asset. If no `asset_label` is set, data for all Assets will be used. 
+This action returns a list of all Events that meet your specified criteria. The `asset_label` can be identified as the friendly name of an Asset created in a previous step, or as an Asset ID for an existing Asset. If no `asset_label` is set, data for all Assets will be used.
 
-Specifying `props`, `attrs`, and `asset_attrs` are optional criteria. 
+Specifying `props`, `attrs`, and `asset_attrs` are optional criteria.
 
-Setting `print_response: true` is necessary to print the full output. 
+Setting `print_response: true` is necessary to print the full output.
 
-The following example lists all "open door" Events for the Courts of Justice Paris Front Door: 
+The following example lists all "open door" Events for the Courts of Justice Paris Front Door:
 
 ```yaml
 ---
@@ -126,7 +126,7 @@ This action returns a count of all Events that meet your specified criteria. The
 
 The following example counts all "open door" Events for the Courts of Justice Paris Front Door:
 
-```yaml 
+```yaml
 ---
 steps:
   - step:

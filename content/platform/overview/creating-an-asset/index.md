@@ -260,7 +260,7 @@ $ archivist_runner \
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
- 
+
 ```bash
 curl -v -X POST \
     -H "@$BEARER_TOKEN_FILE" \
@@ -281,6 +281,7 @@ Navigate to 'Assets' to see your Asset in the UI.
 {{< /tab >}}
 {{< tab name="YAML" >}}
 You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.
+
 ```yaml
 ---
 steps:

@@ -68,7 +68,6 @@ This is markdown.
 ```
 </code></pre>
 
-
 ```md
 This is markdown.
 ```
@@ -80,7 +79,6 @@ And with Bash
 echo "This is a Bash Example."
 ```
 </code></pre>
-
 
 ```bash
 echo "This is a Bash Example."
@@ -148,7 +146,6 @@ To add a note use the following syntax, notes are always highlighted by a left *
 {{< /note */>}}
 ```
 
-
 {{< note >}}
 **Note:** This is a note.
 {{< /note >}}
@@ -213,6 +210,7 @@ Block Quotes do respect some Markdown Syntax though which means you can implemen
 >This is<br>
 >a quote
 ```
+
 >This is<br>
 >a quote
 
@@ -231,6 +229,7 @@ Rendering Markdown Tables can be difficult from scratch, you may wish to make us
 |  Cell 1   | Cell 2    |
 {{< /table */>}}
 ```
+
 {{< table >}}
 |  Column 1 | Column 2  |
 |-----------|-----------|

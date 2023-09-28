@@ -20,7 +20,7 @@ It is important in any documentation to have a readable, sane and consistent exp
 Content is organized at a directory level using the standard Hugo format, we then have four separate areas of content.
 
 Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by RKVST Employees and Organizational Reviewers.
-
+<!-- markdownlint-disable MD037 -->
 {{< tabs name="directory_structure" >}}
 {{< tab name="Root" codelang="bash" >}}
 .
@@ -62,6 +62,7 @@ Typically, only Docs should be edited but permission to add to the other section
 └── beyond-the-basics
 {{< /tab >}}
 {{< /tabs >}}
+<!-- markdownlint-enable MD037 -->
 
 ### Articles and Sections
 
@@ -88,7 +89,7 @@ In terms of naming convention, at the directory level you should always use a sl
 
 For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
-This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates. 
+This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates.
 
 {{< caution >}}
 **Caution:** Title rendering in templates is not perfect, you should always verify the title of an Article or Section is correct in the metadata manually.
@@ -158,7 +159,6 @@ We follow [Chicago Manual of Style](https://en.wikipedia.org/wiki/Title_case) Ca
 * Lowercase the words to and as.
 * Lowercase the second part of Latin species names.
 
-
 ```md
 ## Example Header 2
 ### Example Header 3
@@ -172,17 +172,28 @@ Content is written in place and without any special tagging or formatting.
 
 ### Grammar
 
-We do expect standard English Grammar, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
+RKVST Docs are written with the standard English Grammar style, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
 
 It is relevant to note that the authors of this documentation are primarily native British English speakers, however, there is a conscious effort to align to certain standards observed in most other technical documentation including Americanized Spellings for consistency.
 
 This includes:
+
 * Use of the Oxford Comma
 * Use of 'z' instead of 's' in words like 'Organization'
 * Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor'
 * Use of `behavior` instead of `behaviour`
 
 We expect any contributors to also match these standards.
+
+### Spell Checking and Markdown Linting
+
+To aide in spelling and Markdown Linting, the following VS Code Extensions are recommended:
+
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  * See `.vscode/settings.json`
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+* [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 
 ### Sentences
 
@@ -427,9 +438,11 @@ As RKVST is primarily accessed via APIs there are different requirements for eac
 {{< tabs name="tabbed_api_requirements" >}}
 {{< tab name="GET" codelang="md" >}}
 Minimum:
+
 * bash
 
 Preferably:
+
 * bash
 * python
 * go
@@ -440,6 +453,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -451,6 +465,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -462,6 +477,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -472,6 +488,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * bash
 * python
 * go
@@ -480,11 +497,13 @@ Preferably:
 This refers to any kind of scripted example of multiple calls
 
 Minimum:
+
 * bash
 or
 * python
 
 Preferably:
+
 * bash
 * python
 * go
@@ -524,7 +543,6 @@ To add a note use the following syntax, notes are always highlighted by a left *
 **Note:** This is a note.
 {{< /note */>}}
 ```
-
 
 {{< note >}}
 **Note:** This is a note.
@@ -634,8 +652,9 @@ All images should be `.png` files.
 ### Standard Images
 
 Standard images can be included using the `image` shortcode.
-
+<!-- markdownlint-disable MD037 -->
 {{</* img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Register Asset Example</em>" class="border-0" */>}}
+<!-- markdownlint-enable MD037 -->
 
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Asset Creation Example</em>" class="border-0" >}}
 
@@ -649,27 +668,27 @@ To reduce the number of images, combining multiple steps into one image, border 
 
 The following steps reference [TechSmith Snagit](https://www.techsmith.com/screen-capture.html).
 
-- Highlighted Areas  
-  - Using the Snagit Editor, create a transparent rectangular **shape**
+* Highlighted Areas  
+  * Using the Snagit Editor, create a transparent rectangular **shape**
     {{< img src="snagit-editor-border-settings.png" alt="Rectangle" caption="<em>Setting Border Properties</em>" class="border-0" >}}  
-    - Fill: Transparent
-    - Outline Color: RKVST Blue `#00AEEF`  
+    * Fill: Transparent
+    * Outline Color: RKVST Blue `#00AEEF`  
         {{< img src="snagit-editor-border-color.png" alt="Rectangle" caption="<em>Setting Border Color</em>" class="border-0" >}}
-    - Shape: Rectangle
-    - Shadow: (bottom right)
-    - Thickness = 4
-    - Opacity = 100
-    - Line Style = Solid
-- Numbered Steps
-  - Using the Snagit Editor, create **Steps** to indicate where the user should click  
+    * Shape: Rectangle
+    * Shadow: (bottom right)
+    * Thickness = 4
+    * Opacity = 100
+    * Line Style = Solid
+* Numbered Steps
+  * Using the Snagit Editor, create **Steps** to indicate where the user should click  
     The step numbers should match the numbered bullets in the documentation
     {{< img src="snagit-editor-step-settings.png" alt="Rectangle" caption="<em>Setting Step Properties</em>" class="border-0" >}}  
-    - Fill: RKVST Blue `#00AEEF`
-    - Text Color: White
-    - Shape: Circle
-    - Shadow: (bottom right)
-    - Opacity = 100
-    - Type: 1... 2... 3...
+    * Fill: RKVST Blue `#00AEEF`
+    * Text Color: White
+    * Shape: Circle
+    * Shadow: (bottom right)
+    * Opacity = 100
+    * Type: 1... 2... 3...
 
 ### Light Mode and Dark Mode Images
 
@@ -717,4 +736,3 @@ curl -v -X POST \
     https://app.rkvst.io/archivist/v2/assets
 {{< /tab >}}
 {{< /tabs >}}
-

@@ -34,8 +34,10 @@ All headers, once rendered, in an article can be a permalink to easily share a s
 
 This would render as:
 
+<!-- markdownlint-disable MD022 -->
 ## Example Header 2
 ### Example Header 3
+<!-- markdownlint-enable MD022 -->
 
 ## Emphasis
 
@@ -62,6 +64,7 @@ This can be done using the `<br>` tag.
 ```md
 This is<br> a line break
 ```
+
 This is<br> a line break
 
 ## Creating Lists
@@ -77,7 +80,8 @@ Ordered lists can be created either specific numbers.
 2. An Example
 3. Of an Ordered List
 ```
-1. This is 
+
+1. This is
 2. An Example
 3. Of an Ordered List
 

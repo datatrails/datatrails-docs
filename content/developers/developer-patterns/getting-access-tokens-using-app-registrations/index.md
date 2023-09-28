@@ -51,7 +51,7 @@ If `Settings` does not appear in the navigation, see your RKVST Administrator fo
     {{< /caution >}}  
     {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 2. Copy the `CLIENT_ID` and `SECRET` to a password manager for future reference
-3. Skip to [Grant Permissions to Custom Integration](#grant-permissions-to-custom-integration) to configure an Access Policy
+9. The next section describes how to configure an Access Policy for the Integration
 
 ### Using the App Registrations API to Create an Integration
 

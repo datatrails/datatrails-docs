@@ -98,7 +98,7 @@ Define the Event parameters and store in `/path/to/jsonfile`:
     "behaviour": "RecordEvidence",
     "operation": "Record",
     "asset_attributes": {
-        "document_hash_value":"799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "document_hash_alg":"sha256",
         "document_status": "Published",
         "document_version":"2"
@@ -161,7 +161,7 @@ The response is:
     "asset_attributes": {
         "document_status": "Published",
         "document_version": "2",
-        "document_hash_value": "799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "document_hash_alg": "sha256"
     },
     "operation": "Record",

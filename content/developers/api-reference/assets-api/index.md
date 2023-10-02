@@ -122,7 +122,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
         "arc_display_type":"Marketing glossy",
         "arc_display_name":"Test Document Profile Asset",
         "arc_profile":"Document",
-        "document_hash_value":"799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "document_hash_alg":"sha256",
         "document_version":"1",
         "document_status":"Published",
@@ -166,7 +166,7 @@ The response is:
         "document_status": "Published",
         "arc_description": "Test Document",
         "arc_display_type": "Marketing glossy",
-        "document_hash_value": "799b43963ee9458e98adfeee3a5db9458a1a70419b4da2ad2b030d463dc67408",
+        "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "arc_display_name": "Test Document Profile Asset",
         "document_hash_alg": "sha256"
     },

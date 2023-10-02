@@ -20,7 +20,7 @@ It is important in any documentation to have a readable, sane and consistent exp
 Content is organized at a directory level using the standard Hugo format, we then have four separate areas of content.
 
 Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by RKVST Employees and Organizational Reviewers.
-
+<!-- markdownlint-disable MD037 -->
 {{< tabs name="directory_structure" >}}
 {{< tab name="Root" codelang="bash" >}}
 .
@@ -62,6 +62,7 @@ Typically, only Docs should be edited but permission to add to the other section
 └── beyond-the-basics
 {{< /tab >}}
 {{< /tabs >}}
+<!-- markdownlint-enable MD037 -->
 
 ### Articles and Sections
 
@@ -84,11 +85,11 @@ Every Article and Section contains an `index.md` file with some slight differenc
 
 Both of these may be prefilled using a template described in the `Archetypes` folder when using the `rkvst-doks` wrapper to create content.
 
-In terms of naming convention, at the directory level you should always use a sluggified name that represents the title of the Article or Section you are creating.
+In terms of naming convention, at the directory level you should always use a slugified name that represents the title of the Article or Section you are creating.
 
 For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
-This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates. 
+This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates.
 
 {{< caution >}}
 **Caution:** Title rendering in templates is not perfect, you should always verify the title of an Article or Section is correct in the metadata manually.
@@ -117,7 +118,7 @@ toc: true
 ---
 ```
 
-While most of this will come prefilled you will need to make sure the correct details are filled in when publishing, some parameters ar enot required but should not be deleted.
+While most of this will come prefilled you will need to make sure the correct details are filled in when publishing, some parameters are not required but should not be deleted.
 
 {{< table >}}
 |Parameter|Required|Description|
@@ -129,14 +130,16 @@ While most of this will come prefilled you will need to make sure the correct de
 |`lastmod`|False|This is the last time the document was modified, this is not necessary as we can use Git Blame to track when something was changed more effectively|
 |`draft`|True|When set to `true` the article will not be published on the site, by default this is set to `false` as drafting should be done locally before being merged|
 |`images`|False|This is not needed as images should be in the same directory|
-|`menu`|True|This is required to have the left-sidebar work correctly, you should mark the `Area` this article belongs to as a key and then the `Section` aginst the `parent` value like the example|
-|`weight`|True|This is required to place the article in the correct order on the left-sidebar and also the navigation buttons on the bottom of the page it will affect the order acros the entire `Area`, not just the `Section`|
+|`menu`|True|This is required to have the left-sidebar work correctly, you should mark the `Area` this article belongs to as a key and then the `Section` against the `parent` value like the example|
+|`weight`|True|This is required to place the article in the correct order on the left-sidebar and also the navigation buttons on the bottom of the page it will affect the order across the entire `Area`, not just the `Section`|
 |`toc`|True|Standing for 'Table of Contents' this enables the Article to be listed in the left-sidebar, should be set to `true` by default|
 {{< /table >}}
 
 ## Headings
 
-When seperating Articles into Topics and Subsections it is preferred to use Headings as a delimiter instead of alternatives like Horizontal Rules.
+When separating Articles into Topics and Subsections it is preferred to use Headings as a delimiter instead of alternatives like Horizontal Rules.
+
+Headings follow Title Case. [Capitalize My Title](https://capitalizemytitle.com/) is a good tool for copy/pasting formats.
 
 Markdown does support different formats for defining Headers including underlining text with either `=` or `-`; as those formats only apply to `#Header 1` and `Header 2` respectively, for consistency across all Header sizes we have opted to use `#` instead.
 
@@ -156,7 +159,6 @@ We follow [Chicago Manual of Style](https://en.wikipedia.org/wiki/Title_case) Ca
 * Lowercase the words to and as.
 * Lowercase the second part of Latin species names.
 
-
 ```md
 ## Example Header 2
 ### Example Header 3
@@ -170,20 +172,32 @@ Content is written in place and without any special tagging or formatting.
 
 ### Grammar
 
-We do expect standard English Grammar, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
+RKVST Docs are written with the standard English Grammar style, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
 
 It is relevant to note that the authors of this documentation are primarily native British English speakers, however, there is a conscious effort to align to certain standards observed in most other technical documentation including Americanized Spellings for consistency.
 
 This includes:
+
 * Use of the Oxford Comma
 * Use of 'z' instead of 's' in words like 'Organization'
-* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor' 
+* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor'
+* Use of `behavior` instead of `behaviour`
 
 We expect any contributors to also match these standards.
 
+### Spell Checking and Markdown Linting
+
+To aide in spelling and Markdown Linting, the following VS Code Extensions are recommended:
+
+* [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+  * See `.vscode/settings.json`
+* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+* [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+* [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+
 ### Sentences
 
-One-liner Sentences are preferable to paragraphs where possible and should be seperated by newlines in a semi-bullet standard.
+One-liner Sentences are preferable to paragraphs where possible and should be separated by newlines in a semi-bullet standard.
 
 Sentences should preferably be between 1-2 clauses where possible, using 3 clauses is permitted but should be minimized.
 
@@ -197,7 +211,7 @@ This is another sentence, this one does use commas though.
 
 ### Paragraphs
 
-Pargraphs consist of 2 or more sentences and are better suited to creating conceptual narratives.
+Paragraphs consist of 2 or more sentences and are better suited to creating conceptual narratives.
 
 In order to not overwhelm users they should be kept to a minimum and only used for expository reasons such as describing a specific concept or topic in more detail than a single sentence would permit.
 
@@ -263,25 +277,27 @@ Follow this link for details on implementing [Lists](../basic-markdown-formattin
 
 ### Ordered Lists
 
-Ordered lists should be written using the full numerical standard.
+To ease editing, ordered lists should be written using the `1.` for each line. Using correct markdown indention, ordering will be resolved when rendered. If ordered numbering is broken, check the indention formatting.
 
-This means that while it is possible to list items only using one number and it will be rendered correctly we will only permit fully complete numbering to be submitted.
+Descriptive text should be single sentences, as short as possible with no ending punctuation.
 
-We also only permit using periods `.` as delimiters as this is a more standardized pattern than parentheses `)`.
+Use periods `.` as delimiters as this is a more standardized pattern than parentheses `)`.
 
 ```md
 1. This is
-2. an Ordered
-3. List
+1. an Ordered
+1. List
 ```
 
 1. This is
-2. an Ordered
-3. List
+1. an Ordered
+1. List
 
 ### Unordered Lists
 
 Unordered Lists should be written using only asterisks `*` at the beginning of a line of text.
+
+Descriptive text should be single sentences, as short as possible with no ending punctuation.
 
 Other unordered list styles including `+` and `-` are available in markdown but are not permitted in these Docs.
 
@@ -422,9 +438,11 @@ As RKVST is primarily accessed via APIs there are different requirements for eac
 {{< tabs name="tabbed_api_requirements" >}}
 {{< tab name="GET" codelang="md" >}}
 Minimum:
+
 * bash
 
 Preferably:
+
 * bash
 * python
 * go
@@ -435,6 +453,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -446,6 +465,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -457,6 +477,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * json
 * bash
 * python
@@ -467,6 +488,7 @@ Minimum:
 * bash
 
 Preferably:
+
 * bash
 * python
 * go
@@ -475,18 +497,20 @@ Preferably:
 This refers to any kind of scripted example of multiple calls
 
 Minimum:
+
 * bash
 or
 * python
 
 Preferably:
+
 * bash
 * python
 * go
 {{< /tab>}}
 {{< /tabs >}}
 
-One more usecase to consider is when a screenshotted example is used; this is discussed below in [Inserting Example Screenshots](./#inserting-example-screenshots)
+One more use case to consider is when a screenshot example is used; this is discussed below in [Inserting Example Screenshots](./#inserting-example-screenshots)
 
 ### OpenAPI Docs
 
@@ -519,7 +543,6 @@ To add a note use the following syntax, notes are always highlighted by a left *
 **Note:** This is a note.
 {{< /note */>}}
 ```
-
 
 {{< note >}}
 **Note:** This is a note.
@@ -557,7 +580,7 @@ To add a warning use the following syntax, warnings are always highlighted by a 
 
 While use of callouts is freely permitted, use of pure blockquotes is restricted to specific cases:
 
-* A longer quote is emplyed
+* A longer quote is employed
 * A piece of text, neither or callout, needs to be differentiated from the main body
 
 Blockquotes do not always read as well as other elements so should not be relied on extensively.
@@ -604,7 +627,7 @@ To reference another part of the docs you should always as be as specific as pos
 [The links formatting guide](../advanced-formatting/#links)
 ```
 
-In this example `../` implies the content is in another article, `advanced-formatting` is the sluggified name of the article, `#` can then be used to specify the sluggified name of the topic in that article (in this case `#links`).
+In this example `../` implies the content is in another article, `advanced-formatting` is the slugified name of the article, `#` can then be used to specify the slugified name of the topic in that article (in this case `#links`).
 
 To refer to a topic in the same article use `./#your-section` instead of `
 
@@ -629,14 +652,43 @@ All images should be `.png` files.
 ### Standard Images
 
 Standard images can be included using the `image` shortcode.
-
-{{</* img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Asset Creation Example</em>" class="border-0" */>}}
+<!-- markdownlint-disable MD037 -->
+{{</* img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Register Asset Example</em>" class="border-0" */>}}
+<!-- markdownlint-enable MD037 -->
 
 {{< img src="AssetCreationDetails.png" alt="Rectangle" caption="<em>Asset Creation Example</em>" class="border-0" >}}
 
 Images should appear readable and legible across both Light Mode and Dark Mode, if it does not then you need to use the `imgDark` shortcode as described in the [next topic](./#light-mode-and-dark-mode-images).
 
 All images should use the `Rectangular` alt value, `border-0` class and captions should use the `<em>` tags to encapsulate text.
+
+### Image Highlighting with Steps
+
+To reduce the number of images, combining multiple steps into one image, border and numbered steps are used.
+
+The following steps reference [TechSmith Snagit](https://www.techsmith.com/screen-capture.html).
+
+* Highlighted Areas  
+  * Using the Snagit Editor, create a transparent rectangular **shape**
+    {{< img src="snagit-editor-border-settings.png" alt="Rectangle" caption="<em>Setting Border Properties</em>" class="border-0" >}}  
+    * Fill: Transparent
+    * Outline Color: RKVST Blue `#00AEEF`  
+        {{< img src="snagit-editor-border-color.png" alt="Rectangle" caption="<em>Setting Border Color</em>" class="border-0" >}}
+    * Shape: Rectangle
+    * Shadow: (bottom right)
+    * Thickness = 4
+    * Opacity = 100
+    * Line Style = Solid
+* Numbered Steps
+  * Using the Snagit Editor, create **Steps** to indicate where the user should click  
+    The step numbers should match the numbered bullets in the documentation
+    {{< img src="snagit-editor-step-settings.png" alt="Rectangle" caption="<em>Setting Step Properties</em>" class="border-0" >}}  
+    * Fill: RKVST Blue `#00AEEF`
+    * Text Color: White
+    * Shape: Circle
+    * Shadow: (bottom right)
+    * Opacity = 100
+    * Type: 1... 2... 3...
 
 ### Light Mode and Dark Mode Images
 
@@ -646,7 +698,7 @@ You can do this using the special `imgDark` shortcode.
 
 {{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" >}}
 
-All images should use the `Rectangular` alt value, `border-0` class and captions should use the `<em>` tags to encapsulate text.
+All images should use the `Rectangular` alt value, `border-0` class and captions should use the `<em>` tags to encapsulate text using Title Case
 
 ### Inserting Example Screenshots
 
@@ -684,4 +736,3 @@ curl -v -X POST \
     https://app.rkvst.io/archivist/v2/assets
 {{< /tab >}}
 {{< /tabs >}}
-

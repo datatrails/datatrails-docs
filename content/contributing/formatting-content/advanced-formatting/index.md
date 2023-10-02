@@ -68,7 +68,6 @@ This is markdown.
 ```
 </code></pre>
 
-
 ```md
 This is markdown.
 ```
@@ -81,7 +80,6 @@ echo "This is a Bash Example."
 ```
 </code></pre>
 
-
 ```bash
 echo "This is a Bash Example."
 ```
@@ -92,7 +90,7 @@ To format HTML content use `xml` as a language instead
 
 ### Tabbed Codeblock
 
-Tabbed Codeblocks are not built into either Doks or Markdown, we instead use a customised HTML template that can perform the same function using Hugo Shortcodes.
+Tabbed Codeblocks are not built into either Doks or Markdown, we instead use a customized HTML template that can perform the same function using Hugo Shortcodes.
 
 Each `Tabs` object on a page should have a unique identifier, you should also specify the language syntax highlighting to use per tab, this should be reflected in the title of the tab where appropriate.
 
@@ -122,7 +120,7 @@ func main() {
 
 ### Adding OpenAPI Docs
 
-OpenAPI (formely Swagger) is an open standard for documenting which methods, parameters and responses are available for REST API Endpoints in `JSON` format.
+OpenAPI (formerly Swagger) is an open standard for documenting which methods, parameters and responses are available for REST API Endpoints in `JSON` format.
 
 We maintain up-to-date records of every API we present to users in an OpenAPI format, however these are fairly plain so we have written a custom shortcode to template the details in a more presentable package.
 
@@ -147,7 +145,6 @@ To add a note use the following syntax, notes are always highlighted by a left *
 **Note:** This is a note.
 {{< /note */>}}
 ```
-
 
 {{< note >}}
 **Note:** This is a note.
@@ -185,9 +182,9 @@ To add a warning use the following syntax, warnings are always highlighted by a 
 
 All notes, cautions and warnings use blockquote templates and classes underneath.
 
-Block Quotes are useful syntax to not only represent multiline quotes in markdown but also to create localised sections of content differentiated from code.
+Block Quotes are useful syntax to not only represent multiline quotes in markdown but also to create localized sections of content differentiated from code.
 
-A key feature of Block Quotes is that they implement word-wrap so even if you seperate a quote by using a newline it won't render as such.
+A key feature of Block Quotes is that they implement word-wrap so even if you separate a quote by using a newline it won't render as such.
 
 ```md
 >This is
@@ -213,6 +210,7 @@ Block Quotes do respect some Markdown Syntax though which means you can implemen
 >This is<br>
 >a quote
 ```
+
 >This is<br>
 >a quote
 
@@ -231,6 +229,7 @@ Rendering Markdown Tables can be difficult from scratch, you may wish to make us
 |  Cell 1   | Cell 2    |
 {{< /table */>}}
 ```
+
 {{< table >}}
 |  Column 1 | Column 2  |
 |-----------|-----------|

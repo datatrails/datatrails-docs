@@ -88,8 +88,8 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
   {{< /note >}}
 
    ```bash
-   CLIENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   CLIENT_ID=your_id
+   SECRET=your_secret
    ```
 
 1. Generate a token using your pre-existing `Custom Integration` details, saving to a `RESPONSE` variable

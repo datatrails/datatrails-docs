@@ -73,7 +73,7 @@ steps:
 
 To update a Subject's entity, the `subject_label` from a previous action in the YAML Runner steps is required. The `subject_label` may also be specified as the Subject ID of an existing Subject, in the form `subjects/<subject-id`.
 
-`display_name`, `wallet_pub_key`, and `tessera_pub_key` are optional, but at least one must be specified. 
+`display_name`, `wallet_pub_key`, and `tessera_pub_key` are optional, but at least one must be specified.
 
 ```yaml
 ---
@@ -94,11 +94,11 @@ steps:
 
 ## Subjects Delete
 
-This action deletes the specified Subject. 
+This action deletes the specified Subject.
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
-```yaml 
+```yaml
 ---
 steps:
   - step:
@@ -110,7 +110,7 @@ steps:
 
 ## Subjects Read
 
-This action allows you to read the details for the specified Subject. Setting `print_response: true` is necessary to print the full output. 
+This action allows you to read the details for the specified Subject. Setting `print_response: true` is necessary to print the full output.
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
@@ -126,9 +126,9 @@ steps:
 
 ## Subjects List
 
-This action returns a list of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a list of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output.
 
-For example, to list all Subjects with the name John Doe: 
+For example, to list all Subjects with the name John Doe:
 
 ```yaml
 ---
@@ -142,7 +142,7 @@ steps:
 
 ## Subjects Count
 
-This action returns a count of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a count of all Subjects that meet your specified criteria. Setting `print_response: true` is necessary to print the full output.
 
 ```yaml
 ---
@@ -156,7 +156,7 @@ steps:
 
 ## Subjects Wait for Confirmation
 
-This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed. 
+This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed.
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 
@@ -168,4 +168,4 @@ steps:
       description: Wait for all subjects to be confirmed
       print_response: true
       subject_label: A subject
-```
+``

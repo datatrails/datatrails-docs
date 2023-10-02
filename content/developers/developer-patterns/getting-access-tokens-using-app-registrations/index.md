@@ -27,6 +27,8 @@ RKVST authentication uses the industry-standard OIDC Client Credentials Flow.
 
 ## Creating a Custom Integration
 
+If you have already saved a `CLIENT_ID` and `SECRET`, with [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
+
 {{< note >}}
 **Note:** Creating App Registrations requires **Administrator** privileges.  
 If `Settings` does not appear in the navigation, see your RKVST Administrator for access.
@@ -130,7 +132,7 @@ Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#
 To test the creation of the Custom integration and the configuration of the bearer token file (`rkvst-bearer.txt`), query the assets API
 
 ```bash
-curl -H "@rkvst-bearer.txt" \
+curl -X GET -H "@rkvst-bearer.txt" \
     https://app.rkvst.io/archivist/v2/assets | jq
 ```
 

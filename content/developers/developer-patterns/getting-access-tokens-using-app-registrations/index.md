@@ -109,11 +109,12 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
     echo $TOKEN
     ```
 
-1. Create a Bearer Token file with `0600` permissions for reference by `curl` commands
+1. Create a Bearer Token file for reference by `curl` commands, in an `./rkvst/` directory
 
     ```bash
-    echo Authorization: Bearer $TOKEN > rkvst-bearer.txt
-    cat rkvst-bearer.txt
+    mkdir -p ~/.rkvst
+    echo Authorization: Bearer $TOKEN > ~/.rkvst/rkvst-bearer.txt
+    cat ~/.rkvst/rkvst-bearer.txt
     ```
 
 ## Testing Token Creation

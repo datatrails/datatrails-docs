@@ -32,14 +32,14 @@ Define the asset parameters and store in `/path/to/jsonfile`:
   "attributes": {
     "picture_from_yesterday": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
     "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"
@@ -53,7 +53,7 @@ Create the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets
@@ -67,24 +67,24 @@ The response is:
   "attributes": {
     "picture_from_yesterday": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
     "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
+    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"
   ],
   "confirmation_status": "PENDING",
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
-  "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
+  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
-  "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
+  "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "tracked": "TRACKED"
 }
 ```
@@ -144,7 +144,7 @@ Create the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets
@@ -154,7 +154,7 @@ The response is:
 
 ```json
 {
-    "identity": "assets/b2c68bd2-1274-4f76-b12f-8b5d36163f4f",
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "behaviours": [
         "Builtin",
         "RecordEvidence"
@@ -186,7 +186,7 @@ The response is:
 Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
-assets/12345678-90ab-cdef-1234-567890abcdef
+assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 If you do not know the Asset’s identity you can fetch Asset records using other information you do know.
@@ -197,7 +197,7 @@ To fetch all Asset records, simply `GET` the Assets resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      https://app.rkvst.io/archivist/v2/assets
 ```
 
@@ -207,8 +207,8 @@ If you know the unique identity of the Asset record simply `GET` the resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
+     -H "@rkvst-bearer.txt" \
+     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 #### Fetch Specific Asset at Given Point in Time by Identity
@@ -217,8 +217,8 @@ If you know the unique identity of an Asset record and want to show its state at
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     "https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z"
+     -H "@rkvst-bearer.txt" \
+     "https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
 ```
 
 This will return the Asset record with the values it had on `2021-01-13T12:34:21Z`.
@@ -229,7 +229,7 @@ To fetch all Assets with a specific name, GET the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
 ```
 
@@ -239,7 +239,7 @@ To fetch all Assets of a specific type, `GET` the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
 
@@ -249,7 +249,7 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
 ```
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
@@ -258,7 +258,7 @@ To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](ht
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
 ```
 
@@ -268,7 +268,7 @@ To fetch all Assets with a field set to any value, `GET` the Assets resource and
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*"
 ```
 
@@ -280,7 +280,7 @@ To fetch all Assets with a field which is not set to any value, `GET` the Assets
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@rkvst-bearer.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*"
 ```
 
@@ -292,13 +292,13 @@ Fetch the Public URL of a Public Asset:
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+     -H "@rkvst-bearer.txt" \
+     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
 ```json
 {
-  "publicurl":"https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4"
+  "publicurl":"https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -308,13 +308,13 @@ Fetch the Public URL of an Event on a Public Asset:
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+     -H "@rkvst-bearer.txt" \
+     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
 ```json
 {
-  "publicurl":"https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721"
+  "publicurl":"https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -324,7 +324,7 @@ While deleting Assets is not possible, it is possible to hide them from default 
 
 #### Untracking an Asset
 
-Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Define the Event parameters and store in `/path/to/jsonfile`:
 
@@ -339,18 +339,18 @@ Untrack the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
 
 ```json
 {
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a",
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "event_attributes": {},
   "asset_attributes": {},
   "operation": "StopTracking",
@@ -378,7 +378,7 @@ The response is:
 
 #### (Re-)Tracking an Asset
 
-It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity `assets/add30235-1424-4fda-840a-d5ef82c4c96f`.
+It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Define the Event parameters and store in `/path/to/jsonfile`:
 
@@ -393,18 +393,18 @@ Track the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
 
 ```json
 {
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a",
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "event_attributes": {},
   "asset_attributes": {},
   "operation": "StartTracking",

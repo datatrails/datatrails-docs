@@ -139,8 +139,6 @@ While most of this will come prefilled you will need to make sure the correct de
 
 When separating Articles into Topics and Subsections it is preferred to use Headings as a delimiter instead of alternatives like Horizontal Rules.
 
-Headings follow Title Case. [Capitalize My Title](https://capitalizemytitle.com/) is a good tool for copy/pasting formats.
-
 Markdown does support different formats for defining Headers including underlining text with either `=` or `-`; as those formats only apply to `#Header 1` and `Header 2` respectively, for consistency across all Header sizes we have opted to use `#` instead.
 
 The top level header ( `# Header 1`) is defined in the Article's metadata, so it is necessary to only use `## Header 2` or below.
@@ -180,8 +178,7 @@ This includes:
 
 * Use of the Oxford Comma
 * Use of 'z' instead of 's' in words like 'Organization'
-* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor'
-* Use of `behavior` instead of `behaviour`
+* Use of the '-or' suffix instead of '-our' in words like 'Color' and 'Humor' 
 
 We expect any contributors to also match these standards.
 
@@ -511,6 +508,51 @@ Preferably:
 {{< /tabs >}}
 
 One more use case to consider is when a screenshot example is used; this is discussed below in [Inserting Example Screenshots](./#inserting-example-screenshots)
+
+### Best Practices
+
+There are several best practices the docs should follow:
+
+* Don't demonstrate persisting `CLIENT_ID`s or `SECRET`s
+* Do reference the use of a password manager, or secret management within their cloud or development environment  
+  See: [Creating Access Tokens Using a Custom Integration](/content/developers/developer-patterns/getting-access-tokens-using-app-registrations)
+* Don't include CLIENT_IDs, SECRETS, Tenant IDs, Asset IDs, or any other identifiable information that could either leak information, or demonstrate how these types of IDs should be persisted in users docs, repos or files
+* Do use screen blurring for images, and `XXXXX-XXXXX-XXXXXXXXXXXXX` to replace all IDs
+
+    ```json
+    {
+      "assets": [
+        {
+          "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "behaviours": [
+            "AssetCreator",
+            "RecordEvidence",
+            "Builtin"
+          ],
+          "attributes": {
+            "length": "40'",
+            "weight": "20000-lbs",
+            "width": "8'",
+            "arc_description": "A shipping container being tracked",
+            "arc_display_name": "New Shipping Container #1",
+            "arc_display_type": "Shipping Container",
+            "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "height": "8'"
+          },
+          "confirmation_status": "CONFIRMED",
+          "tracked": "TRACKED",
+          "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "at_time": "2023-09-22T03:39:46Z",
+          "storage_integrity": "TENANT_STORAGE",
+          "proof_mechanism": "SIMPLE_HASH",
+          "chain_id": "xxxxxxxxxx",
+          "public": false,
+          "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        }
+      ],
+      "next_page_token": ""
+    }
+    ```
 
 ### OpenAPI Docs
 

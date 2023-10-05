@@ -49,18 +49,18 @@ Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
 
 ```json
 {
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "operation": "Record",
   "behaviour": "RecordEvidence",
   "event_attributes": {
@@ -84,6 +84,174 @@ The response is:
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"
+}
+```
+
+### Document Profile Event Creation
+There are two [Document Profile Events](/developers/developer-patterns/document-profile/) that are available as part of the document lifecycle. These are to `publish` a new version and to `withdraw` the document from use.
+
+#### Publish
+Define the Event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+    "behaviour": "RecordEvidence",
+    "operation": "Record",
+    "asset_attributes": {
+        "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "document_hash_alg":"sha256",
+        "document_status": "Published",
+        "document_version":"2"
+    },
+    "event_attributes": {
+        "arc_description":"Publish version 2 of Test Document",
+        "arc_display_type":"Publish",
+        "document_version_authors": [
+                        {
+                "display_name": "George",
+                "email": "george@rainbow.tv"
+            },
+            {
+                "display_name": "Zippy",
+                "email": "zippy@rainbow.tv"
+            },
+            {
+                "display_name": "Bungle",
+                "email": "bungle@rainbow.tv"
+            }
+        ]
+    }
+}
+```
+
+Add the request to the Asset record by POSTing it to the resource:
+
+```bash
+curl -v -X POST \
+    -H "@rkvst-bearer.txt" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+        "document_version_authors": [
+            {
+                "display_name": "George",
+                "email": "george@rainbow.tv"
+            },
+            {
+                "display_name": "Zippy",
+                "email": "zippy@rainbow.tv"
+            },
+            {
+                "display_name": "Bungle",
+                "email": "bungle@rainbow.tv"
+            }
+        ],
+        "arc_description": "Publish version 2 of Test Document",
+        "arc_display_type": "Publish"
+    },
+    "asset_attributes": {
+        "document_status": "Published",
+        "document_version": "2",
+        "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "document_hash_alg": "sha256"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2023-09-27T12:55:16Z",
+    "timestamp_accepted": "2023-09-27T12:55:16Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": ""
+}
+```
+#### Withdraw
+Define the Event parameters and store in `/path/to/jsonfile`:
+
+```json
+{
+    "behaviour": "RecordEvidence",
+    "operation": "Record",
+    "asset_attributes": {
+        "document_status":"Withdrawn"
+    },
+    "event_attributes": {
+        "arc_description":"Withdraw the Test Document",
+        "arc_display_type":"Withdraw"
+    }
+}
+```
+
+Add the request to the Asset record by POSTing it to the resource:
+
+```bash
+curl -v -X POST \
+    -H "@rkvst-bearer.txt" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+        "arc_description": "Withdraw the Test Document",
+        "arc_display_type": "Withdraw"
+    },
+    "asset_attributes": {
+        "document_status": "Withdrawn"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2023-09-27T13:08:32Z",
+    "timestamp_accepted": "2023-09-27T13:08:32Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.rkvst.io/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "CustomIntegration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": ""
 }
 ```
 ### Adding Attachments
@@ -111,16 +279,16 @@ The following example shows you usage with both the `event_attributes` and the `
     "arc_evidence": "DVA Conformance Report attached",
     "conformance_report": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",
     },
     "arc_primary_image": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30",
-      "arc_blob_identity": "blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "photo.jpg",
       "arc_display_name": "arc_primary_image",
@@ -129,8 +297,8 @@ The following example shows you usage with both the `event_attributes` and the `
   "asset_attributes": {
     "latest_conformance_report": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Latest Conformance Report",
@@ -148,18 +316,18 @@ Add the request to the Asset Record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@rkvst-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 You should see the response:
 
 ```json
 {
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "operation": "Record",
   "behaviour": "RecordEvidence",
   "event_attributes": {
@@ -168,16 +336,16 @@ You should see the response:
     "arc_evidence": "DVA Conformance Report attached",
     "conformance_report": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",
     },
     "arc_primary_image": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30",
-      "arc_blob_identity": "blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",
@@ -186,8 +354,8 @@ You should see the response:
   "asset_attributes": {
     "latest_conformance_report": {
       "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
+      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Latest Conformance Report",

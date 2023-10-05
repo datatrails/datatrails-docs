@@ -7693,14 +7693,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;picture_from_yesterday&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -7710,7 +7710,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
@@ -7720,24 +7720,24 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;picture_from_yesterday&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="creating-a-public-asset">Creating a Public Asset</h4>
@@ -7752,78 +7752,137 @@ You will see a warning message.
 <p>All Public Assets are then given a read-only public URL that can be retrieved using <a href="./#fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</a>, any Events added to that Public Asset will also get their own unique Public URL that can be retrieved with <a href="./#fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</a>.</p>
 <p>This link can be shared with anyone to give them read-only access to the Asset or Event without the need to sign in.</p>
 <p>To interact with the unauthenticated Public Interface for a Public Asset see the <a href="../public-assets-api/">Public Assets API Reference</a>. To update the Assets and Events as the creating Tenant on a Public Asset&rsquo;s authenticated Private Interface, you would still use the standard Assets and Events API as normal.</p>
-<h3 id="asset-record-retrieval">Asset Record Retrieval</h3>
+<h4 id="creating-a-document-profile-asset">Creating a Document Profile Asset</h4>
+<p>This class of Asset conforms to the <a href="/developers/developer-patterns/document-profile/">Document Profile Developer Pattern</a>, which allows you to trace the lifecyle of a document.</p>
+<p>Define the asset parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Marketing glossy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span><span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_profile&#34;</span><span class="p">:</span><span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span><span class="s2">&#34;anything you like&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span><span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote class="note callout">
+    <div><strong></strong> <strong>Note</strong>: Document Profile Assets must be set to <code>public</code> to be compatible with <a href="/platform/overview/instaproof/">Instaproof</a> verification.</div>
+  </blockquote>
+<p>Create the Asset:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_profile&#34;</span><span class="p">:</span> <span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span> <span class="s2">&#34;anything you like&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Marketing glossy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="asset-record-retrieval">Asset Record Retrieval</h3>
 <p>Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/12345678-90ab-cdef-1234-567890abcdef
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><p>If you do not know the Asset’s identity you can fetch Asset records using other information you do know.</p>
 <h4 id="fetch-all-assets">Fetch All Assets</h4>
 <p>To fetch all Asset records, simply <code>GET</code> the Assets resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div><h4 id="fetch-specific-asset-by-identity">Fetch Specific Asset by Identity</h4>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><h4 id="fetch-specific-asset-at-given-point-in-time-by-identity">Fetch Specific Asset at Given Point in Time by Identity</h4>
 <p>If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply <code>GET</code> with the following query parameter:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z&#34;</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z&#34;</span>
 </span></span></code></pre></div><p>This will return the Asset record with the values it had on <code>2021-01-13T12:34:21Z</code>.</p>
 <h4 id="fetch-assets-by-name">Fetch Assets by Name</h4>
 <p>To fetch all Assets with a specific name, GET the Assets resource and filter on <code>arc_display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-type">Fetch Assets by Type</h4>
 <p>To fetch all Assets of a specific type, <code>GET</code> the Assets resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-proof-mechanism">Fetch Assets by Proof Mechanism</h4>
 <p>To fetch all Assets that use a specific Proof Mechanism, <code>GET</code> the Assets resource and filter on <code>proof_mechanism</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-events-ordered-for-simplehashv1-schema">Fetch Events Ordered for SIMPLEHASHV1 Schema</h4>
 <p>To fetch Simple Hash Events in the order needed for the <a href="https://github.com/rkvst/rkvst-simplehash-python">SIMPLEHASHV1 schema</a>, <code>GET</code> the Assets resource, specifying a specific Asset ID or using <code>assets/-/events</code> to fetch Events for all Assets:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-filtering-for-presence-of-a-field">Fetch Assets by Filtering for Presence of a Field</h4>
 <p>To fetch all Assets with a field set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which have <code>arc_display_name</code> that is not empty.</p>
 <h4 id="fetch-assets-which-are-missing-a-field">Fetch Assets Which are Missing a Field</h4>
 <p>To fetch all Assets with a field which is not set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which do not have <code>arc_display_name</code> or in which <code>arc_display_name</code> is empty.</p>
 <h4 id="fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</h4>
 <p>Fetch the Public URL of a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</h4>
 <p>Fetch the Public URL of an Event on a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="tracking-and-untracking-assets">Tracking and Untracking Assets</h3>
 <p>While deleting Assets is not possible, it is possible to hide them from default searches so that old or obsolete records don&rsquo;t crowd out the tenant estate or show up in partner tenancies when they shouldn&rsquo;t.</p>
 <h4 id="untracking-an-asset">Untracking an Asset</h4>
-<p>Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code>.</p>
+<p>Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>.</p>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StopTracking&#34;</span><span class="p">,</span>
@@ -7831,14 +7890,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Untrack the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StopTracking&#34;</span><span class="p">,</span>
@@ -7863,7 +7922,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="re-tracking-an-asset">(Re-)Tracking an Asset</h4>
-<p>It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code>.</p>
+<p>It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>.</p>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StartTracking&#34;</span><span class="p">,</span>
@@ -7871,14 +7930,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Track the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StartTracking&#34;</span><span class="p">,</span>
@@ -13079,14 +13138,14 @@ You will see a warning message.
   </blockquote>
 <p>Add the request to the Asset record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -13111,6 +13170,150 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
+<p>There are two <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
+<h4 id="publish">Publish</h4>
+<p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;2&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Zippy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;zippy@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bungle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;bungle@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Add the request to the Asset record by POSTing it to the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Zippy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;zippy@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bungle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;bungle@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span> <span class="s2">&#34;2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T12:55:16Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T12:55:16Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="withdraw">Withdraw</h4>
+<p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw the Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Add the request to the Asset record by POSTing it to the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdraw the Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T13:08:32Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T13:08:32Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="adding-attachments">Adding Attachments</h3>
 <p>The following assumes that an attachment has already been uploaded to RKVST using the <a href="../blobs-api">Blob API</a>.</p>
 <p>This attachment uuid is generically referred to as:</p>
@@ -13127,16 +13330,16 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
@@ -13145,8 +13348,8 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
@@ -13161,14 +13364,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Add the request to the Asset Record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>You should see the response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -13177,16 +13380,16 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
@@ -13195,8 +13398,8 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
@@ -31436,14 +31639,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;picture_from_yesterday&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -31453,7 +31656,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
@@ -31463,24 +31666,24 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;picture_from_yesterday&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/42054f10-9952-4c10-a082-9fd0d10295ae&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="creating-a-public-asset">Creating a Public Asset</h4>
@@ -31495,78 +31698,137 @@ You will see a warning message.
 <p>All Public Assets are then given a read-only public URL that can be retrieved using <a href="./#fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</a>, any Events added to that Public Asset will also get their own unique Public URL that can be retrieved with <a href="./#fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</a>.</p>
 <p>This link can be shared with anyone to give them read-only access to the Asset or Event without the need to sign in.</p>
 <p>To interact with the unauthenticated Public Interface for a Public Asset see the <a href="../public-assets-api/">Public Assets API Reference</a>. To update the Assets and Events as the creating Tenant on a Public Asset&rsquo;s authenticated Private Interface, you would still use the standard Assets and Events API as normal.</p>
-<h3 id="asset-record-retrieval">Asset Record Retrieval</h3>
+<h4 id="creating-a-document-profile-asset">Creating a Document Profile Asset</h4>
+<p>This class of Asset conforms to the <a href="/developers/developer-patterns/document-profile/">Document Profile Developer Pattern</a>, which allows you to trace the lifecyle of a document.</p>
+<p>Define the asset parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Marketing glossy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span><span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_profile&#34;</span><span class="p">:</span><span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span><span class="s2">&#34;anything you like&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span><span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote class="note callout">
+    <div><strong></strong> <strong>Note</strong>: Document Profile Assets must be set to <code>public</code> to be compatible with <a href="/platform/overview/instaproof/">Instaproof</a> verification.</div>
+  </blockquote>
+<p>Create the Asset:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_profile&#34;</span><span class="p">:</span> <span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span> <span class="s2">&#34;anything you like&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Marketing glossy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="asset-record-retrieval">Asset Record Retrieval</h3>
 <p>Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/12345678-90ab-cdef-1234-567890abcdef
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><p>If you do not know the Asset’s identity you can fetch Asset records using other information you do know.</p>
 <h4 id="fetch-all-assets">Fetch All Assets</h4>
 <p>To fetch all Asset records, simply <code>GET</code> the Assets resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div><h4 id="fetch-specific-asset-by-identity">Fetch Specific Asset by Identity</h4>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><h4 id="fetch-specific-asset-at-given-point-in-time-by-identity">Fetch Specific Asset at Given Point in Time by Identity</h4>
 <p>If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply <code>GET</code> with the following query parameter:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/6a951b62-0a26-4c22-a886-1082297b063b?at_time=2021-01-13T12:34:21Z&#34;</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z&#34;</span>
 </span></span></code></pre></div><p>This will return the Asset record with the values it had on <code>2021-01-13T12:34:21Z</code>.</p>
 <h4 id="fetch-assets-by-name">Fetch Assets by Name</h4>
 <p>To fetch all Assets with a specific name, GET the Assets resource and filter on <code>arc_display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-type">Fetch Assets by Type</h4>
 <p>To fetch all Assets of a specific type, <code>GET</code> the Assets resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-proof-mechanism">Fetch Assets by Proof Mechanism</h4>
 <p>To fetch all Assets that use a specific Proof Mechanism, <code>GET</code> the Assets resource and filter on <code>proof_mechanism</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-events-ordered-for-simplehashv1-schema">Fetch Events Ordered for SIMPLEHASHV1 Schema</h4>
 <p>To fetch Simple Hash Events in the order needed for the <a href="https://github.com/rkvst/rkvst-simplehash-python">SIMPLEHASHV1 schema</a>, <code>GET</code> the Assets resource, specifying a specific Asset ID or using <code>assets/-/events</code> to fetch Events for all Assets:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-filtering-for-presence-of-a-field">Fetch Assets by Filtering for Presence of a Field</h4>
 <p>To fetch all Assets with a field set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which have <code>arc_display_name</code> that is not empty.</p>
 <h4 id="fetch-assets-which-are-missing-a-field">Fetch Assets Which are Missing a Field</h4>
 <p>To fetch all Assets with a field which is not set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which do not have <code>arc_display_name</code> or in which <code>arc_display_name</code> is empty.</p>
 <h4 id="fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</h4>
 <p>Fetch the Public URL of a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4:publicurl
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</h4>
 <p>Fetch the Public URL of an Event on a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721:publicurl
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="tracking-and-untracking-assets">Tracking and Untracking Assets</h3>
 <p>While deleting Assets is not possible, it is possible to hide them from default searches so that old or obsolete records don&rsquo;t crowd out the tenant estate or show up in partner tenancies when they shouldn&rsquo;t.</p>
 <h4 id="untracking-an-asset">Untracking an Asset</h4>
-<p>Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code>.</p>
+<p>Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>.</p>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StopTracking&#34;</span><span class="p">,</span>
@@ -31574,14 +31836,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Untrack the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StopTracking&#34;</span><span class="p">,</span>
@@ -31606,7 +31868,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="re-tracking-an-asset">(Re-)Tracking an Asset</h4>
-<p>It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code>.</p>
+<p>It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</code>.</p>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StartTracking&#34;</span><span class="p">,</span>
@@ -31614,14 +31876,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Track the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/a5e68a57-c5c2-42db-b2a6-e361ba2a7b4a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;StartTracking&#34;</span><span class="p">,</span>
@@ -36822,14 +37084,14 @@ You will see a warning message.
   </blockquote>
 <p>Add the request to the Asset record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -36854,6 +37116,150 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
+<p>There are two <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
+<h4 id="publish">Publish</h4>
+<p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span><span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span><span class="s2">&#34;sha256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span><span class="s2">&#34;2&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Zippy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;zippy@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bungle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;bungle@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Add the request to the Asset record by POSTing it to the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Zippy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;zippy@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bungle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;bungle@rainbow.tv&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Publish&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Published&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version&#34;</span><span class="p">:</span> <span class="s2">&#34;2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T12:55:16Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T12:55:16Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="withdraw">Withdraw</h4>
+<p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw the Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Add the request to the Asset record by POSTing it to the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+</span></span></code></pre></div><p>The response is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdraw the Test Document&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdraw&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span> <span class="s2">&#34;Withdrawn&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T13:08:32Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T13:08:32Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.rkvst.io/appidpv1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;CustomIntegration&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="adding-attachments">Adding Attachments</h3>
 <p>The following assumes that an attachment has already been uploaded to RKVST using the <a href="../blobs-api">Blob API</a>.</p>
 <p>This attachment uuid is generically referred to as:</p>
@@ -36870,16 +37276,16 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
@@ -36888,8 +37294,8 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
@@ -36904,14 +37310,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Add the request to the Asset Record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 </span></span></code></pre></div><p>You should see the response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/add30235-1424-4fda-840a-d5ef82c4c96f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -36920,16 +37326,16 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;3276336c6fa5064e7b7a894ff7252738330a5748dbcb61a56cd9a20b7383bd30&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/28ba5c11-04f4-7d9e-104a-e9f6b3cc7b11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
@@ -36938,8 +37344,8 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>

@@ -17,7 +17,7 @@ aliases:
 
 ## App Registrations API Examples
 
-The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy. 
+The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.
 
 It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned.
 
@@ -25,9 +25,9 @@ These credentials are then used to request an access token from `https://app.rkv
 
 Each App Registration is created with Non-Administrator privileges by default.
 
-To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions. 
+To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions.
 
-If you wish to give your credentials Administrator priviliges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).
+If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.rkvst.io/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).
 
 {{< note >}}
 For more information on App Registrations and access tokens, visit [RKVST Developer Patterns](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
@@ -51,13 +51,13 @@ Once you have created your file, you can then submit it to the RKVST API:
 
 ```bash
 curl -X POST \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@/path/to/jsonfile" \
      https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
-An example response is shown below. 
+An example response is shown below.
 
 The client secret ***must*** be taken note of at this point, as it will be redacted in any attempt to retrieve the application (shown as an empty string.)
 
@@ -82,7 +82,7 @@ The client secret ***must*** be taken note of at this point, as it will be redac
 ```
 
 {{< caution >}}
-**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour. 
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour.
 {{< /caution >}}
 
 #### Authenticating with your Application
@@ -122,7 +122,7 @@ All of the applications created for your RKVST tenancy can be viewed using the f
 
 ```bash
 curl -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/applications
 ```
 
@@ -134,9 +134,10 @@ The following example shows how to view the details of a single application.
 export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
 ```
+
 ### Updating Applications
 
 You may edit the display name and/or the custom claims of an application.
@@ -157,7 +158,7 @@ Once you've created your file, submit it to the RKVST API:
 export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X PATCH \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@/path/to/json"
      https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
@@ -183,11 +184,12 @@ Example response:
     }
 }
 ```
+
 ### Regenerating Application Secrets
 
-It is possible to regenerate the secret for an existing application. 
+It is possible to regenerate the secret for an existing application.
 
-The expected response will be the same as for [creation](./#creating-an-application), but the credential entry will have been updated with a new secret, along with new expiry dates. 
+The expected response will be the same as for [creation](./#creating-an-application), but the credential entry will have been updated with a new secret, along with new expiry dates.
 
 Once again, you ***must*** take note of the secret at this point, as it will not be recoverable.
 
@@ -195,22 +197,23 @@ Once again, you ***must*** take note of the secret at this point, as it will not
 export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X POST \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/${IDENTITY}:regenerate-secret
 ```
 
 {{< caution >}}
-**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour. 
+**Caution:** The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour.
 {{< /caution >}}
 
 ### Deleting Applications
+
 The following example shows how to delete an application.
 
 ```bash
 export IDENTITY="applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065"
 
 curl -X DELETE \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/${IDENTITY}
 ```
 

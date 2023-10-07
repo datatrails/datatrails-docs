@@ -25,21 +25,21 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 ```bash
 curl -v \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22
 ```
 
-### Retrieve a Specific Attachment on an Event 
+### Retrieve a Specific Attachment on an Event
 
 ```bash
 curl -v \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/events/de834094-f6c3-4e38-9b37-8c61dea312c9/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 ### Retrieve Information About a Specific Attachment
 
-It’s also possible to retrieve information about specific attachment using this API. 
+It’s also possible to retrieve information about specific attachment using this API.
 
 This information includes the `scanned_status` of the attachment. Attachment scanning happens each day.
 
@@ -47,7 +47,7 @@ To do so, simply issue a request as above with the suffix `/info`.
 
 ```bash
 curl -v \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22/info
 ```
 
@@ -74,4 +74,3 @@ The response will include basic information about the attachment:
 ## Attachment OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/attachmentsv2.swagger.json" >}}
-

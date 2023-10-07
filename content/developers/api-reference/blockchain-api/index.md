@@ -31,7 +31,7 @@ To fetch all transactions for an Asset's Events GET the blockchain resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 ```
 

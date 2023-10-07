@@ -20,7 +20,7 @@ Invites can be used to invite a new user into a Tenancy to access Assets and Eve
 
 For example, inviting a new member of the organization into their organization's tenancy.
 
-By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using [ABAC policies](/platform/administration/managing-access-to-an-asset-with-abac/) defined by an Administrator.
+By default, invited users will have no permissions and need to be given access to manage specific Assets and Events using [ABAC policies](/platform/administration/managing-access-to-an-asset-with-abac/) defined by an Administrator.
 
 For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on [OBAC policies](/platform/administration/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
 
@@ -38,9 +38,9 @@ It is possible to add an optional custom message:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d '{"message": "personalised message", "email": "john.doe@example.com"}' \
+    -d '{"message": "personalized message", "email": "john.doe@example.com"}' \
     "https://app.rkvst.io/archivist/iam/v1/invites"
 ```
 
@@ -49,7 +49,7 @@ The response is:
 ```json
 {
   "identity": "invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb",
-  "message": "personalised message",
+  "message": "personalized message",
   "email": "john.doe@example.com",
   "expiry_time": "2022-06-17T11:30:43Z"
 }
@@ -61,7 +61,7 @@ If you know the unique identity of a pending invite, `GET` the resource:
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     "https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
 ```
@@ -71,7 +71,7 @@ The response is:
 ```json
 {
   "identity": "invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb",
-  "message": "personalised message",
+  "message": "personalized message",
   "email": "john.doe@example.com",
   "expiry_time": "2022-06-17T11:30:43Z"
 }
@@ -83,7 +83,7 @@ To fetch all pending invites, simply `GET` the `/invites` resource:
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     "https://app.rkvst.io/archivist/iam/v1/invites"
 ```
@@ -95,13 +95,13 @@ The response is:
   "invites": [
     {
       "identity": "invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb",
-      "message": "personalised message",
+      "message": "personalized message",
       "email": "john.doe@example.com",
       "expiry_time": "2022-06-17T11:30:43Z"
     },
     {
       "identity": "invites/f4e4b1b5-8186-4feb-9072-9999f89d4619",
-      "message": "another personalised message",
+      "message": "another personalized message",
       "email": "jane.doe@example.com",
       "expiry_time": "2022-06-17T11:30:26Z"
     },
@@ -116,13 +116,12 @@ To delete a pending invite, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$BEARER_TOKEN_FILE" \`
+    -H "@$HOME/.rkvst/bearer-token.txt" \`
     -H "Content-type: application/json" \
     "https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
 ```
 
 The response will be empty.
-
 
 ## Invites OpenAPI Docs
 

@@ -73,7 +73,7 @@ Use `curl` to `POST` the asset, viewing the result with `jq`:
 
 ```bash
 curl -X POST \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@asset.json" \
      https://app.rkvst.io/archivist/v2/assets | jq
@@ -152,7 +152,7 @@ Use `curl` to `POST` the asset, viewing the result with `jq`:
 
 ```bash
 curl -X POST \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@asset-box.json" \
      https://app.rkvst.io/archivist/v2/assets | jq
@@ -203,7 +203,7 @@ steps:
 
 ```bash
 curl -g -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container" | jq
 ```
 

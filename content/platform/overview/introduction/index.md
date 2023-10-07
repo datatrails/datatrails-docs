@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
-description: "Welcome to RKVST!"
-lead: "Welcome to RKVST!"
+description: "Welcome to RKVST"
+lead: "Welcome to RKVST"
 date: 2021-06-14T10:57:58+01:00
 lastmod: 2021-06-14T10:57:58+01:00
 draft: false
@@ -15,7 +15,7 @@ aliases:
   - /docs/overview/introduction/
 ---
 
-RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset. 
+RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset.
 
 RKVST enables enterprises to build trust in multi-party Assets, including software, devices, and media ensuring processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.
 

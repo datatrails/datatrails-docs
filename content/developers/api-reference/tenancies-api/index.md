@@ -25,7 +25,7 @@ To fetch the list of Administrators, simply `GET` the `tenancies/administrators`
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v1/tenancies/administrators
 ```
 
@@ -56,7 +56,7 @@ Update the Administrators by PATCHing the `tenancies/administrators` resource:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v1/tenancies/administrators

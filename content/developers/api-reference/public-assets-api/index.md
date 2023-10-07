@@ -21,9 +21,9 @@ Public Assets are created using the [Assets API](../assets-api/) and setting the
 
 To see more information about creating a Public Asset, see [Creating a Public Asset](../assets-api/#creating-a-public-asset).
 
-Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for. 
+Each Public Asset has a private and a public interface. The private interface is used to update the Asset by the creating Tenancy and the public interface is a read-only view of the Asset that you do not need to be authenticated for.
 
-The methods described below cover interacting with the public interface only. To interact with the private interface, use the standard [Assets API](../assets-api/). 
+The methods described below cover interacting with the public interface only. To interact with the private interface, use the standard [Assets API](../assets-api/).
 
 {{< note >}}
 Visit the [Public Attestation](/platform/overview/public-attestation/) guide for more information.
@@ -159,7 +159,6 @@ curl -H "Content-Type: application/json" https://app.rkvst.io/archivist/publicas
     "next_page_token": ""
 }
 ```
-
 
 ### Fetch a Public Asset's Specific Event Record
 

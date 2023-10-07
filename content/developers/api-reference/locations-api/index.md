@@ -47,7 +47,7 @@ Create the location to POSTing to the locations resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/locations
@@ -74,13 +74,13 @@ The response is:
 
 ### Location Retrieval
 
-
 #### Fetch All Locations
+
 To fetch all locations, simply `GET` the locations resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/locations
 ```
 
@@ -90,7 +90,7 @@ If you know the unique identity of the location record, simply `GET` the resourc
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
 ```
 
@@ -100,7 +100,7 @@ To fetch all locations with a specific name, `GET` the Assets resource and filte
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     "https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire"
 ```
 

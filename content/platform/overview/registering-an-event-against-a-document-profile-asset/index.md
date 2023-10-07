@@ -13,13 +13,13 @@ weight: 36
 toc: true
 ---
 
-It is rare for a document to remain unchanged during it's lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently. 
+It is rare for a document to remain unchanged during it's lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.
 
 If you need to update your registered Document Profile Asset you can record this as an Event. The [Document Profile](/developers/developer-patterns/document-profile/) defines two types of Event; Publish and Withdraw.
 
 Document Registration is the first Event with each new version being recorded as a Publish Event.
 
-There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classifiation.
+There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classification.
 
 When the document version is no longer to be used there is a Withdraw Event.
 
@@ -31,8 +31,7 @@ Before registering an Event, follow [this guide](/platform/overview/registering-
 
 ## Registering Events
 
-1. Open the Asset Overview for a Document Profile Asset. 
-
+1. Open the Asset Overview for a Document Profile Asset
 {{< tabs name="add_event" >}}
 {{{< tab name="UI" >}}
 When viewing your Document, you have the choice of `Add New Version` (publish a new version), `Withdraw Document` (the document has reached End of Life) or `Record Event` (any other event that you wish to record).
@@ -42,6 +41,7 @@ When viewing your Document, you have the choice of `Add New Version` (publish a 
 To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
+
 ```yaml
 ---
 steps:
@@ -51,6 +51,7 @@ steps:
       asset_label: assets/<asset-id>
     behaviour: RecordEvidence
 ```
+
 The `asset_id` must match the Asset ID found in the details of your Document. See [Step 7 of Registering a Document Profile Asset](/platform/overview/registering-a-document-profile-asset/).
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -72,12 +73,12 @@ In addition to the Asset and Event attributes that are part of the Document Prof
 * `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.
 {{< /note >}}
 <br>
-2. Adding a New Version.
 
+1. Adding a New Version
 {{< tabs name="add_new_version" >}}
 {{{< tab name="UI" >}}
-Click on the `Add New Version` button.<br> 
-Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash. 
+Click on the `Add New Version` button.<br>
+Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash.
 {{< img src="AddNewVersion.png" alt="Rectangle" caption="<em>Document Information</em>" class="border-0" >}}
 The Advanced Options tab is for additional Asset and Event attributes that are not part of the document profile.
 {{< img src="AddNewVersionDetails.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
@@ -116,6 +117,7 @@ steps:
           email: anne@writeme.org  
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Add your `event_attributes` and `asset_attributes` as key-value pairs.
@@ -158,7 +160,7 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 {{< /tabs >}}
 <br>
 
-3. The Withdraw Event.
+1. The Withdraw Event
 {{< tabs name="withdraw_event" >}}
 {{{< tab name="UI" >}}
 If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in RKVST by publishing a new version.
@@ -167,7 +169,8 @@ If a document is no longer required, or if for any reason it is decided that it 
 {{< /tab >}}
 {{< tab name="YAML" >}}
 
-Use the attibute/value pairs in the example below to register a `Withdraw` event. 
+Use the attribute/value pairs in the example below to register a `Withdraw` event
+
 ```yaml
 ---
 steps:
@@ -184,10 +187,12 @@ steps:
       arc_display_type: Withdraw
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-Use the attibute/value pairs in the example below to register a `Withdraw` event.
+Use the attribute/value pairs in the example below to register a `Withdraw` event
+
 ```json
 {
   "behaviour": "RecordEvidence",
@@ -200,15 +205,17 @@ Use the attibute/value pairs in the example below to register a `Withdraw` event
         "arc_display_type":"Withdraw"
     }
 }
+
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-4. Recording a Generic Event.
 
-The `Record Event` button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.
+1. Recording a Generic Event  
+The `Record Event` button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.  
 
-See [Creating an Event Against an Asset](/platform/overview/creating-an-event-against-an-asset/) for more information on this event type.
+    See [Creating an Event Against an Asset](/platform/overview/creating-an-event-against-an-asset/) for more information on this event type.
 {{< tabs name="record_event" >}}
 {{{< tab name="UI" >}}
 
@@ -216,6 +223,7 @@ See [Creating an Event Against an Asset](/platform/overview/creating-an-event-ag
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
+
 ```yaml
 ---
 steps:
@@ -230,8 +238,10 @@ steps:
       arc_display_type:  Review
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
+
 ```json
 {
   "operation": "Record",
@@ -243,10 +253,12 @@ steps:
 }
 
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-5. Registering the Event
+
+1. Registering the Event
 {{< tabs name="register_event" >}}
 {{{< tab name="UI" >}}
 Once your form is complete, click on the `Record Event` button to register the event.
@@ -254,7 +266,7 @@ Once your form is complete, click on the `Record Event` button to register the e
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
- 
+
 ```bash
 $ archivist_runner \
       -u https://app.rkvst.io \
@@ -262,22 +274,24 @@ $ archivist_runner \
       --client-secret <your-client-secret> \
       my_first_document_event.yaml
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
- 
+
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}
 <br>
-6. Viewing Event details. 
 
+1. Viewing Event details
 {{< tabs name="view_event" >}}
 {{{< tab name="UI" >}}
 The Event History can be seen in the Asset Overview from step 1, simply click on any Event row to view it.<br>
@@ -285,15 +299,16 @@ The Document tab shows information about the document version that you are viewi
 
 {{< img src="EventDetails.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.
+The More Details tab provides information about the Event itself and includes a link to the transaction. It also includes any optional attributes that were included in the Event.
 
 {{< img src="MoreEventDetails.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event. 
+The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event
 
-To view all Events, use: 
+To view all Events, use:
+
 ```yaml
 ---
 steps:
@@ -302,7 +317,9 @@ steps:
       description: List all events.
       print_response: true
 ```
+
 To view the details of the Event you just created for My First Container, use:
+
 ```yaml
 ---
 steps:
@@ -314,15 +331,16 @@ steps:
     attrs:
       arc_display_type: Publish
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Event data can be viewed using curl commands. 
+Event data can be viewed using curl commands
 
 To view all Events across all Assets, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets/-/events
 ```
 
@@ -330,10 +348,9 @@ To view the details of the Event you just created for My First Document, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}
-
-

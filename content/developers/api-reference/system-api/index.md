@@ -27,7 +27,7 @@ Query the endpoint:
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     https://app.rkvst.io/archivist/v1/archivistnode
 ```
 

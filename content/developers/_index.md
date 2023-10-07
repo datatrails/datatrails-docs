@@ -31,14 +31,14 @@ aliases:
         </div>
       </div>
       <div class="col-xs-9 col-sm-11 col-lg-4">
-      	<div class="card" style="max-width: 25rem;">
+        <div class="card" style="max-width: 25rem;">
           <div class="card-body">
             <h5 class="card-title">API Reference</h5>
             <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
             <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
           </div>
-      	</div>
-      </div>      
+        </div>
+      </div>
       <div class=" col-xs-9 col-sm-11 col-lg-4">
         <div class="card" style="max-width: 25rem;">
           <div class="card-body">
@@ -47,7 +47,7 @@ aliases:
             <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </section>

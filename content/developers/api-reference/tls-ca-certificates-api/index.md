@@ -32,7 +32,7 @@ Define the TLS CA certificate parameters and store in `/path/to/jsonfile` (certi
 
 To include the PEM file content in a JSON string it must be flattened to a single line.
 
-To create a single line representation of a PEM file for the RKVST API, you must replace new lines with the literal string “\n”. 
+To create a single line representation of a PEM file for the RKVST API, you must replace new lines with the literal string “\n”.
 
 The following unix command could be used:
 
@@ -44,7 +44,7 @@ Create the CA Certificate:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v1/tlscacertificates
@@ -76,7 +76,7 @@ To fetch all TLS CA certificates records, simply `GET` the `tlscacertificates` r
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v1/tlscacertificates
 ```
 
@@ -86,7 +86,7 @@ If you know the unique identity of the TLS CA certificate Record simply `GET` th
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
@@ -96,7 +96,7 @@ To fetch all TLS CA Certificates with a specific name, `GET` the `tlscacertifica
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme"
 ```
 
@@ -125,7 +125,7 @@ To delete a TLS CA Certificate, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
@@ -146,7 +146,7 @@ Update the TLS CA Certificate:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667

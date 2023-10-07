@@ -775,7 +775,7 @@ To specify an image in a Tabbed Codeblock you need to remove the `codelang` valu
 {{< /tab >}}
 {{< tab name="Bash" codelang="bash" >}}
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets

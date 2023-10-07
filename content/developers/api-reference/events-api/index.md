@@ -42,14 +42,14 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 ```
 
 {{< note >}}
-**Note:** `RecordEvidence` is the primary, default behaviour for creating Events.
+**Note:** `RecordEvidence` is the primary, default behavior for creating Events.
 {{< /note >}}
 
 Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
@@ -86,15 +86,17 @@ The response is:
   "transaction_id": "0x07569"
 }
 ```
+
 ### Adding Attachments
 
-The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api). 
+The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api).
 
 This attachment uuid is generically referred to as:
 
 ```bash
 blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
 Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
 
 Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.
@@ -144,11 +146,12 @@ The following example shows you usage with both the `event_attributes` and the `
   },
 }
 ```
+
 Add the request to the Asset Record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events
@@ -211,5 +214,7 @@ You should see the response:
   "transaction_id": "0x07569"
 }
 ```
+
 ## Events OpenAPI Docs
+
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}

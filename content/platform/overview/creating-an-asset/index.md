@@ -37,7 +37,6 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 {{< /note >}}
 
 1. Create your Asset
-
 {{< tabs name="add_asset" >}}
 {{{< tab name="UI" >}}
 Using the sidebar, select `Register Asset`.
@@ -70,8 +69,7 @@ Create an empty file, in later steps we will add the correct JSON.
 
 1. Add details to your new Asset and select a `Proof Mechanism`
 
-[`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`](/platform/overview/advanced-concepts/#khipu) commits the details of your Asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST. Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Asset.
-
+    [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`](/platform/overview/advanced-concepts/#khipu) commits the details of your Asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST. Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Asset.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:
@@ -116,9 +114,8 @@ In the file you created earlier, begin adding metadata for your Asset:
 
 1. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
 
-* `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
-* `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container`, which will then be pre-populated for future Assets to use as their own types.
-
+   * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
+   * `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container`, which will then be pre-populated for future Assets to use as their own types.
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
 {{< img src="AssetCreateUpdate.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
@@ -164,14 +161,13 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
 
 1. At this point, you may wish to use the `Advanced Options` tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.
 
-Extended attributes are user-defined and can be added to each unique Asset.
+    Extended attributes are user-defined and can be added to each unique Asset.
 
-Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.
+    Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.
 
-To add a new attribute to an Asset, enter your key-value pair.
+    To add a new attribute to an Asset, enter your key-value pair.
 
-For Example:
-
+    For Example:
 {{< tabs name="add_extended_attributes" >}}
 {{{< tab name="UI" >}}
 Select `Add Attribute`, and add your key-value pairs.
@@ -239,8 +235,7 @@ This example also adds a location to our Asset. To find out more about locations
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-1. Complete your Asset creation.
-
+1. Complete your Asset creation
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
 Click `Register Asset`.
@@ -263,7 +258,7 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets
@@ -272,8 +267,7 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-1. View your Assets.
-
+1. View your Assets
 {{< tabs name="view_all_assets" >}}
 {{{< tab name="UI" >}}
 Navigate to 'Assets' to see your Asset in the UI.
@@ -297,15 +291,14 @@ You can view all Asset data using the following command.
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets
 ```
 
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-1. View details of the Asset you created.
-
+1. View details of the Asset you created
 {{< tabs name="view_specific_asset" >}}
 {{{< tab name="UI" >}}
 To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
@@ -331,19 +324,16 @@ Details of a specific asset can be retrieved using identifying attributes (`attr
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Container
 ```
 
 {{< /tab >}}}
 {{< /tabs >}}
-
 Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.
-
 {{< note >}}
 **Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes`.
 
 For more information on creating Events, [click here.](/platform/overview/creating-an-event-against-an-asset/)
 {{< /note >}}
-
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.

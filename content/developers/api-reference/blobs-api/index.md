@@ -17,7 +17,7 @@ aliases:
 
 ## Blob API Examples
 
-The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger. 
+The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.
 
 {{< note >}}
 **Note:** Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to [the Events API Reference](../events-api/#adding-attachments).
@@ -31,7 +31,7 @@ Upload the blob stored at /path/to/file:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
     https://app.rkvst.io/archivist/v1/blobs
@@ -63,7 +63,7 @@ Retrieve a specific Blob:
 
 ```bash
 curl -v \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "content_type=image/jpg" \
     --output "/path/to/file" \
     https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22

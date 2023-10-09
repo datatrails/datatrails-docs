@@ -1,4 +1,4 @@
-var suggestions=document.getElementById("suggestions"),userinput=document.getElementById("userinput");document.addEventListener("keydown",inputFocus);function inputFocus(e){e.keyCode===191&&(e.preventDefault(),userinput.focus()),e.keyCode===27&&(userinput.blur(),suggestions.classList.add("d-none"))}document.addEventListener("click",function(e){var t=suggestions.contains(e.target);t||suggestions.classList.add("d-none")}),document.addEventListener("keydown",suggestionFocus);function suggestionFocus(e){const s=suggestions.querySelectorAll("a"),o=[...s],t=o.indexOf(document.activeElement);let n=0;e.keyCode===38?(e.preventDefault(),n=t>0?t-1:0,s[n].focus()):e.keyCode===40&&(e.preventDefault(),n=t+1<o.length?t+1:t,s[n].focus())}(function(){var e=new FlexSearch.Document({tokenize:"forward",cache:100,document:{id:"id",store:["href","title","description"],index:["title","description","content"]}}),o=[{id:0,href:"https://docs.rkvst.com/platform/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`<p>RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
+var suggestions=document.getElementById("suggestions"),userinput=document.getElementById("userinput");document.addEventListener("keydown",inputFocus);function inputFocus(e){e.keyCode===191&&(e.preventDefault(),userinput.focus()),e.keyCode===27&&(userinput.blur(),suggestions.classList.add("d-none"))}document.addEventListener("click",function(e){var t=suggestions.contains(e.target);t||suggestions.classList.add("d-none")}),document.addEventListener("keydown",suggestionFocus);function suggestionFocus(e){const s=suggestions.querySelectorAll("a"),o=[...s],t=o.indexOf(document.activeElement);let n=0;e.keyCode===38?(e.preventDefault(),n=t>0?t-1:0,s[n].focus()):e.keyCode===40&&(e.preventDefault(),n=t+1<o.length?t+1:t,s[n].focus())}(function(){var e=new FlexSearch.Document({tokenize:"forward",cache:100,document:{id:"id",store:["href","title","description"],index:["title","description","content"]}}),o=[{id:0,href:"https://docs.rkvst.com/platform/overview/introduction/",title:"Introduction",description:"Welcome to RKVST",content:`<p>RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
 <p>RKVST enables enterprises to build trust in multi-party Assets, including software, devices, and media ensuring processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
 <p>RKVST permanently records shared Asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:</p>
 <p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.</p>
@@ -243,9 +243,11 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$TOKEN</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Create a Bearer Token file with <code>0600</code> permissions for reference by <code>curl</code> commands</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; rkvst-bearer.txt
-</span></span><span class="line"><span class="cl">cat rkvst-bearer.txt
+<p>Create a Bearer Token file for reference by <code>curl</code> commands, in an <code>./rkvst/</code> directory</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.rkvst
+</span></span><span class="line"><span class="cl">chmod <span class="m">0700</span> <span class="nv">$HOME</span>/.rkvst
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; <span class="nv">$HOME</span>/.rkvst/bearer-token.txt
+</span></span><span class="line"><span class="cl">cat <span class="nv">$HOME</span>/.rkvst/bearer-token.txt
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="testing-token-creation">Testing Token Creation</h2>
@@ -256,8 +258,8 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
   </blockquote></p>
 <p>Otherwise, check the <a href="../../api-reference/assets-api/#assets-openapi-reference">Assets OpenAPI Reference</a> for more detailed information on the response codes you may expect if authentication fails and what they mean.</p>
 <h3 id="view-existing-assets">View Existing Assets</h3>
-<p>To test the creation of the Custom integration and the configuration of the bearer token file (<code>rkvst-bearer.txt</code>), query the assets API</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+<p>To test the creation of the Custom integration and the configuration of the bearer token file (<code>bearer-token.txt</code>), query the assets API</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
 </span></span></code></pre></div><p>If you have existing assets, the output will be similar to:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -346,7 +348,7 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 <p>Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the management of those Assets without compromising security and private information. To ensure stakeholders can access only the Assets and attributes relevant to them, transactions are private by default. An Administrator may share as much or as little access to Assets as the needs of the value chain partners dictate through Access Policies.</p>
 <p>An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.</p>
 <h2 id="the-golden-thread">The Golden Thread</h2>
-<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence that underpins supply chain integrity, transparencey and trust for all relevant stakeholders.</p>
+<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence that underpins supply chain integrity, transparency and trust for all relevant stakeholders.</p>
 
 
 <figure class="border-0">
@@ -650,21 +652,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <h4 id="types-of-compliance-policy">Types of Compliance Policy</h4>
 <p>As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:</p>
 <ul>
-<li>
-<p><em>COMPLIANCE RICHNESS</em>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</p>
-</li>
-<li>
-<p><em>COMPLIANCE SINCE</em>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br><br>For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</p>
-</li>
-<li>
-<p><em>COMPLIANCE CURRENT OUTSTANDING</em>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br><br>For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</p>
-</li>
-<li>
-<p><em>COMPLIANCE_PERIOD_OUTSTANDING</em>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</p>
-</li>
-<li>
-<p><em>COMPLIANCE_DYNAMIC_TOLERANCE</em>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</p>
-</li>
+<li><strong>COMPLIANCE RICHNESS</strong>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br>
+For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</li>
+<li><strong>COMPLIANCE SINCE</strong>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br>
+For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</li>
+<li><strong>COMPLIANCE CURRENT OUTSTANDING</strong>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br>
+For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</li>
+<li><strong>COMPLIANCE_PERIOD_OUTSTANDING</strong>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br>
+For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</li>
+<li><strong>COMPLIANCE_DYNAMIC_TOLERANCE</strong>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br>
+For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</li>
 </ul>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</div>
@@ -674,7 +671,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <p>To do this, simply add <code>at_time=TIMESTAMP</code> to your query. For example, to check the state an Asset was in at 15:30 UTC on 23rd June:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer </span><span class="k">$(</span>cat .auth_token<span class="k">)</span><span class="s2">&#34;</span> -H <span class="s2">&#34;Content-Type: application/json&#34;</span> https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time<span class="o">=</span>2021-06-23T15:30:00Z <span class="p">|</span> jq 
 </span></span></code></pre></div><p>Compliance calls can be similarly modified to answer questions like &ldquo;had I asked this question at the time, what would the answer have been?&rdquo; or &ldquo;had the AI asked this question, would it have made a better decision?&rdquo;. This can be done by adding a <code>compliant_at</code> timestamp to the compliance request.</p>
-<h2 id="thats-it">That&rsquo;s it!</h2>
+<h2 id="thats-it">That&rsquo;s it</h2>
 <p>These are all the basics of RKVST. With this knowledge you can now <a href="/developers/api-reference/">jump straight into the API</a> or try other topic on the <a href="/platform/">RKVST Platform</a>.</p>
 `},{id:4,href:"https://docs.rkvst.com/developers/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using RKVST to Represent Containers",content:`<h2 id="represent-containers-using-rkvst">Represent Containers Using RKVST</h2>
 <p>RKVST Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.</p>
@@ -742,7 +739,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
@@ -854,7 +851,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset-box.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
@@ -923,7 +920,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span></span></code></pre></div></div>
   <div id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></div></div>
 
@@ -941,9 +938,9 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
   </blockquote>
 <ol>
-<li>Create your Asset</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
+<li>
+<p>Create your Asset
+<ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset-0" type="button" role="tab" aria-controls="add_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -985,11 +982,11 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>Add details to your new Asset and select a <code>Proof Mechanism</code></li>
-</ol>
-<p><a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. <a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our <a href="https://www.rkvst.com/pricing/">Team and Enterprise tiers</a> of RKVST. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.</p>
-<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Add details to your new Asset and select a <code>Proof Mechanism</code></p>
+<p><a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. <a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our <a href="https://www.rkvst.com/pricing/">Team and Enterprise tiers</a> of RKVST. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.
+<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1046,14 +1043,13 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>At minimum, you will need to add an Asset Name and Asset Type to create an Asset:</li>
-</ol>
+</li>
+<li>
+<p>At minimum, you will need to add an Asset Name and Asset Type to create an Asset:</p>
 <ul>
 <li><code>Asset Name</code> - This is the unique name of the Asset i.e. &lsquo;My First Container&rsquo;.</li>
-<li><code>Asset Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be <code>Shipping Container</code>, which will then be pre-populated for future Assets to use as their own types.</li>
-</ul>
-<p><ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
+<li><code>Asset Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be <code>Shipping Container</code>, which will then be pre-populated for future Assets to use as their own types.
+<ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details_min-0" type="button" role="tab" aria-controls="add_asset_details_min-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1108,15 +1104,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol>
-<li>At this point, you may wish to use the <code>Advanced Options</code> tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.</li>
-</ol>
+<br></li>
+</ul>
+</li>
+<li>
+<p>At this point, you may wish to use the <code>Advanced Options</code> tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.</p>
 <p>Extended attributes are user-defined and can be added to each unique Asset.</p>
 <p>Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.</p>
 <p>To add a new attribute to an Asset, enter your key-value pair.</p>
-<p>For Example:</p>
-<p><ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
+<p>For Example:
+<ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_extended_attributes-0" type="button" role="tab" aria-controls="add_extended_attributes-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1193,10 +1190,10 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>Complete your Asset creation.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Complete your Asset creation
+<ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_create_asset-0" type="button" role="tab" aria-controls="finish_create_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1234,16 +1231,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>View your Assets.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View your Assets
+<ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_all_assets-0" type="button" role="tab" aria-controls="view_all_assets-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1282,13 +1279,13 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2">
 <p>You can view all Asset data using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>View details of the Asset you created.</li>
-</ol>
+</li>
+<li>
+<p>View details of the Asset you created
 <ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_specific_asset-0" type="button" role="tab" aria-controls="view_specific_asset-0" aria-selected="true">UI</button>
 		</li>
@@ -1330,17 +1327,19 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2">
 <p>Details of a specific asset can be retrieved using identifying attributes (<code>attrs</code>), such as name, type, or presence of a certain field.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name<span class="o">=</span>My%20First%20Container
 </span></span></code></pre></div></div></div>
 
-<p>Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.</p>
+Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To update the details of your Asset after it has been created, you must create an Event containing <code>Asset Attributes</code>.</p>
 <p>For more information on creating Events, <a href="/platform/overview/creating-an-event-against-an-asset/">click here.</a></p>
 </div>
   </blockquote>
-<p>The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
+The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
+</li>
+</ol>
 `},{id:6,href:"https://docs.rkvst.com/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an RKVST Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
 <p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
 <p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
@@ -1367,9 +1366,9 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
-<li>Create an Event.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+<li>
+<p>Create an Event
+<ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1415,10 +1414,10 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="2">
-<li>Add Event type and description.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event_type" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Add Event type and description
+<ul class="nav nav-tabs" id="add_event_type" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_type-0" type="button" role="tab" aria-controls="add_event_type-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1446,7 +1445,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
 </div>
   <div id="add_event_type-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-1">
-<p>Fill out metadata about your Event.</p>
+<p>Fill out metadata about your Event</p>
 <p><code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
 <p>In the attributes section you should also add the required RKVST attributes <code>arc_description</code> and <code>arc_display_type</code> to represent <code>Event Description</code> and <code>Event Type</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -1475,13 +1474,11 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span></code></pre></div><p>This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired <code>assets/&lt;asset-id&gt;</code> string.</p>
 </div></div>
 <br></p>
-<ol start="3">
-<li>You may enter both Event and Asset attributes.</li>
-</ol>
-<ul>
-<li><code>Event Attributes</code> - Attributes specific to an Event, i.e. which device recorded the Event</li>
-<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container</li>
-</ul>
+</li>
+<li>
+<p>You may enter both Event and Asset attributes</p>
+<p><code>Event Attributes</code> - Attributes specific to an Event, i.e. which device recorded the Event<br>
+<code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
 <ul class="nav nav-tabs" id="add_event_attr" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_attr-0" type="button" role="tab" aria-controls="add_event_attr-0" aria-selected="true">UI</button>
 		</li>
@@ -1524,7 +1521,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
 </div>
   <div id="add_event_attr-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-1">
-<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code>.</p>
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -1548,7 +1545,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2">
 <p>You may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the <a href="/developers/api-reference/blobs-api/">Blobs API</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=document/pdf&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -F <span class="s2">&#34;file=@/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs
@@ -1575,14 +1572,14 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<p>Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined <code>Weight</code> attribute.</p>
-<p>Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.</p>
-<p>There is an option to append <code>timestamp_declared</code> and <code>principal_declared</code> attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.</p>
-<p>PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each <code>Inspection</code> Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.</p>
-<ol start="4">
-<li>Record your Event.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
+Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined <code>Weight</code> attribute.<br><br>
+Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.<br><br>
+There is an option to append <code>timestamp_declared</code> and <code>principal_declared</code> attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
+PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each <code>Inspection</code> Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.</p>
+</li>
+<li>
+<p>Record your Event
+<ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1621,15 +1618,15 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="5">
-<li>View your Event details.</li>
-</ol>
+</li>
+<li>
+<p>View your Event details
 <ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
 		</li>
@@ -1673,7 +1670,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </div>
 </div>
   <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
-<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event</p>
 <p>To view all Events, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -1695,35 +1692,21 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container </span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
-<p>Event data can be viewed using curl commands.</p>
+<p>Event data can be viewed using curl commands</p>
 <p>To view all Events across all Assets, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
 </span></span></code></pre></div><p>To view the details of the Event you just created for My First Container, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
 
-<h1 id="please-see-the-administationplatformadministration-section-for-information-on-how-to-manage-your-assets">&laquo;&laquo;&laquo;&lt; HEAD
-Please see the <a href="/platform/administration/">Administation</a> section for information on how to manage your assets.</h1>
+Please see the <a href="/platform/administration/">Administration</a> section for information on how to manage your assets</p>
+</li>
+</ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>main</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 `},{id:8,href:"https://docs.rkvst.com/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
 <p>To verify your data, you may use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
@@ -1777,12 +1760,12 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <p>The <a href="/developers/api-reference/blockchain-api/">Blockchain API</a> allows you to fetch transactions for an Event. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <p>Using the Event ID as a parameter, run the following command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div><p>This will return a list of matching blockchain transactions, as well as the <code>simple_hash_details</code>. Copy the <code>start_time</code> and <code>end_time</code> values to be used as inputs to the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>.</p>
 </div></div>
 
-<ol start="2">
+<ol>
 <li>Use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a> to generate the hash of your Events.</li>
 </ol>
 <ul class="nav nav-tabs" id="simple-hash-script" role="tablist"><li class="nav-item">
@@ -1855,7 +1838,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   </blockquote>
 </div></div>
 
-<ol start="3">
+<ol>
 <li>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</li>
 </ol>
 `},{id:9,href:"https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
@@ -1871,9 +1854,9 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </div>
   </blockquote>
 <ol>
-<li>Register your Document.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
+<li>
+<p>Register your Document
+<ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset-0" type="button" role="tab" aria-controls="add_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1915,22 +1898,21 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="2">
-<li>You will see the Document Registration form.</li>
-</ol>
-<p>The <code>Document Informtion</code> tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.</p>
-<p>The Trust data:</p>
+</li>
+<li>
+<p>You will see the Document Registration form<br>
+The <code>Document Information</code> tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.<br>
+The Trust data:</p>
 <ul>
-<li><code>Name</code> - This is the unique name of the Document i.e. &lsquo;My First Document&rsquo;.</li>
-<li><code>Version</code> - The version of your document.</li>
-<li><code>SHA-256 Hash</code> - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you.<br></li>
+<li><code>Name</code> - This is the unique name of the Document i.e. &lsquo;My First Document&rsquo;</li>
+<li><code>Version</code> - The version of your document</li>
+<li><code>SHA-256 Hash</code> - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you</li>
 </ul>
 <p>Additional options:</p>
 <ul>
-<li><code>Upload on Creation</code> - Upload the documment in addition to the trust data.</li>
-<li><code>Attest Publicly</code> - Enable to allow public attestation of the document.</li>
-</ul>
-<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+<li><code>Upload on Creation</code> - Upload the document in addition to the trust data</li>
+<li><code>Attest Publicly</code> - Enable to allow public attestation of the document<br><br>
+<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1986,7 +1968,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
 <ul>
 <li><code>behaviours</code> detail what class of events in your Asset&rsquo;s lifecycle you might wish to record; <code>RecordEvidence</code> is the standard and recommended behaviour for all Assets.</li>
-<li><code>public</code> determines whether your docuemnt is public (<em>true</em>) or private (<em>false</em>)</li>
+<li><code>public</code> determines whether your document is public (<em>true</em>) or private (<em>false</em>)</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -2000,15 +1982,18 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol start="3">
-<li>The <code>Advanced Options</code> tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.</li>
-</ol>
+
+<br></li>
+</ul>
+</li>
+<li>
+<p>The <code>Advanced Options</code> tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.</p>
 <ul>
 <li><code>Document Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be <code>Purchase Order</code>, which will then be pre-populated for future Documents to use as their own types.</li>
-<li><code>Proof Mechanism</code> - The method used to commit the blockchain transaction. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Document.</li>
+<li><code>Proof Mechanism</code> - The method used to commit the blockchain transaction.</li>
 </ul>
-<p><ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
+<p>Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Document
+<ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details_min-0" type="button" role="tab" aria-controls="add_asset_details_min-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2073,15 +2058,15 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol start="4">
-<li>At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images</p>
 <p>Extended attributes are user-defined and can be added to each unique Document.</p>
 <p>Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.</p>
 <p>To add a new attribute to a Document, enter your key-value pair.</p>
-<p>For Example:</p>
-<p><ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
+<p>For Example:
+<ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_extended_attributes-0" type="button" role="tab" aria-controls="add_extended_attributes-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2092,7 +2077,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-2" type="button" role="tab" aria-controls="add_extended_attributes-2" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="add_extended_attributes"><div id="add_extended_attributes-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_extended_attributes-0">
-<p>Select <code>Add Attribute</code>, and add your key-value pairs.</p>
+<p>Select <code>Add Attribute</code>, and add your key-value pairs</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#RegDocAdvancedOptions2" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2.png" width="914" height="749" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2.png" width="914" height="749" alt="Rectangle"></noscript>
@@ -2111,7 +2096,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>document_version</code>, <code>format</code>, and <code>some_custom_attribute</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
-<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells RKVST to finish commiting the Asset before moving to the next step.</p>
+<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells RKVST to finish committing the Asset before moving to the next step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -2161,10 +2146,10 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="5">
-<li>Complete your Asset creation.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Complete your Asset creation
+<ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_create_asset-0" type="button" role="tab" aria-controls="finish_create_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2202,16 +2187,16 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="6">
-<li>View your Document.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View your Document
+<ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_all_assets-0" type="button" role="tab" aria-controls="view_all_assets-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2250,14 +2235,14 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2">
 <p>You can view all Asset data using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="7">
-<li>View details of the Asset you created.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View details of the Asset you created
+<ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_specific_asset-0" type="button" role="tab" aria-controls="view_specific_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2272,7 +2257,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#DocAsset" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/DocAsset.png" width="1105" height="710" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/DocAsset.png" width="1105" height="710" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Viewing Docuemnt Asset</em></figcaption>
+  <figcaption class="figure-caption"><em>Viewing Document Asset</em></figcaption>
 </figure>
 <div class="modal fade" id="DocAsset" tabindex="-1" aria-labelledby="DocAsset" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -2287,7 +2272,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#DocAssetDetails" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/DocAssetDetails.png" width="1120" height="594" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/DocAssetDetails.png" width="1120" height="594" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Viewing Docuemnt Asset Details</em></figcaption>
+  <figcaption class="figure-caption"><em>Viewing Document Asset Details</em></figcaption>
 </figure>
 <div class="modal fade" id="DocAssetDetails" tabindex="-1" aria-labelledby="DocAssetDetails" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -2315,10 +2300,12 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2">
 <p>Details of a specific asset can be retrieved using identifying attributes (<code>attrs</code>), such as name, type, or presence of a certain field.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name<span class="o">=</span>My%20First%20Document
 </span></span></code></pre></div></div></div>
 <br></p>
+</li>
+</ol>
 <p>Here we see all details entered: The extended attributes and a history of Events recorded on the Document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To update the details of your Asset after it has been created, you must create an Event containing <code>Asset Attributes</code> that conform to the <a href="/developers/developer-patterns/document-profile/">Document Profile</a>.</p>
@@ -2472,7 +2459,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <tr>
 <td>document_withdrawal_reason</td>
 <td>Reason why document has been withdrawn</td>
-<td>Optional, but encouraged.</td>
+<td>Optional, but encouraged</td>
 </tr>
 </tbody>
 </table>
@@ -2495,7 +2482,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 `},{id:11,href:"https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
 <p>If you need to update your registered Document Profile Asset you can record this as an Event. The <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
 <p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
-<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classifiation.</p>
+<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classification.</p>
 <p>When the document version is no longer to be used there is a Withdraw Event.</p>
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
@@ -2503,9 +2490,9 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
-<li>Open the Asset Overview for a Document Profile Asset.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+<li>
+<p>Open the Asset Overview for a Document Profile Asset
+<ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2560,9 +2547,11 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </ul>
 </div>
   </blockquote>
-<br>
-2. Adding a New Version.</p>
-<p><ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
+<br></p>
+</li>
+<li>
+<p>Adding a New Version
+<ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_new_version-0" type="button" role="tab" aria-controls="add_new_version-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -2666,8 +2655,9 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </div></div>
 
 <br></p>
-<ol start="3">
-<li>The Withdraw Event.
+</li>
+<li>
+<p>The Withdraw Event
 <ul class="nav nav-tabs" id="withdraw_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#withdraw_event-0" type="button" role="tab" aria-controls="withdraw_event-0" aria-selected="true">UI</button>
 		</li>
@@ -2696,7 +2686,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </div>
 </div>
   <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
-<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -2713,7 +2703,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
-<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
@@ -2727,10 +2717,11 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<br></li>
-<li>Recording a Generic Event.</li>
-</ol>
-<p>The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
+<br></p>
+</li>
+<li>
+<p>Recording a Generic Event<br>
+The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
 <p>See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a> for more information on this event type.
 <ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
@@ -2783,8 +2774,10 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<br>
-5. Registering the Event
+<br></p>
+</li>
+<li>
+<p>Registering the Event
 <ul class="nav nav-tabs" id="register_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#register_event-0" type="button" role="tab" aria-controls="register_event-0" aria-selected="true">UI</button>
 		</li>
@@ -2823,14 +2816,16 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   <div id="register_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
 
-<br>
-6. Viewing Event details.</p>
+<br></p>
+</li>
+<li>
+<p>Viewing Event details
 <ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
 		</li>
@@ -2858,7 +2853,7 @@ The Document tab shows information about the document version that you are viewi
 </code></pre>
   </div>
 </div>
-<p>The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
+<p>The More Details tab provides information about the Event itself and includes a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#MoreEventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" alt="Rectangle"></noscript>
@@ -2875,7 +2870,7 @@ The Document tab shows information about the document version that you are viewi
 </div>
 </div>
   <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
-<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event</p>
 <p>To view all Events, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -2895,17 +2890,19 @@ The Document tab shows information about the document version that you are viewi
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
-<p>Event data can be viewed using curl commands.</p>
+<p>Event data can be viewed using curl commands</p>
 <p>To view all Events across all Assets, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
 </span></span></code></pre></div><p>To view the details of the Event you just created for My First Document, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 `},{id:12,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
 <p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
 <p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
@@ -2916,7 +2913,7 @@ The Document tab shows information about the document version that you are viewi
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Asset Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -2974,10 +2971,11 @@ The Document tab shows information about the document version that you are viewi
 </tbody>
 </table>
 <blockquote class="note callout">
-    <div><strong></strong> <h5 id="software-package-profile-attribute-namespace">Software Package Profile Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</div>
+    <div><strong></strong> <p><strong>Note:</strong> Software Package Profile Attribute Namespace</p>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</p>
+</div>
   </blockquote>
-<h5 id="public-sbom">Public SBOM</h5>
+<h3 id="public-sbom">Public SBOM</h3>
 <p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
 <ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
@@ -3048,12 +3046,12 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>The Release attributes tracked in RKVST should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines.</div>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines</div>
   </blockquote>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3131,7 +3129,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Asset Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3177,7 +3175,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <tr>
 <td>N/A</td>
 <td>sbom_release_notes</td>
-<td>Link to the release notes of the packaversion</td>
+<td>Link to the release notes of the package version</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -3206,7 +3204,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3295,7 +3293,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3386,7 +3384,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3601,7 +3599,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -3651,9 +3649,8 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
 <h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
 <ol>
-<li><strong>Open Instaproof</strong>.</li>
-</ol>
-<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
+<li>
+<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area
 
 
 <figure class="border-0">
@@ -3677,10 +3674,10 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   
   </div>
 </div></p>
-<ol start="2">
-<li><strong>Document not found</strong>.</li>
-</ol>
-<p>If the document that you are verifying has not been found, you will see a red response banner.
+</li>
+<li>
+<p><strong>Document not found</strong><br>
+If the document that you are verifying has not been found, you will see a red response banner.
 
 
 <figure class="border-0">
@@ -3703,21 +3700,21 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
       </div>
   
   </div>
-</div></p>
-<p>The possible reasons for this outcome are:</p>
+</div>
+The possible reasons for this outcome are:</p>
 <ul>
-<li>The document owner has not registered the document in their RKVST tenancy.</li>
-<li>The document owner has not published this version of the document as an event.</li>
-<li>The document has been modified since it was registered with RKVST!</li>
+<li>The document owner has not registered the document in their RKVST tenancy</li>
+<li>The document owner has not published this version of the document as an event</li>
+<li>The document has been modified since it was registered with RKVST</li>
 </ul>
 <p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
-<ol start="3">
-<li><strong>Document Found</strong>.</li>
-</ol>
+</li>
+<li>
+<p><strong>Document Found</strong>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
   </blockquote>
-<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
+If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.
 
 
 <figure class="border-0">
@@ -3741,16 +3738,16 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   
   </div>
 </div>
-<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
+At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
 <p>You can check additional documents by dragging them on top of here.</p>
 <p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
 <p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
 <p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
 <p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
-<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
-<ol>
-<li><strong>Provenance Record</strong></li>
+</li>
 </ol>
+<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
+<h4 id="provenance-record">Provenance Record</h4>
 <p>Click on a result to see details of the provenance record.</p>
 
 
@@ -3828,7 +3825,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   </div>
 </div>
 <p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
-<p><strong>Description</strong> - An optional decription of the event.</p>
+<p><strong>Description</strong> - An optional description of the event.</p>
 <p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
 <p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
 <p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
@@ -3894,8 +3891,8 @@ The share button allows you to access and copy the private and public (if enable
     <div><strong></strong> <strong>Warning</strong>: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.</div>
   </blockquote>
 <ol>
-<li>Create an Asset with your desired attributes and set it to public. See <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> for detailed instructions.</li>
-</ol>
+<li>
+<p>Create an Asset with your desired attributes and set it to public. See <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> for detailed instructions
 <ul class="nav nav-tabs" id="create_asset_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_asset_public-0" type="button" role="tab" aria-controls="create_asset_public-0" aria-selected="true">UI</button>
 		</li>
@@ -3947,10 +3944,10 @@ The share button allows you to access and copy the private and public (if enable
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Publish your Public Asset.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Publish your Public Asset
 <blockquote class="warning callout">
     <div><strong></strong> <strong>WARNING:</strong> Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.</div>
   </blockquote>
@@ -3981,15 +3978,15 @@ The share button allows you to access and copy the private and public (if enable
   <div id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1">
 <p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Retrieve public link to share your Public Asset with others.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Retrieve public link to share your Public Asset with others
 <blockquote class="note callout">
     <div><strong></strong> <strong>NOTE:</strong> A Public Asset may only be updated by the Tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.</div>
   </blockquote>
@@ -4018,14 +4015,15 @@ The share button allows you to access and copy the private and public (if enable
 </div>
 </div>
   <div id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1">
-<p>A Public Asset&rsquo;s URL can be retrived via the <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
+<p>A Public Asset&rsquo;s URL can be retrieved via the <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
-
-<ol start="4">
-<li>The following screenshot shows the public view of the Asset when the public link is followed.
+</p>
+</li>
+<li>
+<p>The following screenshot shows the public view of the Asset when the public link is followed.
 
 
 <figure class="border-0">
@@ -4048,15 +4046,16 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div></li>
+</div></p>
+</li>
 </ol>
 <h3 id="adding-an-event-to-a-public-asset">Adding an Event to a Public Asset</h3>
 <blockquote class="note callout">
     <div><strong></strong> <strong>NOTE:</strong> Any Events added to a Public Asset will also be public. Events may only be added by the tenancy that originally created the Public Asset.</div>
   </blockquote>
 <ol>
-<li>Create an Event with your desired attributes. See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event</a> for detailed instructions.</li>
-</ol>
+<li>
+<p>Create an Event with your desired attributes. See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event</a> for detailed instructions
 <ul class="nav nav-tabs" id="create_event_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_event_public-0" type="button" role="tab" aria-controls="create_event_public-0" aria-selected="true">UI</button>
 		</li>
@@ -4082,7 +4081,7 @@ The share button allows you to access and copy the private and public (if enable
 </div>
 </div>
   <div id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1">
-<p>Create a JSON file with your desired Event details.</p>
+<p>Create a JSON file with your desired Event details</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
@@ -4092,17 +4091,17 @@ The share button allows you to access and copy the private and public (if enable
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Public Update&#34;</span><span class="p">:</span> <span class="s2">&#34;New Information&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
+</span></span></code></pre></div><p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Your Event will be readable when the Public Asset link is followed.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Your Event will be readable when the Public Asset link is followed
 
 
 <figure class="border-0">
@@ -4125,7 +4124,7 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div>
+</div><br>
 
 
 <figure class="border-0">
@@ -4148,10 +4147,10 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>You may also retrieve a public URL to the Event itself, using the <a href="/developers/api-reference/assets-api/">Assets API</a>.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>You may also retrieve a public URL to the Event itself, using the <a href="/developers/api-reference/assets-api/">Assets API</a>
 <ul class="nav nav-tabs" id="get_link_event_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_event_public-0" type="button" role="tab" aria-controls="get_link_event_public-0" aria-selected="true">JSON</button>
 		</li>
@@ -4159,10 +4158,12 @@ The share button allows you to access and copy the private and public (if enable
 <div class="tab-content" id="get_link_event_public"><div id="get_link_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_event_public-0">
 <p>Use the following curl command, which will return the public URL for the Event.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 `},{id:15,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
 <p>Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
@@ -4194,26 +4195,26 @@ The share button allows you to access and copy the private and public (if enable
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v2/<span class="si">\${</span><span class="nv">EVENT_IDENTITY</span><span class="si">}</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .transaction_id<span class="k">)</span>
 </span></span></code></pre></div><blockquote class="warning callout">
-    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechansim</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
+    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
   </blockquote>
-<ol start="2">
-<li>Get a claim for the Event identity.</li>
-</ol>
+<ol>
+<li>
+<p>Get a claim for the Event identity</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CLAIM</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s2">&#34;{\\&#34;transaction_id\\&#34;:\\&#34;</span><span class="si">\${</span><span class="nv">EVENT_TRANSACTION_ID</span><span class="si">}</span><span class="s2">\\&#34;}&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        -X POST -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v1/notary/claims/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .claim<span class="k">)</span>
-</span></span></code></pre></div><ol start="3">
-<li>Next, get the corresponding receipt for the claim.</li>
-</ol>
+</span></span></code></pre></div></li>
+<li>
+<p>Next, get the corresponding receipt for the claim</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RECEIPT</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s2">&#34;{\\&#34;claim\\&#34;:\\&#34;</span><span class="si">\${</span><span class="nv">CLAIM</span><span class="si">}</span><span class="s2">\\&#34;}&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        -X POST -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v1/notary/receipts <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .receipt<span class="k">)</span>
-</span></span></code></pre></div><ol start="4">
-<li>Get the block details.</li>
-</ol>
-<p>Get the block number using:</p>
+</span></span></code></pre></div></li>
+<li>
+<p>Get the block details
+Get the block number using:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> base64 -d <span class="p">|</span> less
 </span></span></code></pre></div><p>Look for the first <code>&quot;block&quot;:&quot;&lt;HEX-BLOCK-NUMBER&gt;&quot;</code> in the decoded output and set the value in the environment, for example: <code>BLOCK=&quot;0x1234&quot;</code>.</p>
 <p>Next, get the appropriate state root field from the block details. To verify a Simple Hash receipt get the
@@ -4225,12 +4226,16 @@ The share button allows you to access and copy the private and public (if enable
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .privateStateRoot<span class="k">)</span>
-</span></span></code></pre></div><ol start="4">
-<li>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</li>
-</ol>
+</span></span></code></pre></div></li>
+<li>
+<p>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> rkvst_receipt_scittv1 verify -d --worldroot <span class="si">\${</span><span class="nv">WORLDROOT</span><span class="si">}</span>
-</span></span></code></pre></div>`},{id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
-<p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an individual user can be part of multiple Tenancies.</p>
+</span></span></code></pre></div></li>
+</ol>
+`},{id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+<p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user.
+There may be multiple accounts within a Tenancy if there are several members within an organization.
+Additionally, an individual user can be part of multiple Tenancies.</p>
 <h3 id="how-do-i-add-users-to-my-organization">How do I add users to my organization?</h3>
 <p>RKVST Invites make it easy to add accounts to your tenancy.</p>
 <p>As an <a href="/platform/overview/core-concepts/#tenancies">administrator</a>, create an invite and send it to the email address of the user you wish to add.</p>
@@ -4297,7 +4302,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   <div id="invite_user_iam-2" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-2">
 <p>Fill in your desired details and run the command to send the invite.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;Join my RKVST tenancy!&#34;, &#34;email&#34;: &#34;user@rkvst.com&#34;}&#39;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
@@ -4306,11 +4311,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 
 <h3 id="can-i-name-my-tenancy">Can I name my tenancy?</h3>
 <h4 id="tenant-display-name">Tenant Display Name</h4>
-<p>There are two ways to name your RKVST Tenancy. The first way is to add a <code>Tenant Display Name</code>. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tencancy you&rsquo;re currently working in and to switch between Tenancies if you are part of multiple Tenancies.</p>
+<p>There are two ways to name your RKVST Tenancy. The first way is to add a <code>Tenant Display Name</code>. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tenancy you&rsquo;re currently working in and to switch between Tenancies if you are part of multiple Tenancies.</p>
 <p>To set your <code>Tenant Display Name</code>:</p>
 <ol>
-<li>
-<p>On the Sidebar, select <code>Settings</code>.
+<li>On the Sidebar, select <code>Settings</code>
 
 
 <figure class="border-0">
@@ -4333,10 +4337,8 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Add your desired name, then click <code>CHANGE DISPLAY NAME</code>.
+</div></li>
+<li>Add your desired name, then click <code>CHANGE DISPLAY NAME</code>
 
 
 <figure class="border-0">
@@ -4359,52 +4361,50 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div></p>
-</li>
+</div></li>
 </ol>
 <h4 id="verified-domain">Verified Domain</h4>
 <p>The second way to set your tenancy name is to <a href="/platform/administration/verified-domain/">get your domain verified</a> by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.</p>
 <h2 id="enterprise-single-sign-on">Enterprise Single Sign-On</h2>
 <p><a href="https://www.rkvst.com/pricing/">Enterprise customers</a> may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a <a href="/platform/administration/verified-domain/">Verified Domain</a>.</p>
 <ol>
-<li>Navigate to <code>Settings</code> on the sidebar and select <code>Tenancy</code>.</li>
-</ol>
-<p>Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code>. Saving your configuration may take a moment.</p>
+<li>
+<p>Navigate to <code>Settings</code> on the sidebar and select <code>Tenancy</code>.<br>
+Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code>. Saving your configuration may take a moment.
 
-
-<figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Configure SSO</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <figure class="border-0">
     
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" width="981" height="433" alt="Rectangle">
-      </div>
+    <input type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" alt="Rectangle">
+    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" alt="Rectangle"></noscript>
+    <figcaption class="figure-caption"><em>Configure SSO</em></figcaption>
+  </figure>
   
+  
+  
+  
+  
+  <div class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      
+        <div class="modal-body">
+          
+          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" width="981" height="433" alt="Rectangle">
+        </div>
+    
+    </div>
   </div>
-</div>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>NOTE:</strong> To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.</p>
 <p><strong>Login URI:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://app.rkvst.io/login
-</span></span></code></pre></div><p><strong>Callback URL:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
-</span></span></code></pre></div></div>
-  </blockquote>
-<br/>
-<ol start="2">
-<li>Now that your details are saved, return to the RKVST sign-in screen. Select the <code>Single Sign-On</code> option.</li>
-</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">https://app.rkvst.io/login
+</span></span></span></code></pre></div><p><strong>Callback URL:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">https://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
+</span></span></span></code></pre></div></div>
+  </blockquote></p>
+</li>
+<li>
+<p>Now that your details are saved, return to the RKVST sign-in screen. Select the <code>Single Sign-On</code> option
 
 
 <figure class="border-0">
@@ -4427,10 +4427,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>Enter your <a href="/platform/overview/identity-and-access-management/#verified-domain">Verified Domain Name</a>.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>Enter your <a href="/platform/overview/identity-and-access-management/#verified-domain">Verified Domain Name</a>
 
 
 <figure class="border-0">
@@ -4454,7 +4454,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   
   </div>
 </div>
-<p>You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
+You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
+</li>
+</ol>
 `},{id:17,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.</p>
 <blockquote class="note callout">
@@ -4462,14 +4464,14 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   </blockquote>
 <h2 id="why-is-it-important-to-verify-my-organizations-domain">Why is it important to verify my organization&rsquo;s domain?</h2>
 <p>Getting your organization&rsquo;s domain verified indicates that you are who you say you are. This helps close the trust gap inherent to information sharing between organizations or with the public.</p>
-<p>Without domain verification, the <code>Organisation</code> is noted as the publisher&rsquo;s Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have <code>rkvst.com</code>.</p>
+<p>Without domain verification, the <code>Organization</code> is noted as the publisher&rsquo;s Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have <code>rkvst.com</code>.</p>
 
 
 <figure class="border-0">
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#UnverifiedDomain" img class="img-fluid responsive" src="/platform/administration/verified-domain/UnverifiedDomain.png" width="1623" height="498" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_200x0_resize_box_3.png 200w" src="/platform/administration/verified-domain/UnverifiedDomain.png" width="1623" height="498" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Organisation without Verified Domain</em></figcaption>
+  <figcaption class="figure-caption"><em>Organization without Verified Domain</em></figcaption>
 </figure>
 
 
@@ -4492,7 +4494,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DomainBadge" img class="img-fluid responsive" src="/platform/administration/verified-domain/DomainBadge.png" width="1480" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_200x0_resize_box_3.png 200w" src="/platform/administration/verified-domain/DomainBadge.png" width="1480" height="484" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Organisation with Verified Domain</em></figcaption>
+  <figcaption class="figure-caption"><em>Organization with Verified Domain</em></figcaption>
 </figure>
 
 
@@ -4515,7 +4517,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <h2 id="checking-the-verified-domain-of-an-external-organization">Checking the Verified Domain of an External Organization</h2>
 <p>If an organization has a verified domain with RKVST, it will be displayed when you view a Public Asset they have published. You may also retrieve this information via the API if you know the organization&rsquo;s Tenant ID.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
 </span></span></code></pre></div>`},{id:18,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
@@ -4532,8 +4534,8 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <p>Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.</p>
 <p>We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create <code>Inspect</code> Events.</p>
 <ol>
-<li>Create your Access Policy.</li>
-</ol>
+<li>
+<p>Create your Access Policy.
 <ul class="nav nav-tabs" id="access_policies_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_abac-0" type="button" role="tab" aria-controls="access_policies_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4564,10 +4566,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>You may wish to view your existing policies before creating a new one.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>You may wish to view your existing policies before creating a new one.
 <ul class="nav nav-tabs" id="existing_policies_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_abac-0" type="button" role="tab" aria-controls="existing_policies_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4595,13 +4597,13 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   <div id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Set the asset filters for your policy.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Set the asset filters for your policy
 <ul class="nav nav-tabs" id="asset_filters_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_abac-0" type="button" role="tab" aria-controls="asset_filters_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4659,10 +4661,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><a href="/platform/administration/grouping-assets-by-location/">See here for instructions on finding your location ID.</a></p>
 </div></div>
-
-<ol start="4">
-<li>Next, enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access
 <ul class="nav nav-tabs" id="permissions_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4737,9 +4739,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.
+</p>
+</li>
+<li>
+<p>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish
 <ul class="nav nav-tabs" id="complete_policy_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_abac-0" type="button" role="tab" aria-controls="complete_policy_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4748,7 +4751,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_abac-1" type="button" role="tab" aria-controls="complete_policy_abac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="complete_policy_abac"><div id="complete_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_abac-0">
-<p>Enter desired permissions and select <code>Add Permission Group</code>.</p>
+<p>Enter desired permissions and select <code>Add Permission Group</code></p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACPermissions" img class="img-fluid responsive" src="/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="821" height="647" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_200x0_resize_box_3.png 200w" src="/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="821" height="647" alt="Rectangle"></noscript>
@@ -4762,10 +4765,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>   
+</div>
 </div>
   <div id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1">
-<p>Add the desired permissions and the desired <code>user_attributes</code>.</p>
+<p>Add the desired permissions and the desired <code>user_attributes</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bill Inspect Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -4786,13 +4789,13 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
+<br>
+<strong>Note:</strong> we have included RKVST-significant attributes: <code>arc_display_name</code>, <code>arc_description</code>, and <code>arc_home_location_identity</code>
+<code>arc_*</code> attributes have special significance in RKVST.<br>
+In this case, respectively, allowing visibility to the <code>Name</code>, <code>Description</code>, and <code>Location</code> of the Asset. Other <code>arc_*</code> attributes are also available.</p>
 </li>
-</ol>
-<p>Note we have included RKVST-sigificant attributes: <code>arc_display_name</code>, <code>arc_description</code>, and <code>arc_home_location_identity</code>.</p>
-<p><code>arc_*</code> attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other <code>arc_*</code> attributes are also available.</p>
-<ol start="6">
-<li>Once complete, finish creating the Access Policy.</li>
-</ol>
+<li>
+<p>Once complete, finish creating the Access Policy.
 <ul class="nav nav-tabs" id="execute_policy_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#execute_policy_abac-0" type="button" role="tab" aria-controls="execute_policy_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -4821,16 +4824,16 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <p>fo
 Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>Check the Asset is appropriately shared.</li>
-</ol>
-<p>Mandy should only be allowed to see the Asset&rsquo;s Name, Location, Length, and Weight attributes.</p>
+</p>
+</li>
+<li>
+<p>Check the Asset is appropriately shared</p>
+<p>Mandy should only be allowed to see the Asset&rsquo;s Name, Location, Length, and Weight attributes
 
 
 <figure class="border-0">
@@ -4853,8 +4856,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<p>For comparison with our Administrator, Jill:</p>
+</div></p>
+<p>For comparison with our Administrator, Jill:
 
 
 <figure class="border-0">
@@ -4877,7 +4880,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
+</div></p>
+</li>
+</ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy. She can also see the Event where we updated the location.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
 `},{id:19,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
@@ -4889,8 +4894,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <p>In order to share Assets and their details with another organization or Tenancy, we must first import the subject ID of the external organization. The external organization will also need to import your subject ID. The process below shows how to enter an external organization&rsquo;s subject ID and for obtaining your own subject ID.</p>
 <h3 id="importing-another-organizations-id">Importing another Organization&rsquo;s ID</h3>
 <ol>
-<li>Obtain the external organization&rsquo;s subject ID to create a new Subject.</li>
-</ol>
+<li>
+<p>Obtain the external organization&rsquo;s subject ID to create a new Subject.
 <ul class="nav nav-tabs" id="import_subject_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_obac-0" type="button" role="tab" aria-controls="import_subject_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -4916,13 +4921,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1">
-<p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step.</p>
+<p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$SUBJECT_STRING</span> <span class="p">|</span> base64 -d
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Select the Subjects Tab and then <code>Import Subject</code>.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Select the Subjects Tab and then <code>Import Subject</code>
 <ul class="nav nav-tabs" id="import_subject_id_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_id_obac-0" type="button" role="tab" aria-controls="import_subject_id_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -4964,7 +4969,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
   <div id="import_subject_id_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_id_obac-1">
 <p>To add users to the access policy using JSON, you will first need to retrieve their subject IDs using the <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API</a>.</p>
-<p>Save the following to a JSON file with your desired subject information.</p>
+<p>Save the following to a JSON file with your desired subject information</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Friendly Name&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;wallet_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key1&#34;</span><span class="p">],</span>
@@ -4972,16 +4977,18 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Execute the file, which will return the subject identity in the form <code>subjects/&lt;subject-id&gt;</code> to be used in your Access Policy. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 <h3 id="finding-your-own-id">Finding Your Own ID</h3>
 <ol>
-<li>As an Administrator, navigate to <code>Access Policies</code>.</li>
-</ol>
+<li>
+<p>As an Administrator, navigate to <code>Access Policies</code>
 
 
 <figure class="border-0">
@@ -5004,11 +5011,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="2">
-<li>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</li>
-</ol>
-<p>This string is the one you should share with a 3rd Party who wants to share their data with you.</p>
+</div></p>
+</li>
+<li>
+<p>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</p>
+<p>This string is the one you should share with a 3rd Party who wants to share their data with you.
 
 
 <figure class="border-0">
@@ -5034,13 +5041,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The imported subjects will show a grey &ldquo;disconnected&rdquo; icon until both sides have imported the other&rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, the grey disconnected icon will no longer show.</div>
-  </blockquote>
+  </blockquote></p>
+</li>
+</ol>
 <h2 id="creating-an-obac-policy">Creating an OBAC Policy</h2>
 <p>OBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.</p>
 <p>It is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.</p>
 <ol>
-<li>Create your Access Policy.</li>
-</ol>
+<li>
+<p>Create your Access Policy
 <ul class="nav nav-tabs" id="access_policies_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_obac-0" type="button" role="tab" aria-controls="access_policies_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5071,10 +5080,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>You may wish to view your existing policies before creating a new one.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>You may wish to view your existing policies before creating a new one
 <ul class="nav nav-tabs" id="existing_policies_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_obac-0" type="button" role="tab" aria-controls="existing_policies_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5102,13 +5111,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Set the asset filters for your policy.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Set the asset filters for your policy
 <ul class="nav nav-tabs" id="asset_filters_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_obac-0" type="button" role="tab" aria-controls="asset_filters_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5166,10 +5175,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><a href="/platform/administration/grouping-assets-by-location/">See here for instructions on finding your location ID.</a></p>
 </div></div>
-
-<ol start="4">
-<li>Next, enter the desired <code>Permissions</code> to set Users&rsquo; Asset and Event attribute access.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Next, enter the desired <code>Permissions</code> to set Users&rsquo; Asset and Event attribute access
 <ul class="nav nav-tabs" id="permissions_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_obac-0" type="button" role="tab" aria-controls="permissions_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5193,7 +5202,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </code></pre>
   </div>
 </div>
-<p>In our case, we want the <code>Organization</code> actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a prepopulated drop-down search.</p>
+<p>In our case, we want the <code>Organization</code> actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a pre-populated drop-down search.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> You will need to have imported another Organization&rsquo;s ID before you can specify a policy to share information with that Organization.</div>
   </blockquote>
@@ -5222,15 +5231,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Execute the file, which will return the subject identity in the form <code>subjects/&lt;subject-id&gt;</code> to be used in your access policy. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish
 <ul class="nav nav-tabs" id="complete_policy_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_obac-0" type="button" role="tab" aria-controls="complete_policy_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5239,7 +5248,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_obac-1" type="button" role="tab" aria-controls="complete_policy_obac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="complete_policy_obac"><div id="complete_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_obac-0">
-<p>Enter desired permissions and select <code>Add Permission Group</code>.</p>
+<p>Enter desired permissions and select <code>Add Permission Group</code></p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissionGroup" img class="img-fluid responsive" src="/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup.png" width="820" height="645" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_200x0_resize_box_3.png 200w" src="/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup.png" width="820" height="645" alt="Rectangle"></noscript>
@@ -5256,7 +5265,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1">
-<p>Add the desired permissions and the Subject ID found in the previous step.</p>
+<p>Add the desired permissions and the Subject ID found in the previous step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Mandy Inspect Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -5277,12 +5286,12 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<p>Note we have included RKVST-sigificant attributes: <code>arc_display_name</code> and <code>arc_display_type</code>.</p>
-<p><code>arc_*</code> attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other <code>arc_*</code> attributes are also available.</p>
-<ol start="6">
-<li>Once complete, finish creating the Access Policy.</li>
-</ol>
+<br>
+<strong>Note</strong> we have included RKVST-significant attributes: <code>arc_display_name</code> and <code>arc_display_type</code>.<br>
+<code>arc_*</code> attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other <code>arc_*</code> attributes are also available.</p>
+</li>
+<li>
+<p>Once complete, finish creating the Access Policy
 <ul class="nav nav-tabs" id="finish_policy_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_policy_obac-0" type="button" role="tab" aria-controls="finish_policy_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -5310,15 +5319,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>Once complete, check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset&rsquo;s custom <code>Weight</code> attribute.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Once complete, check the Asset is shared appropriately; Mandy should only be able to see the <code>Name</code> and <code>Type</code> of Asset as well as the Asset&rsquo;s custom <code>Weight</code> attribute
 
 
 <figure class="border-0">
@@ -5342,7 +5351,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-<p>By comparison, our Administrator, Jill, can see the full details of the Asset:</p>
+By comparison, our Administrator, Jill, can see the full details of the Asset:
 
 
 <figure class="border-0">
@@ -5365,11 +5374,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="8">
-<li>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</p>
 <p>There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
+</li>
+</ol>
 `},{id:20,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
@@ -5422,13 +5433,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="2">
+<ol>
 <li><em><strong>COMPLIANCE_CURRENT_OUTSTANDING:</strong></em> checks if there is a closing Event addressing an outstanding Event.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -5477,13 +5488,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="3">
+<ol>
 <li><em><strong>COMPLIANCE_PERIOD_OUTSTANDING:</strong></em> checks if the time between correlated Events does not exceed set threshold.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -5534,13 +5545,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="4">
+<ol>
 <li><em><strong>COMPLIANCE_DYNAMIC_TOLERANCE:</strong></em> checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -5594,13 +5605,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="5">
+<ol>
 <li><em><strong>COMPLIANCE_RICHNESS:</strong></em> checks whether Attributes are within expected bounds or otherwise meet defined conditions.</li>
 </ol>
 <p>This type of policy uses <code>richness_assertions</code>. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.</p>
@@ -5648,7 +5659,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
@@ -5682,11 +5693,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="compliance_status-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_status-1">
 <p>Run the following command using the desired Asset ID to check its compliance status. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;
 </span></span></code></pre></div><p>You may also determine compliance at a <a href="/platform/overview/advanced-concepts/#perspectives">historical date</a> by adding the desired date to the query.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div></div></div>
 
@@ -5694,8 +5705,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
-<li>Create your location.</li>
-</ol>
+<li>
+<p>Create your location
 <ul class="nav nav-tabs" id="add_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_locations-0" type="button" role="tab" aria-controls="add_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5732,15 +5743,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">LOCATIONS_CREATE_IF_NOT_EXISTS</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-2">
-<p>Create an empty file, in later steps we will add the correct JSON.</p>
+<p>Create an empty file, in later steps we will add the correct JSON</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Add information about the location you are creating.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Add information about the location you are creating
 <ul class="nav nav-tabs" id="add_location_info_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_info_locations-0" type="button" role="tab" aria-controls="add_location_info_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5785,10 +5796,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Enter the required location name and address, or in the case of YAML and JSON, coordinates.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Enter the required location name and address, or in the case of YAML and JSON, coordinates
 <ul class="nav nav-tabs" id="add_location_name_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_name_locations-0" type="button" role="tab" aria-controls="add_location_name_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5816,7 +5827,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_location_name_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-1">
-<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location.</p>
+<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -5830,18 +5841,18 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">2.5980</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_name_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-2">
-<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location.</p>
+<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;UK Factory&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lattitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;latitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;longitude&#34;</span><span class="p">:</span> <span class="mf">-2.5980</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="4">
-<li>There is an option to add extended attributes to a location. This is useful to add metadata to a location, i.e. a site contact&rsquo;s number and email address.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>There is an option to add extended attributes to a location. This is useful to add metadata to a location, i.e. a site contact&rsquo;s number and email address
 <ul class="nav nav-tabs" id="add_location_attributes_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_attributes_locations-0" type="button" role="tab" aria-controls="add_location_attributes_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5870,7 +5881,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_location_attributes_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-1">
-<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs.</p>
+<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -5888,11 +5899,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Primary_Mobile_Number</span><span class="p">:</span><span class="w"> </span><span class="l">+447700900077</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_attributes_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-2">
-<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs.</p>
+<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;UK Factory&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lattitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;latitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;longitude&#34;</span><span class="p">:</span> <span class="mf">-2.5980</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;Princes Wharf, Wapping Rd, Bristol BS1 4RN, UK&#34;</span><span class="p">,</span>
@@ -5901,10 +5912,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Complete your location.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Complete your location
 <ul class="nav nav-tabs" id="complete_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_location_locations-0" type="button" role="tab" aria-controls="complete_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5943,15 +5954,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="complete_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div></div></div>
-
-<ol start="6">
-<li>View your locations.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>View your locations
 <ul class="nav nav-tabs" id="location_list_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#location_list_locations-0" type="button" role="tab" aria-controls="location_list_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -5964,23 +5975,23 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 		</li></ul>
 <div class="tab-content" id="location_list_locations"><div id="location_list_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="location_list_locations-0">
 <p>Navigate to <code>Locations</code> in the sidebar to see a list of existing locations.</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#LocationAdded" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Managing a Location</em></figcaption>
- </figure>
- <div class="modal fade" id="LocationAdded" tabindex="-1" aria-labelledby="LocationAdded" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-     
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w&quot; width=&quot;1616&quot; height=&quot;406&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#LocationAdded" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Managing a Location</em></figcaption>
+</figure>
+<div class="modal fade" id="LocationAdded" tabindex="-1" aria-labelledby="LocationAdded" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w&quot; width=&quot;1616&quot; height=&quot;406&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
 </code></pre>
-   </div>
- </div>
+  </div>
+</div>
 </div>
   <div id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1">
-<p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
+<p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -5991,13 +6002,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="location_list_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-2">
 <p>Use the <a href="/developers/api-reference/locations-api/">Locations API</a> to GET a list of existing locations.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>View details of the location you just created.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>View details of the location you just created
 <ul class="nav nav-tabs" id="specific_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#specific_location_locations-0" type="button" role="tab" aria-controls="specific_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -6009,21 +6020,21 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-2" type="button" role="tab" aria-controls="specific_location_locations-2" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="specific_location_locations"><div id="specific_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="specific_location_locations-0">
-<p>You can inspect details of a single location. Click the desired location row.</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Viewing a Location</em></figcaption>
- </figure>
- <div class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-     
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w&quot; width=&quot;383&quot; height=&quot;422&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
+<p>You can inspect details of a single location. Click the desired location row</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing a Location</em></figcaption>
+</figure>
+<div class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w&quot; width=&quot;383&quot; height=&quot;422&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
 </code></pre>
-   </div>
- </div>
+  </div>
+</div>
 </div>
   <div id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1">
 <p>The <code>LOCATIONS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific location.</p>
@@ -6039,15 +6050,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="specific_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-2">
 <p>Use the <a href="/developers/api-reference/locations-api/">Locations API</a> to GET the specific location by name.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory&#34;</span>
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 <h2 id="assigning-a-location-to-an-asset">Assigning a Location to an Asset</h2>
 <h3 id="adding-at-asset-creation">Adding at Asset Creation</h3>
-<ol>
-<li>To assign a pre-existing location to an Asset during Asset creation, you need only select it.</li>
-</ol>
+<p>To assign a pre-existing location to an Asset during Asset creation, you need only select it
 <ul class="nav nav-tabs" id="add_at_asset_create" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_at_asset_create-0" type="button" role="tab" aria-controls="add_at_asset_create-0" aria-selected="true">UI</button>
 		</li>
@@ -6076,7 +6087,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_at_asset_create-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-1">
-<p>A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
+<p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -6121,7 +6132,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2">
-<p>A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
+<p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -6131,11 +6142,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
+</p>
 <h3 id="adding-to-a-pre-existing-asset">Adding to a pre-existing Asset</h3>
 <ol>
-<li>To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row.</li>
-</ol>
+<li>
+<p>To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row.
 
 
 <figure class="border-0">
@@ -6158,11 +6169,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="2">
-<li>Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the <code>arc_home_location_identity</code> key.</li>
-</ol>
-<p>For more information on creating Events, please visit <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a>.</p>
+</div></p>
+</li>
+<li>
+<p>Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the <code>arc_home_location_identity</code> key<br>
+For more information on creating Events, please visit <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a>.
 <ul class="nav nav-tabs" id="add_to_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_to_asset-0" type="button" role="tab" aria-controls="add_to_asset-0" aria-selected="true">UI</button>
 		</li>
@@ -6190,8 +6201,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_to_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note</strong> - The <code>EVENTS_CREATE</code> action must contain at least one key-value pair for <code>event_attributes</code>.</div>
+<pre><code>&lt;blockquote class=&quot;note callout&quot;&gt;
+&lt;div&gt;&lt;strong&gt;&lt;/strong&gt; &lt;strong&gt;Note&lt;/strong&gt; - The &lt;code&gt;EVENTS_CREATE&lt;/code&gt; action must contain at least one key-value pair for &lt;code&gt;event_attributes&lt;/code&gt;.&lt;/div&gt;
+</code></pre>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -6222,10 +6234,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note</strong> - You need to include the full <code>locations/&lt;location-id&gt;</code> reference as using only the <code>UUID</code> will not be recognized.</div>
-  </blockquote>
-<ol start="3">
-<li>In the following screenshot, note the location of our Asset has been updated.</li>
-</ol>
+  </blockquote></p>
+</li>
+<li>
+<p>In the following screenshot, note the location of our Asset has been updated
 
 
 <figure class="border-0">
@@ -6248,7 +6260,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
+</div></p>
+</li>
+</ol>
 `},{id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
 <p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
@@ -6261,8 +6275,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   </blockquote>
 <h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to Dropbox</h3>
 <ol>
-<li>
-<p>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab.<br>
+<li>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab
 
 
 <figure class="border-0">
@@ -6285,10 +6298,8 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
+</div></li>
+<li>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
 
 
 <figure class="border-0">
@@ -6312,9 +6323,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   
   </div>
 </div>
-If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.</p>
-</li>
-</ol>
+If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.
 
 
 <figure class="border-0">
@@ -6337,10 +6346,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>
-<p>Dropbox will display an alert message. Click <strong>Continue</strong>.
+</div></li>
+<li>Dropbox will display an alert message. Click <strong>Continue</strong>.
 
 
 <figure class="border-0">
@@ -6363,10 +6370,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
+</div></li>
+<li>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">
@@ -6389,10 +6394,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Select the folder on Dropbox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+</div></li>
+<li>Select the folder on Dropbox that you wish to connect to RKVST and then select <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
@@ -6415,10 +6418,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>You will see a success message and Dropbox will be connected.
+</div></li>
+<li>You will see a success message and Dropbox will be connected.
 
 
 <figure class="border-0">
@@ -6441,10 +6442,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-</ol>
-<p>Click on an icon on the right to edit the connection or to disconnect.
+</div>
+Click on an icon on the right to edit the connection or to disconnect.
 
 
 <figure class="border-0">
@@ -6467,8 +6466,7 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-<ol start="7">
+</div></li>
 <li>Check the Asset Overview to see your Dropbox files.
 
 
@@ -6500,8 +6498,7 @@ If you are already logged into Dropbox on the device that you are using to set u
 <h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
 <p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
 <ol>
-<li>
-<p>Select the Disconnect icon in RKVST.
+<li>Select the Disconnect icon in RKVST
 
 
 <figure class="border-0">
@@ -6548,10 +6545,8 @@ You will see a warning message.
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
+</div></li>
+<li>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
 
 
 <figure class="border-0">
@@ -6574,17 +6569,16 @@ You will see a warning message.
       </div>
   
   </div>
-</div></p>
-</li>
+</div>
+This is how to connect and disconnect RKVST and Dropbox, it is that simple.</li>
 </ol>
-<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `},{id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
 <p>Each App Registration is created with Non-Administrator privileges by default.</p>
 <p>To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an <a href="../iam-policies-api/">ABAC policy</a> with specific, declared permissions.</p>
-<p>If you wish to give your credentials Administrator priviliges to access everything in your Tenancy, you would use the <code>client-id</code> as the subject and <code>https://app.rkvst.io/appidpv1</code> as the issuer in the <code>Settings</code> screen or by using the <a href="../tenancies-api/">Administrators Endpoint in the Tenancies API</a>.</p>
+<p>If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the <code>client-id</code> as the subject and <code>https://app.rkvst.io/appidpv1</code> as the issuer in the <code>Settings</code> screen or by using the <a href="../tenancies-api/">Administrators Endpoint in the Tenancies API</a>.</p>
 <blockquote class="note callout">
     <div><strong></strong> For more information on App Registrations and access tokens, visit <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">RKVST Developer Patterns</a>.</div>
   </blockquote>
@@ -6599,7 +6593,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Once you have created your file, you can then submit it to the RKVST API:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/applications
@@ -6642,14 +6636,14 @@ You will see a warning message.
 <h3 id="listing-applications">Listing Applications</h3>
 <p>All of the applications created for your RKVST tenancy can be viewed using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/applications
 </span></span></code></pre></div><h3 id="viewing-applications">Viewing Applications</h3>
 <p>The following example shows how to view the details of a single application.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
 </span></span></code></pre></div><h3 id="updating-applications">Updating Applications</h3>
 <p>You may edit the display name and/or the custom claims of an application.</p>
@@ -6663,7 +6657,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@/path/to/json&#34;</span>
 </span></span><span class="line"><span class="cl">     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
@@ -6691,7 +6685,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>:regenerate-secret
 </span></span></code></pre></div><blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour.</div>
@@ -6701,7 +6695,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
 </span></span></code></pre></div><h2 id="app-registrations-openapi-docs">App Registrations OpenAPI Docs</h2>
 
@@ -7710,7 +7704,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
@@ -7818,63 +7812,62 @@ You will see a warning message.
 <h4 id="fetch-all-assets">Fetch All Assets</h4>
 <p>To fetch all Asset records, simply <code>GET</code> the Assets resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div><h4 id="fetch-specific-asset-by-identity">Fetch Specific Asset by Identity</h4>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><h4 id="fetch-specific-asset-at-given-point-in-time-by-identity">Fetch Specific Asset at Given Point in Time by Identity</h4>
 <p>If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply <code>GET</code> with the following query parameter:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z&#34;</span>
 </span></span></code></pre></div><p>This will return the Asset record with the values it had on <code>2021-01-13T12:34:21Z</code>.</p>
 <h4 id="fetch-assets-by-name">Fetch Assets by Name</h4>
 <p>To fetch all Assets with a specific name, GET the Assets resource and filter on <code>arc_display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-type">Fetch Assets by Type</h4>
 <p>To fetch all Assets of a specific type, <code>GET</code> the Assets resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-proof-mechanism">Fetch Assets by Proof Mechanism</h4>
 <p>To fetch all Assets that use a specific Proof Mechanism, <code>GET</code> the Assets resource and filter on <code>proof_mechanism</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-events-ordered-for-simplehashv1-schema">Fetch Events Ordered for SIMPLEHASHV1 Schema</h4>
 <p>To fetch Simple Hash Events in the order needed for the <a href="https://github.com/rkvst/rkvst-simplehash-python">SIMPLEHASHV1 schema</a>, <code>GET</code> the Assets resource, specifying a specific Asset ID or using <code>assets/-/events</code> to fetch Events for all Assets:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-filtering-for-presence-of-a-field">Fetch Assets by Filtering for Presence of a Field</h4>
 <p>To fetch all Assets with a field set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which have <code>arc_display_name</code> that is not empty.</p>
 <h4 id="fetch-assets-which-are-missing-a-field">Fetch Assets Which are Missing a Field</h4>
 <p>To fetch all Assets with a field which is not set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which do not have <code>arc_display_name</code> or in which <code>arc_display_name</code> is empty.</p>
 <h4 id="fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</h4>
 <p>Fetch the Public URL of a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</h4>
 <p>Fetch the Public URL of an Event on a Public Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
@@ -7890,7 +7883,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Untrack the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -7930,7 +7923,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Track the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -9710,18 +9703,18 @@ You will see a warning message.
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h3 id="retrieve-a-specific-attachment-on-an-event">Retrieve a Specific Attachment on an Event</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/events/de834094-f6c3-4e38-9b37-8c61dea312c9/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h3 id="retrieve-information-about-a-specific-attachment">Retrieve Information About a Specific Attachment</h3>
 <p>It’s also possible to retrieve information about specific attachment using this API.</p>
 <p>This information includes the <code>scanned_status</code> of the attachment. Attachment scanning happens each day.</p>
 <p>To do so, simply issue a request as above with the suffix <code>/info</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22/info
 </span></span></code></pre></div><p>The response will include basic information about the attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -10864,7 +10857,7 @@ You will see a warning message.
 <h3 id="upload-a-blob">Upload a Blob</h3>
 <p>Upload the blob stored at /path/to/file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -F <span class="s2">&#34;file=@/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs
@@ -10887,7 +10880,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="retrieve-a-blob">Retrieve a Blob</h3>
 <p>Retrieve a specific Blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="s2">&#34;/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
@@ -11458,7 +11451,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
 </span></span></code></pre></div><p>To fetch all transactions for an Asset&rsquo;s Events GET the blockchain resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 </span></span></code></pre></div><p>Depending on the type of <a href="/platform/overview/advanced-concepts/#proof-mechanisms">proof mechanism</a> used, the response will be:</p>
 <h4 id="simple-hash">Simple Hash:</h4>
@@ -11778,7 +11771,7 @@ You will see a warning message.
 <p>This creates a Compliance Policy object in the system against which any Asset can be tested as needed.</p>
 <p>RKVST allows users to define Compliance Policies of the following types:</p>
 <h4 id="compliance_since">COMPLIANCE_SINCE</h4>
-<p>This Compliance Policy checks if the time since the last occurence of a specific Event type has elapsed a specified threshold.</p>
+<p>This Compliance Policy checks if the time since the last occurrence of a specific Event type has elapsed a specified threshold.</p>
 <p>For example “Time since last Maintenance must be less than 72 hours”:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
@@ -11959,7 +11952,7 @@ You will see a warning message.
 <p>Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (<code>OR</code> logic). For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">“or”:</span> <span class="err">[“rad&lt;7”,</span> <span class="err">“rad=10”]</span><span class="p">}</span><span class="err">.</span> 
 </span></span></code></pre></div><p>The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (<code>AND</code> logic).</p>
-<p>Compliance is a signal, not a perfect answer. Therefore equivilence of floats is exact, not approximate.</p>
+<p>Compliance is a signal, not a perfect answer. Therefore equivalence of floats is exact, not approximate.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
@@ -11994,7 +11987,7 @@ You will see a warning message.
 <h3 id="compliance-policy-creation">Compliance Policy Creation</h3>
 <p>Create a Compliance Policy with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
@@ -12013,14 +12006,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="checking-compliance">Checking Compliance</h3>
-<p>The compliancev1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
+<p>The compliance v1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
 <p>Query the endpoint:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><p>or if determining compliance at some historical date:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -13134,11 +13127,11 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> <code>RecordEvidence</code> is the primary, default behaviour for creating Events.</div>
+    <div><strong></strong> <strong>Note:</strong> <code>RecordEvidence</code> is the primary, default behavior for creating Events.</div>
   </blockquote>
 <p>Add the request to the Asset record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -13364,7 +13357,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Add the request to the Asset Record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -15220,7 +15213,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Access Policy:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
@@ -15267,17 +15260,17 @@ You will see a warning message.
 <h4 id="fetch-all-iam-access_policies-v1">Fetch all IAM access_policies (v1)</h4>
 <p>To fetch all IAM <code>access_policies</code> records, simply <code>GET</code> the <code>iam/access_policies</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div><h4 id="fetch-specific-iam-access-policy-by-identity-v1">Fetch specific IAM access Policy by identity (v1)</h4>
 <p>If you know the unique identity of the IAM access policy Record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-iam-access-policies-by-name-v1">Fetch IAM Access Policies by name (v1)</h4>
 <p>To fetch all IAM <code>access_policies</code> with a specific name, <code>GET</code> the <code>iam/access_policies</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM Access Policies records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -15346,7 +15339,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="iam-policy-deletion">IAM Policy Deletion</h3>
 <p>To delete an IAM Access Policy, issue following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is:</p>
@@ -15387,7 +15380,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the Access Policy:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -15434,7 +15427,7 @@ You will see a warning message.
 <h4 id="fetch-all-assets-matching-specific-iam-access-policy-v1">Fetch all Assets Matching Specific IAM Access Policy (v1)</h4>
 <p>If you know the unique identity of the IAM Access Policy Record simply GET the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
 </span></span></code></pre></div><p>Each of these calls returns a list of matching Asset records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -15469,7 +15462,7 @@ You will see a warning message.
 </span></span></code></pre></div><h4 id="fetch-all-iam-access_policies-matching-specific-asset-v1">Fetch all IAM access_policies Matching Specific Asset (v1)</h4>
 <p>If you know the unique identity of the Asset Record simply GET matching policies:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM <code>access_policies</code> records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -16907,7 +16900,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the IAM Subject:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
@@ -16926,17 +16919,17 @@ You will see a warning message.
 <h4 id="fetch-all-iam-subjects-v1">Fetch all IAM Subjects (v1)</h4>
 <p>To fetch all IAM Subjects records, simply <code>GET</code> the <code>/subjects</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div><h4 id="fetch-specific-iam-subject-by-identity-v1">Fetch specific IAM Subject by identity (v1)</h4>
 <p>If you know the unique identity of the IAM Subject record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-iam-subjects-by-name-v1">Fetch IAM Subjects by Name (v1)</h4>
 <p>To fetch all IAM subjects with a specific name, <code>GET</code> the <code>/subjects</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM Subjects records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -16950,7 +16943,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;subjects/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Some otherdescription&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Some other description&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;wallet_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key5&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;wallet_address&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;address5&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;tessera_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key7&#34;</span><span class="p">]</span>
@@ -16960,7 +16953,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="iam-subject-deletion">IAM Subject Deletion</h3>
 <p>To delete an IAM Subject, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is <code>{}</code>.</p>
@@ -16972,7 +16965,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the IAM Subject:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -16991,7 +16984,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">subjects/00000000-0000-0000-0000-000000000000
 </span></span></code></pre></div><h4 id="fetch-self-iam-subject-by-identity-v1">Fetch Self IAM Subject by Identity (v1)</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
@@ -17859,7 +17852,7 @@ You will see a warning message.
 `},{id:32,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
-<p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
+<p>By default, invited users will have no permissions and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
 <p>For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on <a href="/platform/administration/sharing-assets-with-obac/">OBAC policies</a> or the <a href="../iam-policies-api/">IAM Policies API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <blockquote class="note callout">
@@ -17869,34 +17862,34 @@ You will see a warning message.
 <p>To create an invite you need at least the invitee&rsquo;s email address. Once created, it will be considered pending and once accepted the invite itself will be deleted.</p>
 <p>It is possible to add an optional custom message:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;personalised message&#34;, &#34;email&#34;: &#34;john.doe@example.com&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;personalized message&#34;, &#34;email&#34;: &#34;john.doe@example.com&#34;}&#39;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="invite-retrieval">Invite Retrieval</h3>
 <p>If you know the unique identity of a pending invite, <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="retrieve-all-invites">Retrieve All Invites</h3>
 <p>To fetch all pending invites, simply <code>GET</code> the <code>/invites</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
@@ -17904,13 +17897,13 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;invites&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/f4e4b1b5-8186-4feb-9072-9999f89d4619&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;another personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;another personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;jane.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:26Z&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
@@ -17920,7 +17913,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="invite-deletion">Invite Deletion</h3>
 <p>To delete a pending invite, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\\`</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\\`</span>
 </span></span><span class="line"><span class="cl">    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span>
 </span></span></code></pre></div><p>The response will be empty.</p>
@@ -18556,7 +18549,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the location to POSTing to the locations resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/locations
@@ -18579,17 +18572,17 @@ You will see a warning message.
 <h4 id="fetch-all-locations">Fetch All Locations</h4>
 <p>To fetch all locations, simply <code>GET</code> the locations resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div><h4 id="fetch-specific-location-by-identity">Fetch Specific Location by Identity</h4>
 <p>If you know the unique identity of the location record, simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h4 id="fetch-location-by-name">Fetch Location by Name</h4>
 <p>To fetch all locations with a specific name, <code>GET</code> the Assets resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching Asset records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -20585,7 +20578,7 @@ You will see a warning message.
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
 <p>Query the endpoint:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/archivistnode
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -21097,7 +21090,7 @@ You will see a warning message.
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/administrators
 </span></span></code></pre></div><h3 id="update-the-list-of-administrators">Update the List of Administrators</h3>
 <p>Define the update parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -21119,7 +21112,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="err">}</span>
 </span></span></code></pre></div><p>Update the Administrators by PATCHing the <code>tenancies/administrators</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tenancies/administrators
@@ -22510,7 +22503,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;NF {sub(/\\r/, &#34;&#34;); printf &#34;%s\\\\n&#34;,$0;}&#39;</span> cert-name.pem
 </span></span></code></pre></div><p>Create the CA Certificate:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates
@@ -22527,17 +22520,17 @@ You will see a warning message.
 <h4 id="fetch-all-tls-ca-certificates">Fetch All TLS CA Certificates</h4>
 <p>To fetch all TLS CA certificates records, simply <code>GET</code> the <code>tlscacertificates</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tlscacertificates
 </span></span></code></pre></div><h4 id="fetch-specific-tls-ca-certificate-by-identity">Fetch Specific TLS CA Certificate by Identity</h4>
 <p>If you know the unique identity of the TLS CA certificate Record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-tls-ca-certificates-by-name">Fetch TLS CA Certificates by Name</h4>
 <p>To fetch all TLS CA Certificates with a specific name, <code>GET</code> the <code>tlscacertificates</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -22557,7 +22550,7 @@ You will see a warning message.
 </span></span></code></pre></div><h4 id="tls-ca-certificate-deletion">TLS CA Certificate Deletion</h4>
 <p>To delete a TLS CA Certificate, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is <code>{}</code>.</p>
@@ -22568,7 +22561,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the TLS CA Certificate:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -23307,7 +23300,7 @@ You will see a warning message.
   </div>
 
 
-`},{id:38,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:38,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -23800,7 +23793,8 @@ You will see a warning message.
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
-</div>`},{id:46,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+</div>
+`},{id:46,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -23826,7 +23820,8 @@ You will see a warning message.
       <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
-</div>`},{id:48,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+</div>
+`},{id:48,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
@@ -23886,14 +23881,14 @@ You will see a warning message.
         </div>
       </div>
       <div class="col-xs-9 col-sm-11 col-lg-4">
-      	<div class="card" style="max-width: 25rem;">
+        <div class="card" style="max-width: 25rem;">
           <div class="card-body">
             <h5 class="card-title">API Reference</h5>
             <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
             <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
           </div>
-      	</div>
-      </div>      
+        </div>
+      </div>
       <div class=" col-xs-9 col-sm-11 col-lg-4">
         <div class="card" style="max-width: 25rem;">
           <div class="card-body">
@@ -23902,7 +23897,7 @@ You will see a warning message.
             <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </section>
@@ -23931,20 +23926,20 @@ You will see a warning message.
             </div>
           </div>
           <div class="col-xs-9 col-sm-11 col-lg-6">
-        	  <div class="card" style="max-width: 25rem;">
+            <div class="card" style="max-width: 25rem;">
               <div class="card-body">
                <h5 class="card-title">Administration</h5>
                 <p class="card-text">Create users, set access rights and share Assets.</p>
                 <a href="/platform/administration/identity-and-access-management/" class="btn btn-primary">Administration</a>
               </div>
-          	</div>
-          </div>          
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </div>
 </div>
-`}];console.log("[developers platform]"),e.add({id:0,href:"https://docs.rkvst.com/platform/overview/introduction/",title:"Introduction",description:"Welcome to RKVST!",content:`<p>RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
+`}];console.log("[developers platform]"),e.add({id:0,href:"https://docs.rkvst.com/platform/overview/introduction/",title:"Introduction",description:"Welcome to RKVST",content:`<p>RKVST provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
 <p>RKVST enables enterprises to build trust in multi-party Assets, including software, devices, and media ensuring processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
 <p>RKVST permanently records shared Asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:</p>
 <p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.</p>
@@ -24189,9 +24184,11 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$TOKEN</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Create a Bearer Token file with <code>0600</code> permissions for reference by <code>curl</code> commands</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; rkvst-bearer.txt
-</span></span><span class="line"><span class="cl">cat rkvst-bearer.txt
+<p>Create a Bearer Token file for reference by <code>curl</code> commands, in an <code>./rkvst/</code> directory</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.rkvst
+</span></span><span class="line"><span class="cl">chmod <span class="m">0700</span> <span class="nv">$HOME</span>/.rkvst
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; <span class="nv">$HOME</span>/.rkvst/bearer-token.txt
+</span></span><span class="line"><span class="cl">cat <span class="nv">$HOME</span>/.rkvst/bearer-token.txt
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="testing-token-creation">Testing Token Creation</h2>
@@ -24202,8 +24199,8 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
   </blockquote></p>
 <p>Otherwise, check the <a href="../../api-reference/assets-api/#assets-openapi-reference">Assets OpenAPI Reference</a> for more detailed information on the response codes you may expect if authentication fails and what they mean.</p>
 <h3 id="view-existing-assets">View Existing Assets</h3>
-<p>To test the creation of the Custom integration and the configuration of the bearer token file (<code>rkvst-bearer.txt</code>), query the assets API</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+<p>To test the creation of the Custom integration and the configuration of the bearer token file (<code>bearer-token.txt</code>), query the assets API</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
 </span></span></code></pre></div><p>If you have existing assets, the output will be similar to:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -24292,7 +24289,7 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 <p>Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the management of those Assets without compromising security and private information. To ensure stakeholders can access only the Assets and attributes relevant to them, transactions are private by default. An Administrator may share as much or as little access to Assets as the needs of the value chain partners dictate through Access Policies.</p>
 <p>An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.</p>
 <h2 id="the-golden-thread">The Golden Thread</h2>
-<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence that underpins supply chain integrity, transparencey and trust for all relevant stakeholders.</p>
+<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence that underpins supply chain integrity, transparency and trust for all relevant stakeholders.</p>
 
 
 <figure class="border-0">
@@ -24596,21 +24593,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <h4 id="types-of-compliance-policy">Types of Compliance Policy</h4>
 <p>As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:</p>
 <ul>
-<li>
-<p><em>COMPLIANCE RICHNESS</em>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</p>
-</li>
-<li>
-<p><em>COMPLIANCE SINCE</em>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br><br>For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</p>
-</li>
-<li>
-<p><em>COMPLIANCE CURRENT OUTSTANDING</em>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br><br>For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</p>
-</li>
-<li>
-<p><em>COMPLIANCE_PERIOD_OUTSTANDING</em>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</p>
-</li>
-<li>
-<p><em>COMPLIANCE_DYNAMIC_TOLERANCE</em>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</p>
-</li>
+<li><strong>COMPLIANCE RICHNESS</strong>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br>
+For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</li>
+<li><strong>COMPLIANCE SINCE</strong>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br>
+For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</li>
+<li><strong>COMPLIANCE CURRENT OUTSTANDING</strong>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br>
+For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</li>
+<li><strong>COMPLIANCE_PERIOD_OUTSTANDING</strong>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br>
+For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</li>
+<li><strong>COMPLIANCE_DYNAMIC_TOLERANCE</strong>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br>
+For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</li>
 </ul>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</div>
@@ -24620,7 +24612,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <p>To do this, simply add <code>at_time=TIMESTAMP</code> to your query. For example, to check the state an Asset was in at 15:30 UTC on 23rd June:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer </span><span class="k">$(</span>cat .auth_token<span class="k">)</span><span class="s2">&#34;</span> -H <span class="s2">&#34;Content-Type: application/json&#34;</span> https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time<span class="o">=</span>2021-06-23T15:30:00Z <span class="p">|</span> jq 
 </span></span></code></pre></div><p>Compliance calls can be similarly modified to answer questions like &ldquo;had I asked this question at the time, what would the answer have been?&rdquo; or &ldquo;had the AI asked this question, would it have made a better decision?&rdquo;. This can be done by adding a <code>compliant_at</code> timestamp to the compliance request.</p>
-<h2 id="thats-it">That&rsquo;s it!</h2>
+<h2 id="thats-it">That&rsquo;s it</h2>
 <p>These are all the basics of RKVST. With this knowledge you can now <a href="/developers/api-reference/">jump straight into the API</a> or try other topic on the <a href="/platform/">RKVST Platform</a>.</p>
 `}).add({id:4,href:"https://docs.rkvst.com/developers/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using RKVST to Represent Containers",content:`<h2 id="represent-containers-using-rkvst">Represent Containers Using RKVST</h2>
 <p>RKVST Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.</p>
@@ -24688,7 +24680,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
@@ -24800,7 +24792,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset-box.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets <span class="p">|</span> jq
@@ -24869,7 +24861,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span></span></code></pre></div></div>
   <div id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></div></div>
 
@@ -24887,9 +24879,9 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
   </blockquote>
 <ol>
-<li>Create your Asset</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
+<li>
+<p>Create your Asset
+<ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset-0" type="button" role="tab" aria-controls="add_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -24931,11 +24923,11 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>Add details to your new Asset and select a <code>Proof Mechanism</code></li>
-</ol>
-<p><a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. <a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our <a href="https://www.rkvst.com/pricing/">Team and Enterprise tiers</a> of RKVST. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.</p>
-<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Add details to your new Asset and select a <code>Proof Mechanism</code></p>
+<p><a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. <a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our <a href="https://www.rkvst.com/pricing/">Team and Enterprise tiers</a> of RKVST. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.
+<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -24992,14 +24984,13 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>At minimum, you will need to add an Asset Name and Asset Type to create an Asset:</li>
-</ol>
+</li>
+<li>
+<p>At minimum, you will need to add an Asset Name and Asset Type to create an Asset:</p>
 <ul>
 <li><code>Asset Name</code> - This is the unique name of the Asset i.e. &lsquo;My First Container&rsquo;.</li>
-<li><code>Asset Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be <code>Shipping Container</code>, which will then be pre-populated for future Assets to use as their own types.</li>
-</ul>
-<p><ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
+<li><code>Asset Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be <code>Shipping Container</code>, which will then be pre-populated for future Assets to use as their own types.
+<ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details_min-0" type="button" role="tab" aria-controls="add_asset_details_min-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25054,15 +25045,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol>
-<li>At this point, you may wish to use the <code>Advanced Options</code> tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.</li>
-</ol>
+<br></li>
+</ul>
+</li>
+<li>
+<p>At this point, you may wish to use the <code>Advanced Options</code> tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.</p>
 <p>Extended attributes are user-defined and can be added to each unique Asset.</p>
 <p>Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.</p>
 <p>To add a new attribute to an Asset, enter your key-value pair.</p>
-<p>For Example:</p>
-<p><ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
+<p>For Example:
+<ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_extended_attributes-0" type="button" role="tab" aria-controls="add_extended_attributes-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25139,10 +25131,10 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>Complete your Asset creation.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Complete your Asset creation
+<ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_create_asset-0" type="button" role="tab" aria-controls="finish_create_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25180,16 +25172,16 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>View your Assets.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View your Assets
+<ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_all_assets-0" type="button" role="tab" aria-controls="view_all_assets-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25228,13 +25220,13 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2">
 <p>You can view all Asset data using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol>
-<li>View details of the Asset you created.</li>
-</ol>
+</li>
+<li>
+<p>View details of the Asset you created
 <ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_specific_asset-0" type="button" role="tab" aria-controls="view_specific_asset-0" aria-selected="true">UI</button>
 		</li>
@@ -25276,17 +25268,19 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2">
 <p>Details of a specific asset can be retrieved using identifying attributes (<code>attrs</code>), such as name, type, or presence of a certain field.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name<span class="o">=</span>My%20First%20Container
 </span></span></code></pre></div></div></div>
 
-<p>Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.</p>
+Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To update the details of your Asset after it has been created, you must create an Event containing <code>Asset Attributes</code>.</p>
 <p>For more information on creating Events, <a href="/platform/overview/creating-an-event-against-an-asset/">click here.</a></p>
 </div>
   </blockquote>
-<p>The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
+The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
+</li>
+</ol>
 `}).add({id:6,href:"https://docs.rkvst.com/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an RKVST Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
 <p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
 <p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
@@ -25313,9 +25307,9 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
-<li>Create an Event.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+<li>
+<p>Create an Event
+<ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25361,10 +25355,10 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="2">
-<li>Add Event type and description.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event_type" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Add Event type and description
+<ul class="nav nav-tabs" id="add_event_type" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_type-0" type="button" role="tab" aria-controls="add_event_type-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25392,7 +25386,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
 </div>
   <div id="add_event_type-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-1">
-<p>Fill out metadata about your Event.</p>
+<p>Fill out metadata about your Event</p>
 <p><code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
 <p>In the attributes section you should also add the required RKVST attributes <code>arc_description</code> and <code>arc_display_type</code> to represent <code>Event Description</code> and <code>Event Type</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -25421,13 +25415,11 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span></code></pre></div><p>This Event will be POSTed to a specific Asset endpoint when the curl command is run. To do this, you will need the desired <code>assets/&lt;asset-id&gt;</code> string.</p>
 </div></div>
 <br></p>
-<ol start="3">
-<li>You may enter both Event and Asset attributes.</li>
-</ol>
-<ul>
-<li><code>Event Attributes</code> - Attributes specific to an Event, i.e. which device recorded the Event</li>
-<li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container</li>
-</ul>
+</li>
+<li>
+<p>You may enter both Event and Asset attributes</p>
+<p><code>Event Attributes</code> - Attributes specific to an Event, i.e. which device recorded the Event<br>
+<code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
 <ul class="nav nav-tabs" id="add_event_attr" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event_attr-0" type="button" role="tab" aria-controls="add_event_attr-0" aria-selected="true">UI</button>
 		</li>
@@ -25470,7 +25462,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </div>
 </div>
   <div id="add_event_attr-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-1">
-<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code>.</p>
+<p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -25494,7 +25486,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
   <div id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2">
 <p>You may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the <a href="/developers/api-reference/blobs-api/">Blobs API</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=document/pdf&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -F <span class="s2">&#34;file=@/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs
@@ -25521,14 +25513,14 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<p>Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined <code>Weight</code> attribute.</p>
-<p>Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.</p>
-<p>There is an option to append <code>timestamp_declared</code> and <code>principal_declared</code> attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.</p>
-<p>PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each <code>Inspection</code> Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.</p>
-<ol start="4">
-<li>Record your Event.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
+Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined <code>Weight</code> attribute.<br><br>
+Every Event has an automatically generated <code>timestamp_accepted</code> and <code>principal_accepted</code> attribute that records <em>when</em> who performed what, as submitted to RKVST.<br><br>
+There is an option to append <code>timestamp_declared</code> and <code>principal_declared</code> attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
+PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each <code>Inspection</code> Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.</p>
+</li>
+<li>
+<p>Record your Event
+<ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25567,15 +25559,15 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
   <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="5">
-<li>View your Event details.</li>
-</ol>
+</li>
+<li>
+<p>View your Event details
 <ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
 		</li>
@@ -25619,7 +25611,7 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </div>
 </div>
   <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
-<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event</p>
 <p>To view all Events, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -25641,35 +25633,21 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container </span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
-<p>Event data can be viewed using curl commands.</p>
+<p>Event data can be viewed using curl commands</p>
 <p>To view all Events across all Assets, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
 </span></span></code></pre></div><p>To view the details of the Event you just created for My First Container, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
 
-<h1 id="please-see-the-administationplatformadministration-section-for-information-on-how-to-manage-your-assets">&laquo;&laquo;&laquo;&lt; HEAD
-Please see the <a href="/platform/administration/">Administation</a> section for information on how to manage your assets.</h1>
+Please see the <a href="/platform/administration/">Administration</a> section for information on how to manage your assets</p>
+</li>
+</ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>main</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 `}).add({id:8,href:"https://docs.rkvst.com/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
 <p>To verify your data, you may use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the RKVST blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of RKVST, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
@@ -25723,12 +25701,12 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <p>The <a href="/developers/api-reference/blockchain-api/">Blockchain API</a> allows you to fetch transactions for an Event. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <p>Using the Event ID as a parameter, run the following command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div><p>This will return a list of matching blockchain transactions, as well as the <code>simple_hash_details</code>. Copy the <code>start_time</code> and <code>end_time</code> values to be used as inputs to the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a>.</p>
 </div></div>
 
-<ol start="2">
+<ol>
 <li>Use the <a href="https://github.com/rkvst/rkvst-simplehash-python">RKVST Simple Hash tool</a> to generate the hash of your Events.</li>
 </ol>
 <ul class="nav nav-tabs" id="simple-hash-script" role="tablist"><li class="nav-item">
@@ -25801,7 +25779,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   </blockquote>
 </div></div>
 
-<ol start="3">
+<ol>
 <li>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</li>
 </ol>
 `}).add({id:9,href:"https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
@@ -25817,9 +25795,9 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </div>
   </blockquote>
 <ol>
-<li>Register your Document.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
+<li>
+<p>Register your Document
+<ul class="nav nav-tabs" id="add_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset-0" type="button" role="tab" aria-controls="add_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25861,22 +25839,21 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="2">
-<li>You will see the Document Registration form.</li>
-</ol>
-<p>The <code>Document Informtion</code> tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.</p>
-<p>The Trust data:</p>
+</li>
+<li>
+<p>You will see the Document Registration form<br>
+The <code>Document Information</code> tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.<br>
+The Trust data:</p>
 <ul>
-<li><code>Name</code> - This is the unique name of the Document i.e. &lsquo;My First Document&rsquo;.</li>
-<li><code>Version</code> - The version of your document.</li>
-<li><code>SHA-256 Hash</code> - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you.<br></li>
+<li><code>Name</code> - This is the unique name of the Document i.e. &lsquo;My First Document&rsquo;</li>
+<li><code>Version</code> - The version of your document</li>
+<li><code>SHA-256 Hash</code> - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you</li>
 </ul>
 <p>Additional options:</p>
 <ul>
-<li><code>Upload on Creation</code> - Upload the documment in addition to the trust data.</li>
-<li><code>Attest Publicly</code> - Enable to allow public attestation of the document.</li>
-</ul>
-<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+<li><code>Upload on Creation</code> - Upload the document in addition to the trust data</li>
+<li><code>Attest Publicly</code> - Enable to allow public attestation of the document<br><br>
+<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -25932,7 +25909,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
 <ul>
 <li><code>behaviours</code> detail what class of events in your Asset&rsquo;s lifecycle you might wish to record; <code>RecordEvidence</code> is the standard and recommended behaviour for all Assets.</li>
-<li><code>public</code> determines whether your docuemnt is public (<em>true</em>) or private (<em>false</em>)</li>
+<li><code>public</code> determines whether your document is public (<em>true</em>) or private (<em>false</em>)</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -25946,15 +25923,18 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol start="3">
-<li>The <code>Advanced Options</code> tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.</li>
-</ol>
+
+<br></li>
+</ul>
+</li>
+<li>
+<p>The <code>Advanced Options</code> tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.</p>
 <ul>
 <li><code>Document Type</code> - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be <code>Purchase Order</code>, which will then be pre-populated for future Documents to use as their own types.</li>
-<li><code>Proof Mechanism</code> - The method used to commit the blockchain transaction. Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Document.</li>
+<li><code>Proof Mechanism</code> - The method used to commit the blockchain transaction.</li>
 </ul>
-<p><ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
+<p>Please see our <a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Document
+<ul class="nav nav-tabs" id="add_asset_details_min" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details_min-0" type="button" role="tab" aria-controls="add_asset_details_min-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26019,15 +25999,15 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-<br></p>
-<ol start="4">
-<li>At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images</p>
 <p>Extended attributes are user-defined and can be added to each unique Document.</p>
 <p>Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.</p>
 <p>To add a new attribute to a Document, enter your key-value pair.</p>
-<p>For Example:</p>
-<p><ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
+<p>For Example:
+<ul class="nav nav-tabs" id="add_extended_attributes" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_extended_attributes-0" type="button" role="tab" aria-controls="add_extended_attributes-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26038,7 +26018,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#add_extended_attributes-2" type="button" role="tab" aria-controls="add_extended_attributes-2" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="add_extended_attributes"><div id="add_extended_attributes-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="add_extended_attributes-0">
-<p>Select <code>Add Attribute</code>, and add your key-value pairs.</p>
+<p>Select <code>Add Attribute</code>, and add your key-value pairs</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#RegDocAdvancedOptions2" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2.png" width="914" height="749" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2_hue04e21ff08a6d40c4d0c13d7d2c674b9_59513_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/RegDocAdvancedOptions2.png" width="914" height="749" alt="Rectangle"></noscript>
@@ -26057,7 +26037,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>document_version</code>, <code>format</code>, and <code>some_custom_attribute</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
-<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells RKVST to finish commiting the Asset before moving to the next step.</p>
+<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells RKVST to finish committing the Asset before moving to the next step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -26107,10 +26087,10 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="5">
-<li>Complete your Asset creation.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>Complete your Asset creation
+<ul class="nav nav-tabs" id="finish_create_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_create_asset-0" type="button" role="tab" aria-controls="finish_create_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26148,16 +26128,16 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="finish_create_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="6">
-<li>View your Document.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View your Document
+<ul class="nav nav-tabs" id="view_all_assets" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_all_assets-0" type="button" role="tab" aria-controls="view_all_assets-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26196,14 +26176,14 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="view_all_assets-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-2">
 <p>You can view all Asset data using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
 <br></p>
-<ol start="7">
-<li>View details of the Asset you created.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
+</li>
+<li>
+<p>View details of the Asset you created
+<ul class="nav nav-tabs" id="view_specific_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_specific_asset-0" type="button" role="tab" aria-controls="view_specific_asset-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26218,7 +26198,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#DocAsset" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/DocAsset.png" width="1105" height="710" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAsset_hu3f0d91160b12a98615f05ff3cd053fd6_82434_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/DocAsset.png" width="1105" height="710" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Viewing Docuemnt Asset</em></figcaption>
+  <figcaption class="figure-caption"><em>Viewing Document Asset</em></figcaption>
 </figure>
 <div class="modal fade" id="DocAsset" tabindex="-1" aria-labelledby="DocAsset" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -26233,7 +26213,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#DocAssetDetails" img class="img-fluid responsive" src="/platform/overview/registering-a-document-profile-asset/DocAssetDetails.png" width="1120" height="594" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-a-document-profile-asset/DocAssetDetails_hu6bf1e9fdba49386fea38fcb62b905e14_45492_200x0_resize_box_3.png 200w" src="/platform/overview/registering-a-document-profile-asset/DocAssetDetails.png" width="1120" height="594" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Viewing Docuemnt Asset Details</em></figcaption>
+  <figcaption class="figure-caption"><em>Viewing Document Asset Details</em></figcaption>
 </figure>
 <div class="modal fade" id="DocAssetDetails" tabindex="-1" aria-labelledby="DocAssetDetails" aria-hidden="true">
   <div class="modal-dialog modal-xl">
@@ -26261,10 +26241,12 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   <div id="view_specific_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-2">
 <p>Details of a specific asset can be retrieved using identifying attributes (<code>attrs</code>), such as name, type, or presence of a certain field.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name<span class="o">=</span>My%20First%20Document
 </span></span></code></pre></div></div></div>
 <br></p>
+</li>
+</ol>
 <p>Here we see all details entered: The extended attributes and a history of Events recorded on the Document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To update the details of your Asset after it has been created, you must create an Event containing <code>Asset Attributes</code> that conform to the <a href="/developers/developer-patterns/document-profile/">Document Profile</a>.</p>
@@ -26418,7 +26400,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 <tr>
 <td>document_withdrawal_reason</td>
 <td>Reason why document has been withdrawn</td>
-<td>Optional, but encouraged.</td>
+<td>Optional, but encouraged</td>
 </tr>
 </tbody>
 </table>
@@ -26441,7 +26423,7 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 `}).add({id:11,href:"https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
 <p>If you need to update your registered Document Profile Asset you can record this as an Event. The <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
 <p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
-<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classifiation.</p>
+<p>There is also the option to record an event (Record Event) that is important but is not formally part of the document profile. An example of this could be a document content review or a change in security classification.</p>
 <p>When the document version is no longer to be used there is a Withdraw Event.</p>
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
@@ -26449,9 +26431,9 @@ Please see the <a href="/platform/administration/">Administation</a> section for
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
-<li>Open the Asset Overview for a Document Profile Asset.</li>
-</ol>
-<p><ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
+<li>
+<p>Open the Asset Overview for a Document Profile Asset
+<ul class="nav nav-tabs" id="add_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_event-0" type="button" role="tab" aria-controls="add_event-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26506,9 +26488,11 @@ Please see the <a href="/platform/administration/">Administation</a> section for
 </ul>
 </div>
   </blockquote>
-<br>
-2. Adding a New Version.</p>
-<p><ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
+<br></p>
+</li>
+<li>
+<p>Adding a New Version
+<ul class="nav nav-tabs" id="add_new_version" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_new_version-0" type="button" role="tab" aria-controls="add_new_version-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -26612,8 +26596,9 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </div></div>
 
 <br></p>
-<ol start="3">
-<li>The Withdraw Event.
+</li>
+<li>
+<p>The Withdraw Event
 <ul class="nav nav-tabs" id="withdraw_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#withdraw_event-0" type="button" role="tab" aria-controls="withdraw_event-0" aria-selected="true">UI</button>
 		</li>
@@ -26642,7 +26627,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </div>
 </div>
   <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
-<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -26659,7 +26644,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
-<p>Use the attibute/value pairs in the example below to register a <code>Withdraw</code> event.</p>
+<p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
@@ -26673,10 +26658,11 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<br></li>
-<li>Recording a Generic Event.</li>
-</ol>
-<p>The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
+<br></p>
+</li>
+<li>
+<p>Recording a Generic Event<br>
+The <code>Record Event</code> button provides a way to record generic events that are not part of the Document Profile lifecycle. The asset and event attributes are in separate tabs in this Event type.</p>
 <p>See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a> for more information on this event type.
 <ul class="nav nav-tabs" id="record_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#record_event-0" type="button" role="tab" aria-controls="record_event-0" aria-selected="true">UI</button>
@@ -26729,8 +26715,10 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-<br>
-5. Registering the Event
+<br></p>
+</li>
+<li>
+<p>Registering the Event
 <ul class="nav nav-tabs" id="register_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#register_event-0" type="button" role="tab" aria-controls="register_event-0" aria-selected="true">UI</button>
 		</li>
@@ -26769,14 +26757,16 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   <div id="register_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
 
-<br>
-6. Viewing Event details.</p>
+<br></p>
+</li>
+<li>
+<p>Viewing Event details
 <ul class="nav nav-tabs" id="view_event" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#view_event-0" type="button" role="tab" aria-controls="view_event-0" aria-selected="true">UI</button>
 		</li>
@@ -26804,7 +26794,7 @@ The Document tab shows information about the document version that you are viewi
 </code></pre>
   </div>
 </div>
-<p>The More Details tab provides information about the Event itself and incluides a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
+<p>The More Details tab provides information about the Event itself and includes a link to the transaction. It also includes any optional attributes that were included in the Event.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#MoreEventDetails" img class="img-fluid responsive" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails_hudb7f1abcd65ec90d297e7b73d39769f0_36816_200x0_resize_box_3.png 200w" src="/platform/overview/registering-an-event-against-a-document-profile-asset/MoreEventDetails.png" width="729" height="452" alt="Rectangle"></noscript>
@@ -26821,7 +26811,7 @@ The Document tab shows information about the document version that you are viewi
 </div>
 </div>
   <div id="view_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-1">
-<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event.</p>
+<p>The <code>EVENTS_LIST</code> action can be used to view all Events, or filtered using attributes (<code>attrs</code>) to view details of a specific Event</p>
 <p>To view all Events, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -26841,17 +26831,19 @@ The Document tab shows information about the document version that you are viewi
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Publish</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="view_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="view_event-2">
-<p>Event data can be viewed using curl commands.</p>
+<p>Event data can be viewed using curl commands</p>
 <p>To view all Events across all Assets, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/-/events
 </span></span></code></pre></div><p>To view the details of the Event you just created for My First Document, use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 `}).add({id:12,href:"https://docs.rkvst.com/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with RKVST",content:`<h2 id="overview">Overview</h2>
 <p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
 <p>In its <a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its <a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
@@ -26862,7 +26854,7 @@ The Document tab shows information about the document version that you are viewi
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Asset Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -26920,10 +26912,11 @@ The Document tab shows information about the document version that you are viewi
 </tbody>
 </table>
 <blockquote class="note callout">
-    <div><strong></strong> <h5 id="software-package-profile-attribute-namespace">Software Package Profile Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</div>
+    <div><strong></strong> <p><strong>Note:</strong> Software Package Profile Attribute Namespace</p>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.</p>
+</div>
   </blockquote>
-<h5 id="public-sbom">Public SBOM</h5>
+<h3 id="public-sbom">Public SBOM</h3>
 <p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
 <ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
@@ -26994,12 +26987,12 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>The Release attributes tracked in RKVST should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines.</div>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines</div>
   </blockquote>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27077,7 +27070,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Asset Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27123,7 +27116,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <tr>
 <td>N/A</td>
 <td>sbom_release_notes</td>
-<td>Link to the release notes of the packaversion</td>
+<td>Link to the release notes of the package version</td>
 <td>Optional</td>
 </tr>
 <tr>
@@ -27152,7 +27145,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27241,7 +27234,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27332,7 +27325,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27547,7 +27540,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <table>
 <thead>
 <tr>
-<th>NTIA Attribute Name</th>
+<th>NTIA Attribute</th>
 <th>Event Attributes</th>
 <th>Meaning</th>
 <th>Requirement</th>
@@ -27597,9 +27590,8 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See <a href="/developers/developer-patterns/document-profile">Document Profile</a> more more information.</p>
 <h3 id="using-the-instaproof-ui">Using the Instaproof UI</h3>
 <ol>
-<li><strong>Open Instaproof</strong>.</li>
-</ol>
-<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area.
+<li>
+<p>Using the sidebar, select <code>Instaproof</code>and then drag a document into the search area
 
 
 <figure class="border-0">
@@ -27623,10 +27615,10 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   
   </div>
 </div></p>
-<ol start="2">
-<li><strong>Document not found</strong>.</li>
-</ol>
-<p>If the document that you are verifying has not been found, you will see a red response banner.
+</li>
+<li>
+<p><strong>Document not found</strong><br>
+If the document that you are verifying has not been found, you will see a red response banner.
 
 
 <figure class="border-0">
@@ -27649,21 +27641,21 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
       </div>
   
   </div>
-</div></p>
-<p>The possible reasons for this outcome are:</p>
+</div>
+The possible reasons for this outcome are:</p>
 <ul>
-<li>The document owner has not registered the document in their RKVST tenancy.</li>
-<li>The document owner has not published this version of the document as an event.</li>
-<li>The document has been modified since it was registered with RKVST!</li>
+<li>The document owner has not registered the document in their RKVST tenancy</li>
+<li>The document owner has not published this version of the document as an event</li>
+<li>The document has been modified since it was registered with RKVST</li>
 </ul>
 <p>In all cases you should contact the document owner to find out whether your document version can be trusted.</p>
-<ol start="3">
-<li><strong>Document Found</strong>.</li>
-</ol>
+</li>
+<li>
+<p><strong>Document Found</strong>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> In this screenshot we are using the file <code>greenfrog.jpg</code> which can be downloaded from our <a href="https://github.com/rkvst/instaproof-samples/tree/main/media">Instaproof Samples</a> page.</div>
   </blockquote>
-<p>If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.</p>
+If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record.
 
 
 <figure class="border-0">
@@ -27687,16 +27679,16 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   
   </div>
 </div>
-<p>At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
+At the top you can see the document that was checked and found on Instaproof. Don&rsquo;t worry! It&rsquo;s all kept locally - we don&rsquo;t need to peek inside your documents to find their provenance.</p>
 <p>You can check additional documents by dragging them on top of here.</p>
 <p>Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.</p>
 <p>A <strong>Verified Organization</strong> has a <a href="/platform/administration/verified-domain/">verified domain</a> associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want &lsquo;official&rsquo; provenance records.</p>
 <p>The <strong>Other Results</strong> results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you&rsquo;re interested in.</p>
 <p>While they may seem less &lsquo;official&rsquo; than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.</p>
-<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
-<ol>
-<li><strong>Provenance Record</strong></li>
+</li>
 </ol>
+<h3 id="what-do-the-instaproof-results-mean">What do the Instaproof results mean?</h3>
+<h4 id="provenance-record">Provenance Record</h4>
 <p>Click on a result to see details of the provenance record.</p>
 
 
@@ -27774,7 +27766,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
   </div>
 </div>
 <p><strong>Type</strong> - The type of event. For Document Profile Events this will always be &lsquo;Publish&rsquo;.</p>
-<p><strong>Description</strong> - An optional decription of the event.</p>
+<p><strong>Description</strong> - An optional description of the event.</p>
 <p><strong>Event ID</strong> -  The Event ID will always be of the format &lsquo;publicassets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for public assets or &lsquo;assets/&lt;asset_id&gt;/events/&lt;event_id&gt;&rsquo; for private assets.</p>
 <p><strong>Attributes</strong> - This section contains any custom attributes that were included added when the asset was created or when the current event was added to the asset.</p>
 <p><strong>Transaction</strong> - This link contains the details of the blockchain transaction.
@@ -27840,8 +27832,8 @@ The share button allows you to access and copy the private and public (if enable
     <div><strong></strong> <strong>Warning</strong>: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.</div>
   </blockquote>
 <ol>
-<li>Create an Asset with your desired attributes and set it to public. See <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> for detailed instructions.</li>
-</ol>
+<li>
+<p>Create an Asset with your desired attributes and set it to public. See <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> for detailed instructions
 <ul class="nav nav-tabs" id="create_asset_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_asset_public-0" type="button" role="tab" aria-controls="create_asset_public-0" aria-selected="true">UI</button>
 		</li>
@@ -27893,10 +27885,10 @@ The share button allows you to access and copy the private and public (if enable
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Publish your Public Asset.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Publish your Public Asset
 <blockquote class="warning callout">
     <div><strong></strong> <strong>WARNING:</strong> Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.</div>
   </blockquote>
@@ -27927,15 +27919,15 @@ The share button allows you to access and copy the private and public (if enable
   <div id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1">
 <p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Retrieve public link to share your Public Asset with others.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Retrieve public link to share your Public Asset with others
 <blockquote class="note callout">
     <div><strong></strong> <strong>NOTE:</strong> A Public Asset may only be updated by the Tenancy that created it. Anyone viewing the Asset using the public link will have read-only access.</div>
   </blockquote>
@@ -27964,14 +27956,15 @@ The share button allows you to access and copy the private and public (if enable
 </div>
 </div>
   <div id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1">
-<p>A Public Asset&rsquo;s URL can be retrived via the <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
+<p>A Public Asset&rsquo;s URL can be retrieved via the <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
-
-<ol start="4">
-<li>The following screenshot shows the public view of the Asset when the public link is followed.
+</p>
+</li>
+<li>
+<p>The following screenshot shows the public view of the Asset when the public link is followed.
 
 
 <figure class="border-0">
@@ -27994,15 +27987,16 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div></li>
+</div></p>
+</li>
 </ol>
 <h3 id="adding-an-event-to-a-public-asset">Adding an Event to a Public Asset</h3>
 <blockquote class="note callout">
     <div><strong></strong> <strong>NOTE:</strong> Any Events added to a Public Asset will also be public. Events may only be added by the tenancy that originally created the Public Asset.</div>
   </blockquote>
 <ol>
-<li>Create an Event with your desired attributes. See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event</a> for detailed instructions.</li>
-</ol>
+<li>
+<p>Create an Event with your desired attributes. See <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event</a> for detailed instructions
 <ul class="nav nav-tabs" id="create_event_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_event_public-0" type="button" role="tab" aria-controls="create_event_public-0" aria-selected="true">UI</button>
 		</li>
@@ -28028,7 +28022,7 @@ The share button allows you to access and copy the private and public (if enable
 </div>
 </div>
   <div id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1">
-<p>Create a JSON file with your desired Event details.</p>
+<p>Create a JSON file with your desired Event details</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
@@ -28038,17 +28032,17 @@ The share button allows you to access and copy the private and public (if enable
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Public Update&#34;</span><span class="p">:</span> <span class="s2">&#34;New Information&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
+</span></span></code></pre></div><p>Use the curl command to run your JSON file. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Your Event will be readable when the Public Asset link is followed.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Your Event will be readable when the Public Asset link is followed
 
 
 <figure class="border-0">
@@ -28071,7 +28065,7 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div>
+</div><br>
 
 
 <figure class="border-0">
@@ -28094,10 +28088,10 @@ The share button allows you to access and copy the private and public (if enable
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>You may also retrieve a public URL to the Event itself, using the <a href="/developers/api-reference/assets-api/">Assets API</a>.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>You may also retrieve a public URL to the Event itself, using the <a href="/developers/api-reference/assets-api/">Assets API</a>
 <ul class="nav nav-tabs" id="get_link_event_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#get_link_event_public-0" type="button" role="tab" aria-controls="get_link_event_public-0" aria-selected="true">JSON</button>
 		</li>
@@ -28105,10 +28099,12 @@ The share button allows you to access and copy the private and public (if enable
 <div class="tab-content" id="get_link_event_public"><div id="get_link_event_public-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="get_link_event_public-0">
 <p>Use the following curl command, which will return the public URL for the Event.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/&lt;asset-id&gt;/events/&lt;event-id&gt;:publicurl
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 `}).add({id:15,href:"https://docs.rkvst.com/platform/overview/scitt-receipts/",title:"Verify RKVST SCITT Receipts",description:"Proof of Posting Receipts for SCITT",content:`<h2 id="what-are-receipts">What are receipts?</h2>
 <p>Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.</p>
 <p>Receipts can be retrieved for <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
@@ -28140,26 +28136,26 @@ The share button allows you to access and copy the private and public (if enable
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v2/<span class="si">\${</span><span class="nv">EVENT_IDENTITY</span><span class="si">}</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .transaction_id<span class="k">)</span>
 </span></span></code></pre></div><blockquote class="warning callout">
-    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechansim</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
+    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
   </blockquote>
-<ol start="2">
-<li>Get a claim for the Event identity.</li>
-</ol>
+<ol>
+<li>
+<p>Get a claim for the Event identity</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CLAIM</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s2">&#34;{\\&#34;transaction_id\\&#34;:\\&#34;</span><span class="si">\${</span><span class="nv">EVENT_TRANSACTION_ID</span><span class="si">}</span><span class="s2">\\&#34;}&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        -X POST -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v1/notary/claims/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .claim<span class="k">)</span>
-</span></span></code></pre></div><ol start="3">
-<li>Next, get the corresponding receipt for the claim.</li>
-</ol>
+</span></span></code></pre></div></li>
+<li>
+<p>Next, get the corresponding receipt for the claim</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RECEIPT</span><span class="o">=</span><span class="k">$(</span>curl -s -d <span class="s2">&#34;{\\&#34;claim\\&#34;:\\&#34;</span><span class="si">\${</span><span class="nv">CLAIM</span><span class="si">}</span><span class="s2">\\&#34;}&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        -X POST -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v1/notary/receipts <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .receipt<span class="k">)</span>
-</span></span></code></pre></div><ol start="4">
-<li>Get the block details.</li>
-</ol>
-<p>Get the block number using:</p>
+</span></span></code></pre></div></li>
+<li>
+<p>Get the block details
+Get the block number using:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> base64 -d <span class="p">|</span> less
 </span></span></code></pre></div><p>Look for the first <code>&quot;block&quot;:&quot;&lt;HEX-BLOCK-NUMBER&gt;&quot;</code> in the decoded output and set the value in the environment, for example: <code>BLOCK=&quot;0x1234&quot;</code>.</p>
 <p>Next, get the appropriate state root field from the block details. To verify a Simple Hash receipt get the
@@ -28171,12 +28167,16 @@ The share button allows you to access and copy the private and public (if enable
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .privateStateRoot<span class="k">)</span>
-</span></span></code></pre></div><ol start="4">
-<li>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</li>
-</ol>
+</span></span></code></pre></div></li>
+<li>
+<p>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="si">\${</span><span class="nv">RECEIPT</span><span class="si">}</span> <span class="p">|</span> rkvst_receipt_scittv1 verify -d --worldroot <span class="si">\${</span><span class="nv">WORLDROOT</span><span class="si">}</span>
-</span></span></code></pre></div>`}).add({id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
-<p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user. There may be multiple accounts within a Tenancy if there are several members within an organization. Additionally, an individual user can be part of multiple Tenancies.</p>
+</span></span></code></pre></div></li>
+</ol>
+`}).add({id:16,href:"https://docs.rkvst.com/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"RKVST IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+<p>Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user.
+There may be multiple accounts within a Tenancy if there are several members within an organization.
+Additionally, an individual user can be part of multiple Tenancies.</p>
 <h3 id="how-do-i-add-users-to-my-organization">How do I add users to my organization?</h3>
 <p>RKVST Invites make it easy to add accounts to your tenancy.</p>
 <p>As an <a href="/platform/overview/core-concepts/#tenancies">administrator</a>, create an invite and send it to the email address of the user you wish to add.</p>
@@ -28243,7 +28243,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   <div id="invite_user_iam-2" class="tab-pane fade" role="tabpanel" aria-labelledby="invite_user_iam-2">
 <p>Fill in your desired details and run the command to send the invite.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;Join my RKVST tenancy!&#34;, &#34;email&#34;: &#34;user@rkvst.com&#34;}&#39;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
@@ -28252,11 +28252,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 
 <h3 id="can-i-name-my-tenancy">Can I name my tenancy?</h3>
 <h4 id="tenant-display-name">Tenant Display Name</h4>
-<p>There are two ways to name your RKVST Tenancy. The first way is to add a <code>Tenant Display Name</code>. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tencancy you&rsquo;re currently working in and to switch between Tenancies if you are part of multiple Tenancies.</p>
+<p>There are two ways to name your RKVST Tenancy. The first way is to add a <code>Tenant Display Name</code>. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tenancy you&rsquo;re currently working in and to switch between Tenancies if you are part of multiple Tenancies.</p>
 <p>To set your <code>Tenant Display Name</code>:</p>
 <ol>
-<li>
-<p>On the Sidebar, select <code>Settings</code>.
+<li>On the Sidebar, select <code>Settings</code>
 
 
 <figure class="border-0">
@@ -28279,10 +28278,8 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Add your desired name, then click <code>CHANGE DISPLAY NAME</code>.
+</div></li>
+<li>Add your desired name, then click <code>CHANGE DISPLAY NAME</code>
 
 
 <figure class="border-0">
@@ -28305,52 +28302,50 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div></p>
-</li>
+</div></li>
 </ol>
 <h4 id="verified-domain">Verified Domain</h4>
 <p>The second way to set your tenancy name is to <a href="/platform/administration/verified-domain/">get your domain verified</a> by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.</p>
 <h2 id="enterprise-single-sign-on">Enterprise Single Sign-On</h2>
 <p><a href="https://www.rkvst.com/pricing/">Enterprise customers</a> may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a <a href="/platform/administration/verified-domain/">Verified Domain</a>.</p>
 <ol>
-<li>Navigate to <code>Settings</code> on the sidebar and select <code>Tenancy</code>.</li>
-</ol>
-<p>Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code>. Saving your configuration may take a moment.</p>
+<li>
+<p>Navigate to <code>Settings</code> on the sidebar and select <code>Tenancy</code>.<br>
+Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code>. Saving your configuration may take a moment.
 
-
-<figure class="border-0">
   
-  <input type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Configure SSO</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
+  <figure class="border-0">
     
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" width="981" height="433" alt="Rectangle">
-      </div>
+    <input type="image" data-bs-toggle="modal" data-bs-target="#ESSOForm" img class="img-fluid responsive" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" alt="Rectangle">
+    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" src="/platform/administration/identity-and-access-management/ESSOForm.png" width="981" height="433" alt="Rectangle"></noscript>
+    <figcaption class="figure-caption"><em>Configure SSO</em></figcaption>
+  </figure>
   
+  
+  
+  
+  
+  <div class="modal fade" id="ESSOForm" tabindex="-1" aria-labelledby="ESSOForm" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      
+        <div class="modal-body">
+          
+          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/identity-and-access-management/ESSOForm_hu157c28c5401e40c91f80a69893659026_28293_200x0_resize_box_3.png 200w" width="981" height="433" alt="Rectangle">
+        </div>
+    
+    </div>
   </div>
-</div>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>NOTE:</strong> To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.</p>
 <p><strong>Login URI:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://app.rkvst.io/login
-</span></span></code></pre></div><p><strong>Callback URL:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
-</span></span></code></pre></div></div>
-  </blockquote>
-<br/>
-<ol start="2">
-<li>Now that your details are saved, return to the RKVST sign-in screen. Select the <code>Single Sign-On</code> option.</li>
-</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">https://app.rkvst.io/login
+</span></span></span></code></pre></div><p><strong>Callback URL:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">https://b2carchivistprod3.b2clogin.com/b2carchivistprod3.onmicrosoft.com/oauth2/authresp
+</span></span></span></code></pre></div></div>
+  </blockquote></p>
+</li>
+<li>
+<p>Now that your details are saved, return to the RKVST sign-in screen. Select the <code>Single Sign-On</code> option
 
 
 <figure class="border-0">
@@ -28373,10 +28368,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>Enter your <a href="/platform/overview/identity-and-access-management/#verified-domain">Verified Domain Name</a>.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>Enter your <a href="/platform/overview/identity-and-access-management/#verified-domain">Verified Domain Name</a>
 
 
 <figure class="border-0">
@@ -28400,7 +28395,9 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   
   </div>
 </div>
-<p>You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
+You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.</p>
+</li>
+</ol>
 `}).add({id:17,href:"https://docs.rkvst.com/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the RKVST team, a badge indicating that they have been verified will appear next to their domain name.</p>
 <blockquote class="note callout">
@@ -28408,14 +28405,14 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   </blockquote>
 <h2 id="why-is-it-important-to-verify-my-organizations-domain">Why is it important to verify my organization&rsquo;s domain?</h2>
 <p>Getting your organization&rsquo;s domain verified indicates that you are who you say you are. This helps close the trust gap inherent to information sharing between organizations or with the public.</p>
-<p>Without domain verification, the <code>Organisation</code> is noted as the publisher&rsquo;s Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have <code>rkvst.com</code>.</p>
+<p>Without domain verification, the <code>Organization</code> is noted as the publisher&rsquo;s Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of RKVST would have <code>rkvst.com</code>.</p>
 
 
 <figure class="border-0">
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#UnverifiedDomain" img class="img-fluid responsive" src="/platform/administration/verified-domain/UnverifiedDomain.png" width="1623" height="498" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/UnverifiedDomain_hu95efbde3bf2568e35b5719ffae3ff25f_81198_200x0_resize_box_3.png 200w" src="/platform/administration/verified-domain/UnverifiedDomain.png" width="1623" height="498" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Organisation without Verified Domain</em></figcaption>
+  <figcaption class="figure-caption"><em>Organization without Verified Domain</em></figcaption>
 </figure>
 
 
@@ -28438,7 +28435,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DomainBadge" img class="img-fluid responsive" src="/platform/administration/verified-domain/DomainBadge.png" width="1480" height="484" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/verified-domain/DomainBadge_hu9a353d928f291b066a86c8fb378d7afb_79077_200x0_resize_box_3.png 200w" src="/platform/administration/verified-domain/DomainBadge.png" width="1480" height="484" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Organisation with Verified Domain</em></figcaption>
+  <figcaption class="figure-caption"><em>Organization with Verified Domain</em></figcaption>
 </figure>
 
 
@@ -28461,7 +28458,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <h2 id="checking-the-verified-domain-of-an-external-organization">Checking the Verified Domain of an External Organization</h2>
 <p>If an organization has a verified domain with RKVST, it will be displayed when you view a Public Asset they have published. You may also retrieve this information via the API if you know the organization&rsquo;s Tenant ID.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
 </span></span></code></pre></div>`}).add({id:18,href:"https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/",title:"Managing Access to an Asset With ABAC",description:"Sharing Access within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
@@ -28478,8 +28475,8 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <p>Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.</p>
 <p>We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create <code>Inspect</code> Events.</p>
 <ol>
-<li>Create your Access Policy.</li>
-</ol>
+<li>
+<p>Create your Access Policy.
 <ul class="nav nav-tabs" id="access_policies_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_abac-0" type="button" role="tab" aria-controls="access_policies_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28510,10 +28507,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>You may wish to view your existing policies before creating a new one.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>You may wish to view your existing policies before creating a new one.
 <ul class="nav nav-tabs" id="existing_policies_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_abac-0" type="button" role="tab" aria-controls="existing_policies_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28541,13 +28538,13 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   <div id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Set the asset filters for your policy.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Set the asset filters for your policy
 <ul class="nav nav-tabs" id="asset_filters_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_abac-0" type="button" role="tab" aria-controls="asset_filters_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28605,10 +28602,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><a href="/platform/administration/grouping-assets-by-location/">See here for instructions on finding your location ID.</a></p>
 </div></div>
-
-<ol start="4">
-<li>Next, enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access
 <ul class="nav nav-tabs" id="permissions_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28683,9 +28680,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.
+</p>
+</li>
+<li>
+<p>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish
 <ul class="nav nav-tabs" id="complete_policy_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_abac-0" type="button" role="tab" aria-controls="complete_policy_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28694,7 +28692,7 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_abac-1" type="button" role="tab" aria-controls="complete_policy_abac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="complete_policy_abac"><div id="complete_policy_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_abac-0">
-<p>Enter desired permissions and select <code>Add Permission Group</code>.</p>
+<p>Enter desired permissions and select <code>Add Permission Group</code></p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACPermissions" img class="img-fluid responsive" src="/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="821" height="647" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions_hu4185b80c399620c8dc62e8f42f7f3d30_52744_200x0_resize_box_3.png 200w" src="/platform/administration/managing-access-to-an-asset-with-abac/PolicyABACPermissions.png" width="821" height="647" alt="Rectangle"></noscript>
@@ -28708,10 +28706,10 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>   
+</div>
 </div>
   <div id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1">
-<p>Add the desired permissions and the desired <code>user_attributes</code>.</p>
+<p>Add the desired permissions and the desired <code>user_attributes</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Bill Inspect Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -28732,13 +28730,13 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
+<br>
+<strong>Note:</strong> we have included RKVST-significant attributes: <code>arc_display_name</code>, <code>arc_description</code>, and <code>arc_home_location_identity</code>
+<code>arc_*</code> attributes have special significance in RKVST.<br>
+In this case, respectively, allowing visibility to the <code>Name</code>, <code>Description</code>, and <code>Location</code> of the Asset. Other <code>arc_*</code> attributes are also available.</p>
 </li>
-</ol>
-<p>Note we have included RKVST-sigificant attributes: <code>arc_display_name</code>, <code>arc_description</code>, and <code>arc_home_location_identity</code>.</p>
-<p><code>arc_*</code> attributes have special significance in RKVST; in this case, respectively, allowing visibility to the Name, Description, and Location of the Asset. Other <code>arc_*</code> attributes are also available.</p>
-<ol start="6">
-<li>Once complete, finish creating the Access Policy.</li>
-</ol>
+<li>
+<p>Once complete, finish creating the Access Policy.
 <ul class="nav nav-tabs" id="execute_policy_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#execute_policy_abac-0" type="button" role="tab" aria-controls="execute_policy_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -28767,16 +28765,16 @@ This action is not yet available in the YAML Runner. Check out our UI or curl co
 <p>fo
 Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>Check the Asset is appropriately shared.</li>
-</ol>
-<p>Mandy should only be allowed to see the Asset&rsquo;s Name, Location, Length, and Weight attributes.</p>
+</p>
+</li>
+<li>
+<p>Check the Asset is appropriately shared</p>
+<p>Mandy should only be allowed to see the Asset&rsquo;s Name, Location, Length, and Weight attributes
 
 
 <figure class="border-0">
@@ -28799,8 +28797,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<p>For comparison with our Administrator, Jill:</p>
+</div></p>
+<p>For comparison with our Administrator, Jill:
 
 
 <figure class="border-0">
@@ -28823,7 +28821,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
+</div></p>
+</li>
+</ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy. She can also see the Event where we updated the location.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
 `}).add({id:19,href:"https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/",title:"Sharing Assets outside your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
@@ -28835,8 +28835,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <p>In order to share Assets and their details with another organization or Tenancy, we must first import the subject ID of the external organization. The external organization will also need to import your subject ID. The process below shows how to enter an external organization&rsquo;s subject ID and for obtaining your own subject ID.</p>
 <h3 id="importing-another-organizations-id">Importing another Organization&rsquo;s ID</h3>
 <ol>
-<li>Obtain the external organization&rsquo;s subject ID to create a new Subject.</li>
-</ol>
+<li>
+<p>Obtain the external organization&rsquo;s subject ID to create a new Subject.
 <ul class="nav nav-tabs" id="import_subject_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_obac-0" type="button" role="tab" aria-controls="import_subject_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -28862,13 +28862,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1">
-<p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step.</p>
+<p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$SUBJECT_STRING</span> <span class="p">|</span> base64 -d
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Select the Subjects Tab and then <code>Import Subject</code>.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Select the Subjects Tab and then <code>Import Subject</code>
 <ul class="nav nav-tabs" id="import_subject_id_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#import_subject_id_obac-0" type="button" role="tab" aria-controls="import_subject_id_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -28910,7 +28910,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
   <div id="import_subject_id_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_id_obac-1">
 <p>To add users to the access policy using JSON, you will first need to retrieve their subject IDs using the <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API</a>.</p>
-<p>Save the following to a JSON file with your desired subject information.</p>
+<p>Save the following to a JSON file with your desired subject information</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Friendly Name&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;wallet_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key1&#34;</span><span class="p">],</span>
@@ -28918,16 +28918,18 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Execute the file, which will return the subject identity in the form <code>subjects/&lt;subject-id&gt;</code> to be used in your Access Policy. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 <h3 id="finding-your-own-id">Finding Your Own ID</h3>
 <ol>
-<li>As an Administrator, navigate to <code>Access Policies</code>.</li>
-</ol>
+<li>
+<p>As an Administrator, navigate to <code>Access Policies</code>
 
 
 <figure class="border-0">
@@ -28950,11 +28952,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="2">
-<li>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</li>
-</ol>
-<p>This string is the one you should share with a 3rd Party who wants to share their data with you.</p>
+</div></p>
+</li>
+<li>
+<p>Select the Subjects Tab and your Organization&rsquo;s ID will be contained within the <code>Self</code> box.</p>
+<p>This string is the one you should share with a 3rd Party who wants to share their data with you.
 
 
 <figure class="border-0">
@@ -28980,13 +28982,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The imported subjects will show a grey &ldquo;disconnected&rdquo; icon until both sides have imported the other&rsquo;s Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, the grey disconnected icon will no longer show.</div>
-  </blockquote>
+  </blockquote></p>
+</li>
+</ol>
 <h2 id="creating-an-obac-policy">Creating an OBAC Policy</h2>
 <p>OBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.</p>
 <p>It is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.</p>
 <ol>
-<li>Create your Access Policy.</li>
-</ol>
+<li>
+<p>Create your Access Policy
 <ul class="nav nav-tabs" id="access_policies_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#access_policies_obac-0" type="button" role="tab" aria-controls="access_policies_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29017,10 +29021,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>You may wish to view your existing policies before creating a new one.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>You may wish to view your existing policies before creating a new one
 <ul class="nav nav-tabs" id="existing_policies_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#existing_policies_obac-0" type="button" role="tab" aria-controls="existing_policies_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29048,13 +29052,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Set the asset filters for your policy.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Set the asset filters for your policy
 <ul class="nav nav-tabs" id="asset_filters_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#asset_filters_obac-0" type="button" role="tab" aria-controls="asset_filters_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29112,10 +29116,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><a href="/platform/administration/grouping-assets-by-location/">See here for instructions on finding your location ID.</a></p>
 </div></div>
-
-<ol start="4">
-<li>Next, enter the desired <code>Permissions</code> to set Users&rsquo; Asset and Event attribute access.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Next, enter the desired <code>Permissions</code> to set Users&rsquo; Asset and Event attribute access
 <ul class="nav nav-tabs" id="permissions_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_obac-0" type="button" role="tab" aria-controls="permissions_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29139,7 +29143,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </code></pre>
   </div>
 </div>
-<p>In our case, we want the <code>Organization</code> actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a prepopulated drop-down search.</p>
+<p>In our case, we want the <code>Organization</code> actor, which implies OBAC. Type the friendly name of the organization you wish to share with into the box and there should be a pre-populated drop-down search.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> You will need to have imported another Organization&rsquo;s ID before you can specify a policy to share information with that Organization.</div>
   </blockquote>
@@ -29168,15 +29172,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Execute the file, which will return the subject identity in the form <code>subjects/&lt;subject-id&gt;</code> to be used in your access policy. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish
 <ul class="nav nav-tabs" id="complete_policy_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_policy_obac-0" type="button" role="tab" aria-controls="complete_policy_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29185,7 +29189,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#complete_policy_obac-1" type="button" role="tab" aria-controls="complete_policy_obac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="complete_policy_obac"><div id="complete_policy_obac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="complete_policy_obac-0">
-<p>Enter desired permissions and select <code>Add Permission Group</code>.</p>
+<p>Enter desired permissions and select <code>Add Permission Group</code></p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyOBACPermissionGroup" img class="img-fluid responsive" src="/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup.png" width="820" height="645" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup_hudf14cb3fcc624fb9fcc047612cdfadbd_52461_200x0_resize_box_3.png 200w" src="/platform/administration/sharing-assets-outside-your-tenant/PolicyOBACPermissionGroup.png" width="820" height="645" alt="Rectangle"></noscript>
@@ -29202,7 +29206,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1">
-<p>Add the desired permissions and the Subject ID found in the previous step.</p>
+<p>Add the desired permissions and the Subject ID found in the previous step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Mandy Inspect Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -29223,12 +29227,12 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<p>Note we have included RKVST-sigificant attributes: <code>arc_display_name</code> and <code>arc_display_type</code>.</p>
-<p><code>arc_*</code> attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other <code>arc_*</code> attributes are also available.</p>
-<ol start="6">
-<li>Once complete, finish creating the Access Policy.</li>
-</ol>
+<br>
+<strong>Note</strong> we have included RKVST-significant attributes: <code>arc_display_name</code> and <code>arc_display_type</code>.<br>
+<code>arc_*</code> attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other <code>arc_*</code> attributes are also available.</p>
+</li>
+<li>
+<p>Once complete, finish creating the Access Policy
 <ul class="nav nav-tabs" id="finish_policy_obac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#finish_policy_obac-0" type="button" role="tab" aria-controls="finish_policy_obac-0" aria-selected="true">UI</button>
 		</li>
@@ -29256,15 +29260,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>Once complete, check the Asset is shared appropriately; Mandy should only be able to see the Name and Type of Asset as well as the Asset&rsquo;s custom <code>Weight</code> attribute.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Once complete, check the Asset is shared appropriately; Mandy should only be able to see the <code>Name</code> and <code>Type</code> of Asset as well as the Asset&rsquo;s custom <code>Weight</code> attribute
 
 
 <figure class="border-0">
@@ -29288,7 +29292,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   
   </div>
 </div>
-<p>By comparison, our Administrator, Jill, can see the full details of the Asset:</p>
+By comparison, our Administrator, Jill, can see the full details of the Asset:
 
 
 <figure class="border-0">
@@ -29311,11 +29315,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="8">
-<li>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</li>
-</ol>
+</div></p>
+</li>
+<li>
+<p>If Mandy wishes to share what she can to Non-Administrators within her organization, it is her responsibility to create an ABAC Policy as she would any other Asset she has access to.</p>
 <p>There are many possible fine-grained controls and as such ABAC and OBAC Policy Creation is an extensive topic. To find out more, head over to the <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
+</li>
+</ol>
 `}).add({id:20,href:"https://docs.rkvst.com/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
@@ -29368,13 +29374,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="2">
+<ol>
 <li><em><strong>COMPLIANCE_CURRENT_OUTSTANDING:</strong></em> checks if there is a closing Event addressing an outstanding Event.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -29423,13 +29429,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="3">
+<ol>
 <li><em><strong>COMPLIANCE_PERIOD_OUTSTANDING:</strong></em> checks if the time between correlated Events does not exceed set threshold.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -29480,13 +29486,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="4">
+<ol>
 <li><em><strong>COMPLIANCE_DYNAMIC_TOLERANCE:</strong></em> checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</li>
 </ol>
 <p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
@@ -29540,13 +29546,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
 </span></span></code></pre></div></div></div>
 
-<ol start="5">
+<ol>
 <li><em><strong>COMPLIANCE_RICHNESS:</strong></em> checks whether Attributes are within expected bounds or otherwise meet defined conditions.</li>
 </ol>
 <p>This type of policy uses <code>richness_assertions</code>. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.</p>
@@ -29594,7 +29600,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
@@ -29628,11 +29634,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="compliance_status-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_status-1">
 <p>Run the following command using the desired Asset ID to check its compliance status. See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;
 </span></span></code></pre></div><p>You may also determine compliance at a <a href="/platform/overview/advanced-concepts/#perspectives">historical date</a> by adding the desired date to the query.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div></div></div>
 
@@ -29640,8 +29646,8 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
-<li>Create your location.</li>
-</ol>
+<li>
+<p>Create your location
 <ul class="nav nav-tabs" id="add_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_locations-0" type="button" role="tab" aria-controls="add_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29678,15 +29684,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">LOCATIONS_CREATE_IF_NOT_EXISTS</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-2">
-<p>Create an empty file, in later steps we will add the correct JSON.</p>
+<p>Create an empty file, in later steps we will add the correct JSON</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="2">
-<li>Add information about the location you are creating.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Add information about the location you are creating
 <ul class="nav nav-tabs" id="add_location_info_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_info_locations-0" type="button" role="tab" aria-controls="add_location_info_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29731,10 +29737,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="3">
-<li>Enter the required location name and address, or in the case of YAML and JSON, coordinates.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Enter the required location name and address, or in the case of YAML and JSON, coordinates
 <ul class="nav nav-tabs" id="add_location_name_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_name_locations-0" type="button" role="tab" aria-controls="add_location_name_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29762,7 +29768,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_location_name_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-1">
-<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location.</p>
+<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -29776,18 +29782,18 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span>-<span class="m">2.5980</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_name_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_name_locations-2">
-<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location.</p>
+<p>Use <code>latitude</code> and <code>longitude</code> to describe the physical location</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;UK Factory&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lattitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;latitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;longitude&#34;</span><span class="p">:</span> <span class="mf">-2.5980</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="4">
-<li>There is an option to add extended attributes to a location. This is useful to add metadata to a location, i.e. a site contact&rsquo;s number and email address.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>There is an option to add extended attributes to a location. This is useful to add metadata to a location, i.e. a site contact&rsquo;s number and email address
 <ul class="nav nav-tabs" id="add_location_attributes_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_location_attributes_locations-0" type="button" role="tab" aria-controls="add_location_attributes_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29816,7 +29822,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_location_attributes_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-1">
-<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs.</p>
+<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -29834,11 +29840,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">Primary_Mobile_Number</span><span class="p">:</span><span class="w"> </span><span class="l">+447700900077</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_location_attributes_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-2">
-<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs.</p>
+<p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;UK Factory&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Industrial Warehouse in Bristol Harbor&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lattitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;latitude&#34;</span><span class="p">:</span> <span class="mf">51.4477</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;longitude&#34;</span><span class="p">:</span> <span class="mf">-2.5980</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;Princes Wharf, Wapping Rd, Bristol BS1 4RN, UK&#34;</span><span class="p">,</span>
@@ -29847,10 +29853,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">   <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
-<ol start="5">
-<li>Complete your location.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>Complete your location
 <ul class="nav nav-tabs" id="complete_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#complete_location_locations-0" type="button" role="tab" aria-controls="complete_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29889,15 +29895,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="complete_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-2">
 <p>Use the curl command to run your JSON file! See instructions for <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div></div></div>
-
-<ol start="6">
-<li>View your locations.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>View your locations
 <ul class="nav nav-tabs" id="location_list_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#location_list_locations-0" type="button" role="tab" aria-controls="location_list_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29910,23 +29916,23 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 		</li></ul>
 <div class="tab-content" id="location_list_locations"><div id="location_list_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="location_list_locations-0">
 <p>Navigate to <code>Locations</code> in the sidebar to see a list of existing locations.</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#LocationAdded" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Managing a Location</em></figcaption>
- </figure>
- <div class="modal fade" id="LocationAdded" tabindex="-1" aria-labelledby="LocationAdded" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-     
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w&quot; width=&quot;1616&quot; height=&quot;406&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#LocationAdded" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w" src="/platform/administration/grouping-assets-by-location/LocationAdded.png" width="1616" height="406" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Managing a Location</em></figcaption>
+</figure>
+<div class="modal fade" id="LocationAdded" tabindex="-1" aria-labelledby="LocationAdded" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationAdded_hu5b482ab684563fbe7f68508de72c2b77_54515_200x0_resize_box_3.png 200w&quot; width=&quot;1616&quot; height=&quot;406&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
 </code></pre>
-   </div>
- </div>
+  </div>
+</div>
 </div>
   <div id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1">
-<p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
+<p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -29937,13 +29943,13 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="location_list_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-2">
 <p>Use the <a href="/developers/api-reference/locations-api/">Locations API</a> to GET a list of existing locations.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div></div></div>
-
-<ol start="7">
-<li>View details of the location you just created.</li>
-</ol>
+</p>
+</li>
+<li>
+<p>View details of the location you just created
 <ul class="nav nav-tabs" id="specific_location_locations" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#specific_location_locations-0" type="button" role="tab" aria-controls="specific_location_locations-0" aria-selected="true">UI</button>
 		</li>
@@ -29955,21 +29961,21 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#specific_location_locations-2" type="button" role="tab" aria-controls="specific_location_locations-2" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="specific_location_locations"><div id="specific_location_locations-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="specific_location_locations-0">
-<p>You can inspect details of a single location. Click the desired location row.</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Viewing a Location</em></figcaption>
- </figure>
- <div class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-     
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w&quot; width=&quot;383&quot; height=&quot;422&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
+<p>You can inspect details of a single location. Click the desired location row</p>
+<figure class="border-0">
+  <input type="image" data-bs-toggle="modal" data-bs-target="#LocationDetails" img class="img-fluid responsive" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w" src="/platform/administration/grouping-assets-by-location/LocationDetails.png" width="383" height="422" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Viewing a Location</em></figcaption>
+</figure>
+<div class="modal fade" id="LocationDetails" tabindex="-1" aria-labelledby="LocationDetails" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
+    
+    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/grouping-assets-by-location/LocationDetails_hufb197c2e704af47efdb5ee2c8ae93652_29675_500x0_resize_box_3.png 500w&quot; width=&quot;383&quot; height=&quot;422&quot; alt=&quot;Rectangle&quot;&gt;
+  &lt;/div&gt;
 </code></pre>
-   </div>
- </div>
+  </div>
+</div>
 </div>
   <div id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1">
 <p>The <code>LOCATIONS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific location.</p>
@@ -29985,15 +29991,15 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
   <div id="specific_location_locations-2" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-2">
 <p>Use the <a href="/developers/api-reference/locations-api/">Locations API</a> to GET the specific location by name.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory&#34;</span>
 </span></span></code></pre></div></div></div>
-
+</p>
+</li>
+</ol>
 <h2 id="assigning-a-location-to-an-asset">Assigning a Location to an Asset</h2>
 <h3 id="adding-at-asset-creation">Adding at Asset Creation</h3>
-<ol>
-<li>To assign a pre-existing location to an Asset during Asset creation, you need only select it.</li>
-</ol>
+<p>To assign a pre-existing location to an Asset during Asset creation, you need only select it
 <ul class="nav nav-tabs" id="add_at_asset_create" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_at_asset_create-0" type="button" role="tab" aria-controls="add_at_asset_create-0" aria-selected="true">UI</button>
 		</li>
@@ -30022,7 +30028,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_at_asset_create-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-1">
-<p>A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
+<p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -30067,7 +30073,7 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2">
-<p>A pre-exisiting location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
+<p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -30077,11 +30083,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
-
+</p>
 <h3 id="adding-to-a-pre-existing-asset">Adding to a pre-existing Asset</h3>
 <ol>
-<li>To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row.</li>
-</ol>
+<li>
+<p>To assign a pre-existing Asset with a new location, you need to identify the Location ID. To do this, view the location details by clicking the location row.
 
 
 <figure class="border-0">
@@ -30104,11 +30110,11 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
-<ol start="2">
-<li>Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the <code>arc_home_location_identity</code> key.</li>
-</ol>
-<p>For more information on creating Events, please visit <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a>.</p>
+</div></p>
+</li>
+<li>
+<p>Then create an Event for the Asset and specify the identity of the new location as noted in step 1, against the <code>arc_home_location_identity</code> key<br>
+For more information on creating Events, please visit <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset</a>.
 <ul class="nav nav-tabs" id="add_to_asset" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_to_asset-0" type="button" role="tab" aria-controls="add_to_asset-0" aria-selected="true">UI</button>
 		</li>
@@ -30136,8 +30142,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 </div>
 </div>
   <div id="add_to_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note</strong> - The <code>EVENTS_CREATE</code> action must contain at least one key-value pair for <code>event_attributes</code>.</div>
+<pre><code>&lt;blockquote class=&quot;note callout&quot;&gt;
+&lt;div&gt;&lt;strong&gt;&lt;/strong&gt; &lt;strong&gt;Note&lt;/strong&gt; - The &lt;code&gt;EVENTS_CREATE&lt;/code&gt; action must contain at least one key-value pair for &lt;code&gt;event_attributes&lt;/code&gt;.&lt;/div&gt;
+</code></pre>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -30168,10 +30175,10 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note</strong> - You need to include the full <code>locations/&lt;location-id&gt;</code> reference as using only the <code>UUID</code> will not be recognized.</div>
-  </blockquote>
-<ol start="3">
-<li>In the following screenshot, note the location of our Asset has been updated.</li>
-</ol>
+  </blockquote></p>
+</li>
+<li>
+<p>In the following screenshot, note the location of our Asset has been updated
 
 
 <figure class="border-0">
@@ -30194,7 +30201,9 @@ Use the curl command to run your JSON file! See instructions for <a href="/devel
       </div>
   
   </div>
-</div>
+</div></p>
+</li>
+</ol>
 `}).add({id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
 <p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
@@ -30207,8 +30216,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   </blockquote>
 <h3 id="connecting-rkvst-to-dropbox">Connecting RKVST to Dropbox</h3>
 <ol>
-<li>
-<p>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab.<br>
+<li>Select <strong>Settings</strong> from the side bar and then the <strong>Integrations</strong> tab
 
 
 <figure class="border-0">
@@ -30231,10 +30239,8 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
+</div></li>
+<li>Select <strong>Dropbox</strong> and then <strong>Proceed</strong>.
 
 
 <figure class="border-0">
@@ -30258,9 +30264,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
   
   </div>
 </div>
-If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.</p>
-</li>
-</ol>
+If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.
 
 
 <figure class="border-0">
@@ -30283,10 +30287,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div>
-<ol start="3">
-<li>
-<p>Dropbox will display an alert message. Click <strong>Continue</strong>.
+</div></li>
+<li>Dropbox will display an alert message. Click <strong>Continue</strong>.
 
 
 <figure class="border-0">
@@ -30309,10 +30311,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
+</div></li>
+<li>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">
@@ -30335,10 +30335,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>Select the folder on Dropbox that you wish to connect to RKVST and then secect <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+</div></li>
+<li>Select the folder on Dropbox that you wish to connect to RKVST and then select <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
@@ -30361,10 +30359,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>You will see a success message and Dropbox will be connected.
+</div></li>
+<li>You will see a success message and Dropbox will be connected.
 
 
 <figure class="border-0">
@@ -30387,10 +30383,8 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-</li>
-</ol>
-<p>Click on an icon on the right to edit the connection or to disconnect.
+</div>
+Click on an icon on the right to edit the connection or to disconnect.
 
 
 <figure class="border-0">
@@ -30413,8 +30407,7 @@ If you are already logged into Dropbox on the device that you are using to set u
       </div>
   
   </div>
-</div></p>
-<ol start="7">
+</div></li>
 <li>Check the Asset Overview to see your Dropbox files.
 
 
@@ -30446,8 +30439,7 @@ If you are already logged into Dropbox on the device that you are using to set u
 <h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
 <p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
 <ol>
-<li>
-<p>Select the Disconnect icon in RKVST.
+<li>Select the Disconnect icon in RKVST
 
 
 <figure class="border-0">
@@ -30494,10 +30486,8 @@ You will see a warning message.
       </div>
   
   </div>
-</div></p>
-</li>
-<li>
-<p>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>.
+</div></li>
+<li>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
 
 
 <figure class="border-0">
@@ -30520,17 +30510,16 @@ You will see a warning message.
       </div>
   
   </div>
-</div></p>
-</li>
+</div>
+This is how to connect and disconnect RKVST and Dropbox, it is that simple.</li>
 </ol>
-<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `}).add({id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<h2 id="app-registrations-api-examples">App Registrations API Examples</h2>
 <p>The App Registrations API enables you to create and manage application identities with access to your RKVST Tenancy.</p>
 <p>It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a <code>CLIENT_ID</code> and <code>SECRET</code> are generated and returned.</p>
 <p>These credentials are then used to request an access token from <code>https://app.rkvst.io/archivist/iam/v1/appidp/token</code>, which is used for API authentication to RKVST.</p>
 <p>Each App Registration is created with Non-Administrator privileges by default.</p>
 <p>To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an <a href="../iam-policies-api/">ABAC policy</a> with specific, declared permissions.</p>
-<p>If you wish to give your credentials Administrator priviliges to access everything in your Tenancy, you would use the <code>client-id</code> as the subject and <code>https://app.rkvst.io/appidpv1</code> as the issuer in the <code>Settings</code> screen or by using the <a href="../tenancies-api/">Administrators Endpoint in the Tenancies API</a>.</p>
+<p>If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the <code>client-id</code> as the subject and <code>https://app.rkvst.io/appidpv1</code> as the issuer in the <code>Settings</code> screen or by using the <a href="../tenancies-api/">Administrators Endpoint in the Tenancies API</a>.</p>
 <blockquote class="note callout">
     <div><strong></strong> For more information on App Registrations and access tokens, visit <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">RKVST Developer Patterns</a>.</div>
   </blockquote>
@@ -30545,7 +30534,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Once you have created your file, you can then submit it to the RKVST API:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/applications
@@ -30588,14 +30577,14 @@ You will see a warning message.
 <h3 id="listing-applications">Listing Applications</h3>
 <p>All of the applications created for your RKVST tenancy can be viewed using the following command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/applications
 </span></span></code></pre></div><h3 id="viewing-applications">Viewing Applications</h3>
 <p>The following example shows how to view the details of a single application.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
 </span></span></code></pre></div><h3 id="updating-applications">Updating Applications</h3>
 <p>You may edit the display name and/or the custom claims of an application.</p>
@@ -30609,7 +30598,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@/path/to/json&#34;</span>
 </span></span><span class="line"><span class="cl">     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
@@ -30637,7 +30626,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>:regenerate-secret
 </span></span></code></pre></div><blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> The expiry date refers to the secret only, any tokens generated with this secret will not automatically become invalid when the secret expires or is rotated. Each token has a TTL of 1 hour.</div>
@@ -30647,7 +30636,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">IDENTITY</span><span class="o">=</span><span class="s2">&#34;applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">curl -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/<span class="si">\${</span><span class="nv">IDENTITY</span><span class="si">}</span>
 </span></span></code></pre></div><h2 id="app-registrations-openapi-docs">App Registrations OpenAPI Docs</h2>
 
@@ -31656,7 +31645,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets
@@ -31764,63 +31753,62 @@ You will see a warning message.
 <h4 id="fetch-all-assets">Fetch All Assets</h4>
 <p>To fetch all Asset records, simply <code>GET</code> the Assets resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets
 </span></span></code></pre></div><h4 id="fetch-specific-asset-by-identity">Fetch Specific Asset by Identity</h4>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><h4 id="fetch-specific-asset-at-given-point-in-time-by-identity">Fetch Specific Asset at Given Point in Time by Identity</h4>
 <p>If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply <code>GET</code> with the following query parameter:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z&#34;</span>
 </span></span></code></pre></div><p>This will return the Asset record with the values it had on <code>2021-01-13T12:34:21Z</code>.</p>
 <h4 id="fetch-assets-by-name">Fetch Assets by Name</h4>
 <p>To fetch all Assets with a specific name, GET the Assets resource and filter on <code>arc_display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-type">Fetch Assets by Type</h4>
 <p>To fetch all Assets of a specific type, <code>GET</code> the Assets resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-proof-mechanism">Fetch Assets by Proof Mechanism</h4>
 <p>To fetch all Assets that use a specific Proof Mechanism, <code>GET</code> the Assets resource and filter on <code>proof_mechanism</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-events-ordered-for-simplehashv1-schema">Fetch Events Ordered for SIMPLEHASHV1 Schema</h4>
 <p>To fetch Simple Hash Events in the order needed for the <a href="https://github.com/rkvst/rkvst-simplehash-python">SIMPLEHASHV1 schema</a>, <code>GET</code> the Assets resource, specifying a specific Asset ID or using <code>assets/-/events</code> to fetch Events for all Assets:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&#34;</span>
 </span></span></code></pre></div><h4 id="fetch-assets-by-filtering-for-presence-of-a-field">Fetch Assets by Filtering for Presence of a Field</h4>
 <p>To fetch all Assets with a field set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which have <code>arc_display_name</code> that is not empty.</p>
 <h4 id="fetch-assets-which-are-missing-a-field">Fetch Assets Which are Missing a Field</h4>
 <p>To fetch all Assets with a field which is not set to any value, <code>GET</code> the Assets resource and filter on most available fields. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Assets which do not have <code>arc_display_name</code> or in which <code>arc_display_name</code> is empty.</p>
 <h4 id="fetch-a-public-assets-url">Fetch a Public Asset&rsquo;s URL</h4>
 <p>Fetch the Public URL of a Public Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="fetch-a-public-assets-event-url">Fetch a Public Asset&rsquo;s Event URL</h4>
 <p>Fetch the Public URL of an Event on a Public Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;publicurl&#34;</span><span class="p">:</span><span class="s2">&#34;https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
@@ -31836,7 +31824,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Untrack the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -31876,7 +31864,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Track the Asset:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -33656,18 +33644,18 @@ You will see a warning message.
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h3 id="retrieve-a-specific-attachment-on-an-event">Retrieve a Specific Attachment on an Event</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/events/de834094-f6c3-4e38-9b37-8c61dea312c9/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h3 id="retrieve-information-about-a-specific-attachment">Retrieve Information About a Specific Attachment</h3>
 <p>It’s also possible to retrieve information about specific attachment using this API.</p>
 <p>This information includes the <code>scanned_status</code> of the attachment. Attachment scanning happens each day.</p>
 <p>To do so, simply issue a request as above with the suffix <code>/info</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/attachments/assets/c04d5ecf-02e0-4be2-a014-ffbbf0e8ddeb/08838336-c357-460d-902a-3aba9528dd22/info
 </span></span></code></pre></div><p>The response will include basic information about the attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -34810,7 +34798,7 @@ You will see a warning message.
 <h3 id="upload-a-blob">Upload a Blob</h3>
 <p>Upload the blob stored at /path/to/file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -F <span class="s2">&#34;file=@/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs
@@ -34833,7 +34821,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="retrieve-a-blob">Retrieve a Blob</h3>
 <p>Retrieve a specific Blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="s2">&#34;/path/to/file&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
@@ -35404,7 +35392,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
 </span></span></code></pre></div><p>To fetch all transactions for an Asset&rsquo;s Events GET the blockchain resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 </span></span></code></pre></div><p>Depending on the type of <a href="/platform/overview/advanced-concepts/#proof-mechanisms">proof mechanism</a> used, the response will be:</p>
 <h4 id="simple-hash">Simple Hash:</h4>
@@ -35724,7 +35712,7 @@ You will see a warning message.
 <p>This creates a Compliance Policy object in the system against which any Asset can be tested as needed.</p>
 <p>RKVST allows users to define Compliance Policies of the following types:</p>
 <h4 id="compliance_since">COMPLIANCE_SINCE</h4>
-<p>This Compliance Policy checks if the time since the last occurence of a specific Event type has elapsed a specified threshold.</p>
+<p>This Compliance Policy checks if the time since the last occurrence of a specific Event type has elapsed a specified threshold.</p>
 <p>For example “Time since last Maintenance must be less than 72 hours”:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
@@ -35905,7 +35893,7 @@ You will see a warning message.
 <p>Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (<code>OR</code> logic). For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">“or”:</span> <span class="err">[“rad&lt;7”,</span> <span class="err">“rad=10”]</span><span class="p">}</span><span class="err">.</span> 
 </span></span></code></pre></div><p>The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (<code>AND</code> logic).</p>
-<p>Compliance is a signal, not a perfect answer. Therefore equivilence of floats is exact, not approximate.</p>
+<p>Compliance is a signal, not a perfect answer. Therefore equivalence of floats is exact, not approximate.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
@@ -35940,7 +35928,7 @@ You will see a warning message.
 <h3 id="compliance-policy-creation">Compliance Policy Creation</h3>
 <p>Create a Compliance Policy with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance_policies
@@ -35959,14 +35947,14 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="checking-compliance">Checking Compliance</h3>
-<p>The compliancev1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
+<p>The compliance v1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
 <p>Query the endpoint:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><p>or if determining compliance at some historical date:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -37080,11 +37068,11 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> <code>RecordEvidence</code> is the primary, default behaviour for creating Events.</div>
+    <div><strong></strong> <strong>Note:</strong> <code>RecordEvidence</code> is the primary, default behavior for creating Events.</div>
   </blockquote>
 <p>Add the request to the Asset record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -37310,7 +37298,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Add the request to the Asset Record by POSTing it to the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@rkvst-bearer.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -39166,7 +39154,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the Access Policy:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies
@@ -39213,17 +39201,17 @@ You will see a warning message.
 <h4 id="fetch-all-iam-access_policies-v1">Fetch all IAM access_policies (v1)</h4>
 <p>To fetch all IAM <code>access_policies</code> records, simply <code>GET</code> the <code>iam/access_policies</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies
 </span></span></code></pre></div><h4 id="fetch-specific-iam-access-policy-by-identity-v1">Fetch specific IAM access Policy by identity (v1)</h4>
 <p>If you know the unique identity of the IAM access policy Record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-iam-access-policies-by-name-v1">Fetch IAM Access Policies by name (v1)</h4>
 <p>To fetch all IAM <code>access_policies</code> with a specific name, <code>GET</code> the <code>iam/access_policies</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM Access Policies records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -39292,7 +39280,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="iam-policy-deletion">IAM Policy Deletion</h3>
 <p>To delete an IAM Access Policy, issue following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is:</p>
@@ -39333,7 +39321,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the Access Policy:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -39380,7 +39368,7 @@ You will see a warning message.
 <h4 id="fetch-all-assets-matching-specific-iam-access-policy-v1">Fetch all Assets Matching Specific IAM Access Policy (v1)</h4>
 <p>If you know the unique identity of the IAM Access Policy Record simply GET the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
 </span></span></code></pre></div><p>Each of these calls returns a list of matching Asset records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -39415,7 +39403,7 @@ You will see a warning message.
 </span></span></code></pre></div><h4 id="fetch-all-iam-access_policies-matching-specific-asset-v1">Fetch all IAM access_policies Matching Specific Asset (v1)</h4>
 <p>If you know the unique identity of the Asset Record simply GET matching policies:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM <code>access_policies</code> records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -40853,7 +40841,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the IAM Subject:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects
@@ -40872,17 +40860,17 @@ You will see a warning message.
 <h4 id="fetch-all-iam-subjects-v1">Fetch all IAM Subjects (v1)</h4>
 <p>To fetch all IAM Subjects records, simply <code>GET</code> the <code>/subjects</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects
 </span></span></code></pre></div><h4 id="fetch-specific-iam-subject-by-identity-v1">Fetch specific IAM Subject by identity (v1)</h4>
 <p>If you know the unique identity of the IAM Subject record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-iam-subjects-by-name-v1">Fetch IAM Subjects by Name (v1)</h4>
 <p>To fetch all IAM subjects with a specific name, <code>GET</code> the <code>/subjects</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching IAM Subjects records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -40896,7 +40884,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;subjects/12345678-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Some otherdescription&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Some other description&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;wallet_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key5&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;wallet_address&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;address5&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;tessera_pub_key&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;key7&#34;</span><span class="p">]</span>
@@ -40906,7 +40894,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="iam-subject-deletion">IAM Subject Deletion</h3>
 <p>To delete an IAM Subject, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is <code>{}</code>.</p>
@@ -40918,7 +40906,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the IAM Subject:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -40937,7 +40925,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">subjects/00000000-0000-0000-0000-000000000000
 </span></span></code></pre></div><h4 id="fetch-self-iam-subject-by-identity-v1">Fetch Self IAM Subject by Identity (v1)</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
@@ -41805,7 +41793,7 @@ You will see a warning message.
 `}).add({id:32,href:"https://docs.rkvst.com/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<h2 id="invites-api-examples">Invites API Examples</h2>
 <p>Invites can be used to invite a new user into a Tenancy to access Assets and Events.</p>
 <p>For example, inviting a new member of the organization into their organization&rsquo;s tenancy.</p>
-<p>By default, invited users will have no permissons and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
+<p>By default, invited users will have no permissions and need to be given access to manage specific Assets and Events using <a href="/platform/administration/managing-access-to-an-asset-with-abac/">ABAC policies</a> defined by an Administrator.</p>
 <p>For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on <a href="/platform/administration/sharing-assets-with-obac/">OBAC policies</a> or the <a href="../iam-policies-api/">IAM Policies API Reference</a>.</p>
 <p>Create the <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <blockquote class="note callout">
@@ -41815,34 +41803,34 @@ You will see a warning message.
 <p>To create an invite you need at least the invitee&rsquo;s email address. Once created, it will be considered pending and once accepted the invite itself will be deleted.</p>
 <p>It is possible to add an optional custom message:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;personalised message&#34;, &#34;email&#34;: &#34;john.doe@example.com&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s1">&#39;{&#34;message&#34;: &#34;personalized message&#34;, &#34;email&#34;: &#34;john.doe@example.com&#34;}&#39;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="invite-retrieval">Invite Retrieval</h3>
 <p>If you know the unique identity of a pending invite, <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="retrieve-all-invites">Retrieve All Invites</h3>
 <p>To fetch all pending invites, simply <code>GET</code> the <code>/invites</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
@@ -41850,13 +41838,13 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;invites&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;john.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:43Z&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;invites/f4e4b1b5-8186-4feb-9072-9999f89d4619&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;another personalised message&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;message&#34;</span><span class="p">:</span> <span class="s2">&#34;another personalized message&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;jane.doe@example.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;expiry_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-06-17T11:30:26Z&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
@@ -41866,7 +41854,7 @@ You will see a warning message.
 </span></span></code></pre></div><h3 id="invite-deletion">Invite Deletion</h3>
 <p>To delete a pending invite, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\\`</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\\`</span>
 </span></span><span class="line"><span class="cl">    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb&#34;</span>
 </span></span></code></pre></div><p>The response will be empty.</p>
@@ -42502,7 +42490,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Create the location to POSTing to the locations resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v2/locations
@@ -42525,17 +42513,17 @@ You will see a warning message.
 <h4 id="fetch-all-locations">Fetch All Locations</h4>
 <p>To fetch all locations, simply <code>GET</code> the locations resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations
 </span></span></code></pre></div><h4 id="fetch-specific-location-by-identity">Fetch Specific Location by Identity</h4>
 <p>If you know the unique identity of the location record, simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
 </span></span></code></pre></div><h4 id="fetch-location-by-name">Fetch Location by Name</h4>
 <p>To fetch all locations with a specific name, <code>GET</code> the Assets resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching Asset records in the form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -44531,7 +44519,7 @@ You will see a warning message.
 <p>The <code>archivistnode</code> endpoint reports on the status of the blockchain.</p>
 <p>Query the endpoint:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/archivistnode
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -45043,7 +45031,7 @@ You will see a warning message.
 <h3 id="retrieve-the-current-list-of-administrators">Retrieve the Current List of Administrators</h3>
 <p>To fetch the list of Administrators, simply <code>GET</code> the <code>tenancies/administrators</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tenancies/administrators
 </span></span></code></pre></div><h3 id="update-the-list-of-administrators">Update the List of Administrators</h3>
 <p>Define the update parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -45065,7 +45053,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="err">}</span>
 </span></span></code></pre></div><p>Update the Administrators by PATCHing the <code>tenancies/administrators</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tenancies/administrators
@@ -46456,7 +46444,7 @@ You will see a warning message.
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">awk <span class="s1">&#39;NF {sub(/\\r/, &#34;&#34;); printf &#34;%s\\\\n&#34;,$0;}&#39;</span> cert-name.pem
 </span></span></code></pre></div><p>Create the CA Certificate:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates
@@ -46473,17 +46461,17 @@ You will see a warning message.
 <h4 id="fetch-all-tls-ca-certificates">Fetch All TLS CA Certificates</h4>
 <p>To fetch all TLS CA certificates records, simply <code>GET</code> the <code>tlscacertificates</code> resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tlscacertificates
 </span></span></code></pre></div><h4 id="fetch-specific-tls-ca-certificate-by-identity">Fetch Specific TLS CA Certificate by Identity</h4>
 <p>If you know the unique identity of the TLS CA certificate Record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.rkvst.io/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
 </span></span></code></pre></div><h4 id="fetch-tls-ca-certificates-by-name">Fetch TLS CA Certificates by Name</h4>
 <p>To fetch all TLS CA Certificates with a specific name, <code>GET</code> the <code>tlscacertificates</code> resource and filter on <code>display_name</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme&#34;</span>
 </span></span></code></pre></div><p>Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -46503,7 +46491,7 @@ You will see a warning message.
 </span></span></code></pre></div><h4 id="tls-ca-certificate-deletion">TLS CA Certificate Deletion</h4>
 <p>To delete a TLS CA Certificate, issue the following request:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X DELETE <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 </span></span></code></pre></div><p>The response is <code>{}</code>.</p>
@@ -46514,7 +46502,7 @@ You will see a warning message.
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Update the TLS CA Certificate:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X PATCH <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$BEARER_TOKEN_FILE</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.rkvst/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -47253,7 +47241,7 @@ You will see a warning message.
   </div>
 
 
-`}).add({id:38,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Commmon Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:38,href:"https://docs.rkvst.com/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>rkvst-archivist</code> python package.</p>
 <p><a href="https://python.rkvst.com/runner/index.html">Click here</a> for installation instructions.</p>
 </div>
@@ -47746,7 +47734,8 @@ You will see a warning message.
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
-</div>`}).add({id:46,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+</div>
+`}).add({id:46,href:"https://docs.rkvst.com/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -47772,7 +47761,8 @@ You will see a warning message.
       <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
-</div>`}).add({id:48,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+</div>
+`}).add({id:48,href:"https://docs.rkvst.com/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
@@ -47832,14 +47822,14 @@ You will see a warning message.
         </div>
       </div>
       <div class="col-xs-9 col-sm-11 col-lg-4">
-      	<div class="card" style="max-width: 25rem;">
+        <div class="card" style="max-width: 25rem;">
           <div class="card-body">
             <h5 class="card-title">API Reference</h5>
             <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
             <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
           </div>
-      	</div>
-      </div>      
+        </div>
+      </div>
       <div class=" col-xs-9 col-sm-11 col-lg-4">
         <div class="card" style="max-width: 25rem;">
           <div class="card-body">
@@ -47848,7 +47838,7 @@ You will see a warning message.
             <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
   </div>
 </section>
@@ -47877,14 +47867,14 @@ You will see a warning message.
             </div>
           </div>
           <div class="col-xs-9 col-sm-11 col-lg-6">
-        	  <div class="card" style="max-width: 25rem;">
+            <div class="card" style="max-width: 25rem;">
               <div class="card-body">
                <h5 class="card-title">Administration</h5>
                 <p class="card-text">Create users, set access rights and share Assets.</p>
                 <a href="/platform/administration/identity-and-access-management/" class="btn btn-primary">Administration</a>
               </div>
-          	</div>
-          </div>          
+            </div>
+          </div>
         </div>
       </div>
     </section>

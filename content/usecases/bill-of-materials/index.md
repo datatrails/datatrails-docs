@@ -25,15 +25,15 @@ By keeping all the component packages and release history for a software package
 
 ### Considerations
 
-Key to any successful RKVST integration is keeping the number of Asset attributes manageable and meaningful. ***Do not add every entry in the SBOM as an Asset attribute.*** Instead, preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and put the full details of each released version in attachments and Events. 
+Key to any successful RKVST integration is keeping the number of Asset attributes manageable and meaningful. ***Do not add every entry in the SBOM as an Asset attribute.*** Instead, preserve Asset attributes to carry essential metadata such as final build hashes and assured current versions, and put the full details of each released version in attachments and Events.
 
 Note: There are good standards for storing and exchanging SBOM data such as [SWID/ISO/IEC 19770-2:2015](https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8060.pdf "NIST IR 8060"), [Cyclone DX](https://cyclonedx.org "Cyclone DX Homepage"), and [SPDX](https://spdx.github.io/spdx-spec/ "SPDX Specification"). RKVST recommends adopting standard data formats wherever possible, as these vastly improve interoperability and utility of the data exchanged between RKVST participants.
 
-_SBOM as a living document:_ As a vendor, try to model each final software product as an Asset, and releases/updates to that software product as Events on that Asset. That way, a single Asset history contains all the patch versions of a pristine build standard.
+*SBOM as a living document:* As a vendor, try to model each final software product as an Asset, and releases/updates to that software product as Events on that Asset. That way, a single Asset history contains all the patch versions of a pristine build standard.
 
-_Link to real assets:_ In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.
+*Link to real assets:* In reality, not every machine is going to be patched and running identical versions of software, and certainly not the most up-to-date one. As a user of devices, try to link the SBOM from your vendor to the device by having Asset attributes for the Asset Identity of the vendor-published SBOM and the version installed on the device. That way it is easy to find devices that need attention following an SBOM update.
 
-_Access Policies:_ Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically, very few parties need to update the SBOM record, but many people will need to read it.
+*Access Policies:* Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Typically, very few parties need to update the SBOM record, but many people will need to read it.
 
 {{< note >}}
 **Remember that RKVST is a shared evidence platform.** It is there to help share and publish the SBOM and create the trust and transparency that is demanded of modern systems, to ensure the security of the digital supply chain.

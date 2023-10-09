@@ -1,6 +1,6 @@
 ---
 title: "YAML Runner Components"
-description: "Commmon Keys Used for the Yaml Runner"
+description: "Common Keys Used for the Yaml Runner"
 lead: "Common Keys Used for the Yaml Runner"
 date: 2021-06-09T11:39:03+01:00
 lastmod: 2021-06-09T11:39:03+01:00
@@ -31,7 +31,7 @@ aliases:
 | **print_response** | Specifying this field as true emits a JSON representation of the response, useful for debugging purposes.                                                                                                                                                                                                       |
 | **wait_time**      | Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for demonstration and/or testing Compliance Policies.                                                                                                                                          |
 
-Each step of the YAML Runner follows the same general pattern: 
+Each step of the YAML Runner follows the same general pattern:
 
 ```yaml
 ---
@@ -48,7 +48,7 @@ steps:
 
 Depending on the action, some fields are required but others are optional. We will discuss each action in further detail in the upcoming sections.
 
-Once you have created a YAML file with your desired steps, run the file using the `archivist_runner` command to execute the actions you defined. The command follows this format: 
+Once you have created a YAML file with your desired steps, run the file using the `archivist_runner` command to execute the actions you defined. The command follows this format:
 
 ```bash
 $ archivist_runner \

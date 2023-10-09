@@ -30,14 +30,14 @@ aliases:
             </div>
           </div>
           <div class="col-xs-9 col-sm-11 col-lg-6">
-        	  <div class="card" style="max-width: 25rem;">
+            <div class="card" style="max-width: 25rem;">
               <div class="card-body">
                <h5 class="card-title">Administration</h5>
                 <p class="card-text">Create users, set access rights and share Assets.</p>
                 <a href="/platform/administration/identity-and-access-management/" class="btn btn-primary">Administration</a>
               </div>
-          	</div>
-          </div>          
+            </div>
+          </div>
         </div>
       </div>
     </section>

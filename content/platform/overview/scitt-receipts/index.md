@@ -17,11 +17,9 @@
 
 Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.
 
-
 Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/glossary/common-rkvst-terms/).
 
 Receipts can be retrieved for [Khipu](/platform/overview/advanced-concepts/#khipu) Events once they have been confirmed.
-
 
 A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
@@ -53,7 +51,7 @@ Once retrieved, receipts are fully verifiable offline and without calls to the R
 
 However, for your convenience RKVST provides a Python script that can be used to retrieve and verify a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
 
-Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed. 
+Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed.
 
 First, save the identity of an event in `EVENT_IDENTITY`.
 
@@ -67,56 +65,55 @@ EVENT_TRANSACTION_ID=$(curl -s \
 ```
 
 {{< warning >}}
-The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash `proof_mechansim` it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.
+The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash `proof_mechanisms` it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.
 {{< / warning>}}
 
-2. Get a claim for the Event identity.
+1. Get a claim for the Event identity
 
-```bash
-CLAIM=$(curl -s -d "{\"transaction_id\":\"${EVENT_TRANSACTION_ID}\"}" \
-        -X POST -H "Authorization: Bearer ${TOKEN}" \
-        https://app.rkvst.io/archivist/v1/notary/claims/events \
-        | jq -r .claim)
-```
+    ```bash
+    CLAIM=$(curl -s -d "{\"transaction_id\":\"${EVENT_TRANSACTION_ID}\"}" \
+            -X POST -H "Authorization: Bearer ${TOKEN}" \
+            https://app.rkvst.io/archivist/v1/notary/claims/events \
+            | jq -r .claim)
+    ```
 
-3. Next, get the corresponding receipt for the claim.
+1. Next, get the corresponding receipt for the claim
 
-```bash
-RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
-        -X POST -H "Authorization: Bearer ${TOKEN}" \
-        https://app.rkvst.io/archivist/v1/notary/receipts \
-        | jq -r .receipt)
-```
+    ```bash
+    RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
+            -X POST -H "Authorization: Bearer ${TOKEN}" \
+            https://app.rkvst.io/archivist/v1/notary/receipts \
+            | jq -r .receipt)
+    ```
 
-4. Get the block details.
+1. Get the block details
+    Get the block number using:
 
-Get the block number using:
+    ```bash
+    echo ${RECEIPT} | base64 -d | less
+    ```
 
-```bash
-echo ${RECEIPT} | base64 -d | less
-```
+    Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decoded output and set the value in the environment, for example: `BLOCK="0x1234"`.
 
-Look for the first `"block":"<HEX-BLOCK-NUMBER>"` in the decoded output and set the value in the environment, for example: `BLOCK="0x1234"`.
+    Next, get the appropriate state root field from the block details. To verify a Simple Hash receipt get the
+    `stateRoot`:
 
-Next, get the appropriate state root field from the block details. To verify a Simple Hash receipt get the
-`stateRoot`:
+    ```bash
+    WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
+                https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
+                | jq -r .stateRoot)
+    ```
 
-```bash
-WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
-            https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
-            | jq -r .stateRoot)
-```
+    To verify a khipu receipt get the `privateStateRoot` field:
 
-To verify a khipu receipt get the `privateStateRoot` field:
+    ```bash
+    WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
+                https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
+                | jq -r .privateStateRoot)
+    ```
 
-```bash
-WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
-            https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
-            | jq -r .privateStateRoot)
-```
+1. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.
 
-4. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.
-
-```bash
-echo ${RECEIPT} | rkvst_receipt_scittv1 verify -d --worldroot ${WORLDROOT}
-```
+    ```bash
+    echo ${RECEIPT} | rkvst_receipt_scittv1 verify -d --worldroot ${WORLDROOT}
+    ```

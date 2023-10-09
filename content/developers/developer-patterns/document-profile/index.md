@@ -13,14 +13,16 @@ weight: 35
 toc: true
 ---
 
-The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document. 
+The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.
 
 {{< note >}}
+
 ##### Profile Attribute Namespace
+
 The `document_` prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.
 {{< /note >}}
 
-### Document Profile Asset Attributes 
+### Document Profile Asset Attributes
 
 | Asset Attributes              | Meaning                                                                                        | Requirement                 |
 |------------------------|------------------------------------------------------------------------------------------------|-----------------------------|
@@ -33,7 +35,9 @@ The `document_` prefix is used to designate attributes that are part of the prof
 | document_portable_name | Formal name or identifier for document that persists across boundaries and throughout versions | Optional, not interpreted by RKVST |
 
 {{< note >}}
+
 ##### Uploading Documents as Attachments
+
 For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments section of the Events API](../../api-reference/events-api/#adding-attachments)
 {{< /note >}}
 
@@ -47,7 +51,9 @@ Publish a new version of the document using special attributes interpreted by RK
 | document_version_authors | List of authors on this version of the document | Optional, see format below |
 
 {{< note >}}
+
 ##### Document Version Authors
+
 You must express `document_version_authors` as a list of objects that have `display_name` as a property.
 
 ```json
@@ -59,6 +65,7 @@ You must express `document_version_authors` as a list of objects that have `disp
   }
 ]
 ```
+
 {{< /note >}}
 
 | Asset Attributes      | Meaning                                                                        | Requirement                                     |
@@ -76,7 +83,7 @@ Withdraw an entire document (mark that it is no longer considered current.)
 | Event Attributes                | Meaning                                         | Requirement                               |
 |---------------------------------|-------------------------------------------------|-------------------------------------------|
 | arc_display_type                | Tells RKVST how to interpret Event              | Required, must be set to `Withdraw`        |
-| document_withdrawal_reason      | Reason why document has been withdrawn          | Optional, but encouraged. 
+| document_withdrawal_reason      | Reason why document has been withdrawn          | Optional, but encouraged |
 
 | Asset Attributes             | Meaning                                                                        | Requirement                                                        |
 |------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------|

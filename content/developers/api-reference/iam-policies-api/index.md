@@ -21,7 +21,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 An [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/) policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
 
-To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations. 
+To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations.
 
 You may also set permissions based on the Custom Claims of an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
@@ -83,11 +83,12 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
     ]
 }
 ```
+
 Create the Access Policy:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/iam/v1/access_policies
@@ -140,6 +141,7 @@ IAM Access Policy records in RKVST are tokenized at creation time and referred t
 ```bash
 access_policies/12345678-90ab-cdef-1234-567890abcdef
 ```
+
 If you do not know the Access Policy ID you can fetch IAM Access Policy records using other information you do know, such as the Access Policy name.
 
 #### Fetch all IAM access_policies (v1)
@@ -148,7 +150,7 @@ To fetch all IAM `access_policies` records, simply `GET` the `iam/access_policie
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/access_policies
 ```
 
@@ -158,7 +160,7 @@ If you know the unique identity of the IAM access policy Record simply `GET` the
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
@@ -168,9 +170,10 @@ To fetch all IAM `access_policies` with a specific name, `GET` the `iam/access_p
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description"
 ```
+
 Each of these calls returns a list of matching IAM Access Policies records in the form:
 
 ```json
@@ -238,13 +241,14 @@ Each of these calls returns a list of matching IAM Access Policies records in th
     ]
 }
 ```
+
 ### IAM Policy Deletion
 
 To delete an IAM Access Policy, issue following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
@@ -298,11 +302,12 @@ Update the Access Policy:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
+
 The response is:
 
 ```json
@@ -359,7 +364,7 @@ If you know the unique identity of the IAM Access Policy Record simply GET the r
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
 ```
 
@@ -403,7 +408,7 @@ If you know the unique identity of the Asset Record simply GET matching policies
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
 ```
 

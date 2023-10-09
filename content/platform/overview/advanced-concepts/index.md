@@ -19,7 +19,7 @@ aliases:
 
 Central to all RKVST operations are _Assets_. These are the records that represent the collective 'Golden Thread' of evidence contributed by all stakeholders about a particular thing. Assets can represent anything: a physical object, a smart device, or even a business process. As long as shared accountability needs to be traced and trustworthy, it can be recorded as an RKVST Asset.
 
-RKVST Assets are essentially very simple: a collection of *attributes* that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
+RKVST Assets are essentially very simple: a collection of _attributes_ that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
 
 RKVST is not opinionated about Asset content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on Twitter, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.
 
@@ -80,7 +80,7 @@ A simple Asset might look like this:
 
 An essential value of storing evidence in RKVST is that data is always available to stakeholders and cannot be shredded or manipulated later. Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
 
-To accommodate this need RKVST separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting). When for any reason it becomes desirable to remove an Asset, the Asset owner can make it _untracked_ so that it does not appear in lists or searches. 
+To accommodate this need RKVST separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting). When for any reason it becomes desirable to remove an Asset, the Asset owner can make it _untracked_ so that it does not appear in lists or searches.
 
 {{< caution >}}
 **Caution:** Untracking an Asset does not remove it or its Event history from the system; all stakeholders who previously had access to the record will continue to have access to the Event history, _including_ the untracking event, if they look for it.
@@ -102,6 +102,7 @@ RKVST ensures complete and tamper-proof lineage and provenance for all Asset att
 Lifecycle events in RKVST give stakeholders a shared view of “Who did What When to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
 
 Once committed to the RKVST system, each lifecycle Event record carries 3 separate timestamps:
+
 * `timestamp_declared` - an optional user-supplied value that tells when an Event happened. This is useful for cases where the client system is off-line for a period but the user still wishes to record the accurate time and order of activities (eg inspection rounds in an air-gapped facility). If unspecified, the system sets timestamp_declared equal to timestamp_accepted (see below).
 * `timestamp_accepted` - the time the event was actually received on the RKVST REST interface. Set by the system, cannot be changed by the client.
 * `timestamp_committed` - the time the event was confirmed distributed to all DLT nodes in the value chain. Set by the system, cannot be changed by the client.
@@ -113,6 +114,7 @@ Having these 3 fields enables users of RKVST to accurately reflect what is claim
 Just as with the "When", the "Who" of “Who Did What When to an Asset" is potentially complicated if, for example, an application or gateway is acting on behalf of some other real-world user.
 
 Once committed to the RKVST system, each lifecycle Event record carries 2 separate user identities:
+
 * `principal_declared` - an optional user-supplied value that tells who performed an Event. This is useful for cases where the user principal/credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
 * `principal_accepted` - the actual user principal information belonging to the credential used to access the RKVST REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
 
@@ -126,15 +128,15 @@ When [creating an Asset](/platform/overview/creating-an-asset/), you may choose 
 
 ### Simple Hash
 
-The first option is Simple Hash. Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed. 
+The first option is Simple Hash. Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
 
 {{< note >}}
-**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform. 
+**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform.
 {{< /note >}}
 
 ### Khipu
 
-The second option is Khipu. With Khipu, all the details of your Asset and Events are committed to the RKVST blockchain. This way, you may compare to previous versions of your Asset and identify exactly what changes have been made. 
+The second option is Khipu. With Khipu, all the details of your Asset and Events are committed to the RKVST blockchain. This way, you may compare to previous versions of your Asset and identify exactly what changes have been made.
 
 {{< note >}}
 **Note:** The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.
@@ -158,6 +160,7 @@ This one-time manual process helps to underpin trust and security in your RKVST 
 
 As with any system handling large amounts of important data, one must carefully consider the design and scope of Access Policy rules in RKVST.
 Every situation is different, and the RKVST Access Policy system is flexible and powerful enough to support most situations, but in general it is recommended to follow some basic rules:
+
 * Aim for fewest possible number of policies: This makes it much easier to review and manage access rights.
 * Balance complex, highly-specific policies with simple, broad ones: Remember rights granted by policy are additive.
 * A single Access Policy can contain several permission groups, so it is possible to define a single filter to cover a particular population of Assets, then apply different rights to different sets of users and partner organizations. This is often a simpler way to manage access than to create separate Access Policies for each set of users.
@@ -167,9 +170,10 @@ Every situation is different, and the RKVST Access Policy system is flexible and
 
 RKVST employs a principle called Attribute-Based Access Control (ABAC) for users within an organization, and a related concept called Organization-Based Access Control (OBAC) to mediate data sharing between value chain participants.
 
-Rather than applying a specific fixed policy to each Asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied. This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems. 
+Rather than applying a specific fixed policy to each Asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied. This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems.
 
 RKVST Access Policies comprise of 2 main parts:
+
 * Filters: A list of attributes to match on Assets (this defines the scope of the policy)
 * Access Permissions: A list of access rights to be granted to users on those matching Assets
 
@@ -254,7 +258,7 @@ A simple Access Policy may look like this:
 ```
 
 {{< note >}}
-**Note:** Observe that there are 2 lists in the `filters` which concern different attributes. The effect of this is to say that an Asset matches the filters if it matches _at least one_ entry from _every list_. Or in other words, inner lists are `OR`, while outer lists are `AND`. 
+**Note:** Observe that there are 2 lists in the `filters` which concern different attributes. The effect of this is to say that an Asset matches the filters if it matches _at least one_ entry from _every list_. Or in other words, inner lists are `OR`, while outer lists are `AND`.
 
 For example:
 
@@ -267,6 +271,7 @@ Filters = [
 ```
 
 In the above simplified example, the policy would apply to any Pump or Valve from SynsationIndustries installed in either the ChicagoWest or ChicagoEast sites, but it would not match:
+
 * Other device types from SynsationIndustries;
 * Pumps or Valves from any other vendor;
 * SynsationIndustries Valves installed in a different location
@@ -277,6 +282,7 @@ In the above simplified example, the policy would apply to any Pump or Valve fro
 RKVST adopts a ‘default deny’ approach so access to an Asset Record is only possible if an Access Policy explicitly allows it.
 
 Revoking access can therefore be achieved in a number of ways, any of which may be more or less appropriate for the circumstances:
+
 * Remove the whole Access Policy
 * Change the attributes of the Asset so that it no longer matches the Access Policy (eg change location)
 * Change the attributes of the user or subject so that they no longer match the Access Policy (eg change IDP group)
@@ -291,14 +297,16 @@ Revoking access can therefore be achieved in a number of ways, any of which may 
 Attachments in RKVST enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.
 
 Adding an attachment to an Asset or Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:
+
 * a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection
 * a PDF of a safety conformance report to support a maintenance event
 * a software manifest to support an update
 * an x-ray image
 
 Attaching rich evidence to an Asset or Event is a two step process:
+
 1. First a Binary Large OBject (BLOB) is uploaded
-2. Then a reference to that blob is attached to the Event or Asset. 
+1. Then a reference to that blob is attached to the Event or Asset.
 
 To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`. To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
 
@@ -310,7 +318,7 @@ Attachments on Assets are named in their arc_display_name property, so that they
 If an asset has an attachment attribute named `arc_primary_image`, then this will be used by the SaaS user interface and other tools to represent the asset.
 
 {{< note >}}
-**Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. 
+**Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
 {{< /note >}}
 
 {{< note >}}
@@ -337,7 +345,7 @@ Trust is subjective. Compliance is a judgement call. No matter what security tec
 
 By maintaining a complete traceable record of Who Did What When to a Thing, RKVST makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.
 
-All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset records, piece together the important parts, and analyze the meaning. 
+All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset records, piece together the important parts, and analyze the meaning.
 
 But what if the same information could be used for real-time decision-making that might avert an incident? This is where RKVST’s “compliance posture” APIs come in. These take the thinking and processing burden off the client by providing a single, simple API call to answer the complex question: “given all you know about this asset, should I trust it right now?”. Additionally, and crucially for sensitive use cases, the yes or no answer comes with a detailed defensible reason why which can be inspected by relevant stakeholders during or after the event.
 
@@ -362,20 +370,22 @@ Individual assets either pass or fail, and organizations can calculate their ove
 
 As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:
 
-* *COMPLIANCE RICHNESS*: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br><br>For example, "Weight attribute must be less than 1000 kg"
-* *COMPLIANCE SINCE*: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br><br>For example, "Time since last Maintenance must be less than 72 hours"
-
-* *COMPLIANCE CURRENT OUTSTANDING*: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br><br>For example, checking there are no outstanding "Maintenance Request" Events that are not addressed by an associated "Maintenance Performed" Event.
-
-* *COMPLIANCE_PERIOD_OUTSTANDING*: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br><br>For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours.
-
-* *COMPLIANCE_DYNAMIC_TOLERANCE*: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br><br>For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
+* **COMPLIANCE RICHNESS**: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.  
+For example, "Weight attribute must be less than 1000 kg"
+* **COMPLIANCE SINCE**: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.  
+For example, "Time since last Maintenance must be less than 72 hours"
+* **COMPLIANCE CURRENT OUTSTANDING**: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.  
+For example, checking there are no outstanding "Maintenance Request" Events that are not addressed by an associated "Maintenance Performed" Event.
+* **COMPLIANCE_PERIOD_OUTSTANDING**: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.  
+For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours.
+* **COMPLIANCE_DYNAMIC_TOLERANCE**: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.  
+For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
 
 {{< note >}}
 **Note:** To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated.
 {{< /note >}}
 
-## Perspectives 
+## Perspectives
 
 In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with RKVST it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage, RKVST can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.
 
@@ -387,6 +397,6 @@ curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application
 
 Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question, would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.
 
-## That's it!
+## That's it
 
 These are all the basics of RKVST. With this knowledge you can now [jump straight into the API](/developers/api-reference/) or try other topic on the [RKVST Platform](/platform/).

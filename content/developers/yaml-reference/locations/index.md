@@ -25,7 +25,7 @@ aliases:
 
 This action checks to see if the location you are looking to create already exists, and if not, executes the creation of your new location. The action checks for a location with the same identifier to verify that the location does not already exist.
 
-If this action is executed as part of a series of YAML Runner steps, the location created can be referenced in later steps using the key `location_label`. 
+If this action is executed as part of a series of YAML Runner steps, the location created can be referenced in later steps using the key `location_label`.
 
 When you create your location, you may also add location attributes. In the example below, information such as the facility address and type have been included, as well as contact information for the location's reception:
 
@@ -53,7 +53,7 @@ steps:
 
 ## Locations List
 
-This action returns a list of all locations that meet your specified criteria. Setting `print_response: true` is necessary to print the full output. 
+This action returns a list of all locations that meet your specified criteria. Setting `print_response: true` is necessary to print the full output.
 
 ```yaml
 ---

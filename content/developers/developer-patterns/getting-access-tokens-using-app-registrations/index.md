@@ -109,11 +109,13 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
     echo $TOKEN
     ```
 
-1. Create a Bearer Token file with `0600` permissions for reference by `curl` commands
+1. Create a Bearer Token file for reference by `curl` commands, in an `./rkvst/` directory
 
     ```bash
-    echo Authorization: Bearer $TOKEN > rkvst-bearer.txt
-    cat rkvst-bearer.txt
+    mkdir -p $HOME/.rkvst
+    chmod 0700 $HOME/.rkvst
+    echo Authorization: Bearer $TOKEN > $HOME/.rkvst/bearer-token.txt
+    cat $HOME/.rkvst/bearer-token.txt
     ```
 
 ## Testing Token Creation
@@ -129,10 +131,10 @@ Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#
 
 ### View Existing Assets
 
-To test the creation of the Custom integration and the configuration of the bearer token file (`rkvst-bearer.txt`), query the assets API
+To test the creation of the Custom integration and the configuration of the bearer token file (`bearer-token.txt`), query the assets API
 
 ```bash
-curl -X GET -H "@rkvst-bearer.txt" \
+curl -X GET -H "@$HOME/.rkvst/bearer-token.txt" \
     https://app.rkvst.io/archivist/v2/assets | jq
 ```
 

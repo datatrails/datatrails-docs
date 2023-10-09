@@ -42,14 +42,14 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 ```
 
 {{< note >}}
-**Note:** `RecordEvidence` is the primary, default behaviour for creating Events.
+**Note:** `RecordEvidence` is the primary, default behavior for creating Events.
 {{< /note >}}
 
 Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -88,9 +88,11 @@ The response is:
 ```
 
 ### Document Profile Event Creation
+
 There are two [Document Profile Events](/developers/developer-patterns/document-profile/) that are available as part of the document lifecycle. These are to `publish` a new version and to `withdraw` the document from use.
 
 #### Publish
+
 Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
@@ -190,6 +192,7 @@ The response is:
 }
 ```
 #### Withdraw
+
 Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
@@ -254,15 +257,17 @@ The response is:
     "tenant_identity": ""
 }
 ```
+
 ### Adding Attachments
 
-The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api). 
+The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api).
 
 This attachment uuid is generically referred to as:
 
 ```bash
 blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
 Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
 
 Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.
@@ -312,11 +317,12 @@ The following example shows you usage with both the `event_attributes` and the `
   },
 }
 ```
+
 Add the request to the Asset Record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -379,5 +385,7 @@ You should see the response:
   "transaction_id": "0x07569"
 }
 ```
+
 ## Events OpenAPI Docs
+
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}

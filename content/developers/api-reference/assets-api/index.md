@@ -53,7 +53,7 @@ Create the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets
@@ -88,6 +88,7 @@ The response is:
   "tracked": "TRACKED"
 }
 ```
+
 #### Creating a Public Asset
 
 {{< warning >}}
@@ -181,6 +182,7 @@ The response is:
     "tenant_identity": ""
 }
 ```
+
 ### Asset Record Retrieval
 
 Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
@@ -197,7 +199,7 @@ To fetch all Asset records, simply `GET` the Assets resource:
 
 ```bash
 curl -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets
 ```
 
@@ -207,7 +209,7 @@ If you know the unique identity of the Asset record simply `GET` the resource:
 
 ```bash
 curl -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
@@ -217,7 +219,7 @@ If you know the unique identity of an Asset record and want to show its state at
 
 ```bash
 curl -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
 ```
 
@@ -229,7 +231,7 @@ To fetch all Assets with a specific name, GET the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
 ```
 
@@ -239,7 +241,7 @@ To fetch all Assets of a specific type, `GET` the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
 
@@ -249,16 +251,17 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
 ```
+
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
 
 To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/rkvst/rkvst-simplehash-python), `GET` the Assets resource, specifying a specific Asset ID or using `assets/-/events` to fetch Events for all Assets:
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
 ```
 
@@ -268,7 +271,7 @@ To fetch all Assets with a field set to any value, `GET` the Assets resource and
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*"
 ```
 
@@ -280,7 +283,7 @@ To fetch all Assets with a field which is not set to any value, `GET` the Assets
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*"
 ```
 
@@ -292,7 +295,7 @@ Fetch the Public URL of a Public Asset:
 
 ```bash
 curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
@@ -307,8 +310,7 @@ curl -g -v -X GET \
 Fetch the Public URL of an Event on a Public Asset:
 
 ```bash
-curl -g -v -X GET \
-     -H "@rkvst-bearer.txt" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
@@ -320,7 +322,7 @@ curl -g -v -X GET \
 
 ### Tracking and Untracking Assets
 
-While deleting Assets is not possible, it is possible to hide them from default searches so that old or obsolete records don't crowd out the tenant estate or show up in partner tenancies when they shouldn't. 
+While deleting Assets is not possible, it is possible to hide them from default searches so that old or obsolete records don't crowd out the tenant estate or show up in partner tenancies when they shouldn't.
 
 #### Untracking an Asset
 
@@ -339,7 +341,7 @@ Untrack the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
@@ -393,7 +395,7 @@ Track the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events

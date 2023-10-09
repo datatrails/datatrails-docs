@@ -35,7 +35,7 @@ Create the IAM Subject:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/iam/v1/subjects
@@ -69,7 +69,7 @@ To fetch all IAM Subjects records, simply `GET` the `/subjects` resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/subjects
 ```
 
@@ -79,7 +79,7 @@ If you know the unique identity of the IAM Subject record simply `GET` the resou
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
@@ -89,7 +89,7 @@ To fetch all IAM subjects with a specific name, `GET` the `/subjects` resource a
 
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      "https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme"
 ```
 
@@ -107,7 +107,7 @@ Each of these calls returns a list of matching IAM Subjects records in the form:
         },
         {
             "identity": "subjects/12345678-0a26-4c22-a886-1082297b063b",
-            "display_name": "Some otherdescription",
+            "display_name": "Some other description",
             "wallet_pub_key": ["key5"],
             "wallet_address": ["address5"],
             "tessera_pub_key": ["key7"]
@@ -122,7 +122,7 @@ To delete an IAM Subject, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
@@ -144,7 +144,7 @@ Update the IAM Subject:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
@@ -178,7 +178,7 @@ subjects/00000000-0000-0000-0000-000000000000
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
+     -H "@$HOME/.rkvst/bearer-token.txt" \
      https://app.rkvst.io/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
 ```
 

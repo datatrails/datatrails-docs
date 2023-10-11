@@ -14,7 +14,12 @@ toc: true
 aliases: 
   - /docs/api-reference/compliance-api/
 ---
+{{< note >}}
+This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
 
+Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
+{{< /note >}}
 ## Compliance API Examples
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.

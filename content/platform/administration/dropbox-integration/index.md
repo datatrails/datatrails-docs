@@ -36,9 +36,7 @@ Knowledge of the filename is not needed to prove provenance because Instaproof w
 {{< img src="DropboxProceed.png" alt="Dropbox Integration" caption="<em>Proceed</em>" class="border-0">}}
 If you are already logged into Dropbox on the device that you are using to set up the integration then you will proceed directly to step 3.<br>If you are not logged in then Dropbox will ask you to authenticate.
 {{< img src="DropboxAuth.png" alt="Dropbox Integration" caption="<em>Log in to Dropbox</em>" class="border-0">}}
-1. Dropbox will display an alert message. Click **Continue**.
-{{< img src="DropboxAlert.png" alt="Dropbox Integration" caption="<em>Select Continue</em>" class="border-0">}}
-1. Following the alert, click **Allow** to give RKVST permission to access your Dropbox Folders.
+1. RKVST now asks for permission to see metadata for your files and folders. Click **Allow** to give RKVST permission to access your Dropbox Folders.
 {{< img src="DropboxRKVSTAllow.png" alt="Dropbox Integration" caption="<em>Select Allow</em>" class="border-0">}}
 1. Select the folder on Dropbox that you wish to connect to RKVST and then select **Confirm**. The contents of this folder and *all its subfolders* will be added to RKVST as public Document Profile Assets.
 {{< img src="DropboxConfirm.png" alt="Dropbox Integration" caption="<em>Select Folder and Confirm</em>" class="border-0">}}

@@ -6347,31 +6347,7 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>Dropbox will display an alert message. Click <strong>Continue</strong>.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Select Continue</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="DropboxAlert" tabindex="-1" aria-labelledby="DropboxAlert" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" width="631" height="499" alt="Dropbox Integration">
-      </div>
-  
-  </div>
-</div></li>
-<li>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
+<li>RKVST now asks for permission to see metadata for your files and folders. Click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">
@@ -30378,31 +30354,7 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>Dropbox will display an alert message. Click <strong>Continue</strong>.
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxAlert" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxAlert.png" width="631" height="499" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Select Continue</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="DropboxAlert" tabindex="-1" aria-labelledby="DropboxAlert" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxAlert_hu6473eb4918df40830e6f1d21ec6a2f80_30749_200x0_resize_box_3.png 200w" width="631" height="499" alt="Dropbox Integration">
-      </div>
-  
-  </div>
-</div></li>
-<li>Following the alert, click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
+<li>RKVST now asks for permission to see metadata for your files and folders. Click <strong>Allow</strong> to give RKVST permission to access your Dropbox Folders.
 
 
 <figure class="border-0">

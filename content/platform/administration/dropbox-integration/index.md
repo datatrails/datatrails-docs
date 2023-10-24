@@ -15,7 +15,7 @@ toc: true
 
 ## The Dropbox Integration
 
-This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files.
+This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create verifiable audit trail.
 
 During the set up process you will select which Dropbox folders will be linked to RKVST. Any files found in the linked folders, and their subfolders, will always be added to your RKVST tenancy as a **public** [Document Profile Asset](/developers/developer-patterns/document-profile/). These assets can be verified using [Instaproof](/platform/overview/instaproof/).
 

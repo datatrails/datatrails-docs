@@ -6264,12 +6264,12 @@ For more information on creating Events, please visit <a href="/platform/overvie
 </li>
 </ol>
 `},{id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
-<p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
-<p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
+<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create verifiable audit trail.</p>
+<p>During the set up process you will select which Dropbox folders will be linked to RKVST. Any files found in the linked folders, and their subfolders, will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
 <p>From then on, each time a new file is created a corresponding asset will also be created on RKVST and any modifications to an existing file will be registered as a <a href="/developers/developer-patterns/document-profile/#publish-event">Publish Event</a> on the correct asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> RKVST will <strong>never</strong> upload a copy of the file.</p>
-<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
+<p>RKVST uses <em>xxx&hellip;</em> to mask the file name and file path in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
 Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.</p>
 </div>
   </blockquote>
@@ -6371,14 +6371,14 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>Select the folder on Dropbox that you wish to connect to RKVST and then select <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+<li>Select the Dropbox folder that you wish to link to RKVST and then click <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Select Folder and Confirm</em></figcaption>
+  <figcaption class="figure-caption"><em>Select folder and Confirm</em></figcaption>
 </figure>
 
 
@@ -6395,7 +6395,7 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>You will see a success message and Dropbox will be connected.
+<li>You will see a success message. Dropbox will be connected and the selected folders will be linked.
 
 
 <figure class="border-0">
@@ -6426,7 +6426,7 @@ Click on an icon on the right to edit the connection or to disconnect.
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Connected</em></figcaption>
+  <figcaption class="figure-caption"><em>Configuration icons on the right</em></figcaption>
 </figure>
 
 
@@ -6471,8 +6471,59 @@ Click on an icon on the right to edit the connection or to disconnect.
     <div><strong></strong> <strong>Remember:</strong> The filenames of the Dropbox files are masked using the format <em>xxx&hellip;</em></div>
   </blockquote></li>
 </ol>
+<h3 id="editing-the-list-of-linked-folders">Editing the list of Linked folders</h3>
+<ol>
+<li>Select the File icon in RKVST
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RKVSTDisconnect" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" alt="Dropbox Integration"></noscript>
+  <figcaption class="figure-caption"><em>File icon on the right</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="RKVSTDisconnect" tabindex="-1" aria-labelledby="RKVSTDisconnect" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" width="1154" height="106" alt="Dropbox Integration">
+      </div>
+  
+  </div>
+</div></li>
+<li>You will see the list of available folders. Select a folder to link or deselect a folder to unlink and then click <strong>Confirm</strong>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
+  <figcaption class="figure-caption"><em>Reconfigure folders and Confirm</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="DropboxConfirm" tabindex="-1" aria-labelledby="DropboxConfirm" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" width="431" height="348" alt="Dropbox Integration">
+      </div>
+  
+  </div>
+</div></li>
+</ol>
 <h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
-<p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
+<p>To disconnect RKVST and Dropbox you have the option to disconnect using both applications.</p>
 <ol>
 <li>Select the Disconnect icon in RKVST
 
@@ -6521,8 +6572,9 @@ You will see a warning message.
       </div>
   
   </div>
-</div></li>
-<li>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
+</div>
+This means that this specific tenancy will no longer be used for provenance. You would do this if you no longer want to use a connected tenancy while continuing to use other connected tenancies.</li>
+<li>If you also want to disconnect in Dropbox, log in to Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
 
 
 <figure class="border-0">
@@ -6546,8 +6598,9 @@ You will see a warning message.
   
   </div>
 </div>
-This is how to connect and disconnect RKVST and Dropbox, it is that simple.</li>
+You would disconnect in Dropbox if you no longer wish to use RKVST for provenance. This will remove access permissions for all your tenancies and should be done after you have disconnected all your individual tenancies in RKVST.</li>
 </ol>
+<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `},{id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use RKVST for provenance.
 If you are looking for a simple way to test our API you might prefer our <a href="https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview">Postman collection</a>, the <a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the <a href="https://app.rkvst.io">Developers</a> section of the web UI.</p>
@@ -30271,12 +30324,12 @@ For more information on creating Events, please visit <a href="/platform/overvie
 </li>
 </ol>
 `}).add({id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
-<p>This integration allows you to link your RKVST tenancy directly with Dropbox to automatically add provenance to your files.</p>
-<p>During the set up process, any files found in the configured directories and their subfolders will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
+<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create verifiable audit trail.</p>
+<p>During the set up process you will select which Dropbox folders will be linked to RKVST. Any files found in the linked folders, and their subfolders, will always be added to your RKVST tenancy as a <strong>public</strong> <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
 <p>From then on, each time a new file is created a corresponding asset will also be created on RKVST and any modifications to an existing file will be registered as a <a href="/developers/developer-patterns/document-profile/#publish-event">Publish Event</a> on the correct asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> RKVST will <strong>never</strong> upload a copy of the file.</p>
-<p>The file name and file path are masked in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
+<p>RKVST uses <em>xxx&hellip;</em> to mask the file name and file path in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because RKVST is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
 Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.</p>
 </div>
   </blockquote>
@@ -30378,14 +30431,14 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>Select the folder on Dropbox that you wish to connect to RKVST and then select <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
+<li>Select the Dropbox folder that you wish to link to RKVST and then click <strong>Confirm</strong>. The contents of this folder and <em>all its subfolders</em> will be added to RKVST as public Document Profile Assets.
 
 
 <figure class="border-0">
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Select Folder and Confirm</em></figcaption>
+  <figcaption class="figure-caption"><em>Select folder and Confirm</em></figcaption>
 </figure>
 
 
@@ -30402,7 +30455,7 @@ If you are already logged into Dropbox on the device that you are using to set u
   
   </div>
 </div></li>
-<li>You will see a success message and Dropbox will be connected.
+<li>You will see a success message. Dropbox will be connected and the selected folders will be linked.
 
 
 <figure class="border-0">
@@ -30433,7 +30486,7 @@ Click on an icon on the right to edit the connection or to disconnect.
   
   <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConnected" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConnected_hu8286fa24cec7ee66961a9f6d13ddc882_57159_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConnected.png" width="1625" height="482" alt="Dropbox Integration"></noscript>
-  <figcaption class="figure-caption"><em>Connected</em></figcaption>
+  <figcaption class="figure-caption"><em>Configuration icons on the right</em></figcaption>
 </figure>
 
 
@@ -30478,8 +30531,59 @@ Click on an icon on the right to edit the connection or to disconnect.
     <div><strong></strong> <strong>Remember:</strong> The filenames of the Dropbox files are masked using the format <em>xxx&hellip;</em></div>
   </blockquote></li>
 </ol>
+<h3 id="editing-the-list-of-linked-folders">Editing the list of Linked folders</h3>
+<ol>
+<li>Select the File icon in RKVST
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#RKVSTDisconnect" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/RKVSTDisconnect.png" width="1154" height="106" alt="Dropbox Integration"></noscript>
+  <figcaption class="figure-caption"><em>File icon on the right</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="RKVSTDisconnect" tabindex="-1" aria-labelledby="RKVSTDisconnect" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/RKVSTDisconnect_hu18d85119f868d439e19276571ffeb002_17247_200x0_resize_box_3.png 200w" width="1154" height="106" alt="Dropbox Integration">
+      </div>
+  
+  </div>
+</div></li>
+<li>You will see the list of available folders. Select a folder to link or deselect a folder to unlink and then click <strong>Confirm</strong>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#DropboxConfirm" img class="img-fluid responsive" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" alt="Dropbox Integration">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" src="/platform/administration/dropbox-integration/DropBoxConfirm.png" width="431" height="348" alt="Dropbox Integration"></noscript>
+  <figcaption class="figure-caption"><em>Reconfigure folders and Confirm</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="DropboxConfirm" tabindex="-1" aria-labelledby="DropboxConfirm" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/administration/dropbox-integration/DropBoxConfirm_hu6adc49bd6c91e310c085b0a295587fd8_22814_200x0_resize_box_3.png 200w" width="431" height="348" alt="Dropbox Integration">
+      </div>
+  
+  </div>
+</div></li>
+</ol>
 <h3 id="disconnecting-rkvst-from-dropbox">Disconnecting RKVST from Dropbox</h3>
-<p>To uncouple RKVST and Dropbox you must disconnect using both applications.</p>
+<p>To disconnect RKVST and Dropbox you have the option to disconnect using both applications.</p>
 <ol>
 <li>Select the Disconnect icon in RKVST
 
@@ -30528,8 +30632,9 @@ You will see a warning message.
       </div>
   
   </div>
-</div></li>
-<li>In Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
+</div>
+This means that this specific tenancy will no longer be used for provenance. You would do this if you no longer want to use a connected tenancy while continuing to use other connected tenancies.</li>
+<li>If you also want to disconnect in Dropbox, log in to Dropbox, select your account and then <strong>Settings</strong> followed by the <strong>Apps</strong> tab. Select RKVST and then <strong>Disconnect</strong>
 
 
 <figure class="border-0">
@@ -30553,8 +30658,9 @@ You will see a warning message.
   
   </div>
 </div>
-This is how to connect and disconnect RKVST and Dropbox, it is that simple.</li>
+You would disconnect in Dropbox if you no longer wish to use RKVST for provenance. This will remove access permissions for all your tenancies and should be done after you have disconnected all your individual tenancies in RKVST.</li>
 </ol>
+<p>This is how to connect and disconnect RKVST and Dropbox, it is that simple!</p>
 `}).add({id:23,href:"https://docs.rkvst.com/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use RKVST for provenance.
 If you are looking for a simple way to test our API you might prefer our <a href="https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview">Postman collection</a>, the <a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the <a href="https://app.rkvst.io">Developers</a> section of the web UI.</p>

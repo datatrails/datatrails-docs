@@ -20,6 +20,10 @@ Locations associate an Asset with a 'home' that can help when governing sharing 
 
 It may be useful to indicate an Asset's origin. For example, if tracking traveling consultant's laptops, you may wish to associate them with a 'home' office.
 
+{{< caution >}}
+**Caution:** It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See [concept docs on locations](../../overview/advanced-concepts/#geolocation) for more information.
+{{< /caution >}}
+
 ## Creating a Location
 
 1. Create your location

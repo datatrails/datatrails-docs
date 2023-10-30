@@ -325,19 +325,55 @@ If an asset has an attachment attribute named `arc_primary_image`, then this wil
 **Note:** While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.
 {{< /note >}}
 
-## Locations
+## Geolocation
 
-Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.
+RKVST supports 2 different main concepts of geolocation, and it's important to choose the correct one for your use case.
+* *Locations* on Assets, which enable grouping of Assets based on some common management ("All these devices live in the Basingstoke factory")
+* *GIS coordinates* on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset ("This was scanned in London, and later sold in Manchester")
+
+Essentially Locations give you groupings:
+{{< img src="locations_grouping.png" alt="Rectangle" caption="<em>Grouping Assets by location</em>" class="border-0" >}}
+
+Whereas Event coordinates give you tracking:
+{{< img src="gis_tracking.png" alt="Rectangle" caption="<em>Tracking Assets with GIS coordinates</em>" class="border-0" >}}
+
+### Asset Locations
+
+{{< caution >}}
+**Caution:** It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.
+{{< /caution >}}
+
+Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.
 
 This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
 
+Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.
+
 {{< note >}}
-**Note:** If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, it is likely to be more scalable to use a custom attribute to link them together.
+**Note:** If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be more scalable to use a custom attribute to link Assets.
 {{< /note >}}
 
-{{< caution >}}
-**Caution:** It is important to recognize that the location does not necessarily denote the Asset’s current position in space, it simply determines which facility the Asset belongs to. For things that move around, GIS location information can be included with any Event in the Asset Record in the `arc_gis_lat` and `arc_gis_lng` attributes, and the Asset’s movement through space will be properly tracked.
-{{< /caution >}}
+### GIS Coordinates on Events
+
+If you're wanting to track the movement of an Asset, or record an audit trail of _where_ a particular Event happens, you can add `arc_gis_lat` and `arc_gis_lng` attributes to the `event_attributes`.
+
+For example:
+
+```json
+    {
+      "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "behaviour": "RecordEvidence",
+      "operation": "Record",
+      "event_attributes": {
+        "arc_display_type": "Sighting Report",
+        "arc_description": "Observed at Fort Mason, San Francisco",
+        "arc_gis_lat": "37.807338",
+        "arc_gis_lng" : "-122.429286"
+      }
+    }
+```
+
+Once applied the GIS coordinates on Events are immutable.
 
 ## Compliance Policies
 

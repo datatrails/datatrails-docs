@@ -621,15 +621,85 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.</div>
   </blockquote>
-<h2 id="locations">Locations</h2>
-<p>Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.</p>
-<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, it is likely to be more scalable to use a custom attribute to link them together.</div>
-  </blockquote>
+<h2 id="geolocation">Geolocation</h2>
+<p>RKVST supports 2 different main concepts of geolocation, and it&rsquo;s important to choose the correct one for your use case.</p>
+<ul>
+<li><em>Locations</em> on Assets, which enable grouping of Assets based on some common management (&ldquo;All these devices live in the Basingstoke factory&rdquo;)</li>
+<li><em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;)</li>
+</ul>
+<p>Essentially Locations give you groupings:
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#locations_grouping" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1976" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1976" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Grouping Assets by location</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="locations_grouping" tabindex="-1" aria-labelledby="locations_grouping" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" width="3596" height="1976" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>Whereas Event coordinates give you tracking:
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#gis_tracking" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/gis_tracking.png" width="3596" height="1976" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/gis_tracking.png" width="3596" height="1976" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Tracking Assets with GIS coordinates</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="gis_tracking" tabindex="-1" aria-labelledby="gis_tracking" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" width="3596" height="1976" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<h3 id="asset-locations">Asset Locations</h3>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space, it simply determines which facility the Asset belongs to. For things that move around, GIS location information can be included with any Event in the Asset Record in the <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes, and the Asset’s movement through space will be properly tracked.</div>
+    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.</div>
   </blockquote>
+<p>Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.</p>
+<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
+<p>Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be more scalable to use a custom attribute to link Assets.</div>
+  </blockquote>
+<h3 id="gis-coordinates-on-events">GIS Coordinates on Events</h3>
+<p>If you&rsquo;re wanting to track the movement of an Asset, or record an audit trail of <em>where</em> a particular Event happens, you can add <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes to the <code>event_attributes</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Sighting Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Observed at Fort Mason, San Francisco&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_gis_lat&#34;</span><span class="p">:</span> <span class="s2">&#34;37.807338&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_gis_lng&#34;</span> <span class="p">:</span> <span class="s2">&#34;-122.429286&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><p>Once applied the GIS coordinates on Events are immutable.</p>
 <h2 id="compliance-policies">Compliance Policies</h2>
 <p>Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play, every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An Asset that is safe in one context may not be in another.</p>
 <p>By maintaining a complete traceable record of Who Did What When to a Thing, RKVST makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.</p>
@@ -5703,6 +5773,9 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 
 `},{id:21,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
+<blockquote class="caution callout">
+    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See <a href="../../overview/advanced-concepts/#geolocation">concept docs on locations</a> for more information.</div>
+  </blockquote>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
 <li>
@@ -24681,15 +24754,85 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.</div>
   </blockquote>
-<h2 id="locations">Locations</h2>
-<p>Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.</p>
-<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, it is likely to be more scalable to use a custom attribute to link them together.</div>
-  </blockquote>
+<h2 id="geolocation">Geolocation</h2>
+<p>RKVST supports 2 different main concepts of geolocation, and it&rsquo;s important to choose the correct one for your use case.</p>
+<ul>
+<li><em>Locations</em> on Assets, which enable grouping of Assets based on some common management (&ldquo;All these devices live in the Basingstoke factory&rdquo;)</li>
+<li><em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;)</li>
+</ul>
+<p>Essentially Locations give you groupings:
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#locations_grouping" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1976" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1976" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Grouping Assets by location</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="locations_grouping" tabindex="-1" aria-labelledby="locations_grouping" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/locations_grouping_hu7b3500af95a6a9c31dc44ddedc7cf48e_924201_200x0_resize_box_3.png 200w" width="3596" height="1976" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>Whereas Event coordinates give you tracking:
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#gis_tracking" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/gis_tracking.png" width="3596" height="1976" data-sizes="auto" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/gis_tracking.png" width="3596" height="1976" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Tracking Assets with GIS coordinates</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="gis_tracking" tabindex="-1" aria-labelledby="gis_tracking" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_100x0_resize_box_3.png" data-srcset="https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_900x0_resize_box_3.png 900w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_800x0_resize_box_3.png 800w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_500x0_resize_box_3.png 500w,https://docs.rkvst.com/platform/overview/advanced-concepts/gis_tracking_hu7b3500af95a6a9c31dc44ddedc7cf48e_1456725_200x0_resize_box_3.png 200w" width="3596" height="1976" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<h3 id="asset-locations">Asset Locations</h3>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space, it simply determines which facility the Asset belongs to. For things that move around, GIS location information can be included with any Event in the Asset Record in the <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes, and the Asset’s movement through space will be properly tracked.</div>
+    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.</div>
   </blockquote>
+<p>Assets in RKVST can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the RKVST UI.</p>
+<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
+<p>Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be more scalable to use a custom attribute to link Assets.</div>
+  </blockquote>
+<h3 id="gis-coordinates-on-events">GIS Coordinates on Events</h3>
+<p>If you&rsquo;re wanting to track the movement of an Asset, or record an audit trail of <em>where</em> a particular Event happens, you can add <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes to the <code>event_attributes</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Sighting Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Observed at Fort Mason, San Francisco&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_gis_lat&#34;</span><span class="p">:</span> <span class="s2">&#34;37.807338&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_gis_lng&#34;</span> <span class="p">:</span> <span class="s2">&#34;-122.429286&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><p>Once applied the GIS coordinates on Events are immutable.</p>
 <h2 id="compliance-policies">Compliance Policies</h2>
 <p>Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play, every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An Asset that is safe in one context may not be in another.</p>
 <p>By maintaining a complete traceable record of Who Did What When to a Thing, RKVST makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.</p>
@@ -29763,6 +29906,9 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 
 `}).add({id:21,href:"https://docs.rkvst.com/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
+<blockquote class="caution callout">
+    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See <a href="../../overview/advanced-concepts/#geolocation">concept docs on locations</a> for more information.</div>
+  </blockquote>
 <h2 id="creating-a-location">Creating a Location</h2>
 <ol>
 <li>

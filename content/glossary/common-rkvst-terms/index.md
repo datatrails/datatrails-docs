@@ -32,8 +32,7 @@ Select a term for more information.
 | [custom integration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/#creating-an-app-registration)    | client ID and client secret credentials that are used to access the RKVST API. Formerly known as an App Registration                                                             |
 | [event](/platform/overview/core-concepts/#events)               | tracks key moments of an Asset lifecycle; details of Who Did What When to an Asset                                   |
 | [event_attributes](/platform/overview/creating-an-event-against-an-asset/#creating-events)    | key-value pairs that represent information about an Event                                                            |
-| [integration](/platform/administration/dropbox-integration/) | built-in API functionality that allows RKVST to connect to third party products such as Dropbox |
-| [khipu](/platform/overview/advanced-concepts/#khipu)    | Proof Mechanism that commits information directly to the RKVST blockchain so it can be verified any time after it is confirmed                                                            |
+| [integration](/platform/administration/dropbox-integration/) | built-in API functionality that allows RKVST to connect to third party products such as Dropbox |                                                           |
 | [linked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has been selected to be linked to RKVST during the configuration of an Integration|
 | [metadata](https://en.wiktionary.org/wiki/metadata) | structured information about a file. In RKVST this metadata is recorded in the Asset and Event attributes|
 | [OBAC](/platform/administration/sharing-assets-with-obac/)                | Organization-Based Access Control; policy allows sharing with the Administrator of another organization                  |

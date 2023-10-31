@@ -38,6 +38,6 @@ Event Attributes
 | [arc_correlation_value](/platform/administration/compliance-policies/#creating-a-compliance-policy)      | links Events together for evaluation in Compliance Policies             |
 | [arc_gis_lat](/platform/overview/advanced-concepts/#locations)      | tags the Event as having happened at a particular latitude. Used in the RKVST UI for mapping             |
 | [arc_gis_lng](/platform/overview/advanced-concepts/#locations)      | tags the Event as having happened at a particular longitude. Used in the RKVST UI for mapping             |
-| [arc_description](https://docs.rkvst.com/developers/api-reference/events-api/#event-creation)            | brief description of the Event being recorded               |
-| [arc_display_type](https://docs.rkvst.com/developers/api-reference/events-api/#event-creation)           | classification of the type of Event being performed that can be used for grouping or access control |
+| [arc_description](/developers/api-reference/events-api/#event-creation)            | brief description of the Event being recorded               |
+| [arc_display_type](/developers/api-reference/events-api/#event-creation)           | classification of the type of Event being performed that can be used for grouping or access control |
 | [arc_primary_image](/platform/overview/advanced-concepts/#the-primary-image) | an image attachment that will display as the thumbnail of the Event                               |

@@ -51,7 +51,7 @@ At the top you can see the document that was checked and found on Instaproof. Do
 
     While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
 
-### What do the Instaproof results mean?
+### What Do the Instaproof Results Mean
 
 #### Immutable Audit Trail
 

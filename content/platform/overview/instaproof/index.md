@@ -70,7 +70,7 @@ Includes the current version, the organization, and Verified Domain badge, if ap
 
 **Attributes** - This drop down section contains any custom attributes that were added to the asset.
 
-**Versions** - This drop down section shows the published versions of the document.
+**Versions** - the published versions of the document
 
 {{< note >}}
 **Note:**

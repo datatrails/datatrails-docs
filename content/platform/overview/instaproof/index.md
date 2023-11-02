@@ -94,7 +94,7 @@ The **Overview** information about the Event
 **Transaction** - This link contains the details of the blockchain transaction.
 {{< img src="InstaproofTransaction.png" alt="Rectangle" caption="<em>Transaction Details</em>" class="border-0" >}}
 
-**Type** - For Document Profile Events this will always be 'Publish'.
+**Type** - For Document Profile Events this will always be 'Publish'
 
 **Document changes** - The version and document hash for new version Events. There is no data here for custom Events. 
 

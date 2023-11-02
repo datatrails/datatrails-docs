@@ -59,7 +59,8 @@ Click on a result to see details of the document history. You will see the Event
 
 {{< img src="InstaproofResults.png" alt="Rectangle" caption="<em>Asset Details Tab</em>" class="border-0" >}}
 
-The **Asset details** tab shows the information about the asset attributes. Includes the current version, the organization and Verified Domain badge, if applicable. 
+The **Asset details** tab shows the information about the asset attributes.
+Includes the current version, the organization, and Verified Domain badge, if applicable. 
 
 **Public attestation and visibility** - *Public* means that the document is publicly accessible using the public URL. *Permissioned* means that it is private and requires shared access to be enabled for a user to be able to view it.
 

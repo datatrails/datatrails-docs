@@ -66,7 +66,7 @@ Includes the current version, the organization, and Verified Domain badge, if ap
 
 **Type** - For Document Profile Assets this will always be 'Document'.
 
-**Description** - Select the down arrow to view an optional description of the Asset.
+**Description** - an optional description of the Asset
 
 **Attributes** - This drop down section contains any custom attributes that were added to the asset.
 

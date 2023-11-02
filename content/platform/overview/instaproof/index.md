@@ -85,7 +85,7 @@ Click on the tab and select an Event to view the details.
 
 {{< img src="InstaproofResultsDetails.png" alt="Rectangle" caption="<em>Event History Overview Tab</em>" class="border-0" >}}
 
-The **Overview** tab provides information about the Event.
+The **Overview** information about the Event
 
 **Event Identity** -  The Event ID will always be of the format 'publicassets/<asset_id>/events/<event_id>' for public assets or 'assets/<asset_id>/events/<event_id>' for private assets.
 

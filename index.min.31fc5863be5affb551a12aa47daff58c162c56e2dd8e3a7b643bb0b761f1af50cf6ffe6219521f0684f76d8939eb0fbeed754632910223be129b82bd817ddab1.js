@@ -6460,7 +6460,7 @@ For more information on creating Events, please visit
 </li>
 </ol>
 `},{id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
-<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create verifiable audit trail.</p>
+<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create an immutable audit trail.</p>
 <p>During the set up process you will select which Dropbox folders will be linked to RKVST. Any files found in the linked folders, and their subfolders, will always be added to your RKVST tenancy as a <strong>public</strong> 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using 
 <a href="/platform/overview/instaproof/">Instaproof</a>.</p>
@@ -30840,7 +30840,7 @@ For more information on creating Events, please visit
 </li>
 </ol>
 `}).add({id:22,href:"https://docs.rkvst.com/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
-<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create verifiable audit trail.</p>
+<p>This integration allows you to connect your RKVST tenancy directly with Dropbox to automatically add provenance to your files and create an immutable audit trail.</p>
 <p>During the set up process you will select which Dropbox folders will be linked to RKVST. Any files found in the linked folders, and their subfolders, will always be added to your RKVST tenancy as a <strong>public</strong> 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Asset</a>. These assets can be verified using 
 <a href="/platform/overview/instaproof/">Instaproof</a>.</p>

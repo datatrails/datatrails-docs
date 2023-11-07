@@ -111,7 +111,9 @@ Once the statement has been registered, a counter signed statement can be retrie
 
 {{< note >}}
 The counter signed statement is returned in base64.
+
 The counter signed statement is a Cose_Sign1 message.
+
 The original signed statement is the payload of the counter signed statement, as a Cose_Sign1 message in CBOR. https://www.rfc-editor.org/rfc/rfc8949.html
 {{< /note >}}
 
@@ -134,7 +136,9 @@ Once the statement has been registered, a receipt can be retrieved using the `en
 
 {{< note >}}
 The receipt is returned in base64.
+
 The receipt is a Cose_Sign1 message.
+
 The receipt proof is the payload of the receipt.
 {{< /note >}}
 

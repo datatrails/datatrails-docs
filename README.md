@@ -18,11 +18,7 @@ We'll happily review any suggestions!
 git clone git@github.com:rkvst/rkvst-docs.git
 ```
 
-2. Move into the directory.
-
-```bash
-cd rkvst-doks
-```
+2. Ensure current directory is root of repo.
 
 3. Install the DOKS Dependencies.
 

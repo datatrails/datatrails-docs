@@ -67,9 +67,10 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< /tab >}}
 {{< /tabs >}}<br>
 
-1. Add details to your new Asset and select a `Proof Mechanism`
+1. Add details to your new Asset and select a `Proof Mechanism` (currently the only option is `Simple Hash`)
 
-    [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. [`Khipu`](/platform/overview/advanced-concepts/#khipu) commits the details of your Asset's history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST. Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Asset.
+    [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
+    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Asset.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:

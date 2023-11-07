@@ -124,22 +124,14 @@ For more detailed information on Events and how to implement them, please refer 
 
 Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
 
-When [creating an Asset](/platform/overview/creating-an-asset/), you may choose between two proof mechanisms, which will be used for that Asset and its Events. This will determine how your data is recorded on the RKVST blockchain.
+When [creating an Asset](/platform/overview/creating-an-asset/), a proof mechanism will be used for that Asset and its Events. This determines how your data is recorded on the RKVST blockchain.
 
 ### Simple Hash
 
-The first option is Simple Hash. Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
+Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
 
 {{< note >}}
 **Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.rkvst.com/pricing/) of the RKVST platform.
-{{< /note >}}
-
-### Khipu
-
-The second option is Khipu. With Khipu, all the details of your Asset and Events are committed to the RKVST blockchain. This way, you may compare to previous versions of your Asset and identify exactly what changes have been made.
-
-{{< note >}}
-**Note:** The Khipu proof mechanism is available on our [Team and Enterprise tiers](https://www.rkvst.com/pricing/) of RKVST.
 {{< /note >}}
 
 ## Access Policies

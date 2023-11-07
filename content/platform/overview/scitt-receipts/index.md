@@ -19,8 +19,6 @@ Having a receipt for an RKVST Event allows you to prove that you recorded the Ev
 
 Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/glossary/common-rkvst-terms/).
 
-Receipts can be retrieved for [Khipu](/platform/overview/advanced-concepts/#khipu) Events once they have been confirmed.
-
 A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
 Receipts for Public Events can be obtained by any authenticated API request.
@@ -65,7 +63,7 @@ EVENT_TRANSACTION_ID=$(curl -s \
 ```
 
 {{< warning >}}
-The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash `proof_mechanisms` it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.
+The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash `proof_mechanisms` it is available once the event is included in an anchor.
 {{< / warning>}}
 
 1. Get a claim for the Event identity
@@ -102,14 +100,6 @@ The transaction_id is available once the event has been committed to the blockch
     WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
                 https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
                 | jq -r .stateRoot)
-    ```
-
-    To verify a khipu receipt get the `privateStateRoot` field:
-
-    ```bash
-    WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
-                https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
-                | jq -r .privateStateRoot)
     ```
 
 1. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.

@@ -44,9 +44,9 @@ The statement is wrapped in a Cose_Sign1 envelope: https://www.rfc-editor.org/rf
 
 The Cose_Sign1 envelope protected header must include the following:
 
-* Decentralised IDentifer (DID) Header: 391
+* Decentralised IDentifier (DID) Header: 391
 * Feed Header: 392
-* KID Header: 4
+* Key IDentifier (KID) Header: 4
 
 The DID header must correspond to a valid didweb identifier: https://w3c-ccg.github.io/did-method-web/
 

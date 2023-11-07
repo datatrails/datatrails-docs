@@ -471,18 +471,12 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 <h2 id="proof-mechanisms">Proof Mechanisms</h2>
 <p>Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.</p>
 <p>When 
-<a href="/platform/overview/creating-an-asset/">creating an Asset</a>, you may choose between two proof mechanisms, which will be used for that Asset and its Events. This will determine how your data is recorded on the RKVST blockchain.</p>
+<a href="/platform/overview/creating-an-asset/">creating an Asset</a>, a proof mechanism will be used for that Asset and its Events. This determines how your data is recorded on the RKVST blockchain.</p>
 <h3 id="simple-hash">Simple Hash</h3>
-<p>The first option is Simple Hash. Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.</p>
+<p>Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The Simple Hash proof mechanism is available with 
 <a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">all tiers</a> of the RKVST platform.</div>
-  </blockquote>
-<h3 id="khipu">Khipu</h3>
-<p>The second option is Khipu. With Khipu, all the details of your Asset and Events are committed to the RKVST blockchain. This way, you may compare to previous versions of your Asset and identify exactly what changes have been made.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The Khipu proof mechanism is available on our 
-<a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">Team and Enterprise tiers</a> of RKVST.</div>
   </blockquote>
 <h2 id="access-policies">Access Policies</h2>
 <p>Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.</p>
@@ -1086,12 +1080,11 @@ For example, a policy checking that maintenance times are not considerably longe
 <br></p>
 </li>
 <li>
-<p>Add details to your new Asset and select a <code>Proof Mechanism</code></p>
+<p>Add details to your new Asset and select a <code>Proof Mechanism</code> (currently the only option is <code>Simple Hash</code>)</p>
 <p>
-<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. 
-<a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our 
-<a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">Team and Enterprise tiers</a> of RKVST. Please see our 
-<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.
+<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
+Please see our 
+<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on the Proof Mechanism for your Asset.
 <ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
@@ -4314,8 +4307,6 @@ The share button allows you to access and copy the private and public (if enable
 <p>Receipts can be retrieved for 
 <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and 
 <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
-<p>Receipts can be retrieved for 
-<a href="/platform/overview/advanced-concepts/#khipu">Khipu</a> Events once they have been confirmed.</p>
 <p>A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.</p>
 <p>Receipts for Public Events can be obtained by any authenticated API request.</p>
 <blockquote class="note callout">
@@ -4348,7 +4339,7 @@ The share button allows you to access and copy the private and public (if enable
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v2/<span class="si">\${</span><span class="nv">EVENT_IDENTITY</span><span class="si">}</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .transaction_id<span class="k">)</span>
 </span></span></code></pre></div><blockquote class="warning callout">
-    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
+    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor.</div>
   </blockquote>
 <ol>
 <li>
@@ -4375,10 +4366,6 @@ Get the block number using:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .stateRoot<span class="k">)</span>
-</span></span></code></pre></div><p>To verify a khipu receipt get the <code>privateStateRoot</code> field:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .privateStateRoot<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</p>
@@ -11786,49 +11773,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">],</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;next_page_token&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="khipu">Khipu:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;transactions&#34;</span><span class="p">:[</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;transaction&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0xbcb60deea8c70a1f4dea54d7666ca58b73f00e0febe59c099616ecb53d5909e4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;blockhash&#34;</span><span class="p">:</span><span class="s2">&#34;0xa25e4360cd08abade72e34e9a65c670fe6f965454b95021d37baf472e429dc69&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span><span class="s2">&#34;786720&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;r&#34;</span><span class="p">:</span><span class="s2">&#34;0x4b020ec02b0e88e5519fe43e2d2b33ca39f8807ebe2953c866b553df98ded5aa&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;s&#34;</span><span class="p">:</span><span class="s2">&#34;0x75620ffa89a21404803201cc279a53f9afa770c16af312db7fb42899b9608d64&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;0x0C0c2c268261F767880f64cE84e088558B38b349&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas&#34;</span><span class="p">:</span><span class="s2">&#34;500000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas_price&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;input&#34;</span><span class="p">:</span><span class="s2">&#34;0xdc6b7758811673be442b8a70ad1e37117c76b5abbabc716917a6e5f98f8247a68f6bf368fdce8bd7f685b9aa41148f5c059c8599e3d707f4481e13a8782a0b1a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;v&#34;</span><span class="p">:</span><span class="s2">&#34;0x26&#34;</span>
-</span></span><span class="line"><span class="cl">         <span class="p">},</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;kind&#34;</span><span class="p">:</span><span class="s2">&#34;KHIPU&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;transaction&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0x4113596f7c9f825104f53ed50b262a116801d89b8e5ac15e9d8dc215e6f49ef0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;blockhash&#34;</span><span class="p">:</span><span class="s2">&#34;0xaf1b9b686bf7a1beea003f84d85da1d8ca4c8eaaeded29ac72fd549e6591f84b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span><span class="s2">&#34;786722&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;r&#34;</span><span class="p">:</span><span class="s2">&#34;0x4833ad44bc2fc0bca2f08a958ce1e0f6d3667493c8773bc74e45837bee5de5be&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;s&#34;</span><span class="p">:</span><span class="s2">&#34;0x3ca22bc844d963e908a19ccbc139543193411650dd97e4978d3e4f243d1295db&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;0x0C0c2c268261F767880f64cE84e088558B38b349&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas&#34;</span><span class="p">:</span><span class="s2">&#34;500000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas_price&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;input&#34;</span><span class="p">:</span><span class="s2">&#34;0x06bbc3af74cd2fdd82a6036dfa3c69d0cec5d35782ba56dd4be0c928c9ca1ee3a0e19c97f1c5e5784c7cd305d53a2f5249b18937e1d613eec452c74ae9c619f4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;v&#34;</span><span class="p">:</span><span class="s2">&#34;0x26&#34;</span>
-</span></span><span class="line"><span class="cl">         <span class="p">},</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;kind&#34;</span><span class="p">:</span><span class="s2">&#34;KHIPU&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> Check out our guide for 
@@ -24851,18 +24795,12 @@ If <code>Settings</code> does not appear in the navigation, see your RKVST Admin
 <h2 id="proof-mechanisms">Proof Mechanisms</h2>
 <p>Assets and Events are core to the RKVST platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.</p>
 <p>When 
-<a href="/platform/overview/creating-an-asset/">creating an Asset</a>, you may choose between two proof mechanisms, which will be used for that Asset and its Events. This will determine how your data is recorded on the RKVST blockchain.</p>
+<a href="/platform/overview/creating-an-asset/">creating an Asset</a>, a proof mechanism will be used for that Asset and its Events. This determines how your data is recorded on the RKVST blockchain.</p>
 <h3 id="simple-hash">Simple Hash</h3>
-<p>The first option is Simple Hash. Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.</p>
+<p>Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The Simple Hash proof mechanism is available with 
 <a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">all tiers</a> of the RKVST platform.</div>
-  </blockquote>
-<h3 id="khipu">Khipu</h3>
-<p>The second option is Khipu. With Khipu, all the details of your Asset and Events are committed to the RKVST blockchain. This way, you may compare to previous versions of your Asset and identify exactly what changes have been made.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The Khipu proof mechanism is available on our 
-<a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">Team and Enterprise tiers</a> of RKVST.</div>
   </blockquote>
 <h2 id="access-policies">Access Policies</h2>
 <p>Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.</p>
@@ -25466,12 +25404,11 @@ For example, a policy checking that maintenance times are not considerably longe
 <br></p>
 </li>
 <li>
-<p>Add details to your new Asset and select a <code>Proof Mechanism</code></p>
+<p>Add details to your new Asset and select a <code>Proof Mechanism</code> (currently the only option is <code>Simple Hash</code>)</p>
 <p>
-<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period. 
-<a href="/platform/overview/advanced-concepts/#khipu"><code>Khipu</code></a> commits the details of your Asset&rsquo;s history to the blockchain directly, so it can be audited as soon as it is confirmed. Khipu is available on our 
-<a href="https://www.rkvst.com/pricing/" target="_blank" rel="noopener">Team and Enterprise tiers</a> of RKVST. Please see our 
-<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on selecting a Proof Mechanism for your Asset.
+<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
+Please see our 
+<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on the Proof Mechanism for your Asset.
 <ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
@@ -28694,8 +28631,6 @@ The share button allows you to access and copy the private and public (if enable
 <p>Receipts can be retrieved for 
 <a href="/platform/overview/advanced-concepts/#simple-hash">Simple Hash</a> Events once they have been confirmed and 
 <a href="/glossary/common-rkvst-terms/">anchored</a>.</p>
-<p>Receipts can be retrieved for 
-<a href="/platform/overview/advanced-concepts/#khipu">Khipu</a> Events once they have been confirmed.</p>
 <p>A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.</p>
 <p>Receipts for Public Events can be obtained by any authenticated API request.</p>
 <blockquote class="note callout">
@@ -28728,7 +28663,7 @@ The share button allows you to access and copy the private and public (if enable
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        https://app.rkvst.io/archivist/v2/<span class="si">\${</span><span class="nv">EVENT_IDENTITY</span><span class="si">}</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="p">|</span> jq -r .transaction_id<span class="k">)</span>
 </span></span></code></pre></div><blockquote class="warning callout">
-    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor. For Khipu, it is available when the event is confirmed.</div>
+    <div><strong></strong> The transaction_id is available once the event has been committed to the blockchain. For assets using the Simple Hash <code>proof_mechanisms</code> it is available once the event is included in an anchor.</div>
   </blockquote>
 <ol>
 <li>
@@ -28755,10 +28690,6 @@ Get the block number using:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .stateRoot<span class="k">)</span>
-</span></span></code></pre></div><p>To verify a khipu receipt get the <code>privateStateRoot</code> field:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">WORLDROOT</span><span class="o">=</span><span class="k">$(</span>curl -s -X GET -H <span class="s2">&#34;Authorization: Bearer </span><span class="si">\${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            https://app.rkvst.io/archivist/v1/archivistnode/block?number<span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">BLOCK</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            <span class="p">|</span> jq -r .privateStateRoot<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Finally, use the <code>rkvst_receipt_scittv1</code> command to verify the receipt offline at any time.</p>
@@ -36166,49 +36097,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">   <span class="p">],</span>
 </span></span><span class="line"><span class="cl">   <span class="nt">&#34;next_page_token&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="khipu">Khipu:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nt">&#34;transactions&#34;</span><span class="p">:[</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;transaction&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0xbcb60deea8c70a1f4dea54d7666ca58b73f00e0febe59c099616ecb53d5909e4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;blockhash&#34;</span><span class="p">:</span><span class="s2">&#34;0xa25e4360cd08abade72e34e9a65c670fe6f965454b95021d37baf472e429dc69&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span><span class="s2">&#34;786720&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;r&#34;</span><span class="p">:</span><span class="s2">&#34;0x4b020ec02b0e88e5519fe43e2d2b33ca39f8807ebe2953c866b553df98ded5aa&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;s&#34;</span><span class="p">:</span><span class="s2">&#34;0x75620ffa89a21404803201cc279a53f9afa770c16af312db7fb42899b9608d64&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;0x0C0c2c268261F767880f64cE84e088558B38b349&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas&#34;</span><span class="p">:</span><span class="s2">&#34;500000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas_price&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;input&#34;</span><span class="p">:</span><span class="s2">&#34;0xdc6b7758811673be442b8a70ad1e37117c76b5abbabc716917a6e5f98f8247a68f6bf368fdce8bd7f685b9aa41148f5c059c8599e3d707f4481e13a8782a0b1a&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;v&#34;</span><span class="p">:</span><span class="s2">&#34;0x26&#34;</span>
-</span></span><span class="line"><span class="cl">         <span class="p">},</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;kind&#34;</span><span class="p">:</span><span class="s2">&#34;KHIPU&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;transaction&#34;</span><span class="p">:{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0x4113596f7c9f825104f53ed50b262a116801d89b8e5ac15e9d8dc215e6f49ef0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;blockhash&#34;</span><span class="p">:</span><span class="s2">&#34;0xaf1b9b686bf7a1beea003f84d85da1d8ca4c8eaaeded29ac72fd549e6591f84b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span><span class="s2">&#34;786722&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;r&#34;</span><span class="p">:</span><span class="s2">&#34;0x4833ad44bc2fc0bca2f08a958ce1e0f6d3667493c8773bc74e45837bee5de5be&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;s&#34;</span><span class="p">:</span><span class="s2">&#34;0x3ca22bc844d963e908a19ccbc139543193411650dd97e4978d3e4f243d1295db&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;0x413aDcF9365C5eBe0F9714b575B5eA792aECC0bB&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;0x0C0c2c268261F767880f64cE84e088558B38b349&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas&#34;</span><span class="p">:</span><span class="s2">&#34;500000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;gas_price&#34;</span><span class="p">:</span><span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;input&#34;</span><span class="p">:</span><span class="s2">&#34;0x06bbc3af74cd2fdd82a6036dfa3c69d0cec5d35782ba56dd4be0c928c9ca1ee3a0e19c97f1c5e5784c7cd305d53a2f5249b18937e1d613eec452c74ae9c619f4&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;v&#34;</span><span class="p">:</span><span class="s2">&#34;0x26&#34;</span>
-</span></span><span class="line"><span class="cl">         <span class="p">},</span>
-</span></span><span class="line"><span class="cl">         <span class="nt">&#34;kind&#34;</span><span class="p">:</span><span class="s2">&#34;KHIPU&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> Check out our guide for 

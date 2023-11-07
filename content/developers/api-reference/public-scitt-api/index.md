@@ -1,7 +1,7 @@
 ---
-title: "Public SCITT API (BETA)"
-description: "Public SCITT API (BETA) Reference"
-lead: "Public SCITT API (BETA) Reference"
+title: "Public SCITT API (beta)"
+description: "Public SCITT API (beta) Reference"
+lead: "Public SCITT API (beta) Reference"
 date: 2023-11-07T11:56:23+01:00
 lastmod: 2023-11-07T11:56:23+01:00
 draft: false

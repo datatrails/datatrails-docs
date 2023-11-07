@@ -44,12 +44,14 @@ The statement is wrapped in a Cose_Sign1 envelope: https://www.rfc-editor.org/rf
 
 The Cose_Sign1 envelope protected header must include the following:
 
-Decentralised IDentifer (DID) Header: 391
-Feed Header: 392
-KID Header: 4
+* Decentralised IDentifer (DID) Header: 391
+* Feed Header: 392
+* KID Header: 4
 
 The DID header must correspond to a valid didweb identifier: https://w3c-ccg.github.io/did-method-web/
+
 The KID header must correspond to the signing key used to sign the Cose_sign1 message
+
 The Feed Header is 'a logical collection of Statements about the same Artifact.' https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/blob/main/draft-ietf-scitt-architecture.
 
 The Public half of the signing key must be available in the DID document, found at the address of the didweb identifier in the DID header.

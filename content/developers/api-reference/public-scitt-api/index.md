@@ -139,7 +139,7 @@ The receipt is returned in base64.
 
 The base64 decoded receipt is a Cose_Sign1 message.
 
-The receipt proof is the payload of the receipt.
+The receipt proof is the payload of the Cose_Sign1 receipt message.
 {{< /note >}}
 
 ```bash
@@ -158,6 +158,27 @@ curl -v \
 ### Verifying the Receipt
 
 A receipt can be verified offline using the 'rkvst-receipt-scitt' script. https://pypi.org/project/rkvst-receipt-scitt/
+
+```bash
+rkvst_receipt_scittv1 verify -d 0oRYbqQBOCIEWDZzY2l0dC1jb3VudGVyLXNpZ25pbmcvZDhiMjllNmQwZTdlNDM3NTgxZGVhZTI5ZDAzNzM5MGEZAYYAGQGHeChkaWQ6d2ViOmFwcC5ya3ZzdC5pbzphcmNoaXZpc3Q6djE6ZGlkd2VioFmiX3siYXBwbGljYXRpb25fcGFyYW1ldGVycyI6eyJhcHBfaWQiOiIiLCJhcHBfY29udGVudF9yZWYiOiIiLCJlbGVtZW50X21hbmlmZXN0IjpbInNpbXBsZWhhc2giXSwibW9ub3RvbmljX3ZlcnNpb24iOjB9LCJibG9jayI6IjB...
+```
+
+```json
+{
+  "anchor": "e511713031f00b7c1d60ab65a01451284c32f7108e2aec7f707a889c777e7731",
+  "api_query": "https://app.rkvst.io/archivist/v2/publicassets/-/events?order_by=SIMPLEHASHV2&proof_mechanism=SIMPLE_HASH&timestamp_accepted_since=2023-10-12T13:10:43Z&timestamp_accepted_before=2023-10-16T11:55:54Z",
+  "endOperator": "lt",
+  "endTimeRFC3339": "2023-10-16T11:55:54Z",
+  "endTimeUnix": 1697457354,
+  "eventCount": 8,
+  "hashSchemaVersion": 2,
+  "proofMechanism": 2,
+  "startOperator": "gte",
+  "startTimeRFC3339": "2023-10-12T13:10:43Z",
+  "startTimeUnix": 1697116243,
+  "tenant": "tenant/e3234a54-cd99-9769-3efe-faccff52f0de"
+}
+```
 
 ## Public SCITT OpenAPI Docs
 

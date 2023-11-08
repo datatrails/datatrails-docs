@@ -16,9 +16,9 @@ aliases:
 ---
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ## Composite Estate Info

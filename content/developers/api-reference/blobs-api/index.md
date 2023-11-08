@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/blobs-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -36,10 +36,10 @@ Upload the blob stored at /path/to/file:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    https://app.rkvst.io/archivist/v1/blobs
+    https://app.datatrails.ai/archivist/v1/blobs
 ```
 
 The response is:
@@ -53,7 +53,7 @@ The response is:
   "issuer": "local",
   "mime_type": "image/jpeg",
   "size": 81254,
-  "subject": "user@rkvst.com",
+  "subject": "user@datatrails.com",
   "tenantid": "tenant/<tenant-id>",
   "timestamp_accepted": "2023-02-06T16:04:31Z",
   "scanned_status": "NOT_SCANNED",
@@ -68,10 +68,10 @@ Retrieve a specific Blob:
 
 ```bash
 curl -v \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     --output "/path/to/file" \
-    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
+    https://app.datatrails.ai/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:
@@ -85,7 +85,7 @@ The response is:
   "issuer": "local",
   "mime_type": "image/jpeg",
   "size": 81254,
-  "subject": "user@rkvst.com",
+  "subject": "user@datatrails.com",
   "tenantid": "tenant/<tenant-id>",
   "timestamp_accepted": "2023-02-06T16:04:31Z",
   "scanned_status": "NOT_SCANNED",
@@ -95,5 +95,5 @@ The response is:
 ```
 
 ## Blobs OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/blobsv1.swagger.json" >}}

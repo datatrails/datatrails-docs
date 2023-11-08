@@ -1,7 +1,7 @@
 ---
 title: "Software Package Profile"
-description: "Sharing and Distributing a Software Bill of Materials with RKVST"
-lead: "Sharing and Distributing a Software Bill of Materials with RKVST"
+description: "Sharing and Distributing a Software Bill of Materials with DataTrails"
+lead: "Sharing and Distributing a Software Bill of Materials with DataTrails"
 date: 2023-06-26T11:56:01+01:00
 lastmod: 2023-06-26T11:56:01:31+01:00
 draft: false
@@ -19,7 +19,7 @@ Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an e
 
 In its [recommendations for the minimum required elements of an SBOM](https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom), the NTIA identifies the need to balance transparency with access controls ("*SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place*"), and illustrates in its [NTIA SBOM Proof of Concept](https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf) the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.
 
-The RKVST Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.
+The DataTrails Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.
 
 As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.
 
@@ -33,7 +33,7 @@ If a particular Software Package has constituent components composed of other So
 | Supplier Name       | sbom_supplier                 | The name of the Package Supplier                                             | Required                    |
 | Component Name      | sbom_component,(arc_display_name if appropriate)| The name of the Software Package                           | Required                    |
 | Version String      | sbom_version                  | The version of the Software Package                                          | Required                    |
-| Unique Identifier   | sbom_uuid                     | A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                             | Required                    |
+| Unique Identifier   | sbom_uuid                     | A unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                             | Required                    |
 | N/A                 | sbom_repo                     | Link to the Git Repo of the Component                                        | Optional                    |
 | N/A                 | sbom_release_notes            | Link to the release notes of the package version                             | Optional                    |
 | N/A                 | sbom_license                  | The licensing used by the component (if specified)                           | Optional                    |
@@ -42,7 +42,7 @@ If a particular Software Package has constituent components composed of other So
 
 **Note:** Software Package Profile Attribute Namespace
 
-The `sbom_` prefix is used to designate attributes that are part of the profile. Some of these are interpreted by RKVST and others are guidelines.
+The `sbom_` prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.
 {{< /note >}}
 
 ### Public SBOM
@@ -76,7 +76,7 @@ steps:
     attributes: 
       arc_display_name: Publicly Attested Asset 
       arc_display_type: Example
-      arc_description: This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST.
+      arc_description: This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails.
       some_custom_attribute: anything you like
     confirm: true
 ```
@@ -91,7 +91,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
     "attributes": {
         "arc_display_name": "Publicly Attested Asset",
         "arc_display_type": "Example",
-        "arc_description": "This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST."
+        "arc_description": "This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails."
     },
     "public": true
 }
@@ -104,25 +104,25 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 
 ### Release Event
 
-A Release is the event used by a Supplier to provide an SBOM for their Software Package in RKVST.
+A Release is the event used by a Supplier to provide an SBOM for their Software Package in DataTrails.
 
-The Release attributes tracked in RKVST should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; **Asset Attributes** would track details about the latest release of the SBOM at the time of the event creation, the **Event Attributes** then track details about the release of the SBOM that is being submitted.
+The Release attributes tracked in DataTrails should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; **Asset Attributes** would track details about the latest release of the SBOM at the time of the event creation, the **Event Attributes** then track details about the release of the SBOM that is being submitted.
 
 {{< note >}}
 
 ##### Release Event Attribute Namespace
 
-The `sbom_` prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by RKVST and others are guidelines
+The `sbom_` prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by DataTrails and others are guidelines
 {{< /note >}}
 
 | NTIA Attribute      | Event Attributes         | Meaning                                                                | Requirement                               |
 |---------------------|--------------------------|------------------------------------------------------------------------|-------------------------------------------|
-| N/A                 | arc_display_type         | Tells RKVST how to interpret Event                                     | Required, must set to `Release` |
+| N/A                 | arc_display_type         | Tells DataTrails how to interpret Event                                     | Required, must set to `Release` |
 | Author Name         | sbom_author              | The name of the Package Author                                         | Required |
 | Supplier Name       | sbom_supplier            | The name of the Package Author                                         | Required                    |
 | Component Name      | sbom_component           | The name of the Package                                                | Required                            |
 | Version String      | sbom_version             | The version of the Package                                             | Required |
-| Unique Identifier   | sbom_uuid                | A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                  | Required    |
+| Unique Identifier   | sbom_uuid                | A unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                  | Required    |
 | N/A                 | sbom_repo                | Link to the Git Repo of the Component                                  | Optional    |
 | N/A                 | sbom_release_notes       | Link to the release notes of the release                               | Optional |
 | N/A                 | sbom_license             | The licensing used by the component (if specified)                     | Optional |
@@ -135,7 +135,7 @@ The `sbom_` prefix is used to designate attributes that are part of the event an
 | Supplier Name       | sbom_supplier                 | The name of the Package Supplier                                             | Required                    |
 | Component Name      | sbom_component,(arc_display_name if appropriate)| The name of the Software Package                           | Required                    |
 | Version String      | sbom_version                  | The version of the Software Package                                          | Required                    |
-| Unique Identifier   | sbom_uuid                     | A unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                             | Required                    |
+| Unique Identifier   | sbom_uuid                     | A unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                             | Required                    |
 | N/A                 | sbom_repo                     | Link to the Git Repo of the Component                                        | Optional                    |
 | N/A                 | sbom_release_notes            | Link to the release notes of the package version                             | Optional                    |
 | N/A                 | sbom_license                  | The licensing used by the component (if specified)                           | Optional                    |
@@ -165,12 +165,12 @@ The Key Attribute that should be recorded is the version of the release that is 
 
 ##### Release Plan Event Attribute Namespace
 
-The `sbom_planned_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.
+The `sbom_planned_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.
 {{< /note >}}
 
 | NTIA Attribute      | Event Attributes         | Meaning                                         | Requirement                               |
 |---------------------|--------------------------|-------------------------------------------------|-------------------------------------------|
-| N/A                 | arc_display_type         | Tells RKVST how to interpret Event              | Required, must set to `Release Plan` |
+| N/A                 | arc_display_type         | Tells DataTrails how to interpret Event              | Required, must set to `Release Plan` |
 | Component Name      | sbom_planned_component   | The planned name of the Package                 | Required        |
 | Version String      | sbom_planned_version     | The planned version of the Package              | Required |
 | N/A                 | sbom_planned_reference   | A reference number for the plan (such as internal change request number)| Required |
@@ -179,7 +179,7 @@ The `sbom_planned_` prefix is used to designate attributes that are part of the 
 | Author Name         | sbom_planned_author      | The planned name of the Package Author          | Optional |
 | Supplier Name       | sbom_planned_supplier    | The planned name of the Package Supplier        | Optional |
 | Component Hash      | sbom_planned_hash        | The planned hash of the component files/installation (per version)| Optional |
-| Unique Identifier   | sbom_planned_uuid        | The planned unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead              | Optional |
+| Unique Identifier   | sbom_planned_uuid        | The planned unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead              | Optional |
 | N/A                 | sbom_planned_license     | If there is an intended change to the license this may be needed| Optional |
 | N/A                 | sbom_planned_vuln_reference| If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)              | Optional |
 
@@ -189,7 +189,7 @@ The `sbom_planned_` prefix is used to designate attributes that are part of the 
 
 ##### Release Accepted Event Attribute Namespace
 
-The `sbom_accepted_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.
+The `sbom_accepted_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.
 {{< /note >}}
 
 | NTIA Attribute      | Event Attributes                | Meaning                                         | Requirement                               |

@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/blockchain-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.io) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -36,8 +36,8 @@ To fetch all transactions for an Asset's Events GET the blockchain resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
 ```
 
 Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/#proof-mechanisms) used, the response will be:
@@ -65,7 +65,7 @@ Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/
             "v":"0xea"
          },
          "simple_hash_details":{
-            "api_query":"https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&proof_mechanism=SIMPLE_HASH&timestamp_accepted_since=1970-01-01T00:00:00Z&timestamp_accepted_before=2022-10-28T12:10:35Z",
+            "api_query":"https://app.datatrails.ai/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&proof_mechanism=SIMPLE_HASH&timestamp_accepted_since=1970-01-01T00:00:00Z&timestamp_accepted_before=2022-10-28T12:10:35Z",
             "start_time":"1970-01-01T00:00:00Z",
             "end_time":"2022-10-28T12:10:35Z",
             "hash_schema_version":1,
@@ -84,5 +84,5 @@ Check out our guide for [Verifying Assets and Events with Simple Hash](/develope
 {{< /note >}}
 
 ## Blockchain OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}

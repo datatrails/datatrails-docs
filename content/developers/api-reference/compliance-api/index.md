@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/compliance-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -34,7 +34,7 @@ For instance, a policy might state that “Maintenance Alarm Events must be addr
 
 This creates a Compliance Policy object in the system against which any Asset can be tested as needed.
 
-RKVST allows users to define Compliance Policies of the following types:
+DataTrails allows users to define Compliance Policies of the following types:
 
 #### COMPLIANCE_SINCE
 
@@ -208,10 +208,10 @@ Create a Compliance Policy with:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 Using data from `/path/to/jsonfile` in the format described in [Types of Compliance Policies](#types-of-compliance-policies).
@@ -241,16 +241,16 @@ Query the endpoint:
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
-    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 or if determining compliance at some historical date:
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
-    "https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z"
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    "https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z"
 ```
 
 The response is:
@@ -270,5 +270,5 @@ The response is:
 ```
 
 ## Compliance OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/compliancev1.swagger.json" >}}

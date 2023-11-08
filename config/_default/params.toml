@@ -1,10 +1,10 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "RKVST"
+title = "DataTrails"
 titleSeparator = "-"
 titleAddition = "Provenance as a Service to boost confidence in digital decisions."
-description = "RKVST provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https://rkvst.com)."
+description = "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.com)."
 
 ## Open Graph + Twitter Cards
 images = ["RKVST_WhtLogo_CMYK.svg"]
@@ -19,7 +19,7 @@ schemaType = "Organization"
 schemaLogo = "RKVST_BlueTick_RBG.png"
 schemaTwitter = ""
 schemaLinkedIn = ""
-schemaGitHub = "https://github.com/rkvst"
+#schemaGitHub = "https://github.com/datatrails"
 schemaSection = "blog"
 
 ## Sitelinks Search Box
@@ -43,7 +43,7 @@ alert = false
 alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
 
 # Edit Page
-docsRepo = "https://www.github.com/rkvst/rkvst-docs"
+#docsRepo = "https://www.github.com/rkvst/rkvst-docs"
 editPage = true
 
 # Search Sections

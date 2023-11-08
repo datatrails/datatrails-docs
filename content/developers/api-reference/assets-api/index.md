@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/assets-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -58,10 +58,10 @@ Create the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
 
 The response is:
@@ -150,10 +150,10 @@ Create the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
 
 The response is:
@@ -190,7 +190,7 @@ The response is:
 
 ### Asset Record Retrieval
 
-Asset records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+Asset records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -204,8 +204,8 @@ To fetch all Asset records, simply `GET` the Assets resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets
 ```
 
 #### Fetch Specific Asset by Identity
@@ -214,8 +214,8 @@ If you know the unique identity of the Asset record simply `GET` the resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 #### Fetch Specific Asset at Given Point in Time by Identity
@@ -224,8 +224,8 @@ If you know the unique identity of an Asset record and want to show its state at
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
 ```
 
 This will return the Asset record with the values it had on `2021-01-13T12:34:21Z`.
@@ -236,8 +236,8 @@ To fetch all Assets with a specific name, GET the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
 ```
 
 #### Fetch Assets by Type
@@ -246,8 +246,8 @@ To fetch all Assets of a specific type, `GET` the Assets resource and filter on 
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
 
 #### Fetch Assets by Proof Mechanism
@@ -256,8 +256,8 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
 ```
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
@@ -266,8 +266,8 @@ To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](ht
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
 ```
 
 #### Fetch Assets by Filtering for Presence of a Field
@@ -276,8 +276,8 @@ To fetch all Assets with a field set to any value, `GET` the Assets resource and
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=*"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=*"
 ```
 
 Returns all Assets which have `arc_display_name` that is not empty.
@@ -288,8 +288,8 @@ To fetch all Assets with a field which is not set to any value, `GET` the Assets
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name!=*"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name!=*"
 ```
 
 Returns all Assets which do not have `arc_display_name` or in which `arc_display_name` is empty.
@@ -300,13 +300,13 @@ Fetch the Public URL of a Public Asset:
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
 ```json
 {
-  "publicurl":"https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -315,13 +315,13 @@ curl -g -v -X GET \
 Fetch the Public URL of an Event on a Public Asset:
 
 ```bash
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
 
 ```json
 {
-  "publicurl":"https://app.rkvst.io/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
@@ -346,10 +346,10 @@ Untrack the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
@@ -400,10 +400,10 @@ Track the Asset:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
@@ -438,5 +438,5 @@ The response is:
 ```
 
 ## Asset OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}

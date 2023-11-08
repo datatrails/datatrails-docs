@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/events-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -54,10 +54,10 @@ Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
@@ -135,10 +135,10 @@ Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
@@ -177,13 +177,13 @@ The response is:
     "timestamp_accepted": "2023-09-27T12:55:16Z",
     "timestamp_committed": "1970-01-01T00:00:00Z",
     "principal_declared": {
-        "issuer": "https://app.rkvst.io/appidpv1",
+        "issuer": "https://app.datatrails.ai/appidpv1",
         "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "display_name": "CustomIntegration",
         "email": ""
     },
     "principal_accepted": {
-        "issuer": "https://app.rkvst.io/appidpv1",
+        "issuer": "https://app.datatrails.ai/appidpv1",
         "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "display_name": "CustomIntegration",
         "email": ""
@@ -218,10 +218,10 @@ Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@rkvst-bearer.txt" \
+    -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 The response is:
@@ -243,13 +243,13 @@ The response is:
     "timestamp_accepted": "2023-09-27T13:08:32Z",
     "timestamp_committed": "1970-01-01T00:00:00Z",
     "principal_declared": {
-        "issuer": "https://app.rkvst.io/appidpv1",
+        "issuer": "https://app.datatrails.ai/appidpv1",
         "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "display_name": "CustomIntegration",
         "email": ""
     },
     "principal_accepted": {
-        "issuer": "https://app.rkvst.io/appidpv1",
+        "issuer": "https://app.datatrails.ai/appidpv1",
         "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "display_name": "CustomIntegration",
         "email": ""
@@ -265,7 +265,7 @@ The response is:
 
 ### Adding Attachments
 
-The following assumes that an attachment has already been uploaded to RKVST using the [Blob API](../blobs-api).
+The following assumes that an attachment has already been uploaded to DataTrails using the [Blob API](../blobs-api).
 
 This attachment uuid is generically referred to as:
 
@@ -327,10 +327,10 @@ Add the request to the Asset Record by POSTing it to the resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
 You should see the response:
@@ -392,5 +392,5 @@ You should see the response:
 ```
 
 ## Events OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}

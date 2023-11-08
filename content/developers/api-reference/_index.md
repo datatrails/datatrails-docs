@@ -13,7 +13,7 @@ aliases:
 <div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
-      <p>This sub-section of the Developers subject area contains articles that describe and define the RKVST REST API endpoints.<br></p>
+      <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/developers/api-reference/app-registrations-api/">App Registrations API Registrations &rarr;</a><br>
       <a href="/developers/api-reference/assets-api/">Assets API &rarr;</a><br>

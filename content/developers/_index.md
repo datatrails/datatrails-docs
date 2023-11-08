@@ -1,6 +1,6 @@
 ---
 title : "Developers"
-description: "RKVST developer documentation"
+description: "DataTrails developer documentation"
 date: 2020-10-06T08:48:23+00:00
 lastmod: 2020-10-06T08:48:23+00:00
 draft: false
@@ -13,7 +13,7 @@ aliases:
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
     You may be building a new application or looking for a way to add functionality to something that you already use every day.</p>
-    <p>The RKVST REST API, python SDK, or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
+    <p>The DataTrails REST API, python SDK, or the YAML runner provide a simple way for you to integrate a provenance layer into your existing data platform so that you do not need to change the way that your users work.</p>
     <p> Check out the sub-sections below for more information!</p>
     </div>
 </div>
@@ -34,7 +34,7 @@ aliases:
         <div class="card" style="max-width: 25rem;">
           <div class="card-body">
             <h5 class="card-title">API Reference</h5>
-            <p class="card-text">The RKVST REST API endpoint examples and definitions can be found here. The <a href="https://app.rkvst.io" target="_blank">RKVST Web interface</a> also contains an interactive Swagger reference for developers.</p>
+            <p class="card-text">The DataTrails REST API endpoint examples and definitions can be found here. The <a href="https://app.datatrails.ai" target="_blank">DataTrails Web interface</a> also contains an interactive Swagger reference for developers.</p>
             <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
           </div>
         </div>

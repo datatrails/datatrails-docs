@@ -16,16 +16,16 @@ aliases:
 ---
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ## Events Create
 
 The `asset_label` must match the setting when the Asset was created in an earlier step. The `asset_label` may also be specified as the Asset ID of an existing Asset, in the form `assets/<asset-id>`.
 
-There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to RKVST and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to RKVST and adds the response to the Event before posting.
+There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to DataTrails and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to DataTrails and adds the response to the Event before posting.
 
 `confirm: true` tells the YAML Runner to wait for the Event to be confirmed before moving to the next step.
 

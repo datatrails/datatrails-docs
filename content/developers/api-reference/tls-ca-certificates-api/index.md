@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/tls-ca-certificates-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -37,7 +37,7 @@ Define the TLS CA certificate parameters and store in `/path/to/jsonfile` (certi
 
 To include the PEM file content in a JSON string it must be flattened to a single line.
 
-To create a single line representation of a PEM file for the RKVST API, you must replace new lines with the literal string “\n”.
+To create a single line representation of a PEM file for the DataTrails API, you must replace new lines with the literal string “\n”.
 
 The following unix command could be used:
 
@@ -52,7 +52,7 @@ curl -v -X POST \
     -H "@$HOME/.rkvst/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/tlscacertificates
+    https://app.datatrails.ai/archivist/v1/tlscacertificates
 ```
 
 The response is (certificate field shortened for brevity):
@@ -67,7 +67,7 @@ The response is (certificate field shortened for brevity):
 
 ### TLS CA Certificate Retrieval
 
-TLS CA Certificate records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+TLS CA Certificate records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 tlscacertificates/12345678-90ab-cdef-1234-567890abcdef
@@ -81,8 +81,8 @@ To fetch all TLS CA certificates records, simply `GET` the `tlscacertificates` r
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v1/tlscacertificates
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v1/tlscacertificates
 ```
 
 #### Fetch Specific TLS CA Certificate by Identity
@@ -91,8 +91,8 @@ If you know the unique identity of the TLS CA certificate Record simply `GET` th
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v1/tlscacertificates/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch TLS CA Certificates by Name
@@ -101,8 +101,8 @@ To fetch all TLS CA Certificates with a specific name, `GET` the `tlscacertifica
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v1/tlscacertificates?display_name=Acme"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v1/tlscacertificates?display_name=Acme"
 ```
 
 Each of these calls returns a list of matching TLS CA Certificate records in the form (certificate field shortened for brevity):
@@ -130,9 +130,9 @@ To delete a TLS CA Certificate, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is `{}`.
@@ -151,10 +151,10 @@ Update the TLS CA Certificate:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/v1/tlscacertificates/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is (certificate field shortened for brevity):
@@ -168,5 +168,6 @@ The response is (certificate field shortened for brevity):
 ```
 
 ## TLS CA Certificates OpenAPI Docs
-
+<!--
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/tlscacertificatesv1.swagger.json" >}}
+-->

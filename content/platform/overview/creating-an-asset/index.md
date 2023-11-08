@@ -20,7 +20,7 @@ An Asset can be anything: a connected machine, a shipping container, or even a d
 
 Each Asset will have a history of any actions performed upon it by any actor.
 
-You may share Assets and their history with specific stakeholders using [permission sharing](/platform/administration/managing-access-to-an-asset-with-abac/). RKVST also enables you to publicly attest the provenance of your Assets. To learn how, see [Public Attestation](/platform/overview/public-attestation/).
+You may share Assets and their history with specific stakeholders using [permission sharing](/platform/administration/managing-access-to-an-asset-with-abac/). DataTrails also enables you to publicly attest the provenance of your Assets. To learn how, see [Public Attestation](/platform/overview/public-attestation/).
 
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
@@ -31,9 +31,9 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 ## Creating an Asset
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
 1. Create your Asset
@@ -43,7 +43,7 @@ Using the sidebar, select `Register Asset`.
 {{< img src="AssetRegister.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
+The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
 
@@ -144,7 +144,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The DataTrails API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
 
 ```json
 {
@@ -179,7 +179,7 @@ Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `
 
 This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
-It's also good practice to include `confirm: true` which tells RKVST to finish committing the Asset before moving to the next step.
+It's also good practice to include `confirm: true` which tells DataTrails to finish committing the Asset before moving to the next step.
 
 ```yaml
 ---
@@ -243,11 +243,11 @@ Click `Register Asset`.
 {{< img src="AssetCreate.png" alt="Rectangle" caption="<em>Create the Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret client_secret.txt \
       my_first_container.yaml
@@ -259,10 +259,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
 
 {{< /tab >}}}
@@ -292,8 +292,8 @@ You can view all Asset data using the following command.
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets
 ```
 
 {{< /tab >}}}
@@ -325,8 +325,8 @@ Details of a specific asset can be retrieved using identifying attributes (`attr
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Container
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=My%20First%20Container
 ```
 
 {{< /tab >}}}

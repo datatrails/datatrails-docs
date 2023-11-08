@@ -241,10 +241,10 @@ Rendering Markdown Tables can be difficult from scratch, you may wish to make us
 Links can be added using standard markdown `[]()` where the contents inside of the square brackets will be what appears to the user and the standard brackets containing the hyperlink.
 
 ```md
-[This is an example of a link](https://rkvst.com/beta).
+[This is an example of a link](https://datatrails.com/beta).
 ```
 
-[This is an example of a link](https://rkvst.com/beta).
+[This is an example of a link](https://datatrails.com/beta).
 
 ## Images
 

@@ -43,7 +43,7 @@ We shall create a policy for someone who needs to share some standard dimensions
 1. Create your Access Policy.
 {{< tabs name="access_policies_abac" >}}
 {{{< tab name="UI" >}}
-Navigate to the `Access Policies` section on the sidebar of the RKVST dashboard.
+Navigate to the `Access Policies` section on the sidebar of the DataTrails dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -69,8 +69,8 @@ You may view your existing policies before creating your new policy by executing
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/access_policies
 ```
 
 {{< /tab >}}}
@@ -126,7 +126,7 @@ In this example, the `User` actor implies an ABAC policy, identified by email. T
 {{< img src="PolicyABACUsers.png" alt="Rectangle" caption="<em>Adding a specific User to a Policy</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-There are a few ways you may add a `User` to your Access Policy using JSON. One way is to use the email address associated with their RKVST account. To do so, add the desired `user_attributes` to the `access_permissions` section.
+There are a few ways you may add a `User` to your Access Policy using JSON. One way is to use the email address associated with their DataTrails account. To do so, add the desired `user_attributes` to the `access_permissions` section.
 
 {{< note >}}
 You may grant access to specific attachments by specifying the corresponding key in the `access_permissions`.
@@ -201,7 +201,7 @@ Add the desired permissions and the desired `user_attributes`
         {
             "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
             "user_attributes": [
-                {"or": ["email=bill@rkvst.com"]}
+                {"or": ["email=bill@datatrails.com"]}
             ]
         }
     ]
@@ -210,8 +210,8 @@ Add the desired permissions and the desired `user_attributes`
 
 {{< /tab >}}}
 {{< /tabs >}}<br>
-    **Note:** we have included RKVST-significant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`
-    `arc_*` attributes have special significance in RKVST.  
+    **Note:** we have included DataTrails-significant attributes: `arc_display_name`, `arc_description`, and `arc_home_location_identity`
+    `arc_*` attributes have special significance in DataTrails.  
     In this case, respectively, allowing visibility to the `Name`, `Description`, and `Location` of the Asset. Other `arc_*` attributes are also available.
 
 1. Once complete, finish creating the Access Policy.
@@ -225,10 +225,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/access_policies
+    https://app.datatrails.ai/archivist/iam/v1/access_policies
 ```
 
 {{< /tab >}}}

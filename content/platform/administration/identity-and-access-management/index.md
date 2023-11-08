@@ -1,7 +1,7 @@
 ---
 title: "Identity and Access Management"
-description: "RKVST IAM Concepts"
-lead: "Setting Up Your RKVST Tenancy"
+description: "DataTrails IAM Concepts"
+lead: "Setting Up Your DataTrails Tenancy"
 date: 2021-06-14T10:57:58+01:00
 lastmod: 2021-06-14T10:57:58+01:00
 draft: false
@@ -17,17 +17,17 @@ aliases:
 
 ## Tenancies and Accounts
 
-Each RKVST Tenancy represents an organization, and each RKVST account represents an individual user.
+Each DataTrails Tenancy represents an organization, and each DataTrails account represents an individual user.
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.
 
 ### How do I add users to my organization?
 
-RKVST Invites make it easy to add accounts to your tenancy.
+DataTrails Invites make it easy to add accounts to your tenancy.
 
 As an [administrator](/platform/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add.
 
-When the invitee signs up for their RKVST account using the invited email address, they will be automatically added to your Tenancy.
+When the invitee signs up for their DataTrails account using the invited email address, they will be automatically added to your Tenancy.
 
 {{< tabs name="invite_user_IAM" >}}
 {{{< tab name="UI" >}}
@@ -49,10 +49,10 @@ Fill in your desired details and run the command to send the invite.
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d '{"message": "Join my RKVST tenancy!", "email": "user@rkvst.com"}' \
-    "https://app.rkvst.io/archivist/iam/v1/invites"
+    -d '{"message": "Join my DataTrails tenancy!", "email": "user@datatrails.com"}' \
+    "https://app.datatrails.ai/archivist/iam/v1/invites"
 ```
 
 See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
@@ -63,7 +63,7 @@ See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-p
 
 #### Tenant Display Name
 
-There are two ways to name your RKVST Tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tenancy you're currently working in and to switch between Tenancies if you are part of multiple Tenancies.
+There are two ways to name your DataTrails Tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tenancy you're currently working in and to switch between Tenancies if you are part of multiple Tenancies.
 
 To set your `Tenant Display Name`:
 
@@ -74,22 +74,22 @@ To set your `Tenant Display Name`:
 
 #### Verified Domain
 
-The second way to set your tenancy name is to [get your domain verified](/platform/administration/verified-domain/) by the RKVST team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.
+The second way to set your tenancy name is to [get your domain verified](/platform/administration/verified-domain/) by the DataTrails team. Your verified domain name will be visible to the people you share information with and will be publicly available if you create a Public Asset.
 
 ## Enterprise Single Sign-On
 
-[Enterprise customers](https://www.rkvst.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to RKVST. Before doing so, you must have a [Verified Domain](/platform/administration/verified-domain/).
+[Enterprise customers](https://www.datatrails.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to DataTrails. Before doing so, you must have a [Verified Domain](/platform/administration/verified-domain/).
 
 1. Navigate to `Settings` on the sidebar and select `Tenancy`.  
   Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. Saving your configuration may take a moment.
   {{< img src="ESSOForm.png" alt="Rectangle" caption="<em>Configure SSO</em>" class="border-0" >}}
   {{< note >}}
-  **NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with RKVST. Enter the information below.
+  **NOTE:** To retrieve the necessary data for the configuration form, your IDP must be configured to be compatible with DataTrails. Enter the information below.
 
   **Login URI:**
 
   ```http
-  https://app.rkvst.io/login
+  https://app.datatrails.ai/login
   ```
 
   **Callback URL:**
@@ -100,8 +100,8 @@ The second way to set your tenancy name is to [get your domain verified](/platfo
 
   {{< /note >}}
 
-1. Now that your details are saved, return to the RKVST sign-in screen. Select the `Single Sign-On` option
+1. Now that your details are saved, return to the DataTrails sign-in screen. Select the `Single Sign-On` option
 {{< img src="SSOLogInButton.png" alt="Rectangle" caption="<em>Single Sign-On</em>" class="border-0" >}}
 1. Enter your [Verified Domain Name](/platform/overview/identity-and-access-management/#verified-domain)
 {{< img src="DomainName.png" alt="Rectangle" caption="<em>Verified Domain</em>" class="border-0" >}}
-You will be sent to the identity provider you configured earlier to log-in, then redirected back to RKVST.
+You will be sent to the identity provider you configured earlier to log-in, then redirected back to DataTrails.

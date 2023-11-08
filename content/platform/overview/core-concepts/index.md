@@ -1,7 +1,7 @@
 ---
 title: "Core Concepts"
-description: "RKVST Core Concepts"
-lead: "RKVST Core Concepts"
+description: "DataTrails Core Concepts"
+lead: "DataTrails Core Concepts"
 date: 2021-06-14T10:57:58+01:00
 lastmod: 2021-06-14T10:57:58+01:00
 draft: false
@@ -18,15 +18,15 @@ aliases:
 
 ## Tenancies
 
-A Tenancy is an Organization's private area within RKVST, containing [Asset](./#assets) and [Event](./#events) data. The user who created the Tenancy is the Administrator and has full administrative control over everything in that Tenancy. An Administrator can also create granular [Access Policies](./#access-policies) which allow data from their Tenancy to be shared to other Tenancies; for example, Organization A would share Asset data from their Tenancy to Organization B's Tenancy.
+A Tenancy is an Organization's private area within DataTrails, containing [Asset](./#assets) and [Event](./#events) data. The user who created the Tenancy is the Administrator and has full administrative control over everything in that Tenancy. An Administrator can also create granular [Access Policies](./#access-policies) which allow data from their Tenancy to be shared to other Tenancies; for example, Organization A would share Asset data from their Tenancy to Organization B's Tenancy.
 
-Administrators may invite other user accounts into their Tenancy. The invited user needs to have signed up for RKVST with the same email address as the invite, they will then be added to the Tenancy as a Non-Administrator. Non-Administrators start off with no permissions but can be given specific permissions (including being upgraded to an Administrator) by any existing Administrator in that Tenancy.
+Administrators may invite other user accounts into their Tenancy. The invited user needs to have signed up for DataTrails with the same email address as the invite, they will then be added to the Tenancy as a Non-Administrator. Non-Administrators start off with no permissions but can be given specific permissions (including being upgraded to an Administrator) by any existing Administrator in that Tenancy.
 
 ## Assets
 
-Assets are central to RKVST. Each Asset Record represents ***a thing***; this could be a physical object, a smart device, or even a business process.
+Assets are central to DataTrails. Each Asset Record represents ***a thing***; this could be a physical object, a smart device, or even a business process.
 
-An RKVST Asset has a collection of attributes that describes its current state and a complete life history of Events that brought it to that state. RKVST Asset attributes track anything deemed important. For example, a Shipping Container as an Asset might have the attributes of height, width and depth, and have a handling history of movements through ports.
+A DataTrails Asset has a collection of attributes that describes its current state and a complete life history of Events that brought it to that state. DataTrails Asset attributes track anything deemed important. For example, a Shipping Container as an Asset might have the attributes of height, width and depth, and have a handling history of movements through ports.
 
 Each Asset has a fixed identity across all stakeholders, ensuring that all relevant parties are collaborating on the same object and see the same history of the Asset at any given time when shared through [Access Policies](./#access-policies).
 

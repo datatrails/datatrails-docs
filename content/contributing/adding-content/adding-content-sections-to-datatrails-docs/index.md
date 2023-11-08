@@ -1,5 +1,5 @@
 ---
-title: "Adding Content Sections to RKVST Docs"
+title: "Adding Content Sections to DataTrails Docs"
 description: ""
 date: 2021-05-20T12:03:27+01:00
 lastmod: 2021-05-20T12:03:27+01:00
@@ -16,10 +16,10 @@ toc: true
 **Note:** For navigation purposes any new content is automatically added to the top level `content` folder and then follows the path you specify from there.
 {{< /note >}}
 
-1. To add a New Content Section use the `rkvst-doks` command
+1. To add a New Content Section use the `datatrails-doks` command
 
     ```bash
-    rkvst-doks create platform/usecases/_index.md
+    datatrails-doks create platform/usecases/_index.md
     ```
 
     Here you can see we have specified the `platform` area, the name of our new section and we use the underscored `_index.md` to indicate it is an indexing section of content

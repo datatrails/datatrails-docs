@@ -13,9 +13,9 @@ weight: 35
 toc: true
 ---
 
-The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.
+The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.
 
-As it builds on the standard RKVST asset the same processes are used for [Permissioned Sharing](/platform/administration/managing-access-to-an-asset-with-abac/) and [Public Attestation](/platform/overview/public-attestation/).
+As it builds on the standard DataTrails asset the same processes are used for [Permissioned Sharing](/platform/administration/managing-access-to-an-asset-with-abac/) and [Public Attestation](/platform/overview/public-attestation/).
 
 The following steps will guide you in creating your first Document Profile Asset.
 
@@ -26,9 +26,9 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 ## Registering a Document
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
 {{< /note >}}
 
 1. Register your Document
@@ -38,7 +38,7 @@ Using the sidebar, select `Register Document`.
 {{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Registering a Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
+The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
 
@@ -170,7 +170,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The DataTrails API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
 
 ```json
 {
@@ -210,7 +210,7 @@ Extended attributes are custom key-value pairs, such as `document_version`, `for
 
 This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
-It's also good practice to include `confirm: true` which tells RKVST to finish committing the Asset before moving to the next step.
+It's also good practice to include `confirm: true` which tells DataTrails to finish committing the Asset before moving to the next step.
 
 ```yaml
 ---
@@ -277,11 +277,11 @@ Click `Register Document`.
 {{< img src="RegDocCreate.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret client_secret.txt \
       my_first_container.yaml
@@ -293,10 +293,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
 
 {{< /tab >}}}
@@ -326,8 +326,8 @@ You can view all Asset data using the following command.
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets
 ```
 
 {{< /tab >}}}
@@ -364,8 +364,8 @@ Details of a specific asset can be retrieved using identifying attributes (`attr
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Document
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=My%20First%20Document
 ```
 
 {{< /tab >}}}

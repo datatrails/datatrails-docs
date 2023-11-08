@@ -1,5 +1,5 @@
 ---
- title: "Verify RKVST SCITT Receipts"
+ title: "Verify DataTrails SCITT Receipts"
  description: "Proof of Posting Receipts for SCITT"
  lead: "Proof of Posting Receipts for SCITT"
  date: 2021-05-18T14:52:25+01:00
@@ -15,9 +15,9 @@
 
 ## What are receipts?
 
-Having a receipt for an RKVST Event allows you to prove that you recorded the Event on the RKVST Blockchain, independent of RKVST.
+Having a receipt for a DataTrails Event allows you to prove that you recorded the Event on the DataTrails Blockchain, independent of DataTrails.
 
-Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/glossary/common-rkvst-terms/).
+Receipts can be retrieved for [Simple Hash](/platform/overview/advanced-concepts/#simple-hash) Events once they have been confirmed and [anchored](/glossary/common-datatrails-terms/).
 
 A user may get a receipt for any Event they have recorded on the system. You must be an Administrator for your Tenancy to retrieve receipts for any Event within the Tenancy, including those shared by other organizations.
 
@@ -29,7 +29,7 @@ Receipts for Public Events can be obtained by any authenticated API request.
 
 ## What is in a receipt?
 
-The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.rkvst.com/what-is-scitt-and-how-does-rkvst-help/).
+The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.datatrails.com/what-is-scitt-and-how-does-datatrails-help/).
 
 Regardless of how the standards evolve, any receipt you obtain today will remain valid proof of posting for the Event.
 
@@ -39,15 +39,15 @@ Regardless of how the standards evolve, any receipt you obtain today will remain
 
 <br>
 
-The `/archivist/v1/notary/claims/events` API creates a SCITT claim for an RKVST event.
+The `/archivist/v1/notary/claims/events` API creates a SCITT claim for a DataTrails event.
 
-In the SCITT model, this claim is then presented to a transparency service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, RKVST is acting as the transparency service and returns a (draft) standards-compatible receipt proving that you recorded your Event on the RKVST Blockchain.
+In the SCITT model, this claim is then presented to a transparency service to obtain a receipt. When you present a claim to the `/archivist/v1/notary/receipts` API to obtain your receipt, DataTrails is acting as the transparency service and returns a (draft) standards-compatible receipt proving that you recorded your Event on the DataTrails Blockchain.
 
 ## How do I retrieve and verify a receipt?
 
-Once retrieved, receipts are fully verifiable offline and without calls to the RKVST system using independent OSS tooling.
+Once retrieved, receipts are fully verifiable offline and without calls to the DataTrails system using independent OSS tooling.
 
-However, for your convenience RKVST provides a Python script that can be used to retrieve and verify a receipt. For full details, please visit our [Python documentation](https://python-scitt.rkvst.com/index.html).
+However, for your convenience DataTrails provides a Python script that can be used to retrieve and verify a receipt. For full details, please visit our [Python documentation](https://python-scitt.datatrails.com/index.html).
 
 Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed.
 
@@ -58,7 +58,7 @@ First, save the identity of an event in `EVENT_IDENTITY`.
 ```bash
 EVENT_TRANSACTION_ID=$(curl -s \
         -X GET -H "Authorization: Bearer ${TOKEN}" \
-        https://app.rkvst.io/archivist/v2/${EVENT_IDENTITY} \
+        https://app.datatrails.ai/archivist/v2/${EVENT_IDENTITY} \
         | jq -r .transaction_id)
 ```
 
@@ -71,7 +71,7 @@ The transaction_id is available once the event has been committed to the blockch
     ```bash
     CLAIM=$(curl -s -d "{\"transaction_id\":\"${EVENT_TRANSACTION_ID}\"}" \
             -X POST -H "Authorization: Bearer ${TOKEN}" \
-            https://app.rkvst.io/archivist/v1/notary/claims/events \
+            https://app.datatrails.ai/archivist/v1/notary/claims/events \
             | jq -r .claim)
     ```
 
@@ -80,7 +80,7 @@ The transaction_id is available once the event has been committed to the blockch
     ```bash
     RECEIPT=$(curl -s -d "{\"claim\":\"${CLAIM}\"}" \
             -X POST -H "Authorization: Bearer ${TOKEN}" \
-            https://app.rkvst.io/archivist/v1/notary/receipts \
+            https://app.datatrails.ai/archivist/v1/notary/receipts \
             | jq -r .receipt)
     ```
 
@@ -98,7 +98,7 @@ The transaction_id is available once the event has been committed to the blockch
 
     ```bash
     WORLDROOT=$(curl -s -X GET -H "Authorization: Bearer ${TOKEN}" \
-                https://app.rkvst.io/archivist/v1/archivistnode/block?number="${BLOCK}" \
+                https://app.datatrails.ai/archivist/v1/archivistnode/block?number="${BLOCK}" \
                 | jq -r .stateRoot)
     ```
 

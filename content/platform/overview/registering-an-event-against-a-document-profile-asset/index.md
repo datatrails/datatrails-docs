@@ -38,7 +38,7 @@ When viewing your Document, you have the choice of `Add New Version` (publish a 
 {{< img src="AssetOverview.png" alt="Rectangle" caption="<em>Document Asset Overview</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
+To use the YAML Runner, please visit [this link](https://python.datatrails.com/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
 
@@ -89,9 +89,9 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs.
 
 Fill out the metadata about your Event; `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is `document_hash_value`, the hash algorithm is `document_hash_alg` and the `document_status` which must be `Published`.
+In the asset attributes section you should include the required DataTrails asset attributes as defined by the document profile. The new document version hash value is `document_hash_value`, the hash algorithm is `document_hash_alg` and the `document_status` which must be `Published`.
 
-In the event attributes section you should also add the required RKVST event attribute `arc_display_type` together with any other event specific attributes. The Document Profile specifies that `arc_display_type` must be `Publish`.  
+In the event attributes section you should also add the required DataTrails event attribute `arc_display_type` together with any other event specific attributes. The Document Profile specifies that `arc_display_type` must be `Publish`.  
 
 ```yaml
 ---
@@ -124,9 +124,9 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs.
 
 Fill out the metadata about your Event; `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the asset attributes section you should include the required RKVST asset attributes as defined by the document profile. The new document version hash value is `document_hash_value`, the hash algorithm is `document_hash_alg` and the `document_status` which must be `Published`.
+In the asset attributes section you should include the required DataTrails asset attributes as defined by the document profile. The new document version hash value is `document_hash_value`, the hash algorithm is `document_hash_alg` and the `document_status` which must be `Published`.
 
-In the event attributes section you should also add the required RKVST event attribute `arc_display_type` together with any other event specific attributes. The Document Profile specifies that `arc_display_type` must be `Publish`.  
+In the event attributes section you should also add the required DataTrails event attribute `arc_display_type` together with any other event specific attributes. The Document Profile specifies that `arc_display_type` must be `Publish`.  
 
 ```json
 {
@@ -163,7 +163,7 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 1. The Withdraw Event
 {{< tabs name="withdraw_event" >}}
 {{{< tab name="UI" >}}
-If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in RKVST by publishing a new version.
+If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.<br>Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in DataTrails by publishing a new version.
 {{< img src="WithdrawEvent.png" alt="Rectangle" caption="<em>Withdraw Event</em>" class="border-0" >}}
 
 {{< /tab >}}
@@ -265,11 +265,11 @@ Once your form is complete, click on the `Record Event` button to register the e
 {{< img src="RecordEvent.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.com/runner/index.html) to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       my_first_document_event.yaml
@@ -281,10 +281,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
+    https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events
 ```
 
 {{< /tab >}}}
@@ -340,16 +340,16 @@ To view all Events across all Assets, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/-/events
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/-/events
 ```
 
 To view the details of the Event you just created for My First Document, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events/<event-id>
 ```
 
 {{< /tab >}}}

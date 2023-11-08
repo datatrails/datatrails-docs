@@ -19,7 +19,7 @@ It is important in any documentation to have a readable, sane and consistent exp
 
 Content is organized at a directory level using the standard Hugo format, we then have four separate areas of content.
 
-Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by RKVST Employees and Organizational Reviewers.
+Typically, only Docs should be edited but permission to add to the other sections will be decided on a case by case basis by DataTrails Employees and Organizational Reviewers.
 <!-- markdownlint-disable MD037 -->
 {{< tabs name="directory_structure" >}}
 {{< tab name="Root" codelang="bash" >}}
@@ -33,7 +33,7 @@ Typically, only Docs should be edited but permission to add to the other section
 ├── content
 ├── data
 ├── images
-├── rkvst-doks
+├── datatrails-doks
 ├── layouts
 ├── LICENSE
 ├── netlify.toml
@@ -58,7 +58,7 @@ Typically, only Docs should be edited but permission to add to the other section
 ├── _index.md
 ├── overview
 ├── user-patterns
-├── rkvst-basics
+├── datatrails-basics
 └── beyond-the-basics
 {{< /tab >}}
 {{< /tabs >}}
@@ -83,19 +83,19 @@ Every Article and Section contains an `index.md` file with some slight differenc
 * Articles use `index.md` which represents a standard content file
 * Sections use `_index.md` which has special significance as it will automatically index all of the sub-folders and their `index.md` files
 
-Both of these may be prefilled using a template described in the `Archetypes` folder when using the `rkvst-doks` wrapper to create content.
+Both of these may be prefilled using a template described in the `Archetypes` folder when using the `datatrails-doks` wrapper to create content.
 
 In terms of naming convention, at the directory level you should always use a slugified name that represents the title of the Article or Section you are creating.
 
 For example, `Who Did What When to a Thing` becomes `who-did-what-when-to-a-thing`.
 
-This is important as not only will that be represented at a URL level when accessing the docs; the `rkvst-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates.
+This is important as not only will that be represented at a URL level when accessing the docs; the `datatrails-doks` wrapper will also be able to prefill the titles of `index.md` files in any templates.
 
 {{< caution >}}
 **Caution:** Title rendering in templates is not perfect, you should always verify the title of an Article or Section is correct in the metadata manually.
 {{< /caution >}}
 
-Follow these links for more information on adding [Articles](../../adding-content/adding-articles-to-rkvst-docs/) or [Sections](../../adding-content/adding-content-sections-to-rkvst-docs/) to RKvST Docs.
+Follow these links for more information on adding [Articles](../../adding-content/adding-articles-to-datatrails-docs/) or [Sections](../../adding-content/adding-content-sections-to-datatrails-docs/) to RKvST Docs.
 
 ### Article Metadata
 
@@ -172,7 +172,7 @@ Content is written in place and without any special tagging or formatting.
 
 ### Grammar
 
-RKVST Docs are written with the standard English Grammar style, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
+DataTrails Docs are written with the standard English Grammar style, this includes full use of appropriate punctuation; however Emphasis using Exclamation Marks `!` should be minimized where possible.
 
 It is relevant to note that the authors of this documentation are primarily native British English speakers, however, there is a conscious effort to align to certain standards observed in most other technical documentation including Americanized Spellings for consistency.
 
@@ -433,7 +433,7 @@ println "This is a Go Example."
 {{< /tab >}}
 {{< /tabs >}}
 
-As RKVST is primarily accessed via APIs there are different requirements for each type of example:
+As DataTrails is primarily accessed via APIs there are different requirements for each type of example:
 
 {{< tabs name="tabbed_api_requirements" >}}
 {{< tab name="GET" codelang="md" >}}
@@ -562,7 +562,7 @@ There are several best practices the docs should follow:
 Rendering OpenAPI docs is done using another custom made shortcode:
 
 ```go
-{{</* openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
+{{</* openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs/master/doc/openapi/access_policies.swagger.json" */>}}
 ```
 
 When making an Article for API Docs the body should only contain the OpenAPI shortcode pointed at the URL of the OpenAPI spec to be rendered.
@@ -659,7 +659,7 @@ Tables without those properties are not permitted.
 Links to other sections of documentation or external resources should use the standard markdown notation:
 
 ```md
-[This is a link](https://rkvst.com/beta)
+[This is a link](https://datatrails.com/beta)
 ```
 
 Other forms of links such as using `<a>` tags will not be permitted.
@@ -682,7 +682,7 @@ While it is permitted to only specify the article name and not include a `#` ref
 
 ### External Links
 
-External Links are not generally permitted as RKVST has little to no control on the content being presented and if it is changed or moved in future.
+External Links are not generally permitted as DataTrails has little to no control on the content being presented and if it is changed or moved in future.
 
 If you would like to include an external link then it will be decided on a case by case basis.
 
@@ -717,7 +717,7 @@ The following steps reference [TechSmith Snagit](https://www.techsmith.com/scree
   * Using the Snagit Editor, create a transparent rectangular **shape**
     {{< img src="snagit-editor-border-settings.png" alt="Rectangle" caption="<em>Setting Border Properties</em>" class="border-0" >}}  
     * Fill: Transparent
-    * Outline Color: RKVST Blue `#00AEEF`  
+    * Outline Color: DataTrails Blue `#00AEEF`  
         {{< img src="snagit-editor-border-color.png" alt="Rectangle" caption="<em>Setting Border Color</em>" class="border-0" >}}
     * Shape: Rectangle
     * Shadow: (bottom right)
@@ -728,7 +728,7 @@ The following steps reference [TechSmith Snagit](https://www.techsmith.com/scree
   * Using the Snagit Editor, create **Steps** to indicate where the user should click  
     The step numbers should match the numbered bullets in the documentation
     {{< img src="snagit-editor-step-settings.png" alt="Rectangle" caption="<em>Setting Step Properties</em>" class="border-0" >}}  
-    * Fill: RKVST Blue `#00AEEF`
+    * Fill: DataTrails Blue `#00AEEF`
     * Text Color: White
     * Shape: Circle
     * Shadow: (bottom right)
@@ -741,7 +741,7 @@ When a particular image does not suit either the Dark or Light Theme it will be 
 
 You can do this using the special `imgDark` shortcode.
 
-{{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" >}}
+{{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>DataTrails Dark Mode Logo Example</em>" class="border-0" >}}
 
 All images should use the `Rectangular` alt value, `border-0` class and captions should use the `<em>` tags to encapsulate text using Title Case
 
@@ -775,9 +775,9 @@ To specify an image in a Tabbed Codeblock you need to remove the `codelang` valu
 {{< /tab >}}
 {{< tab name="Bash" codelang="bash" >}}
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 {{< /tab >}}
 {{< /tabs >}}

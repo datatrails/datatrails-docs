@@ -15,13 +15,13 @@
   - /docs/beyond-the-basics/public-attestation/
 ---
 
-You may wish to attest information to the general public, without the need for viewers to log-in to their RKVST account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.
+You may wish to attest information to the general public, without the need for viewers to log-in to their DataTrails account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.
 
 Permissioned Assets can only be shared through the creation of [Access Policies](/platform/administration/sharing-assets-with-obac/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.
 
 Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.
 
-Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to RKVST.
+Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to DataTrails.
 
 {{< note >}}
 For more detailed Asset creation instructions, visit [Creating an Asset](/platform/overview/creating-an-asset/).
@@ -52,7 +52,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
     "attributes": {
         "arc_display_name": "Publicly Attested Asset",
         "arc_display_type": "Example",
-        "arc_description": "This example asset is publicly attested, so anyone with the link can access its details without signing in to RKVST."
+        "arc_description": "This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails."
     },
     "public": true
 }
@@ -75,10 +75,10 @@ Use the curl command to run your JSON file. See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
 
 {{< /tab >}}
@@ -98,8 +98,8 @@ A Public Asset's URL can be retrieved via the [Assets API](/developers/api-refer
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/<asset-id>:publicurl
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/<asset-id>:publicurl
 ```
 
 {{< /tab >}}
@@ -139,10 +139,10 @@ Use the curl command to run your JSON file. See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
+    https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events
 ```
 
 {{< /tab >}}
@@ -158,8 +158,8 @@ Use the following curl command, which will return the public URL for the Event.
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>:publicurl
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events/<event-id>:publicurl
 ```
 
 {{< /tab >}}

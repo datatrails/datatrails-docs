@@ -74,10 +74,10 @@ Execute the file, which will return the subject identity in the form `subjects/<
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/subjects
+    https://app.datatrails.ai/archivist/iam/v1/subjects
 ```
 
 {{< /tab >}}}
@@ -104,7 +104,7 @@ It is possible to mix-and-match ABAC and OBAC Permission Groups in the same poli
 1. Create your Access Policy
 {{< tabs name="access_policies_obac" >}}
 {{{< tab name="UI" >}}
-Navigate to the `Access Policies` section on the sidebar of the RKVST dashboard.
+Navigate to the `Access Policies` section on the sidebar of the DataTrails dashboard.
 {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -130,8 +130,8 @@ You may view your existing policies before creating your new policy by executing
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/access_policies
 ```
 
 {{< /tab >}}}
@@ -206,10 +206,10 @@ Execute the file, which will return the subject identity in the form `subjects/<
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/subjects
+    https://app.datatrails.ai/archivist/iam/v1/subjects
 ```
 
 {{< /tab >}}}
@@ -249,8 +249,8 @@ Add the desired permissions and the Subject ID found in the previous step
 
 {{< /tab >}}}
 {{< /tabs >}}<br>
-    **Note** we have included RKVST-significant attributes: `arc_display_name` and `arc_display_type`.  
-`arc_*` attributes have special significance in RKVST. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
+    **Note** we have included DataTrails-significant attributes: `arc_display_name` and `arc_display_type`.  
+`arc_*` attributes have special significance in DataTrails. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
 
 1. Once complete, finish creating the Access Policy
 {{< tabs name="finish_policy_obac" >}}
@@ -264,10 +264,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/access_policies
+    https://app.datatrails.ai/archivist/iam/v1/access_policies
 
 ```
 

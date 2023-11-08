@@ -45,7 +45,7 @@ Using the Event ID as a parameter, run the following command:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
      https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/<asset-id>/events/<event-id>
 ```
 
@@ -58,10 +58,10 @@ This will return a list of matching blockchain transactions, as well as the `sim
 
 {{< tabs name="simple-hash-script" >}}
 {{{< tab name="Python" >}}
-Use Python pip utility to install the `rkvst-simplehash` package. This package is supported for Python versions 3.7, 3.8, 3.9, and 3.10.
+Use Python pip utility to install the `datatrails-simplehash` package. This package is supported for Python versions 3.7, 3.8, 3.9, and 3.10.
 
 ```bash
-python3 -m pip install rkvst-simplehash
+python3 -m pip install datatrails-simplehash
 ```
 
 You may then use the code to recreate the hash, using your [`BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) as the `auth_token` and the `start_date` and `end_date` copied in the last step:

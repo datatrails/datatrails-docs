@@ -194,7 +194,7 @@ The `sbom_accepted_` prefix is used to designate attributes that are part of the
 
 | NTIA Attribute      | Event Attributes                | Meaning                                         | Requirement                               |
 |---------------------|---------------------------------|-------------------------------------------------|-------------------------------------------|
-| N/A                 | arc_display_type                | Tells RKVST how to interpret Event              | Required, must set to `Release Accepted` |
+| N/A                 | arc_display_type                | Tells DataTrails how to interpret Event              | Required, must set to `Release Accepted` |
 | Component Name      | sbom_accepted_component         | The accepted name of the Package                | Required        |
 | Version String      | sbom_accepted_version           | The accepted version of the Package             | Required |
 | N/A                 | sbom_accepted_reference         | The reference number of the associated plan     | Required |
@@ -204,7 +204,7 @@ The `sbom_accepted_` prefix is used to designate attributes that are part of the
 | Author Name         | sbom_accepted_author            | The accepted name of the Package Author         | Optional |
 | Supplier Name       | sbom_accepted_supplier          | The accepted name of the Package Supplier       | Optional |
 | Component Hash      | sbom_accepted_hash              | The accepted hash of the component files/installation (per version)| Optional |
-| Unique Identifier   | sbom_accepted_uuid              | The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead              | Optional |
+| Unique Identifier   | sbom_accepted_uuid              | The accepted unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead              | Optional |
 | N/A                 | sbom_accepted_vuln_reference    | If this release intends to resolve a specific vulnerability you can highlight a shared Vulnerability reference number(s)              | Optional |
 
 ### Patch Event
@@ -217,18 +217,18 @@ It is typically expected a Patch should contain its own SBOM separate to the Pri
 
 ##### Patch Event Attribute Namespace
 
-The `sbom_patch_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by RKVST and others are guidelines.
+The `sbom_patch_` prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.
 {{< /note >}}
 
 | NTIA Attribute      | Event Attributes         | Meaning                                         | Requirement                               |
 |---------------------|--------------------------|-------------------------------------------------|-------------------------------------------|
-| N/A                 | arc_display_type         | Tells RKVST how to interpret Event              | Required, must set to `Patch`             |
+| N/A                 | arc_display_type         | Tells DataTrails how to interpret Event              | Required, must set to `Patch`             |
 | Component Name      | sbom_patch_target_component| The component the Patch targets               | Required                                  |
 | Version String      | sbom_patch_version       | The version string of the Patch                 | Required                                  |
 | Author Name         | sbom_patch_author        | The name of the Patch Author                    | Required                                  |
 | Supplier Name       | sbom_patch_supplier      | The name of the Patch Supplier                  | Required                                  |
 | Component Hash      | sbom_patch_hash          | The hash of the Patch files/installation (per version) | Required                           |
-| Unique Identifier   | sbom_patch_uuid          | The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                | Required |
+| Unique Identifier   | sbom_patch_uuid          | The accepted unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                | Required |
 | N/A                 | sbom_patch_target_version| The version of the component the patch is targeted/built from | Required                    |
 | N/A                 | sbom_patch_repo          | Link to the Git Repo/Fork/Branch of the Component (if different to the latest release repo) | Optional |
 | N/A                 | sbom_patch_license       | The licensing used by the component (if specified and different to the latest release license) | Optional |
@@ -243,14 +243,14 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 
 ##### Vulnerability Disclosure Event Attribute Namespace
 
-The `vuln_` prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.
+The `vuln_` prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.
 {{< /note >}}
 
 #### Vulnerability Disclosure
 
 | Event Attributes         | Meaning                                         | Requirement                               |
 |--------------------------|-------------------------------------------------|-------------------------------------------|
-| arc_display_type         | Tells RKVST how to interpret Event              | Required, must set to `Vulnerability Disclosure` |
+| arc_display_type         | Tells DataTrails how to interpret Event              | Required, must set to `Vulnerability Disclosure` |
 | vuln_name                | Friendly Name for the Vulnerability             | Required        |
 | vuln_reference           | Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability | Required |
 | vuln_id                  | Specific ID of Vulnerability (e.g CVE-2018-0171)| Required |
@@ -265,7 +265,7 @@ The `vuln_` prefix is used to designate attributes that are part of the event. A
 
 | Event Attributes         | Meaning                                         | Requirement                               |
 |--------------------------|-------------------------------------------------|-------------------------------------------|
-| arc_display_type         | Tells RKVST how to interpret Event              | Required, must set to `Vulnerability Update` |
+| arc_display_type         | Tells DataTrails how to interpret Event              | Required, must set to `Vulnerability Update` |
 | vuln_name                | Friendly Name for the Vulnerability             | Required        |
 | vuln_reference           | Reference Number (e.g. internal tracking number), useful when there may be multiple updates to a vulnerability during an investigation and for referencing when a particular release is expected to solve a vulnerability | Required |
 | vuln_id                  | Specific ID of Vulnerability (e.g CVE-2018-0171)| Required |
@@ -282,15 +282,15 @@ The `vuln_` prefix is used to designate attributes that are part of the event. A
 
 ##### EOL Event Attribute Namespace
 
-The `sbom_eol_` prefix is used to designate attributes that are part of the event. All of these are interpreted by RKVST.
+The `sbom_eol_` prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.
 {{< /note >}}
 
 An event to mark the Package as End of Life.
 | NTIA Attribute      | Event Attributes         | Meaning                                         | Requirement                               |
 |---------------------|--------------------------|-------------------------------------------------|-------------------------------------------|
-| N/A                 | arc_display_type         | Tells RKVST how to interpret Event              | Required, must set to `EOL`               |
+| N/A                 | arc_display_type         | Tells DataTrails how to interpret Event              | Required, must set to `EOL`               |
 | Component Name      | sbom_eol_target_component| The component the EOL targets                   | Required                                  |
 | Version String      | sbom_eol_target_version  | The version string affected by the EOL          | Required                                  |
 | Author Name         | sbom_eol_author          | The name of the EOL Author                      | Required                                  |
-| Unique Identifier   | sbom_eol_uuid            | The accepted unique identifier for the Package, RKVST provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                                  | Required |
+| Unique Identifier   | sbom_eol_uuid            | The accepted unique identifier for the Package, DataTrails provides a Unique ID per asset but it may be preferred to include an existing internal reference instead                                  | Required |
 | N/A                 | sbom_eol_target_date     | The date on which the EOL will be active         | Required                                 |

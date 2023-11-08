@@ -11,7 +11,7 @@ toc: true
 aliases: 
   - /docs/glossary/
 ---
-Select an option to to find out more about the terms used by RKVST.
+Select an option to to find out more about the terms used by DataTrails.
 
-* Common RKVST Terms: A list of terms used by RKVST.
-* Reserved Attributes: A list of Asset attributes that are used by the RKVST platform and have a specific purpose.
+* Common DataTrails Terms: A list of terms used by DataTrails.
+* Reserved Attributes: A list of Asset attributes that are used by the DataTrails platform and have a specific purpose.

@@ -1,7 +1,7 @@
 ---
 title: "Namespace"
-description: "Using Namespace in an RKVST Tenancy"
-lead: "Using Namespace in an RKVST Tenancy"
+description: "Using Namespace in an DataTrails Tenancy"
+lead: "Using Namespace in an DataTrails Tenancy"
 date: 2021-05-31T15:18:01+01:00
 lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false

@@ -224,5 +224,5 @@ curl -X DELETE \
 ```
 
 ## App Registrations OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/appregistrationsv1.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/appregistrationsv1.swagger.json" >}}

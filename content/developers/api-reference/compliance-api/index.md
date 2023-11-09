@@ -270,5 +270,5 @@ The response is:
 ```
 
 ## Compliance OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/compliancev1.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/compliancev1.swagger.json" >}}

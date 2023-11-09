@@ -741,7 +741,7 @@ When a particular image does not suit either the Dark or Light Theme it will be 
 
 You can do this using the special `imgDark` shortcode.
 
-{{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>DataTrails Dark Mode Logo Example</em>" class="border-0" >}}
+{{< imgDark src="DataTrails_Horizontal_Logo_Black.png" srcDrk="DataTrails_Horizontal_Logo_White.png" alt="Rectangle" caption="<em>DataTrails Dark Mode Logo Example</em>" class="border-0" >}}
 
 All images should use the `Rectangular` alt value, `border-0` class and captions should use the `<em>` tags to encapsulate text using Title Case
 

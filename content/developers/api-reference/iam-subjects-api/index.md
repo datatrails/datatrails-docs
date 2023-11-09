@@ -202,5 +202,5 @@ The response is:
 ```
 
 ## IAM Subjects OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/subjectsv1.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/subjectsv1.swagger.json" >}}

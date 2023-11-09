@@ -35,7 +35,7 @@ If the document that you are verifying has not been found, you will see a red re
 
 1. **Document Found**
 {{< note >}}
-**Note:** In this screenshot we are using the file `greenfrog.jpg` which can be downloaded from our [Instaproof Samples](https://github.com/rkvst/instaproof-samples/tree/main/media) page.
+**Note:** In this screenshot we are using the file `greenfrog.jpg` which can be downloaded from our [Instaproof Samples](https://github.com/datatrails/instaproof-samples/tree/main/media) page.
 {{< /note >}}
 If the document has been registered with DataTrails, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record and an immutable audit trail.
 {{< img src="InstaproofFound.png" alt="Rectangle" caption="<em>Document Found</em>" class="border-0" >}}

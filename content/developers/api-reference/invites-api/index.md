@@ -130,5 +130,5 @@ curl -v -X DELETE \
 The response will be empty.
 
 ## Invites OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/invitesv1.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/invitesv1.swagger.json" >}}

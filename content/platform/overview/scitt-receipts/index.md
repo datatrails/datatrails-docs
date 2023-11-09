@@ -29,7 +29,7 @@ Receipts for Public Events can be obtained by any authenticated API request.
 
 ## What is in a receipt?
 
-The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.datatrails.com/what-is-scitt-and-how-does-datatrails-help/).
+The Receipts API is provided as an integration with emerging standards driven by [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.datatrails.ai/what-is-scitt-and-how-does-datatrails-help/).
 
 Regardless of how the standards evolve, any receipt you obtain today will remain valid proof of posting for the Event.
 

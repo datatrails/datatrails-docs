@@ -17,7 +17,7 @@
 
 Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.
 
-To verify your data, you may use the [DataTrails Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python), available on GitHub.
+To verify your data, you may use the [DataTrails Simple Hash tool](https://github.com/datatrails/datatrails-simplehash-python), available on GitHub.
 
 Please note that with Simple Hash, Events are committed to the DataTrails blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a `Transaction ID`. With the free tier of DataTrails, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. **Your event(s) must have a blue tick for transaction details to be available for data verification.**
 
@@ -34,7 +34,7 @@ For Public Assets, retrieve the transaction information from the public view of 
 Select `Audit/Filters` from the sidebar and select a `Transaction` from the Events Overview List.
 {{< img src="AuditSearch.png" alt="Rectangle" caption="<em>Audit/Search</em>" class="border-0" >}}
 
-Copy the `start time` and `end time` from the Simple Hash Details. These will be used as inputs to the [DataTrails Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python).
+Copy the `start time` and `end time` from the Simple Hash Details. These will be used as inputs to the [DataTrails Simple Hash tool](https://github.com/datatrails/datatrails-simplehash-python).
 
 {{< img src="SimpleHashDetails.png" alt="Rectangle" caption="<em>Simple Hash Details</em>" class="border-0" >}}
 {{< /tab >}}
@@ -49,12 +49,12 @@ curl -v -X GET \
      https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/<asset-id>/events/<event-id>
 ```
 
-This will return a list of matching blockchain transactions, as well as the `simple_hash_details`. Copy the `start_time` and `end_time` values to be used as inputs to the [DataTrails Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python).
+This will return a list of matching blockchain transactions, as well as the `simple_hash_details`. Copy the `start_time` and `end_time` values to be used as inputs to the [DataTrails Simple Hash tool](https://github.com/datatrails/datatrails-simplehash-python).
 
 {{< /tab >}}
 {{< /tabs >}}
 
-1. Use the [DataTrails Simple Hash tool](https://github.com/rkvst/rkvst-simplehash-python) to generate the hash of your Events.
+1. Use the [DataTrails Simple Hash tool](https://github.com/datatrails/datatrails-simplehash-python) to generate the hash of your Events.
 
 {{< tabs name="simple-hash-script" >}}
 {{{< tab name="Python" >}}
@@ -67,7 +67,7 @@ python3 -m pip install datatrails-simplehash
 You may then use the code to recreate the hash, using your [`BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) as the `auth_token` and the `start_date` and `end_date` copied in the last step:
 
 ```python
-from rkvst_simplehash.v1 import (
+from datatrails_simplehash.v1 import (
     anchor_events,
     SimpleHashError,
 )
@@ -106,9 +106,9 @@ Using an [`auth token`](/developers/developer-patterns/getting-access-tokens-usi
 ```bash
 python3 -m venv simplehash-venv
 source simplehash-venv/bin/activate
-python3 -m pip install -q rkvst_simplehash
+python3 -m pip install -q datatrails_simplehash
 
-rkvst_simplehashv1 \
+datatrails_simplehashv1 \
     --auth-token-file "credentials/token" \
     --start-time "2022-11-16T00:00:00Z" \
     --end-time "2022-11-17T00:00:00Z"
@@ -122,10 +122,10 @@ Using a `Client ID` and `Client Secret`:
 ```bash
 python3 -m venv simplehash-venv
 source simplehash-venv/bin/activate
-python3 -m pip install -q rkvst_simplehash
+python3 -m pip install -q datatrails_simplehash
 
 CLIENT_ID=$(cat credentials/client_id)
-rkvst_simplehashv1 \
+datatrails_simplehashv1 \
     --client-id "${CLIENT_ID}" \
     --client-secret-file "credentials/client_secret" \
     --start-time "2022-11-16T00:00:00Z" \

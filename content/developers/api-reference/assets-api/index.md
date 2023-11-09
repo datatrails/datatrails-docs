@@ -262,7 +262,7 @@ curl -g -v -X GET \
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
 
-To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/rkvst/rkvst-simplehash-python), `GET` the Assets resource, specifying a specific Asset ID or using `assets/-/events` to fetch Events for all Assets:
+To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/datatrails/datatrails-simplehash-python), `GET` the Assets resource, specifying a specific Asset ID or using `assets/-/events` to fetch Events for all Assets:
 
 ```bash
 curl -g -v -X GET \
@@ -438,5 +438,5 @@ The response is:
 ```
 
 ## Asset OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/assetsv2.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/assetsv2.swagger.json" >}}

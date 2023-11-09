@@ -208,5 +208,5 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
 ```
 
 ## Public Assets OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/publicassetsv2.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/publicassetsv2.swagger.json" >}}

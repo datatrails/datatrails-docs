@@ -85,5 +85,5 @@ The response is:
 ```
 
 ## System OpenAPI Docs
-<!--
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/archivistnodev1.swagger.json" >}}
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/archivistnodev1.swagger.json" >}}

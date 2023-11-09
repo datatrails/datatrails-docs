@@ -23,7 +23,7 @@ aliases:
 
 ## Composite Estate Info
 
-This action returns a report on the current number of Assets, Events, and locations in your RKVST estate.
+This action returns a report on the current number of Assets, Events, and locations in your DataTrails estate.
 
 ```yaml
 ---

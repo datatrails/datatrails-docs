@@ -131,7 +131,7 @@ When [creating an Asset](/platform/overview/creating-an-asset/), a proof mechani
 Simple Hash takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
 
 {{< note >}}
-**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.datatrails.com/pricing/) of the DataTrails platform.
+**Note:** The Simple Hash proof mechanism is available with [all tiers](https://www.datatrails.ai/pricing/) of the DataTrails platform.
 {{< /note >}}
 
 ## Access Policies

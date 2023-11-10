@@ -51,7 +51,7 @@ Fill in your desired details and run the command to send the invite.
 curl -v -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d '{"message": "Join my DataTrails tenancy!", "email": "user@datatrails.com"}' \
+    -d '{"message": "Join my DataTrails tenancy!", "email": "user@datatrails.ai"}' \
     "https://app.datatrails.ai/archivist/iam/v1/invites"
 ```
 
@@ -78,7 +78,7 @@ The second way to set your tenancy name is to [get your domain verified](/platfo
 
 ## Enterprise Single Sign-On
 
-[Enterprise customers](https://www.datatrails.com/pricing/) may use their preferred Identity Provider (IDP) to sign-on to DataTrails. Before doing so, you must have a [Verified Domain](/platform/administration/verified-domain/).
+[Enterprise customers](https://www.datatrails.ai/pricing/) may use their preferred Identity Provider (IDP) to sign-on to DataTrails. Before doing so, you must have a [Verified Domain](/platform/administration/verified-domain/).
 
 1. Navigate to `Settings` on the sidebar and select `Tenancy`.  
   Enter your SSO configuration, then select `SAVE ENTERPRISE SSO CONFIG`. Saving your configuration may take a moment.

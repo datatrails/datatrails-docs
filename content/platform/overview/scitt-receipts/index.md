@@ -47,7 +47,7 @@ In the SCITT model, this claim is then presented to a transparency service to ob
 
 Once retrieved, receipts are fully verifiable offline and without calls to the DataTrails system using independent OSS tooling.
 
-However, for your convenience DataTrails provides a Python script that can be used to retrieve and verify a receipt. For full details, please visit our [Python documentation](https://python-scitt.datatrails.com/index.html).
+However, for your convenience DataTrails provides a Python script that can be used to retrieve and verify a receipt. For full details, please visit our [Python documentation](https://python-scitt.datatrails.ai/index.html).
 
 Receipts can also be retrieved offline using curl commands. To get started, make sure you have an [Access Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations/), [Event ID](/platform/overview/creating-an-event-against-an-asset/), and [jq](https://github.com/stedolan/jq/wiki/Installation) installed.
 

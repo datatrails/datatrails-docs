@@ -50,7 +50,7 @@ steps:
     time_period_seconds: "259200"
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
@@ -118,7 +118,7 @@ steps:
     closing_event_display_type: Maintenance Performed
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
@@ -187,7 +187,7 @@ steps:
     time_period_seconds: "259200"
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
@@ -260,7 +260,7 @@ steps:
     dynamic_variability: "0.5"
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
@@ -328,7 +328,7 @@ steps:
       - or: [ "radiation_level<7" ]
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
@@ -386,7 +386,7 @@ steps:
     report: true
 ```
 
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \

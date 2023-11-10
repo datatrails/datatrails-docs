@@ -183,7 +183,7 @@ Click `Add Location`.
 {{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) to run your YAML file!
 
 ```bash
 $ archivist_runner \

@@ -54,6 +54,6 @@ aliases:
 
 <div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
-        <p>Additional resources are available from our <a href="https://pypi.org/project/rkvst-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/rkvst/rkvst-samples" target="_blank">Python Samples</a>.</p>
+        <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
     </div>
 </div>

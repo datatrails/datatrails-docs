@@ -27,7 +27,7 @@ Domain verification assures that actors claiming to be part of an organization a
 
 Getting your organization's domain verified indicates that you are who you say you are. This helps close the trust gap inherent to information sharing between organizations or with the public.
 
-Without domain verification, the `Organization` is noted as the publisher's Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of DataTrails would have `datatrails.com`.
+Without domain verification, the `Organization` is noted as the publisher's Tenant ID. Verifying your domain not only shows that this information comes from a legitimate actor on behalf of the organization, but also replaces the Tenant ID with your domain name so consumers can more easily identify the publishing organization. For example, someone attesting information on behalf of DataTrails would have `datatrails.ai`.
 
 {{< img src="UnverifiedDomain.png" alt="Rectangle" caption="<em>Organization without Verified Domain</em>" class="border-0" >}}
 
@@ -35,7 +35,7 @@ Without domain verification, the `Organization` is noted as the publisher's Tena
 
 ## How can I get my organization's domain verified?
 
-The DataTrails team is happy to help you obtain your verified domain badge. Please contact support@datatrails.com from an email address which includes the domain you wish to verify. For example, email us from @datatrails.com to verify the datatrails.com domain.
+The DataTrails team is happy to help you obtain your verified domain badge. Please contact support@datatrails.ai from an email address which includes the domain you wish to verify. For example, email us from @datatrails.ai to verify the datatrails.ai domain.
 
 In order to protect our user community, it is important for us to verify that the person making the request is authorized to do so by the owner of the domain. We will request evidence from you to prove that you own or control the domain in question. Typically, this will be in the form of public company information or domain registration records. Please be prepared to share this evidence with us.
 

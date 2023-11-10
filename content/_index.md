@@ -1,6 +1,6 @@
 ---
 title : "DataTrails"
-description: "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https:/datatrails/.com)."
+description: "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https:/datatrails/.ai)."
 lead: "Data provenance with a simple API."
 sublead: "Prove and verify the provenance and authenticity of any data, anywhere."
 date: 2020-10-06T08:47:36+00:00

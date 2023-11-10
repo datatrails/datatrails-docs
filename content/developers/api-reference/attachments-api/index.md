@@ -67,7 +67,7 @@ The response will include basic information about the attachment:
   "issuer": "local",
   "mime_type": "image/jpeg",
   "size": 81254,
-  "subject": "user@datatrails.com",
+  "subject": "user@datatrails.ai",
   "tenantid": "tenant/<tenant-id>",
   "timestamp_accepted": "2023-02-06T16:04:31Z",
   "scanned_status": "NOT_SCANNED",

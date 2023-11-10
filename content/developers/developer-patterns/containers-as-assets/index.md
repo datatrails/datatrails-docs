@@ -31,7 +31,7 @@ Creating an Asset to represent a container is the same as creating any other ass
 {{< note >}}
 **Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml
@@ -107,7 +107,7 @@ Now that we have created a `Shipping Container` Asset, we can create an Asset to
 {{< note >}}
 **Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml
@@ -184,7 +184,7 @@ To retrieve all Assets associated with a container, you can run a query with a f
 {{< note >}}
 **Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml

@@ -659,7 +659,7 @@ Tables without those properties are not permitted.
 Links to other sections of documentation or external resources should use the standard markdown notation:
 
 ```md
-[This is a link](https://datatrails.com/beta)
+[This is a link](https://datatrails.ai/beta)
 ```
 
 Other forms of links such as using `<a>` tags will not be permitted.

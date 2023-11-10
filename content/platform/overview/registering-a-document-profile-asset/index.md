@@ -28,7 +28,7 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 {{< note >}}
 **Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.datatrails.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 1. Register your Document
@@ -277,7 +277,7 @@ Click `Register Document`.
 {{< img src="RegDocCreate.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \

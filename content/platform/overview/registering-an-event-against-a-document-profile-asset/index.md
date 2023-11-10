@@ -38,7 +38,7 @@ When viewing your Document, you have the choice of `Add New Version` (publish a 
 {{< img src="AssetOverview.png" alt="Rectangle" caption="<em>Document Asset Overview</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-To use the YAML Runner, please visit [this link](https://python.datatrails.com/runner/index.html) for installation instructions.
+To use the YAML Runner, please visit [this link](https://python.datatrails.ai/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
 
@@ -265,7 +265,7 @@ Once your form is complete, click on the `Record Event` button to register the e
 {{< img src="RecordEvent.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.datatrails.com/runner/index.html) to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) to run your YAML file!
 
 ```bash
 $ archivist_runner \

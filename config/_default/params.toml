@@ -4,7 +4,7 @@
 title = "DataTrails"
 titleSeparator = "-"
 titleAddition = "Provenance as a Service to boost confidence in digital decisions."
-description = "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.com)."
+description = "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.ai)."
 
 ## Open Graph + Twitter Cards
 images = ["RKVST_WhtLogo_CMYK.svg"]
@@ -43,7 +43,7 @@ alert = false
 alertText = "Like Doks? <a class=\"alert-link\" href=\"https://github.com/h-enk/doks/stargazers\">Star on GitHub</a>. Thanks!</a>"
 
 # Edit Page
-#docsRepo = "https://www.github.com/rkvst/rkvst-docs"
+#docsRepo = "https://www.github.com/datatrails/datatrails-docs"
 editPage = true
 
 # Search Sections

@@ -35,7 +35,7 @@ When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-To use the YAML Runner, please visit [this link](https://python.datatrails.com/runner/index.html) for installation instructions.
+To use the YAML Runner, please visit [this link](https://python.datatrails.ai/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
 

@@ -201,7 +201,7 @@ Add the desired permissions and the desired `user_attributes`
         {
             "asset_attributes_read": ["arc_display_name", "arc_description", "arc_home_location_identity", "Length", "Weight"],
             "user_attributes": [
-                {"or": ["email=bill@datatrails.com"]}
+                {"or": ["email=bill@datatrails.ai"]}
             ]
         }
     ]

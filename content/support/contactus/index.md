@@ -7,4 +7,4 @@ draft: false
 images: []
 ---
 
-For any queries please contact support@datatrails.com
+For any queries please contact support@datatrails.ai

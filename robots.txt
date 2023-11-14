@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://docs.rkvst.com/sitemap.xml
+Sitemap: https://docs.datatrails.ai/sitemap.xml

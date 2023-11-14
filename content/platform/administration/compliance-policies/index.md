@@ -25,7 +25,7 @@ For example, a policy might assert that “Maintenance Alarm Events must be addr
 **Note:** Creation and editing of Compliance Policies is only supported through the API.
 {{< /note >}}
 
-RKVST allows for several types of Compliance Policies:
+DataTrails allows for several types of Compliance Policies:
 
 1. ***COMPLIANCE_SINCE:*** checks the time elapsed since a specific type of Event has not exceeded set threshold.
 
@@ -50,11 +50,11 @@ steps:
     time_period_seconds: "259200"
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -80,10 +80,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 {{< /tab >}}}
@@ -118,11 +118,11 @@ steps:
     closing_event_display_type: Maintenance Performed
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -148,10 +148,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 {{< /tab >}}}
@@ -187,11 +187,11 @@ steps:
     time_period_seconds: "259200"
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -218,10 +218,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 {{< /tab >}}}
@@ -260,11 +260,11 @@ steps:
     dynamic_variability: "0.5"
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -292,10 +292,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 {{< /tab >}}}
@@ -328,11 +328,11 @@ steps:
       - or: [ "radiation_level<7" ]
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -359,10 +359,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 {{< /tab >}}}
@@ -386,11 +386,11 @@ steps:
     report: true
 ```
 
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       <path-to-yaml-file>
@@ -402,16 +402,16 @@ Run the following command using the desired Asset ID to check its compliance sta
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
-    https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    https://app.datatrails.ai/archivist/v1/compliance/assets/<asset-id>
 ```
 
 You may also determine compliance at a [historical date](/platform/overview/advanced-concepts/#perspectives) by adding the desired date to the query.
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
-    "https://app.rkvst.io/archivist/v1/compliance/assets/<asset-id>?compliant_at=2019-11-27T14:44:19Z"
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    "https://app.datatrails.ai/archivist/v1/compliance/assets/<asset-id>?compliant_at=2019-11-27T14:44:19Z"
 ```
 
 {{< /tab >}}}

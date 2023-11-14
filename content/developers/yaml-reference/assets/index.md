@@ -16,9 +16,9 @@ aliases:
 ---
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ## Assets Create
@@ -48,7 +48,7 @@ steps:
     confirm: true
 ```
 
-The output of this action is available in the [RKVST UI](https://app.rkvst.io):
+The output of this action is available in the [DataTrails UI](https://app.datatrails.ai):
 
 {{< img src="AssetsCreate.png" alt="Rectangle" caption="<em>ASSETS_CREATE Output</em>" class="border-0" >}}
 

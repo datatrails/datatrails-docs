@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/iam-policies-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -43,7 +43,7 @@ This will return a `subjects/<UUID>` object you would then specify with the `sub
 As both ABAC and OBAC use the same filter syntax, it is possible to have a mix of internal and external sharing within a single policy.
 
 {{< note >}}
-Learn more about [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/) and [OBAC](/platform/administration/sharing-assets-with-obac/) policies in our RKVST Basics guides.
+Learn more about [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/) and [OBAC](/platform/administration/sharing-assets-with-obac/) policies in our DataTrails Basics guides.
 {{< /note >}}
 
 ### IAM Policy Creation
@@ -93,10 +93,10 @@ Create the Access Policy:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/access_policies
+    https://app.datatrails.ai/archivist/iam/v1/access_policies
 ```
 
 The response is:
@@ -141,7 +141,7 @@ The response is:
 
 ### IAM Policy Retrieval
 
-IAM Access Policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Access Policy records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 access_policies/12345678-90ab-cdef-1234-567890abcdef
@@ -155,8 +155,8 @@ To fetch all IAM `access_policies` records, simply `GET` the `iam/access_policie
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/access_policies
 ```
 
 #### Fetch specific IAM access Policy by identity (v1)
@@ -165,8 +165,8 @@ If you know the unique identity of the IAM access policy Record simply `GET` the
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch IAM Access Policies by name (v1)
@@ -175,8 +175,8 @@ To fetch all IAM `access_policies` with a specific name, `GET` the `iam/access_p
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/iam/v1/access_policies?display_name=Some%20description"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/iam/v1/access_policies?display_name=Some%20description"
 ```
 
 Each of these calls returns a list of matching IAM Access Policies records in the form:
@@ -253,9 +253,9 @@ To delete an IAM Access Policy, issue following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is:
@@ -307,10 +307,10 @@ Update the Access Policy:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/iam/v1/access_policies/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is:
@@ -355,7 +355,7 @@ The response is:
 
 ### Matching Assets with IAM Policies
 
-IAM Access Policy records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Access Policy records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 access_policies/12345678-90ab-cdef-1234-567890abcdef
@@ -369,8 +369,8 @@ If you know the unique identity of the IAM Access Policy Record simply GET the r
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/access_policies/6a951b62-0a26-4c22-a886-1082297b063b/assets
 ```
 
 Each of these calls returns a list of matching Asset records in the form:
@@ -413,8 +413,8 @@ If you know the unique identity of the Asset Record simply GET matching policies
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/assets/6a951b62-0a26-4c22-a886-1082297b063b/access_policies
 ```
 
 Each of these calls returns a list of matching IAM `access_policies` records in the form:
@@ -478,4 +478,4 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
 
 ## IAM Policies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/accesspoliciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/accesspoliciesv1.swagger.json" >}}

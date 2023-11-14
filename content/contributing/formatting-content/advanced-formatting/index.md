@@ -241,10 +241,10 @@ Rendering Markdown Tables can be difficult from scratch, you may wish to make us
 Links can be added using standard markdown `[]()` where the contents inside of the square brackets will be what appears to the user and the standard brackets containing the hyperlink.
 
 ```md
-[This is an example of a link](https://rkvst.com/beta).
+[This is an example of a link](https://datatrails.ai/beta).
 ```
 
-[This is an example of a link](https://rkvst.com/beta).
+[This is an example of a link](https://datatrails.ai/beta).
 
 ## Images
 
@@ -254,11 +254,7 @@ Image formatting and sizing can also be very difficult to get consistently right
 
 Your image should be saved to the same directory as the article's index.md to use the following examples when adding a screenshot or picture:
 
-```go
-{{</* img src="RKVST_BlueTick_RGB.jpg" alt="Rectangle" caption="<em>RKVST Blue Tick Example</em>" class="border-0" */>}}
-```
-
-{{< img src="RKVST_BlueTick_RGB.jpg" alt="Rectangle" caption="<em>RKVST Logo Example</em>" class="border-0" >}}
+{{< img src="RKVST_BlueTick_RGB.jpg" alt="Rectangle" caption="<em>Blue Tick Example</em>" class="border-0" >}}
 
 ### Light Mode and Dark Mode Images
 
@@ -268,8 +264,4 @@ We have added some customized shortcode that allows you to specify two individua
 
 The behavior matches the original image shortcode but adds an extra `srcDrk` variable which refers to the Dark Mode image you wish to add .
 
-```go
-{{</* imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" */>}}
-```
-
-{{< imgDark src="RKVST_Logo_RGB.png" srcDrk="RKVST_WhtLogo_RGB.png" alt="Rectangle" caption="<em>RKVST Dark Mode Logo Example</em>" class="border-0" >}}
+{{< imgDark src="DataTrails_Horizontal_Logo_Black.png" srcDrk="DataTrails_Horizontal_Logo_White.png" alt="Rectangle" caption="<em>DataTrails Dark Mode Logo Example</em>" class="border-0" >}}

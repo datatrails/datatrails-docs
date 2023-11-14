@@ -35,7 +35,7 @@ When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-To use the YAML Runner, please visit [this link](https://python.rkvst.com/runner/index.html) for installation instructions.
+To use the YAML Runner, please visit [this link](https://python.datatrails.ai/runner/index.html) for installation instructions.
 
 To create your Event, use the action `EVENTS_CREATE`.
 
@@ -75,7 +75,7 @@ Fill out metadata about your Event
 
 `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
+In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
 ```yaml
 ---
@@ -96,7 +96,7 @@ steps:
 
 Fill out metadata about your Event; `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the attributes section you should also add the required RKVST attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
+In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
 
 ```json
 {
@@ -153,14 +153,14 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 
-You may add an attachment to your Event. To do so you will need to upload your attachment to RKVST using the [Blobs API](/developers/api-reference/blobs-api/).
+You may add an attachment to your Event. To do so you will need to upload your attachment to DataTrails using the [Blobs API](/developers/api-reference/blobs-api/).
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=document/pdf" \
     -F "file=@/path/to/file" \
-    https://app.rkvst.io/archivist/v1/blobs
+    https://app.datatrails.ai/archivist/v1/blobs
 ```
 
 Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `blobs/<attachment-id>` returned from the curl command above as the `arc_attachment_identity` in your Event.
@@ -191,7 +191,7 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
 {{< /tab >}}}
 {{< /tabs >}}
 Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined `Weight` attribute.<br><br>
-Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to RKVST.<br><br>
+Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to DataTrails.<br><br>
 There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
 PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
 
@@ -204,11 +204,11 @@ You will see that the Asset Attribute we changed is also recorded in the Asset V
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.com/runner/index.html) to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       my_first_container_inspection_event.yaml
@@ -220,10 +220,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets/<asset-id>/events
+    https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events
 ```
 
 {{< /tab >}}}
@@ -279,16 +279,16 @@ To view all Events across all Assets, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/-/events
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/-/events
 ```
 
 To view the details of the Event you just created for My First Container, use:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/assets/<asset-id>/events/<event-id>
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets/<asset-id>/events/<event-id>
 ```
 
 {{< /tab >}}}

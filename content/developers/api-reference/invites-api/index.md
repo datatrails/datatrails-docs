@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/invites-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -44,10 +44,10 @@ It is possible to add an optional custom message:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d '{"message": "personalized message", "email": "john.doe@example.com"}' \
-    "https://app.rkvst.io/archivist/iam/v1/invites"
+    "https://app.datatrails.ai/archivist/iam/v1/invites"
 ```
 
 The response is:
@@ -67,9 +67,9 @@ If you know the unique identity of a pending invite, `GET` the resource:
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    "https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
+    "https://app.datatrails.ai/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
 ```
 
 The response is:
@@ -89,9 +89,9 @@ To fetch all pending invites, simply `GET` the `/invites` resource:
 
 ```bash
 curl -v -X GET \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    "https://app.rkvst.io/archivist/iam/v1/invites"
+    "https://app.datatrails.ai/archivist/iam/v1/invites"
 ```
 
 The response is:
@@ -122,13 +122,13 @@ To delete a pending invite, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$HOME/.rkvst/bearer-token.txt" \`
+    -H "@$HOME/.datatrails/bearer-token.txt" \`
     -H "Content-type: application/json" \
-    "https://app.rkvst.io/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
+    "https://app.datatrails.ai/archivist/iam/v1/invites/bbbaeab8-539d-4482-9a98-f1285e7f75cb"
 ```
 
 The response will be empty.
 
 ## Invites OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/invitesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/invitesv1.swagger.json" >}}

@@ -27,29 +27,29 @@ If the document that you are verifying has not been found, you will see a red re
 {{< img src="InstaproofNotFound.png" alt="Rectangle" caption="<em>Document Not Found</em>" class="border-0" >}}
   The possible reasons for this outcome are:
 
-   * The document owner has not registered the document in their RKVST tenancy
+   * The document owner has not registered the document in their DataTrails tenancy
    * The document owner has not published this version of the document as an event
-   * The document has been modified since it was registered with RKVST
+   * The document has been modified since it was registered with DataTrails
 
    In all cases you should contact the document owner to find out whether your document version can be trusted.
 
 1. **Document Found**
 {{< note >}}
-**Note:** In this screenshot we are using the file `greenfrog.jpg` which can be downloaded from our [Instaproof Samples](https://github.com/rkvst/instaproof-samples/tree/main/media) page.
+**Note:** In this screenshot we are using the file `greenfrog.jpg` which can be downloaded from our [Instaproof Samples](https://github.com/datatrails/instaproof-samples/tree/main/media) page.
 {{< /note >}}
-If the document has been registered with RKVST, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record and an immutable audit trail.
+If the document has been registered with DataTrails, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record and an immutable audit trail.
 {{< img src="InstaproofFound.png" alt="Rectangle" caption="<em>Document Found</em>" class="border-0" >}}
 At the top you can see the document that was checked and found on Instaproof. Don't worry! It's all kept locally - we don't need to peek inside your documents to find their provenance.  
 
     You can check additional documents by dragging them on top of here.
 
-    Some of the results may be from verified organizations and others from unverified members of the RKVST community. All results contribute something to the provenance and life history of this document.
+    Some of the results may be from verified organizations and others from unverified members of the DataTrails community. All results contribute something to the provenance and life history of this document.
 
-    A **Verified Organization** has a [verified domain](/platform/administration/verified-domain/) associated with their RKVST account. This helps to confirm the identity of the document source and is likely the thing to look for if you want 'official' provenance records.
+    A **Verified Organization** has a [verified domain](/platform/administration/verified-domain/) associated with their DataTrails account. This helps to confirm the identity of the document source and is likely the thing to look for if you want 'official' provenance records.
 
-    The **Other Results** results are those from from unverified RKVST accounts - other members of the RKVST community who have made claims or observations about the document you're interested in.
+    The **Other Results** results are those from from unverified DataTrails accounts - other members of the DataTrails community who have made claims or observations about the document you're interested in.
 
-    While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in RKVST is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
+    While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in DataTrails is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
 
 ### What Do the Instaproof Results Mean
 

@@ -1,7 +1,7 @@
 ---
 title: "Containers as Assets"
-description: "Using RKVST to Represent Containers"
-lead: "Using RKVST to Represent Containers"
+description: "Using DataTrails to Represent Containers"
+lead: "Using DataTrails to Represent Containers"
 date: 2021-05-31T15:18:01+01:00
 lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
@@ -15,13 +15,13 @@ aliases:
   - /docs/developer-patterns/containers-as-assets/
 ---
 
-## Represent Containers Using RKVST
+## Represent Containers Using DataTrails
 
-RKVST Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.
+DataTrails Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.
 
 ## Create a Container Asset
 
-Creating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our [RKVST Overview guide](/platform/overview/creating-an-asset/). For this example, we will create a simple asset that we will call `Shipping Container`. Note that with RKVST, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
+Creating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our [DataTrails Overview guide](/platform/overview/creating-an-asset/). For this example, we will create a simple asset that we will call `Shipping Container`. Note that with DataTrails, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
 
 {{< tabs name="shipping_container_asset" >}}
 {{{< tab name="UI" >}}
@@ -29,9 +29,9 @@ Creating an Asset to represent a container is the same as creating any other ass
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml
@@ -73,10 +73,10 @@ Use `curl` to `POST` the asset, viewing the result with `jq`:
 
 ```bash
 curl -X POST \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@asset.json" \
-     https://app.rkvst.io/archivist/v2/assets | jq
+     https://app.datatrails.ai/archivist/v2/assets | jq
 ```
 
 If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation)
@@ -105,9 +105,9 @@ Now that we have created a `Shipping Container` Asset, we can create an Asset to
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml
@@ -152,10 +152,10 @@ Use `curl` to `POST` the asset, viewing the result with `jq`:
 
 ```bash
 curl -X POST \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
      -H "Content-Type: application/json" \
      -d "@asset-box.json" \
-     https://app.rkvst.io/archivist/v2/assets | jq
+     https://app.datatrails.ai/archivist/v2/assets | jq
 ```
 
 Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`
@@ -182,9 +182,9 @@ To retrieve all Assets associated with a container, you can run a query with a f
 {{< /tab >}}
 {{< tab name="YAML" >}}
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
 ```yaml
@@ -203,8 +203,8 @@ steps:
 
 ```bash
 curl -g -X GET \
-     -H "$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/assets?attributes.within_container=Shipping%20Container" | jq
+     -H "$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets?attributes.within_container=Shipping%20Container" | jq
 ```
 
 {{< /tab >}}}

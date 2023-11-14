@@ -33,7 +33,7 @@ In the dashboard, select `Locations`, then `Add Location`.
 {{< img src="LocationAddNew.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
+The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create a location, we use the action `LOCATIONS_CREATE_IF_NOT_EXISTS`.
 
@@ -183,11 +183,11 @@ Click `Add Location`.
 {{< img src="LocationSubmitted.png" alt="Rectangle" caption="<em>Submitting a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) to run your YAML file!
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) to run your YAML file!
 
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret <your-client-secret> \
       UK_factory_location.yaml
@@ -199,10 +199,10 @@ Use the curl command to run your JSON file! See instructions for [creating your 
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/locations
+    https://app.datatrails.ai/archivist/v2/locations
 ```
 
 {{< /tab >}}}
@@ -232,8 +232,8 @@ Use the [Locations API](/developers/api-reference/locations-api/) to GET a list 
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/v2/locations
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/locations
 ```
 
 {{< /tab >}}}
@@ -265,8 +265,8 @@ Use the [Locations API](/developers/api-reference/locations-api/) to GET the spe
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/v2/locations?display_name=UK%20Factory"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/locations?display_name=UK%20Factory"
 ```
 
 {{< /tab >}}}

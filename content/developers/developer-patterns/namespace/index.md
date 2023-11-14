@@ -1,7 +1,7 @@
 ---
 title: "Namespace"
-description: "Using Namespace in an RKVST Tenancy"
-lead: "Using Namespace in an RKVST Tenancy"
+description: "Using Namespace in an DataTrails Tenancy"
+lead: "Using Namespace in an DataTrails Tenancy"
 date: 2021-05-31T15:18:01+01:00
 lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
@@ -42,4 +42,4 @@ To use namespace as a variable, such as the date, add the argument to your Bash 
  export TEST_NAMESPACE=date
 ```
 
-See [TEST_NAMESPACE](https://github.com/rkvst/rkvst-samples/blob/main/DEVELOPERS.md#test_namespace) in our GitHub repository for more information. `TEST_NAMESPACE` can also be added to your Bash profile to be automatically picked up when testing.
+See [TEST_NAMESPACE](https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace) in our GitHub repository for more information. `TEST_NAMESPACE` can also be added to your Bash profile to be automatically picked up when testing.

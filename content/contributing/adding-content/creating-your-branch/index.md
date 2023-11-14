@@ -18,7 +18,7 @@ As the main branch of these docs is protected you will need to create a separate
 1. Change into your cloned repo
 
     ```bash
-    cd rkvst-docs
+    cd datatrails-docs
     ```
 
 1. Checkout `main` Branch

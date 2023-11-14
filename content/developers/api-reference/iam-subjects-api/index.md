@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/iam-subjects-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -40,10 +40,10 @@ Create the IAM Subject:
 
 ```bash
 curl -v -X POST \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/subjects
+    https://app.datatrails.ai/archivist/iam/v1/subjects
 ```
 
 The response is:
@@ -60,7 +60,7 @@ The response is:
 
 ### IAM Subjects Retrieval
 
-IAM Subject records in RKVST are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+IAM Subject records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
 
 ```bash
 subjects/12345678-90ab-cdef-1234-567890abcdef
@@ -74,8 +74,8 @@ To fetch all IAM Subjects records, simply `GET` the `/subjects` resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/subjects
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/subjects
 ```
 
 #### Fetch specific IAM Subject by identity (v1)
@@ -84,8 +84,8 @@ If you know the unique identity of the IAM Subject record simply `GET` the resou
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/subjects/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 #### Fetch IAM Subjects by Name (v1)
@@ -94,8 +94,8 @@ To fetch all IAM subjects with a specific name, `GET` the `/subjects` resource a
 
 ```bash
 curl -g -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     "https://app.rkvst.io/archivist/iam/v1/subjects?display_name=Acme"
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/iam/v1/subjects?display_name=Acme"
 ```
 
 Each of these calls returns a list of matching IAM Subjects records in the form:
@@ -127,9 +127,9 @@ To delete an IAM Subject, issue the following request:
 
 ```bash
 curl -v -X DELETE \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is `{}`.
@@ -149,10 +149,10 @@ Update the IAM Subject:
 
 ```bash
 curl -v -X PATCH \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
+    https://app.datatrails.ai/archivist/iam/v1/subjects/47b58286-ff0f-11e9-8f0b-362b9e155667
 ```
 
 The response is:
@@ -169,7 +169,7 @@ The response is:
 
 ### IAM Subject Self Entry
 
-There is an immutable entry in the Subjects API called `Self` that contains the keys for the hosting organization of the RKVST Tenant.
+There is an immutable entry in the Subjects API called `Self` that contains the keys for the hosting organization of the DataTrails Tenant.
 
 This entry cannot be deleted or updated.
 
@@ -183,8 +183,8 @@ subjects/00000000-0000-0000-0000-000000000000
 
 ```bash
 curl -v -X GET \
-     -H "@$HOME/.rkvst/bearer-token.txt" \
-     https://app.rkvst.io/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/iam/v1/subjects/00000000-0000-0000-0000-000000000000
 ```
 
 The response is:
@@ -203,4 +203,4 @@ The response is:
 
 ## IAM Subjects OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/subjectsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/subjectsv1.swagger.json" >}}

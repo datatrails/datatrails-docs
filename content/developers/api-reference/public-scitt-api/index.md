@@ -19,15 +19,15 @@ The public SCITT API is currently in beta.
 {{< /note >}}
 
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use RKVST for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/rkvst-official/workspace/rkvst-public-official/overview) or the [Developers](https://app.rkvst.io) section of the web UI. 
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-official/workspace/datatrails-public-official/overview) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 {{< /note >}}
 ## Public SCITT API Examples
 
 The Public SCITT API is based on the draft SCITT architecture: https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/blob/main/draft-ietf-scitt-architecture.md
 
-While all RKVST events created by the Public SCITT API are public, in order to access the API an authorization token is needed.
+While all DataTrails events created by the Public SCITT API are public, in order to access the API an authorization token is needed.
 
 To create the authorization token follow these instructions: [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
@@ -35,7 +35,7 @@ To create the authorization token follow these instructions: [bearer_token](/dev
 
 A statement is 'any serializable information about an Artifact.' https://github.com/ietf-wg-scitt/draft-ietf-scitt-architecture/blob/main/draft-ietf-scitt-architecture.md 
 
-RKVST currently supports statements whose content-type is json and whose values are comprised of:
+DataTrails currently supports statements whose content-type is json and whose values are comprised of:
 * string
 * list of strings
 * dictionary of strings
@@ -57,7 +57,7 @@ The Feed Header is 'a logical collection of Statements about the same Artifact.'
 The Public half of the signing key must be available in the DID document, found at the address of the didweb identifier in the DID header.
 
 {{< note >}}
-RKVST verifies the Cose_Sign1 message signature using the DID header and KID header.
+DataTrails verifies the Cose_Sign1 message signature using the DID header and KID header.
 {{< /note >}}
 
 ### Registering a Signed Statement
@@ -72,10 +72,10 @@ Create a signed statement (see Creating a Signed Statement), base64 encode it an
 
 ```bash
 curl -v -X POST \
-  -H "@$HOME/.rkvst/bearer-token.txt" \
+  -H "@$HOME/.datatrails/bearer-token.txt" \
   -H "Content-Type: application/json" \
   -d "@/path/to/jsonfile" \
-  https://app.rkvst.io/archivist/v1/publicscitt/entries
+  https://app.datatrails.ai/archivist/v1/publicscitt/entries
 ```
 
 ```json
@@ -92,9 +92,9 @@ Registering a statement can take upto a couple of minutes, therefore to check on
 
 ```bash
 curl -v \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-Type: application/json" \
-    https://app.rkvst.io/archivist/v1/publicscitt/operations/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96
+    https://app.datatrails.ai/archivist/v1/publicscitt/operations/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96
 ```
 
 ```json
@@ -119,9 +119,9 @@ The original signed statement is the payload of the counter signed statement, as
 
 ```bash
 curl -v \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-Type: application/json" \
-    https://app.rkvst.io/archivist/v1/publicscitt/entries/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96
+    https://app.datatrails.ai/archivist/v1/publicscitt/entries/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96
 ```
 
 ```json
@@ -144,9 +144,9 @@ The receipt proof is the payload of the Cose_Sign1 receipt message.
 
 ```bash
 curl -v \
-    -H "@$HOME/.rkvst/bearer-token.txt" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-Type: application/json" \
-    https://app.rkvst.io/archivist/v1/publicscitt/entries/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96/receipt
+    https://app.datatrails.ai/archivist/v1/publicscitt/entries/assets_1b0a0829-98ca-4fef-a969-82288ee210b0_events_303d8f72-4c8b-474e-9333-27f958e1be96/receipt
 ```
 
 ```json
@@ -157,16 +157,16 @@ curl -v \
 
 ### Verifying the Receipt
 
-A receipt can be verified offline using the 'rkvst-receipt-scitt' script. https://pypi.org/project/rkvst-receipt-scitt/
+A receipt can be verified offline using the 'datatrails-receipt-scitt' script. https://pypi.org/project/datatrails-receipt-scitt/
 
 ```bash
-rkvst_receipt_scittv1 verify -d 0oRYbqQBOCIEWDZzY2l0dC1jb3VudGVyLXNpZ25pbmcvZDhiMjllNmQwZTdlNDM3NTgxZGVhZTI5ZDAzNzM5MGEZAYYAGQGHeChkaWQ6d2ViOmFwcC5ya3ZzdC5pbzphcmNoaXZpc3Q6djE6ZGlkd2VioFmiX3siYXBwbGljYXRpb25fcGFyYW1ldGVycyI6eyJhcHBfaWQiOiIiLCJhcHBfY29udGVudF9yZWYiOiIiLCJlbGVtZW50X21hbmlmZXN0IjpbInNpbXBsZWhhc2giXSwibW9ub3RvbmljX3ZlcnNpb24iOjB9LCJibG9jayI6IjB...
+datatrails_receipt_scittv1 verify -d 0oRYbqQBOCIEWDZzY2l0dC1jb3VudGVyLXNpZ25pbmcvZDhiMjllNmQwZTdlNDM3NTgxZGVhZTI5ZDAzNzM5MGEZAYYAGQGHeChkaWQ6d2ViOmFwcC5ya3ZzdC5pbzphcmNoaXZpc3Q6djE6ZGlkd2VioFmiX3siYXBwbGljYXRpb25fcGFyYW1ldGVycyI6eyJhcHBfaWQiOiIiLCJhcHBfY29udGVudF9yZWYiOiIiLCJlbGVtZW50X21hbmlmZXN0IjpbInNpbXBsZWhhc2giXSwibW9ub3RvbmljX3ZlcnNpb24iOjB9LCJibG9jayI6IjB...
 ```
 
 ```json
 {
   "anchor": "e511713031f00b7c1d60ab65a01451284c32f7108e2aec7f707a889c777e7731",
-  "api_query": "https://app.rkvst.io/archivist/v2/publicassets/-/events?order_by=SIMPLEHASHV2&proof_mechanism=SIMPLE_HASH&timestamp_accepted_since=2023-10-12T13:10:43Z&timestamp_accepted_before=2023-10-16T11:55:54Z",
+  "api_query": "https://app.datatrails.ai/archivist/v2/publicassets/-/events?order_by=SIMPLEHASHV2&proof_mechanism=SIMPLE_HASH&timestamp_accepted_since=2023-10-12T13:10:43Z&timestamp_accepted_before=2023-10-16T11:55:54Z",
   "endOperator": "lt",
   "endTimeRFC3339": "2023-10-16T11:55:54Z",
   "endTimeUnix": 1697457354,
@@ -182,4 +182,4 @@ rkvst_receipt_scittv1 verify -d 0oRYbqQBOCIEWDZzY2l0dC1jb3VudGVyLXNpZ25pbmcvZDhi
 
 ## Public SCITT OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/dev/jgough/8732-scitt-dev-docs/doc/openapi/publicscittv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs/dev/jgough/8732-scitt-dev-docs/doc/openapi/publicscittv1.swagger.json" >}}

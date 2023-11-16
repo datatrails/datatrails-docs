@@ -2,8 +2,8 @@
 title: "SCITT API (Preview)"
 description: "SCITT API Reference (Preview)"
 lead: "SCITT API Reference (Preview)"
-date: 2023-11-16T09:00:00+01:00
-date: 2023-11-16T09:00:00+01:00
+date: 2021-06-09T13:49:35+01:00
+lastmod: 2021-06-09T13:49:35+01:00
 draft: false
 images: []
 menu: 
@@ -14,14 +14,15 @@ toc: true
 aliases: 
   - /docs/api-reference/scitt-api/
 ---
+
 {{< note >}}
 The SCITT API is currently in preview and subject to change.
 {{< /note >}}
 
-The **S**upply **C**hain **I**ntegrity, **T**ransparency and **T**rust (SCITT) initiative is a set of [IETF standards](https://datatracker.ietf.org/group/scitt/documents/){:target="_blank"} for managing the compliance and auditability of goods and services across end-to-end supply chains.
+The **S**upply **C**hain **I**ntegrity, **T**ransparency and **T**rust (SCITT) initiative is a set of [IETF standards](https://datatracker.ietf.org/group/scitt/documents/) for managing the compliance and auditability of goods and services across end-to-end supply chains.
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.
 
-DataTrails provides a SCITT implementation for developers needing to integrate these capabilities into their services.
+DataTrails provides a SCITT implementation for developers looking to integrate Auditing and Compliance capabilities into their services.
 
 ## Dependencies
 
@@ -33,6 +34,8 @@ The following are required to complete this walkthrough:
 - [Sample Code](#sample-code)
 
 ### Data Trails Scripts
+
+TODO: Add details for installing the datatrails scripts
 
 ### Sample Code
 
@@ -47,7 +50,7 @@ cd scitt-examples/nodejs/
 
 ## Sample
 
-The following walkthrough will accomplish the following tasks:
+The following will accomplish the following tasks:
 
 1. Create a signing key
 1. Register provenance for a new artifact
@@ -57,13 +60,14 @@ The following walkthrough will accomplish the following tasks:
 
 ## Create a Signing Key
 
-DataTrails supports multiple signing keys. _\<TODO: link to DataTrails Signing Keys\>_
+DataTrails supports multiple signing keys.
+(TODO: link to supported DataTrails Signing Keys\)<br>
 For a quick start, we'll create a jwk which DataTrails will cryptographically validate upon registration.
 
 1. Create a local signing key
 
     ```shell
-    datatrails key create \<parameters>
+    datatrails key create <parameters>
     ```
 
 ## Register Provenance for an Artifact

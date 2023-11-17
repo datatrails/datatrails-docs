@@ -67,7 +67,7 @@ For a quick start, we'll create a jwk which DataTrails will cryptographically va
 1. Create a local signing key
 
     ```shell
-    datatrails key create <parameters>
+    dt-key-create.py <parameters>
     ```
 
 ## Register Provenance for an Artifact
@@ -99,7 +99,7 @@ _\<TODO: Add a doc for creating unique identifiers>_
 1. Create a Signed Statement for the SPDX SBOM
 
     ```shell
-    datatrails statement create \
+    dt-statement-create.py \
       issuer <identity-reference> \
       subject $SUBJECT \
       payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
@@ -110,15 +110,14 @@ _\<TODO: Add a doc for creating unique identifiers>_
 1. Register the SPDX SBOM for the artifact
 
     ```shell
-    ENTRY_ID=$(datatrails register \
-      signed-statement signed-statement.cbor)
+    ENTRY_ID=$(dt-register-signed-statement.py signed-statement.cbor)
     ```
 
 1. **COMBINED?:** Sign and Register the SBOM<br>
     An alternative to the above two commands
 
     ```shell
-    ENTRY_ID=$(datatrails statement register \
+    ENTRY_ID=$(dt-statement-register.py \
       issuer <identity-reference> \
       subject $SUBJECT \
       payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
@@ -128,7 +127,7 @@ _\<TODO: Add a doc for creating unique identifiers>_
 1. Retrieve a SCITT Receipt
 
     ```shell
-    datatrails statement get-receipt $ENTRY_ID
+    dt-statement-get-receipt.py $ENTRY_ID
     ```
 
 ## Register an Attestation
@@ -157,7 +156,7 @@ Create an Attestation that provides the artifacts compliance to the \<foo> speci
 1. Sign and Register the Attestation
 
     ```shell
-    ENTRY_ID=$(datatrails statement register \
+    ENTRY_ID=$(dt-statement-register.py \
       issuer <identity-reference> \
       subject $SUBJECT \
       payload attestation.json \
@@ -172,7 +171,7 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```shell
-    datatrails statement get-by-subject $SUBJECT
+    dt-feed-get.py $SUBJECT
     ```
 
 To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see \<TODO: here>

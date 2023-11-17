@@ -62,7 +62,7 @@ The following will accomplish the following tasks:
 
 DataTrails supports multiple signing keys.
 (TODO: link to supported DataTrails Signing Keys\)<br>
-For a quick start, we'll create a jwk which DataTrails will cryptographically validate upon registration.
+For a quick start, we'll create a [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration.
 
 1. Create a local signing key
 
@@ -72,7 +72,7 @@ For a quick start, we'll create a jwk which DataTrails will cryptographically va
 
 ## Register Provenance for an Artifact
 
-When registering statements about an artifact, a common identifier is required to corelate a series of statements.
+When registering statements about an artifact, a common identifier is required to correlate a series of statements.
 A SCITT `CWT_Claims subject` property captures the identifier.
 
 The example uses SPDX, which generates a [Document Namespace](https://spdx.github.io/spdx-spec/v2.2.2/document-creation-information/#65-spdx-document-namespace-field) field which is used for the `subject` property.

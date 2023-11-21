@@ -1,43 +1,45 @@
 ---
-title: "SCITT API (Preview)"
-description: "SCITT API Reference (Preview)"
-lead: "SCITT API Reference (Preview)"
+title: "Quickstart: SCITT for Supply Chains (Preview)"
+description: "Getting Started with SCITT, enabling Software Supply Chain scenarios (Preview)"
+lead: "Push a collection of Supply Chain Statements using SCITT APIs"
 date: 2021-06-09T13:49:35+01:00
 lastmod: 2021-06-09T13:49:35+01:00
 draft: false
 images: []
-menu: 
+menu:
   developers:
-    parent: "api-reference"
+    parent: "developer-patterns"
 weight: 112
 toc: true
 aliases: 
   - /docs/api-reference/scitt-api/
 ---
 
-{{< note >}}
-The SCITT API is currently in preview and subject to change.
-{{< /note >}}
+{{< caution >}}
+The SCITT API is currently in preview and subject to change
+{{< /caution >}}
 
 The **S**upply **C**hain **I**ntegrity, **T**ransparency and **T**rust (SCITT) initiative is a set of [IETF standards](https://datatracker.ietf.org/group/scitt/documents/) for managing the compliance and auditability of goods and services across end-to-end supply chains.
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.
 
-DataTrails provides a SCITT implementation for developers looking to integrate Auditing and Compliance capabilities into their services.
+To assure insights to supply chain artifacts are current, the SCITT APIs provide a correlation of statements for a specific artifact, allowing newer information to be registered for the most up to date insights.
 
-## Dependencies
+This quickstart will:
 
-The following are required to complete this walkthrough:
+1. create, or use an existing a key to sign a collection of statements about an artifact
+1. create and register an SBOM for the artifact
+1. create and register an attestation for the artifact
+1. query a collection of statements about the artifact
+
+## Prerequisites
 
 - [A DataTrails subscription](https://app.datatrails.ai/signup)
-- [DataTrails scripts](#data-trails-scripts)
+- [DataTrails sample code](#datatrails-sample-code)
 - [SBOM Tool](https://github.com/microsoft/sbom-tool)
-- [Sample Code](#sample-code)
 
-### Data Trails Scripts
+### DataTrails Sample Code
 
-TODO: Add details for installing the datatrails scripts
-
-### Sample Code
+TODO: Update to use DataTrails samples
 
 Create a directory and clone the [SCITT Examples](https://github.com/scitt-community/scitt-examples) repository
 
@@ -48,38 +50,33 @@ git clone https://github.com/scitt-community/scitt-examples.git
 cd scitt-examples/nodejs/
 ```
 
-## Sample
-
-The following will accomplish the following tasks:
-
-1. Create a signing key
-1. Register provenance for a new artifact
-1. Create and register an SBOM for the artifact
-1. Create an register attestation for the artifact
-1. Query DataTrails for the statements about the artifact
-
 ## Create a Signing Key
 
+{{< note >}}
+If you already have a COSE Key, skip ahead to [Register a SBOM for the Artifact](#register-a-sbom-for-the-artifact)
+{{< /note >}}
+
 DataTrails supports multiple signing keys.
-(TODO: link to supported DataTrails Signing Keys\)<br>
-For a quick start, we'll create a [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration.
+_(TODO: link to supported DataTrails Signing Keys\)_<br>
+For a quickstart, we'll create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
 
 1. Create a local signing key
 
     ```shell
+    # TODO: Update
     dt-key-create.py <parameters>
     ```
 
-## Register Provenance for an Artifact
+## Register a SBOM for the Artifact
 
-When registering statements about an artifact, a common identifier is required to correlate a series of statements.
-A SCITT `CWT_Claims subject` property captures the identifier.
+When registering statements about an artifact, a common identifier is required to correlate a collection of statements.
+In SCITT, a `CWT_Claims subject` property captures the identifier.
 
-The example uses SPDX, which generates a [Document Namespace](https://spdx.github.io/spdx-spec/v2.2.2/document-creation-information/#65-spdx-document-namespace-field) field which is used for the `subject` property.
+The example generates an [SPDX SBOM](https://spdx.dev/), which generates a [Document Namespace](https://spdx.github.io/spdx-spec/v2.2.2/document-creation-information/#65-spdx-document-namespace-field) field which is used for the `CWT_Claims subject` property.
 
 _\<TODO: Add a doc for creating unique identifiers>_
 
-1. Generate an SPDX SBOM for `artifact.js`
+1. Using the [SBOM Tool](https://github.com/microsoft/sbom-tool), generate an SPDX SBOM for `artifact.js`
 
     ```bash
     sbom-tool generate -D true \
@@ -94,23 +91,6 @@ _\<TODO: Add a doc for creating unique identifiers>_
 
     ```shell
     SUBJECT=$(cat artifacts/_manifest/spdx_2.2/manifest.spdx.json | jq -r .documentNamespace)
-    ```
-
-1. Create a Signed Statement for the SPDX SBOM
-
-    ```shell
-    dt-statement-create.py \
-      issuer <identity-reference> \
-      subject $SUBJECT \
-      payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
-      content-type application/spdx+json \
-      output signed-statement.cbor
-    ```
-
-1. Register the SPDX SBOM for the artifact
-
-    ```shell
-    ENTRY_ID=$(dt-register-signed-statement.py signed-statement.cbor)
     ```
 
 1. **COMBINED?:** Sign and Register the SBOM<br>
@@ -175,3 +155,15 @@ By querying the series of statements, consumers can verify who did what and when
     ```
 
 To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see \<TODO: here>
+
+## Summary
+
+The quickstart created a collection of statements for a given artifact.
+Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
+There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
+By using the content-type parameter, verifiers can filter to specific types, and/or filter statements by the issuer.
+
+For more information:
+
+- [SCITT.io](SCITT.io)
+- [DataTrails SCITT API Reference](TBD)

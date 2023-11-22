@@ -8,7 +8,7 @@ $border-dark: darken($body-bg-dark, 3%);
 $body-color-dark: $gray-300;
 $dots-dark: darken($body-color-dark, 50%);
 
-$link-color-dark: $rkvst-blue;
+$link-color-dark: $datatrails-blue;
 $button-color-dark: $link-color-dark;
 $focus-color-dark: lighten($link-color-dark, 2.5%);
 
@@ -197,7 +197,7 @@ body.dark pre code::-webkit-scrollbar-thumb {
 
 body.dark code:not(.hljs) {
   background: $body-overlay-dark;
-  color: $rkvst-blue;
+  color: $datatrails-blue;
   border-color: $border-dark;
 }
 
@@ -398,11 +398,11 @@ body.dark .accordion-button {
 }
 
 body.dark .accordion-button:focus {
-  border: solid $rkvst-blue;  
+  border: solid $datatrails-blue;  
 }
 
 body.dark .accordion-button:active {
-  border-color: $rkvst-blue;
+  border-color: $datatrails-blue;
   border-width: 2px;
 }
 
@@ -416,6 +416,6 @@ body.dark .accordion-header {
 body.dark .accordion-body {
   background: $body-overlay-dark;
   color: $body-color-dark;
-  border: $rkvst-blue;
+  border: $datatrails-blue;
   padding: 1rem;
 }

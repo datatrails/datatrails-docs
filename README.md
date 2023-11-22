@@ -1,27 +1,27 @@
-# RKVST Documentation
+# DataTrails Documentation
 
-This is the Home of the RKVST Documentation.
+This is the Home of the DataTrails Documentation.
 
-RKVST provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://rkvst.com).
+DataTrails provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.ai).
 
 ## Contributing
 
-To contribute to these Docs, please refer to our [Contributing Guidelines](./content/contributing/getting-started/pulling-and-building-rkvst-docs/index.md).
+To contribute to these Docs, please refer to our [Contributing Guidelines](./content/contributing/getting-started/pulling-and-building-datatrails-docs/index.md).
 
 We'll happily review any suggestions!
 
 ## Getting Started
 
-1. To begin, pull the latest RKVST docs from Github.
+1. To begin, pull the latest DataTrails docs from Github.
 
 ```bash
-git clone git@github.com:rkvst/rkvst-docs.git
+git clone git@github.com:datatrails/datatrails-docs.git
 ```
 
 2. Move into the directory.
 
 ```bash
-cd rkvst-doks
+cd datatrails-doks
 ```
 
 3. Install the DOKS Dependencies.
@@ -30,10 +30,10 @@ cd rkvst-doks
 npm install
 ```
 
-4. To run a local RKVST Docs Server, it is advisable to use the `rkvst-doks` wrapper.
+4. To run a local DataTrails Docs Server, it is advisable to use the `datatrails-doks` wrapper.
 
 ```bash
-rkvst-doks start
+datatrails-doks start
 ```
 
 This will build a local version of the server that can be accessed at [http://localhost:1313](https://localhost:1313).

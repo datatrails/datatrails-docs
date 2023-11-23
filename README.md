@@ -2,7 +2,7 @@
 
 This is the Home of the DataTrails Documentation.
 
-DataTrails provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.ai).
+DataTrails provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://DataTrails.ai).
 
 ## Contributing
 
@@ -15,13 +15,13 @@ We'll happily review any suggestions!
 1. To begin, pull the latest DataTrails docs from Github.
 
 ```bash
-git clone git@github.com:datatrails/datatrails-docs.git
+git clone git@github.com/datatrails/datatrails-docs.git
 ```
 
 2. Move into the directory.
 
 ```bash
-cd datatrails-doks
+cd datatrails-docs
 ```
 
 3. Install the DOKS Dependencies.
@@ -30,7 +30,7 @@ cd datatrails-doks
 npm install
 ```
 
-4. To run a local DataTrails Docs Server, it is advisable to use the `datatrails-doks` wrapper.
+4. To run a local DataTrails Docs Server, it is advisable to use the `rkvst-doks` wrapper.
 
 ```bash
 datatrails-doks start

@@ -33,7 +33,7 @@ npm install
 4. To run a local DataTrails Docs Server, it is advisable to use the `rkvst-doks` wrapper.
 
 ```bash
-datatrails-doks start
+rkvst-doks start
 ```
 
 This will build a local version of the server that can be accessed at [http://localhost:1313](https://localhost:1313).

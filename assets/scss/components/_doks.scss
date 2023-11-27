@@ -8,7 +8,7 @@ Doks — based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: $rkvst-grey;
+  background: $datatrails-grey;
   color: $body-color;
 }
 
@@ -21,7 +21,7 @@ Doks — based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 .hljs-addition,
 .hljs-attribute,
 .hljs-link {
-  color: $rkvst-blue;
+  color: $datatrails-blue;
 }
 
 .hljs-comment,
@@ -58,6 +58,6 @@ body.dark .hljs-section,
 body.dark .hljs-addition,
 body.dark .hljs-attribute,
 body.dark .hljs-link {
-  color: $rkvst-blue;
+  color: $datatrails-blue;
 }
 

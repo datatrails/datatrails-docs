@@ -6,7 +6,7 @@ DataTrails provides Provenance as a Service to attest trustworthiness of Assets 
 
 ## Contributing
 
-To contribute to these Docs, please refer to our [Contributing Guidelines](./content/contributing/getting-started/pulling-and-building-rkvst-docs/index.md).
+To contribute to these Docs, please refer to our [Contributing Guidelines](./content/contributing/getting-started/pulling-and-building-datatrails-docs/index.md).
 
 We'll happily review any suggestions!
 

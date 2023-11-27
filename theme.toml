@@ -1,11 +1,11 @@
-name = "RKVST"
+name = "DataTrails"
 license = "MIT"
 licenselink = "https://github.com/h-enk/doks/blob/master/LICENSE"
 description = "Data provenance with a simple API"
-homepage = "https://rkvst.com/"
-tags = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance""]
-features = ["landing page", "documentation", "rkvst", "blockchain", "multi-party", "trust", "data-assurance"]
+homepage = "https://datatrails.ai/"
+tags = ["landing page", "documentation", "datatrails", "blockchain", "multi-party", "trust", "data-assurance""]
+features = ["landing page", "documentation", "datatrails", "blockchain", "multi-party", "trust", "data-assurance"]
 min_version = "0.75.0"
 
 [author]
-  name = "RKVST, Inc"
+  name = "DataTrails, Inc"

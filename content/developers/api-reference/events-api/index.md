@@ -391,6 +391,90 @@ You should see the response:
 }
 ```
 
+### Event Record Retrieval
+
+Event records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+
+```bash
+assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+If you do not know the Event’s identity you can fetch Event records using other information you do know.
+
+#### Fetch All Events
+
+To fetch all Event records, simply `GET` the Events resources:
+
+```bash
+curl -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events"
+```
+
+#### Fetch Events for a Specific Asset
+
+If you know the unique identity of the Asset record simply `GET` the resource:
+
+```bash
+curl -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events"
+```
+
+#### Fetch Specific Events by Identity
+
+If you know the unique identity of the Asset and Event record simply `GET` the resource:
+
+```bash
+curl -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivst/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+#### Fetch Event by Type
+
+To fech all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release"
+```
+
+#### Fetch Event by Asset Type
+
+To fetch all Events of a specific Asset type, `GET` the Events resource and filter on `arc_display_type` at the Asset level:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published"
+```
+
+#### Fetch Events by Filtering for Presence of a Field
+
+To fetch all Events with a field set to any value, `GET` the Events resource and filter on most available fields. For example:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*"
+```
+
+Returns all Events which have `arc_display_type` that is not empty.
+
+#### Fetch Events Which are Missing a Field
+
+To fetch all Events with a field which is not set to any value, `GET` the Events resource and filter on most available fields. For example:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*"
+```
+
+Returns all Events which do not have `arc_display_type` or in which `arc_display_type` is empty.
+
 ## Events OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/assetsv2.swagger.json" >}}

@@ -12,7 +12,7 @@ menu:
 weight: 112
 toc: true
 aliases: 
-  - /docs/api-reference/scitt-api/
+  - /docs/developer-patterns/scitt-api/
 ---
 
 {{< caution >}}
@@ -39,15 +39,12 @@ This quickstart will:
 
 ### DataTrails Sample Code
 
-TODO: Update to use DataTrails samples
-
-Create a directory and clone the [SCITT Examples](https://github.com/scitt-community/scitt-examples) repository
+Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-scitt-samples) repository
 
 ```bash
-mkdir datatrails-scitt-demo
-cd datatrails-scitt-demo/
-git clone https://github.com/scitt-community/scitt-examples.git
-cd scitt-examples/nodejs/
+git clone https://github.com/datatrails/datatrails-scitt-samples.git
+
+cd datatrails-scitt-samples
 ```
 
 ## Create a Signing Key
@@ -63,8 +60,7 @@ For a quickstart, we'll create a testing [COSE Key](https://cose-wg.github.io/co
 1. Create a local signing key
 
     ```shell
-    # TODO: Update
-    dt-key-create.py <parameters>
+    openssl ecparam -name prime256v1 -genkey -out scitt-signing-key.pem
     ```
 
 ## Register a SBOM for the Artifact
@@ -80,7 +76,7 @@ _\<TODO: Add a doc for creating unique identifiers>_
 
     ```bash
     sbom-tool generate -D true \
-      -b artifacts \
+      -b scitt/artifact \
       -ps scitt-community \
       -pn scitt-nodejs-example -pv 0.0.0 \
       -nsb https://scitt.io/examples
@@ -90,15 +86,14 @@ _\<TODO: Add a doc for creating unique identifiers>_
 1. Capture the Document Namespace for the SCITT `subject`
 
     ```shell
-    SUBJECT=$(cat artifacts/_manifest/spdx_2.2/manifest.spdx.json | jq -r .documentNamespace)
+    SUBJECT=$(cat scitt/artifact/_manifest/spdx_2.2/manifest.spdx.json | jq -r .documentNamespace)
     ```
 
-1. **COMBINED?:** Sign and Register the SBOM<br>
-    An alternative to the above two commands
+1. Sign and Register the SBOM
 
     ```shell
-    ENTRY_ID=$(dt-statement-register.py \
-      issuer <identity-reference> \
+    ENTRY_ID=$(statement-register.py \
+      issuer scitt-signing-key.pem \
       subject $SUBJECT \
       payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
       content-type application/spdx+json)
@@ -107,7 +102,7 @@ _\<TODO: Add a doc for creating unique identifiers>_
 1. Retrieve a SCITT Receipt
 
     ```shell
-    dt-statement-get-receipt.py $ENTRY_ID
+    statement-get-receipt.py $ENTRY_ID
     ```
 
 ## Register an Attestation
@@ -136,7 +131,7 @@ Create an Attestation that provides the artifacts compliance to the \<foo> speci
 1. Sign and Register the Attestation
 
     ```shell
-    ENTRY_ID=$(dt-statement-register.py \
+    ENTRY_ID=$(statement-register.py \
       issuer <identity-reference> \
       subject $SUBJECT \
       payload attestation.json \
@@ -151,7 +146,7 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```shell
-    dt-feed-get.py $SUBJECT
+    feed-get.py $SUBJECT
     ```
 
 To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see \<TODO: here>

@@ -65,11 +65,7 @@ For a quickstart, we'll create a testing [COSE Key](https://cose-wg.github.io/co
 
 ## Register a SBOM for the Artifact
 
-When registering statements about an artifact, a common identifier is required to correlate a collection of statements.
-
-When registering statements about an artifact, a common identifier is required to correlate a collection of statements. To accomplish this today, we use the feed property of the protected header
-
-**_NOTE:_**  SCITT is an evolving standard and in the lastest work, a `CWT_Claims subject` property captures the identifier. And this platform will be aligning in a future release
+When registering statements about an artifact, a common identifier (Feed) is required to correlate a collection of statements.
 
 The example generates an [SPDX SBOM](https://spdx.dev/), which generates a [Document Namespace](https://spdx.github.io/spdx-spec/v2.2.2/document-creation-information/#65-spdx-document-namespace-field) field which is used for the `CWT_Claims subject` property.
 

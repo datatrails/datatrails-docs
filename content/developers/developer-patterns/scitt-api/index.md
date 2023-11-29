@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: SCITT for Supply Chains (Preview)"
-description: "Getting Started with SCITT, enabling Software Supply Chain scenarios (Preview)"
-lead: "Push a collection of Supply Chain Statements using SCITT APIs"
+title: "Quickstart: SCITT Statements (Preview)"
+description: "Getting Started with SCITT: creating a collection of statements  (Preview)"
+lead: "Push a collection of Statements using SCITT APIs"
 date: 2021-06-09T13:49:35+01:00
 lastmod: 2021-06-09T13:49:35+01:00
 draft: false
@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 112
+weight: 110
 toc: true
 aliases: 
   - /docs/developer-patterns/scitt-api/
@@ -28,7 +28,7 @@ This includes previously registered statements, and newly registered statements 
 This quickstart will:
 
 1. create, or use an existing a key to sign a collection of statements about an artifact
-1. create and register an SBOM for the artifact
+1. create and register an statement for the artifact
 1. create and register an attestation for the artifact
 1. query a collection of statements about the artifact
 
@@ -36,7 +36,6 @@ This quickstart will:
 
 - [A DataTrails subscription](https://app.datatrails.ai/signup)
 - [DataTrails sample code](#datatrails-sample-code)
-- [SBOM Tool][sbom-tool]
 - [Environment Configuration](#environment-configuration)
 
 ### DataTrails Sample Code
@@ -66,7 +65,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
   ```shell
   ISSUER=sample.sysnation.dev
   SIGNING_KEY=my-signing-key.pem
-  SIGNED_STATEMENT_FILE=signed-statement-sbom.txt
+  SIGNED_STATEMENT_FILE=signed-statement.txt
   ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
@@ -74,7 +73,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 ## Create a Signing Key
 
 {{< note >}}
-If you already have a COSE Key, skip ahead to [Register a SBOM for the Artifact](#register-a-sbom-for-the-artifact)
+If you already have a COSE Key, skip ahead to [Generating a Payload](#generating-a-payload)
 {{< /note >}}
 
 There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
@@ -85,29 +84,24 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
   openssl ecparam -name prime256v1 -genkey -out $SIGNING_KEY
   ```
 
-## Register a SBOM for the Artifact
+## Generating a Payload
 
-When registering statements about an artifact, a common identifier (Feed) is required to correlate a collection of statements.
+In the samples we assume the statement is a json document, e.g:
 
-The example generates an [SPDX SBOM](https://spdx.dev/), which generates a [Document Namespace](https://spdx.github.io/spdx-spec/v2.2.2/document-creation-information/#65-spdx-document-namespace-field) field which is used for the `CWT_Claims subject` property.
+```shell
+cat > payload.json <<EOF
+{
+    "author": "fred",
+    "title": "my biography",
+    "reviews": "mixed"
+}
+EOF
+```
 
-_\<TODO: Add a doc for creating identifiers>_
-
-1. Using the [SBOM Tool](https://github.com/microsoft/sbom-tool), generate an SPDX SBOM for `artifact.js`
-
-    ```bash
-    sbom-tool generate -D true \
-      -b scitt/artifacts \
-      -ps scitt-community \
-      -pn scitt-nodejs-example -pv 0.0.0 \
-      -nsb https://scitt.io/examples
-    ```
-
-    [More info for the SPDX sbom-tool](https://github.com/microsoft/sbom-tool/blob/main/docs/sbom-tool-arguments.md)
-1. Capture the Document Namespace for the SCITT `subject`
+1. Create a Feed ID, used to correlate a collection of statements
 
     ```shell
-    FEED=$(cat scitt/artifact/_manifest/spdx_2.2/manifest.spdx.json | jq -r .documentNamespace)
+    FEED="my-product-id"
     ```
 
 1. Create a Signed Statement for the SPDX SBOM
@@ -118,65 +112,39 @@ _\<TODO: Add a doc for creating identifiers>_
       --issuer $ISSUER \
       --feed $FEED \
       --content-type application/spdx+json \
-      --payload scitt/artifacts/_manifest/spdx_2.2/manifest.spdx.json \
-      --output-file signed-statement-sbom.cbor
+      --payload-file payload.json \
+      --output-file $SIGNED_STATEMENT_FILE
 
-1. Register the SBOM
+1. Register the Statement
 
     ```shell
     SIGNED_STATEMENT=`cat $SIGNED_STATEMENT_FILE`
-    curl -X POST -H "Authorization: Bearer $TOKEN" -d '{"statement":"'$SIGNED_STATEMENT'"}' https://app.datatrails.ai/archivist/v1/publicscitt/entries
+    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt -d \
+                    '{"statement":"'$SIGNED_STATEMENT'"}' \
+                    https://app.datatrails.ai/archivist/v1/publicscitt/entries | jq -r .operationID)
+    ```
+
+1. Monitor for the Statement to be anchored
+
+    ```shell
+    curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
+      | jq
+    ```
+
+1. Retrieve the Entry_ID for registered signed statement
+
+    ```shell
+    ENTRY_ID=$(curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
+      | jq -r .operationID)
     ```
 
 1. Retrieve a SCITT Receipt
 
     ```shell
-    curl https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID
-    ```
-
-## Register an Attestation
-
-Create an Attestation that provides the artifacts compliance to the \<foo> specification
-
-1. Create the Attestation
-
-    ```shell
-    cat > attestation.json <<EOF
-    {
-      "compliance": [
-        {
-          "name": "standard-alpha",
-          "value": "true"
-        },
-        {
-          "name": "standard-beta",
-          "value": "false"
-        }
-      ]
-    }
-    EOF
-    ```
-
-1. Create a Signed Statement for the attestation
-
-    ```shell
-    python scitt/create_signed_statement.py \
-      --signing-key-file $SIGNING_KEY \
-      --issuer $ISSUER \
-      --feed $FEED \
-      --content-type application/json \
-      --payload attestation.json \
-      --output-file signed-statement-attestation.cbor
-
-1. Register the SBOM
-
-    ```shell
-    ENTRY_ID=$(statement-register.py \
-      issuer $ISSUER \
-      signing-key $SIGNING_KEY \
-      feed $FEED \
-      payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
-      content-type application/spdx+json)
+    curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt | jq
     ```
 
 ## Retrieve Statements for the Artifact
@@ -187,7 +155,8 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```shell
-    curl https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id={{feed}}
+    curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED | jq
     ```
 
 To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see \<TODO: here>
@@ -201,7 +170,5 @@ By using the content-type parameter, verifiers can filter to specific types, and
 
 For more information:
 
+<!-- - [DataTrails SCITT API Reference](TBD) -->
 - [SCITT.io](SCITT.io)
-- [DataTrails SCITT API Reference](TBD)
-
-[sbom-tool]:  https://github.com/microsoft/sbom-tool

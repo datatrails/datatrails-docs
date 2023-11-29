@@ -5,6 +5,7 @@
     "callout",
     "Callouts",
     "codelang",
+    "datatrails",
     "doks",
     "infographics",
     "lastmod",
@@ -16,6 +17,7 @@
     "shortcode",
     "Shortcodes",
     "slugified",
+    "sysnation",
     "templating",
     "urlencode",
     "Webform"

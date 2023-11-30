@@ -18149,7 +18149,138 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<blockquote class="note callout">
+`},{id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+    <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
+  </blockquote>
+<p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
+<a href="https://datatracker.ietf.org/group/scitt/documents/" target="_blank" rel="noopener">IETF standards</a> for managing the compliance and auditability of goods and services across end-to-end supply chains.
+SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
+<p>To assure insights to supply chain artifacts are current, the SCITT APIs provide a correlation of statements, allowing verifiers to view a full history of statements.
+This includes previously registered statements, and newly registered statements providing the most up to date insights.</p>
+<p>This quickstart will:</p>
+<ol>
+<li>create, or use an existing a key to sign a collection of statements about an artifact</li>
+<li>create and register an statement for the artifact</li>
+<li>create and register an attestation for the artifact</li>
+<li>query a collection of statements about the artifact</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>
+<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a></li>
+<li>
+<a href="#datatrails-sample-code">DataTrails sample code</a></li>
+<li>
+<a href="#environment-configuration">Environment Configuration</a></li>
+</ul>
+<h3 id="datatrails-sample-code">DataTrails Sample Code</h3>
+<p>The Quickstart uses existing samples and scripts to focus on the SCITT APIs.</p>
+<p>Clone the 
+<a href="https://github.com/datatrails/datatrails-scitt-samples" target="_blank" rel="noopener">DataTrails SCITT Examples</a> repository to copy those files to your environment.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> datatrails-scitt-samples
+</span></span></code></pre></div><h2 id="environment-configuration">Environment Configuration</h2>
+<ol>
+<li>
+<p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
+</span></span></code></pre></div></li>
+<li>
+<p>To ease copying and pasting commands, update any variables to fit your environment</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span>sample.sysnation.dev
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span>my-signing-key.pem
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span>signed-statement.txt
+</span></span></code></pre></div><ol>
+<li>Create a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</li>
+</ol>
+<h2 id="create-a-signing-key">Create a Signing Key</h2>
+<blockquote class="note callout">
+    <div><strong></strong> If you already have a COSE Key, skip ahead to 
+<a href="#generating-a-payload">Generating a Payload</a></div>
+  </blockquote>
+<p>There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
+<em>(TODO: link to supported DataTrails Signing Keys)</em><br>
+For the Quickstart, create a testing 
+<a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
+</span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
+<p>In the samples we assume the statement is a json document, e.g:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>Create a Feed ID, used to correlate a collection of statements</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Create a Signed Statement for the SPDX SBOM</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type application/spdx+json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Register the Statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT</span><span class="o">=</span><span class="sb">\`</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="sb">\`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt -d <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="nv">$SIGNED_STATEMENT</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Monitor for the Statement to be anchored</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Retrieve the Entry_ID for registered signed statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Retrieve a SCITT Receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
+<p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
+By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
+<ol>
+<li>
+<p>Query DataTrails for the collection of statements</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ol>
+<p>To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see &lt;TODO: here&gt;</p>
+<h2 id="summary">Summary</h2>
+<p>The quickstart created a collection of statements for a given artifact.
+Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
+There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
+By using the content-type parameter, verifiers can filter to specific types, and/or filter statements by the issuer.</p>
+<p>For more information:</p>
+<!-- - [DataTrails SCITT API Reference](TBD) -->
+<ul>
+<li>
+<a href="SCITT.io">SCITT.io</a></li>
+</ul>
+`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -18842,7 +18973,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20049,7 +20180,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20913,7 +21044,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<blockquote class="note callout">
+`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -21437,7 +21568,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`},{id:37,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -22852,7 +22983,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:37,href:"https://docs.datatrails.ai/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<blockquote class="note callout">
+`},{id:38,href:"https://docs.datatrails.ai/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -23674,7 +23805,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23736,7 +23867,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23857,7 +23988,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23957,7 +24088,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24006,7 +24137,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24116,7 +24247,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24150,7 +24281,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24163,7 +24294,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:45,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:46,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -24177,7 +24308,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`},{id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`},{id:47,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -24190,7 +24321,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`},{id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -24204,7 +24335,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`},{id:48,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -24226,7 +24357,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
     </div>
 </div>
-`},{id:49,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:50,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -24242,7 +24373,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
-`},{id:50,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`},{id:51,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -24289,7 +24420,7 @@ If you are looking for a simple way to test our API you might prefer our
         <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
     </div>
 </div>
-`},{id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:52,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
@@ -42473,7 +42604,138 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<blockquote class="note callout">
+`}).add({id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+    <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
+  </blockquote>
+<p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
+<a href="https://datatracker.ietf.org/group/scitt/documents/" target="_blank" rel="noopener">IETF standards</a> for managing the compliance and auditability of goods and services across end-to-end supply chains.
+SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
+<p>To assure insights to supply chain artifacts are current, the SCITT APIs provide a correlation of statements, allowing verifiers to view a full history of statements.
+This includes previously registered statements, and newly registered statements providing the most up to date insights.</p>
+<p>This quickstart will:</p>
+<ol>
+<li>create, or use an existing a key to sign a collection of statements about an artifact</li>
+<li>create and register an statement for the artifact</li>
+<li>create and register an attestation for the artifact</li>
+<li>query a collection of statements about the artifact</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>
+<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a></li>
+<li>
+<a href="#datatrails-sample-code">DataTrails sample code</a></li>
+<li>
+<a href="#environment-configuration">Environment Configuration</a></li>
+</ul>
+<h3 id="datatrails-sample-code">DataTrails Sample Code</h3>
+<p>The Quickstart uses existing samples and scripts to focus on the SCITT APIs.</p>
+<p>Clone the 
+<a href="https://github.com/datatrails/datatrails-scitt-samples" target="_blank" rel="noopener">DataTrails SCITT Examples</a> repository to copy those files to your environment.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> datatrails-scitt-samples
+</span></span></code></pre></div><h2 id="environment-configuration">Environment Configuration</h2>
+<ol>
+<li>
+<p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
+</span></span></code></pre></div></li>
+<li>
+<p>To ease copying and pasting commands, update any variables to fit your environment</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span>sample.sysnation.dev
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span>my-signing-key.pem
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span>signed-statement.txt
+</span></span></code></pre></div><ol>
+<li>Create a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</li>
+</ol>
+<h2 id="create-a-signing-key">Create a Signing Key</h2>
+<blockquote class="note callout">
+    <div><strong></strong> If you already have a COSE Key, skip ahead to 
+<a href="#generating-a-payload">Generating a Payload</a></div>
+  </blockquote>
+<p>There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
+<em>(TODO: link to supported DataTrails Signing Keys)</em><br>
+For the Quickstart, create a testing 
+<a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
+</span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
+<p>In the samples we assume the statement is a json document, e.g:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>Create a Feed ID, used to correlate a collection of statements</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Create a Signed Statement for the SPDX SBOM</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type application/spdx+json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Register the Statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT</span><span class="o">=</span><span class="sb">\`</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="sb">\`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt -d <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="nv">$SIGNED_STATEMENT</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Monitor for the Statement to be anchored</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Retrieve the Entry_ID for registered signed statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Retrieve a SCITT Receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
+<p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
+By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
+<ol>
+<li>
+<p>Query DataTrails for the collection of statements</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ol>
+<p>To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see &lt;TODO: here&gt;</p>
+<h2 id="summary">Summary</h2>
+<p>The quickstart created a collection of statements for a given artifact.
+Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
+There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
+By using the content-type parameter, verifiers can filter to specific types, and/or filter statements by the issuer.</p>
+<p>For more information:</p>
+<!-- - [DataTrails SCITT API Reference](TBD) -->
+<ul>
+<li>
+<a href="SCITT.io">SCITT.io</a></li>
+</ul>
+`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/invites-api/",title:"Invites API",description:"Invites API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -43166,7 +43428,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -44373,7 +44635,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -45237,7 +45499,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<blockquote class="note callout">
+`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/system-api/",title:"System API",description:"System API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -45761,7 +46023,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`}).add({id:37,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -47176,7 +47438,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:37,href:"https://docs.datatrails.ai/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<blockquote class="note callout">
+`}).add({id:38,href:"https://docs.datatrails.ai/developers/api-reference/tls-ca-certificates-api/",title:"TLS CA Certificates API",description:"TLS CA Certificates API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p>This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -47998,7 +48260,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48060,7 +48322,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48181,7 +48443,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48281,7 +48543,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48330,7 +48592,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48440,7 +48702,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48474,7 +48736,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -48487,7 +48749,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:45,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:46,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -48501,7 +48763,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`}).add({id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:47,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -48514,7 +48776,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`}).add({id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -48528,7 +48790,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`}).add({id:48,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -48550,7 +48812,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:49,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:50,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -48566,7 +48828,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
-`}).add({id:50,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:51,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -48613,7 +48875,7 @@ If you are looking for a simple way to test our API you might prefer our
         <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
     </div>
 </div>
-`}).add({id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:52,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>

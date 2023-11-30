@@ -66,6 +66,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
   ```shell
   ISSUER=sample.sysnation.dev
   SIGNING_KEY=my-signing-key.pem
+  SIGNED_STATEMENT_FILE=signed-statement-sbom.txt
   ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.

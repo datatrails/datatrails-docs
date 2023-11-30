@@ -124,13 +124,8 @@ _\<TODO: Add a doc for creating identifiers>_
 1. Register the SBOM
 
     ```shell
-
-    ENTRY_ID=$(statement-register.py \
-      issuer $ISSUER \
-      signing-key $SIGNING_KEY \
-      feed $FEED \
-      payload artifacts/_manifest/spdx_2.2/manifest.spdx.json \
-      content-type application/spdx+json)
+    SIGNED_STATEMENT=`cat $SIGNED_STATEMENT_FILE`
+    curl -X POST -H "Authorization: Bearer $TOKEN" -d '{"statement":"'$SIGNED_STATEMENT'"}' https://app.datatrails.ai/archivist/v1/publicscitt/entries
     ```
 
 1. Retrieve a SCITT Receipt

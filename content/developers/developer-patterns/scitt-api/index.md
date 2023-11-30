@@ -131,7 +131,7 @@ _\<TODO: Add a doc for creating identifiers>_
 1. Retrieve a SCITT Receipt
 
     ```shell
-    statement-get-receipt.py $ENTRY_ID
+    curl https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID
     ```
 
 ## Register an Attestation

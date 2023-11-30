@@ -77,7 +77,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 If you already have a COSE Key, skip ahead to [Register a SBOM for the Artifact](#register-a-sbom-for-the-artifact)
 {{< /note >}}
 
-DataTrails supports multiple signing keys.
+There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
 _(TODO: link to supported DataTrails Signing Keys\)_<br>
 For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
 

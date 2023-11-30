@@ -56,7 +56,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 1. Create a Python Virtual Environment for the sample scripts and install the dependencies
 
     ```shell
-    python -m  venv venv
+    python -m  venv venv && \
     source venv/bin/activate && \
     pip install -r requirements.txt
     ```

@@ -12,7 +12,7 @@
   @include transition(transform .2s ease-in-out);
 
   &:focus {
-    border: solid $rkvst-blue;
+    border: solid $datatrails-blue;
   }
 
   &.collapsed::after {
@@ -51,7 +51,7 @@
   }
 
 .accordion-item {
-    background: $rkvst-grey;
+    background: $datatrails-grey;
     color: $accordion-color;
   }
   

@@ -14,9 +14,14 @@ toc: true
 aliases: 
   - /docs/api-reference/locations-api/
 ---
-
 {{< note >}}
-See [RKVST Administration](/platform/administration/grouping-assets-by-location/) for additional information on creating and using locations with RKVST.
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
+
+Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
+{{< /note >}}
+{{< note >}}
+See [DataTrails Administration](/platform/administration/grouping-assets-by-location/) for additional information on creating and using locations with DataTrails.
 {{< /note >}}
 
 ## Locations API Examples
@@ -47,10 +52,10 @@ Create the location to POSTing to the locations resource:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/locations
+    https://app.datatrails.ai/archivist/v2/locations
 ```
 
 The response is:
@@ -74,14 +79,14 @@ The response is:
 
 ### Location Retrieval
 
-
 #### Fetch All Locations
+
 To fetch all locations, simply `GET` the locations resource:
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/locations
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/locations
 ```
 
 #### Fetch Specific Location by Identity
@@ -90,8 +95,8 @@ If you know the unique identity of the location record, simply `GET` the resourc
 
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/locations/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 #### Fetch Location by Name
@@ -100,8 +105,8 @@ To fetch all locations with a specific name, `GET` the Assets resource and filte
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
-    "https://app.rkvst.io/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire"
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    "https://app.datatrails.ai/archivist/v2/locations?display_name=Macclesfield%2C%20Cheshire"
 ```
 
 Each of these calls returns a list of matching Asset records in the form:
@@ -129,4 +134,4 @@ Each of these calls returns a list of matching Asset records in the form:
 
 ## Locations OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/locationsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/locationsv2.swagger.json" >}}

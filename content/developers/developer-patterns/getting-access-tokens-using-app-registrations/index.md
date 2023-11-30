@@ -1,7 +1,7 @@
 ---
 title: "Creating Access Tokens Using a Custom Integration"
 description: "Creating Access Tokens Using a Custom Integration"
-lead: "Creating Access Tokens for RKVST"
+lead: "Creating Access Tokens for DataTrails"
 date: 2021-06-16T11:12:25+01:00
 lastmod: 2023-09-27T11:12:25+01:00
 draft: false
@@ -16,14 +16,14 @@ aliases:
   - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
-Non-interactive access to the RKVST platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` Menu in the RKVST UI or by using the App Registrations API directly.
+Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` Menu in the DataTrails UI or by using the App Registrations API directly.
 {{< note >}}
 **Note:** App Registration is the previous name for an Integration.
 {{< /note >}}
 
-`Integrations` have a `CLIENT_ID` and `SECRET` used to authenticate with RKVST IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
+`Integrations` have a `CLIENT_ID` and `SECRET` used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
 
-RKVST authentication uses the industry-standard OIDC Client Credentials Flow.
+DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.
 
 ## Creating a Custom Integration
 
@@ -31,12 +31,12 @@ If you have already saved a `CLIENT_ID` and `SECRET`, with [permissions applied]
 
 {{< note >}}
 **Note:** Creating App Registrations requires **Administrator** privileges.  
-If `Settings` does not appear in the navigation, see your RKVST Administrator for access.
+If `Settings` does not appear in the navigation, see your DataTrails Administrator for access.
 {{< /note >}}
 
-### Using the RKVST App to Create an Integration (First-Time Setup)
+### Using the DataTrails App to Create an Integration (First-Time Setup)
 
-1. As an Administrator, open the <a href="https://app.rkvst.io/" target="_blank">RKVST App</a>
+1. As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>
 1. Navigate to `Settings` on the sidebar
 1. Navigate to the `Integrations` tab
   {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
@@ -44,7 +44,7 @@ If `Settings` does not appear in the navigation, see your RKVST Administrator fo
 1. Enter any `Display Name` you'd like
   {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
   {{< note >}}
-  Optionally add any `Custom claims` at this step by clicking the `+ Add` button. Ensure the `Name` _does not start_ with `jit_` (RKVST reserved names) or use any other [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
+  Optionally add any `Custom claims` at this step by clicking the `+ Add` button. Ensure the `Name` _does not start_ with `jit_` (DataTrails reserved names) or use any other [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
   {{< /note >}}  
 1. Once complete, click `Confirm` to complete the custom integration
 1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
@@ -55,7 +55,7 @@ If `Settings` does not appear in the navigation, see your RKVST Administrator fo
 
 ### Grant Permissions to Custom Integration
 
-Integrations are secured by default, with no permissions within RKVST. Create and assign an Access Policy to create and read RKVST information.
+Integrations are secured by default, with no permissions within DataTrails. Create and assign an Access Policy to create and read DataTrails information.
 
 1. Navigate to `Access Policies` on the sidebar
   {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
@@ -95,7 +95,7 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
 1. Generate a token using your pre-existing `Custom Integration` details, saving to a `RESPONSE` variable
 
     ```bash
-    RESPONSE=$(curl https://app.rkvst.io/archivist/iam/v1/appidp/token \
+    RESPONSE=$(curl https://app.datatrails.ai/archivist/iam/v1/appidp/token \
                 --data-urlencode "grant_type=client_credentials" \
                 --data-urlencode "client_id=${CLIENT_ID}" \
                 --data-urlencode "client_secret=${SECRET}")
@@ -109,16 +109,18 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
     echo $TOKEN
     ```
 
-1. Create a Bearer Token file with `0600` permissions for reference by `curl` commands
+1. Create a Bearer Token file for reference by `curl` commands, in an `./datatrails/` directory
 
     ```bash
-    echo Authorization: Bearer $TOKEN > rkvst-bearer.txt
-    cat rkvst-bearer.txt
+    mkdir -p $HOME/.datatrails
+    chmod 0700 $HOME/.datatrails
+    echo Authorization: Bearer $TOKEN > $HOME/.datatrails/bearer-token.txt
+    cat $HOME/.datatrails/bearer-token.txt
     ```
 
 ## Testing Token Creation
 
-You can test access to the RKVST API using any of the standard API calls. GETing `Assets` is a simple test.
+You can test access to the DataTrails API using any of the standard API calls. GETing `Assets` is a simple test.
 
 If successful, you will see a list of the assets the Integration has access to in the tenancy.
 {{< note >}}
@@ -129,11 +131,11 @@ Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#
 
 ### View Existing Assets
 
-To test the creation of the Custom integration and the configuration of the bearer token file (`rkvst-bearer.txt`), query the assets API
+To test the creation of the Custom integration and the configuration of the bearer token file (`bearer-token.txt`), query the assets API
 
 ```bash
-curl -X GET -H "@rkvst-bearer.txt" \
-    https://app.rkvst.io/archivist/v2/assets | jq
+curl -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+    https://app.datatrails.ai/archivist/v2/assets | jq
 ```
 
 If you have existing assets, the output will be similar to:
@@ -182,14 +184,14 @@ If the output is an empty structure, you may either not have any assets, or misc
 }
 ```
 
-In the <a href="https://app.rkvst.io/" target="_blank">RKVST App</a>, Navigate to `Assets` confirm existing assets. If assets exist, confirm the `CLIENT_ID`, `SECRET` and `Access Policy` are configured and referenced properly.
+In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, Navigate to `Assets` confirm existing assets. If assets exist, confirm the `CLIENT_ID`, `SECRET` and `Access Policy` are configured and referenced properly.
 
 ## Troubleshooting Token Generation
 
 The header and payload of the `TOKEN` may be examined with the following commands. This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.
 
 {{< warning >}}
-**Warning:** Decoding tokens with an online service exposes details about your RKVST until you delete the test secret.
+**Warning:** Decoding tokens with an online service exposes details about your DataTrails until you delete the test secret.
 {{< /warning >}}
 
 1. View the Header
@@ -226,7 +228,7 @@ The header and payload of the `TOKEN` may be examined with the following command
       "iat": 1695254038,
       "exp": 1695257698,
       "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "iss": "https://app.rkvst.io/appidpv1",
-      "aud": "https://app.rkvst.io/archivist"
+      "iss": "https://app.datatrails.ai/appidpv1",
+      "aud": "https://app.datatrails.ai/archivist"
     }
     ```

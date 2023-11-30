@@ -14,7 +14,12 @@ toc: true
 aliases: 
   - /docs/api-reference/compliance-api/
 ---
+{{< note >}}
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
+Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
+{{< /note >}}
 ## Compliance API Examples
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
@@ -23,17 +28,17 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 Compliance posture is measured against user-defined rule sets called Compliance Policies.
 
-Compliance Policies are created once and then Assets can be tested against them at any point in time. 
+Compliance Policies are created once and then Assets can be tested against them at any point in time.
 
-For instance, a policy might state that “Maintenance Alarm Events must be addressed with a Maintenance Report Event recorded in 72 hours”. 
+For instance, a policy might state that “Maintenance Alarm Events must be addressed with a Maintenance Report Event recorded in 72 hours”.
 
 This creates a Compliance Policy object in the system against which any Asset can be tested as needed.
 
-RKVST allows users to define Compliance Policies of the following types:
+DataTrails allows users to define Compliance Policies of the following types:
 
 #### COMPLIANCE_SINCE
 
-This Compliance Policy checks if the time since the last occurence of a specific Event type has elapsed a specified threshold. 
+This Compliance Policy checks if the time since the last occurrence of a specific Event type has elapsed a specified threshold.
 
 For example “Time since last Maintenance must be less than 72 hours”:
 
@@ -61,13 +66,13 @@ For example “Time since last Maintenance must be less than 72 hours”:
 
 This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding Event.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated. 
+To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
 **Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
 {{< /note >}}
 
-For example, defining pairs of Events like `Maintenance Request` and `Maintenance Performed`: 
+For example, defining pairs of Events like `Maintenance Request` and `Maintenance Performed`:
 
 ```json
 {
@@ -91,15 +96,16 @@ For example, defining pairs of Events like `Maintenance Request` and `Maintenanc
 
 #### COMPLIANCE_PERIOD_OUTSTANDING
 
-This Compliance Policy will only pass if the time between a pair of correlated Events did not exceed the defined threshold. 
+This Compliance Policy will only pass if the time between a pair of correlated Events did not exceed the defined threshold.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated. 
+To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
 **Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
 {{< /note >}}
 
 For example, a policy checking that the time between `Maintenance Request` and `Maintenance Performed` Events does not exceed the maximum 72 hours:
+
 ```json
 {
     "compliance_type": "COMPLIANCE_PERIOD_OUTSTANDING",
@@ -126,7 +132,7 @@ For example, a policy checking that the time between `Maintenance Request` and `
 
 This Compliance Policy will only pass if the time between correlated Events is not excessively different to the observed average normal duration for similar Events.
 
-To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated. 
+To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated.
 
 {{< note >}}
 **Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
@@ -162,11 +168,11 @@ For example, a policy checking that the time between `Maintenance Request` and `
 
 This Compliance Policy will only pass if attributes are within expected bounds or otherwise meet defined conditions.
 
-An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example `rad<7`. 
+An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example `rad<7`.
 
 The operator can be one of six relational operators: equal to, not equal to, greater than, less than, greater than or equal to, less than or equal to; `[=|!=|>|<|>=|<=]`.
 
-Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (`OR` logic). For example: 
+Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (`OR` logic). For example:
 
 ```json
 {“or”: [“rad<7”, “rad=10”]}. 
@@ -174,7 +180,7 @@ Assertions are comprised of two lists, an inner list and outer list. The inner l
 
 The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (`AND` logic).
 
-Compliance is a signal, not a perfect answer. Therefore equivilence of floats is exact, not approximate.
+Compliance is a signal, not a perfect answer. Therefore equivalence of floats is exact, not approximate.
 
 ```json
 {
@@ -202,10 +208,10 @@ Create a Compliance Policy with:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v1/compliance_policies
+    https://app.datatrails.ai/archivist/v1/compliance_policies
 ```
 
 Using data from `/path/to/jsonfile` in the format described in [Types of Compliance Policies](#types-of-compliance-policies).
@@ -229,23 +235,24 @@ Sample response:
 
 ### Checking Compliance
 
-The compliancev1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.
+The compliance v1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.
 
 Query the endpoint:
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
-    https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
 ```
 
 or if determining compliance at some historical date:
 
 ```bash
 curl -v -X GET \
-    -H "@$BEARER_TOKEN_FILE" \
-    "https://app.rkvst.io/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z"
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    "https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z"
 ```
+
 The response is:
 
 ```json
@@ -264,4 +271,4 @@ The response is:
 
 ## Compliance OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/compliancev1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/compliancev1.swagger.json" >}}

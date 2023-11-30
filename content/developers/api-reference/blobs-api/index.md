@@ -14,10 +14,15 @@ toc: true
 aliases: 
   - /docs/api-reference/blobs-api/
 ---
+{{< note >}}
+This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
+Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
+{{< /note >}}
 ## Blob API Examples
 
-The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger. 
+The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.
 
 {{< note >}}
 **Note:** Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment. For information on Attachments and how to implement them, please refer to [the Events API Reference](../events-api/#adding-attachments).
@@ -31,10 +36,10 @@ Upload the blob stored at /path/to/file:
 
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
-    https://app.rkvst.io/archivist/v1/blobs
+    https://app.datatrails.ai/archivist/v1/blobs
 ```
 
 The response is:
@@ -48,7 +53,7 @@ The response is:
   "issuer": "local",
   "mime_type": "image/jpeg",
   "size": 81254,
-  "subject": "user@rkvst.com",
+  "subject": "user@datatrails.ai",
   "tenantid": "tenant/<tenant-id>",
   "timestamp_accepted": "2023-02-06T16:04:31Z",
   "scanned_status": "NOT_SCANNED",
@@ -63,10 +68,10 @@ Retrieve a specific Blob:
 
 ```bash
 curl -v \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     --output "/path/to/file" \
-    https://app.rkvst.io/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
+    https://app.datatrails.ai/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22
 ```
 
 The response is:
@@ -80,7 +85,7 @@ The response is:
   "issuer": "local",
   "mime_type": "image/jpeg",
   "size": 81254,
-  "subject": "user@rkvst.com",
+  "subject": "user@datatrails.ai",
   "tenantid": "tenant/<tenant-id>",
   "timestamp_accepted": "2023-02-06T16:04:31Z",
   "scanned_status": "NOT_SCANNED",
@@ -91,4 +96,4 @@ The response is:
 
 ## Blobs OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/blobsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/blobsv1.swagger.json" >}}

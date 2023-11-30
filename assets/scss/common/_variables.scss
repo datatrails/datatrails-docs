@@ -19,8 +19,8 @@ $beige:    #fbf7f0;
 $purple:   #5d2f86;
 $brown:    #aa9c84;
 
-$rkvst-brown: #fdf5e6;
-$rkvst-lightblue: #e5f6fd;
+$datatrails-brown: #fdf5e6;
+$datatrails-lightblue: #e5f6fd;
 
 
 $blue-300: #8ed6fb;
@@ -30,15 +30,15 @@ $red-500:  #d32f2f;
 $red-600:  #e53935;
 
 
-// duplicate $rkvst-blue: #06a8e8;
-$rkvst-purple: #a112ff;
-$rkvst-yellow: #ffaf09;
-$rkvst-red: #ed1c24;
+// duplicate $datatrails-blue: #06a8e8;
+$datatrails-purple: #a112ff;
+$datatrails-yellow: #ffaf09;
+$datatrails-red: #ed1c24;
 
-$rkvst-blue: #00AEEF;
-$rkvst-grey: #F7FAFC;
+$datatrails-blue: #00AEEF;
+$datatrails-grey: #F7FAFC;
 
-$primary: $rkvst-blue;
+$primary: $datatrails-blue;
 
 // Options
 //
@@ -157,6 +157,7 @@ $navbar-light-active-color:         $primary;
 // Cards
 
 $card-border-color:                 $gray-200;
+$card-body-color:                   $datatrails-lightblue;
 
 // Alerts
 //
@@ -178,13 +179,13 @@ $accordion-bg:                            $body-bg;
 $accordion-color:                         $body-color;
 
 $accordion-button-color:                  $body-color;
-$accordion-button-bg:                     $rkvst-grey;
+$accordion-button-bg:                     $datatrails-grey;
 
-$accordion-button-active-bg:              $rkvst-grey;
+$accordion-button-active-bg:              $datatrails-grey;
 $accordion-button-active-color:           $accordion-color;
 
-$accordion-icon-color:                    $rkvst-blue;
-$accordion-icon-active-color:             $rkvst-blue;
+$accordion-icon-color:                    $datatrails-blue;
+$accordion-icon-active-color:             $datatrails-blue;
 
 $accordion-padding-y:                     1rem;
 $accordion-button-padding-y:              1.25rem;
@@ -196,5 +197,5 @@ $accordion-transition:                    $btn-transition, border-radius .15s ea
 $transition-collapse:                     height .35s ease;
 
 $color-btn-bg: transparent;
-$color-btn-border: darken($rkvst-blue, 5%);
-$color-btn-text: $rkvst-blue;
+$color-btn-border: darken($datatrails-blue, 5%);
+$color-btn-text: $datatrails-blue;

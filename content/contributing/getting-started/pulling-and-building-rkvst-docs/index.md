@@ -1,5 +1,5 @@
 ---
-title: "Pulling and Building RKVST Docs"
+title: "Pulling and Building DataTrails Docs"
 description: ""
 date: 2021-05-20T12:03:27+01:00
 lastmod: 2021-05-20T12:03:27+01:00
@@ -12,23 +12,23 @@ images: []
 toc: true
 ---
 {{< note >}}
-RKVST Docs depend on npm version 14.
+DataTrails Docs depend on npm version 14.
 {{< /note >}}
 
 1. If you do not have npm installed please use the following guide
     {{< tabs name="tab_with_code" >}}  {{{<tab name="Ubuntu" codelang="bash">}}apt install npm{{< /tab >}}
     {{<tab name="Cent OS/RHEL" codelang="bash">}}yum install npm{{< /tab >}}}
     {{< tab name="MacOS" codelang="bash" >}}brew install npm{{< /tab >}}  {{< /tabs >}}
-1. To begin pull the latest RKVST docs from Github
+1. To begin pull the latest DataTrails docs from Github
 
     ```bash
-    git clone git@github.com:rkvst/rkvst-docs.git
+    git clone git@github.com:datatrails/datatrails-docs.git
     ```
 
 1. Move into the directory
 
     ```bash
-    cd rkvst-docs
+    cd datatrails-docs
     ```
 
 1. Assure the npm version is at least 14
@@ -51,10 +51,10 @@ RKVST Docs depend on npm version 14.
     npm run build
     ```  
 
-1. To run a local RKVST Docs Server it is advisable to use the `rkvst-doks` wrapper
+1. To run a local DataTrails Docs Server it is advisable to use the `datatrails-doks` wrapper
 
     ```bash
-    ./rkvst-doks start
+    ./datatrails-doks start
     ```
 
     This will build a local version of the server that can be accessed at [http://localhost:1313](http://localhost:1313).

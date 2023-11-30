@@ -13,9 +13,9 @@ weight: 35
 toc: true
 ---
 
-The RKVST document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document. 
+The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.
 
-As it builds on the standard RKVST asset the same processes are used for [Permissioned Sharing](/platform/administration/managing-access-to-an-asset-with-abac/) and [Public Attestation](/platform/overview/public-attestation/).
+As it builds on the standard DataTrails asset the same processes are used for [Permissioned Sharing](/platform/administration/managing-access-to-an-asset-with-abac/) and [Public Attestation](/platform/overview/public-attestation/).
 
 The following steps will guide you in creating your first Document Profile Asset.
 
@@ -26,29 +26,29 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 ## Registering a Document
 
 {{< note >}}
-**Note:** To use the YAML Runner you will need to install the `rkvst-archivist` python package.
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
 
-[Click here](https://python.rkvst.com/runner/index.html) for installation instructions.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
 {{< /note >}}
 
-1. Register your Document. 
-
+1. Register your Document
 {{< tabs name="add_asset" >}}
 {{< tab name="UI" >}}
 Using the sidebar, select `Register Document`.
 {{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Registering a Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The RKVST YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
+The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
- 
+
 ```yaml
 ---
 steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Create an empty file, in later steps we will add the correct JSON.
@@ -58,22 +58,21 @@ Create an empty file, in later steps we will add the correct JSON.
   
 }
 ```
+
 {{< /tab >}}
 {{< /tabs >}}<br>
 
-2. You will see the Document Registration form.
+1. You will see the Document Registration form  
+  The `Document Information` tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.  
+  The Trust data:  
 
-The `Document Informtion` tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.
+      * `Name` - This is the unique name of the Document i.e. 'My First Document'
+      * `Version` - The version of your document
+      * `SHA-256 Hash` - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you
 
-The Trust data:
-* `Name` - This is the unique name of the Document i.e. 'My First Document'.
-* `Version` - The version of your document.
-* `SHA-256 Hash` - Manually enter the SHA-256 hash of this document version. If you use the auto-fill box we will calculate the SHA-256 hash for you.<br> 
-
-Additional options:
-* `Upload on Creation` - Upload the documment in addition to the trust data. 
-* `Attest Publicly` - Enable to allow public attestation of the document.
-
+    Additional options:
+      * `Upload on Creation` - Upload the document in addition to the trust data
+      * `Attest Publicly` - Enable to allow public attestation of the document<br>  
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 
@@ -82,6 +81,7 @@ Additional options:
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Here you can fill out some more metadata about your asset:
+
 * `selector` is the identifying attribute the yaml runner will use to check if your Asset exists already before attempting to create it. In this case, we use `arc_display_name` which represents the name of the Asset.
 * `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behaviour for all Assets.
 
@@ -106,12 +106,13 @@ steps:
       document_version: "1"
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 In the file you created earlier, begin adding metadata for your Asset:
 
 * `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behaviour for all Assets.
-* `public` determines whether your docuemnt is public (*true*) or private (*false*)
+* `public` determines whether your document is public (*true*) or private (*false*)
 
 ```json
 {
@@ -126,21 +127,24 @@ In the file you created earlier, begin adding metadata for your Asset:
    "public": true
 }
 ```
+
 {{< /tab >}}}
-{{< /tabs >}}<br>
+{{< /tabs >}}
+<br>
 
+1. The `Advanced Options` tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.
 
-3. The `Advanced Options` tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.
+   * `Document Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be `Purchase Order`, which will then be pre-populated for future Documents to use as their own types.
+   * `Proof Mechanism` - The method used to commit the blockchain transaction.
 
-* `Document Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be `Purchase Order`, which will then be pre-populated for future Documents to use as their own types.
-* `Proof Mechanism` - The method used to commit the blockchain transaction. Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Document.
-
+    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Document
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
 {{< img src="RegDocAdvancedOptions.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The YAML Runner uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+
 ```yaml
 ---
 steps:
@@ -166,7 +170,8 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The DataTrails API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+
 ```json
 {
     "attributes": {
@@ -184,21 +189,20 @@ The RKVST API uses the reserved attributes `arc_display_name` and `arc_display_t
 ```
 
 {{< /tab >}}}
-{{< /tabs >}}<br>
+{{< /tabs >}}
 
-4. At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images.
+1. At this point, you may wish to add other details to your Document, including extended attributes or attachments such as PDFs or Thumbnail Images
 
-Extended attributes are user-defined and can be added to each unique Document. 
+    Extended attributes are user-defined and can be added to each unique Document.
 
-Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency. 
+    Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.  
 
-To add a new attribute to a Document, enter your key-value pair.
+    To add a new attribute to a Document, enter your key-value pair.  
 
-For Example:
-
+    For Example:
 {{< tabs name="add_extended_attributes" >}}
 {{{< tab name="UI" >}}
-Select `Add Attribute`, and add your key-value pairs. 
+Select `Add Attribute`, and add your key-value pairs
 {{< img src="RegDocAdvancedOptions2.png" alt="Rectangle" caption="<em>Document Extended Attributes</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -206,7 +210,8 @@ Extended attributes are custom key-value pairs, such as `document_version`, `for
 
 This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
-It's also good practice to include `confirm: true` which tells RKVST to finish commiting the Asset before moving to the next step. 
+It's also good practice to include `confirm: true` which tells DataTrails to finish committing the Asset before moving to the next step.
+
 ```yaml
 ---
 steps:
@@ -234,6 +239,7 @@ steps:
       some_custom_attribute: anything you like
     confirm: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Extended attributes are custom key-value pairs, such as `document_version`, `format`, and `some_custom_attribute` you see below.
@@ -260,42 +266,43 @@ This example also adds a location to our Asset. To find out more about locations
     "public": true
 }
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-5. Complete your Asset creation.
-
+1. Complete your Asset creation
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
 Click `Register Document`.
 {{< img src="RegDocCreate.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-Use the [archivist_runner](https://python.rkvst.com/runner/index.html) command to run your YAML file!
- 
+Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!
+
 ```bash
 $ archivist_runner \
-      -u https://app.rkvst.io \
+      -u https://app.datatrails.ai \
       --client-id <your-client-id> \
       --client-secret client_secret.txt \
       my_first_container.yaml
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Use the curl command to run your JSON file! See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
- 
+
 ```bash
 curl -v -X POST \
-    -H "@$BEARER_TOKEN_FILE" \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.rkvst.io/archivist/v2/assets
+    https://app.datatrails.ai/archivist/v2/assets
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-6. View your Document.
-
+1. View your Document
 {{< tabs name="view_all_assets" >}}
 {{{< tab name="UI" >}}
 Navigate to 'Assets' to see your Asset in the UI.
@@ -312,27 +319,28 @@ steps:
       description: List all assets.
       print_response: true
 ```
+
 {{< /tab >}}
 {{< tab name="JSON" >}}
 You can view all Asset data using the following command.
+
 ```bash
 curl -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets
 ```
+
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-
-7. View details of the Asset you created.
-
+1. View details of the Asset you created
 {{< tabs name="view_specific_asset" >}}
 {{{< tab name="UI" >}}
 To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
-{{< img src="DocAsset.png" alt="Rectangle" caption="<em>Viewing Docuemnt Asset</em>" class="border-0" >}}
+{{< img src="DocAsset.png" alt="Rectangle" caption="<em>Viewing Document Asset</em>" class="border-0" >}}
 
 The extended attributes are in the `More Details` tab.
-{{< img src="DocAssetDetails.png" alt="Rectangle" caption="<em>Viewing Docuemnt Asset Details</em>" class="border-0" >}}
+{{< img src="DocAssetDetails.png" alt="Rectangle" caption="<em>Viewing Document Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
@@ -353,10 +361,11 @@ Each
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.  
+
 ```bash
 curl -g -v -X GET \
-     -H "@$BEARER_TOKEN_FILE" \
-     https://app.rkvst.io/archivist/v2/assets?attributes.arc_display_name=My%20First%20Document
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=My%20First%20Document
 ```
 
 {{< /tab >}}}
@@ -365,11 +374,9 @@ curl -g -v -X GET \
 Here we see all details entered: The extended attributes and a history of Events recorded on the Document.
 
 {{< note >}}
-**Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes` that conform to the [Document Profile](/developers/developer-patterns/document-profile/). 
+**Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes` that conform to the [Document Profile](/developers/developer-patterns/document-profile/).
 
 For more information on creating Events, [click here.](/platform/overview/creating-an-event-against-a-document/)
 {{< /note >}}
 
 The first Event will always be the Document Registration. In the next section, we will cover how to create your own Events for your Document.
-
-

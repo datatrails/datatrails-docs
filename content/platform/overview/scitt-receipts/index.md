@@ -102,8 +102,8 @@ The transaction_id is available once the event has been committed to the blockch
                 | jq -r .stateRoot)
     ```
 
-1. Finally, use the `rkvst_receipt_scittv1` command to verify the receipt offline at any time.
+1. Finally, use the `datatrails_receipt_scittv1` command to verify the receipt offline at any time.
 
     ```bash
-    echo ${RECEIPT} | rkvst_receipt_scittv1 verify -d --worldroot ${WORLDROOT}
+    echo ${RECEIPT} | datatrails_receipt_scittv1 verify -d --worldroot ${WORLDROOT}
     ```

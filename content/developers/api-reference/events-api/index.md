@@ -433,7 +433,7 @@ curl -v -X GET \
 
 #### Fetch Event by Type
 
-To fech all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
+To fetch all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
 
 ```bash
 curl -g -v -X GET \

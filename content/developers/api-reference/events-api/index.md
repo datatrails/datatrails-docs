@@ -441,9 +441,9 @@ curl -g -v -X GET \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release"
 ```
 
-#### Fetch Event by Asset Type
+#### Fetch Event by Asset Attribute
 
-To fetch all Events of a specific Asset type, `GET` the Events resource and filter on `arc_display_type` at the Asset level:
+To fetch all Events of a specific Asset type, `GET` the Events resource and filter on `asset_attributes` at the Asset level:
 
 ```bash
 curl -g -v -X GET \

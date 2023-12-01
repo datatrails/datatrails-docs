@@ -393,7 +393,7 @@ You should see the response:
 
 ### Event Record Retrieval
 
-Event records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
+Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:
 
 ```bash
 assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -433,7 +433,7 @@ curl -v -X GET \
 
 #### Fetch Event by Type
 
-To fech all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
+To fetch all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
 
 ```bash
 curl -g -v -X GET \

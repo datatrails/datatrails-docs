@@ -62,19 +62,19 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 
 1. To ease copying and pasting commands, update any variables to fit your environment
 
-  ```bash
-  # your identity
-  ISSUER="sample.synsation.io"
+    ```bash
+    # your identity
+    ISSUER="sample.synsation.io"
 
-  # signing key to sign the SCITT Statements
-  SIGNING_KEY="my-signing-key.pem"
+    # signing key to sign the SCITT Statements
+    SIGNING_KEY="my-signing-key.pem"
 
-  # File representing the signed statement to be registered
-  SIGNED_STATEMENT_FILE="signed-statement.txt"
+    # File representing the signed statement to be registered
+    SIGNED_STATEMENT_FILE="signed-statement.txt"
 
-  # Feed ID, used to correlate a collection of statements about an artifact
-  FEED="my-product-id"
-  ```
+    # Feed ID, used to correlate a collection of statements about an artifact
+    FEED="my-product-id"
+    ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
 
@@ -94,19 +94,19 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
 
 ## Generating a Payload
 
-In the samples we assume the statement is a json document, e.g:
+1. Create a simple json payload
 
-```bash
-cat > payload.json <<EOF
-{
-    "author": "fred",
-    "title": "my biography",
-    "reviews": "mixed"
-}
-EOF
-```
+    ```bash
+    cat > payload.json <<EOF
+    {
+        "author": "fred",
+        "title": "my biography",
+        "reviews": "mixed"
+    }
+    EOF
+    ```
 
-1. Create a Signed Statement for the SPDX SBOM
+1. Create a COSE Signed Statement for the `payload.json` file
 
     ```bash
     python scitt/create_signed_statement.py \
@@ -119,7 +119,7 @@ EOF
 
 1. Register the Statement
   {{< note >}}
-  The current DataTrails payload must be encased in a json object:
+  Note: The current DataTrails payload must be encased in a json object:
 
     `{"statement":"<COSE_SIGNED_STATEMENT>"}`
 
@@ -157,7 +157,9 @@ By querying the series of statements, consumers can verify who did what and when
       https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED | jq
     ```
 
-To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see \<TODO: here>
+{{< note >}}
+Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.
+{{< /note >}}
 
 ## Summary
 
@@ -170,4 +172,3 @@ For more information:
 
 <!-- - [DataTrails SCITT API Reference](TBD) -->
 - [SCITT.io](SCITT.io)
-

@@ -443,7 +443,7 @@ curl -g -v -X GET \
 
 #### Fetch Event by Asset Attribute
 
-To fetch all Events of a specific Asset type, `GET` the Events resource and filter on `asset_attributes` at the Asset level:
+To fetch all Events of a specific Asset attribute, `GET` the Events resource and filter on `asset_attributes` at the Asset level:
 
 ```bash
 curl -g -v -X GET \

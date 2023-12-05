@@ -45,8 +45,7 @@ The Quickstart uses existing samples and scripts to focus on the SCITT APIs.
 Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-scitt-samples) repository to copy those files to your environment.
 
   ```bash
-  git clone https://github.com/datatrails/datatrails-scitt-samples.git
-
+  git clone https://github.com/datatrails/datatrails-scitt-samples.git && \
   cd datatrails-scitt-samples
   ```
 
@@ -57,6 +56,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     ```bash
     python -m  venv venv && \
     source venv/bin/activate && \
+    pip install --upgrade pip && \
     pip install -r requirements.txt
     ```
 
@@ -125,6 +125,7 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
 
   This will be updated to match the SCITT API ([SCRAPI](https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/)) in a future release.
   {{< /note >}}
+
     ```bash
     OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
                     -d '{"statement":"'$(cat $SIGNED_STATEMENT_FILE)'"}' \
@@ -132,17 +133,28 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
                     | jq -r .operationID)
     ```
 
-1. Monitor for the Statement to be anchored
+1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
+    ```shell
+    curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
+      | jq
+    ```
 
-    ```bash
-    ENTRY_ID=$(python scitt/check_operation_status.py --operation-id $OPERATION_ID)
+1. Retrieve the Entry_ID for registered signed statement
+
+    ```shell
+    ENTRY_ID=$(curl -H @$HOME/.datatrails/bearer-token.txt \
+      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
+      | jq -r .operationID)
     ```
 
 1. Retrieve a SCITT Receipt
 
     ```bash
+    
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt | jq
+      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt \
+      -o receipt.cbor
     ```
 
 ## Retrieve Statements for the Artifact

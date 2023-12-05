@@ -126,18 +126,8 @@ EOF
 
 1. Monitor for the Statement to be anchored
 
-    ```shell
-    curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
-      | jq
-    ```
-
-1. Retrieve the Entry_ID for registered signed statement
-
-    ```shell
-    ENTRY_ID=$(curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
-      | jq -r .operationID)
+    ```bash
+    ENTRY_ID=$(python scitt/check_operation_status.py --operation-id $OPERATION_ID)
     ```
 
 1. Retrieve a SCITT Receipt

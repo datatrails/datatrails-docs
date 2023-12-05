@@ -134,6 +134,7 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
     ```
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
+
     ```shell
     curl -H @$HOME/.datatrails/bearer-token.txt \
       https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \

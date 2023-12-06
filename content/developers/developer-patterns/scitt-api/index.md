@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: SCITT Statements (Preview)"
 description: "Getting Started with SCITT: creating a collection of statements  (Preview)"
-lead: "Push a collection of Statements using SCITT APIs"
+lead: "How to push a collection of Statements using SCITT APIs"
 date: 2021-06-09T13:49:35+01:00
 lastmod: 2021-06-09T13:49:35+01:00
 draft: false
@@ -84,8 +84,6 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 If you already have a COSE Key, skip ahead to [Generating a Payload](#generating-a-payload)
 {{< /note >}}
 
-There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
-_<br>
 For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
 
   ```bash

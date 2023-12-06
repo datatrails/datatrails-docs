@@ -34,7 +34,7 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 1. Register your Document
 {{< tabs name="add_asset" >}}
 {{< tab name="UI" >}}
-Using the sidebar, select `Register Document`.
+Using the sidebar, select `Assets & Documents` and then `Register Document`.
 {{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Registering a Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
@@ -305,8 +305,8 @@ curl -v -X POST \
 1. View your Document
 {{< tabs name="view_all_assets" >}}
 {{{< tab name="UI" >}}
-Navigate to 'Assets' to see your Asset in the UI.
-{{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
+Navigate to 'Assets & Documents' to see your Asset in the UI.
+{{< img src="RegDocMenu2.png" alt="Rectangle" caption="<em>Managing Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 You can view all Asset data using the `ASSETS_LIST` action. Use the `print_response` keyword to get the full output.
@@ -336,11 +336,11 @@ curl -v -X GET \
 1. View details of the Asset you created
 {{< tabs name="view_specific_asset" >}}
 {{{< tab name="UI" >}}
-To view your Asset, click on the Asset row. You will see the detailed history of your Asset.
+To view your Asset, click on the Asset row. You will see the details and event history of your Asset.
 {{< img src="DocAsset.png" alt="Rectangle" caption="<em>Viewing Document Asset</em>" class="border-0" >}}
 
-The extended attributes are in the `More Details` tab.
-{{< img src="DocAssetDetails.png" alt="Rectangle" caption="<em>Viewing Document Asset Details</em>" class="border-0" >}}
+The extended attributes are in the `Attributes` dropdown.
+
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The `ASSETS_LIST` action can be filtered using identifying attributes (`attrs`) to view the details of a specific Asset.
@@ -379,4 +379,4 @@ Here we see all details entered: The extended attributes and a history of Events
 For more information on creating Events, [click here.](/platform/overview/creating-an-event-against-a-document/)
 {{< /note >}}
 
-The first Event will always be the Document Registration. In the next section, we will cover how to create your own Events for your Document.
+The first Event in the Event History will always be the Document Registration. In the next section, we will cover how to create your own Events for your Document.

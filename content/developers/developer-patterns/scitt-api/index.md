@@ -65,7 +65,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
   ```shell
   ISSUER=sample.sysnation.dev
   SIGNING_KEY=my-signing-key.pem
-  SIGNED_STATEMENT_FILE=signed-statement.txt
+  SIGNED_STATEMENT_FILE=signed-statement.cbor
   ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
@@ -118,9 +118,8 @@ EOF
 1. Register the Statement
 
     ```shell
-    SIGNED_STATEMENT=`cat $SIGNED_STATEMENT_FILE`
-    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt -d \
-                    '{"statement":"'$SIGNED_STATEMENT'"}' \
+    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
+                    --data-binary @$SIGNED_STATEMENT_FILE \
                     https://app.datatrails.ai/archivist/v1/publicscitt/entries | jq -r .operationID)
     ```
 
@@ -134,7 +133,8 @@ EOF
 
     ```shell
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt | jq
+      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt \
+      -o receipt.cbor
     ```
 
 ## Retrieve Statements for the Artifact

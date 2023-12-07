@@ -1061,8 +1061,7 @@ For example, a policy checking that maintenance times are not considerably longe
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create an Asset we use the action <code>ASSETS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -1110,8 +1109,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset_details-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-1">
 <p>Here you can fill out some more metadata about your asset:</p>
 <ul>
@@ -1237,8 +1235,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
@@ -1319,8 +1316,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_create_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
@@ -1368,8 +1364,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_all_assets-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-1">
 <p>You can view all Asset data using the <code>ASSETS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -1414,8 +1409,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_specific_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-1">
 <p>The <code>ASSETS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific Asset.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -1499,8 +1493,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
 <p>To use the YAML Runner, please visit 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">this link</a> for installation instructions.</p>
@@ -1550,8 +1543,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event_type-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-1">
 <p>Fill out metadata about your Event</p>
 <p><code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
@@ -1626,8 +1618,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event_attr-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-1">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -1714,8 +1705,7 @@ PDFs or images can be recorded with an Event in the same way as an Asset. This i
 </code></pre>
   </div>
 </div>
-You will see that the Asset Attribute we changed is also recorded in the Asset View.
-</div>
+You will see that the Asset Attribute we changed is also recorded in the Asset View.</div>
   <div id="record_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-1">
 <p>Use the 
 <a href="https://python.datatrails.com/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -2008,8 +1998,7 @@ Please see the
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create an Asset we use the action <code>ASSETS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -2219,8 +2208,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>document_version</code>, <code>format</code>, and <code>some_custom_attribute</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
@@ -2304,8 +2292,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_create_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
@@ -2353,8 +2340,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_all_assets-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-1">
 <p>You can view all Asset data using the <code>ASSETS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -2450,7 +2436,7 @@ The Trust data:</p>
 `},{id:10,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="profile-attribute-namespace">Profile Attribute Namespace</h5>
-<p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <h3 id="document-profile-asset-attributes">Document Profile Asset Attributes</h3>
 <table>
@@ -2503,7 +2489,7 @@ The Trust data:</p>
     <div><strong></strong> <h5 id="uploading-documents-as-attachments">Uploading Documents as Attachments</h5>
 <p>For more detailed information on Attachments and how to implement them, please refer to 
 <a href="../../api-reference/blobs-api/">the Blobs API Reference</a> and 
-<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></div>
+<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></p></div>
   </blockquote>
 <h3 id="publish-event">Publish Event</h3>
 <p>Publish a new version of the document using special attributes interpreted by DataTrails for this event type.</p>
@@ -2655,8 +2641,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
 <p>To use the YAML Runner, please visit 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">this link</a> for installation instructions.</p>
@@ -2684,8 +2669,7 @@ The Trust data:</p>
 <ul>
 <li><code>Event Attributes</code> - Attributes specific to an Event, i.e. a new author.</li>
 <li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.</li>
-</ul>
-</div>
+</ul></div>
   </blockquote>
 <br></p>
 </li>
@@ -2732,8 +2716,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_new_version-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-1">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
 <p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
@@ -2823,8 +2806,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
 <p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -2944,8 +2926,7 @@ The <code>Record Event</code> button provides a way to record generic events tha
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="register_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -3148,8 +3129,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="create_sbom_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-1">
 <p>Create a YAML file with your desired Asset details. Set keyword <code>public</code> to true.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -3191,7 +3171,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>The Release attributes tracked in DataTrails should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by DataTrails and others are guidelines</div>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by DataTrails and others are guidelines</p></div>
   </blockquote>
 <table>
 <thead>
@@ -3333,7 +3313,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </table>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="exception">Exception</h5>
-<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</div>
+<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</p></div>
   </blockquote>
 <h3 id="release-plan-and-release-accepted">Release Plan and Release Accepted</h3>
 <p>Release events can be optionally enhanced by using ‘Release Plan’ and ‘Release Accepted’ events alongside them.</p>
@@ -3344,7 +3324,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <h3 id="release-plan">Release Plan</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-plan-event-attribute-namespace">Release Plan Event Attribute Namespace</h5>
-<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -3433,7 +3413,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <h3 id="release-accepted-event">Release Accepted Event</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-accepted-event-attribute-namespace">Release Accepted Event Attribute Namespace</h5>
-<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -3524,7 +3504,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>It is typically expected a Patch should contain its own SBOM separate to the Primary SBOM.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="patch-event-attribute-namespace">Patch Event Attribute Namespace</h5>
-<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -3609,7 +3589,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 The first is to disclose knowledge of a vulnerability and the second is to update the status of the vulnerability after investigation is complete.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="vulnerability-disclosure-event-attribute-namespace">Vulnerability Disclosure Event Attribute Namespace</h5>
-<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</div>
+<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</p></div>
   </blockquote>
 <h4 id="vulnerability-disclosure">Vulnerability Disclosure</h4>
 <table>
@@ -3738,7 +3718,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <h3 id="eol-event">EOL Event</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="eol-event-attribute-namespace">EOL Event Attribute Namespace</h5>
-<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</div>
+<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</p></div>
   </blockquote>
 <p>An event to mark the Package as End of Life.</p>
 <table>
@@ -4106,8 +4086,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1">
 <p>Use the curl command to run your JSON file. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -4146,8 +4125,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1">
 <p>A Public Asset&rsquo;s URL can be retrieved via the 
 <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
@@ -4214,8 +4192,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1">
 <p>Create a JSON file with your desired Event details</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -4705,8 +4682,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="access_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_abac-1">
 <p>Create an empty file, in later steps we will add the correct JSON.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -4739,8 +4715,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -4916,8 +4891,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1">
 <p>Add the desired permissions and the desired <code>user_attributes</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -4969,8 +4943,7 @@ In this case, respectively, allowing visibility to the <code>Name</code>, <code>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="execute_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="execute_policy_abac-1">
 <p>fo
 Use the curl command to run your JSON file! See instructions for 
@@ -5070,8 +5043,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1">
 <p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$SUBJECT_STRING</span> <span class="p">|</span> base64 -d
@@ -5226,8 +5198,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="access_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_obac-1">
 <p>Create an empty file, in later steps we will add the correct JSON.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -5260,8 +5231,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -5420,8 +5390,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1">
 <p>Add the desired permissions and the Subject ID found in the previous step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -5472,8 +5441,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1">
 <p>Use the curl command to run your JSON file! See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -5909,8 +5877,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create a location, we use the action <code>LOCATIONS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -5954,8 +5921,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_info_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_info_locations-1">
 <p>You may add a <code>description</code> and a <code>selector</code>. The <code>selector</code> is the identifying attribute used to check if your location exists before attempting to create it. In this case, we use <code>display_name</code> which represents the name of the location.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -6055,8 +6021,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_attributes_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-1">
 <p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -6118,8 +6083,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -6167,8 +6131,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1">
 <p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -6214,8 +6177,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1">
 <p>The <code>LOCATIONS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific location.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -6265,8 +6227,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_at_asset_create-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-1">
 <p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -25525,8 +25486,7 @@ For example, a policy checking that maintenance times are not considerably longe
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create an Asset we use the action <code>ASSETS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -25574,8 +25534,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset_details-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-1">
 <p>Here you can fill out some more metadata about your asset:</p>
 <ul>
@@ -25701,8 +25660,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
@@ -25783,8 +25741,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_create_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
@@ -25832,8 +25789,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_all_assets-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-1">
 <p>You can view all Asset data using the <code>ASSETS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -25878,8 +25834,7 @@ Please see our
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_specific_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_specific_asset-1">
 <p>The <code>ASSETS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific Asset.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -25963,8 +25918,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
 <p>To use the YAML Runner, please visit 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">this link</a> for installation instructions.</p>
@@ -26014,8 +25968,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event_type-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_type-1">
 <p>Fill out metadata about your Event</p>
 <p><code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
@@ -26090,8 +26043,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event_attr-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-1">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs. You may also add an attachment to your Event. In this case, we have attached a PDF document labeled <code>Inspection Standards</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -26178,8 +26130,7 @@ PDFs or images can be recorded with an Event in the same way as an Asset. This i
 </code></pre>
   </div>
 </div>
-You will see that the Asset Attribute we changed is also recorded in the Asset View.
-</div>
+You will see that the Asset Attribute we changed is also recorded in the Asset View.</div>
   <div id="record_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-1">
 <p>Use the 
 <a href="https://python.datatrails.com/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -26472,8 +26423,7 @@ Please see the
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create an Asset we use the action <code>ASSETS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -26683,8 +26633,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_extended_attributes-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-1">
 <p>Extended attributes are custom key-value pairs, such as <code>document_version</code>, <code>format</code>, and <code>some_custom_attribute</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
@@ -26768,8 +26717,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_create_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_create_asset-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
@@ -26817,8 +26765,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="view_all_assets-1" class="tab-pane fade" role="tabpanel" aria-labelledby="view_all_assets-1">
 <p>You can view all Asset data using the <code>ASSETS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -26914,7 +26861,7 @@ The Trust data:</p>
 `}).add({id:10,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="profile-attribute-namespace">Profile Attribute Namespace</h5>
-<p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <h3 id="document-profile-asset-attributes">Document Profile Asset Attributes</h3>
 <table>
@@ -26967,7 +26914,7 @@ The Trust data:</p>
     <div><strong></strong> <h5 id="uploading-documents-as-attachments">Uploading Documents as Attachments</h5>
 <p>For more detailed information on Attachments and how to implement them, please refer to 
 <a href="../../api-reference/blobs-api/">the Blobs API Reference</a> and 
-<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></div>
+<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></p></div>
   </blockquote>
 <h3 id="publish-event">Publish Event</h3>
 <p>Publish a new version of the document using special attributes interpreted by DataTrails for this event type.</p>
@@ -27119,8 +27066,7 @@ The Trust data:</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event-1">
 <p>To use the YAML Runner, please visit 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">this link</a> for installation instructions.</p>
@@ -27148,8 +27094,7 @@ The Trust data:</p>
 <ul>
 <li><code>Event Attributes</code> - Attributes specific to an Event, i.e. a new author.</li>
 <li><code>Asset Attributes</code> - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.</li>
-</ul>
-</div>
+</ul></div>
   </blockquote>
 <br></p>
 </li>
@@ -27196,8 +27141,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_new_version-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-1">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
 <p>Fill out the metadata about your Event; <code>operation</code> and <code>behaviour</code> detail what class of Event is being performed. By default this should always be <code>Record</code> and <code>RecordEvidence</code>, respectively.</p>
@@ -27287,8 +27231,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="withdraw_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-1">
 <p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -27408,8 +27351,7 @@ The <code>Record Event</code> button provides a way to record generic events tha
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="register_event-1" class="tab-pane fade" role="tabpanel" aria-labelledby="register_event-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -27612,8 +27554,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="create_sbom_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-1">
 <p>Create a YAML file with your desired Asset details. Set keyword <code>public</code> to true.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -27655,7 +27596,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>The Release attributes tracked in DataTrails should minimally represent the base information required by the NTIA standard and be recorded in two, separate, lists of attributes; <strong>Asset Attributes</strong> would track details about the latest release of the SBOM at the time of the event creation, the <strong>Event Attributes</strong> then track details about the release of the SBOM that is being submitted.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-event-attribute-namespace">Release Event Attribute Namespace</h5>
-<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by DataTrails and others are guidelines</div>
+<p>The <code>sbom_</code> prefix is used to designate attributes that are part of the event and asset. Some of these are interpreted by DataTrails and others are guidelines</p></div>
   </blockquote>
 <table>
 <thead>
@@ -27797,7 +27738,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </table>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="exception">Exception</h5>
-<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</div>
+<p>When used in tandem with Release Plan and Accepted events the exception is a useful record of when an emergency has caused a release to be pushed without needing an initial approval or plan.</p></div>
   </blockquote>
 <h3 id="release-plan-and-release-accepted">Release Plan and Release Accepted</h3>
 <p>Release events can be optionally enhanced by using ‘Release Plan’ and ‘Release Accepted’ events alongside them.</p>
@@ -27808,7 +27749,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <h3 id="release-plan">Release Plan</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-plan-event-attribute-namespace">Release Plan Event Attribute Namespace</h5>
-<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_planned_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -27897,7 +27838,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <h3 id="release-accepted-event">Release Accepted Event</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="release-accepted-event-attribute-namespace">Release Accepted Event Attribute Namespace</h5>
-<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_accepted_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -27988,7 +27929,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 <p>It is typically expected a Patch should contain its own SBOM separate to the Primary SBOM.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="patch-event-attribute-namespace">Patch Event Attribute Namespace</h5>
-<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</div>
+<p>The <code>sbom_patch_</code> prefix is used to designate attributes that are part of the event. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
   </blockquote>
 <table>
 <thead>
@@ -28073,7 +28014,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 The first is to disclose knowledge of a vulnerability and the second is to update the status of the vulnerability after investigation is complete.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="vulnerability-disclosure-event-attribute-namespace">Vulnerability Disclosure Event Attribute Namespace</h5>
-<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</div>
+<p>The <code>vuln_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</p></div>
   </blockquote>
 <h4 id="vulnerability-disclosure">Vulnerability Disclosure</h4>
 <table>
@@ -28202,7 +28143,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 <h3 id="eol-event">EOL Event</h3>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="eol-event-attribute-namespace">EOL Event Attribute Namespace</h5>
-<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</div>
+<p>The <code>sbom_eol_</code> prefix is used to designate attributes that are part of the event. All of these are interpreted by DataTrails.</p></div>
   </blockquote>
 <p>An event to mark the Package as End of Life.</p>
 <table>
@@ -28570,8 +28511,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="set_public_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="set_public_public-1">
 <p>Use the curl command to run your JSON file. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -28610,8 +28550,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="get_link_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="get_link_public-1">
 <p>A Public Asset&rsquo;s URL can be retrieved via the 
 <a href="/developers/api-reference/assets-api/">Assets API</a>. Use the Asset ID returned in the previous step.</p>
@@ -28678,8 +28617,7 @@ The share button allows you to access and copy the private and public (if enable
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="create_event_public-1" class="tab-pane fade" role="tabpanel" aria-labelledby="create_event_public-1">
 <p>Create a JSON file with your desired Event details</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -29169,8 +29107,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="access_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_abac-1">
 <p>Create an empty file, in later steps we will add the correct JSON.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -29203,8 +29140,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="existing_policies_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_abac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -29380,8 +29316,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_abac-1">
 <p>Add the desired permissions and the desired <code>user_attributes</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -29433,8 +29368,7 @@ In this case, respectively, allowing visibility to the <code>Name</code>, <code>
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="execute_policy_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="execute_policy_abac-1">
 <p>fo
 Use the curl command to run your JSON file! See instructions for 
@@ -29534,8 +29468,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="import_subject_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="import_subject_obac-1">
 <p>In order to import a Subject using the base64 string, it will need to be decoded to access the <code>wallet_pub_key</code> and <code>tessera_pub_key</code> used in the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$SUBJECT_STRING</span> <span class="p">|</span> base64 -d
@@ -29690,8 +29623,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="access_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="access_policies_obac-1">
 <p>Create an empty file, in later steps we will add the correct JSON.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -29724,8 +29656,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="existing_policies_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="existing_policies_obac-1">
 <p>You may view your existing policies before creating your new policy by executing the following curl command. See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -29884,8 +29815,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_policy_obac-1">
 <p>Add the desired permissions and the Subject ID found in the previous step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -29936,8 +29866,7 @@ Use the curl command to run your JSON file! See instructions for
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="finish_policy_obac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="finish_policy_obac-1">
 <p>Use the curl command to run your JSON file! See instructions for 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
@@ -30373,8 +30302,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_locations-1">
 <p>The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an <code>action</code>.</p>
 <p>In order to create a location, we use the action <code>LOCATIONS_CREATE_IF_NOT_EXISTS</code>.</p>
@@ -30418,8 +30346,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_info_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_info_locations-1">
 <p>You may add a <code>description</code> and a <code>selector</code>. The <code>selector</code> is the identifying attribute used to check if your location exists before attempting to create it. In this case, we use <code>display_name</code> which represents the name of the location.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -30519,8 +30446,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_location_attributes_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_location_attributes_locations-1">
 <p>Like Assets and Events, locations may also have extended attributes added as key-value pairs</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -30582,8 +30508,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="complete_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="complete_location_locations-1">
 <p>Use the 
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> to run your YAML file!</p>
@@ -30631,8 +30556,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="location_list_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="location_list_locations-1">
 <p>You can view all location data using the <code>LOCATIONS_LIST</code> action. Use the <code>print_response</code> keyword to get the full output</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -30678,8 +30602,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="specific_location_locations-1" class="tab-pane fade" role="tabpanel" aria-labelledby="specific_location_locations-1">
 <p>The <code>LOCATIONS_LIST</code> action can be filtered using identifying attributes (<code>attrs</code>) to view the details of a specific location.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -30729,8 +30652,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
   &lt;/div&gt;
 </code></pre>
   </div>
-</div>
-</div>
+</div></div>
   <div id="add_at_asset_create-1" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-1">
 <p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">

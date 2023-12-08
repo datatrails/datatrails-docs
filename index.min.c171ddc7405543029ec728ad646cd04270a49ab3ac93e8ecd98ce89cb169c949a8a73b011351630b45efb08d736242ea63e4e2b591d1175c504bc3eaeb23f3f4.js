@@ -13655,7 +13655,48 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
+</span></span></code></pre></div><h3 id="event-record-retrieval">Event Record Retrieval</h3>
+<p>Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+</span></span></code></pre></div><p>If you do not know the Event’s identity you can fetch Event records using other information you do know.</p>
+<h4 id="fetch-all-events">Fetch All Events</h4>
+<p>To fetch all Event records, simply <code>GET</code> the Events resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-events-for-a-specific-asset">Fetch Events for a Specific Asset</h4>
+<p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-specific-events-by-identity">Fetch Specific Events by Identity</h4>
+<p>If you know the unique identity of the Asset and Event record simply <code>GET</code> the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-event-by-type">Fetch Event by Type</h4>
+<p>To fetch all Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-event-by-asset-attribute">Fetch Event by Asset Attribute</h4>
+<p>To fetch all Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-events-by-filtering-for-presence-of-a-field">Fetch Events by Filtering for Presence of a Field</h4>
+<p>To fetch all Events with a field set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have <code>arc_display_type</code> that is not empty.</p>
+<h4 id="fetch-events-which-are-missing-a-field">Fetch Events Which are Missing a Field</h4>
+<p>To fetch all Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+<h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  
  
@@ -38080,7 +38121,48 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
+</span></span></code></pre></div><h3 id="event-record-retrieval">Event Record Retrieval</h3>
+<p>Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+</span></span></code></pre></div><p>If you do not know the Event’s identity you can fetch Event records using other information you do know.</p>
+<h4 id="fetch-all-events">Fetch All Events</h4>
+<p>To fetch all Event records, simply <code>GET</code> the Events resources:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-events-for-a-specific-asset">Fetch Events for a Specific Asset</h4>
+<p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-specific-events-by-identity">Fetch Specific Events by Identity</h4>
+<p>If you know the unique identity of the Asset and Event record simply <code>GET</code> the resource:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-event-by-type">Fetch Event by Type</h4>
+<p>To fetch all Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-event-by-asset-attribute">Fetch Event by Asset Attribute</h4>
+<p>To fetch all Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published&#34;</span>
+</span></span></code></pre></div><h4 id="fetch-events-by-filtering-for-presence-of-a-field">Fetch Events by Filtering for Presence of a Field</h4>
+<p>To fetch all Events with a field set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have <code>arc_display_type</code> that is not empty.</p>
+<h4 id="fetch-events-which-are-missing-a-field">Fetch Events Which are Missing a Field</h4>
+<p>To fetch all Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+<h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  
  

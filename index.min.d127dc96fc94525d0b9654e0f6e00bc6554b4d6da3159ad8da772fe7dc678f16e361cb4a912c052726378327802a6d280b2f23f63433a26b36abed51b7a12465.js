@@ -18171,7 +18171,7 @@ This includes previously registered statements, and newly registered statements 
 <p>This quickstart will:</p>
 <ol>
 <li>create, or use an existing a key to sign a collection of statements about an artifact</li>
-<li>create and register an statement for the artifact</li>
+<li>create and register a statement for the artifact</li>
 <li>create and register an attestation for the artifact</li>
 <li>query a collection of statements about the artifact</li>
 </ol>
@@ -18188,71 +18188,83 @@ This includes previously registered statements, and newly registered statements 
 <p>The Quickstart uses existing samples and scripts to focus on the SCITT APIs.</p>
 <p>Clone the 
 <a href="https://github.com/datatrails/datatrails-scitt-samples" target="_blank" rel="noopener">DataTrails SCITT Examples</a> repository to copy those files to your environment.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> datatrails-scitt-samples
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">cd</span> datatrails-scitt-samples
 </span></span></code></pre></div><h2 id="environment-configuration">Environment Configuration</h2>
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
 </span></span></code></pre></div></li>
 <li>
 <p>To ease copying and pasting commands, update any variables to fit your environment</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># your identity</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.txt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Create a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</p>
 </li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span>sample.sysnation.dev
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span>my-signing-key.pem
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span>signed-statement.txt
-</span></span></code></pre></div><ol>
-<li>Create a 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
 <blockquote class="note callout">
     <div><strong></strong> If you already have a COSE Key, skip ahead to 
 <a href="#generating-a-payload">Generating a Payload</a></div>
   </blockquote>
-<p>There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
-<em>(TODO: link to supported DataTrails Signing Keys)</em><br>
-For the Quickstart, create a testing 
+<p>For the Quickstart, create a testing 
 <a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
-<p>In the samples we assume the statement is a json document, e.g:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+<ol>
+<li>
+<p>Create a simple json payload</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div><ol>
-<li>
-<p>Create a Feed ID, used to correlate a collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Create a Signed Statement for the SPDX SBOM</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
+<p>Create a COSE Signed Statement for the <code>payload.json</code> file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type application/spdx+json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Register the Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT</span><span class="o">=</span><span class="sb">\`</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="sb">\`</span>
-</span></span><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt -d <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="nv">$SIGNED_STATEMENT</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+<p>Register the Statement
+<blockquote class="note callout">
+    <div><strong></strong> <p>Note: The current DataTrails payload must be encased in a json object:</p>
+<pre><code>\`{&quot;statement&quot;:&quot;&lt;COSE_SIGNED_STATEMENT&gt;&quot;}\`
+</code></pre>
+<p>This will be updated to match the SCITT API (
+<a href="https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/" target="_blank" rel="noopener">SCRAPI</a>) in a future release.</p>
+</div>
+  </blockquote></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                -d <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="k">$(</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="k">)</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Monitor for the Statement to be anchored</p>
+<p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
@@ -18265,8 +18277,10 @@ For the Quickstart, create a testing
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a SCITT Receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="p">|</span> jq
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o receipt.cbor
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -18275,11 +18289,13 @@ By querying the series of statements, consumers can verify who did what and when
 <ol>
 <li>
 <p>Query DataTrails for the collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
-<p>To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see &lt;TODO: here&gt;</p>
+<blockquote class="note callout">
+    <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
+  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
@@ -42637,7 +42653,7 @@ This includes previously registered statements, and newly registered statements 
 <p>This quickstart will:</p>
 <ol>
 <li>create, or use an existing a key to sign a collection of statements about an artifact</li>
-<li>create and register an statement for the artifact</li>
+<li>create and register a statement for the artifact</li>
 <li>create and register an attestation for the artifact</li>
 <li>query a collection of statements about the artifact</li>
 </ol>
@@ -42654,71 +42670,83 @@ This includes previously registered statements, and newly registered statements 
 <p>The Quickstart uses existing samples and scripts to focus on the SCITT APIs.</p>
 <p>Clone the 
 <a href="https://github.com/datatrails/datatrails-scitt-samples" target="_blank" rel="noopener">DataTrails SCITT Examples</a> repository to copy those files to your environment.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> datatrails-scitt-samples
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/datatrails/datatrails-scitt-samples.git <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">cd</span> datatrails-scitt-samples
 </span></span></code></pre></div><h2 id="environment-configuration">Environment Configuration</h2>
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
 </span></span></code></pre></div></li>
 <li>
 <p>To ease copying and pasting commands, update any variables to fit your environment</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># your identity</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.txt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Create a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</p>
 </li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span>sample.sysnation.dev
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span>my-signing-key.pem
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span>signed-statement.txt
-</span></span></code></pre></div><ol>
-<li>Create a 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
 <blockquote class="note callout">
     <div><strong></strong> If you already have a COSE Key, skip ahead to 
 <a href="#generating-a-payload">Generating a Payload</a></div>
   </blockquote>
-<p>There are multiple methods to create a signed statement, for methods other than using a basic signing key, see: _(TODO: link to supporting docs)
-<em>(TODO: link to supported DataTrails Signing Keys)</em><br>
-For the Quickstart, create a testing 
+<p>For the Quickstart, create a testing 
 <a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
-<p>In the samples we assume the statement is a json document, e.g:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+<ol>
+<li>
+<p>Create a simple json payload</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div><ol>
-<li>
-<p>Create a Feed ID, used to correlate a collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Create a Signed Statement for the SPDX SBOM</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
+<p>Create a COSE Signed Statement for the <code>payload.json</code> file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type application/spdx+json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Register the Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT</span><span class="o">=</span><span class="sb">\`</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="sb">\`</span>
-</span></span><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt -d <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="nv">$SIGNED_STATEMENT</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+<p>Register the Statement
+<blockquote class="note callout">
+    <div><strong></strong> <p>Note: The current DataTrails payload must be encased in a json object:</p>
+<pre><code>\`{&quot;statement&quot;:&quot;&lt;COSE_SIGNED_STATEMENT&gt;&quot;}\`
+</code></pre>
+<p>This will be updated to match the SCITT API (
+<a href="https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/" target="_blank" rel="noopener">SCRAPI</a>) in a future release.</p>
+</div>
+  </blockquote></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                -d <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="k">$(</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="k">)</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Monitor for the Statement to be anchored</p>
+<p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
@@ -42731,8 +42759,10 @@ For the Quickstart, create a testing
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a SCITT Receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="p">|</span> jq
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o receipt.cbor
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -42741,11 +42771,13 @@ By querying the series of statements, consumers can verify who did what and when
 <ol>
 <li>
 <p>Query DataTrails for the collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
-<p>To filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements, see &lt;TODO: here&gt;</p>
+<blockquote class="note callout">
+    <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
+  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.

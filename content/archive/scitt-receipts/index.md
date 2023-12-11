@@ -1,17 +1,17 @@
 ---
- title: "Verify DataTrails SCITT Receipts"
- description: "Proof of Posting Receipts for SCITT"
- lead: "Proof of Posting Receipts for SCITT"
- date: 2021-05-18T14:52:25+01:00
- lastmod: 2021-05-18T14:52:25+01:00
- draft: false
- images: []
- menu:
-   platform:
-     parent: "overview"
- weight: 39
- toc: true
+title: "Verify DataTrails SCITT Receipts"
+description: "Proof of Posting Receipts for SCITT"
+lead: "Proof of Posting Receipts for SCITT"
+date: 2021-05-18T14:52:25+01:00
+lastmod: 2021-05-18T14:52:25+01:00
+draft: false
+images: []
+menu: 
+  archive:
+    parent: "archive"
+weight: 10
 ---
+# This article is deprecated
 
 ## What are receipts?
 

@@ -68,10 +68,15 @@
 
 [[glossary]]
   name = "Glossary"
-  weight = 50
+  weight = 10
   identifier = "glossary"
   url = "/glossary/"
 
+[[archive]]
+  name = "Archive"
+  weight = 10
+  identifier = "archive"
+  url = "/archive/"
 
 
 [[main]]

@@ -31,7 +31,7 @@ Receipts for Public Events can be obtained by any authenticated API request.
 
 This page discusses receipts in the context of verifying events recorded on the DataTrails platform.
 
-For discussion of how DataTrails supports SCITT Transparent Statements and their corresponding SCITT Receipts see [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.datatrails.ai/what-is-scitt-and-how-does-datatrails-help/).
+For a discussion of how DataTrails supports SCITT Transparent Statements and their corresponding SCITT Receipts see [Supply Chain Integrity, Transparency, and Trust (SCITT)](https://www.datatrails.ai/what-is-scitt-and-how-does-rkvst-help/).
 
 Any DataTrails receipt you obtain today will remain valid proof of posting for the Event.
 

@@ -9,7 +9,9 @@ images: []
 menu: 
   archive:
     parent: "archive"
-weight: 10
+weight: 
+sitemap_exclude: true
+robotsdisallow: true
 ---
 # This article is deprecated
 

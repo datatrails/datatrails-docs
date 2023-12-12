@@ -10,6 +10,8 @@ menu:
 weight: 1
 images: []
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 {{< note >}}
 DataTrails Docs depend on npm version 14.

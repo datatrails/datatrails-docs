@@ -11,6 +11,8 @@ menu:
     parent: "adding-content"
 weight: 2
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 As the main branch of these docs is protected you will need to create a separate branch and submit a PR to make any changes

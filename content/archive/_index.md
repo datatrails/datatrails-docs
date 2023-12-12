@@ -9,6 +9,8 @@ images: []
 weight: 999
 toc: true
 aliases: 
+sitemap_exclude: true
+robotsdisallow: true
 ---
 This section is intended to be a space for articles that are no longer needed but still have content that we do not want to delete.
 

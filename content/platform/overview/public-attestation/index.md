@@ -33,15 +33,13 @@ For more detailed Asset creation instructions, visit [Creating an Asset](/platfo
 **Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.
 {{< /warning >}}
 
-1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](/platform/overview/creating-an-asset/) for detailed instructions
+1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](/platform/overview/creating-an-asset/) for detailed instructions on this topic.
 {{< tabs name="create_asset_public" >}}
 {{{< tab name="UI" >}}
-Select `Register Asset` from the sidebar and fill in the desired details.
-{{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
-
+Select `Register Asset` from the sidebar and fill in the desired details.<br>
 Set the toggle next to `Attest Publicly` to `ON`.
+{{< img src="CreateAssetNumbered.png" alt="Rectangle" caption="<em>Asset Details</em>" class="border-0" >}}
 
-{{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Check Asset as Public</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Create a JSON file with your desired Asset details. Set keyword `public` to true.
@@ -68,7 +66,7 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 {{< tabs name="set_public_public" >}}
 {{{< tab name="UI" >}}
 Click `Register Asset` to complete your Public Asset creation.
-{{< img src="PublicCheck.png" alt="Rectangle" caption="<em>Publish Your Asset</em>" class="border-0" >}}
+{{< img src="CreateAsset.png" alt="Rectangle" caption="<em>Publish Your Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Use the curl command to run your JSON file. See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
@@ -90,7 +88,7 @@ curl -v -X POST \
 {{< /note >}}
 {{< tabs name="get_link_public" >}}
 {{< tab name="UI" >}}
-Click on the **Share** button next to the green `PUBLIC` badge. This will open a pop-up containing options for copying the public and private links of the Asset.
+Click on the **Share** button next to the right of the Asset Details. This will open a pop-up containing options for copying the public and private links of the Asset.
 {{< img src="PublicAsset.png" alt="Rectangle" caption="<em>Copy the Public Link</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -148,9 +146,8 @@ curl -v -X POST \
 {{< /tab >}}
 {{< /tabs >}}
 
-1. Your Event will be readable when the Public Asset link is followed
+1. Your Event will be readable in the Event History tab when the link to the public view is followed. Click on the Event to see the details.
 {{< img src="PublicViewEvent.png" alt="Rectangle" caption="<em>Event Listed in Public View</em>" class="border-0" >}}  
-{{< img src="EventPublic.png" alt="Rectangle" caption="<em>Event Information</em>" class="border-0" >}}
 1. You may also retrieve a public URL to the Event itself, using the [Assets API](/developers/api-reference/assets-api/)
 {{< tabs name="get_link_event_public" >}}
 {{< tab name="JSON" >}}

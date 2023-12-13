@@ -119,7 +119,7 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
    `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. Select the symbol to upload a file. In this case, we will attach a PDF document labeled `Inspection Standards`.
+Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. Select the symbol to upload a file. In this case, we will attach a text document called `Inspection Standards`.
 {{< img src="AttachmentUpload.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
@@ -193,12 +193,12 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
 Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined `Weight` attribute.<br><br>
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to DataTrails.<br><br>
 There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
-PDFs or images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the PDF document of a specific standard for container inspection. This allows historical compliance checking of Events.
+Documents and images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the documentation for a specific standard used for container inspection. This allows historical compliance checking of Events.
 
 1. Record your Event
 {{< tabs name="record_event" >}}
 {{{< tab name="UI" >}}
-Once you have entered all data, click the `Record Event` Button to add to your Asset.
+Once you have entered all data, click the `Record Event` Button to add the Event to your Asset.
 {{< img src="EventRecorded.png" alt="Rectangle" caption="<em>Submitting the Event</em>" class="border-0" >}}
 You will see that the Asset Attribute we changed is also recorded in the Asset View.
 
@@ -232,14 +232,14 @@ curl -v -X POST \
 1. View your Event details
 {{< tabs name="view_event" >}}
 {{{< tab name="UI" >}}
-Click the Event row to inspect the Event:
+Click the `Event history` tab and then on a row to inspect the Event:
 
 {{< img src="EventView.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-Here we see the details entered earlier and also a tab that will show both the Event attributes and Asset attributes:
+Here we see the details entered earlier and also tabs that will show both the Event attributes and Asset attribute updates:
 
 {{< img src="EventAttributeView.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
-
+{{< img src="AttributeUpdatesView.png" alt="Rectangle" caption="<em>Viewing Attribute Updates</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 The `EVENTS_LIST` action can be used to view all Events, or filtered using attributes (`attrs`) to view details of a specific Event

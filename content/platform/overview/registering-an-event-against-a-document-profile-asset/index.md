@@ -294,12 +294,12 @@ curl -v -X POST \
 1. Viewing Event details
 {{< tabs name="view_event" >}}
 {{{< tab name="UI" >}}
-The Event History can be seen in the Asset Overview from step 1, simply click on any Event row to view it.<br>
-The Document tab shows information about the document version that you are viewing and also provides a drag-and-drop box that allows you to check any locally stored versions of the document that you have against this specific version.
+The Event History can be seen in the Asset Overview from step 1, simply click on the Event History tab and then any Event row to view it.<br>
+The Overview tab shows the details of the Event including the version and document hash of this specific version.
 
 {{< img src="EventDetails.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}
 
-The More Details tab provides information about the Event itself and includes a link to the transaction. It also includes any optional attributes that were included in the Event.
+The Event attributes and Asset attributes tabs contain any custom attributes that were added when the Event was registered.
 
 {{< img src="MoreEventDetails.png" alt="Rectangle" caption="<em>Viewing Event Attributes</em>" class="border-0" >}}
 

@@ -366,10 +366,7 @@ A pre-existing location can be added during Asset creation, using the Location I
 
 {{< /tab >}}
 {{< tab name="YAML" >}}
-    {{< note >}}
-    **Note** - The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
-    {{< /note >}}
-
+The `EVENTS_CREATE` action must contain at least one key-value pair for `event_attributes`.
 ```yaml
 ---
 steps:

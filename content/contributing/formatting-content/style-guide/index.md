@@ -11,6 +11,8 @@ menu:
     parent: "formatting-content"
 weight: 8
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 It is important in any documentation to have a readable, sane and consistent experience, to that end we have defined some guidelines to ensure all content meets the same standard.

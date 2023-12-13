@@ -7,4 +7,6 @@ lastmod: 2021-05-22T19:47:46+01:00
 draft: false
 images: []
 weight: 999
+sitemap_exclude: true
+robotsdisallow: true
 ---

@@ -47,20 +47,20 @@
     "eslint": "^8.0",
     "flexsearch": "^0.7",
     "highlight.js": "^11.0",
-    "hugo-bin": "^0.116",
+    "hugo-bin": "^0.117",
     "instant.page": "^5.1",
     "katex": "^0.16.0",
     "lazysizes": "^5.3",
-    "markdownlint-cli": "^0.37",
+    "markdownlint-cli": "^0.38",
     "mermaid": "^10.0",
     "netlify-lambda": "^2.0.7",
     "postcss": "^8.3.0",
-    "postcss-cli": "^10.0",
+    "postcss-cli": "^11.0",
     "purgecss-whitelister": "^2.4",
     "rimraf": "^5.0",
     "shx": "^0.3.3",
     "standard-version": "^9.2",
-    "stylelint": "^15.7",
-    "stylelint-config-standard": "^34.0"
+    "stylelint": "^16.0",
+    "stylelint-config-standard": "^35.0"
   }
 }

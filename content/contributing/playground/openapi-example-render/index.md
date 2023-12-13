@@ -11,6 +11,8 @@ menu:
     parent: "playground"
 weight: 999
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 {{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/subjectsv1.swagger.json" >}}

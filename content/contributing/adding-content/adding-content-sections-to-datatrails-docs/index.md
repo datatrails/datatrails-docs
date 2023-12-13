@@ -10,6 +10,8 @@ menu:
 weight: 4
 images: []
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 {{< note >}}

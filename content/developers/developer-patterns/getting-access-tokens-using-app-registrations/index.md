@@ -37,8 +37,8 @@ If `Settings` does not appear in the navigation, see your DataTrails Administrat
 ### Using the DataTrails App to Create an Integration (First-Time Setup)
 
 1. As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>
-1. Navigate to `Settings` on the sidebar
-1. Navigate to the `Integrations` tab
+1. Navigate to `Integrations` on the sidebar
+1. The `Integrations` tab will be automatically selected
   {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
 1. Click the `Custom` box to create a Custom Integration
 1. Enter any `Display Name` you'd like

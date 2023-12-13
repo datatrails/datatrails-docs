@@ -11,4 +11,6 @@ menu:
     parent: "playground"
 weight: 998
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---

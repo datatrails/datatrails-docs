@@ -11,6 +11,8 @@ menu:
     parent: "formatting-content"
 weight: 6
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 Doks uses Goldmark markdown which is primarily Github-flavoured.

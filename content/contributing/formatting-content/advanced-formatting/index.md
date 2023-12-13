@@ -11,6 +11,8 @@ menu:
     parent: "formatting-content"
 weight: 7
 toc: true
+sitemap_exclude: true
+robotsdisallow: true
 ---
 
 As Doks is based on Hugo it has many more extensible formatting options, including some custom tools we have added ourselves to enhance the delivery of documentation overall.

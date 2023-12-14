@@ -20,6 +20,7 @@ If you are looking for a simple way to test our API you might prefer our [Postma
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
+
 ## Tenancies API Examples
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
@@ -69,4 +70,6 @@ curl -v -X PATCH \
 
 ## Tenancies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tenanciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tenanciesv1.swagger.json" >}}<br>
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/usersv1.swagger.json" >}}

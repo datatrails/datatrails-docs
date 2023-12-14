@@ -7755,10 +7755,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -8116,8 +8112,6 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
-                        
-                      
 
                       
                         
@@ -8210,7 +8204,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -8365,13 +8359,6 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
                                                          
                                   
-                                  <tr>
-                                    <th>storage_integrity</th>
-                                    <td>string</td>
-                                    
-                                      <td>DEPRECATED use proof_mechanism</td>
-                                                         
-                                  
                                 </tbody> 
                               </table>
                              
@@ -8493,13 +8480,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -8856,7 +8836,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -9064,13 +9044,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -9316,7 +9289,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -9351,7 +9324,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -9674,7 +9647,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -12144,7 +12117,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="compliance-openapi-docs">Compliance OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -12291,7 +12264,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
                           
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
+                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
                           
@@ -12312,11 +12285,86 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API2' aria-expanded="true" aria-controls='collapseCompliance_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets:openapi</span>
                         </div>
                       </button>
                   </h3>
                   <div id='collapseCompliance_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for Compliance Assets</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for Compliance Assets</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API to manage Compliance Policies.</p>
+    </div>
+      <div class="accordion" id='Compliance_Policies_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -12347,12 +12395,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API2' aria-expanded="true" aria-controls='collapserequestCompliance_API2'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API2' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -12451,14 +12499,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API3' aria-expanded="true" aria-controls='collapseCompliance_API3'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API3' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -12475,12 +12523,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestCompliance_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_API3' aria-expanded="true" aria-controls='collapserequestCompliance_API3'>
+                              <h3 class="accordion-header" id='headerrequestCompliance_Policies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
                                     <span>Example Request</span>
                                   </button>
                               </h3>
-                              <div id='collapserequestCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_API3' data-parent="#accordion">
+                              <div id='collapserequestCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_Policies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -12600,12 +12648,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API3' aria-expanded="true" aria-controls='collapserequestCompliance_API3'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API3' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -12771,14 +12819,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API4' aria-expanded="true" aria-controls='collapseCompliance_API4'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API4' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -12799,12 +12847,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API4' aria-expanded="true" aria-controls='collapserequestCompliance_API4'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API4' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -12964,14 +13012,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API5' aria-expanded="true" aria-controls='collapseCompliance_API5'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API5' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API5' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API4' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -12992,12 +13040,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API5' aria-expanded="true" aria-controls='collapserequestCompliance_API5'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API4'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API5' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API4' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -13163,14 +13211,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API6' aria-expanded="true" aria-controls='collapseCompliance_API6'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API5'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API5' aria-expanded="true" aria-controls='collapseCompliance_Policies_API5'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies:openapi</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API6' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API6' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API5' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API5' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -13637,8 +13685,6 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
-                        
-                      
 
                       
                         
@@ -13731,7 +13777,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -13886,13 +13932,6 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
                                                          
                                   
-                                  <tr>
-                                    <th>storage_integrity</th>
-                                    <td>string</td>
-                                    
-                                      <td>DEPRECATED use proof_mechanism</td>
-                                                         
-                                  
                                 </tbody> 
                               </table>
                              
@@ -14014,13 +14053,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -14377,7 +14409,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -14585,13 +14617,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -14837,7 +14862,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -14872,7 +14897,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -15195,7 +15220,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -16779,7 +16804,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -16891,176 +16916,6 @@ If you are looking for a simple way to test our API you might prefer our
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerIAMAccessPolicies_API8'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API8'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API8' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
-                      </div>
-                      <h5>Get matching access policies</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Get matching access policies for specified asset</p>
-
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseIAMAccessPolicies_API8'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API8'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API8' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "access_policies": [
-    {
-      "access_permissions": [
-        {
-          "asset_attributes_read": [
-            "attribute1",
-            "attribute2"
-          ],
-          "behaviours": [
-            "behaviour1",
-            "behaviour2"
-          ],
-          "subjects": [
-            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-          ],
-          "user_attributes": [
-            {
-              "or": [
-                "group:maintainers",
-                "group:supervisors"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_name": "Some description",
-      "filters": [
-        {
-          "or": [
-            "location=basingstoke",
-            "location=cambridge"
-          ]
-        },
-        {
-          "or": [
-            "asset_type=door_access_reader"
-          ]
-        }
-      ],
-      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ],
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>access_policies</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Describes an Access Policy for OBAC</td>
-                                               
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
-                                
-                              </tbody>
-                            </table>
-                           
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
                           
                         </tbody>
                       </table>
@@ -18097,7 +17952,7 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
@@ -18138,31 +17993,15 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Register the Statement
-<blockquote class="note callout">
-    <div><strong></strong> <p>Note: The current DataTrails payload must be encased in a json object:</p>
-<pre><code>\`{&quot;statement&quot;:&quot;&lt;COSE_SIGNED_STATEMENT&gt;&quot;}\`
-</code></pre>
-<p>This will be updated to match the SCITT API (
-<a href="https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/" target="_blank" rel="noopener">SCRAPI</a>) in a future release.</p>
-</div>
-  </blockquote></p>
+<p>Register the Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                -d <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="k">$(</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="k">)</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
-</span></span></code></pre></div></li>
-<li>
-<p>Retrieve the Entry_ID for registered signed statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a SCITT Receipt</p>
@@ -20329,7 +20168,7 @@ If you are looking for a simple way to test our API you might prefer our
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
   },
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "asset_identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
@@ -20343,7 +20182,7 @@ If you are looking for a simple way to test our API you might prefer our
       }
     ]
   },
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+  "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",
   "principal_accepted": {
     "issuer": "job.idp.server/1234",
@@ -20385,7 +20224,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
-                                    <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+                                    <td>identity of a related asset resource <code>publicassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
                                                
                                 
                                 <tr>
@@ -20584,7 +20423,7 @@ If you are looking for a simple way to test our API you might prefer our
     "RecordEvidence"
   ],
   "confirmation_status": "PENDING",
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
@@ -20651,7 +20490,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>identity</th>
                                   <td>string</td>
                                   
-                                    <td>relative resource address <code>assets/{UUID}</code></td>
+                                    <td>relative resource address <code>publicassets/{UUID}</code></td>
                                                
                                 
                                 <tr>
@@ -20673,13 +20512,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -20715,7 +20547,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
+                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
                           
                         </tbody>
                       </table>
@@ -20822,7 +20654,7 @@ If you are looking for a simple way to test our API you might prefer our
         "arc_firmware_version": "3.2.1",
         "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
       },
-      "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 12,
       "confirmation_status": "CONFIRMED",
@@ -20836,7 +20668,7 @@ If you are looking for a simple way to test our API you might prefer our
           }
         ]
       },
-      "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+      "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -20858,7 +20690,7 @@ If you are looking for a simple way to test our API you might prefer our
         "arc_firmware_version": "3.2.1",
         "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
       },
-      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "publicassets/bf330235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 13,
       "confirmation_status": "CONFIRMED",
@@ -20872,7 +20704,7 @@ If you are looking for a simple way to test our API you might prefer our
           }
         ]
       },
-      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "identity": "publicassets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -20913,7 +20745,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -21534,9 +21366,9 @@ If you are looking for a simple way to test our API you might prefer our
   
   <div class="$openapi-spec-content">
     <div class="description">
-      <p>Simple API for User Management</p>
+      <p>API to manage tenancies</p>
     </div>
-      <div class="accordion" id='UserManagement_API0'></div>
+      <div class="accordion" id='Tenancies_API0'></div>
       
         
           
@@ -21546,14 +21378,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
+                  <h3 class="accordion-header" id='headerTenancies_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
+                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -21578,12 +21410,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>null</code></pre>
@@ -21658,14 +21490,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'>
+                  <h3 class="accordion-header" id='headerTenancies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion">
+                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -21684,12 +21516,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API2' aria-expanded="true" aria-controls='collapserequestUserManagement_API2'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API2' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -21763,14 +21595,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API3' aria-expanded="true" aria-controls='collapseUserManagement_API3'>
+                  <h3 class="accordion-header" id='headerTenancies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API3' data-parent="#accordion">
+                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -21787,12 +21619,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestUserManagement_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'>
+                              <h3 class="accordion-header" id='headerrequestTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Request</span>
                                   </button>
                               </h3>
-                              <div id='collapserequestUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUserManagement_API3' data-parent="#accordion">
+                              <div id='collapserequestTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -21842,12 +21674,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API3' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -21927,14 +21759,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'>
+                  <h3 class="accordion-header" id='headerTenancies_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API4' data-parent="#accordion">
+                  <div id='collapseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API4' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -21953,12 +21785,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API4' aria-expanded="true" aria-controls='collapserequestUserManagement_API4'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API4' aria-expanded="true" aria-controls='collapserequestTenancies_API4'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API4' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API4' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -22056,14 +21888,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'>
+                  <h3 class="accordion-header" id='headerTenancies_API5'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion">
+                  <div id='collapseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API5' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22086,12 +21918,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API5'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API5' aria-expanded="true" aria-controls='collapserequestTenancies_API5'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API5' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -22195,14 +22027,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'>
+                  <h3 class="accordion-header" id='headerTenancies_API6'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion">
+                  <div id='collapseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API6' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22243,12 +22075,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API6'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API6'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API6' aria-expanded="true" aria-controls='collapserequestTenancies_API6'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API6' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>null</code></pre>
@@ -22330,14 +22162,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API7'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'>
+                  <h3 class="accordion-header" id='headerTenancies_API7'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion">
+                  <div id='collapseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API7' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22366,12 +22198,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API7'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API7' aria-expanded="true" aria-controls='collapserequestTenancies_API7'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API7' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -22468,14 +22300,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API8'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'>
+                  <h3 class="accordion-header" id='headerTenancies_API8'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion">
+                  <div id='collapseTenancies_API8' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API8' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22496,12 +22328,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API8'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API8'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API8' aria-expanded="true" aria-controls='collapserequestTenancies_API8'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API8' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -22611,14 +22443,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API9'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'>
+                  <h3 class="accordion-header" id='headerTenancies_API9'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion">
+                  <div id='collapseTenancies_API9' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API9' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22639,12 +22471,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API9'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API9' aria-expanded="true" aria-controls='collapserequestUserManagement_API9'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API9'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API9' aria-expanded="true" aria-controls='collapserequestTenancies_API9'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API9' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API9' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -22710,14 +22542,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API10'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'>
+                  <h3 class="accordion-header" id='headerTenancies_API10'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API10' aria-expanded="true" aria-controls='collapseTenancies_API10'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies:openapi</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion">
+                  <div id='collapseTenancies_API10' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API10' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -22753,135 +22585,6 @@ If you are looking for a simple way to test our API you might prefer our
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API11'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
-                      </div>
-                      <h5>List User Tenants</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of tenancies the user has access to.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API11'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "tenants": [
-    {
-      "display_name": "Bobs Tenancy",
-      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
-    },
-    {
-      "display_name": "Alices Tenancy",
-      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
-                                
-                                <tr>
-                                  <th>tenants</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Tenant information for a user.</td>
-                                               
-                                
-                              </tbody>
-                            </table>
-                           
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
                           
                         </tbody>
                       </table>
@@ -32126,10 +31829,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -32487,8 +32186,6 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
-                        
-                      
 
                       
                         
@@ -32581,7 +32278,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -32736,13 +32433,6 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
                                                          
                                   
-                                  <tr>
-                                    <th>storage_integrity</th>
-                                    <td>string</td>
-                                    
-                                      <td>DEPRECATED use proof_mechanism</td>
-                                                         
-                                  
                                 </tbody> 
                               </table>
                              
@@ -32864,13 +32554,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -33227,7 +32910,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -33435,13 +33118,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -33687,7 +33363,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -33722,7 +33398,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -34045,7 +33721,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -36515,7 +36191,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="compliance-openapi-docs">Compliance OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -36662,7 +36338,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
                           
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
+                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
                           
@@ -36683,11 +36359,86 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API2' aria-expanded="true" aria-controls='collapseCompliance_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets:openapi</span>
                         </div>
                       </button>
                   </h3>
                   <div id='collapseCompliance_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for Compliance Assets</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for Compliance Assets</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API to manage Compliance Policies.</p>
+    </div>
+      <div class="accordion" id='Compliance_Policies_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -36718,12 +36469,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API2' aria-expanded="true" aria-controls='collapserequestCompliance_API2'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API2' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -36822,14 +36573,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API3' aria-expanded="true" aria-controls='collapseCompliance_API3'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API3' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -36846,12 +36597,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestCompliance_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_API3' aria-expanded="true" aria-controls='collapserequestCompliance_API3'>
+                              <h3 class="accordion-header" id='headerrequestCompliance_Policies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
                                     <span>Example Request</span>
                                   </button>
                               </h3>
-                              <div id='collapserequestCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_API3' data-parent="#accordion">
+                              <div id='collapserequestCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_Policies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -36971,12 +36722,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API3' aria-expanded="true" aria-controls='collapserequestCompliance_API3'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API3' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -37142,14 +36893,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API4' aria-expanded="true" aria-controls='collapseCompliance_API4'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API4' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -37170,12 +36921,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API4' aria-expanded="true" aria-controls='collapserequestCompliance_API4'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API4' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -37335,14 +37086,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API5' aria-expanded="true" aria-controls='collapseCompliance_API5'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API5' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API5' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API4' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -37363,12 +37114,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API5' aria-expanded="true" aria-controls='collapserequestCompliance_API5'>
+                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API4'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseCompliance_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API5' data-parent="#accordion">
+                              <div id='collapseresponseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API4' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -37534,14 +37285,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API6' aria-expanded="true" aria-controls='collapseCompliance_API6'>
+                  <h3 class="accordion-header" id='headerCompliance_Policies_API5'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API5' aria-expanded="true" aria-controls='collapseCompliance_Policies_API5'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies:openapi</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseCompliance_API6' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API6' data-parent="#accordion">
+                  <div id='collapseCompliance_Policies_API5' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API5' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -38008,8 +37759,6 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
-                        
-                      
 
                       
                         
@@ -38102,7 +37851,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -38257,13 +38006,6 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
                                                          
                                   
-                                  <tr>
-                                    <th>storage_integrity</th>
-                                    <td>string</td>
-                                    
-                                      <td>DEPRECATED use proof_mechanism</td>
-                                                         
-                                  
                                 </tbody> 
                               </table>
                              
@@ -38385,13 +38127,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -38748,7 +38483,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -38956,13 +38691,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -39208,7 +38936,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -39243,7 +38971,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -39566,7 +39294,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.rkvst.io/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -41150,7 +40878,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Asset.</td>
+                                    <td>This describes an Asset.</td>
                                                
                                 
                                 <tr>
@@ -41262,176 +40990,6 @@ If you are looking for a simple way to test our API you might prefer our
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerIAMAccessPolicies_API8'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API8'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerIAMAccessPolicies_API8' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
-                      </div>
-                      <h5>Get matching access policies</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Get matching access policies for specified asset</p>
-
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseIAMAccessPolicies_API8'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAccessPolicies_API8' aria-expanded="true" aria-controls='collapserequestIAMAccessPolicies_API8'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseIAMAccessPolicies_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAccessPolicies_API8' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "access_policies": [
-    {
-      "access_permissions": [
-        {
-          "asset_attributes_read": [
-            "attribute1",
-            "attribute2"
-          ],
-          "behaviours": [
-            "behaviour1",
-            "behaviour2"
-          ],
-          "subjects": [
-            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
-            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
-          ],
-          "user_attributes": [
-            {
-              "or": [
-                "group:maintainers",
-                "group:supervisors"
-              ]
-            }
-          ]
-        }
-      ],
-      "display_name": "Some description",
-      "filters": [
-        {
-          "or": [
-            "location=basingstoke",
-            "location=cambridge"
-          ]
-        },
-        {
-          "or": [
-            "asset_type=door_access_reader"
-          ]
-        }
-      ],
-      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ],
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>access_policies</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Describes an Access Policy for OBAC</td>
-                                               
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
-                                
-                              </tbody>
-                            </table>
-                           
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
                           
                         </tbody>
                       </table>
@@ -42468,7 +42026,7 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.txt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
@@ -42509,31 +42067,15 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Register the Statement
-<blockquote class="note callout">
-    <div><strong></strong> <p>Note: The current DataTrails payload must be encased in a json object:</p>
-<pre><code>\`{&quot;statement&quot;:&quot;&lt;COSE_SIGNED_STATEMENT&gt;&quot;}\`
-</code></pre>
-<p>This will be updated to match the SCITT API (
-<a href="https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/" target="_blank" rel="noopener">SCRAPI</a>) in a future release.</p>
-</div>
-  </blockquote></p>
+<p>Register the Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                -d <span class="s1">&#39;{&#34;statement&#34;:&#34;&#39;</span><span class="k">$(</span>cat <span class="nv">$SIGNED_STATEMENT_FILE</span><span class="k">)</span><span class="s1">&#39;&#34;}&#39;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
-</span></span></code></pre></div></li>
-<li>
-<p>Retrieve the Entry_ID for registered signed statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/operations/<span class="nv">$OPERATION_ID</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq -r .operationID<span class="k">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a SCITT Receipt</p>
@@ -44700,7 +44242,7 @@ If you are looking for a simple way to test our API you might prefer our
     "arc_firmware_version": "3.2.1",
     "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
   },
-  "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "asset_identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "behaviour": "RecordEvidence",
   "block_number": 12,
   "confirmation_status": "CONFIRMED",
@@ -44714,7 +44256,7 @@ If you are looking for a simple way to test our API you might prefer our
       }
     ]
   },
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+  "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
   "operation": "Record",
   "principal_accepted": {
     "issuer": "job.idp.server/1234",
@@ -44756,7 +44298,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
-                                    <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
+                                    <td>identity of a related asset resource <code>publicassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
                                                
                                 
                                 <tr>
@@ -44955,7 +44497,7 @@ If you are looking for a simple way to test our API you might prefer our
     "RecordEvidence"
   ],
   "confirmation_status": "PENDING",
-  "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+  "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
   "proof_mechanism": "SIMPLE_HASH",
   "public": false,
@@ -45022,7 +44564,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>identity</th>
                                   <td>string</td>
                                   
-                                    <td>relative resource address <code>assets/{UUID}</code></td>
+                                    <td>relative resource address <code>publicassets/{UUID}</code></td>
                                                
                                 
                                 <tr>
@@ -45044,13 +44586,6 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
-                                
-                                <tr>
-                                  <th>storage_integrity</th>
-                                  <td>string</td>
-                                  
-                                    <td>DEPRECATED use proof_mechanism</td>
                                                
                                 
                                 <tr>
@@ -45086,7 +44621,7 @@ If you are looking for a simple way to test our API you might prefer our
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
+                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
                           
                         </tbody>
                       </table>
@@ -45193,7 +44728,7 @@ If you are looking for a simple way to test our API you might prefer our
         "arc_firmware_version": "3.2.1",
         "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
       },
-      "asset_identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 12,
       "confirmation_status": "CONFIRMED",
@@ -45207,7 +44742,7 @@ If you are looking for a simple way to test our API you might prefer our
           }
         ]
       },
-      "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
+      "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -45229,7 +44764,7 @@ If you are looking for a simple way to test our API you might prefer our
         "arc_firmware_version": "3.2.1",
         "arc_home_location_identity": "locations/42054f10-9952-4c10-a082-9fd0d10295ae"
       },
-      "asset_identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f",
+      "asset_identity": "publicassets/bf330235-1424-4fda-840a-d5ef82c4c96f",
       "behaviour": "RecordEvidence",
       "block_number": 13,
       "confirmation_status": "CONFIRMED",
@@ -45243,7 +44778,7 @@ If you are looking for a simple way to test our API you might prefer our
           }
         ]
       },
-      "identity": "assets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
+      "identity": "publicassets/bf330235-1424-4fda-840a-d5ef82c4c96f/events/23c06c48-e0b8-42e0-8dcf-dc8c4fdad123",
       "operation": "Record",
       "principal_accepted": {
         "issuer": "job.idp.server/1234",
@@ -45284,7 +44819,7 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     
-                                    <td>This describes RKVST Event.</td>
+                                    <td>This describes an Event.</td>
                                                
                                 
                                 <tr>
@@ -45905,9 +45440,9 @@ If you are looking for a simple way to test our API you might prefer our
   
   <div class="$openapi-spec-content">
     <div class="description">
-      <p>Simple API for User Management</p>
+      <p>API to manage tenancies</p>
     </div>
-      <div class="accordion" id='UserManagement_API0'></div>
+      <div class="accordion" id='Tenancies_API0'></div>
       
         
           
@@ -45917,14 +45452,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
+                  <h3 class="accordion-header" id='headerTenancies_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
+                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -45949,12 +45484,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>null</code></pre>
@@ -46029,14 +45564,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'>
+                  <h3 class="accordion-header" id='headerTenancies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion">
+                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46055,12 +45590,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API2' aria-expanded="true" aria-controls='collapserequestUserManagement_API2'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API2' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46134,14 +45669,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API3' aria-expanded="true" aria-controls='collapseUserManagement_API3'>
+                  <h3 class="accordion-header" id='headerTenancies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API3' data-parent="#accordion">
+                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46158,12 +45693,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestUserManagement_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'>
+                              <h3 class="accordion-header" id='headerrequestTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Request</span>
                                   </button>
                               </h3>
-                              <div id='collapserequestUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestUserManagement_API3' data-parent="#accordion">
+                              <div id='collapserequestTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerrequestTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46213,12 +45748,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API3' aria-expanded="true" aria-controls='collapserequestUserManagement_API3'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API3' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46298,14 +45833,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API4' aria-expanded="true" aria-controls='collapseUserManagement_API4'>
+                  <h3 class="accordion-header" id='headerTenancies_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API4' data-parent="#accordion">
+                  <div id='collapseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API4' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46324,12 +45859,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API4' aria-expanded="true" aria-controls='collapserequestUserManagement_API4'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API4' aria-expanded="true" aria-controls='collapserequestTenancies_API4'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API4' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API4' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46427,14 +45962,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API5' aria-expanded="true" aria-controls='collapseUserManagement_API5'>
+                  <h3 class="accordion-header" id='headerTenancies_API5'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API5' data-parent="#accordion">
+                  <div id='collapseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API5' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46457,12 +45992,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API5' aria-expanded="true" aria-controls='collapserequestUserManagement_API5'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API5'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API5' aria-expanded="true" aria-controls='collapserequestTenancies_API5'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API5' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API5' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46566,14 +46101,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API6' aria-expanded="true" aria-controls='collapseUserManagement_API6'>
+                  <h3 class="accordion-header" id='headerTenancies_API6'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API6' data-parent="#accordion">
+                  <div id='collapseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API6' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46614,12 +46149,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API6'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API6' aria-expanded="true" aria-controls='collapserequestUserManagement_API6'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API6'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API6' aria-expanded="true" aria-controls='collapserequestTenancies_API6'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API6' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API6' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>null</code></pre>
@@ -46701,14 +46236,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API7'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API7' aria-expanded="true" aria-controls='collapseUserManagement_API7'>
+                  <h3 class="accordion-header" id='headerTenancies_API7'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API7' data-parent="#accordion">
+                  <div id='collapseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API7' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46737,12 +46272,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API7'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API7' aria-expanded="true" aria-controls='collapserequestUserManagement_API7'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API7' aria-expanded="true" aria-controls='collapserequestTenancies_API7'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API7' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API7' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46839,14 +46374,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API8'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API8' aria-expanded="true" aria-controls='collapseUserManagement_API8'>
+                  <h3 class="accordion-header" id='headerTenancies_API8'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API8' data-parent="#accordion">
+                  <div id='collapseTenancies_API8' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API8' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -46867,12 +46402,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API8'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API8' aria-expanded="true" aria-controls='collapserequestUserManagement_API8'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API8'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API8' aria-expanded="true" aria-controls='collapserequestTenancies_API8'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API8' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API8' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API8' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -46982,14 +46517,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API9'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API9' aria-expanded="true" aria-controls='collapseUserManagement_API9'>
+                  <h3 class="accordion-header" id='headerTenancies_API9'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API9' data-parent="#accordion">
+                  <div id='collapseTenancies_API9' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API9' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -47010,12 +46545,12 @@ If you are looking for a simple way to test our API you might prefer our
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API9'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API9' aria-expanded="true" aria-controls='collapserequestUserManagement_API9'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API9'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API9' aria-expanded="true" aria-controls='collapserequestTenancies_API9'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseUserManagement_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API9' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API9' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API9' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -47081,14 +46616,14 @@ If you are looking for a simple way to test our API you might prefer our
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API10'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API10' aria-expanded="true" aria-controls='collapseUserManagement_API10'>
+                  <h3 class="accordion-header" id='headerTenancies_API10'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API10' aria-expanded="true" aria-controls='collapseTenancies_API10'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies:openapi</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseUserManagement_API10' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API10' data-parent="#accordion">
+                  <div id='collapseTenancies_API10' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API10' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -47124,135 +46659,6 @@ If you are looking for a simple way to test our API you might prefer our
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
                             <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API11'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API11' aria-expanded="true" aria-controls='collapseUserManagement_API11'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API11' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
-                      </div>
-                      <h5>List User Tenants</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of tenancies the user has access to.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API11'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API11' aria-expanded="true" aria-controls='collapserequestUserManagement_API11'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseUserManagement_API11' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API11' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "tenants": [
-    {
-      "display_name": "Bobs Tenancy",
-      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
-    },
-    {
-      "display_name": "Alices Tenancy",
-      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
-                                
-                                <tr>
-                                  <th>tenants</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Tenant information for a user.</td>
-                                               
-                                
-                              </tbody>
-                            </table>
-                           
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
                           
                         </tbody>
                       </table>

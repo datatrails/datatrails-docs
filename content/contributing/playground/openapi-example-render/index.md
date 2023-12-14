@@ -15,4 +15,4 @@ sitemap_exclude: true
 robotsdisallow: true
 ---
 
-{{< openapi url="https://raw.githubusercontent.com/rkvst/archivist-docs/master/doc/openapi/subjectsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/subjectsv1.swagger.json" >}}

@@ -69,4 +69,4 @@ curl -v -X PATCH \
 
 ## Tenancies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/tenanciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tenanciesv1.swagger.json" >}}

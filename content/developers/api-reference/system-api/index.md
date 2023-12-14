@@ -86,4 +86,4 @@ The response is:
 
 ## System OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/archivistnodev1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/archivistnodev1.swagger.json" >}}

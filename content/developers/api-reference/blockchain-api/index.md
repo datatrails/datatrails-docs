@@ -85,4 +85,4 @@ Check out our guide for [Verifying Assets and Events with Simple Hash](/develope
 
 ## Blockchain OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/blockchainv1alpha2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/blockchainv1alpha2.swagger.json" >}}

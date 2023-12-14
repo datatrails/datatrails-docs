@@ -70,7 +70,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     SIGNING_KEY="my-signing-key.pem"
 
     # File representing the signed statement to be registered
-    SIGNED_STATEMENT_FILE="signed-statement.txt"
+    SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
     # Feed ID, used to correlate a collection of statements about an artifact
     FEED="my-product-id"
@@ -116,35 +116,18 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
       --output-file $SIGNED_STATEMENT_FILE
 
 1. Register the Statement
-  {{< note >}}
-  Note: The current DataTrails payload must be encased in a json object:
-
-    `{"statement":"<COSE_SIGNED_STATEMENT>"}`
-
-  This will be updated to match the SCITT API ([SCRAPI](https://github.com/ietf-scitt/draft-birkholz-scitt-scrapi/)) in a future release.
-  {{< /note >}}
 
     ```bash
     OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                    -d '{"statement":"'$(cat $SIGNED_STATEMENT_FILE)'"}' \
+                    --data-binary @$SIGNED_STATEMENT_FILE \
                     https://app.datatrails.ai/archivist/v1/publicscitt/entries \
                     | jq -r .operationID)
     ```
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
 
-    ```shell
-    curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
-      | jq
-    ```
-
-1. Retrieve the Entry_ID for registered signed statement
-
-    ```shell
-    ENTRY_ID=$(curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/operations/$OPERATION_ID \
-      | jq -r .operationID)
+    ```bash
+    ENTRY_ID=$(python scitt/check_operation_status.py --operation-id $OPERATION_ID)
     ```
 
 1. Retrieve a SCITT Receipt

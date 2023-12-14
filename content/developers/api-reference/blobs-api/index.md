@@ -96,4 +96,4 @@ The response is:
 
 ## Blobs OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/blobsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/blobsv1.swagger.json" >}}

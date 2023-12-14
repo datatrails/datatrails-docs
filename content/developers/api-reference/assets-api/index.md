@@ -439,4 +439,4 @@ The response is:
 
 ## Asset OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/assetsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/assetsv2.swagger.json" >}}

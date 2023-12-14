@@ -169,4 +169,4 @@ The response is (certificate field shortened for brevity):
 
 ## TLS CA Certificates OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/tlscacertificatesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tlscacertificatesv1.swagger.json" >}}

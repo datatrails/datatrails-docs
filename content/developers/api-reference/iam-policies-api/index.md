@@ -478,4 +478,4 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
 
 ## IAM Policies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/accesspoliciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/accesspoliciesv1.swagger.json" >}}

@@ -131,4 +131,4 @@ The response will be empty.
 
 ## Invites OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/invitesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/invitesv1.swagger.json" >}}

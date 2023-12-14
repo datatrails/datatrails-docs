@@ -134,4 +134,4 @@ Each of these calls returns a list of matching Asset records in the form:
 
 ## Locations OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/archivist-docs-old/master/doc/openapi/locationsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/locationsv2.swagger.json" >}}

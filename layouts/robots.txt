@@ -1,8 +1,4 @@
 User-agent: *
-{{ if eq (hugo.Environment) "production" -}}
-Allow: /
-{{ else -}}
 {{ range where .Data.Pages "Params.robotsdisallow" true }}
 Disallow: {{ .RelPermalink }}{{ end }}
-{{ end }}
 Sitemap: {{ "sitemap.xml" | absURL -}}

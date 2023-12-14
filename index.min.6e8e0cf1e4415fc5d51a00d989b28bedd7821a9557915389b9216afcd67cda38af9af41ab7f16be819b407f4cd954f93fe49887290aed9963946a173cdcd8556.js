@@ -15734,7 +15734,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="iam-policies-openapi-docs">IAM Policies OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -16889,6 +16889,251 @@ If you are looking for a simple way to test our API you might prefer our
                       <h5>Get OpenAPI spec for AccessPolicies</h5>
                       <p><a href=""></a></p>
                       <p>Description: Get OpenAPI v2.0 spec for AccessPolicies</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API to manage Identity Assets AccessPolicies.</p>
+    </div>
+      <div class="accordion" id='IAMAssets_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerIAMAssets_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseIAMAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerIAMAssets_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
+                      </div>
+                      <h5>Get matching access policies</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get matching access policies for specified asset</p>
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseIAMAssets_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAssets_API1' aria-expanded="true" aria-controls='collapserequestIAMAssets_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseIAMAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAssets_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "access_policies": [
+    {
+      "access_permissions": [
+        {
+          "asset_attributes_read": [
+            "attribute1",
+            "attribute2"
+          ],
+          "behaviours": [
+            "behaviour1",
+            "behaviour2"
+          ],
+          "subjects": [
+            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
+            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
+          ],
+          "user_attributes": [
+            {
+              "or": [
+                "group:maintainers",
+                "group:supervisors"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_name": "Some description",
+      "filters": [
+        {
+          "or": [
+            "location=basingstoke",
+            "location=cambridge"
+          ]
+        },
+        {
+          "or": [
+            "asset_type=door_access_reader"
+          ]
+        }
+      ],
+      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>access_policies</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Describes an Access Policy for OBAC</td>
+                                               
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                               
+                                
+                              </tbody>
+                            </table>
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
+                          
+                            <tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerIAMAssets_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API2' aria-expanded="true" aria-controls='collapseIAMAssets_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets:openapi</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseIAMAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerIAMAssets_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for IAM assets AccessPolicies</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for IAM assets AccessPolicies</p>
 
                       
 
@@ -21359,7 +21604,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/tenancies/administrators
 </span></span></code></pre></div><h2 id="tenancies-openapi-docs">Tenancies OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -22558,6 +22803,210 @@ If you are looking for a simple way to test our API you might prefer our
                       <h5>Get OpenAPI spec for Tenancies</h5>
                       <p><a href=""></a></p>
                       <p>Description: Get OpenAPI v2.0 spec for Tenancies</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>Simple API for User Management</p>
+    </div>
+      <div class="accordion" id='UserManagement_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerUserManagement_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
+                      </div>
+                      <h5>List User Tenants</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Returns a list of tenancies the user has access to.</p>
+
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
+  "tenants": [
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
+    }
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                               
+                                
+                                <tr>
+                                  <th>tenants</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Tenant information for a user.</td>
+                                               
+                                
+                              </tbody>
+                            </table>
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
+                          
+                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
+                          
+                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerUserManagement_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users:openapi</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for Users</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for Users</p>
 
                       
 
@@ -39808,7 +40257,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="iam-policies-openapi-docs">IAM Policies OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -40963,6 +41412,251 @@ If you are looking for a simple way to test our API you might prefer our
                       <h5>Get OpenAPI spec for AccessPolicies</h5>
                       <p><a href=""></a></p>
                       <p>Description: Get OpenAPI v2.0 spec for AccessPolicies</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API to manage Identity Assets AccessPolicies.</p>
+    </div>
+      <div class="accordion" id='IAMAssets_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerIAMAssets_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseIAMAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerIAMAssets_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
+                      </div>
+                      <h5>Get matching access policies</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get matching access policies for specified asset</p>
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseIAMAssets_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseIAMAssets_API1' aria-expanded="true" aria-controls='collapserequestIAMAssets_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseIAMAssets_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseIAMAssets_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "access_policies": [
+    {
+      "access_permissions": [
+        {
+          "asset_attributes_read": [
+            "attribute1",
+            "attribute2"
+          ],
+          "behaviours": [
+            "behaviour1",
+            "behaviour2"
+          ],
+          "subjects": [
+            "subjects/9846b867-3e42-4b5d-af56-bcd62c2126d2",
+            "subjects/3907c132-900b-4481-82da-21ffe699ddb9"
+          ],
+          "user_attributes": [
+            {
+              "or": [
+                "group:maintainers",
+                "group:supervisors"
+              ]
+            }
+          ]
+        }
+      ],
+      "display_name": "Some description",
+      "filters": [
+        {
+          "or": [
+            "location=basingstoke",
+            "location=cambridge"
+          ]
+        },
+        {
+          "or": [
+            "asset_type=door_access_reader"
+          ]
+        }
+      ],
+      "identity": "access_policies/08838336-c357-460d-902a-3aba9528dd22"
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>access_policies</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Describes an Access Policy for OBAC</td>
+                                               
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                               
+                                
+                              </tbody>
+                            </table>
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user is not authorized to list the access policy.</td>
+                          
+                            <tr><th>404</th><td>Returned when the identified access policy does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerIAMAssets_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API2' aria-expanded="true" aria-controls='collapseIAMAssets_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets:openapi</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseIAMAssets_API2' class="accordion-collapse collapse" aria-labelledby='headerIAMAssets_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for IAM assets AccessPolicies</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for IAM assets AccessPolicies</p>
 
                       
 
@@ -45433,7 +46127,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/tenancies/administrators
 </span></span></code></pre></div><h2 id="tenancies-openapi-docs">Tenancies OpenAPI Docs</h2>
-
+<p>
  
  
   
@@ -46632,6 +47326,210 @@ If you are looking for a simple way to test our API you might prefer our
                       <h5>Get OpenAPI spec for Tenancies</h5>
                       <p><a href=""></a></p>
                       <p>Description: Get OpenAPI v2.0 spec for Tenancies</p>
+
+                      
+
+                      
+                        
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>Simple API for User Management</p>
+    </div>
+      <div class="accordion" id='UserManagement_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerUserManagement_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
+                      </div>
+                      <h5>List User Tenants</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Returns a list of tenancies the user has access to.</p>
+
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
+  "tenants": [
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
+    }
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                               
+                                
+                                <tr>
+                                  <th>tenants</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Tenant information for a user.</td>
+                                               
+                                
+                              </tbody>
+                            </table>
+                           
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
+                          
+                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
+                          
+                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerUserManagement_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API2' aria-expanded="true" aria-controls='collapseUserManagement_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users:openapi</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseUserManagement_API2' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users:openapi</span></h4>
+                      </div>
+                      <h5>Get OpenAPI spec for Users</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Get OpenAPI v2.0 spec for Users</p>
 
                       
 

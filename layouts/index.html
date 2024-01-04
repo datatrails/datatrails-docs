@@ -1,69 +1,7 @@
 {{ define "main" }}
 <section class="section container-fluid mt-n3 pb-3">
   <div class="row justify-content-center">
-    <div class="col-lg-12 text-center">
-      <h1 class="mt-0">{{ .Title }}</h1>
-    </div>
-    <div class="col-lg-9 col-xl-8 text-center">
-      <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <p class="sublead">{{ .Params.sublead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ "platform/overview/introduction" | relURL }}" role="button">Get started</a>
-    </div>
-  </div>
-</section>
-{{ end }}
-
-{{ define "sidebar-prefooter" }}
-<section class="section section-sm">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem; background: #8976cc;">
-                <div class="card-body">
-                        <h5 class="card-title">Developers</h5>
-                        <p class="card-text">Start adding provenance to your apps and data using our simple APIs</p><br>
-                        <a href="/developers/" class="btn btn-primary">Start Developing</a>
-                </div>
-        </div>
-      </div>
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-      	<div class="card" style="max-width: 25rem;">
-  		        <div class="card-body">
-    			           <h5 class="card-title">Platform</h5>
-    			            <p class="card-text">Learn DataTrails Fundamentals including creating your Assets, adding Events and sharing them</p>
-    			            <a href="/platform/" class="btn btn-primary">Jump In</a>
-  		       </div>
-      	</div>
-      </div>      
-      <div class=" col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-                <div class="card-body">
-                        <h5 class="card-title">Use Cases</h5>
-                        <p class="card-text">Find out how other Users leverage DataTrails to bring automated trust to their business</p>
-                        <a href="/usecases/" class="btn btn-primary">Be Inspired</a>
-                </div>
-        </div>
-      </div>      
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-                <div class="card-body">
-                        <h5 class="card-title">Glossary</h5>
-                        <p class="card-text">We strive for clarity but jargon is unavoidable! Decode ours here.<br><br></p>
-                        <a href="/glossary/" class="btn btn-primary">Find Out</a>
-                </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-
-{{ define "sidebar-footer" }}
-<section class="section section-sm container-fluid">
-  <div class="row justify-content-center text-center">
-    <div class="col-lg-9">
-      {{- .Content -}}
-    </div>
+    <meta http-equiv="refresh" content="0; URL=/platform/overview/introduction" />
   </div>
 </section>
 {{ end }}

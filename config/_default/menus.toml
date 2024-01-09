@@ -86,22 +86,22 @@
 
 [[main]]
   name = "Developers"
-  url = "/developers/"
+  url = "/developers/developer-patterns/getting-access-tokens-using-app-registrations/"
   weight = 20
 
 [[main]]
   name = "Platform"
-  url = "/platform/"
+  url = "/platform/overview/core-concepts/"
   weight = 30
 
 [[main]]
   name = "Use Cases"
-  url = "/usecases/"
+  url = "/usecases/authenticity-and-attestation/"
   weight = 40
 
 [[main]]
   name = "Glossary"
-  url = "/glossary/"
+  url = "/glossary/common-datatrails-terms/"
   weight = 50    
 
 [[main]]

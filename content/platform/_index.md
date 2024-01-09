@@ -14,7 +14,7 @@ aliases:
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
-    <p>The foundations of understanding the DataTrails platform are laid in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering an Event.</p>
+    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering the first Event of your audit trail.</p>
     <p>The Administration section will show you how to manage your Tenancy and control access to your Assets.
     <p> Check out the sub-sections below for more information!</p>
   </div>

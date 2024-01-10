@@ -24437,7 +24437,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/verify-receipts/">Verify DataTrails Receipts &rarr;</a><br>
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
@@ -24450,78 +24449,44 @@ If you are looking for a simple way to test our API you might prefer our
     <p> Check out the sub-sections below for more information!</p>
     </div>
 </div>
-<section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">Developer Patterns</h5>
-             <p class="card-text">Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
-             <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations" class="btn btn-primary">Go to Patterns</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">API Reference</h5>
-            <p class="card-text">The DataTrails REST API endpoint examples and definitions can be found here. The <a href="https://app.datatrails.ai" target="_blank">DataTrails Web interface</a> also contains an interactive Swagger reference for developers.</p>
-            <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
-          </div>
-        </div>
-      </div>
-      <div class=" col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">YAML Runner Reference</h5>
-            <p class="card-text">The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.</p><br>
-            <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
-          </div>
-        </div>
-      </div>
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 20px;">
+  <div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+    <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Developer Patterns &rarr;</a><br>
+    Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
+    <p><a href="/developers/api-reference/app-registrations-api">API Reference &rarr;</a><br>
+    The DataTrails REST API endpoint examples and definitions can be found here.</p>
+    <a href="/developers/yaml-reference/story-runner-components">YAML Runner Reference &rarr;</a><br>
+    The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.
     </div>
   </div>
 </section>
-<div class= "row justify-content-center">
+<section class="section section-sm">
+  <div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
-        <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
+    <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
     </div>
-</div>
+  </div>
+</section>
 `},{id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
-    <p>The foundations of understanding the DataTrails platform are laid in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering an Event.</p>
+    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering the first Event of your audit trail.</p>
     <p>The Administration section will show you how to manage your Tenancy and control access to your Assets.
     <p> Check out the sub-sections below for more information!</p>
-    <section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
-      <div class="container">
-        <div class="row justify-content-left text-center">
-          <div class="col-xs-9 col-sm-11 col-lg-6">
-            <div class="card" style="max-width: 25rem;">
-              <div class="card-body">
-                <h5 class="card-title">Overview</h5>
-                 <p class="card-text">Core concepts and tasks.</p><br>
-                 <a href="/platform/overview/introduction/" class="btn btn-primary">Overview</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-9 col-sm-11 col-lg-6">
-            <div class="card" style="max-width: 25rem;">
-              <div class="card-body">
-               <h5 class="card-title">Administration</h5>
-                <p class="card-text">Create users, set access rights and share Assets.</p>
-                <a href="/platform/administration/identity-and-access-management/" class="btn btn-primary">Administration</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </div>
-`}];console.log("[developers platform]"),e.add({id:0,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 20px;">
+  <div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">    
+    <a href="/platform/overview/introduction/">Overview &rarr;</a><br>
+    Core concepts and tasks<br>
+    <a href="/platform/administration/identity-and-access-management/">Administration &rarr;</a><br>
+    Create users, set access rights and share Assets
+    </div>
+  </div>
+</section>`}];console.log("[developers platform]"),e.add({id:0,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service that continuously proves Who Did What When to any data asset.</p>
 <p>DataTrails enables enterprises to build trust in multi-party Assets, including software, devices, and media ensuring processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
 <p>DataTrails permanently records shared Asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:</p>
 <p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.</p>
@@ -48960,7 +48925,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/verify-receipts/">Verify DataTrails Receipts &rarr;</a><br>
       <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
     </div>
 </div>
@@ -48973,75 +48937,41 @@ If you are looking for a simple way to test our API you might prefer our
     <p> Check out the sub-sections below for more information!</p>
     </div>
 </div>
-<section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">Developer Patterns</h5>
-             <p class="card-text">Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
-             <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations" class="btn btn-primary">Go to Patterns</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">API Reference</h5>
-            <p class="card-text">The DataTrails REST API endpoint examples and definitions can be found here. The <a href="https://app.datatrails.ai" target="_blank">DataTrails Web interface</a> also contains an interactive Swagger reference for developers.</p>
-            <a href="/developers/api-reference/app-registrations-api" class="btn btn-primary">Go to API</a>
-          </div>
-        </div>
-      </div>
-      <div class=" col-xs-9 col-sm-11 col-lg-4">
-        <div class="card" style="max-width: 25rem;">
-          <div class="card-body">
-            <h5 class="card-title">YAML Runner Reference</h5>
-            <p class="card-text">The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.</p><br>
-            <a href="/developers/yaml-reference/story-runner-components" class="btn btn-primary">Go to YAML</a>
-          </div>
-        </div>
-      </div>
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 20px;">
+  <div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">
+    <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Developer Patterns &rarr;</a><br>
+    Go here for information on setting up an App Registration, requesting an Access Token together with other developer concepts and user profile descriptions.</p>
+    <p><a href="/developers/api-reference/app-registrations-api">API Reference &rarr;</a><br>
+    The DataTrails REST API endpoint examples and definitions can be found here.</p>
+    <a href="/developers/yaml-reference/story-runner-components">YAML Runner Reference &rarr;</a><br>
+    The YAML reference contains information and examples for those who work with YAML files and would prefer to use this method to access the API.
     </div>
   </div>
 </section>
-<div class= "row justify-content-center">
+<section class="section section-sm">
+  <div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
-        <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
+    <p>Additional resources are available from our <a href="https://pypi.org/project/datatrails-archivist/" target="_blank">Python SDK</a> and the <a href="https://github.com/datatrails/datatrails-samples" target="_blank">Python Samples</a>.</p>
     </div>
-</div>
+  </div>
+</section>
 `}).add({id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
-    <p>The foundations of understanding the DataTrails platform are laid in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering an Event.</p>
+    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering the first Event of your audit trail.</p>
     <p>The Administration section will show you how to manage your Tenancy and control access to your Assets.
     <p> Check out the sub-sections below for more information!</p>
-    <section class="section section-sm" style="padding-top: 20px; padding-bottom: 50px;">
-      <div class="container">
-        <div class="row justify-content-left text-center">
-          <div class="col-xs-9 col-sm-11 col-lg-6">
-            <div class="card" style="max-width: 25rem;">
-              <div class="card-body">
-                <h5 class="card-title">Overview</h5>
-                 <p class="card-text">Core concepts and tasks.</p><br>
-                 <a href="/platform/overview/introduction/" class="btn btn-primary">Overview</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-9 col-sm-11 col-lg-6">
-            <div class="card" style="max-width: 25rem;">
-              <div class="card-body">
-               <h5 class="card-title">Administration</h5>
-                <p class="card-text">Create users, set access rights and share Assets.</p>
-                <a href="/platform/administration/identity-and-access-management/" class="btn btn-primary">Administration</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </div>
-`}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,i=this.value,s=e.search(i,{limit:10,index:["content"],enrich:!0}),o=suggestions.childNodes,r=s[0].result.length;for(suggestions.classList.remove("d-none"),s[0].result.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.doc.href,t.textContent=e.doc.title,d.textContent=e.doc.description,suggestions.appendChild(n)});o.length>r;)suggestions.removeChild(o[0])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()
+<section class="section section-sm" style="padding-top: 20px; padding-bottom: 20px;">
+  <div class= "row justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-10">    
+    <a href="/platform/overview/introduction/">Overview &rarr;</a><br>
+    Core concepts and tasks<br>
+    <a href="/platform/administration/identity-and-access-management/">Administration &rarr;</a><br>
+    Create users, set access rights and share Assets
+    </div>
+  </div>
+</section>`}),userinput.addEventListener("input",n,!0),suggestions.addEventListener("click",s,!0);function n(){var n,i=this.value,s=e.search(i,{limit:10,index:["content"],enrich:!0}),o=suggestions.childNodes,r=s[0].result.length;for(suggestions.classList.remove("d-none"),s[0].result.forEach(function(e){n=document.createElement("div"),n.innerHTML="<a href><span></span><span></span></a>",a=n.querySelector("a"),t=n.querySelector("span:first-child"),d=n.querySelector("span:nth-child(2)"),a.href=e.doc.href,t.textContent=e.doc.title,d.textContent=e.doc.description,suggestions.appendChild(n)});o.length>r;)suggestions.removeChild(o[0])}function s(){for(;suggestions.lastChild;)suggestions.removeChild(suggestions.lastChild);return!1}})()

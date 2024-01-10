@@ -15,11 +15,12 @@ aliases:
   - /docs/overview/introduction/
 ---
 
-DataTrails provides Provenance as a Service that continuously proves Who Did What When to any data asset.
+DataTrails provides Provenance as a Service that continuously proves Who Did What When to all data types.
 
-DataTrails enables enterprises to build trust in multi-party Assets, including software, devices, and media ensuring processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.
+DataTrails enables enterprises to build trust in data such as documents, images and sound files by ensuring that you know the origin and history of the data that you are using.
+This can also be applied to multi-party Assets such as software and physical items allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.
 
-DataTrails permanently records shared Asset evidence to bring the right level of trust in data for faster, confident decisions with lower business risk by:
+DataTrails permanently records evidence into an **Immutable Audit Trail** to bring the right level of trust in data for faster, confident decisions with lower business risk by combining:
 
 **Metadata Governance** - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.
 
@@ -29,4 +30,6 @@ DataTrails permanently records shared Asset evidence to bring the right level of
 
 **Persistent Integrity** - Create a complete, unbroken, and permanent record of shared Event transactions, delivering continuous assurance for faster digital decisions.
 
-DataTrails delivers assured metadata in a single line of code and makes recording and auditing the full lifecycle of an Asset simple: any authorized participant (including an agent or endpoint on a connected device) can register the Events they know about, from which all participants can see a relevant aggregate picture of the Asset’s maintenance and operational history. By understanding Who Did What When, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of a device and the data it produces.
+
+DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of a piece of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.<br> 
+Users of the data can see a full picture of the data’s origin and history and by understanding *Who Did What When*, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.

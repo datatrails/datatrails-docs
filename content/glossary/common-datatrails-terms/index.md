@@ -19,7 +19,7 @@ Select a term for more information.
 
 | **Term**            | **Definition**                                                                                                       |
 |---------------------|----------------------------------------------------------------------------------------------------------------------|
-| [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/)                | Attribute-Based Access Control; policy that allows you to grant fine-grain access to members of your Tenancy         |
+| [ABAC](/platform/administration/sharing-access-inside-your-tenant/)                | Attribute-Based Access Control; policy that allows you to grant fine-grain access to members of your Tenancy         |
 | [access policy](/platform/overview/core-concepts/#access-policies)       | grants chosen Asset and Event access to stakeholders                                                                 |
 | [actor](/platform/overview/creating-an-asset/)| person/machine/software integration that created a particular entry on the provenance record|
 | [administrator](/developers/developer-patterns/getting-access-tokens-using-app-registrations/#creating-an-app-registration)           | user with permission to see all Asset and Event information within a Tenancy, and to grant access to other users                                   |
@@ -29,7 +29,7 @@ Select a term for more information.
 | [asset ID](/platform/overview/creating-an-asset/)| the permanent unique identifier for an Asset, under which all provenance information (Events) can be found|
 | [audit trail](https://en.wiktionary.org/wiki/audit_trail) | a formal record of activities (Events) that are made against a piece of data (an Asset)|
 | [bearer token](/platform/overview/creating-an-asset/#creating-an-asset)        | access token for DataTrails API; created using Custom Integration credentials                                               |
-| [behaviours](/platform/overview/creating-an-asset/#creating-an-asset)          | detail what class of events in an Asset lifecycle you might wish to record                                           |
+| [behaviors](/platform/overview/creating-an-asset/#creating-an-asset)          | detail what class of events in an Asset lifecycle you might wish to record                                           |
 | [compliance policy](/platform/administration/compliance-policies/)   | user-defined rule sets that Assets can be tested against
 | [custom integration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/#creating-an-app-registration)    | client ID and client secret credentials that are used to access the DataTrails API. Formerly known as an App Registration                                                             |
 | [document hash](/developers/developer-patterns/document-profile/) | cryptographic 'fingerprint' of a file or document that proves it is unmodified|
@@ -41,8 +41,8 @@ Select a term for more information.
 | [integration](/platform/administration/dropbox-integration/) | built-in API functionality that allows DataTrails to connect to third party products such as Dropbox |                                                           |
 | [linked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has been selected to be linked to DataTrails during the configuration of an Integration|
 | [metadata](https://en.wiktionary.org/wiki/metadata) | structured information about a file. In DataTrails this metadata is recorded in the Asset and Event attributes|
-| [OBAC](/platform/administration/sharing-assets-with-obac/)                | Organization-Based Access Control; policy allows sharing with the Administrator of another organization                  |
-| [operation](/platform/overview/creating-an-event-against-an-asset/#creating-events)  | class of Event being erformed                                                                                       |
+| [OBAC](/platform/administration/sharing-access-outside-your-tenant/)                | Organization-Based Access Control; policy allows sharing with the Administrator of another organization                  |
+| [operation](/platform/overview/creating-an-event-against-an-asset/#creating-events)  | class of Event being recorded                                                                                       |
 | [organization](/platform/administration/verified-domain/)| any entity with a distinct DataTrails account who publishes or verifies provenance information on the platform|
 | [proof mechanism](/platform/overview/advanced-concepts/#proof-mechanisms)           | method by which information on the DataTrails blockchain can be verified; selected when an Asset is created                                                                                       |
 | [provenance](https://en.wiktionary.org/wiki/provenance) | the version and ownership history of a piece of data. With DataTrails this is an immutable audit trail to prove Who Did What When to any piece of data  |

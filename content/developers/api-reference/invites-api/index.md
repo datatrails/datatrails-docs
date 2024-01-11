@@ -26,9 +26,9 @@ Invites can be used to invite a new user into a Tenancy to access Assets and Eve
 
 For example, inviting a new member of the organization into their organization's tenancy.
 
-By default, invited users will have no permissions and need to be given access to manage specific Assets and Events using [ABAC policies](/platform/administration/managing-access-to-an-asset-with-abac/) defined by an Administrator.
+By default, invited users will have no permissions and need to be given access to manage specific Assets and Events using [ABAC policies](/platform/administration/sharing-access-inside-your-tenant/) defined by an Administrator.
 
-For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on [OBAC policies](/platform/administration/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
+For sharing Assets and Events to other organizations and tenancies externally, check out our tutorial on [OBAC policies](/platform/administration/sharing-access-outside-your-tenant/) or the [IAM Policies API Reference](../iam-policies-api/).
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 

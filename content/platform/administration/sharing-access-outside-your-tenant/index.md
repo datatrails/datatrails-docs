@@ -15,6 +15,7 @@ aliases:
   - ../quickstart/sharing-assets-with-obac
   - /docs/rkvst-basics/sharing-assets-with-obac/
   - /platform/administration/sharing-assets-with-obac/
+  - /platform/administration/sharing-assets-outside-your-tenant/
 ---
 
 Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.

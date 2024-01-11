@@ -83,7 +83,7 @@ Create an empty file, in later steps we will add the correct JSON.
 When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type of Asset (`Shipping Container`).
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type `Shipping Container` and that is located in the `UK Factory`.
 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
@@ -106,11 +106,15 @@ Following our Shipping Container example, this is how we would set our Asset fil
             "attributes.your_custom_attribute=Your Value>"
         ]},
         { "or": [
+            "attributes.arc_home_location_identity=locations/<location-id>"
+        ]},
+        { "or": [
             "attributes.arc_display_type=Shipping Container"
         ]}
     ]
 }
 ```
+[See here for instructions on finding your location ID.](/platform/administration/grouping-assets-by-location/)
 {{< note >}}
 **Note** We will not use the custom attribute any further as we build the example.
 {{< /note >}}
@@ -178,7 +182,7 @@ Additionally, you may set permissions based on the Custom Claims of an [App Regi
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.<br>Here we are restricting Mandy to the `Name`, `Type`, `Image`, `length` and `weight` of a Shipping Container. She cannot modify the container record and she cannot see the full Audit Trail of Events because she only needs to know that the container does not exceed the maximum length and weight.
+1. Once all relevant details are complete, add the permission group to the policy. You may add multiple permission groups per policy if you wish.<br><br>Here we are restricting Mandy to viewing the `Name`, `Type`, `Image`, `length` and `weight` of Shipping Containers currently located at the UK Factory. She cannot modify the container record and she cannot see the full Audit Trail of Events because she only needs to know that the container does not exceed the maximum length and weight.
 {{< tabs name="complete_policy_abac" >}}
 {{{< tab name="UI" >}}
 Enter desired permissions and select `Add Permission Group`

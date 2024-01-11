@@ -1,23 +1,4 @@
 User-agent: *
+Allow: /
 
-Disallow: /contributing/getting-started/pulling-and-building-rkvst-docs/
-Disallow: /contributing/adding-content/creating-your-branch/
-Disallow: /contributing/adding-content/adding-articles-to-datatrails-docs/
-Disallow: /contributing/adding-content/adding-content-sections-to-datatrails-docs/
-Disallow: /contributing/formatting-content/basic-markdown-formatting/
-Disallow: /contributing/formatting-content/advanced-formatting/
-Disallow: /contributing/formatting-content/style-guide/
-Disallow: /contributing/playground/test-page/
-Disallow: /archive/
-Disallow: /sales/
-Disallow: /support/
-Disallow: /contributing/playground/openapi-example-render/
-Disallow: /contributing/playground/
-Disallow: /contributing/formatting-content/
-Disallow: /contributing/adding-content/
-Disallow: /contributing/
-Disallow: /contributing/getting-started/
-Disallow: /sales/contactus/
-Disallow: /support/contactus/
-Disallow: /archive/verify-receipts/
 Sitemap: https://docs.datatrails.ai/sitemap.xml

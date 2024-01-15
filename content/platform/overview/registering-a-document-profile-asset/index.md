@@ -24,13 +24,6 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 {{< /note >}}
 
 ## Registering a Document
-
-{{< note >}}
-**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
-
-[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
-{{< /note >}}
-
 1. Register your Document
 {{< tabs name="add_asset" >}}
 {{< tab name="UI" >}}
@@ -38,6 +31,10 @@ Using the sidebar, select `Assets & Documents` and then `Register Document`.
 {{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Registering a Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
+{{< note >}}
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
+{{< /note >}}
 The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.

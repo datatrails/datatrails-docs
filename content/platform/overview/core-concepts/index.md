@@ -45,7 +45,7 @@ An Attribute-Based Access Control (ABAC) policy is used to share with Non-Admini
 
 ## The Public View
 
-Every Asset has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Other Assets, such as those that meet the requirements of the [Document Profile](/developers/developer-patterns/document-profile/), have a Public View which is visible to everyone.
+Every Asset has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Other Assets, such as those that meet the requirements of the [Document Profile](/developers/developer-patterns/document-profile/), have a [Public View](/platform/overview/public-attestation/) which is visible to everyone.
 The purpose of this view is to allow anyone to verify that the document that they are using is genuine and has not been altered. When the document Audit Trail is combined with [Instaproof](/platform/overview/instaproof/) a user of your data can easily find out which version of a document they have and confirm that it is genuine.
 
 ## The Golden Thread

@@ -18,9 +18,9 @@
 ## What is domain verification?
 
 Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization's Tenancy has been verified by the DataTrails team, a badge indicating that they have been verified will appear next to their domain name.
-
+{{< img src="Badge.png" alt="Rectangle" caption="<em>The Verified Domain Badge</em>" class="border-0" >}}
 {{< note >}}
-**Note:** Having a verified domain is different from a `Tenant Display Name`. Tenant display names are internal, appearing only within your own Tenancy, and are not visible to anyone you share with. A verified domain name must be set by the DataTrails team, and will be visible to actors outside your Tenancy.
+**Note:** Having a verified domain is different from a [`Tenant Display Name`](/platform/administration/identity-and-access-management/#tenant-display-name). Tenant display names are internal, appearing only within your own Tenancy, and are not visible to anyone you share with. A verified domain name must be set by the DataTrails team, and will be visible to actors outside your Tenancy.
 {{< /note >}}
 
 ## Why is it important to verify my organization's domain?
@@ -35,9 +35,9 @@ Without domain verification, the `Organization` is noted as the publisher's Tena
 
 ## How can I get my organization's domain verified?
 
-The DataTrails team is happy to help you obtain your verified domain badge. Please contact support@datatrails.ai from an email address which includes the domain you wish to verify. For example, email us from @datatrails.ai to verify the datatrails.ai domain.
+The DataTrails team is happy to help you obtain your verified domain badge. Please contact support@datatrails.ai from an email address which includes the domain you wish to verify. For example, email us from @datatrails.ai to verify the datatrails.ai domain. We will send you a confirmation email to make sure that the details are correct.
 
-In order to protect our user community, it is important for us to verify that the person making the request is authorized to do so by the owner of the domain. We will request evidence from you to prove that you own or control the domain in question. Typically, this will be in the form of public company information or domain registration records. Please be prepared to share this evidence with us.
+In order to protect our user community, it is important for us to verify that the person making the request is authorized to do so by the owner of the domain. We will carry out some internal checks based on the information that we have been given and we may request further evidence from you to prove that you own or control the domain in question. Typically, this will be in the form of public company information or domain registration records. Please be prepared to share this evidence with us.
 
 ## Checking the Verified Domain of an External Organization
 

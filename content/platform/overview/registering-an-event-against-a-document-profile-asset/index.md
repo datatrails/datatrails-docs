@@ -34,7 +34,7 @@ These Events track key moments of an Document's lifecycle; details of Who Did Wh
 1. Open the Asset Overview for a Document Profile Asset
 {{< tabs name="add_event" >}}
 {{{< tab name="UI" >}}
-When viewing your Document, you have the choice of ***Add New Version*** (publish a new version), ***Withdraw Document*** (the document has reached End of Life) or ***Record Event*** (any other event that you wish to record).
+When viewing your Document, you have the choice of `Add New Version` (publish a new version), `Withdraw Document` (the document has reached End of Life) or `Record Event` (any other event that you wish to record).
 {{< img src="AssetOverview.png" alt="Rectangle" caption="<em>Document Asset Overview</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

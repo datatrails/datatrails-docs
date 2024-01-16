@@ -16,7 +16,7 @@ aliases:
   - ../quickstart/tutorial
   - /docs/rkvst-basics/creating-an-asset/
 ---
-An Asset can be anything: a connected machine, a shipping container, or even a data set. It can be any physical or digital object with an associated name, description, and attributes.
+An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.
 
 Each Asset will have a history of any actions performed upon it by any actor.
 
@@ -25,24 +25,21 @@ You may share Assets and their history with specific stakeholders using [permiss
 The creation of an Asset is the first Event in its lifecycle. The following steps will guide you in creating your first Asset.
 
 {{< note >}}
-Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more information on Assets.
+**Note:** Please refer to [Core Concepts](/platform/overview/core-concepts/#assets) for more information on Assets.
 {{< /note >}}
 
 ## Creating an Asset
-
-{{< note >}}
-**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
-
-[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
-{{< /note >}}
-
 1. Create your Asset
 {{< tabs name="add_asset" >}}
-{{{< tab name="UI" >}}
+{{< tab name="UI" >}}
 Using the sidebar, select `Assets & Documents` and then `Add Custom Asset`
 {{< img src="AssetRegister.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
+{{< note >}}
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
+{{< /note >}}
 The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
@@ -67,9 +64,9 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< /tab >}}
 {{< /tabs >}}<br>
 
-1. Add details to your new Asset and select a `Proof Mechanism` (currently the only option is `Simple Hash`)
+1. Add details to your new Asset.
 
-    [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
+    The Proof Mechanism [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
     Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Asset.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
@@ -101,7 +98,7 @@ steps:
 {{< tab name="JSON" >}}
 In the file you created earlier, begin adding metadata for your Asset:
 
-* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behaviour for all Assets.
+* `behaviours` detail what class of events in your Asset's lifecycle you might wish to record; `RecordEvidence` is the standard and recommended behavior for all Assets.
 
 ```json
 {
@@ -113,7 +110,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 {{< /tab >}}}
 {{< /tabs >}}<br>
 
-1. At minimum, you will need to add an Asset Name and Asset Type to create an Asset:
+1. As a minimum, you will need to add an Asset Name and Asset Type to create an Asset:
 
    * `Asset Name` - This is the unique name of the Asset i.e. 'My First Container'.
    * `Asset Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Assets you use i.e. if it is a shipping container, the type could be `Shipping Container`, which will then be pre-populated for future Assets to use as their own types.
@@ -122,7 +119,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 {{< img src="AssetCreateUpdate.png" alt="Rectangle" caption="<em>Adding Asset Details</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-The YAML Runner uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The YAML Runner uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type` respectively.
 
 ```yaml
 ---
@@ -144,7 +141,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-The DataTrails API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type`respectively.
+The DataTrails API uses the reserved attributes `arc_display_name` and `arc_display_type`  to represent `Asset Name` and `Asset Type` respectively.
 
 ```json
 {
@@ -162,7 +159,7 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
 1. At this point, you may wish to use the `Advanced Options` tab to add other details to your Asset, including extended attributes or attachments such as PDFs or Thumbnail Images.
 
-    Extended attributes are user-defined and can be added to each unique Asset.
+    **Extended attributes are user-defined** and can be added to each unique Asset.
 
     Not all Assets of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.
 
@@ -333,7 +330,7 @@ curl -g -v -X GET \
 {{< /tabs >}}
 Here we see all details entered: The extended attributes and a history of Events recorded on the Asset.
 {{< note >}}
-**Note:** To update the details of your Asset after it has been created, you must create an Event containing `Asset Attributes`.
+**Note:** After registration, Assets cannot be updated using the asset creation screens but an Asset's `Asset Attributes` can be updated as part of an Event.
 
 For more information on creating Events, [click here.](/platform/overview/creating-an-event-against-an-asset/)
 {{< /note >}}

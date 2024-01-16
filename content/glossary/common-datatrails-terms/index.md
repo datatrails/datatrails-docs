@@ -44,6 +44,8 @@ Select a term for more information.
 | [OBAC](/platform/administration/sharing-access-outside-your-tenant/)                | Organization-Based Access Control; policy allows sharing with the Administrator of another organization                  |
 | [operation](/platform/overview/creating-an-event-against-an-asset/#creating-events)  | class of Event being recorded                                                                                       |
 | [organization](/platform/administration/verified-domain/)| any entity with a distinct DataTrails account who publishes or verifies provenance information on the platform|
+| [principal_accepted](/platform/overview/advanced-concepts/#user-principals-on-events)| the actual user principal information belonging to the credential used to access the DataTrails REST interface|
+| [principal_declared](/platform/overview/advanced-concepts/#user-principals-on-events)| an optional user-supplied value that tells who performed an Event|
 | [proof mechanism](/platform/overview/advanced-concepts/#proof-mechanisms)           | method by which information on the DataTrails blockchain can be verified; selected when an Asset is created                                                                                       |
 | [provenance](https://en.wiktionary.org/wiki/provenance) | the version and ownership history of a piece of data. With DataTrails this is an immutable audit trail to prove Who Did What When to any piece of data  |
 | [public asset](/platform/overview/public-attestation/)        | Assets that can be used to publicly assert data, accessible by URL without the need for a DataTrails account                                                   |
@@ -51,6 +53,9 @@ Select a term for more information.
 | [simple hash](/platform/overview/advanced-concepts/#simple-hash)            | Proof Mechanism that commits information to the DataTrails blockchain in batches; value can confirm that information in the batch has not changed |
 | [tenancy](/platform/overview/core-concepts/#tenancies)             | an organization’s private area within DataTrails, containing Asset and Event data                                         |
 | [tenant display name](/platform/administration/identity-and-access-management/#tenant-display-name) | displayed only within own Tenancy for easy identification and switching |
+| [tenant_accepted](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was actually received on the DataTrails REST interface |
+| [tenant_committed](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was confirmed distributed to all DLT nodes in the value chain |
+| [tenant_declared](/platform/overview/advanced-concepts/#timestamps-on-events) | an optional user-supplied value that tells when an Event happened |
 | [transaction](/developers/developer-patterns/verifying-with-simple-hash/)| final commitment of data to the Distributed Ledger Technology so that it is sealed and cannot be modifed, tampered or erased|
 | [unlinked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has not been selected to be linked to DataTrails during the configuration or reconfiguration of an Integration                                              |
 | [verified domain](/platform/administration/verified-domain/)     | tenancy name visible to others in place of the tenancy ID when viewing the Asset Overview of a public Asset or a shared private Asset. Must be verified by the DataTrails team                                        |

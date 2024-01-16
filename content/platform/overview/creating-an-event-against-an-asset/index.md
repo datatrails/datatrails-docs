@@ -195,7 +195,7 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
 {{< /tabs >}}
 Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined `Weight` attribute.<br><br>
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to DataTrails.<br><br>
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
+There is an option to append [`timestamp_declared`](/platform/overview/advanced-concepts/#timestamps-on-events) and [`principal_declared`](/platform/overview/advanced-concepts/#user-principals-on-events) attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
 Documents and images can be recorded with an Event in the same way as an Asset. This is useful for storing additional material that is linked to the Audit Trail metadata for posterity.<br>For example, each `Inspection` Event can store the documentation for the specific standard used for each container inspection. This allows historical checking of Events and the standard and processes that were applied at the time.
 
 1. Record your Event

@@ -9,7 +9,7 @@
  menu:
    platform:
      parent: "administration"
- weight: 45
+ weight: 46
  toc: true
  aliases: 
   - /docs/beyond-the-basics/compliance-policies/

@@ -21,7 +21,7 @@ DataTrails Assets can be used to track the status, contents, location, and other
 
 ## Create a Container Asset
 
-Creating an Asset to represent a container is the same as creating any other asset. For more detail on this process, please see our [DataTrails Overview guide](/platform/overview/creating-an-asset/). For this example, we will create a simple asset that we will call `Shipping Container`. Note that with DataTrails, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
+A Container Asset is not a special type of asset, it is a label that is given to an Asset that has been created to represent a container. For more detail on the Asset creation process, please see our [DataTrails Overview guide](/platform/overview/creating-an-asset/).<br>For this example, we will create a simple asset that we will call `Shipping Container`. Note that with DataTrails, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.
 
 {{< tabs name="shipping_container_asset" >}}
 {{{< tab name="UI" >}}
@@ -85,7 +85,7 @@ If errors occur, see [Troubleshooting Token Generation](../getting-access-tokens
 
 ## Associate an Item or Container with Another Container
 
-Now that we have created a `Shipping Container` Asset, we can create an Asset to represent an item or container within the Shipping Container. To do this, we will create another Asset and add a custom `Asset Attribute` that links it to our Shipping Container. For example, let's create an Asset to represent a box that is being transported within the Shipping Container.
+Now that we have created a `Shipping Container` Asset, we can create another Asset to represent an item or a box of items that are to be shipped in the Shipping Container. To do this, we will create another Asset and add a custom `Asset Attribute` that links it to our Shipping Container. For example, let's create an Asset to represent a box that is being transported within the Shipping Container.
 
 {{< note >}}
 **Note:** For this example, we used the custom attribute `within_container`, but you could use any key to associate the Assets that does not contain the reserved `arc_` prefix.

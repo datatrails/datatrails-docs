@@ -34,8 +34,6 @@ The `document_` prefix is used to designate attributes that are part of the prof
 | document_status        | Label for filtering and accommodating critical document lifecycle events (Published, Withdrawn)| Optional, enforced when using lifecycle events    |
 | document_portable_name | Formal name or identifier for document that persists across boundaries and throughout versions | Optional, not interpreted by DataTrails |
 
-{{< note >}}
-
 ### Publish Event
 
 Publish a new version of the document using special attributes interpreted by DataTrails for this event type.

@@ -9,7 +9,7 @@
  menu:
    platform:
      parent: "administration"
- weight: 45
+ weight: 46
  toc: true
  aliases: 
   - /docs/beyond-the-basics/compliance-policies/
@@ -21,13 +21,16 @@ Compliance Policies are user-defined rule sets that Assets can be tested against
 
 For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.
 
+As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.
+
 {{< note >}}
-**Note:** Creation and editing of Compliance Policies is only supported through the API.
+**Note:** Creation and editing of Compliance Policies is **only supported through the API**.
 {{< /note >}}
 
 DataTrails allows for several types of Compliance Policies:
 
-1. ***COMPLIANCE_SINCE:*** checks the time elapsed since a specific type of Event has not exceeded set threshold.
+### COMPLIANCE_SINCE
+Checks that the time elapsed since a specific type of Event has not exceeded a defined threshold.
 
 For example, "time since last maintenance must be less than 72 hours".
 
@@ -89,9 +92,12 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. ***COMPLIANCE_CURRENT_OUTSTANDING:*** checks if there is a closing Event addressing an outstanding Event.
+### COMPLIANCE_CURRENT_OUTSTANDING
+Checks if there is a closing Event addressing an outstanding Event.
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
+
+This allows you to identify which closing Event belongs with each opening Event.
 
 {{< note >}}
 **Note:** To properly track and assess Events, the `arc_correlation_value` should be unique to each pair of Events.
@@ -157,7 +163,8 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. ***COMPLIANCE_PERIOD_OUTSTANDING:*** checks if the time between correlated Events does not exceed set threshold.
+### COMPLIANCE_PERIOD_OUTSTANDING
+Checks if the time between correlated Events does not exceed set threshold.
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
 
@@ -227,7 +234,8 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. ***COMPLIANCE_DYNAMIC_TOLERANCE:*** checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.
+### COMPLIANCE_DYNAMIC_TOLERANCE
+Checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.
 
 To correlate Events, define the attribute `arc_correlation_value` in the Event Attributes and set it to the same value on each pair of Events that are to be associated.
 
@@ -301,7 +309,8 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. ***COMPLIANCE_RICHNESS:*** checks whether Attributes are within expected bounds or otherwise meet defined conditions.
+### COMPLIANCE_RICHNESS
+Checks whether Attributes are within expected bounds or otherwise meet defined conditions.
 
 This type of policy uses `richness_assertions`. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.
 
@@ -416,3 +425,35 @@ curl -v -X GET \
 
 {{< /tab >}}}
 {{< /tabs >}}
+<br>
+An example response for a non-compliant Asset
+```bash
+{
+    "compliant": false,
+    "compliance": [
+        {
+            "compliance_policy_identity": "compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76",
+            "compliant": false,
+            "reason": "No events found"
+        }
+    ],
+    "next_page_token": "",
+    "compliant_at": "2024-01-17T10:04:41Z"
+}
+```
+
+An example response for a compliant Asset
+```bash
+{
+    "compliant": true,
+    "compliance": [
+        {
+            "compliance_policy_identity": "compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76",
+            "compliant": true,
+            "reason": ""
+        }
+    ],
+    "next_page_token": "",
+    "compliant_at": "2024-01-17T10:16:12Z"
+}
+```

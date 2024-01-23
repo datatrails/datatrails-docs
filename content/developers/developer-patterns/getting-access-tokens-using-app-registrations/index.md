@@ -16,35 +16,39 @@ aliases:
   - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
-Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` Menu in the DataTrails UI or by using the App Registrations API directly.
+Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` or `Integrations` menus in the DataTrails UI or by using the App Registrations API directly.
 {{< note >}}
-**Note:** App Registration is the previous name for an Integration.
+**Note:** App Registration is the old name for a Custom Integration.
 {{< /note >}}
 
-`Integrations` have a `CLIENT_ID` and `SECRET` used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
+`Custom Integrations` have a `CLIENT_ID` and a `SECRET`, these are used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
 
 DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.
 
 ## Creating a Custom Integration
 
-If you have already saved a `CLIENT_ID` and `SECRET`, with [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
+If you have already saved a `CLIENT_ID` and a `SECRET`, with the correct [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
 
 {{< note >}}
-**Note:** Creating App Registrations requires **Administrator** privileges.  
-If `Settings` does not appear in the navigation, see your DataTrails Administrator for access.
+**Note:** Creating App Registrations requires Tenancy **Administrator** privileges.  
+If `Settings` or `Integrations` does not appear in the navigation, see your DataTrails Administrator for access.
 {{< /note >}}
 
 ### Using the DataTrails App to Create an Integration (First-Time Setup)
 
 1. As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>
 1. Navigate to `Integrations` on the sidebar
-1. The `Integrations` tab will be automatically selected
+1. This opens `Settings` with the `Integrations` tab automatically selected
   {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
 1. Click the `Custom` box to create a Custom Integration
 1. Enter any `Display Name` you'd like
   {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
   {{< note >}}
-  Optionally add any `Custom claims` at this step by clicking the `+ Add` button. Ensure the `Name` _does not start_ with `jit_` (DataTrails reserved names) or use any other [well-known reserved claims](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims).
+  **Note:** Optionally add any `Custom claims` at this step by clicking the `+ Add` button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). *Registered* claims are name/value pairs that are defined by the JWT standard, *Custom* claims are not defined and can have any name/value combination. . 
+
+  Ensure the `Name` _does not start_ with `jit_` or `arc_` (DataTrails reserved names) or use any other well-known reserved claims.
+  
+  See [here](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims) for more information on JWT Claims
   {{< /note >}}  
 1. Once complete, click `Confirm` to complete the custom integration
 1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
@@ -55,13 +59,15 @@ If `Settings` does not appear in the navigation, see your DataTrails Administrat
 
 ### Grant Permissions to Custom Integration
 
-Integrations are secured by default, with no permissions within DataTrails. Create and assign an Access Policy to create and read DataTrails information.
+Integrations are secured by default, with no read or write permissions within your DataTrails Tenancy. This is is important because the alternative would be to allow read/write access to all Assets and Events by default which opens the risk that an application could be maliciously altered to make changes that would not be permitted by the Tenancy Administrator.
+
+Create and assign an Access Policy to control the ability to create and read DataTrails information.
 
 1. Navigate to `Access Policies` on the sidebar
   {{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Access Policies</em>" class="border-0" >}}
 1. Click `CREATE POLICY`, setting the `Name` and `Asset Types`=`*` for all types
   {{< note >}}
-  Asset types can be filtered as needed. List existing `Asset Types` by typing at least two characters of a known type
+  **Note:** Asset types can be filtered as needed. List existing `Asset Types` by typing at least two characters of a known type
   {{< /note >}}
   {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Create Access Policy Form</em>" class="border-0" >}}
 1. Click `Permissions` to set a scope for the policy
@@ -72,7 +78,7 @@ Integrations are secured by default, with no permissions within DataTrails. Crea
   {{< img src="PolicyPermissionActor.png" alt="Rectangle" caption="<em>Filter on User by Subject Identifier using the CLIENT_ID</em>" class="border-0" >}}
 1. Set **Attribute Access** and **Event Visibility** to `All`
   {{< note >}}
-  Each policy can be configured with multiple access rights
+  **Note:** Each policy can be configured with multiple access rights
   {{< /note >}}
   {{< img src="PolicyPermissionAccess.png" alt="Rectangle" caption="<em>Set Attribute Access and Event Visibility</em>" class="border-0" >}}
 1. Click the `ADD PERMISSION GROUP` for this policy
@@ -84,7 +90,7 @@ Having completed the steps at [Creating a Custom Integration](./#creating-a-cust
 
 1. Save the `CLIENT_ID` and `SECRET` saved from above, to local variables
   {{< note >}}
-   You can regenerate the secret, which will invalidate any previous usage
+  **Note:** You can regenerate the secret, which will invalidate the previous credentials
   {{< /note >}}
 
    ```bash
@@ -124,7 +130,7 @@ You can test access to the DataTrails API using any of the standard API calls. G
 
 If successful, you will see a list of the assets the Integration has access to in the tenancy.
 {{< note >}}
-Note this may be an empty response if no assets are being shared with the user; this is an expected secure by default behavior.
+**Note:** This may be an empty response if no assets are being shared with the user; this is an expected *secure by default* behavior.
 {{< /note >}}
 
 Otherwise, check the [Assets OpenAPI Reference](../../api-reference/assets-api/#assets-openapi-reference) for more detailed information on the response codes you may expect if authentication fails and what they mean.
@@ -191,7 +197,7 @@ In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, 
 The header and payload of the `TOKEN` may be examined with the following commands. This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.
 
 {{< warning >}}
-**Warning:** Decoding tokens with an online service exposes details about your DataTrails until you delete the test secret.
+**Warning:** Decoding tokens with an online service exposes details about your DataTrails token credentials. Remember to regenerate the credentials when troubleshooting is complete.
 {{< /warning >}}
 
 1. View the Header

@@ -1,7 +1,7 @@
 ---
-title: "Sharing Assets outside your Tenant"
+title: "Managing External Access to Your Tenant"
 description: "Sharing Assets With Organization-Based Access Control (OBAC)"
-lead: "Sharing Access outside your Tenant"
+lead: "Allowing another organization's Tenant to access to your Audit Trails"
 date: 2021-05-18T15:33:31+01:00
 lastmod: 2021-05-18T15:33:31+01:00
 draft: false
@@ -15,23 +15,32 @@ aliases:
   - ../quickstart/sharing-assets-with-obac
   - /docs/rkvst-basics/sharing-assets-with-obac/
   - /platform/administration/sharing-assets-with-obac/
+  - /platform/administration/sharing-assets-outside-your-tenant/
 ---
 
-Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share assets and events from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.
+Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.
 
-OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC shares only with Administrators of an external organization. The external Administrator must then apply ABAC to establish appropriate access for their own organization's Non-Administrators, should they require the shared assets to be visible.
+OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC only allows sharing between Tenant Administrators. The external Administrator must then apply an ABAC policy within their tenancy to give their own organization's Non-Administrators access to your Audit Trails, where appropriate.
 
 {{< note >}}
-**Pre-requisites:** To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.
+**Note:** To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.
 {{< /note >}}
 
 ## Adding External Organizations to Allow Sharing
 
 In order to share Assets and their details with another organization or Tenancy, we must first import the subject ID of the external organization. The external organization will also need to import your subject ID. The process below shows how to enter an external organization's subject ID and for obtaining your own subject ID.
 
+### Finding Your Own ID
+
+1. As an Administrator, navigate to `Access Policies`
+{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
+1. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
+
+    This string is the one you should share with the Administrator of the other tenancy.
+{{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 ### Importing another Organization's ID
 
-1. Obtain the external organization's subject ID to create a new Subject.
+1. The external organization's Administrator will send you their subject ID. Use this to create a new Subject.
 {{< tabs name="import_subject_obac" >}}
 {{{< tab name="UI" >}}
 As an Administrator, navigate to `Access Policies`.
@@ -53,7 +62,7 @@ echo $SUBJECT_STRING | base64 -d
 Select the Subjects Tab and then `Import Subject`.
 {{< img src="PolicyOBACSubjectImport.png" alt="Rectangle" caption="<em>Importing a Subject</em>" class="border-0" >}}
 
-You will be presented with a form; the `Subject String` is the ID of the organization you wish to share Asset evidence with. The `Name` is a friendly name for you to label the imported organization.
+You will see a form. Enter the subject ID that was sent by the other organization's Administrator into the `Subject String` box. The `Name` box is for you to label the imported organization with a friendly name.
 
 {{< img src="PolicyOBACSubjectAdd.png" alt="Rectangle" caption="<em>Adding the Subject</em>" class="border-0" >}}
 {{< /tab >}}
@@ -83,14 +92,6 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-### Finding Your Own ID
-
-1. As an Administrator, navigate to `Access Policies`
-{{< img src="PolicyManage.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
-1. Select the Subjects Tab and your Organization's ID will be contained within the `Self` box.
-
-    This string is the one you should share with a 3rd Party who wants to share their data with you.
-{{< img src="PolicyOBACSubjectSelf.png" alt="Rectangle" caption="<em>Managing Policies</em>" class="border-0" >}}
 {{< note >}}
 **Note:** The imported subjects will show a grey "disconnected" icon until both sides have imported the other's Subject ID. This acknowledges that the organizations wish to share with each other. Once both organizations have accepted, the grey disconnected icon will no longer show.
 {{< /note >}}
@@ -238,7 +239,7 @@ Add the desired permissions and the Subject ID found in the previous step
     ],
     "access_permissions": [
         {
-            "asset_attributes_read": ["Weight", "arc_display_name", "arc_display_type"],
+            "asset_attributes_read": ["weight", "length", "arc_display_name", "arc_display_type", "arc_primary_image"],
             "subjects": [
                 "subjects/<subject-id>"
             ]
@@ -249,14 +250,14 @@ Add the desired permissions and the Subject ID found in the previous step
 
 {{< /tab >}}}
 {{< /tabs >}}<br>
-    **Note** we have included DataTrails-significant attributes: `arc_display_name` and `arc_display_type`.  
+    **Note** we have included DataTrails-significant attributes: `arc_display_name`, `arc_display_type` and arc_primary_image.  
 `arc_*` attributes have special significance in DataTrails. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
 
 1. Once complete, finish creating the Access Policy
 {{< tabs name="finish_policy_obac" >}}
 {{{< tab name="UI" >}}
 Select `Create Policy`.
-{{< img src="PolicyOBACPermissions.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
+{{< img src="PolicyOBACPermissions2.png" alt="Rectangle" caption="<em>Submitting a Policy</em>" class="border-0" >}}
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
@@ -274,7 +275,7 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. Once complete, check the Asset is shared appropriately; Mandy should only be able to see the `Name` and `Type` of Asset as well as the Asset's custom `Weight` attribute
+1. Once complete, check the Asset is shared appropriately; Mandy should only be able to see the `Name`, `Type` and an `Image` of the container as well as the Asset's custom `weight` and `length` attributes.
 {{< img src="PolicyOBACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as an Administrator of the External Organization</em>" class="border-0" >}}
 By comparison, our Administrator, Jill, can see the full details of the Asset:
 {{< img src="PolicyOBACJillView.png" alt="Rectangle" caption="<em>Jill's view as an Administrator</em>" class="border-0" >}}

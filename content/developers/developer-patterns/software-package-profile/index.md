@@ -47,7 +47,8 @@ The `sbom_` prefix is used to designate attributes that are part of the profile.
 
 ### Public SBOM
 
-You must express `public` as an asset attribute and have `true` as a property to make an SBOM public. The default is 'false'.
+In the API, you must express `public` as an asset attribute and have `true` as a property to make an SBOM public. The default is 'false'.
+In the UI this is done by setting `Attest Publicly` to `On`.
 
 {{< tabs name="create_sbom_public" >}}
 {{{< tab name="UI" >}}

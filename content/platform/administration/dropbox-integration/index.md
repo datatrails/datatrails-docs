@@ -15,7 +15,7 @@ toc: true
 
 ## The Dropbox Integration
 
-Connecting your DataTrails tenancy to your Dropbox account allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.
+Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.
 
 DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox. 
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -37,8 +37,9 @@ If you create a subfolder in Dropbox after the integration has been set up it wi
  If a folder is unlinked for any reason, such by as direct configuration or by being moved, the Audit Trail will stop. Relinking the folder will restart the Audit Trail but we cannot recover any Events that happened while the folder was unlinked.  
 {{< /note >}}
 {{< note >}}
-**Note:** DataTrails uses <em>xxx...</em> to mask the file name and file path in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because DataTrails is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
+**Note:** DataTrails uses <em>xxx...</em> to mask the file name and file path in the public view on Instaproof. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because DataTrails is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
 Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.
+
 {{< /note >}}
 
 ### Connecting DataTrails to Dropbox

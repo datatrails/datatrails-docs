@@ -6888,7 +6888,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API1' aria-expanded="true" aria-controls='collapseAppRegistrations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -6896,7 +6896,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List applications for the user&#39;s tenant</h5>
                       <p><a href=""></a></p>
@@ -7037,7 +7037,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API2' aria-expanded="true" aria-controls='collapseAppRegistrations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -7045,7 +7045,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Registers a new application</h5>
                       <p><a href=""></a></p>
@@ -7241,7 +7241,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API3' aria-expanded="true" aria-controls='collapseAppRegistrations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7249,7 +7249,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an application</h5>
                       <p><a href=""></a></p>
@@ -7307,7 +7307,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API4' aria-expanded="true" aria-controls='collapseAppRegistrations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7315,7 +7315,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Fetch an application record</h5>
                       <p><a href=""></a></p>
@@ -7463,7 +7463,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API5' aria-expanded="true" aria-controls='collapseAppRegistrations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7471,7 +7471,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update an existing application</h5>
                       <p><a href=""></a></p>
@@ -7625,7 +7625,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API6' aria-expanded="true" aria-controls='collapseAppRegistrations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}:regenerate-secret</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:regenerate-secret</span>
                         </div>
                       </button>
                   </h3>
@@ -7633,7 +7633,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}:regenerate-secret</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}:regenerate-secret</span></h4>
                       </div>
                       <h5>Regenerate the client secret for an application</h5>
                       <p><a href=""></a></p>
@@ -7774,10 +7774,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -8104,7 +8100,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -8112,7 +8108,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -8287,7 +8283,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -8295,7 +8291,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -8571,7 +8567,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -8579,7 +8575,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -8713,6 +8709,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -8751,7 +8754,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -8825,7 +8828,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -8833,7 +8836,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -8934,7 +8937,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -8942,7 +8945,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -9135,7 +9138,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -9143,7 +9146,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -9372,7 +9375,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -9380,7 +9383,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -9542,6 +9545,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -9580,7 +9590,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -9638,7 +9648,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -9646,7 +9656,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -9738,10 +9748,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -9813,7 +9819,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API1' aria-expanded="true" aria-controls='collapseAttachments_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -9821,7 +9827,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an event attachment.</h5>
                       <p><a href=""></a></p>
@@ -9889,7 +9895,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API2' aria-expanded="true" aria-controls='collapseAttachments_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -9897,7 +9903,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -10087,7 +10093,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API3' aria-expanded="true" aria-controls='collapseAttachments_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -10095,7 +10101,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an asset attachment.</h5>
                       <p><a href=""></a></p>
@@ -10161,7 +10167,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API4' aria-expanded="true" aria-controls='collapseAttachments_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -10169,7 +10175,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -10439,7 +10445,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API1' aria-expanded="true" aria-controls='collapseBlobs_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -10447,7 +10453,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/blobs</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Upload.</h5>
                       <p><a href=""></a></p>
@@ -10637,7 +10643,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API2' aria-expanded="true" aria-controls='collapseBlobs_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -10645,7 +10651,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Download.</h5>
                       <p><a href=""></a></p>
@@ -10709,7 +10715,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API3' aria-expanded="true" aria-controls='collapseBlobs_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -10717,7 +10723,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve blob metadata.</h5>
                       <p><a href=""></a></p>
@@ -10896,10 +10902,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -10984,7 +10986,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlockChain_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -10992,7 +10994,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>List of Blockchain Transactions associated with an event.</h5>
                       <p><a href=""></a></p>
@@ -11432,7 +11434,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -11440,7 +11442,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>List all compliance status relevant to an asset</h5>
                       <p><a href=""></a></p>
@@ -11599,7 +11601,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -11607,7 +11609,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -11741,7 +11743,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -11749,7 +11751,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -12061,7 +12063,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -12069,7 +12071,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -12254,7 +12256,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -12262,7 +12264,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -12440,10 +12442,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -12833,7 +12831,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -12841,7 +12839,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -13016,7 +13014,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -13024,7 +13022,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -13300,7 +13298,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -13308,7 +13306,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -13442,6 +13440,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -13480,7 +13485,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -13554,7 +13559,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -13562,7 +13567,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -13663,7 +13668,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -13671,7 +13676,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -13864,7 +13869,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -13872,7 +13877,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -14101,7 +14106,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -14109,7 +14114,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -14271,6 +14276,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -14309,7 +14321,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -14367,7 +14379,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -14375,7 +14387,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -14465,10 +14477,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -14875,7 +14883,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -14883,7 +14891,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List access policies</h5>
                       <p><a href=""></a></p>
@@ -15045,7 +15053,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -15053,7 +15061,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an access policy</h5>
                       <p><a href=""></a></p>
@@ -15346,7 +15354,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15354,7 +15362,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an access policy</h5>
                       <p><a href=""></a></p>
@@ -15420,7 +15428,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15428,7 +15436,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an access policy</h5>
                       <p><a href=""></a></p>
@@ -15613,7 +15621,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15621,7 +15629,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a access policy details</h5>
                       <p><a href=""></a></p>
@@ -15812,7 +15820,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -15820,7 +15828,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/assets</span></h4>
                       </div>
                       <h5>Returns assets matching access policy</h5>
                       <p><a href=""></a></p>
@@ -15988,10 +15996,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -16016,7 +16020,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -16024,7 +16028,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/access_policies</span></h4>
                       </div>
                       <h5>Get matching access policies</h5>
                       <p><a href=""></a></p>
@@ -16322,7 +16326,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API1' aria-expanded="true" aria-controls='collapseIAMSubjects_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -16330,7 +16334,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List subjects</h5>
                       <p><a href=""></a></p>
@@ -16462,7 +16466,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API2' aria-expanded="true" aria-controls='collapseIAMSubjects_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -16470,7 +16474,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an subject</h5>
                       <p><a href=""></a></p>
@@ -16687,7 +16691,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API3' aria-expanded="true" aria-controls='collapseIAMSubjects_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16695,7 +16699,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a subject</h5>
                       <p><a href=""></a></p>
@@ -16761,7 +16765,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API4' aria-expanded="true" aria-controls='collapseIAMSubjects_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16769,7 +16773,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an subject</h5>
                       <p><a href=""></a></p>
@@ -16927,7 +16931,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API5' aria-expanded="true" aria-controls='collapseIAMSubjects_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16935,7 +16939,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a subject&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -17331,7 +17335,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API1' aria-expanded="true" aria-controls='collapseInvites_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -17339,7 +17343,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List invites</h5>
                       <p><a href=""></a></p>
@@ -17464,7 +17468,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API2' aria-expanded="true" aria-controls='collapseInvites_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -17472,7 +17476,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an invite</h5>
                       <p><a href=""></a></p>
@@ -17648,7 +17652,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API3' aria-expanded="true" aria-controls='collapseInvites_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -17656,7 +17660,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an invite</h5>
                       <p><a href=""></a></p>
@@ -17722,7 +17726,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API4' aria-expanded="true" aria-controls='collapseInvites_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -17730,7 +17734,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an invite</h5>
                       <p><a href=""></a></p>
@@ -17854,10 +17858,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -17971,7 +17971,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -17979,7 +17979,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List locations</h5>
                       <p><a href=""></a></p>
@@ -18122,7 +18122,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -18130,7 +18130,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create a location</h5>
                       <p><a href=""></a></p>
@@ -18368,7 +18368,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18376,7 +18376,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a location</h5>
                       <p><a href=""></a></p>
@@ -18434,7 +18434,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18442,7 +18442,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get a location</h5>
                       <p><a href=""></a></p>
@@ -18599,7 +18599,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18607,7 +18607,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a location&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -18770,7 +18770,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -18778,7 +18778,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Get location permissions</h5>
                       <p><a href=""></a></p>
@@ -18888,7 +18888,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -18896,7 +18896,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Patch location permissions</h5>
                       <p><a href=""></a></p>
@@ -19001,10 +19001,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -19206,7 +19202,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -19214,7 +19210,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event for public asset</h5>
                       <p><a href=""></a></p>
@@ -19348,6 +19344,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -19386,7 +19389,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -19448,7 +19451,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -19456,7 +19459,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific public Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -19644,7 +19647,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -19652,7 +19655,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events for a public asset</h5>
                       <p><a href=""></a></p>
@@ -19952,7 +19955,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API1' aria-expanded="true" aria-controls='collapseArchivistNode_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -19960,7 +19963,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Get information about an archivist node</h5>
                       <p><a href=""></a></p>
@@ -20107,7 +20110,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API2' aria-expanded="true" aria-controls='collapseArchivistNode_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode/block</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/block</span>
                         </div>
                       </button>
                   </h3>
@@ -20115,7 +20118,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode/block</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/block</span></h4>
                       </div>
                       <h5>Get a block given a block hash or block number.</h5>
                       <p><a href=""></a></p>
@@ -20401,7 +20404,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
@@ -20409,7 +20412,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/invitetokenhint</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/invitetokenhint</span></h4>
                       </div>
                       <h5>Create an invite token</h5>
                       <p><a href=""></a></p>
@@ -20513,7 +20516,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -20521,7 +20524,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
                       </div>
                       <h5>Fetch the current list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -20618,7 +20621,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -20626,7 +20629,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
                       </div>
                       <h5>Update the list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -20782,7 +20785,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
                         </div>
                       </button>
                   </h3>
@@ -20790,7 +20793,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/self</span></h4>
                       </div>
                       <h5>Get tenant record</h5>
                       <p><a href=""></a></p>
@@ -20911,7 +20914,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
                         </div>
                       </button>
                   </h3>
@@ -20919,7 +20922,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/self</span></h4>
                       </div>
                       <h5>Update tenant record</h5>
                       <p><a href=""></a></p>
@@ -21050,7 +21053,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenantid</span>
                         </div>
                       </button>
                   </h3>
@@ -21058,7 +21061,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/tenantid</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenantid</span></h4>
                       </div>
                       <h5>Get ID of tenant associated with issuer and/or subject, and create if not exists.</h5>
                       <p><a href=""></a></p>
@@ -21185,7 +21188,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users</span>
                         </div>
                       </button>
                   </h3>
@@ -21193,7 +21196,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/users</span></h4>
                       </div>
                       <h5>List Users</h5>
                       <p><a href=""></a></p>
@@ -21323,7 +21326,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -21331,7 +21334,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users/{user_uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/users/{user_uuid}</span></h4>
                       </div>
                       <h5>Deletes User</h5>
                       <p><a href=""></a></p>
@@ -21457,16 +21460,12 @@ If you are looking for a simple way to test our API you might prefer our
     
         
           
-      
-    
-        
-          
           
                 <div class="accordion-item">
                   <h3 class="accordion-header" id='headerTenancies_API9'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
@@ -21474,7 +21473,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/{uuid}:publicinfo</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicinfo</span></h4>
                       </div>
                       <h5>Public Tenant Information.</h5>
                       <p><a href=""></a></p>
@@ -21582,7 +21581,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerUserManagement_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenants</span>
                         </div>
                       </button>
                   </h3>
@@ -21590,7 +21589,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenants</span></h4>
                       </div>
                       <h5>List User Tenants</h5>
                       <p><a href=""></a></p>
@@ -21822,7 +21821,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API1' aria-expanded="true" aria-controls='collapseTLSCACertificates_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -21830,7 +21829,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List TLS CA certificates</h5>
                       <p><a href=""></a></p>
@@ -21953,7 +21952,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API2' aria-expanded="true" aria-controls='collapseTLSCACertificates_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -21961,7 +21960,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Upload a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -22133,7 +22132,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API3' aria-expanded="true" aria-controls='collapseTLSCACertificates_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22141,7 +22140,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a TLS C Acertificate</h5>
                       <p><a href=""></a></p>
@@ -22207,7 +22206,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API4' aria-expanded="true" aria-controls='collapseTLSCACertificates_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22215,7 +22214,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -22336,7 +22335,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API5' aria-expanded="true" aria-controls='collapseTLSCACertificates_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22344,7 +22343,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a TLS CA certificate&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -22462,10 +22461,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -29977,7 +29972,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API1' aria-expanded="true" aria-controls='collapseAppRegistrations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -29985,7 +29980,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List applications for the user&#39;s tenant</h5>
                       <p><a href=""></a></p>
@@ -30126,7 +30121,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API2' aria-expanded="true" aria-controls='collapseAppRegistrations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -30134,7 +30129,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Registers a new application</h5>
                       <p><a href=""></a></p>
@@ -30330,7 +30325,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API3' aria-expanded="true" aria-controls='collapseAppRegistrations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30338,7 +30333,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an application</h5>
                       <p><a href=""></a></p>
@@ -30396,7 +30391,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API4' aria-expanded="true" aria-controls='collapseAppRegistrations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30404,7 +30399,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Fetch an application record</h5>
                       <p><a href=""></a></p>
@@ -30552,7 +30547,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API5' aria-expanded="true" aria-controls='collapseAppRegistrations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30560,7 +30555,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update an existing application</h5>
                       <p><a href=""></a></p>
@@ -30714,7 +30709,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API6' aria-expanded="true" aria-controls='collapseAppRegistrations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}:regenerate-secret</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:regenerate-secret</span>
                         </div>
                       </button>
                   </h3>
@@ -30722,7 +30717,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}:regenerate-secret</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}:regenerate-secret</span></h4>
                       </div>
                       <h5>Regenerate the client secret for an application</h5>
                       <p><a href=""></a></p>
@@ -30863,10 +30858,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -31193,7 +31184,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -31201,7 +31192,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -31376,7 +31367,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -31384,7 +31375,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -31660,7 +31651,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -31668,7 +31659,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -31802,6 +31793,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -31840,7 +31838,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -31914,7 +31912,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -31922,7 +31920,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -32023,7 +32021,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -32031,7 +32029,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -32224,7 +32222,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -32232,7 +32230,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -32461,7 +32459,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -32469,7 +32467,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -32631,6 +32629,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -32669,7 +32674,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -32727,7 +32732,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -32735,7 +32740,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -32827,10 +32832,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -32902,7 +32903,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API1' aria-expanded="true" aria-controls='collapseAttachments_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -32910,7 +32911,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an event attachment.</h5>
                       <p><a href=""></a></p>
@@ -32978,7 +32979,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API2' aria-expanded="true" aria-controls='collapseAttachments_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -32986,7 +32987,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -33176,7 +33177,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API3' aria-expanded="true" aria-controls='collapseAttachments_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -33184,7 +33185,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an asset attachment.</h5>
                       <p><a href=""></a></p>
@@ -33250,7 +33251,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API4' aria-expanded="true" aria-controls='collapseAttachments_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -33258,7 +33259,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -33528,7 +33529,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API1' aria-expanded="true" aria-controls='collapseBlobs_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -33536,7 +33537,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/blobs</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Upload.</h5>
                       <p><a href=""></a></p>
@@ -33726,7 +33727,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API2' aria-expanded="true" aria-controls='collapseBlobs_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -33734,7 +33735,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Download.</h5>
                       <p><a href=""></a></p>
@@ -33798,7 +33799,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API3' aria-expanded="true" aria-controls='collapseBlobs_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -33806,7 +33807,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve blob metadata.</h5>
                       <p><a href=""></a></p>
@@ -33985,10 +33986,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -34073,7 +34070,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlockChain_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -34081,7 +34078,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>List of Blockchain Transactions associated with an event.</h5>
                       <p><a href=""></a></p>
@@ -34521,7 +34518,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -34529,7 +34526,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>List all compliance status relevant to an asset</h5>
                       <p><a href=""></a></p>
@@ -34688,7 +34685,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -34696,7 +34693,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -34830,7 +34827,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -34838,7 +34835,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -35150,7 +35147,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -35158,7 +35155,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -35343,7 +35340,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -35351,7 +35348,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -35529,10 +35526,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -35922,7 +35915,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -35930,7 +35923,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -36105,7 +36098,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -36113,7 +36106,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -36389,7 +36382,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -36397,7 +36390,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -36531,6 +36524,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -36569,7 +36569,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -36643,7 +36643,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -36651,7 +36651,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -36752,7 +36752,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -36760,7 +36760,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -36953,7 +36953,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -36961,7 +36961,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -37190,7 +37190,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -37198,7 +37198,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -37360,6 +37360,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -37398,7 +37405,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -37456,7 +37463,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -37464,7 +37471,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -37554,10 +37561,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -37964,7 +37967,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -37972,7 +37975,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List access policies</h5>
                       <p><a href=""></a></p>
@@ -38134,7 +38137,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -38142,7 +38145,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an access policy</h5>
                       <p><a href=""></a></p>
@@ -38435,7 +38438,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38443,7 +38446,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an access policy</h5>
                       <p><a href=""></a></p>
@@ -38509,7 +38512,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38517,7 +38520,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an access policy</h5>
                       <p><a href=""></a></p>
@@ -38702,7 +38705,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38710,7 +38713,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a access policy details</h5>
                       <p><a href=""></a></p>
@@ -38901,7 +38904,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -38909,7 +38912,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/assets</span></h4>
                       </div>
                       <h5>Returns assets matching access policy</h5>
                       <p><a href=""></a></p>
@@ -39077,10 +39080,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -39105,7 +39104,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -39113,7 +39112,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/access_policies</span></h4>
                       </div>
                       <h5>Get matching access policies</h5>
                       <p><a href=""></a></p>
@@ -39411,7 +39410,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API1' aria-expanded="true" aria-controls='collapseIAMSubjects_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -39419,7 +39418,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List subjects</h5>
                       <p><a href=""></a></p>
@@ -39551,7 +39550,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API2' aria-expanded="true" aria-controls='collapseIAMSubjects_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -39559,7 +39558,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an subject</h5>
                       <p><a href=""></a></p>
@@ -39776,7 +39775,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API3' aria-expanded="true" aria-controls='collapseIAMSubjects_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -39784,7 +39783,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a subject</h5>
                       <p><a href=""></a></p>
@@ -39850,7 +39849,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API4' aria-expanded="true" aria-controls='collapseIAMSubjects_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -39858,7 +39857,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an subject</h5>
                       <p><a href=""></a></p>
@@ -40016,7 +40015,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API5' aria-expanded="true" aria-controls='collapseIAMSubjects_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40024,7 +40023,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a subject&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -40420,7 +40419,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API1' aria-expanded="true" aria-controls='collapseInvites_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -40428,7 +40427,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List invites</h5>
                       <p><a href=""></a></p>
@@ -40553,7 +40552,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API2' aria-expanded="true" aria-controls='collapseInvites_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -40561,7 +40560,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create an invite</h5>
                       <p><a href=""></a></p>
@@ -40737,7 +40736,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API3' aria-expanded="true" aria-controls='collapseInvites_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40745,7 +40744,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete an invite</h5>
                       <p><a href=""></a></p>
@@ -40811,7 +40810,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API4' aria-expanded="true" aria-controls='collapseInvites_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40819,7 +40818,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get an invite</h5>
                       <p><a href=""></a></p>
@@ -40943,10 +40942,6 @@ If you are looking for a simple way to test our API you might prefer our
         
       
     
-        
-          
-      
-    
 
 
 
@@ -41060,7 +41055,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -41068,7 +41063,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List locations</h5>
                       <p><a href=""></a></p>
@@ -41211,7 +41206,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -41219,7 +41214,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Create a location</h5>
                       <p><a href=""></a></p>
@@ -41457,7 +41452,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41465,7 +41460,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a location</h5>
                       <p><a href=""></a></p>
@@ -41523,7 +41518,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41531,7 +41526,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get a location</h5>
                       <p><a href=""></a></p>
@@ -41688,7 +41683,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41696,7 +41691,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a location&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -41859,7 +41854,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -41867,7 +41862,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Get location permissions</h5>
                       <p><a href=""></a></p>
@@ -41977,7 +41972,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -41985,7 +41980,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Patch location permissions</h5>
                       <p><a href=""></a></p>
@@ -42090,10 +42085,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 
@@ -42295,7 +42286,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -42303,7 +42294,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event for public asset</h5>
                       <p><a href=""></a></p>
@@ -42437,6 +42428,13 @@ If you are looking for a simple way to test our API you might prefer our
                                                
                                 
                                 <tr>
+                                  <th>merklelog_entry</th>
+                                  <td>object</td>
+                                  
+                                    <td>verifiable merkle mmr log entry details</td>
+                                               
+                                
+                                <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
@@ -42475,7 +42473,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
-                                    <td>time of event as recorded on blockchain</td>
+                                    <td>time of event as recorded in verifiable storage</td>
                                                
                                 
                                 <tr>
@@ -42537,7 +42535,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -42545,7 +42543,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific public Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -42733,7 +42731,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -42741,7 +42739,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events for a public asset</h5>
                       <p><a href=""></a></p>
@@ -43041,7 +43039,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API1' aria-expanded="true" aria-controls='collapseArchivistNode_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -43049,7 +43047,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Get information about an archivist node</h5>
                       <p><a href=""></a></p>
@@ -43196,7 +43194,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API2' aria-expanded="true" aria-controls='collapseArchivistNode_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode/block</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/block</span>
                         </div>
                       </button>
                   </h3>
@@ -43204,7 +43202,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode/block</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/block</span></h4>
                       </div>
                       <h5>Get a block given a block hash or block number.</h5>
                       <p><a href=""></a></p>
@@ -43490,7 +43488,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
@@ -43498,7 +43496,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/invitetokenhint</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/invitetokenhint</span></h4>
                       </div>
                       <h5>Create an invite token</h5>
                       <p><a href=""></a></p>
@@ -43602,7 +43600,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -43610,7 +43608,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
                       </div>
                       <h5>Fetch the current list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -43707,7 +43705,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -43715,7 +43713,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
                       </div>
                       <h5>Update the list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -43871,7 +43869,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
                         </div>
                       </button>
                   </h3>
@@ -43879,7 +43877,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/self</span></h4>
                       </div>
                       <h5>Get tenant record</h5>
                       <p><a href=""></a></p>
@@ -44000,7 +43998,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
                         </div>
                       </button>
                   </h3>
@@ -44008,7 +44006,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/self</span></h4>
                       </div>
                       <h5>Update tenant record</h5>
                       <p><a href=""></a></p>
@@ -44139,7 +44137,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenantid</span>
                         </div>
                       </button>
                   </h3>
@@ -44147,7 +44145,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/tenantid</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenantid</span></h4>
                       </div>
                       <h5>Get ID of tenant associated with issuer and/or subject, and create if not exists.</h5>
                       <p><a href=""></a></p>
@@ -44274,7 +44272,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users</span>
                         </div>
                       </button>
                   </h3>
@@ -44282,7 +44280,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/users</span></h4>
                       </div>
                       <h5>List Users</h5>
                       <p><a href=""></a></p>
@@ -44412,7 +44410,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -44420,7 +44418,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users/{user_uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/users/{user_uuid}</span></h4>
                       </div>
                       <h5>Deletes User</h5>
                       <p><a href=""></a></p>
@@ -44546,16 +44544,12 @@ If you are looking for a simple way to test our API you might prefer our
     
         
           
-      
-    
-        
-          
           
                 <div class="accordion-item">
                   <h3 class="accordion-header" id='headerTenancies_API9'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
@@ -44563,7 +44557,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/{uuid}:publicinfo</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicinfo</span></h4>
                       </div>
                       <h5>Public Tenant Information.</h5>
                       <p><a href=""></a></p>
@@ -44671,7 +44665,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerUserManagement_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenants</span>
                         </div>
                       </button>
                   </h3>
@@ -44679,7 +44673,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenants</span></h4>
                       </div>
                       <h5>List User Tenants</h5>
                       <p><a href=""></a></p>
@@ -44911,7 +44905,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API1' aria-expanded="true" aria-controls='collapseTLSCACertificates_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -44919,7 +44913,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>List TLS CA certificates</h5>
                       <p><a href=""></a></p>
@@ -45042,7 +45036,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API2' aria-expanded="true" aria-controls='collapseTLSCACertificates_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
                         </div>
                       </button>
                   </h3>
@@ -45050,7 +45044,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
                       </div>
                       <h5>Upload a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -45222,7 +45216,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API3' aria-expanded="true" aria-controls='collapseTLSCACertificates_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45230,7 +45224,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Delete a TLS C Acertificate</h5>
                       <p><a href=""></a></p>
@@ -45296,7 +45290,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API4' aria-expanded="true" aria-controls='collapseTLSCACertificates_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45304,7 +45298,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Get a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -45425,7 +45419,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API5' aria-expanded="true" aria-controls='collapseTLSCACertificates_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45433,7 +45427,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
                       </div>
                       <h5>Update a TLS CA certificate&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -45551,10 +45545,6 @@ If you are looking for a simple way to test our API you might prefer our
                 </div>
               </div>
         
-      
-    
-        
-          
       
     
 

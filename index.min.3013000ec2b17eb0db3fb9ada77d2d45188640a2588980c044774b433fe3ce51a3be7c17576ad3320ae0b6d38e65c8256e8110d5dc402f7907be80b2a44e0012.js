@@ -1840,14 +1840,15 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`},{id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
+`},{id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
+<p>This allows you to check for yourself, and prove to others, that any attestations that you made have not been changed since they were recorded in DataTrails.</p>
 <p>To verify your data, you may use the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the DataTrails blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of DataTrails, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
 <h2 id="step-by-step-guide-for-using-the-simple-hash-tool">Step-by-Step Guide for Using the Simple Hash Tool</h2>
 <ol>
-<li>Retrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of Events.</li>
-</ol>
+<li>
+<p>Retrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of Events.</p>
 <blockquote class="note callout">
     <div><strong></strong> For Public Assets, retrieve the transaction information from the public view of the Asset and Events, or from the 
 <a href="/developers/api-reference/public-assets-api/">Public Assets Endpoint</a>.</div>
@@ -1861,36 +1862,40 @@ Please see the
 		</li></ul>
 <div class="tab-content" id="retrieve-transaction-info"><div id="retrieve-transaction-info-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="retrieve-transaction-info-0">
 <p>Select <code>Audit/Filters</code> from the sidebar and select a <code>Transaction</code> from the Events Overview List.</p>
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#AuditSearch" img class="img-fluid responsive" src="/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png" width="1750" height="602" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png" width="1750" height="602" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Audit/Search</em></figcaption>
-</figure>
-<div class="modal fade" id="AuditSearch" tabindex="-1" aria-labelledby="AuditSearch" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
+   <figure class="border-0">
+<pre><code> &lt;input type=&quot;image&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#AuditSearch&quot; img class=&quot;img-fluid responsive&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png&quot; width=&quot;1750&quot; height=&quot;602&quot; data-sizes=&quot;auto&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; alt=&quot;Rectangle&quot;&gt;
+ &lt;noscript&gt;&lt;img class=&quot;img-fluid&quot; sizes=&quot;100vw&quot; srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;&lt;/noscript&gt;
+ &lt;figcaption class=&quot;figure-caption&quot;&gt;&lt;em&gt;Audit/Search&lt;/em&gt;&lt;/figcaption&gt;
 </code></pre>
-  </div>
-</div>
+   </figure>
+   <div class="modal fade" id="AuditSearch" tabindex="-1" aria-labelledby="AuditSearch" aria-hidden="true">
+     <div class="modal-dialog modal-xl">
+<pre><code>     &lt;div class=&quot;modal-body&quot;&gt;
+       
+       &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;
+     &lt;/div&gt;
+ 
+ &lt;/div&gt;
+</code></pre>
+   </div>
 <p>Copy the <code>start time</code> and <code>end time</code> from the Simple Hash Details. These will be used as inputs to the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>.</p>
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#SimpleHashDetails" img class="img-fluid responsive" src="/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png" width="1007" height="388" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png" width="1007" height="388" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Simple Hash Details</em></figcaption>
-</figure>
-<div class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
+   <figure class="border-0">
+<pre><code> &lt;input type=&quot;image&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#SimpleHashDetails&quot; img class=&quot;img-fluid responsive&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png&quot; width=&quot;1007&quot; height=&quot;388&quot; data-sizes=&quot;auto&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; alt=&quot;Rectangle&quot;&gt;
+ &lt;noscript&gt;&lt;img class=&quot;img-fluid&quot; sizes=&quot;100vw&quot; srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;&lt;/noscript&gt;
+ &lt;figcaption class=&quot;figure-caption&quot;&gt;&lt;em&gt;Simple Hash Details&lt;/em&gt;&lt;/figcaption&gt;
 </code></pre>
-  </div>
-</div>
+   </figure>
+   <div class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true">
+     <div class="modal-dialog modal-xl">
+<pre><code>     &lt;div class=&quot;modal-body&quot;&gt;
+       
+       &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;
+     &lt;/div&gt;
+ 
+ &lt;/div&gt;
+</code></pre>
+   </div>
 </div>
   <div id="retrieve-transaction-info-1" class="tab-pane fade" role="tabpanel" aria-labelledby="retrieve-transaction-info-1">
 <p>The 
@@ -1904,10 +1909,10 @@ Please see the
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>.</p>
 </div></div>
 
-<ol>
-<li>Use the 
-<a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a> to generate the hash of your Events.</li>
-</ol>
+</li>
+<li>
+<p>Use the 
+<a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a> to generate the hash of your Events.</p>
 <ul class="nav nav-tabs" id="simple-hash-script" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#simple-hash-script-0" type="button" role="tab" aria-controls="simple-hash-script-0" aria-selected="true">Python</button>
 		</li>
@@ -1941,7 +1946,7 @@ Please see the
 </span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;simplehash=&#34;</span><span class="p">,</span> <span class="n">simplehash</span><span class="p">)</span>
 </span></span></code></pre></div><p>Run your Python file to return the hash value.</p>
-<blockquote class="note callout">
+   <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> SimpleHashClientAuthError is raised if the auth token is invalid or expired.</div>
   </blockquote>
 </div>
@@ -1976,13 +1981,15 @@ Please see the
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">deactivate
 </span></span><span class="line"><span class="cl">rm -rf simplehash-venv
-</span></span></code></pre></div><blockquote class="note callout">
+</span></span></code></pre></div>   <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> If you are using an environment other than <code>app.datatrails.ai</code>, add the URL with the <code>--fqdn</code> option. For example, <code>--fqdn &quot;app.datatrails-poc.ai&quot;</code>.</div>
   </blockquote>
 </div></div>
 
-<ol>
-<li>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</li>
+</li>
+<li>
+<p>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</p>
+</li>
 </ol>
 `},{id:9,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <p>As it builds on the standard DataTrails asset the same processes are used for 
@@ -2500,12 +2507,6 @@ The Trust data:</p>
 </tr>
 </tbody>
 </table>
-<blockquote class="note callout">
-    <div><strong></strong> <h5 id="uploading-documents-as-attachments">Uploading Documents as Attachments</h5>
-<p>For more detailed information on Attachments and how to implement them, please refer to 
-<a href="../../api-reference/blobs-api/">the Blobs API Reference</a> and 
-<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></p></div>
-  </blockquote>
 <h3 id="publish-event">Publish Event</h3>
 <p>Publish a new version of the document using special attributes interpreted by DataTrails for this event type.</p>
 <table>
@@ -2578,6 +2579,8 @@ The Trust data:</p>
 </tbody>
 </table>
 <h3 id="withdraw-event">Withdraw Event</h3>
+<p>If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.
+Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in DataTrails by publishing a new version.</p>
 <p>Withdraw an entire document (mark that it is no longer considered current.)</p>
 <table>
 <thead>
@@ -3044,13 +3047,9 @@ The Overview tab shows the details of the Event including the version and docume
 </li>
 </ol>
 `},{id:12,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
-<p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
-<p>In its 
-<a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom" target="_blank" rel="noopener">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its 
-<a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf" target="_blank" rel="noopener">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
-<p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
-<p>As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.</p>
-<p>If a particular Software Package has constituent components composed of other Software Package Assets this would be tracked within the SBOM of the component Supplied Software Package, ensuring full traceability across the Supply Chain.</p>
+<p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that enable the recording of an immutable and verifiable Software Bill of Materials (SBOM).</p>
+<p>The 
+<a href="https://www.ntia.gov/sites/default/files/publications/sbom_faq_-_20201116_0.pdf" target="_blank" rel="noopener">NTIA</a> describes a SBOM as &ldquo;<em>a formal record containing the details and supply chain relationships of various components used in building software.</em>&rdquo;</p>
 <h2 id="software-package-profile-asset-attributes">Software Package Profile Asset Attributes</h2>
 <table>
 <thead>
@@ -3118,7 +3117,8 @@ The Overview tab shows the details of the Event including the version and docume
 </div>
   </blockquote>
 <h3 id="public-sbom">Public SBOM</h3>
-<p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
+<p>In the API, you must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.
+In the UI this is done by setting <code>Attest Publicly</code> to <code>On</code>.</p>
 <ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
 		</li>
@@ -24924,14 +24924,15 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`}).add({id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure the information you have at a given time has not changed.</p>
+`}).add({id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
+<p>This allows you to check for yourself, and prove to others, that any attestations that you made have not been changed since they were recorded in DataTrails.</p>
 <p>To verify your data, you may use the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>, available on GitHub.</p>
 <p>Please note that with Simple Hash, Events are committed to the DataTrails blockchain as a batch. Events with the blue tick have been committed to the blockchain as part of a batch, and will have a <code>Transaction ID</code>. With the free tier of DataTrails, Simple Hash batched commits happen every 30 days by default. For Public Assets, batched commits happen each day. If the tick mark is grey, your event has been confirmed in the system but not yet committed to the blockchain. <strong>Your event(s) must have a blue tick for transaction details to be available for data verification.</strong></p>
 <h2 id="step-by-step-guide-for-using-the-simple-hash-tool">Step-by-Step Guide for Using the Simple Hash Tool</h2>
 <ol>
-<li>Retrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of Events.</li>
-</ol>
+<li>
+<p>Retrieve your transaction information. This will give you the inputs you need in later steps to check the hash for that batch of Events.</p>
 <blockquote class="note callout">
     <div><strong></strong> For Public Assets, retrieve the transaction information from the public view of the Asset and Events, or from the 
 <a href="/developers/api-reference/public-assets-api/">Public Assets Endpoint</a>.</div>
@@ -24945,36 +24946,40 @@ Please see the
 		</li></ul>
 <div class="tab-content" id="retrieve-transaction-info"><div id="retrieve-transaction-info-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="retrieve-transaction-info-0">
 <p>Select <code>Audit/Filters</code> from the sidebar and select a <code>Transaction</code> from the Events Overview List.</p>
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#AuditSearch" img class="img-fluid responsive" src="/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png" width="1750" height="602" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png" width="1750" height="602" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Audit/Search</em></figcaption>
-</figure>
-<div class="modal fade" id="AuditSearch" tabindex="-1" aria-labelledby="AuditSearch" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
+   <figure class="border-0">
+<pre><code> &lt;input type=&quot;image&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#AuditSearch&quot; img class=&quot;img-fluid responsive&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png&quot; width=&quot;1750&quot; height=&quot;602&quot; data-sizes=&quot;auto&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; alt=&quot;Rectangle&quot;&gt;
+ &lt;noscript&gt;&lt;img class=&quot;img-fluid&quot; sizes=&quot;100vw&quot; srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch.png&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;&lt;/noscript&gt;
+ &lt;figcaption class=&quot;figure-caption&quot;&gt;&lt;em&gt;Audit/Search&lt;/em&gt;&lt;/figcaption&gt;
 </code></pre>
-  </div>
-</div>
+   </figure>
+   <div class="modal fade" id="AuditSearch" tabindex="-1" aria-labelledby="AuditSearch" aria-hidden="true">
+     <div class="modal-dialog modal-xl">
+<pre><code>     &lt;div class=&quot;modal-body&quot;&gt;
+       
+       &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/AuditSearch_hufcb3e0917fb361796421cfb6571efa9e_112790_200x0_resize_box_3.png 200w&quot; width=&quot;1750&quot; height=&quot;602&quot; alt=&quot;Rectangle&quot;&gt;
+     &lt;/div&gt;
+ 
+ &lt;/div&gt;
+</code></pre>
+   </div>
 <p>Copy the <code>start time</code> and <code>end time</code> from the Simple Hash Details. These will be used as inputs to the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>.</p>
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#SimpleHashDetails" img class="img-fluid responsive" src="/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png" width="1007" height="388" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png" width="1007" height="388" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Simple Hash Details</em></figcaption>
-</figure>
-<div class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
+   <figure class="border-0">
+<pre><code> &lt;input type=&quot;image&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#SimpleHashDetails&quot; img class=&quot;img-fluid responsive&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png&quot; width=&quot;1007&quot; height=&quot;388&quot; data-sizes=&quot;auto&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; alt=&quot;Rectangle&quot;&gt;
+ &lt;noscript&gt;&lt;img class=&quot;img-fluid&quot; sizes=&quot;100vw&quot; srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails.png&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;&lt;/noscript&gt;
+ &lt;figcaption class=&quot;figure-caption&quot;&gt;&lt;em&gt;Simple Hash Details&lt;/em&gt;&lt;/figcaption&gt;
 </code></pre>
-  </div>
-</div>
+   </figure>
+   <div class="modal fade" id="SimpleHashDetails" tabindex="-1" aria-labelledby="SimpleHashDetails" aria-hidden="true">
+     <div class="modal-dialog modal-xl">
+<pre><code>     &lt;div class=&quot;modal-body&quot;&gt;
+       
+       &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/SimpleHashDetails_hu57fadfec7755f009e69702bdc2a8800f_54919_200x0_resize_box_3.png 200w&quot; width=&quot;1007&quot; height=&quot;388&quot; alt=&quot;Rectangle&quot;&gt;
+     &lt;/div&gt;
+ 
+ &lt;/div&gt;
+</code></pre>
+   </div>
 </div>
   <div id="retrieve-transaction-info-1" class="tab-pane fade" role="tabpanel" aria-labelledby="retrieve-transaction-info-1">
 <p>The 
@@ -24988,10 +24993,10 @@ Please see the
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>.</p>
 </div></div>
 
-<ol>
-<li>Use the 
-<a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a> to generate the hash of your Events.</li>
-</ol>
+</li>
+<li>
+<p>Use the 
+<a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a> to generate the hash of your Events.</p>
 <ul class="nav nav-tabs" id="simple-hash-script" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#simple-hash-script-0" type="button" role="tab" aria-controls="simple-hash-script-0" aria-selected="true">Python</button>
 		</li>
@@ -25025,7 +25030,7 @@ Please see the
 </span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;simplehash=&#34;</span><span class="p">,</span> <span class="n">simplehash</span><span class="p">)</span>
 </span></span></code></pre></div><p>Run your Python file to return the hash value.</p>
-<blockquote class="note callout">
+   <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> SimpleHashClientAuthError is raised if the auth token is invalid or expired.</div>
   </blockquote>
 </div>
@@ -25060,13 +25065,15 @@ Please see the
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">deactivate
 </span></span><span class="line"><span class="cl">rm -rf simplehash-venv
-</span></span></code></pre></div><blockquote class="note callout">
+</span></span></code></pre></div>   <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> If you are using an environment other than <code>app.datatrails.ai</code>, add the URL with the <code>--fqdn</code> option. For example, <code>--fqdn &quot;app.datatrails-poc.ai&quot;</code>.</div>
   </blockquote>
 </div></div>
 
-<ol>
-<li>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</li>
+</li>
+<li>
+<p>Compare the hash from your <code>Transaction Details</code> to the hash generated by the tool. If they match, your Event history has not changed.</p>
+</li>
 </ol>
 `}).add({id:9,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <p>As it builds on the standard DataTrails asset the same processes are used for 
@@ -25584,12 +25591,6 @@ The Trust data:</p>
 </tr>
 </tbody>
 </table>
-<blockquote class="note callout">
-    <div><strong></strong> <h5 id="uploading-documents-as-attachments">Uploading Documents as Attachments</h5>
-<p>For more detailed information on Attachments and how to implement them, please refer to 
-<a href="../../api-reference/blobs-api/">the Blobs API Reference</a> and 
-<a href="../../api-reference/events-api/#adding-attachments">the Attachments section of the Events API</a></p></div>
-  </blockquote>
 <h3 id="publish-event">Publish Event</h3>
 <p>Publish a new version of the document using special attributes interpreted by DataTrails for this event type.</p>
 <table>
@@ -25662,6 +25663,8 @@ The Trust data:</p>
 </tbody>
 </table>
 <h3 id="withdraw-event">Withdraw Event</h3>
+<p>If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.
+Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in DataTrails by publishing a new version.</p>
 <p>Withdraw an entire document (mark that it is no longer considered current.)</p>
 <table>
 <thead>
@@ -26128,13 +26131,9 @@ The Overview tab shows the details of the Event including the version and docume
 </li>
 </ol>
 `}).add({id:12,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
-<p>Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.</p>
-<p>In its 
-<a href="https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom" target="_blank" rel="noopener">recommendations for the minimum required elements of an SBOM</a>, the NTIA identifies the need to balance transparency with access controls (&quot;<em>SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place</em>&quot;), and illustrates in its 
-<a href="https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf" target="_blank" rel="noopener">NTIA SBOM Proof of Concept</a> the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.</p>
-<p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.</p>
-<p>As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.</p>
-<p>If a particular Software Package has constituent components composed of other Software Package Assets this would be tracked within the SBOM of the component Supplied Software Package, ensuring full traceability across the Supply Chain.</p>
+<p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that enable the recording of an immutable and verifiable Software Bill of Materials (SBOM).</p>
+<p>The 
+<a href="https://www.ntia.gov/sites/default/files/publications/sbom_faq_-_20201116_0.pdf" target="_blank" rel="noopener">NTIA</a> describes a SBOM as &ldquo;<em>a formal record containing the details and supply chain relationships of various components used in building software.</em>&rdquo;</p>
 <h2 id="software-package-profile-asset-attributes">Software Package Profile Asset Attributes</h2>
 <table>
 <thead>
@@ -26202,7 +26201,8 @@ The Overview tab shows the details of the Event including the version and docume
 </div>
   </blockquote>
 <h3 id="public-sbom">Public SBOM</h3>
-<p>You must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.</p>
+<p>In the API, you must express <code>public</code> as an asset attribute and have <code>true</code> as a property to make an SBOM public. The default is &lsquo;false&rsquo;.
+In the UI this is done by setting <code>Attest Publicly</code> to <code>On</code>.</p>
 <ul class="nav nav-tabs" id="create_sbom_public" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#create_sbom_public-0" type="button" role="tab" aria-controls="create_sbom_public-0" aria-selected="true">UI</button>
 		</li>

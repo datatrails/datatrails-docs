@@ -34,13 +34,6 @@ The `document_` prefix is used to designate attributes that are part of the prof
 | document_status        | Label for filtering and accommodating critical document lifecycle events (Published, Withdrawn)| Optional, enforced when using lifecycle events    |
 | document_portable_name | Formal name or identifier for document that persists across boundaries and throughout versions | Optional, not interpreted by DataTrails |
 
-{{< note >}}
-
-##### Uploading Documents as Attachments
-
-For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](../../api-reference/blobs-api/) and [the Attachments section of the Events API](../../api-reference/events-api/#adding-attachments)
-{{< /note >}}
-
 ### Publish Event
 
 Publish a new version of the document using special attributes interpreted by DataTrails for this event type.
@@ -77,6 +70,9 @@ You must express `document_version_authors` as a list of objects that have `disp
 | document_version      | Version string for the this version of the document                            | Optional                                        |
 
 ### Withdraw Event
+
+If a document is no longer required, or if for any reason it is decided that it should no longer be used, then a document can be withdrawn.
+Withdrawal is optional and it is usually the final event in the document lifecycle. It can be reversed in DataTrails by publishing a new version.
 
 Withdraw an entire document (mark that it is no longer considered current.)
 

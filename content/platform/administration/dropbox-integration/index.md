@@ -37,9 +37,9 @@ If you create a subfolder in Dropbox after the integration has been set up it wi
  If a folder is unlinked for any reason, such by as direct configuration or by being moved, the Audit Trail will stop. Relinking the folder will restart the Audit Trail but we cannot recover any Events that happened while the folder was unlinked.  
 {{< /note >}}
 {{< note >}}
-**Note:** DataTrails uses <em>xxx...</em> to mask the file name and file path in the public view on Instaproof. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because DataTrails is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
-Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.
-
+**Note:** DataTrails masks the file path and replaces the filename with the Asset ID in the public Asset view that is returned by Instaproof. This is intentional so that private information cannot be accidentally released via the Instaproof search results.<br>
+Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.<br>
+The permissioned view that is seen by an administrator who is logged into a tenancy will show the file name and the file path.
 {{< /note >}}
 
 ### Connecting DataTrails to Dropbox

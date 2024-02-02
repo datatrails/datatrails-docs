@@ -32,7 +32,7 @@ The creation of an Asset is the first Event in its lifecycle. The following step
 1. Create your Asset
 {{< tabs name="add_asset" >}}
 {{< tab name="UI" >}}
-Using the sidebar, select `Assets & Documents` and then `Add Custom Asset`
+Using the sidebar, select `Assets & Documents` and then `Register Asset`
 {{< img src="AssetRegister.png" alt="Rectangle" caption="<em>Adding an Asset</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

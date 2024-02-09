@@ -1,4 +1,4 @@
-<!-- 
+<!--
 hugo OpenAPI reference documentation generator
 Params:
   url: the public URL of the OpenAPI .json specification
@@ -33,7 +33,7 @@ where fileName is the file's name with `.json` removed from the end
                   <h3 class="accordion-header" id='header{{ $componentID }}{{ $.Scratch.Get "id" }}'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapse{{ $componentID }}{{ $.Scratch.Get "id" }}' aria-expanded="true" aria-controls='collapse{{ $componentID }}{{ $.Scratch.Get "id" }}'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">{{ $path }}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">{{ $openapi.basePath }}{{ strings.TrimSuffix "/" $path }}</span>
                         </div>
                       </button>
                   </h3>
@@ -41,7 +41,7 @@ where fileName is the file's name with `.json` removed from the end
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span>{{ $path }}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">{{ $pathMethod }}</span>&nbsp;&nbsp;<span>{{ $openapi.basePath }}{{ strings.TrimSuffix "/" $path }}</span></h4>
                       </div>
                       <h5>{{ $pathDetails.summary }}</h5>
                       <p><a href="{{ $pathDetails.externalDocs.url }}">{{ $pathDetails.externalDocs.description}}</a></p>
@@ -87,9 +87,9 @@ where fileName is the file's name with `.json` removed from the end
                                       <td>{{$requestSubExample.description | markdownify}}</td>
                                     {{ else }}
                                       <td>{{ $requestParameterDetails.description | markdownify }}</td>
-                                    {{ end }}                     
+                                    {{ end }}
                                   {{ end }}
-                                </tbody> 
+                                </tbody>
                               </table>
                             {{ else }}
                             <table class="table table-striped table-bordered">
@@ -107,11 +107,11 @@ where fileName is the file's name with `.json` removed from the end
                                   <th>{{ $pathParameter.name | markdownify}}</th>
                                   <td>{{ $pathParameter.type | markdownify }}</td>
                                   <td>{{ $pathParameter.required | markdownify }}</td>
-                                  <td>{{ $pathParameter.description | markdownify }}</td>             
+                                  <td>{{ $pathParameter.description | markdownify }}</td>
                                 {{ end }}
                               </tbody>
                             </table>
-                          {{ end }} 
+                          {{ end }}
                         {{ end }}
                       {{ end }}
 
@@ -155,11 +155,11 @@ where fileName is the file's name with `.json` removed from the end
                                     <td>{{$responseSubExample.description | markdownify}}</td>
                                   {{ else }}
                                     <td>{{ $responseParameterDetails.description | markdownify }}</td>
-                                  {{ end }}             
+                                  {{ end }}
                                 {{ end }}
                               </tbody>
                             </table>
-                          {{ end }} 
+                          {{ end }}
                         {{ end }}
                       {{ end }}
 

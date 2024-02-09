@@ -6902,7 +6902,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API1' aria-expanded="true" aria-controls='collapseAppRegistrations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
                         </div>
                       </button>
                   </h3>
@@ -6910,7 +6910,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
                       </div>
                       <h5>List applications for the user&#39;s tenant</h5>
                       <p><a href=""></a></p>
@@ -6998,18 +6998,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single application used for machine authentication</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Pagination token. Empty on first request. On subsequent requests copied from response.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -7051,7 +7051,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API2' aria-expanded="true" aria-controls='collapseAppRegistrations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
                         </div>
                       </button>
                   </h3>
@@ -7059,7 +7059,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
                       </div>
                       <h5>Registers a new application</h5>
                       <p><a href=""></a></p>
@@ -7100,18 +7100,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>Custom claims to add to Application for use in access policies.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Human-readable display name for this Application.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -7165,7 +7165,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -7175,39 +7175,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -7255,7 +7255,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API3' aria-expanded="true" aria-controls='collapseAppRegistrations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7263,7 +7263,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Delete an application</h5>
                       <p><a href=""></a></p>
@@ -7275,7 +7275,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -7321,7 +7321,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API4' aria-expanded="true" aria-controls='collapseAppRegistrations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7329,7 +7329,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Fetch an application record</h5>
                       <p><a href=""></a></p>
@@ -7389,7 +7389,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -7399,39 +7399,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -7477,7 +7477,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API5' aria-expanded="true" aria-controls='collapseAppRegistrations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -7485,7 +7485,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Update an existing application</h5>
                       <p><a href=""></a></p>
@@ -7549,7 +7549,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -7559,39 +7559,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -7639,7 +7639,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API6' aria-expanded="true" aria-controls='collapseAppRegistrations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:regenerate-secret</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}:regenerate-secret</span>
                         </div>
                       </button>
                   </h3>
@@ -7647,7 +7647,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}:regenerate-secret</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}:regenerate-secret</span></h4>
                       </div>
                       <h5>Regenerate the client secret for an application</h5>
                       <p><a href=""></a></p>
@@ -7707,7 +7707,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -7717,39 +7717,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -8114,7 +8114,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -8122,7 +8122,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -8240,18 +8240,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -8297,7 +8297,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -8305,7 +8305,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -8364,39 +8364,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of event attributes</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>behaviours</th>
                                     <td>array</td>
                                     
                                       <td>list of behaviours enabled for this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>chain_id</th>
                                     <td>string</td>
                                     
                                       <td>chain id of the blockchain associated with this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>proof_mechanism</th>
                                     <td>string</td>
                                     
                                       <td>specify the mechanism used to provide evidential proof for Events on this Asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>public</th>
                                     <td>boolean</td>
                                     
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -8459,81 +8459,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -8581,7 +8581,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -8589,7 +8589,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -8671,130 +8671,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -8842,7 +8842,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -8850,7 +8850,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -8899,11 +8899,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -8951,7 +8951,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -8959,7 +8959,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -9030,81 +9030,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -9152,7 +9152,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -9160,7 +9160,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -9332,18 +9332,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -9389,7 +9389,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -9397,7 +9397,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -9423,17 +9423,17 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>uuid</th>
                                   <td>string</td>
                                   <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>             
+                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
                                 
                                 <tr>
                                   <th>body</th>
                                   <td></td>
                                   <td>true</td>
-                                  <td></td>             
+                                  <td></td>
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -9507,130 +9507,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -9662,7 +9662,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -9670,7 +9670,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -9717,11 +9717,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -9833,7 +9833,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API1' aria-expanded="true" aria-controls='collapseAttachments_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -9841,7 +9841,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an event attachment.</h5>
                       <p><a href=""></a></p>
@@ -9857,7 +9857,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -9909,7 +9909,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API2' aria-expanded="true" aria-controls='collapseAttachments_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -9917,7 +9917,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -9981,81 +9981,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -10107,7 +10107,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API3' aria-expanded="true" aria-controls='collapseAttachments_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -10115,7 +10115,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an asset attachment.</h5>
                       <p><a href=""></a></p>
@@ -10129,7 +10129,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -10181,7 +10181,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API4' aria-expanded="true" aria-controls='collapseAttachments_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -10189,7 +10189,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -10251,81 +10251,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -10459,7 +10459,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API1' aria-expanded="true" aria-controls='collapseBlobs_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs</span>
                         </div>
                       </button>
                   </h3>
@@ -10467,7 +10467,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/blobs</span></h4>
                       </div>
                       <h5>Upload.</h5>
                       <p><a href=""></a></p>
@@ -10527,81 +10527,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -10657,7 +10657,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API2' aria-expanded="true" aria-controls='collapseBlobs_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -10665,7 +10665,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}</span></h4>
                       </div>
                       <h5>Download.</h5>
                       <p><a href=""></a></p>
@@ -10677,7 +10677,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -10729,7 +10729,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API3' aria-expanded="true" aria-controls='collapseBlobs_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -10737,7 +10737,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve blob metadata.</h5>
                       <p><a href=""></a></p>
@@ -10797,81 +10797,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -11000,7 +11000,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlockChain_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -11008,7 +11008,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>List of Blockchain Transactions associated with an event.</h5>
                       <p><a href=""></a></p>
@@ -11091,7 +11091,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transactions</th>
@@ -11101,11 +11101,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -11448,7 +11448,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -11456,7 +11456,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
                       </div>
                       <h5>List all compliance status relevant to an asset</h5>
                       <p><a href=""></a></p>
@@ -11521,32 +11521,32 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>simple compliance status against a compliance policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliant</th>
                                   <td>boolean</td>
                                   
                                     <td>overall compliance status for the asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliant_at</th>
                                   <td>string</td>
                                   
                                     <td>time at which compliance is determined</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -11615,7 +11615,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -11623,7 +11623,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -11700,18 +11700,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>compliance policy</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -11757,7 +11757,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -11765,7 +11765,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -11822,56 +11822,56 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>closing_event_display_type</th>
                                     <td>string</td>
                                     
                                       <td>this is the correlated event type</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>compliance_type</th>
                                     <td></td>
                                     
                                       <td>policy type</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Customer description of the compliance policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>display name</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>dynamic_variability</th>
                                     <td>number</td>
                                     
                                       <td>number of standard deviations - required for DYNAMIC_TOLERANCE</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>dynamic_window</th>
                                     <td>string</td>
                                     
                                       <td>valid period for policy - required for DYNAMIC_TOLERANCE</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>event_display_type</th>
                                     <td>string</td>
                                     
                                       <td>this is the target event_display_type - always required</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>richness_assertions</th>
@@ -11881,18 +11881,18 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>time_period_seconds</th>
                                     <td>string</td>
                                     
                                       <td>time delta - required for SINCE and PERIOD_OUTSTANDING</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -11948,63 +11948,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -12014,18 +12014,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -12077,7 +12077,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -12085,7 +12085,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -12147,63 +12147,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -12213,18 +12213,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -12270,7 +12270,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -12278,7 +12278,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -12340,63 +12340,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -12406,18 +12406,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -12845,7 +12845,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -12853,7 +12853,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -12971,18 +12971,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -13028,7 +13028,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -13036,7 +13036,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -13095,39 +13095,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of event attributes</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>behaviours</th>
                                     <td>array</td>
                                     
                                       <td>list of behaviours enabled for this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>chain_id</th>
                                     <td>string</td>
                                     
                                       <td>chain id of the blockchain associated with this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>proof_mechanism</th>
                                     <td>string</td>
                                     
                                       <td>specify the mechanism used to provide evidential proof for Events on this Asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>public</th>
                                     <td>boolean</td>
                                     
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -13190,81 +13190,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -13312,7 +13312,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -13320,7 +13320,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -13402,130 +13402,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -13573,7 +13573,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -13581,7 +13581,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -13630,11 +13630,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -13682,7 +13682,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -13690,7 +13690,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -13761,81 +13761,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -13883,7 +13883,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -13891,7 +13891,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -14063,18 +14063,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -14120,7 +14120,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -14128,7 +14128,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -14154,17 +14154,17 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>uuid</th>
                                   <td>string</td>
                                   <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>             
+                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
                                 
                                 <tr>
                                   <th>body</th>
                                   <td></td>
                                   <td>true</td>
-                                  <td></td>             
+                                  <td></td>
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -14238,130 +14238,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -14393,7 +14393,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -14401,7 +14401,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -14448,11 +14448,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -14897,7 +14897,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -14905,7 +14905,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
                       </div>
                       <h5>List access policies</h5>
                       <p><a href=""></a></p>
@@ -15006,18 +15006,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes an Access Policy for OBAC</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -15067,7 +15067,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -15075,7 +15075,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
                       </div>
                       <h5>Create an access policy</h5>
                       <p><a href=""></a></p>
@@ -15159,21 +15159,21 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Permissions</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Customer description for the access policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the access policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>filters</th>
@@ -15183,11 +15183,11 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -15270,21 +15270,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -15294,25 +15294,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -15368,7 +15368,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15376,7 +15376,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Delete an access policy</h5>
                       <p><a href=""></a></p>
@@ -15388,7 +15388,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -15442,7 +15442,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15450,7 +15450,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Get an access policy</h5>
                       <p><a href=""></a></p>
@@ -15539,21 +15539,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -15563,25 +15563,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -15635,7 +15635,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -15643,7 +15643,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Update a access policy details</h5>
                       <p><a href=""></a></p>
@@ -15736,21 +15736,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -15760,25 +15760,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -15834,7 +15834,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -15842,7 +15842,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}/assets</span></h4>
                       </div>
                       <h5>Returns assets matching access policy</h5>
                       <p><a href=""></a></p>
@@ -15950,18 +15950,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -16034,7 +16034,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -16042,7 +16042,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
                       </div>
                       <h5>Get matching access policies</h5>
                       <p><a href=""></a></p>
@@ -16137,18 +16137,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes an Access Policy for OBAC</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -16340,7 +16340,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API1' aria-expanded="true" aria-controls='collapseIAMSubjects_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
                         </div>
                       </button>
                   </h3>
@@ -16348,7 +16348,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
                       </div>
                       <h5>List subjects</h5>
                       <p><a href=""></a></p>
@@ -16416,7 +16416,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subjects</th>
@@ -16426,11 +16426,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes Organization including wallet addresses and public keys used to create assets and events.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -16480,7 +16480,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API2' aria-expanded="true" aria-controls='collapseIAMSubjects_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
                         </div>
                       </button>
                   </h3>
@@ -16488,7 +16488,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
                       </div>
                       <h5>Create an subject</h5>
                       <p><a href=""></a></p>
@@ -16537,25 +16537,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the subject.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>tessera_pub_key</th>
                                     <td>array</td>
                                     
                                       <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>wallet_pub_key</th>
                                     <td>array</td>
                                     
                                       <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -16607,53 +16607,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -16705,7 +16705,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API3' aria-expanded="true" aria-controls='collapseIAMSubjects_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16713,7 +16713,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Delete a subject</h5>
                       <p><a href=""></a></p>
@@ -16725,7 +16725,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -16779,7 +16779,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API4' aria-expanded="true" aria-controls='collapseIAMSubjects_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16787,7 +16787,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Get an subject</h5>
                       <p><a href=""></a></p>
@@ -16845,53 +16845,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -16945,7 +16945,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API5' aria-expanded="true" aria-controls='collapseIAMSubjects_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -16953,7 +16953,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Update a subject&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -17015,53 +17015,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -17349,7 +17349,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API1' aria-expanded="true" aria-controls='collapseInvites_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
                         </div>
                       </button>
                   </h3>
@@ -17357,7 +17357,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
                       </div>
                       <h5>List invites</h5>
                       <p><a href=""></a></p>
@@ -17421,18 +17421,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes Invite.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -17482,7 +17482,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API2' aria-expanded="true" aria-controls='collapseInvites_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
                         </div>
                       </button>
                   </h3>
@@ -17490,7 +17490,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
                       </div>
                       <h5>Create an invite</h5>
                       <p><a href=""></a></p>
@@ -17534,18 +17534,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Email address of the invitee.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>message</th>
                                     <td>string</td>
                                     
                                       <td>Text to be inserted into email.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -17589,32 +17589,32 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Email address of the invitee.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>expiry_time</th>
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the invite, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>message</th>
                                   <td>string</td>
                                   
                                     <td>Text to be inserted into email invite.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -17666,7 +17666,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API3' aria-expanded="true" aria-controls='collapseInvites_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -17674,7 +17674,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
                       </div>
                       <h5>Delete an invite</h5>
                       <p><a href=""></a></p>
@@ -17686,7 +17686,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -17740,7 +17740,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API4' aria-expanded="true" aria-controls='collapseInvites_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -17748,7 +17748,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
                       </div>
                       <h5>Get an invite</h5>
                       <p><a href=""></a></p>
@@ -17798,32 +17798,32 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Email address of the invitee.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>expiry_time</th>
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the invite, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>message</th>
                                   <td>string</td>
                                   
                                     <td>Text to be inserted into email invite.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -17985,7 +17985,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
                         </div>
                       </button>
                   </h3>
@@ -17993,7 +17993,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
                       </div>
                       <h5>List locations</h5>
                       <p><a href=""></a></p>
@@ -18083,18 +18083,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a location for asset resources</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -18136,7 +18136,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
                         </div>
                       </button>
                   </h3>
@@ -18144,7 +18144,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
                       </div>
                       <h5>Create a location</h5>
                       <p><a href=""></a></p>
@@ -18197,39 +18197,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of location properties</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Free text description of the location</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the location.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>latitude</th>
                                     <td>number</td>
                                     
                                       <td>Latitude in decimal degrees format.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>longitude</th>
                                     <td>number</td>
                                     
                                       <td>longitude in decimal degrees format.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -18281,60 +18281,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -18382,7 +18382,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18390,7 +18390,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Delete a location</h5>
                       <p><a href=""></a></p>
@@ -18402,7 +18402,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -18448,7 +18448,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18456,7 +18456,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Get a location</h5>
                       <p><a href=""></a></p>
@@ -18514,60 +18514,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -18613,7 +18613,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -18621,7 +18621,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Update a location&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -18683,60 +18683,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -18784,7 +18784,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -18792,7 +18792,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Get location permissions</h5>
                       <p><a href=""></a></p>
@@ -18845,18 +18845,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>The location identity in the form: <code>locations/{uuid}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>permissions</th>
                                   <td></td>
                                   
                                     <td>Subject identities this location is shared with</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -18902,7 +18902,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -18910,7 +18910,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Patch location permissions</h5>
                       <p><a href=""></a></p>
@@ -18965,18 +18965,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>The location identity in the form: <code>locations/{uuid}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>permissions</th>
                                   <td></td>
                                   
                                     <td>Subject identities this location is shared with</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -19216,7 +19216,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -19224,7 +19224,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event for public asset</h5>
                       <p><a href=""></a></p>
@@ -19306,130 +19306,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>publicassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -19465,7 +19465,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -19473,7 +19473,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific public Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -19544,88 +19544,88 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of behaviour to private for keys</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>at_time</th>
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>publicassets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -19661,7 +19661,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -19669,7 +19669,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events for a public asset</h5>
                       <p><a href=""></a></p>
@@ -19841,18 +19841,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -19969,7 +19969,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API1' aria-expanded="true" aria-controls='collapseArchivistNode_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode</span>
                         </div>
                       </button>
                   </h3>
@@ -19977,7 +19977,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode</span></h4>
                       </div>
                       <h5>Get information about an archivist node</h5>
                       <p><a href=""></a></p>
@@ -20065,18 +20065,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>The identity of the archivistnode blockchain</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20124,7 +20124,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API2' aria-expanded="true" aria-controls='collapseArchivistNode_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/block</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode/block</span>
                         </div>
                       </button>
                   </h3>
@@ -20132,7 +20132,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/block</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode/block</span></h4>
                       </div>
                       <h5>Get a block given a block hash or block number.</h5>
                       <p><a href=""></a></p>
@@ -20197,116 +20197,116 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>integer of the difficulty for this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>extraData</th>
                                   <td>string</td>
                                   
                                     <td>the “extra data” field of this block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>gasLimit</th>
                                   <td>string</td>
                                   
                                     <td>the maximum gas allowed in this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>gasUsed</th>
                                   <td>string</td>
                                   
                                     <td>the total used gas by all transactions in this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>hash</th>
                                   <td>string</td>
                                   
                                     <td>the block hash</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>logsBloom</th>
                                   <td>string</td>
                                   
                                     <td>the bloom filter for the logs of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>miner</th>
                                   <td>string</td>
                                   
                                     <td>the address of the beneficiary to whom the mining rewards were given</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>nonce</th>
                                   <td>string</td>
                                   
                                     <td>hash of the generated proof of work</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>number</th>
                                   <td>string</td>
                                   
                                     <td>the block number in hexidecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>parentHash</th>
                                   <td>string</td>
                                   
                                     <td>hash of the parent block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>privateStateRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the final, node specific, <em>private</em> state trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>receiptsRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the receipts trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>sha3Uncles</th>
                                   <td>string</td>
                                   
                                     <td>sha3 hash of the uncles data in the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>stateRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the final state trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp</th>
                                   <td>string</td>
                                   
                                     <td>the unix timestamp for when the block was collated</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transactionRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the transaction trie of the block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20418,7 +20418,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/invitetokenhint</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
@@ -20426,7 +20426,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/invitetokenhint</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/invitetokenhint</span></h4>
                       </div>
                       <h5>Create an invite token</h5>
                       <p><a href=""></a></p>
@@ -20475,18 +20475,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>token</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20530,7 +20530,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -20538,7 +20538,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
                       </div>
                       <h5>Fetch the current list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -20593,11 +20593,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20635,7 +20635,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -20643,7 +20643,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
                       </div>
                       <h5>Update the list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -20696,11 +20696,11 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -20751,11 +20751,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20799,7 +20799,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
@@ -20807,7 +20807,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
                       </div>
                       <h5>Get tenant record</h5>
                       <p><a href=""></a></p>
@@ -20854,39 +20854,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the tenant.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_config</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_enabled</th>
                                   <td>boolean</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -20928,7 +20928,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
@@ -20936,7 +20936,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
                       </div>
                       <h5>Update tenant record</h5>
                       <p><a href=""></a></p>
@@ -20987,39 +20987,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the tenant.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_config</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_enabled</th>
                                   <td>boolean</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21067,7 +21067,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenantid</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
                         </div>
                       </button>
                   </h3>
@@ -21075,7 +21075,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenantid</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/tenantid</span></h4>
                       </div>
                       <h5>Get ID of tenant associated with issuer and/or subject, and create if not exists.</h5>
                       <p><a href=""></a></p>
@@ -21140,25 +21140,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>new_tenant</th>
                                   <td>boolean</td>
                                   
                                     <td>true if this request created a new tenant</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tier</th>
                                   <td></td>
                                   
                                     <td>tenant tier FREE or PREMIUM</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21202,7 +21202,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
                         </div>
                       </button>
                   </h3>
@@ -21210,7 +21210,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/users</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users</span></h4>
                       </div>
                       <h5>List Users</h5>
                       <p><a href=""></a></p>
@@ -21274,7 +21274,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>users</th>
@@ -21284,11 +21284,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>User Data</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21340,7 +21340,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users/{user_uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -21348,7 +21348,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/users/{user_uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users/{user_uuid}</span></h4>
                       </div>
                       <h5>Deletes User</h5>
                       <p><a href=""></a></p>
@@ -21399,39 +21399,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>display name for the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>email</th>
                                   <td>string</td>
                                   
                                     <td>User email.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>user identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>optional issuer of the principal identity. Where the issuer is not provided the subject is treated as a free string</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>unique identifier of the principal (within issuer context)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21479,7 +21479,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API9'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicinfo</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
@@ -21487,7 +21487,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicinfo</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/{uuid}:publicinfo</span></h4>
                       </div>
                       <h5>Public Tenant Information.</h5>
                       <p><a href=""></a></p>
@@ -21535,18 +21535,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -21595,7 +21595,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerUserManagement_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenants</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
                         </div>
                       </button>
                   </h3>
@@ -21603,7 +21603,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenants</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
                       </div>
                       <h5>List User Tenants</h5>
                       <p><a href=""></a></p>
@@ -21658,7 +21658,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenants</th>
@@ -21668,11 +21668,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Tenant information for a user.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21835,7 +21835,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API1' aria-expanded="true" aria-controls='collapseTLSCACertificates_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
                         </div>
                       </button>
                   </h3>
@@ -21843,7 +21843,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
                       </div>
                       <h5>List TLS CA certificates</h5>
                       <p><a href=""></a></p>
@@ -21902,7 +21902,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificates</th>
@@ -21912,11 +21912,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes TLS CA certificate in PEM file format.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -21966,7 +21966,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API2' aria-expanded="true" aria-controls='collapseTLSCACertificates_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
                         </div>
                       </button>
                   </h3>
@@ -21974,7 +21974,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
                       </div>
                       <h5>Upload a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -22018,18 +22018,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the TLS CA certificate.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>tlscacertificate</th>
                                     <td>string</td>
                                     
                                       <td>TLS CA Certificate as string representing the contents of the PEM file</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -22072,25 +22072,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -22146,7 +22146,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API3' aria-expanded="true" aria-controls='collapseTLSCACertificates_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22154,7 +22154,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Delete a TLS C Acertificate</h5>
                       <p><a href=""></a></p>
@@ -22166,7 +22166,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -22220,7 +22220,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API4' aria-expanded="true" aria-controls='collapseTLSCACertificates_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22228,7 +22228,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Get a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -22277,25 +22277,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -22349,7 +22349,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API5' aria-expanded="true" aria-controls='collapseTLSCACertificates_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -22357,7 +22357,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Update a TLS CA certificate&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -22410,25 +22410,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -30000,7 +30000,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API1' aria-expanded="true" aria-controls='collapseAppRegistrations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
                         </div>
                       </button>
                   </h3>
@@ -30008,7 +30008,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
                       </div>
                       <h5>List applications for the user&#39;s tenant</h5>
                       <p><a href=""></a></p>
@@ -30096,18 +30096,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single application used for machine authentication</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Pagination token. Empty on first request. On subsequent requests copied from response.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -30149,7 +30149,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API2' aria-expanded="true" aria-controls='collapseAppRegistrations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications</span>
                         </div>
                       </button>
                   </h3>
@@ -30157,7 +30157,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications</span></h4>
                       </div>
                       <h5>Registers a new application</h5>
                       <p><a href=""></a></p>
@@ -30198,18 +30198,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>Custom claims to add to Application for use in access policies.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Human-readable display name for this Application.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -30263,7 +30263,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -30273,39 +30273,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -30353,7 +30353,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API3' aria-expanded="true" aria-controls='collapseAppRegistrations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30361,7 +30361,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Delete an application</h5>
                       <p><a href=""></a></p>
@@ -30373,7 +30373,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -30419,7 +30419,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API4' aria-expanded="true" aria-controls='collapseAppRegistrations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30427,7 +30427,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Fetch an application record</h5>
                       <p><a href=""></a></p>
@@ -30487,7 +30487,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -30497,39 +30497,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -30575,7 +30575,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API5' aria-expanded="true" aria-controls='collapseAppRegistrations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -30583,7 +30583,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}</span></h4>
                       </div>
                       <h5>Update an existing application</h5>
                       <p><a href=""></a></p>
@@ -30647,7 +30647,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -30657,39 +30657,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -30737,7 +30737,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAppRegistrations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAppRegistrations_API6' aria-expanded="true" aria-controls='collapseAppRegistrations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:regenerate-secret</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/applications/{uuid}:regenerate-secret</span>
                         </div>
                       </button>
                   </h3>
@@ -30745,7 +30745,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}:regenerate-secret</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/applications/{uuid}:regenerate-secret</span></h4>
                       </div>
                       <h5>Regenerate the client secret for an application</h5>
                       <p><a href=""></a></p>
@@ -30805,7 +30805,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Client ID for use in OIDC client credentials flow</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>credentials</th>
@@ -30815,39 +30815,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a single time-limited secret</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>custom_claims</th>
                                   <td>object</td>
                                   
                                     <td>Custom claims to add to Application for use in access policies.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Human-readable display name for this Application.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant owning this application</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -31212,7 +31212,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -31220,7 +31220,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -31338,18 +31338,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -31395,7 +31395,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -31403,7 +31403,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -31462,39 +31462,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of event attributes</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>behaviours</th>
                                     <td>array</td>
                                     
                                       <td>list of behaviours enabled for this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>chain_id</th>
                                     <td>string</td>
                                     
                                       <td>chain id of the blockchain associated with this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>proof_mechanism</th>
                                     <td>string</td>
                                     
                                       <td>specify the mechanism used to provide evidential proof for Events on this Asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>public</th>
                                     <td>boolean</td>
                                     
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -31557,81 +31557,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -31679,7 +31679,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -31687,7 +31687,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -31769,130 +31769,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -31940,7 +31940,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -31948,7 +31948,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -31997,11 +31997,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -32049,7 +32049,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -32057,7 +32057,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -32128,81 +32128,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -32250,7 +32250,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -32258,7 +32258,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -32430,18 +32430,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -32487,7 +32487,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -32495,7 +32495,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -32521,17 +32521,17 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>uuid</th>
                                   <td>string</td>
                                   <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>             
+                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
                                 
                                 <tr>
                                   <th>body</th>
                                   <td></td>
                                   <td>true</td>
-                                  <td></td>             
+                                  <td></td>
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -32605,130 +32605,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -32760,7 +32760,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -32768,7 +32768,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -32815,11 +32815,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -32931,7 +32931,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API1' aria-expanded="true" aria-controls='collapseAttachments_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -32939,7 +32939,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an event attachment.</h5>
                       <p><a href=""></a></p>
@@ -32955,7 +32955,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -33007,7 +33007,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API2' aria-expanded="true" aria-controls='collapseAttachments_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -33015,7 +33015,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/events/{event_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -33079,81 +33079,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -33205,7 +33205,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API3' aria-expanded="true" aria-controls='collapseAttachments_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -33213,7 +33213,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}</span></h4>
                       </div>
                       <h5>Downloads an asset attachment.</h5>
                       <p><a href=""></a></p>
@@ -33227,7 +33227,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -33279,7 +33279,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAttachments_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAttachments_API4' aria-expanded="true" aria-controls='collapseAttachments_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -33287,7 +33287,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/attachments/assets/{asset_uuid}/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve metadata on an attachment.</h5>
                       <p><a href=""></a></p>
@@ -33349,81 +33349,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -33557,7 +33557,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API1' aria-expanded="true" aria-controls='collapseBlobs_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs</span>
                         </div>
                       </button>
                   </h3>
@@ -33565,7 +33565,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/blobs</span></h4>
                       </div>
                       <h5>Upload.</h5>
                       <p><a href=""></a></p>
@@ -33625,81 +33625,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -33755,7 +33755,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API2' aria-expanded="true" aria-controls='collapseBlobs_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -33763,7 +33763,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}</span></h4>
                       </div>
                       <h5>Download.</h5>
                       <p><a href=""></a></p>
@@ -33775,7 +33775,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -33827,7 +33827,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlobs_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlobs_API3' aria-expanded="true" aria-controls='collapseBlobs_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/info</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/blobs/{uuid}/info</span>
                         </div>
                       </button>
                   </h3>
@@ -33835,7 +33835,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/info</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/blobs/{uuid}/info</span></h4>
                       </div>
                       <h5>Retrieve blob metadata.</h5>
                       <p><a href=""></a></p>
@@ -33895,81 +33895,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td>blob hash.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>blob identity.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>principal issuer.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>mime_type</th>
                                   <td>string</td>
                                   
                                     <td>http mime type.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_bad_reason</th>
                                   <td>string</td>
                                   
                                     <td>if scanned as SCANNED_BAD contains a hint of scan result.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_status</th>
                                   <td>string</td>
                                   
                                     <td>status of scan.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>scanned_timestamp</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the attachments has been scanned.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>size</th>
                                   <td>integer</td>
                                   
                                     <td>size of the blob.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>principal subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenantid</th>
                                   <td>string</td>
                                   
                                     <td>identity of the tenant the blob belongs to.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>date and time when the request has been received.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -34098,7 +34098,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerBlockChain_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseBlockChain_API1' aria-expanded="true" aria-controls='collapseBlockChain_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -34106,7 +34106,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1alpha2/blockchain/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>List of Blockchain Transactions associated with an event.</h5>
                       <p><a href=""></a></p>
@@ -34189,7 +34189,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transactions</th>
@@ -34199,11 +34199,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -34546,7 +34546,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -34554,7 +34554,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
                       </div>
                       <h5>List all compliance status relevant to an asset</h5>
                       <p><a href=""></a></p>
@@ -34619,32 +34619,32 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>simple compliance status against a compliance policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliant</th>
                                   <td>boolean</td>
                                   
                                     <td>overall compliance status for the asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliant_at</th>
                                   <td>string</td>
                                   
                                     <td>time at which compliance is determined</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -34713,7 +34713,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -34721,7 +34721,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -34798,18 +34798,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>compliance policy</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -34855,7 +34855,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -34863,7 +34863,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -34920,56 +34920,56 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>closing_event_display_type</th>
                                     <td>string</td>
                                     
                                       <td>this is the correlated event type</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>compliance_type</th>
                                     <td></td>
                                     
                                       <td>policy type</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Customer description of the compliance policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>display name</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>dynamic_variability</th>
                                     <td>number</td>
                                     
                                       <td>number of standard deviations - required for DYNAMIC_TOLERANCE</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>dynamic_window</th>
                                     <td>string</td>
                                     
                                       <td>valid period for policy - required for DYNAMIC_TOLERANCE</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>event_display_type</th>
                                     <td>string</td>
                                     
                                       <td>this is the target event_display_type - always required</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>richness_assertions</th>
@@ -34979,18 +34979,18 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>time_period_seconds</th>
                                     <td>string</td>
                                     
                                       <td>time delta - required for SINCE and PERIOD_OUTSTANDING</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -35046,63 +35046,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -35112,18 +35112,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -35175,7 +35175,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -35183,7 +35183,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -35245,63 +35245,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -35311,18 +35311,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -35368,7 +35368,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -35376,7 +35376,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -35438,63 +35438,63 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>closing_event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>compliance_type</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_variability</th>
                                   <td>number</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>dynamic_window</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_display_type</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>richness_assertions</th>
@@ -35504,18 +35504,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>time_period_seconds</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -35943,7 +35943,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API1' aria-expanded="true" aria-controls='collapseAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -35951,7 +35951,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>List Archivist assets</h5>
                       <p><a href=""></a></p>
@@ -36069,18 +36069,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -36126,7 +36126,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API2' aria-expanded="true" aria-controls='collapseAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -36134,7 +36134,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets</span></h4>
                       </div>
                       <h5>Create an Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -36193,39 +36193,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of event attributes</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>behaviours</th>
                                     <td>array</td>
                                     
                                       <td>list of behaviours enabled for this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>chain_id</th>
                                     <td>string</td>
                                     
                                       <td>chain id of the blockchain associated with this asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>proof_mechanism</th>
                                     <td>string</td>
                                     
                                       <td>specify the mechanism used to provide evidential proof for Events on this Asset</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>public</th>
                                     <td>boolean</td>
                                     
                                       <td>Public asset. A public asset and all its events are visible to the general public.Sharing to specific organisations is not available for public assets.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -36288,81 +36288,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -36410,7 +36410,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API3' aria-expanded="true" aria-controls='collapseAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -36418,7 +36418,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event</h5>
                       <p><a href=""></a></p>
@@ -36500,130 +36500,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -36671,7 +36671,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API4' aria-expanded="true" aria-controls='collapseAssets_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -36679,7 +36679,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist event.</h5>
                       <p><a href=""></a></p>
@@ -36728,11 +36728,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -36780,7 +36780,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API5' aria-expanded="true" aria-controls='collapseAssets_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -36788,7 +36788,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -36859,81 +36859,81 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>assets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -36981,7 +36981,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API6' aria-expanded="true" aria-controls='collapseAssets_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -36989,7 +36989,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events</h5>
                       <p><a href=""></a></p>
@@ -37161,18 +37161,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -37218,7 +37218,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API7' aria-expanded="true" aria-controls='collapseAssets_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -37226,7 +37226,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}/events</span></h4>
                       </div>
                       <h5></h5>
                       <p><a href=""></a></p>
@@ -37252,17 +37252,17 @@ If you are looking for a simple way to test our API you might prefer our
                                   <th>uuid</th>
                                   <td>string</td>
                                   <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>             
+                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
                                 
                                 <tr>
                                   <th>body</th>
                                   <td></td>
                                   <td>true</td>
-                                  <td></td>             
+                                  <td></td>
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -37336,130 +37336,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>assets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -37491,7 +37491,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerAssets_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseAssets_API8' aria-expanded="true" aria-controls='collapseAssets_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicurl</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/assets/{uuid}:publicurl</span>
                         </div>
                       </button>
                   </h3>
@@ -37499,7 +37499,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicurl</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
                       <h5>Retrieves the public url for a specific Archivist asset.</h5>
                       <p><a href=""></a></p>
@@ -37546,11 +37546,11 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -37995,7 +37995,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API1' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -38003,7 +38003,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
                       </div>
                       <h5>List access policies</h5>
                       <p><a href=""></a></p>
@@ -38104,18 +38104,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes an Access Policy for OBAC</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -38165,7 +38165,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API2' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -38173,7 +38173,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies</span></h4>
                       </div>
                       <h5>Create an access policy</h5>
                       <p><a href=""></a></p>
@@ -38257,21 +38257,21 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Permissions</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Customer description for the access policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the access policy.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>filters</th>
@@ -38281,11 +38281,11 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>Filter</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -38368,21 +38368,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -38392,25 +38392,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -38466,7 +38466,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API3' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38474,7 +38474,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Delete an access policy</h5>
                       <p><a href=""></a></p>
@@ -38486,7 +38486,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -38540,7 +38540,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API4' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38548,7 +38548,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Get an access policy</h5>
                       <p><a href=""></a></p>
@@ -38637,21 +38637,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -38661,25 +38661,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -38733,7 +38733,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API5' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -38741,7 +38741,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}</span></h4>
                       </div>
                       <h5>Update a access policy details</h5>
                       <p><a href=""></a></p>
@@ -38834,21 +38834,21 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Permissions</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Customer description for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the access policy.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>filters</th>
@@ -38858,25 +38858,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Filter</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the access policy, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenant id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -38932,7 +38932,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAccessPolicies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAccessPolicies_API6' aria-expanded="true" aria-controls='collapseIAMAccessPolicies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/assets</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/access_policies/{uuid}/assets</span>
                         </div>
                       </button>
                   </h3>
@@ -38940,7 +38940,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/assets</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/access_policies/{uuid}/assets</span></h4>
                       </div>
                       <h5>Returns assets matching access policy</h5>
                       <p><a href=""></a></p>
@@ -39048,18 +39048,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Asset.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -39132,7 +39132,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMAssets_API1' aria-expanded="true" aria-controls='collapseIAMAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/access_policies</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/assets/{uuid}/access_policies</span>
                         </div>
                       </button>
                   </h3>
@@ -39140,7 +39140,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/access_policies</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/assets/{uuid}/access_policies</span></h4>
                       </div>
                       <h5>Get matching access policies</h5>
                       <p><a href=""></a></p>
@@ -39235,18 +39235,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes an Access Policy for OBAC</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -39438,7 +39438,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API1' aria-expanded="true" aria-controls='collapseIAMSubjects_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
                         </div>
                       </button>
                   </h3>
@@ -39446,7 +39446,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
                       </div>
                       <h5>List subjects</h5>
                       <p><a href=""></a></p>
@@ -39514,7 +39514,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subjects</th>
@@ -39524,11 +39524,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes Organization including wallet addresses and public keys used to create assets and events.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -39578,7 +39578,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API2' aria-expanded="true" aria-controls='collapseIAMSubjects_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects</span>
                         </div>
                       </button>
                   </h3>
@@ -39586,7 +39586,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects</span></h4>
                       </div>
                       <h5>Create an subject</h5>
                       <p><a href=""></a></p>
@@ -39635,25 +39635,25 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the subject.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>tessera_pub_key</th>
                                     <td>array</td>
                                     
                                       <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>wallet_pub_key</th>
                                     <td>array</td>
                                     
                                       <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -39705,53 +39705,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -39803,7 +39803,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API3' aria-expanded="true" aria-controls='collapseIAMSubjects_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -39811,7 +39811,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Delete a subject</h5>
                       <p><a href=""></a></p>
@@ -39823,7 +39823,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -39877,7 +39877,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API4' aria-expanded="true" aria-controls='collapseIAMSubjects_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -39885,7 +39885,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Get an subject</h5>
                       <p><a href=""></a></p>
@@ -39943,53 +39943,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -40043,7 +40043,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerIAMSubjects_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseIAMSubjects_API5' aria-expanded="true" aria-controls='collapseIAMSubjects_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/subjects/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40051,7 +40051,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/subjects/{uuid}</span></h4>
                       </div>
                       <h5>Update a subject&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -40113,53 +40113,53 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the subject.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the subject, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tessera_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s tessara wallet keys (BNF)</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_address</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s wallet addresses</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>wallet_pub_key</th>
                                   <td>array</td>
                                   
                                     <td>Organisation&rsquo;s public wallet keys (BNF)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -40447,7 +40447,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API1' aria-expanded="true" aria-controls='collapseInvites_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
                         </div>
                       </button>
                   </h3>
@@ -40455,7 +40455,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
                       </div>
                       <h5>List invites</h5>
                       <p><a href=""></a></p>
@@ -40519,18 +40519,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes Invite.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -40580,7 +40580,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API2' aria-expanded="true" aria-controls='collapseInvites_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites</span>
                         </div>
                       </button>
                   </h3>
@@ -40588,7 +40588,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/invites</span></h4>
                       </div>
                       <h5>Create an invite</h5>
                       <p><a href=""></a></p>
@@ -40632,18 +40632,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Email address of the invitee.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>message</th>
                                     <td>string</td>
                                     
                                       <td>Text to be inserted into email.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -40687,32 +40687,32 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Email address of the invitee.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>expiry_time</th>
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the invite, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>message</th>
                                   <td>string</td>
                                   
                                     <td>Text to be inserted into email invite.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -40764,7 +40764,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API3' aria-expanded="true" aria-controls='collapseInvites_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40772,7 +40772,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
                       </div>
                       <h5>Delete an invite</h5>
                       <p><a href=""></a></p>
@@ -40784,7 +40784,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -40838,7 +40838,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerInvites_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseInvites_API4' aria-expanded="true" aria-controls='collapseInvites_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/invites/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -40846,7 +40846,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/invites/{uuid}</span></h4>
                       </div>
                       <h5>Get an invite</h5>
                       <p><a href=""></a></p>
@@ -40896,32 +40896,32 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Email address of the invitee.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>expiry_time</th>
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the invite, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>message</th>
                                   <td>string</td>
                                   
                                     <td>Text to be inserted into email invite.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -41083,7 +41083,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API1' aria-expanded="true" aria-controls='collapseLocations_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
                         </div>
                       </button>
                   </h3>
@@ -41091,7 +41091,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
                       </div>
                       <h5>List locations</h5>
                       <p><a href=""></a></p>
@@ -41181,18 +41181,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes a location for asset resources</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -41234,7 +41234,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API2' aria-expanded="true" aria-controls='collapseLocations_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations</span>
                         </div>
                       </button>
                   </h3>
@@ -41242,7 +41242,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v2/locations</span></h4>
                       </div>
                       <h5>Create a location</h5>
                       <p><a href=""></a></p>
@@ -41295,39 +41295,39 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>object</td>
                                     
                                       <td>key value mapping of location properties</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>description</th>
                                     <td>string</td>
                                     
                                       <td>Free text description of the location</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>display_name</th>
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the location.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>latitude</th>
                                     <td>number</td>
                                     
                                       <td>Latitude in decimal degrees format.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>longitude</th>
                                     <td>number</td>
                                     
                                       <td>longitude in decimal degrees format.</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -41379,60 +41379,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -41480,7 +41480,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API3' aria-expanded="true" aria-controls='collapseLocations_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41488,7 +41488,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Delete a location</h5>
                       <p><a href=""></a></p>
@@ -41500,7 +41500,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -41546,7 +41546,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API4' aria-expanded="true" aria-controls='collapseLocations_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41554,7 +41554,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Get a location</h5>
                       <p><a href=""></a></p>
@@ -41612,60 +41612,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -41711,7 +41711,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API5' aria-expanded="true" aria-controls='collapseLocations_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -41719,7 +41719,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}</span></h4>
                       </div>
                       <h5>Update a location&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -41781,60 +41781,60 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>description</th>
                                   <td>string</td>
                                   
                                     <td>Free text description of the location</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>display_name</th>
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the location.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the location, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>latitude</th>
                                   <td>number</td>
                                   
                                     <td>Latitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>longitude</th>
                                   <td>number</td>
                                   
                                     <td>Longitude in decimal degrees</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the location owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant</th>
                                   <td>string</td>
                                   
                                     <td>Tenent id</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -41882,7 +41882,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API6' aria-expanded="true" aria-controls='collapseLocations_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -41890,7 +41890,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Get location permissions</h5>
                       <p><a href=""></a></p>
@@ -41943,18 +41943,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>The location identity in the form: <code>locations/{uuid}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>permissions</th>
                                   <td></td>
                                   
                                     <td>Subject identities this location is shared with</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -42000,7 +42000,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerLocations_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseLocations_API7' aria-expanded="true" aria-controls='collapseLocations_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/permissions</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/locations/{uuid}/permissions</span>
                         </div>
                       </button>
                   </h3>
@@ -42008,7 +42008,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}/permissions</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v2/locations/{uuid}/permissions</span></h4>
                       </div>
                       <h5>Patch location permissions</h5>
                       <p><a href=""></a></p>
@@ -42063,18 +42063,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>The location identity in the form: <code>locations/{uuid}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>permissions</th>
                                   <td></td>
                                   
                                     <td>Subject identities this location is shared with</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -42314,7 +42314,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API1' aria-expanded="true" aria-controls='collapsePublicAssets_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{asset_uuid}/events/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -42322,7 +42322,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{asset_uuid}/events/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves Archivist event for public asset</h5>
                       <p><a href=""></a></p>
@@ -42404,130 +42404,130 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>asset_identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a related asset resource <code>publicassets/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviour</th>
                                   <td>string</td>
                                   
                                     <td>The behaviour used to create event. <code>RecordEvidence</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>block_number</th>
                                   <td>string</td>
                                   
                                     <td>number of block event was commited on</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the event has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>event_attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of event attributes</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>from</th>
                                   <td>string</td>
                                   
                                     <td>wallet address for the creator of this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>identity of a event resource</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>merklelog_entry</th>
                                   <td>object</td>
                                   
                                     <td>verifiable merkle mmr log entry details</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>operation</th>
                                   <td>string</td>
                                   
                                     <td>The operation represented by the event. <code>Record</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_accepted</th>
                                   <td>object</td>
                                   
                                     <td>principal recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>principal_declared</th>
                                   <td>object</td>
                                   
                                     <td>principal provided by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this event</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_accepted</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded by the server</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_committed</th>
                                   <td>string</td>
                                   
                                     <td>time of event as recorded in verifiable storage</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp_declared</th>
                                   <td>string</td>
                                   
                                     <td>time of event as declared by the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_id</th>
                                   <td>string</td>
                                   
                                     <td>hash of the transaction as a hex string <code>0x11bf5b37e0b842e08dcfdc8c4aefc000</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transaction_index</th>
                                   <td>string</td>
                                   
                                     <td>index of event within commited block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -42563,7 +42563,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API2' aria-expanded="true" aria-controls='collapsePublicAssets_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -42571,7 +42571,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}</span></h4>
                       </div>
                       <h5>Retrieves a specific public Archivist asset</h5>
                       <p><a href=""></a></p>
@@ -42642,88 +42642,88 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>object</td>
                                   
                                     <td>key value mapping of behaviour to private for keys</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>at_time</th>
                                   <td>string</td>
                                   
                                     <td>indicates time the asset data is from</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>attributes</th>
                                   <td>object</td>
                                   
                                     <td>key value mapping of asset properties</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>behaviours</th>
                                   <td>array</td>
                                   
                                     <td>list of behaviours enabled for this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>chain_id</th>
                                   <td>string</td>
                                   
                                     <td>chain id of the blockchain associated with this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>confirmation_status</th>
                                   <td>string</td>
                                   
                                     <td>indicates if the asset has been succesfully committed to the blockchain</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>relative resource address <code>publicassets/{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>owner</th>
                                   <td>string</td>
                                   
                                     <td>wallet address of the asset owner</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>proof_mechanism</th>
                                   <td>string</td>
                                   
                                     <td>the mechanism used to provide evidential proof</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>public</th>
                                   <td>boolean</td>
                                   
                                     <td>Public asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenant_identity</th>
                                   <td>string</td>
                                   
                                     <td>Identity of the tenant the that created this asset</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tracked</th>
                                   <td>string</td>
                                   
                                     <td>indicates whether asset is still being tracked in the system</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -42759,7 +42759,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerPublicAssets_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapsePublicAssets_API3' aria-expanded="true" aria-controls='collapsePublicAssets_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}/events</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v2/publicassets/{uuid}/events</span>
                         </div>
                       </button>
                   </h3>
@@ -42767,7 +42767,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}/events</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/publicassets/{uuid}/events</span></h4>
                       </div>
                       <h5>List Archivist events for a public asset</h5>
                       <p><a href=""></a></p>
@@ -42939,18 +42939,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>This describes an Event.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>next_page_token</th>
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43067,7 +43067,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API1' aria-expanded="true" aria-controls='collapseArchivistNode_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode</span>
                         </div>
                       </button>
                   </h3>
@@ -43075,7 +43075,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode</span></h4>
                       </div>
                       <h5>Get information about an archivist node</h5>
                       <p><a href=""></a></p>
@@ -43163,18 +43163,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>The identity of the archivistnode blockchain</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43222,7 +43222,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerArchivistNode_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseArchivistNode_API2' aria-expanded="true" aria-controls='collapseArchivistNode_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/block</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/archivistnode/block</span>
                         </div>
                       </button>
                   </h3>
@@ -43230,7 +43230,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/block</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/archivistnode/block</span></h4>
                       </div>
                       <h5>Get a block given a block hash or block number.</h5>
                       <p><a href=""></a></p>
@@ -43295,116 +43295,116 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>integer of the difficulty for this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>extraData</th>
                                   <td>string</td>
                                   
                                     <td>the “extra data” field of this block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>gasLimit</th>
                                   <td>string</td>
                                   
                                     <td>the maximum gas allowed in this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>gasUsed</th>
                                   <td>string</td>
                                   
                                     <td>the total used gas by all transactions in this block encoded as a hexadecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>hash</th>
                                   <td>string</td>
                                   
                                     <td>the block hash</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>logsBloom</th>
                                   <td>string</td>
                                   
                                     <td>the bloom filter for the logs of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>miner</th>
                                   <td>string</td>
                                   
                                     <td>the address of the beneficiary to whom the mining rewards were given</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>nonce</th>
                                   <td>string</td>
                                   
                                     <td>hash of the generated proof of work</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>number</th>
                                   <td>string</td>
                                   
                                     <td>the block number in hexidecimal</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>parentHash</th>
                                   <td>string</td>
                                   
                                     <td>hash of the parent block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>privateStateRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the final, node specific, <em>private</em> state trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>receiptsRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the receipts trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>sha3Uncles</th>
                                   <td>string</td>
                                   
                                     <td>sha3 hash of the uncles data in the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>stateRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the final state trie of the block</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>timestamp</th>
                                   <td>string</td>
                                   
                                     <td>the unix timestamp for when the block was collated</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>transactionRoot</th>
                                   <td>string</td>
                                   
                                     <td>the root of the transaction trie of the block</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43516,7 +43516,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/invitetokenhint</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/invitetokenhint</span>
                         </div>
                       </button>
                   </h3>
@@ -43524,7 +43524,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/invitetokenhint</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/invitetokenhint</span></h4>
                       </div>
                       <h5>Create an invite token</h5>
                       <p><a href=""></a></p>
@@ -43573,18 +43573,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>invite expiry time</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>token</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43628,7 +43628,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -43636,7 +43636,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
                       </div>
                       <h5>Fetch the current list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -43691,11 +43691,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43733,7 +43733,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/root_principals</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/root_principals</span>
                         </div>
                       </button>
                   </h3>
@@ -43741,7 +43741,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/root_principals</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/root_principals</span></h4>
                       </div>
                       <h5>Update the list of tenant root user principals</h5>
                       <p><a href=""></a></p>
@@ -43794,11 +43794,11 @@ If you are looking for a simple way to test our API you might prefer our
                                       
                                       
                                       <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -43849,11 +43849,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -43897,7 +43897,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
@@ -43905,7 +43905,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
                       </div>
                       <h5>Get tenant record</h5>
                       <p><a href=""></a></p>
@@ -43952,39 +43952,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the tenant.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_config</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_enabled</th>
                                   <td>boolean</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44026,7 +44026,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/self</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
@@ -44034,7 +44034,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/self</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/self</span></h4>
                       </div>
                       <h5>Update tenant record</h5>
                       <p><a href=""></a></p>
@@ -44085,39 +44085,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the tenant.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_config</th>
                                   <td></td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>enterprise_sso_enabled</th>
                                   <td>boolean</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44165,7 +44165,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API6'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenantid</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/tenantid</span>
                         </div>
                       </button>
                   </h3>
@@ -44173,7 +44173,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenantid</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/tenantid</span></h4>
                       </div>
                       <h5>Get ID of tenant associated with issuer and/or subject, and create if not exists.</h5>
                       <p><a href=""></a></p>
@@ -44238,25 +44238,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>tenant identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>new_tenant</th>
                                   <td>boolean</td>
                                   
                                     <td>true if this request created a new tenant</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tier</th>
                                   <td></td>
                                   
                                     <td>tenant tier FREE or PREMIUM</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44300,7 +44300,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API7'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users</span>
                         </div>
                       </button>
                   </h3>
@@ -44308,7 +44308,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/users</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users</span></h4>
                       </div>
                       <h5>List Users</h5>
                       <p><a href=""></a></p>
@@ -44372,7 +44372,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>users</th>
@@ -44382,11 +44382,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>User Data</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44438,7 +44438,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API8'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API8' aria-expanded="true" aria-controls='collapseTenancies_API8'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/users/{user_uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/users/{user_uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -44446,7 +44446,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/users/{user_uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/users/{user_uuid}</span></h4>
                       </div>
                       <h5>Deletes User</h5>
                       <p><a href=""></a></p>
@@ -44497,39 +44497,39 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>display name for the user</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>email</th>
                                   <td>string</td>
                                   
                                     <td>User email.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>user identity <code>{UUID}</code></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>issuer</th>
                                   <td>string</td>
                                   
                                     <td>optional issuer of the principal identity. Where the issuer is not provided the subject is treated as a free string</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>subject</th>
                                   <td>string</td>
                                   
                                     <td>unique identifier of the principal (within issuer context)</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44577,7 +44577,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTenancies_API9'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API9' aria-expanded="true" aria-controls='collapseTenancies_API9'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}:publicinfo</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
@@ -44585,7 +44585,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}:publicinfo</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/{uuid}:publicinfo</span></h4>
                       </div>
                       <h5>Public Tenant Information.</h5>
                       <p><a href=""></a></p>
@@ -44633,18 +44633,18 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>verified_domain</th>
                                   <td>string</td>
                                   
                                     <td></td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
 
@@ -44693,7 +44693,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerUserManagement_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/tenants</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/tenants</span>
                         </div>
                       </button>
                   </h3>
@@ -44701,7 +44701,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/tenants</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/tenants</span></h4>
                       </div>
                       <h5>List User Tenants</h5>
                       <p><a href=""></a></p>
@@ -44756,7 +44756,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tenants</th>
@@ -44766,11 +44766,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Tenant information for a user.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -44933,7 +44933,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API1' aria-expanded="true" aria-controls='collapseTLSCACertificates_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
                         </div>
                       </button>
                   </h3>
@@ -44941,7 +44941,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
                       </div>
                       <h5>List TLS CA certificates</h5>
                       <p><a href=""></a></p>
@@ -45000,7 +45000,7 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificates</th>
@@ -45010,11 +45010,11 @@ If you are looking for a simple way to test our API you might prefer our
                                     
                                     
                                     <td>Describes TLS CA certificate in PEM file format.</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -45064,7 +45064,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API2'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API2' aria-expanded="true" aria-controls='collapseTLSCACertificates_API2'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates</span>
                         </div>
                       </button>
                   </h3>
@@ -45072,7 +45072,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates</span></h4>
                       </div>
                       <h5>Upload a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -45116,18 +45116,18 @@ If you are looking for a simple way to test our API you might prefer our
                                     <td>string</td>
                                     
                                       <td>Customer friendly name for the TLS CA certificate.</td>
-                                                         
+                                    
                                   
                                   <tr>
                                     <th>tlscacertificate</th>
                                     <td>string</td>
                                     
                                       <td>TLS CA Certificate as string representing the contents of the PEM file</td>
-                                                         
+                                    
                                   
-                                </tbody> 
+                                </tbody>
                               </table>
-                             
+                            
                         
                       
 
@@ -45170,25 +45170,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -45244,7 +45244,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API3'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API3' aria-expanded="true" aria-controls='collapseTLSCACertificates_API3'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45252,7 +45252,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Delete a TLS C Acertificate</h5>
                       <p><a href=""></a></p>
@@ -45264,7 +45264,7 @@ If you are looking for a simple way to test our API you might prefer our
 
                       
                         
-                           
+                          
                         
                       
                         
@@ -45318,7 +45318,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API4'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API4' aria-expanded="true" aria-controls='collapseTLSCACertificates_API4'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45326,7 +45326,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Get a TLS CA certificate</h5>
                       <p><a href=""></a></p>
@@ -45375,25 +45375,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         
@@ -45447,7 +45447,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <h3 class="accordion-header" id='headerTLSCACertificates_API5'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTLSCACertificates_API5' aria-expanded="true" aria-controls='collapseTLSCACertificates_API5'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/{uuid}</span>
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tlscacertificates/{uuid}</span>
                         </div>
                       </button>
                   </h3>
@@ -45455,7 +45455,7 @@ If you are looking for a simple way to test our API you might prefer our
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/{uuid}</span></h4>
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tlscacertificates/{uuid}</span></h4>
                       </div>
                       <h5>Update a TLS CA certificate&#39;s details</h5>
                       <p><a href=""></a></p>
@@ -45508,25 +45508,25 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Customer friendly name for the TLS CA certificate.</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>identity</th>
                                   <td>string</td>
                                   
                                     <td>Unique identification for the TLS CA ertificate, Relative Resource Name</td>
-                                               
+                                  
                                 
                                 <tr>
                                   <th>tlscacertificate</th>
                                   <td>string</td>
                                   
                                     <td>TLS CA Certificate as base64 string representing the contents of the PEM file</td>
-                                               
+                                  
                                 
                               </tbody>
                             </table>
-                           
+                          
                         
                       
                         

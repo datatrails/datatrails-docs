@@ -34,8 +34,9 @@ This quickstart will:
 
 ## Prerequisites
 
-- [A DataTrails subscription](https://app.datatrails.ai/signup)
+- [A DataTrails subscription](https://app.datatrails.ai/signup) with a [Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) for API access
 - [DataTrails sample code](#datatrails-sample-code)
+- [Python](https://www.python.org/downloads/) to run the samples
 - [Environment Configuration](#environment-configuration)
 
 ### DataTrails Sample Code
@@ -75,8 +76,6 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # Feed ID, used to correlate a collection of statements about an artifact
     FEED="my-product-id"
     ```
-
-1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
 
 ## Create a Signing Key
 
@@ -148,7 +147,7 @@ By querying the series of statements, consumers can verify who did what and when
 
     ```bash
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED | jq
+      "https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED" | jq
     ```
 
 {{< note >}}

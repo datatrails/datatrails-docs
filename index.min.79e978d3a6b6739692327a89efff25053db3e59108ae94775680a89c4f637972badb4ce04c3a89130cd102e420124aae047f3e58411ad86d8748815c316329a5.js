@@ -17134,9 +17134,12 @@ This includes previously registered statements, and newly registered statements 
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>
-<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a></li>
+<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a> with a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Token</a> for API access</li>
 <li>
 <a href="#datatrails-sample-code">DataTrails sample code</a></li>
+<li>
+<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python</a> to run the samples</li>
 <li>
 <a href="#environment-configuration">Environment Configuration</a></li>
 </ul>
@@ -17169,10 +17172,6 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
-<li>
-<p>Create a 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</p>
-</li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
 <blockquote class="note callout">
@@ -17230,7 +17229,7 @@ By querying the series of statements, consumers can verify who did what and when
 <li>
 <p>Query DataTrails for the collection of statements</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=</span><span class="nv">$FEED</span><span class="s2">&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
 <blockquote class="note callout">
@@ -40232,9 +40231,12 @@ This includes previously registered statements, and newly registered statements 
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>
-<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a></li>
+<a href="https://app.datatrails.ai/signup" target="_blank" rel="noopener">A DataTrails subscription</a> with a 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Token</a> for API access</li>
 <li>
 <a href="#datatrails-sample-code">DataTrails sample code</a></li>
+<li>
+<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python</a> to run the samples</li>
 <li>
 <a href="#environment-configuration">Environment Configuration</a></li>
 </ul>
@@ -40267,10 +40269,6 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
-<li>
-<p>Create a 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> stored as a file, in a secure local directory with 0600 permissions.</p>
-</li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
 <blockquote class="note callout">
@@ -40328,7 +40326,7 @@ By querying the series of statements, consumers can verify who did what and when
 <li>
 <p>Query DataTrails for the collection of statements</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$FEED</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=</span><span class="nv">$FEED</span><span class="s2">&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
 <blockquote class="note callout">

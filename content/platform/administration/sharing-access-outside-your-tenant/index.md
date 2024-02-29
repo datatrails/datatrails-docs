@@ -97,7 +97,9 @@ curl -v -X POST \
 {{< /note >}}
 
 ## Creating an OBAC Policy
-
+{{< note >}}
+**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+{{< /note >}}
 OBAC creation uses many of the same steps, filters, controls, and forms as ABAC Policies.
 
 It is possible to mix-and-match ABAC and OBAC Permission Groups in the same policy if you so wish.

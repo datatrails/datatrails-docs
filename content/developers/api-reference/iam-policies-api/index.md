@@ -138,7 +138,9 @@ The response is:
     ]
 }
 ```
-
+{{< note >}}
+**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+{{< /note >}}
 ### IAM Policy Retrieval
 
 IAM Access Policy records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:

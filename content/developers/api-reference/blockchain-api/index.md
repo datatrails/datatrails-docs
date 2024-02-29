@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/blockchain-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.io) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -29,7 +29,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 Blockchain transactions can be fetched from the blockchain endpoint using the Asset's Event ID as a parameter:
 
 ```bash
-assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000
+assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 To fetch all transactions for an Asset's Events GET the blockchain resource:
@@ -37,7 +37,7 @@ To fetch all transactions for an Asset's Events GET the blockchain resource:
 ```bash
 curl -v -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b3
+     https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/#proof-mechanisms) used, the response will be:
@@ -80,7 +80,7 @@ Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/
 ```
 
 {{< note >}}
-Check out our guide for [Verifying Assets and Events with Simple Hash](/developers/developer-patterns/verifying-with-simple-hash/).
+**Note:** Please see our guide for [Verifying Assets and Events with Simple Hash](/developers/developer-patterns/verifying-with-simple-hash/).
 {{< /note >}}
 
 ## Blockchain OpenAPI Docs

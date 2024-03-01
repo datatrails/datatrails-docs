@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/iam-subjects-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -35,6 +35,9 @@ Define the Subject parameters and store in `/path/to/jsonfile`:
     "tessera_pub_key": ["key2"]
 }
 ```
+{{< note >}}
+**Note:** The values for `wallet_pub_key` and `tessera_pub_key` are found by decoding the Subject string that is provided by the Tenancy Administrator of the other organization. See the JSON tab [here](https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/) for more detail.
+{{< /note >}}
 
 Create the IAM Subject:
 

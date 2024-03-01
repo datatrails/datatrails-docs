@@ -36,7 +36,9 @@ By default, no Non-Administrators will see any existing Assets and Events unless
 {{< /note >}}
 
 ## Creating an ABAC Policy
-
+{{< note >}}
+**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+{{< /note >}}
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.
 
 We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create `Inspect` Events.

@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/app-registrations-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -25,6 +25,10 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 The App Registrations API enables you to create and manage application identities with access to your DataTrails Tenancy.
 
+{{< note >}}
+**Note:** App Registrations are called Custom Integrations in the DataTrail application UI.
+{{< /note >}}
+
 It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned.
 
 These credentials are then used to request an access token from `https://app.datatrails.ai/archivist/iam/v1/appidp/token`, which is used for API authentication to DataTrails.
@@ -33,10 +37,10 @@ Each App Registration is created with Non-Administrator privileges by default.
 
 To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions.
 
-If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.datatrails.ai/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).
+If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.datatrails.ai/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).<br>This would be necessary if you want to carry out Tenancy administration via the API.
 
 {{< note >}}
-For more information on App Registrations and access tokens, visit [DataTrails Developer Patterns](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
+**Note:** For more information on App Registrations and access tokens, visit [DataTrails Developer Patterns](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
 {{< /note >}}
 
 ### Creating an Application

@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/iam-policies-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -43,7 +43,7 @@ This will return a `subjects/<UUID>` object you would then specify with the `sub
 As both ABAC and OBAC use the same filter syntax, it is possible to have a mix of internal and external sharing within a single policy.
 
 {{< note >}}
-Learn more about [ABAC](/platform/administration/sharing-access-inside-your-tenant/) and [OBAC](/platform/administration/sharing-access-outside-your-tenant/) policies in our DataTrails Basics guides.
+**Note:** Learn more about [ABAC](/platform/administration/sharing-access-inside-your-tenant/) and [OBAC](/platform/administration/sharing-access-outside-your-tenant/) policies in our DataTrails Basics guides.
 {{< /note >}}
 
 ### IAM Policy Creation
@@ -138,7 +138,9 @@ The response is:
     ]
 }
 ```
-
+{{< note >}}
+**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+{{< /note >}}
 ### IAM Policy Retrieval
 
 IAM Access Policy records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:

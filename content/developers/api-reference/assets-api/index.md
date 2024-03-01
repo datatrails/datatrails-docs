@@ -15,13 +15,13 @@ aliases:
   - /docs/api-reference/assets-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 {{< note >}}
-For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/overview/creating-an-asset/) guide.
+**Note:** For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/overview/creating-an-asset/) guide.
 {{< /note >}}
 
 ## Asset API Examples
@@ -53,6 +53,9 @@ Define the asset parameters and store in `/path/to/jsonfile`:
   "public": false
 }
 ```
+{{< note >}}
+**Note:** The values for `arc_blob_hash_value` and `arc_blob_identity` are taken from the response of the Upload call of the [Blob API](https://docs.datatrails.ai/developers/api-reference/blobs-api/).
+{{< /note >}}
 
 Create the Asset:
 

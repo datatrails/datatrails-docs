@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/tenancies-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -27,12 +27,12 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 ### Retrieve the Current List of Administrators
 
-To fetch the list of Administrators, simply `GET` the `tenancies/administrators` resource:
+To fetch the list of Administrators, simply `GET` the `tenancies/root_principals` resource:
 
 ```bash
 curl -v -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     https://app.datatrails.ai/archivist/v1/tenancies/administrators
+     https://app.datatrails.ai/archivist/v1/tenancies/root_principals
 ```
 
 ### Update the List of Administrators
@@ -58,14 +58,14 @@ Define the update parameters and store in `/path/to/jsonfile`:
 }
 ```
 
-Update the Administrators by PATCHing the `tenancies/administrators` resource:
+Update the Administrators by PATCHing the `tenancies/root_principals` resource:
 
 ```bash
 curl -v -X PATCH \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v1/tenancies/administrators
+    https://app.datatrails.ai/archivist/v1/tenancies/root_principals
 ```
 
 ## Tenancies OpenAPI Docs

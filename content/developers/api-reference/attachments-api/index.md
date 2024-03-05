@@ -79,3 +79,4 @@ The response will include basic information about the attachment:
 ## Attachment OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/attachmentsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/publicattachmentsv2.swagger.json" >}}

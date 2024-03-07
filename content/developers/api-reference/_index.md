@@ -28,7 +28,6 @@ aliases:
       <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
       <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
       <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
-      <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
-      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+      <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a></p>
     </div>
 </div>

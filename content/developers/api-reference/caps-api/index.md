@@ -24,7 +24,7 @@ The Caps API enables you to check the resource limits that are remaining to your
 
 ### Retrieve a Cap
 
-Retrieve the number of available Access Policies:
+Retrieve the number of remaining Access Policies:
 
 ```bash
 curl -g -v -X GET \

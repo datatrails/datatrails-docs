@@ -41,12 +41,10 @@
 /docs/api-reference/iam-policies-api/ /developers/api-reference/iam-policies-api/
 /docs/api-reference/iam-subjects-api/ /developers/api-reference/iam-subjects-api/
 /docs/developer-patterns/scitt-api/ /developers/developer-patterns/scitt-api/
-/docs/api-reference/invites-api/ /developers/api-reference/invites-api/
 /docs/api-reference/locations-api/ /developers/api-reference/locations-api/
 /docs/api-reference/public-assets-api/ /developers/api-reference/public-assets-api/
 /docs/api-reference/system-api/ /developers/api-reference/system-api/
 /docs/api-reference/tenancies-api/ /developers/api-reference/tenancies-api/
-/docs/api-reference/tls-ca-certificates-api/ /developers/api-reference/tls-ca-certificates-api/
 /docs/yaml-reference/story-runner-components/ /developers/yaml-reference/story-runner-components/
 /docs/yaml-reference/assets/ /developers/yaml-reference/assets/
 /docs/yaml-reference/events/ /developers/yaml-reference/events/

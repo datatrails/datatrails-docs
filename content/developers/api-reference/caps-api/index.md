@@ -20,7 +20,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 {{< /note >}}
 ## Caps API Examples
 
-The Caps API enables you to check the resource limits that are remaining to your Tenancy.
+The Caps API enables you to check the resource limits remaining under your Tenancy subscription.
 
 ### Retrieve a Cap
 

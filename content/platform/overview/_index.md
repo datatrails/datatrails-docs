@@ -20,7 +20,8 @@ aliases:
       <a href="/platform/overview/creating-an-asset/">Creating an Asset  &rarr;</a><br>
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
-      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
+      <a href="/platform/overview/registering-an-event-against-a-document-profile-asset/">Registering an Event Against a Document Profile Asset &rarr;</a><br>
+      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a><br>
+      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>

@@ -22253,8 +22253,9 @@ If you are looking for a simple way to test our API you might prefer our
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/platform/administration/identity-and-access-management/">Identity and Access Management &rarr;</a><br>
       <a href="/platform/administration/verified-domain/">Verified Domain &rarr;</a><br>
-      <a href="/platform/administration/managing-access-to-an-asset-with-abac/">Managing Access to an Asset With ABAC &rarr;</a><br>
-      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Sharing Assets outside your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
       <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
@@ -22287,12 +22288,11 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
-      <a href="/developers/api-reference/invites-api/">Invites API &rarr;</a><br>
       <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
       <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
       <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
       <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
-      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+      <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
 `},{id:48,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
@@ -22306,8 +22306,9 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/creating-an-asset/">Creating an Asset  &rarr;</a><br>
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
-      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
+      <a href="/platform/overview/registering-an-event-against-a-document-profile-asset/">Registering an Event Against a Document Profile Asset &rarr;</a><br>
+      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a><br>
+      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
 `},{id:49,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
@@ -44611,8 +44612,9 @@ If you are looking for a simple way to test our API you might prefer our
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/platform/administration/identity-and-access-management/">Identity and Access Management &rarr;</a><br>
       <a href="/platform/administration/verified-domain/">Verified Domain &rarr;</a><br>
-      <a href="/platform/administration/managing-access-to-an-asset-with-abac/">Managing Access to an Asset With ABAC &rarr;</a><br>
-      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Sharing Assets outside your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
       <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
@@ -44645,12 +44647,11 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
-      <a href="/developers/api-reference/invites-api/">Invites API &rarr;</a><br>
       <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
       <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
       <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
       <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
-      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+      <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
 `}).add({id:48,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
@@ -44664,8 +44665,9 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/creating-an-asset/">Creating an Asset  &rarr;</a><br>
       <a href="/platform/overview/creating-an-event-against-an-asset/">Creating an Event Against an Asset &rarr;</a><br>
       <a href="/platform/overview/registering-a-document-profile-asset/">Registering a Document Profile Asset &rarr;</a><br>
-      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a><br>
-      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a></p>
+      <a href="/platform/overview/registering-an-event-against-a-document-profile-asset/">Registering an Event Against a Document Profile Asset &rarr;</a><br>
+      <a href="/platform/overview/instaproof/">Instaproof &rarr;</a><br>
+      <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
 `}).add({id:49,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">

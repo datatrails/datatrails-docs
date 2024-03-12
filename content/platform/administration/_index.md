@@ -16,8 +16,9 @@ toc: true
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/platform/administration/identity-and-access-management/">Identity and Access Management &rarr;</a><br>
       <a href="/platform/administration/verified-domain/">Verified Domain &rarr;</a><br>
-      <a href="/platform/administration/managing-access-to-an-asset-with-abac/">Managing Access to an Asset With ABAC &rarr;</a><br>
-      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Sharing Assets outside your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
+      <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
       <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>

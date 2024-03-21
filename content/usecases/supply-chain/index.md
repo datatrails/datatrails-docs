@@ -1,7 +1,7 @@
 ---
-title: "State Machine and Supply Chains"
-description: "Using DataTrails to map a process"
-lead: "Using DataTrails to map a process"
+title: "Chain of Custody for your Supply Chains"
+description: "DataTrails ensures Integrity, Transparency and Trust for Supply Chains"
+lead: "DataTrails ensures Integrity, Transparency and Trust for Supply Chains"
 date: 2021-05-31T15:18:01+01:00
 lastmod: 2021-05-31T15:18:01:31+01:00
 draft: false
@@ -9,10 +9,11 @@ images: []
 menu:
   usecases:
     parent: "usecases"
-weight: 32
+weight: 31
 toc: true
 aliases:
     - /docs/user-patterns/state-machine/
+    - /usecases/state-machine/
 ---
 
 A common pattern for tracking an Asset lifecycle is the *State Machine* pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in DataTrails not only ensures transparency and accountability among parties, but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.

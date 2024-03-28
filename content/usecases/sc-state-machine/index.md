@@ -9,7 +9,7 @@ images: []
 menu: 
   usecases:
     parent: "usecases"
-weight: 31
+weight: 32
 toc: 
 aliases:
     - /docs/user-patterns/state-machine/
@@ -26,7 +26,7 @@ This pattern uses a purely virtual Asset to represent a policy or process and co
 
 ### Considerations
 
-**Keep the Asset simple:** This model typically uses mostly non-modifying Events: "what happened" is more important than "what does this Asset look like?". Use Asset attributes only to clearly identify the business process and store its current state. Otherwise, concentrate on recording the `Who Did What When` in detailed Event attributes and attachments.
+**Keep the Asset simple:** This model typically uses mostly non-modifying Events: "what happened" is more important than "what does this Asset look like?". Use Asset attributes only to clearly identify the business process and store its current state. Otherwise, concentrate on recording the `Who Did What When` in detailed Event attributes.
 
 **Map the business process:** DataTrails is here to support business operations, not disturb them. Try to define one Event type for each stage of the process, so decisions and artifacts can be recorded naturally and completely during normal operations. In a mature business, there may be formal documents such as a Process Map (PM), Business Process Model (BPM) or Universal Modeling Language description of the process, its steps, and its approvers. Use this as a base if it is available.
 
@@ -34,4 +34,4 @@ This pattern uses a purely virtual Asset to represent a policy or process and co
 
 **Access Policies:** Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Generally, all parties will need read access to all the Events in the Asset history, but it may be convenient to restrict Event write access to mirror real-world approvers and actors.  
 
-**Compliance Policies** If the process must meet recognized standards and is subject to regular audits these can be monitored and recorded using a compliance policy. 
+**Compliance Policies:** If the process must meet recognized standards and is subject to regular audits these can be monitored and recorded using a compliance policy. 

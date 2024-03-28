@@ -9,7 +9,7 @@ images: []
 menu: 
   usecases:
     parent: "usecases"
-weight: 32
+weight: 33
 toc: true
 ---
 
@@ -27,4 +27,4 @@ Knowing what state an asset is in, whether or not it is compliant with organizat
 
 **Access Policies:** Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Generally, all parties will need read access to all the Events in the Asset history but it may be convenient to restrict Event write access to mirror real-world approvers and actors. 
 
-**Compliance Policies** If a device has a mandatory maintenance schedule (security updates, sensor calibration) then this can be monitored and recorded using a compliance policy.
+**Compliance Policies:** If a device has a mandatory maintenance schedule (security updates, sensor calibration) then this can be monitored and recorded using a compliance policy.

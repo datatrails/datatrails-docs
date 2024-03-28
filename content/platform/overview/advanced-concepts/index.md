@@ -127,6 +127,10 @@ When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses
 
 Our Simple Hash proof mechanism takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
 
+Our Merkle Log proof mechanism records Events in a Merkle Mountain Range. The key characteristic is that it is append-only and that previously added values **plus** the organization of those values do not change as new entries are appended to the log.
+This approach provides a fast, efficient and scalable way to build the immutable audit trail.<br>
+An Event can be easily verified using the `Verify` button *(add link to Jon's verify page)* in the DataTrails application UI.
+
 ## Access Policies
 
 Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.

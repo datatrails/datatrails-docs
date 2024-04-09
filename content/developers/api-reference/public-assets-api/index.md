@@ -56,7 +56,6 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/v2/
   "owner": "0x5eC362570D1b52a01648997db5ed7693fc6b3978",
   "at_time": "2022-07-15T14:26:40Z",
   "storage_integrity": "TENANT_STORAGE",
-  "proof_mechanism": "SIMPLE_HASH",
   "chain_id": "8275868384",
   "public": true,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9"

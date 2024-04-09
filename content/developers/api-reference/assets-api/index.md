@@ -49,7 +49,6 @@ Define the asset parameters and store in `/path/to/jsonfile`:
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
   "public": false
 }
 ```
@@ -90,7 +89,6 @@ The response is:
   "confirmation_status": "PENDING",
   "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX",
-  "proof_mechanism": "SIMPLE_HASH",
   "public": false,
   "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "tracked": "TRACKED"
@@ -141,8 +139,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
     "behaviours": [
         "Builtin",
         "RecordEvidence"
-    ],
-    "proof_mechanism":"SIMPLE_HASH"
+    ]
 }
 ```
 {{< note >}}
@@ -184,7 +181,6 @@ The response is:
     "owner": "",
     "at_time": "2023-09-27T11:32:22Z",
     "storage_integrity": "TENANT_STORAGE",
-    "proof_mechanism": "SIMPLE_HASH",
     "chain_id": "8275868384",
     "public": false,
     "tenant_identity": ""

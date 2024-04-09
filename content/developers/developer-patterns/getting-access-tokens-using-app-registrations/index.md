@@ -184,7 +184,6 @@ If you have existing assets, the output will be similar to:
       "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "at_time": "2023-09-22T03:39:46Z",
       "storage_integrity": "TENANT_STORAGE",
-      "proof_mechanism": "SIMPLE_HASH",
       "chain_id": "8275868384",
       "public": false,
       "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

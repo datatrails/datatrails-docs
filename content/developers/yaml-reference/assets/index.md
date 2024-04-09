@@ -111,7 +111,6 @@ Response {
     "owner": "0x6ba1CA0a5f4a2aBC23412419bC0E14233E88d233",
     "at_time": "2022-11-18T16:55:44Z",
     "storage_integrity": "TENANT_STORAGE",
-    "proof_mechanism": "SIMPLE_HASH",
     "chain_id": "827586838445807967",
     "public": false,
     "tenant_identity": "tenant/<tenant-id>"

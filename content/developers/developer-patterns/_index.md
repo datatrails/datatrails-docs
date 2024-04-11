@@ -8,7 +8,7 @@ draft: false
 images: []
 weight: 997
 toc: true
-aliases: 
+aliases:
   - /docs/developer-patterns/
 ---
 <div class= "row justify-content-center">
@@ -21,6 +21,8 @@ aliases:
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
       <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
+      <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>
+      <a href="/developers/developer-patterns/massif-blob-cheetsheet/">Massif Blob Cheatsheet &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>

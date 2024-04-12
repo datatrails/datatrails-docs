@@ -23,7 +23,6 @@ grows, it never shrinks and data in it never moves.
 We provide extensive open source tooling to work with this format in an off
 line setting.
 
-
 To take advantage of this you will need:
 
 1. A copy of the section of the log containing your event.
@@ -53,7 +52,6 @@ we use for the log: An MMR or "Merkle Mountain Range" [^2].
     context of [cryptographic asynchronous accumulators](https://eprint.iacr.org/2015/718.pdf), Generalised
     multi proofs for [Binary Numeral Trees](https://eprint.iacr.org/2021/038.pdf). And also by the [ethereum research community](https://ethresear.ch/t/batching-and-cyclic-partitioning-of-logs/536).
 
-
 Each contains the verifiable data for a fixed number, and sequential
 range, of your events. The number of events is determined by your log
 configuration parameter `massif height`. Currently all logs have a massif
@@ -67,11 +65,12 @@ height of `14` And the number of event *leaf* log entries in each massif is
     verifiable data for the new configuration is identical to that in the
     original should you wish to assure your self of this fact.
 
-We draw `massif n` as open ended to illustrate that the last massif is always
-in the process of being *appended* to.
+Here, we have drawn `massif n` as open ended to illustrate that the last massif
+is always in the process of being *appended* to.
 
-Before addressing the question of how to pick the right massif to look in for a
-single event, lets deal with the format of a single massif.
+[Massf Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables) gives you a shortcut for picking the right massif. It can also be fairly easily computed from only the `merklelog_entry.commit.index` *mmrIndex* on your event using the example javascript on that page.
+
+Here we deal with the format of a single massif.
 
 ## Every massif blob is a series of 32 byte aligned fields
 
@@ -106,6 +105,31 @@ are stored:
 Each massif is stored in a numbered file. The filename is the 16 character,
 zero padded, massif index.
 
+## When re-creating inclusion proofs, you are guaranteed to only need a single massif
+
+The variable section of the massif blob is further split into *look back* nodes, and regular massif nodes:
+
+```
++----------------+----------------+
+| FIXED          | HEADER DATA    |
+|                +----------------+  fixed size
+|        SIZE    | TRIE-DATA      |  pre-filled with zeros, poplated as leaves are added
++----------------+----------------+
+| VARIABLE       | PEAK           | "look back nodes" write once
+|                |         STACK  |   on massif create
+|                +----------------+
+|                | MMR            | grows until 2^(height-1) leaves are added
+.                .   NODES        |
+.   APPEND ONLY  .                |
++----------------+----------------+
+```
+
+We provide convenience look up tables for these [Massf Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables)
+
+As mentioned above, we provide implementations of the algorithms needed to
+produce those tables in many languages under an MIT license.
+
+
 ## The first 32 byte field in every massif is the sequencing header
 
 Using the following curl command, you can read the version and format information from the header field 0
@@ -139,20 +163,23 @@ You can see from the hex data above, that the idtimestamp of the last entry in
 the log is `8e84dbbb6513a6`, the version is 0, the timestamp epoch is 1, the
 massif height is 14, and the massif index is 0.
 
-## Decoding an idtimestamp
+### Decoding an idtimestamp
 
-The idtimestamp is 40 bits of time at millisecond precision
+The idtimestamp is 40 bits of time at millisecond precision. The idtimestamp in
+the header field is always set to the idtimestamp of the most recently added
+leaf.
 
 {{< tabs name="convert idtimestamp" >}}
    {{< tab name="Python" >}}
    ```
-   import datetime
+   >>> import datetime
 
-   epoch=1
-   unixms=int((
-      bytes.fromhex("8e84dbbb6513a6")[:-2]).hex(), base=16
-      ) + epoch*((2**40)-1)
-   datetime.datetime.fromtimestamp(unixms/1000)
+   >>> epoch=1
+   >>> unixms=int((
+   >>>    bytes.fromhex("8e84dbbb6513a6")[:-2]).hex(), base=16
+   >>>    ) + epoch*((2**40)-1)
+   >>> datetime.datetime.fromtimestamp(unixms/1000)
+
    datetime.datetime(2024, 3, 28, 11, 39, 36, 676000)
    ```
   {{< /tab >}}
@@ -161,60 +188,40 @@ The idtimestamp is 40 bits of time at millisecond precision
 In this example, the last entry in the log (at that time) was 2024/03/28, a
 little after 11.30 am.
 
-## When re-creating inclusion proofs, you are guaranteed to only need a single massif
-
-Thhe variable section of the massif blob is further split into *look back* nodes, and regular massif nodes:
-
-```
-+----------------+----------------+
-| FIXED          | HEADER DATA    |
-|                +----------------+  fixed size
-|        SIZE    | TRIE-INDEX     |  pre-filled with zeros, poplated as leaves are added
-+----------------+----------------+
-| VARIABLE       | PEAK           | "look back nodes" write once
-|                |         STACK  |   on massif create
-|                +----------------+
-|                | MMR            | grows until 2^(height-1) leaves are added
-.                .   NODES        |
-.   APPEND ONLY  .                |
-+----------------+----------------+
-```
-
-Merkle trees, at there heart, *prove* things by providing paths of hashes that
-lead to a single *common root* for all nodes in the tree.
-
-All entries in a merkle log each have a unique and *short* path of hashes, which
-when hashed together according to the data structures rules, will re-create the
-same root. If such a path does not exist, then by definition the leaf is not
-included - it is not in the log.
-
-Where do those paths come from ? They come from adjacent and ancestor nodes in
-the heirarchical tree. And this means that when producing the path we need to
-access nodes throughout the tree to produce the proof.
-
-A specific challenge for log implementations with very large data sets is then
-answering "how far back" or "how far forward" may I need to look ?
-
-The specific properties of Merkle Mountain Ranges lead to an efficiently
-computable and stable answer to those questions. Such that we *know*
-categorically we do not need to look *forward* of the current massif. And
-further we know precisely which nodes we need from the previous massifs.
-
-
-We provide convenience look up tables for these [Massf Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables)
-
-As mentioned above, we provide implementations of the algorithms needed to
-produce those tables in many languages under an MIT license.
-
 
 ## The trieData entries are 512 bytes each and are formed from two fields
+
+The trieData section is 2 * 32 * 2<sup>height</sup> bytes long. (Which is
+actually exactly double what we need). For the
+standard massif height of 14, it has 8192 entries in the first 524288 bytes.
+The subsequent 524288 which will always be zero. The format of each entry is
+then, for a massif height of 14:
+
+```
++----------------+
+| HEADER DATA    |
++----------------+
+
+288
++----------------+
+| TRIE-DATA      |
+|                |
+|                |
+|................| 288 + 524288 = 524576
+|  always        |
+|                |
+|       zero     |
++----------------+ 288 + 524288 * 2 = 1048864
+
+```
+
+Each entry is formatted like this
 
 ```
 0                                                        31
 SHA256(BYTE(0x00) || BYTES(idTimestamp) || event.identity)
 0                                       BYTES(IDTIMESTAMP)
 32                                      56               63
-
 ```
 
 Note that the idtimestamp is unique to your tenant and the wider system, so
@@ -275,14 +282,12 @@ If you know the byte offset in the blob for the start of the mmr data then you
 can check the number of mmr nodes currently in it by doing `(blobSize -
 mmrDataStart)/32`.
 
-
 ## The peak stack and mmr data sizes are computable.
 
-Please see [Massf Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables)
+Please see [Massif Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables)
 if you want to avoid needing to calculate these. Implementations of the O(log base 2 n)
 algorithms are provided in various languages. They all have very hardware
 sympathetic implementations.
-
 
 ## The massif height is constant for all blobs in a log *configuration*
 
@@ -305,38 +310,149 @@ this.
 {{< /note >}}
 
 
+## How to read a specific mmr node by its *mmrIndex*
+
+
+Find the smallest "Last Node" in [Massf Blob Offset Tables](/developers/developer-patterns/massif-blob-offset-tables) that is greater than your *mmrIndex* and use that row as your massif index
+
+Then taking massif index 0 (row 0) for example, and using the first mmrIndex
+for ease of example
+
+```
+LOGSTART=1048864
+MMRINDEX=0
+curl -s \
+-H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
+-H "x-ms-blob-type: BlockBlob" \
+-H "x-ms-version: 2019-12-12" \
+https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
+merklelogs/v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+0000000000000000.log  | od -An -tx1 | tr -d ' \n'
+
+a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+```
+
+The veracity demo tool can be used to confirm that
+
+```
+go run veracity/cmd/veracity/main.go -s jitavidfd1103b1099ab3aa \
+ -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 node -i 0
+
+a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+```
+
+The example javascript routines bellow the [Offset Tables](/developers/developer-patterns/massif-blob-offset-tables) can be used if you
+want to accomplish this computationally
+
+## But which nodes would I want ?
+
+Typically, you would be verifying the inclusion of an event in the log. This
+inclusion is verified by selecting the sibling path needed to recreate the root
+hash starting from your leaf hash. You create your leaf hash using the original
+pre-image data of your event and the *commit* values assigned to it when it was
+included in the log.
+
+You would have
+
+* The V3 cannonical set of fields from your event
+* The `merklelog_entry.commit.index` (the mmrIndex of the event in the log)
+* The `merklelog_entry.commit.idtimestamp` uniquely placing the record of the log in time (according to our cloud service provider)
+
+We are going to give the subject of determining the sibling path its own
+article. Here we are going to set the scene by covering how our logical tree
+nodes map to storage.
+
+So what is a sibling path ? To understand this we need to dig into how we
+organise the nodes in your merkle log in storage and memory.
+
 ## The tree maps to storage like this
+
+Merkle trees, at there heart, *prove* things by providing paths of hashes that
+lead to a single *common root* for all nodes in the tree.
+
+All entries in a merkle log each have a unique and *short* path of hashes, which
+when hashed together according to the data structures rules, will re-create the
+same root. If such a path does not exist, then by definition the leaf is not
+included - it is not in the log.
+
+Where do those paths come from ? They come from adjacent and ancestor nodes in
+the heirarchical tree. And this means that when producing the path we need to
+access nodes throughout the tree to produce the proof.
+
 
 Using our "canonical" mmr log for illustration, we get this diagram
 
-
-                       14
+```
+                       14 we call these the 'spur' nodes, as they each depend on ancestor nodes
                           \
-                6           13             22        (affectionately called
-                  \            \              \           the alpine zone)
+                6           13             22        (affectionately called the alpine zone)
+                  \            \              \
     h=2 1 |  2  |  5  |   9  |  12   |  17   | 21  | -- massif 'tree line'
           |     |     |      |       |       |     |
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
+```
+
+
+The sibling *proof* path for the leaf with `mmrIndex` 7 would be [8, 12, 6], and
+the "peak bagging" algorithm would then be applied to get the root.
+
+A very nice visualisation of how the peaks combine is available in this paper
+on
+[cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
 
 ## The "look back" peak stack can be visualised like this
 
+A specific challenge for log implementations with very large data sets is then
+answering "how far back" or "how far forward" may I need to look ?
+
+MMR's differ from classic binary merkle trees in how the incomplete sub trees
+are combined into a common root. For an MMR, the common root is defined by an
+algorithm for combining the, adjacent, incomplete sub trees. Rather than by the
+more traditional, temporary, assignment of un-balanced siblings. Such
+un-balanced siblings would later have to be re-assigned (balanced) when there
+were sufficient leaves to merge the sub trees.
+
+This detail is what permits us to publish the log data immediately that your
+events are added.
+
+So the specific properties of Merkle Mountain Ranges lead to an efficiently
+computable and stable answer to the questions of "which other nodes do I need".
+Such that we *know* categorically we do not need to look *forward* of the
+current massif. And further we know precisely which nodes we need from the
+previous massifs.
+
 The "free nodes" in the alpine zone always require "ancestors" from previous
 nodes when producing inclusion proofs that pass through them, and when adding
-new nodes to the end of the log. We accumulate these in a stack. (Because the
-pop order is the order we need them when adding leaves at the end of the log)
+new nodes to the end of the log. Here we can see they are very predictable (can
+be calculated without reference to the tree data). We accumulate these peaks in
+a stack because the pop order is the order we need them when adding leaves at
+the end of the log.
 
 The result can be visualised like this
 
-          |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]|
-          |     |     |      |       |       |       |
-          |     |6    |      |13, 14 |       |       | we call these the 'spur' nodes
-          |     |     |      |       |       |       |  they each depend on ancestor nodes
-    h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif 'tree line'
-          |     |     |      |       |       |       |
-        0 |0   1 3   4| 7   8|10   11|15   16|18   19|
+```
+      |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
+      |     |     |      |       |       |       |
+      |     |6    |      |13, 14 |       |22     | spurs
+      |     |     |      |       |       |       |
+h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif 'tree line'
+      |     |     |      |       |       |       |
+    0 |0   1 3   4| 7   8|10   11|15   16|18   19|
+```
+
+We call the look back nodes the *peak stack*, because it always corresponds to
+the peaks of the earlier sub trees. We don't actually pop things off it ever,
+we just happen to reference it in reverse order of addition when adding new
+leaves.
+
+The stability of the MMR data comes from the fact that the sub trees are not
+merged until a right sibling tree of equal height has been produced.
 
 
 ## How the tree spans the massifs
+
+A worked example for a merkle log whose height configuration parameter is set
+to 2.
 
 ### Massif 0
 
@@ -354,7 +470,7 @@ The peak stack is empty
 
 
 ```
-  1    2  | --- massif tree line massif height = 1
+  1    2  | --- massif tree line massif height index = 2-1
       / \ |
      0   1| MMR INDICES
      -----|
@@ -371,7 +487,7 @@ The peak stack is [2]
 ```
 2       6
          \
-1    2  | 5   | --- massif tree line massif height = 1
+1    2  | 5   | --- massif tree line massif height index = 2-1
     / \ |/  \ |
    0   1|3   4| MMR INDICES
    -----|-----|
@@ -428,7 +544,6 @@ tree completing massif.
 
 The peak stack is [14]
 
-
 ```
 3              14
                  \
@@ -444,4 +559,15 @@ The peak stack is [14]
 | 14|| 15 | 16 | 17 |
 +---++----+----+----+
 ```
+## Takeaways
 
+* Merkle logs are divided into massifs, each of which stores verification data
+  for a fixed number of your events.
+* Once verification data is written to the log, it never changes.
+* The "look back" nodes needed to make each massif self contained are
+  deterministic and are filled in when a new massif is started.
+* The dynamically sized portions of the format are all computable, but we offer
+  pre-calculated tables for convenience.
+* Opensource tooling exists in multiple languages for navigating the format.
+* Once you have a signed "root", all entries in any copies of your log
+  are irrefutably attested by Data Trails

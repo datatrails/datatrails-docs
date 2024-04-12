@@ -11,7 +11,7 @@ menu:
     parent: "developer-patterns"
 weight: 34
 toc: true
-aliases: 
+aliases:
   - /docs/developer-patterns/namespace/
 ---
 

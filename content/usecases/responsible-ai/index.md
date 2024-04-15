@@ -24,7 +24,9 @@ We need to know that the system is being developed and improved to those same st
 
 Above all, we don't want to take the vendors word for it, they need to *prove* it!
 
-DataTrails empowers this by providing an immutable lineage record for all aspects of the AI machine which supports responsible and ethical governance, coupled with transparency and traceability of the training data. Together these enhance the explainability and interpretability of the AI machine's output which results in trust and efficient decision making by the user whether that user is a human or another AI machine.     
+DataTrails empowers this by providing an immutable lineage record for all aspects of the AI machine which supports responsible and ethical governance, coupled with transparency and traceability of the training data and output analysis. Together these enhance the explainability and interpretability of the AI machine's output which results in trust and efficient decision making by the user whether that user is a human or another AI machine.     
+
+{{< img src="aitransparency.png" alt="Rectangle" caption="<em>Opportunities for Transparency</em>" class="border-0" >}}
 
 ### Considerations
 

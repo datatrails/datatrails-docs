@@ -43,8 +43,6 @@ Define the asset parameters and store in `/path/to/jsonfile`:
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"
@@ -80,8 +78,6 @@ The response is:
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"

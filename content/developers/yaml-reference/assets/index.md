@@ -27,7 +27,7 @@ Adding an `asset_label` allows your Asset to be referenced in later steps of the
 
 The `arc_namespace` (for the Asset) and the `namespace` (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
 
-The optional `confirm: true` entry means that the YAML Runner will wait for the Asset to be confirmed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.
+The optional `confirm: true` entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.
 
 For example:
 
@@ -106,7 +106,7 @@ Response {
         "ev_pump": "true",
         "arc_display_name": "ev pump 1"
     },
-    "confirmation_status": "CONFIRMED",
+    "confirmation_status": "COMMITTED",
     "tracked": "TRACKED",
     "owner": "0x6ba1CA0a5f4a2aBC23412419bC0E14233E88d233",
     "at_time": "2022-11-18T16:55:44Z",
@@ -136,7 +136,7 @@ steps:
 
 ## Assets Wait For Confirmed
 
-This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed.
+This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.
 
 ```yaml
 ---

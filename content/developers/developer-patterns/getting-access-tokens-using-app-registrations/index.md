@@ -179,7 +179,7 @@ If you have existing assets, the output will be similar to:
         "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "height": "8'"
       },
-      "confirmation_status": "CONFIRMED",
+      "confirmation_status": "COMMITTED",
       "tracked": "TRACKED",
       "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "at_time": "2023-09-22T03:39:46Z",

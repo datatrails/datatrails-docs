@@ -27,7 +27,7 @@ The `asset_label` must match the setting when the Asset was created in an earlie
 
 There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to DataTrails and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to DataTrails and adds the response to the Event before posting.
 
-`confirm: true` tells the YAML Runner to wait for the Event to be confirmed before moving to the next step.
+`confirm: true` tells the YAML Runner to wait for the Event to be committed before moving to the next step.
 
 For example:
 
@@ -113,7 +113,7 @@ steps:
       print_response: true
       asset_label: Courts of Justice Paris Front Door
     props:
-      confirmation_status: CONFIRMED
+      confirmation_status: COMMITTED
     attrs:
       arc_display_type: open
     asset_attrs:
@@ -135,7 +135,7 @@ steps:
       print_response: true
       asset_label: Courts of Justice Paris Front Door
     props:
-      confirmation_status: CONFIRMED
+      confirmation_status: COMMITTED
     attrs:
       arc_display_type: open
     asset_attrs:

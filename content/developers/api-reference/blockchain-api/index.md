@@ -40,7 +40,7 @@ curl -v -X GET \
      https://app.datatrails.ai/archivist/v1alpha2/blockchain/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Depending on the type of [proof mechanism](/platform/overview/advanced-concepts/#proof-mechanisms) used, the response will be:
+Depending on the type of [proof mechanism](/platform/overview/core-concepts/#proof-mechanisms) used, the response will be:
 
 #### Simple Hash:
 

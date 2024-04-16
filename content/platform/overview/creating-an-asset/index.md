@@ -66,8 +66,7 @@ Create an empty file, in later steps we will add the correct JSON.
 
 1. Add details to your new Asset.
 
-    The Proof Mechanism [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
-    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Asset.
+    Please see our [Core Concepts](/platform/overview/core-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Asset.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:

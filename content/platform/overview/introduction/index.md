@@ -33,4 +33,3 @@ DataTrails permanently records evidence into an **Immutable Audit Trail** to bri
 
 DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of a piece of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.<br> 
 Users of the data can see a full picture of the data’s origin and history and by understanding *Who Did What When*, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.
-{{< img src="intro.png" alt="Rectangle" caption="<em>DataTrails Functionality</em>" class="border-0" >}}

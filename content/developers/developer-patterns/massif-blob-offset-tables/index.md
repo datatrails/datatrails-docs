@@ -181,6 +181,7 @@ function clz64(num) {
 ```
   {{< /tab >}}
   {{< tab name="mmrIndex from leafIndex" >}}
+
 ```javascript
 function treeIndex(iLeaf) {
   let sum = 0n; // Assuming iLeaf can be very large, use BigInt for accuracy.

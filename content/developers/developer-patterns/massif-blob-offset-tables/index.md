@@ -34,14 +34,11 @@ New leaves are added to the last blob in the log.
     | header | trieData |peak stack| mmrData |
     |--------.----------.----------.---------|
 
-
 ## The peak stack and mmr data sizes are computable
 
 ...but it is not always convenient to do so.
 
-
 Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
-
 
                        14
                           \
@@ -54,8 +51,6 @@ Using the `veracity` tool with the following command line we can reproduce our c
 
 
     go run veracity/cmd/veracity/main.go --height 2 massifs --count 6
-
-
 
 In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
 The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at *mmr Start*
@@ -147,6 +142,8 @@ DataTrails provides open source, go-lang based, tooling at [URL] (_[__]__ )
 
 {{< tabs name="convert idtimestamp" >}}
   {{< tab name="Leaf Count and Massif Index" >}}
+
+
 ```javascript
 function massifIndex(mmrIndex, massifHeight) {
   const nl =  Number(leafCount(mmrIndex + 1n));

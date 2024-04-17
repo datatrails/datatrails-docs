@@ -179,6 +179,7 @@ function clz64(num) {
   return 32 + Math.clz32(lo);
 }
 ```
+
   {{< /tab >}}
   {{< tab name="mmrIndex from leafIndex" >}}
 

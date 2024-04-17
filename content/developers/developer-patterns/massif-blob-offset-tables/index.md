@@ -39,7 +39,6 @@ New leaves are added to the last blob in the log.
 
 ...but it is not always convenient to do so.
 
-
 Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
                        14

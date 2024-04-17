@@ -1,7 +1,7 @@
 ---
  title: "Massif blob pre-calculated offsets"
- description: "Provides pre calculated tables for navigating raw merklelog's"
- lead: "lookup tables for navigating the dynamic, but computable, offsets into the merkle log binary format"
+ description: "Provides pre calculated tables for navigating raw Merkle logs"
+ lead: "Lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format"
  draft: false
  images: []
  menu:
@@ -11,14 +11,9 @@
  toc: true
 ---
 
-This page provides lookup tables for navigating the dynamic, but computable,
-offsets into the merkle log binary format. The algorithms to reproduce this are
-relatively simple, we provide open source implementations, but in many contexts
-it is simpler to use these pre-calculations. These tables can be made for
-any log configuration at any time, in part or in whole, without access to any
-specific log.
+This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format. The algorithms to reproduce this are relatively simple, we provide open source implementations, but in many contexts it is simpler to use these pre-calculations. These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
 
-A fast review of the log format. We explain this in more detail at [Navigating MerkleLogs](/developers/developer-patterns/navigating-merklelogs)
+This is a fast review of the log format. We explain this in more detail at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
 ## Each log is comprised of many blobs, each containing a fixed number of leaves
 
@@ -26,7 +21,7 @@ A fast review of the log format. We explain this in more detail at [Navigating M
     |     massif 0   | |     massif 1   |    |  massif n
     +----------------+ +----------------+ .. +-----------+
 
-The last blob is the blob that new leaves are added to
+New leaves are added to the last blob in the log.
 
 ## Each individual blob has a fixed size portion and two variably sized sections
 
@@ -39,11 +34,10 @@ The last blob is the blob that new leaves are added to
 
 ## The peak stack and mmr data sizes are computable
 
-But it is not always convenient to do so.
+...but it is not always convenient to do so.
 
 
-Using the `veracity` tool with the following command line we can reproduce
-our cannonical "illustrative" log from [Navigating MerkleLogs](/developers/developer-patterns/navigating-merklelogs)
+Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
 
                        14
@@ -60,10 +54,7 @@ our cannonical "illustrative" log from [Navigating MerkleLogs](/developers/devel
 
 
 
-In the following table *Stack Start* and *mmr Start* are byte offsets from the
-start of the file. The leaf values are indices into the trie fields (not
-considered further in this page) and the
-node values are indices into the array of 32 byte nodes starting at *mmr Start*
+In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file. The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32 byte nodes starting at *mmr Start*
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |
@@ -75,7 +66,7 @@ node values are indices into the array of 32 byte nodes starting at *mmr Start*
 |       5|     544    |     608   |      10    |      11    |      18     |      21   | [14,17]
 
 It is fairly easy to validate the leaves and nodes by hand. The reproducing the
-Stack Start needs details from [Navigating MerkleLogs](/developers/developer-patterns/navigating-merklelogs)
+Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
 
 ## Pre-computes for your first million events
@@ -147,9 +138,8 @@ Stack Start needs details from [Navigating MerkleLogs](/developers/developer-pat
 
 ## The algorithms backing the table generation
 
-In combination with the format inforation at [Navigating MerkleLogs](/developers/developer-patterns/navigating-merklelogs)
-the pre-computed tables above can be generated using these examples. We also
-provide open source, go-lang based, tooling to do this.
+In combination with the format inforation at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
+the pre-computed tables above can be generated using these examples. We  provide open source, go-lang based, tooling to do this.
 
 {{< tabs name="convert idtimestamp" >}}
   {{< tab name="Leaf Count and Massif Index" >}}

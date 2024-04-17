@@ -34,7 +34,6 @@ New leaves are added to the last blob in the log.
     | header | trieData |peak stack| mmrData |
     |--------.----------.----------.---------|
 
-
 ## The peak stack and mmr data sizes are computable
 
 ...but it is not always convenient to do so.

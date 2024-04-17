@@ -147,6 +147,7 @@ DataTrails provides open source, go-lang based, tooling at [URL] (_[__]__ )
 
 {{< tabs name="convert idtimestamp" >}}
   {{< tab name="Leaf Count and Massif Index" >}}
+
 ```javascript
 function massifIndex(mmrIndex, massifHeight) {
   const nl =  Number(leafCount(mmrIndex + 1n));

@@ -55,7 +55,6 @@ Using the `veracity` tool with the following command line we can reproduce our c
 
     go run veracity/cmd/veracity/main.go --height 2 massifs --count 6
 
-
 In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
 The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at *mmr Start*
 

@@ -119,14 +119,6 @@ Once committed to the DataTrails system, each lifecycle Event record carries 2 s
 
 For more detailed information on Events, and how to implement them, please refer to the [Events API Reference](/developers/api-reference/events-api/).
 
-## Proof Mechanisms
-
-Assets and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
-
-When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses a proof mechanism for that Asset and its Events. This determines how your data is recorded on the DataTrails blockchain.
-
-Our Simple Hash proof mechanism takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
-
 ## Access Policies
 
 Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.

@@ -307,12 +307,11 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;height&#34;</span><span class="p">:</span> <span class="s2">&#34;8&#39;&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-22T03:39:46Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
@@ -463,7 +462,7 @@ Any interaction with the thing can be significant, from user logins to unexpecte
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-25T12:40:03Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// Storage and integrity properties - managed by the system
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;LEDGER&#34;</span>
@@ -844,7 +843,6 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -854,7 +852,6 @@ For example, a policy checking that maintenance times are not considerably longe
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
@@ -955,7 +952,6 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
@@ -967,7 +963,6 @@ For example, a policy checking that maintenance times are not considerably longe
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset-box.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Box-1&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Box&#34;</span><span class="p">,</span>
@@ -1114,11 +1109,9 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 </li>
 <li>
 <p>Add details to your new Asset.</p>
-<p>The Proof Mechanism 
-<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
-Please see our 
-<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on the Proof Mechanism for your Asset.
-<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+</li>
+</ol>
+<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -1161,7 +1154,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2">
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
@@ -1169,12 +1161,11 @@ Please see our
 <li><code>behaviours</code> detail what class of events in your Asset&rsquo;s lifecycle you might wish to record; <code>RecordEvidence</code> is the standard and recommended behavior for all Assets.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-</li>
+<ol>
 <li>
 <p>As a minimum, you will need to add an Asset Name and Asset Type to create an Asset:</p>
 <ul>
@@ -1219,7 +1210,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -1227,9 +1217,8 @@ Please see our
   <div id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2">
 <p>The DataTrails API uses the reserved attributes <code>arc_display_name</code> and <code>arc_display_type</code>  to represent <code>Asset Name</code> and <code>Asset Type</code> respectively.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -1286,7 +1275,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -1308,9 +1296,8 @@ Please see our
 <p>This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, 
 <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
@@ -1861,7 +1848,7 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`},{id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
+`},{id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Archived: Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
 <p>This allows you to check for yourself, and prove to others, that any attestations that you made have not been changed since they were recorded in DataTrails.</p>
 <p>To verify your data, you may use the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>, available on GitHub.</p>
@@ -2206,7 +2193,6 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Document </span><span class="w">
@@ -2228,7 +2214,6 @@ The Trust data:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
@@ -2282,7 +2267,6 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Document </span><span class="w">
@@ -2316,7 +2300,6 @@ The Trust data:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
@@ -3180,7 +3163,6 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
@@ -7843,13 +7825,10 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
@@ -7874,8 +7853,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -7883,7 +7860,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
@@ -7925,8 +7901,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span><span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note</strong>: Document Profile Assets must be set to <code>public</code> to be compatible with 
@@ -7961,7 +7936,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
@@ -13013,7 +12987,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
@@ -13267,7 +13241,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
@@ -14998,7 +14972,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15040,7 +15014,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15100,7 +15074,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15124,7 +15098,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15168,7 +15142,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15210,7 +15184,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -15255,7 +15229,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
@@ -15291,7 +15265,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>  <span class="s2">&#34;RecordEvidence&#34;</span>  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="p">{</span><span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;group:maintainers&#34;</span><span class="p">,</span> <span class="s2">&#34;group:supervisors&#34;</span><span class="p">]}</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">]</span>
@@ -18857,12 +18831,11 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;This asset is public&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Public Asset&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-07-15T14:26:40Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9&#34;</span>
@@ -18897,7 +18870,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -18952,7 +18925,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -18990,7 +18963,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -21314,7 +21287,7 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="assets-create">Assets Create</h2>
 <p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story. For example, if you want to add a Compliance Policy for the Asset after it is created.</p>
 <p>The <code>arc_namespace</code> (for the Asset) and the <code>namespace</code> (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable <code>ARCHIVIST_NAMESPACE</code> (default value is namespace).</p>
-<p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be confirmed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
+<p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -21396,12 +21369,11 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;ev_pump&#34;</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;ev pump 1&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x6ba1CA0a5f4a2aBC23412419bC0E14233E88d233&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-11-18T16:55:44Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;827586838445807967&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/&lt;tenant-id&gt;&#34;</span>
@@ -21418,7 +21390,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-wait-for-confirmed">Assets Wait For Confirmed</h2>
-<p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed.</p>
+<p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -21435,7 +21407,7 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-create">Events Create</h2>
 <p>The <code>asset_label</code> must match the setting when the Asset was created in an earlier step. The <code>asset_label</code> may also be specified as the Asset ID of an existing Asset, in the form <code>assets/&lt;asset-id&gt;</code>.</p>
 <p>There are a few optional settings that can be used when creating Events. <code>attachments</code> uploads the attachment to DataTrails and the response is added to the Event before posting. <code>location</code> creates the location if it does not exist and adds it to the Event. The <code>sbom</code> setting uploads the SBOM to DataTrails and adds the response to the Event before posting.</p>
-<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be confirmed before moving to the next step.</p>
+<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -21505,7 +21477,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">props</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">CONFIRMED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">COMMITTED</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
@@ -21521,7 +21493,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">props</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">CONFIRMED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">COMMITTED</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
@@ -21675,7 +21647,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
 </span></span></span></code></pre></div><h2 id="subjects-wait-for-confirmation">Subjects Wait for Confirmation</h2>
-<p>This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed.</p>
+<p>This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed/committed.</p>
 <p><code>subject_label</code> is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form <code>subjects/&lt;subject-id&gt;</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -22284,12 +22256,11 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;height&#34;</span><span class="p">:</span> <span class="s2">&#34;8&#39;&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-22T03:39:46Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
@@ -22440,7 +22411,7 @@ Any interaction with the thing can be significant, from user logins to unexpecte
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-25T12:40:03Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// Storage and integrity properties - managed by the system
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;LEDGER&#34;</span>
@@ -22821,7 +22792,6 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -22831,7 +22801,6 @@ For example, a policy checking that maintenance times are not considerably longe
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
@@ -22932,7 +22901,6 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
@@ -22944,7 +22912,6 @@ For example, a policy checking that maintenance times are not considerably longe
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset-box.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Box-1&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Box&#34;</span><span class="p">,</span>
@@ -23091,11 +23058,9 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 </li>
 <li>
 <p>Add details to your new Asset.</p>
-<p>The Proof Mechanism 
-<a href="/platform/overview/advanced-concepts/#simple-hash"><code>Simple Hash</code></a> commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
-Please see our 
-<a href="/platform/overview/advanced-concepts/#proof-mechanisms">Advanced Concepts</a> section for more information on the Proof Mechanism for your Asset.
-<ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
+</li>
+</ol>
+<p><ul class="nav nav-tabs" id="add_asset_details" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#add_asset_details-0" type="button" role="tab" aria-controls="add_asset_details-0" aria-selected="true">UI</button>
 		</li>
 	  
@@ -23138,7 +23103,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2">
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
@@ -23146,12 +23110,11 @@ Please see our
 <li><code>behaviours</code> detail what class of events in your Asset&rsquo;s lifecycle you might wish to record; <code>RecordEvidence</code> is the standard and recommended behavior for all Assets.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 <br></p>
-</li>
+<ol>
 <li>
 <p>As a minimum, you will need to add an Asset Name and Asset Type to create an Asset:</p>
 <ul>
@@ -23196,7 +23159,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -23204,9 +23166,8 @@ Please see our
   <div id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2">
 <p>The DataTrails API uses the reserved attributes <code>arc_display_name</code> and <code>arc_display_type</code>  to represent <code>Asset Name</code> and <code>Asset Type</code> respectively.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -23263,7 +23224,6 @@ Please see our
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
@@ -23285,9 +23245,8 @@ Please see our
 <p>This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, 
 <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
@@ -23838,7 +23797,7 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`}).add({id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
+`}).add({id:8,href:"https://docs.datatrails.ai/developers/developer-patterns/verifying-with-simple-hash/",title:"Archived: Verifying Assets and Events with Simple Hash",description:"Ensure Asset and Event Data Has Not Changed",content:`<p>Verifying your Simple Hash events provides an additional layer of assurance to your data, so you can ensure that the information you have in your hand at a given time has not changed.</p>
 <p>This allows you to check for yourself, and prove to others, that any attestations that you made have not been changed since they were recorded in DataTrails.</p>
 <p>To verify your data, you may use the 
 <a href="https://github.com/datatrails/datatrails-simplehash-python" target="_blank" rel="noopener">DataTrails Simple Hash tool</a>, available on GitHub.</p>
@@ -24183,7 +24142,6 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Document </span><span class="w">
@@ -24205,7 +24163,6 @@ The Trust data:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
@@ -24259,7 +24216,6 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Document </span><span class="w">
@@ -24293,7 +24249,6 @@ The Trust data:</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
@@ -25157,7 +25112,6 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">proof_mechanism</span><span class="p">:</span><span class="w"> </span><span class="l">SIMPLE_HASH</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Publicly Attested Asset </span><span class="w">
@@ -29820,13 +29774,10 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
@@ -29851,8 +29802,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;somepic.jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Picture from yesterday&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_firmware_version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.2.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_home_location_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -29860,7 +29809,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
@@ -29902,8 +29850,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span><span class="s2">&#34;SIMPLE_HASH&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note</strong>: Document Profile Assets must be set to <code>public</code> to be compatible with 
@@ -29938,7 +29885,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
@@ -34990,7 +34936,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
@@ -35244,7 +35190,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
@@ -36975,7 +36921,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37017,7 +36963,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37077,7 +37023,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37101,7 +37047,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37145,7 +37091,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37187,7 +37133,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
@@ -37232,7 +37178,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
@@ -37268,7 +37214,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                        <span class="s2">&#34;subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d&#34;</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>  <span class="s2">&#34;RecordEvidence&#34;</span>  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_firmware_version&#34;</span> <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&#34;include_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span> <span class="s2">&#34;arc_display_type&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">                    <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                        <span class="p">{</span><span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;group:maintainers&#34;</span><span class="p">,</span> <span class="s2">&#34;group:supervisors&#34;</span><span class="p">]}</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">]</span>
@@ -40834,12 +40780,11 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;This asset is public&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Public Asset&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x5eC362570D1b52a01648997db5ed7693fc6b3978&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-07-15T14:26:40Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9&#34;</span>
@@ -40874,7 +40819,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -40929,7 +40874,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -40967,7 +40912,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -43291,7 +43236,7 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="assets-create">Assets Create</h2>
 <p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story. For example, if you want to add a Compliance Policy for the Asset after it is created.</p>
 <p>The <code>arc_namespace</code> (for the Asset) and the <code>namespace</code> (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable <code>ARCHIVIST_NAMESPACE</code> (default value is namespace).</p>
-<p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be confirmed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
+<p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -43373,12 +43318,11 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;ev_pump&#34;</span><span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;ev pump 1&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0x6ba1CA0a5f4a2aBC23412419bC0E14233E88d233&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2022-11-18T16:55:44Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;proof_mechanism&#34;</span><span class="p">:</span> <span class="s2">&#34;SIMPLE_HASH&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;827586838445807967&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/&lt;tenant-id&gt;&#34;</span>
@@ -43395,7 +43339,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-wait-for-confirmed">Assets Wait For Confirmed</h2>
-<p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed.</p>
+<p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -43412,7 +43356,7 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-create">Events Create</h2>
 <p>The <code>asset_label</code> must match the setting when the Asset was created in an earlier step. The <code>asset_label</code> may also be specified as the Asset ID of an existing Asset, in the form <code>assets/&lt;asset-id&gt;</code>.</p>
 <p>There are a few optional settings that can be used when creating Events. <code>attachments</code> uploads the attachment to DataTrails and the response is added to the Event before posting. <code>location</code> creates the location if it does not exist and adds it to the Event. The <code>sbom</code> setting uploads the SBOM to DataTrails and adds the response to the Event before posting.</p>
-<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be confirmed before moving to the next step.</p>
+<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -43482,7 +43426,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">props</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">CONFIRMED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">COMMITTED</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
@@ -43498,7 +43442,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">props</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">CONFIRMED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirmation_status</span><span class="p">:</span><span class="w"> </span><span class="l">COMMITTED</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
@@ -43652,7 +43596,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">John Doe</span><span class="w">
 </span></span></span></code></pre></div><h2 id="subjects-wait-for-confirmation">Subjects Wait for Confirmation</h2>
-<p>This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed.</p>
+<p>This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed/committed.</p>
 <p><code>subject_label</code> is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form <code>subjects/&lt;subject-id&gt;</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">

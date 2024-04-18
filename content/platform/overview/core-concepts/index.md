@@ -55,7 +55,7 @@ Once `STORED` in DataTrails and shared with partners, no party to the transactio
 
 Once `COMMITTED` in the customer's Tenancy Merkle tree in public blob storage, customers can prove their Events to 3rd parties, AND any tampering by DataTrails is detectable (as long people check). Because this data is public, anyone can keep and maintain a copy just in case DataTrails' version disappears. If this checking is weak, and/or copies are not made, then in principle Data Trails could create forks.
 
-By adding all Tenancies to the Merkle Mountain Range and signing the root, Events move to the `CONFIRMED` stage. The signature on to root holds DataTrails to account and prevents forks, and also prevents a kind of sybil attack that could otherwise be mounted by 3rd party verifiers. Even so, a tiny chance of tampering remains: DataTrails could possibly sign multiple MMRs and maintain multiple split histories, then present whichever version of the history is most advantageous.
+By adding all Tenancies to the Merkle Mountain Range (MMR) and signing the root, Events move to the `CONFIRMED` stage. The signature on to root holds DataTrails to account and prevents forks, and also prevents a kind of sybil attack that could otherwise be mounted by 3rd party verifiers. Even so, a tiny chance of tampering remains: DataTrails could possibly sign multiple MMRs and maintain multiple split histories, then present whichever version of the history is most advantageous.
 
 To make the whole history and individual events `UNEQUIVOCAL`, the root hash of the Committed MMR is periodically broadcast to single, well known location outside of DataTrails control (such as a smart contract address on Ethereum, or an official X account).
 

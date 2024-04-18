@@ -1,5 +1,5 @@
 ---
- title: "Verifying Assets and Events with Simple Hash"
+ title: "Archived: Verifying Assets and Events with Simple Hash"
  description: "Ensure Asset and Event Data Has Not Changed"
  lead: "Ensure Asset and Event Data Has Not Changed"
  date: 2021-05-18T14:52:25+01:00

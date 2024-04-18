@@ -154,7 +154,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -180,7 +179,6 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```
@@ -221,7 +219,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -259,7 +256,6 @@ This example also adds a location to our Asset. To find out more about locations
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```

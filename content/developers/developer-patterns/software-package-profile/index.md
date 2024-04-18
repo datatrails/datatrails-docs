@@ -66,7 +66,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: Publicly Attested Asset 

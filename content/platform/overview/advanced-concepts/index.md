@@ -75,7 +75,7 @@ A simple Asset might look like this:
       "at_time": "2021-06-25T12:40:03Z",
 
       // Storage and integrity properties - managed by the system
-      "confirmation_status": "CONFIRMED",
+      "confirmation_status": "COMMITTED",
       "tracked": "TRACKED",
       "owner": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "storage_integrity": "LEDGER"

@@ -9,9 +9,9 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 34
+weight: 33
 toc: true
-aliases: 
+aliases:
   - /docs/developer-patterns/namespace/
 ---
 

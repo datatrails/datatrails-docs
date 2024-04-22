@@ -76,7 +76,7 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -126,7 +126,7 @@ The response is:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -210,7 +210,7 @@ Each of these calls returns a list of matching IAM Access Policies records in th
                     "behaviours": [ "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "subjects": [
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -234,7 +234,7 @@ Each of these calls returns a list of matching IAM Access Policies records in th
                     "behaviours": [ "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "subjects": [
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -292,7 +292,7 @@ Define the Access Policy parameters to be changed and store in `/path/to/jsonfil
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -342,7 +342,7 @@ The response is:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -402,7 +402,7 @@ Each of these calls returns a list of matching Asset records in the form:
                 "arc_display_name": "arc_primary_image",
             },
         },
-        "confirmation_status": "CONFIRMED",
+        "confirmation_status": "COMMITTED",
         "tracked": "TRACKED"
         }
     ]
@@ -447,7 +447,7 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
                     ],
                     "behaviours": [  "RecordEvidence"  ],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "user_attributes": [
                         {"or": ["group:maintainers", "group:supervisors"]}
                     ]

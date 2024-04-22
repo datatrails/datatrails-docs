@@ -134,7 +134,7 @@ In the file you created earlier, begin adding metadata for your Asset:
    * `Document Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be `Purchase Order`, which will then be pre-populated for future Documents to use as their own types.
    * `Proof Mechanism` - The method used to commit the blockchain transaction.
 
-    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Document
+    Please see our [Advanced Concepts](/platform/overview/core-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Document
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
 {{< img src="RegDocAdvancedOptions.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
@@ -154,7 +154,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -180,7 +179,6 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```
@@ -221,7 +219,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -259,7 +256,6 @@ This example also adds a location to our Asset. To find out more about locations
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```

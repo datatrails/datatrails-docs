@@ -46,7 +46,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Shipping Container
       arc_display_type: Shipping Container
@@ -60,7 +59,6 @@ steps:
 cat > asset.json <<EOF
 {
   "behaviours": ["RecordEvidence"],
-  "proof_mechanism": "SIMPLE_HASH",
   "attributes": {
       "arc_display_name": "Shipping Container",
       "arc_display_type": "Shipping Container"
@@ -122,7 +120,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: Box-1
       arc_display_type: Box
@@ -138,7 +135,6 @@ Repeat the above a few times, editing the `arc_display_name` to add several boxe
 cat > asset-box.json <<EOF
 {
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "Box-1",
         "arc_display_type": "Box",

@@ -75,7 +75,7 @@ A simple Asset might look like this:
       "at_time": "2021-06-25T12:40:03Z",
 
       // Storage and integrity properties - managed by the system
-      "confirmation_status": "CONFIRMED",
+      "confirmation_status": "COMMITTED",
       "tracked": "TRACKED",
       "owner": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "storage_integrity": "LEDGER"
@@ -118,14 +118,6 @@ Once committed to the DataTrails system, each lifecycle Event record carries 2 s
 * `principal_accepted` - the actual user principal information belonging to the credential used to access the DataTrails REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
 
 For more detailed information on Events, and how to implement them, please refer to the [Events API Reference](/developers/api-reference/events-api/).
-
-## Proof Mechanisms
-
-Assets and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
-
-When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses a proof mechanism for that Asset and its Events. This determines how your data is recorded on the DataTrails blockchain.
-
-Our Simple Hash proof mechanism takes all the Events within a past time period (the default is the last 30 days) and commits them to the blockchain as one hash. This hash value can then be used to compare the current state of the Asset, and identify if any changes have occurred. With Simple Hash, you will not be able to see exactly what those changes were, only that something has changed.
 
 ## Access Policies
 

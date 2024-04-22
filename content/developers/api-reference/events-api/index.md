@@ -85,7 +85,7 @@ The response is:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"
@@ -384,7 +384,7 @@ You should see the response:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"

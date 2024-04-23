@@ -41,7 +41,7 @@ Events can never be deleted or modified. Events provide details on Asset attribu
 
 Assets and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
 
-When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses a proof mechanism for that Asset and its Events. This determines how your data is recorded on the DataTrails blockchain. 
+When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses a proof mechanism for that Asset and its Events. This determines how your data is recorded to the DataTrails distributed ledger. 
 
 DataTrails attestations are committed to immutable storage that is underpinned by cryptographically verifiable Merkle Mountain Range data structures for long term verifiability, even when offline.
 

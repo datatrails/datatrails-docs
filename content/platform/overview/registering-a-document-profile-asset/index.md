@@ -132,7 +132,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 1. The `Advanced Options` tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.
 
    * `Document Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be `Purchase Order`, which will then be pre-populated for future Documents to use as their own types.
-   * `Proof Mechanism` - The method used to commit the blockchain transaction.
+   * `Proof Mechanism` - The method used to record the transaction to the DataTrails distributed ledger.
 
     Please see our [Advanced Concepts](/platform/overview/core-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Document
 {{< tabs name="add_asset_details_min" >}}

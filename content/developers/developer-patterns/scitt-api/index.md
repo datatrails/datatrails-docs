@@ -90,39 +90,49 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
   openssl ecparam -name prime256v1 -genkey -out $SIGNING_KEY
   ```
 
-## Generating a Payload
+## Generate a Payload
 
-1. Create a simple json payload
+Create any payload you wish to register on DataTrails. JSON based payloads are indexed for query capabilities.
 
-    ```bash
-    cat > payload.json <<EOF
-    {
-        "author": "fred",
-        "title": "my biography",
-        "reviews": "mixed"
-    }
-    EOF
-    ```
+{{< note >}}
+The current version of the DataTrails SCITT API is limited to JSON payloads.
+This will be relaxed in a future release
+{{< /note >}}
 
-1. Create a COSE Signed Statement for the `payload.json` file
+```bash
+cat > payload.json <<EOF
+{
+    "author": "fred",
+    "title": "my biography",
+    "reviews": "mixed"
+}
+EOF
+```
 
-    ```bash
-    python scitt/create_signed_statement.py \
-      --signing-key-file $SIGNING_KEY \
-      --issuer $ISSUER \
-      --feed $FEED \
-      --content-type "application/json" \
-      --payload-file payload.json \
-      --output-file $SIGNED_STATEMENT_FILE
+## Create a COSE Signed Statement
 
-1. Register the Statement
+Using the `payload.json` file, create a COSE Signed Statement
 
-    ```bash
-    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                    --data-binary @$SIGNED_STATEMENT_FILE \
-                    https://app.datatrails.ai/archivist/v1/publicscitt/entries \
-                    | jq -r .operationID)
-    ```
+```bash
+python scitt/create_signed_statement.py \
+  --signing-key-file $SIGNING_KEY \
+  --issuer $ISSUER \
+  --feed $FEED \
+  --content-type "application/json" \
+  --payload-file payload.json \
+  --output-file $SIGNED_STATEMENT_FILE
+```
+
+## Register the SCITT Statement on DataTrails
+
+Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`
+
+  ```bash
+  OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
+                  --data-binary @$SIGNED_STATEMENT_FILE \
+                  https://app.datatrails.ai/archivist/v1/publicscitt/entries \
+                  | jq -r .operationID)
+  ```
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
 

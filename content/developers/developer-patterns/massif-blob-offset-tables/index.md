@@ -11,7 +11,10 @@
  toc: true
 ---
 
-This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format. The algorithms to reproduce this are relatively simple, we provide open source implementations, but in many contexts it is simpler to use these pre-calculations. These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
+This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
+The algorithms to reproduce this are relatively simple.
+We provide open-source implementations, but in many contexts, it is simpler to use these pre-calculations.
+These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
 
 This is a fast review of the log format. We explain this in more detail at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
@@ -31,14 +34,11 @@ New leaves are added to the last blob in the log.
     | header | trieData |peak stack| mmrData |
     |--------.----------.----------.---------|
 
-
 ## The peak stack and mmr data sizes are computable
 
 ...but it is not always convenient to do so.
 
-
 Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
-
 
                        14
                           \
@@ -52,9 +52,8 @@ Using the `veracity` tool with the following command line we can reproduce our c
 
     go run veracity/cmd/veracity/main.go --height 2 massifs --count 6
 
-
-
-In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file. The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32 byte nodes starting at *mmr Start*
+In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
+The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at *mmr Start*
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |
@@ -67,7 +66,6 @@ In the following table *Stack Start* and *mmr Start* are byte offsets from the s
 
 It is fairly easy to validate the leaves and nodes by hand. The reproducing the
 Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
-
 
 ## Pre-computes for your first million events
 
@@ -138,11 +136,13 @@ Stack Start needs details from [Navigating the Merkle Log](/developers/developer
 
 ## The algorithms backing the table generation
 
-In combination with the format inforation at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
-the pre-computed tables above can be generated using these examples. We  provide open source, go-lang based, tooling to do this.
+In combination with the format information at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs) the pre-computed tables above can be generated using these examples.
+DataTrails provides open source, go-lang based, tooling at [URL] (_[__]__ )
 
 {{< tabs name="convert idtimestamp" >}}
   {{< tab name="Leaf Count and Massif Index" >}}
+
+
 ```javascript
 function massifIndex(mmrIndex, massifHeight) {
   const nl =  Number(leafCount(mmrIndex + 1n));
@@ -179,8 +179,10 @@ function clz64(num) {
   return 32 + Math.clz32(lo);
 }
 ```
+
   {{< /tab >}}
   {{< tab name="mmrIndex from leafIndex" >}}
+
 ```javascript
 function treeIndex(iLeaf) {
   let sum = 0n; // Assuming iLeaf can be very large, use BigInt for accuracy.

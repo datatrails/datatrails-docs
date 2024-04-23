@@ -72,8 +72,8 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # File representing the signed statement to be registered
     SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
-    # Feed ID, used to correlate a collection of statements about an artifact
-    FEED="my-product-id"
+    # Subject is a property used to correlate a collection of statements about an artifact
+    SUBJECT="my-product-id"
     ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
@@ -117,7 +117,7 @@ Using the `payload.json` file, create a COSE Signed Statement
 python scitt/create_signed_statement.py \
   --signing-key-file $SIGNING_KEY \
   --issuer $ISSUER \
-  --feed $FEED \
+  --feed $SUBJECT \
   --content-type "application/json" \
   --payload-file payload.json \
   --output-file $SIGNED_STATEMENT_FILE
@@ -158,7 +158,7 @@ By querying the series of statements, consumers can verify who did what and when
 
     ```bash
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED | jq
+      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$SUBJECT | jq
     ```
 
 {{< note >}}

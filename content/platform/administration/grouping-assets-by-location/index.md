@@ -9,7 +9,7 @@ images: []
 menu:
   platform:
     parent: "administration"
-weight: 46
+weight: 47
 toc: true
 aliases:
   - ../quickstart/grouping-assets-by-location
@@ -25,11 +25,14 @@ It may be useful to indicate an Asset's origin. For example, if tracking traveli
 {{< /caution >}}
 
 ## Creating a Location
-
+{{< note >}} 
+**Note:** The Locations UI is not displayed in the side menu until after the first location has been created using the [API](/developers/api-reference/locations-api/). After this you can use the UI to create new locations but to update or delete a location you will still need to use the API 
+{{< /note >}}
 1. Create your location
 {{< tabs name="add_location_locations" >}}
 {{{< tab name="UI" >}}
 In the dashboard, select `Locations`, then `Add Location`.
+
 {{< img src="LocationAddNew.png" alt="Rectangle" caption="<em>Adding a Location</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}

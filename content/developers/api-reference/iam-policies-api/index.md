@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/iam-policies-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -24,13 +24,13 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
-An [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/) policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
+An [ABAC](/platform/administration/sharing-access-inside-your-tenant/) policy is used to share permissions with Non-Administrators within your Tenancy. A Non-Administrator could be a user who has been added using the [Invites API](../invites-api/) or could be an App Registration used for client credentials, which are created as Non-Root by default.
 
 To create an ABAC Policy, you should use the `user_attributes` keyword. Specify `email` for invited users, and `subject`, using the client-id of your credentials, for App Registrations.
 
 You may also set permissions based on the Custom Claims of an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations) using JSON Web Tokens (JWTs). To do so, you must include the prefix `jwt_` followed by the desired claim as one of the `user_attributes` in the policy. For example, the key `jwt_app_reg_role` to match on claim `app_reg_role`.
 
-An [OBAC](/platform/administration/sharing-assets-with-obac/) policy is used to share with the Administrators of an external organization.
+An [OBAC](/platform/administration/sharing-access-outside-your-tenant/) policy is used to share with the Administrators of an external organization.
 
 To begin sharing with OBAC, you must first import your collaborator's Organization ID using either the [IAM Subjects API](../iam-subjects-api/) or the instructions in the [administration section](/platform/administration/sharing-assets-with-obac/#importing-another-organizations-ids).
 
@@ -43,7 +43,7 @@ This will return a `subjects/<UUID>` object you would then specify with the `sub
 As both ABAC and OBAC use the same filter syntax, it is possible to have a mix of internal and external sharing within a single policy.
 
 {{< note >}}
-Learn more about [ABAC](/platform/administration/managing-access-to-an-asset-with-abac/) and [OBAC](/platform/administration/sharing-assets-with-obac/) policies in our DataTrails Basics guides.
+**Note:** Learn more about [ABAC](/platform/administration/sharing-access-inside-your-tenant/) and [OBAC](/platform/administration/sharing-access-outside-your-tenant/) policies in our DataTrails Basics guides.
 {{< /note >}}
 
 ### IAM Policy Creation
@@ -76,7 +76,7 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -126,7 +126,7 @@ The response is:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -138,7 +138,9 @@ The response is:
     ]
 }
 ```
-
+{{< note >}}
+**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+{{< /note >}}
 ### IAM Policy Retrieval
 
 IAM Access Policy records in DataTrails are tokenized at creation time and referred to in all API calls and smart contracts throughout the system by a unique identity of the form:
@@ -208,7 +210,7 @@ Each of these calls returns a list of matching IAM Access Policies records in th
                     "behaviours": [ "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "subjects": [
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -232,7 +234,7 @@ Each of these calls returns a list of matching IAM Access Policies records in th
                     "behaviours": [ "RecordEvidence" ],
                     "event_arc_display_type_read": ["toner_type", "toner_colour"],
                     "event_arc_display_type_write": ["toner_replacement"],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "subjects": [
                         "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -290,7 +292,7 @@ Define the Access Policy parameters to be changed and store in `/path/to/jsonfil
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -340,7 +342,7 @@ The response is:
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
-            "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+            "include_attributes": [ "arc_display_name", "arc_display_type" ],
             "subjects": [
                 "subjects/6a951b62-0a26-4c22-a886-1082297b063b",
                 "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
@@ -400,7 +402,7 @@ Each of these calls returns a list of matching Asset records in the form:
                 "arc_display_name": "arc_primary_image",
             },
         },
-        "confirmation_status": "CONFIRMED",
+        "confirmation_status": "COMMITTED",
         "tracked": "TRACKED"
         }
     ]
@@ -445,7 +447,7 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
                         "subjects/a24306e5-dc06-41ba-a7d6-2b6b3e1df48d"
                     ],
                     "behaviours": [  "RecordEvidence"  ],
-                    "include_attributes": [ "arc_display_name", "arc_display_type", "arc_firmware_version" ],
+                    "include_attributes": [ "arc_display_name", "arc_display_type" ],
                     "user_attributes": [
                         {"or": ["group:maintainers", "group:supervisors"]}
                     ]

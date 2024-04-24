@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/public-assets-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -31,13 +31,13 @@ Each Public Asset has a private and a public interface. The private interface is
 The methods described below cover interacting with the public interface only. To interact with the private interface, use the standard [Assets API](../assets-api/).
 
 {{< note >}}
-Visit the [Public Attestation](/platform/overview/public-attestation/) guide for more information.
+**Note:** Visit the [Public Attestation](/platform/overview/public-attestation/) guide for more information.
 {{< /note >}}
 
 ### Fetch a Public Asset Record
 
 ```bash
-curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
+curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/v2/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4
 ```
 
 ```json
@@ -51,12 +51,11 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
     "arc_description": "This asset is public",
     "arc_display_name": "Public Asset"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "tracked": "TRACKED",
   "owner": "0x5eC362570D1b52a01648997db5ed7693fc6b3978",
   "at_time": "2022-07-15T14:26:40Z",
   "storage_integrity": "TENANT_STORAGE",
-  "proof_mechanism": "SIMPLE_HASH",
   "chain_id": "8275868384",
   "public": true,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9"
@@ -66,7 +65,7 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
 ### Fetch All Of a Public Asset's Events Records
 
 ```bash
-curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events
+curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/v2/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events
 ```
 
 ```json
@@ -98,7 +97,7 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
                 "display_name": "",
                 "email": ""
             },
-            "confirmation_status": "CONFIRMED",
+            "confirmation_status": "COMMITTED",
             "transaction_id": "",
             "block_number": 0,
             "transaction_index": 0,
@@ -153,7 +152,7 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
                 "display_name": "",
                 "email": ""
             },
-            "confirmation_status": "CONFIRMED",
+            "confirmation_status": "COMMITTED",
             "transaction_id": "",
             "block_number": 0,
             "transaction_index": 0,
@@ -168,7 +167,7 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
 ### Fetch a Public Asset's Specific Event Record
 
 ```bash
-curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721
+curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/v2/publicassets/86b61c4b-030e-4c07-9400-463612e6cee4/events/7da272ad-19d5-4106-b4af-2980a84c2721
 ```
 
 ```json
@@ -198,7 +197,7 @@ curl -H "Content-Type: application/json" https://app.datatrails.ai/archivist/pub
         "display_name": "",
         "email": ""
     },
-    "confirmation_status": "CONFIRMED",
+    "confirmation_status": "COMMITTED",
     "transaction_id": "",
     "block_number": 0,
     "transaction_index": 0,

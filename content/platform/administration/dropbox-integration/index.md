@@ -9,13 +9,13 @@ images: []
 menu: 
   platform:
     parent: "administration"
-weight: 47
+weight: 45
 toc: true
 ---
 
 ## The Dropbox Integration
 
-This integration allows you to connect your DataTrails tenancy directly with Dropbox to automatically record and maintain the provenance metadata of your files in an immutable audit trail.
+Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.
 
 DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox. 
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -26,19 +26,20 @@ During the set up process you will select which Dropbox folders will be linked t
 From then on, each time a new file is created in a linked folder, a corresponding provenance metadata record will be created on DataTrails. Any modifications to a file in a linked folder will be recorded as a [Publish Event](/developers/developer-patterns/document-profile/#publish-event) in the provenance metadata record for that file.  
 The result is that the auditable provenance record for your files begins at the moment that you link a folder and that an immutable audit trail for each file automatically grows as the files are modified. 
 
-**A note on subfolders.**<br> 
-During configuration, when you link a folder in the UI we will automatically link any subfolders too. Similarly, if you unlink a folder in the UI we will automatically unlink any subfolders. 
- 
-If you create a subfolder in Dropbox after the integration has been set up it will be automatically added to the linked folder list. If you delete a subfolder or move it to an unlinked location it will be automatically removed from the linked folder list.
-
 You are free, at any time, to link and unlink a folder at all levels of your folder tree using the instructions at [Editing the list of Linked folders](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders)
 
 Please also see our [FAQ](https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ) for more information.
-
-
 {{< note >}}
-**Note**: DataTrails uses <em>xxx...</em> to mask the file name and file path in the UI. This is intentional so that private information cannot be accidentally released via the Instaproof search results and because DataTrails is not intended to replace the excellent file management functionality that is provided by Dropbox.<br>
-Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.
+**Note:** During configuration, when you link a folder in the UI we will automatically link any subfolders too. Similarly, if you unlink a folder in the UI we will automatically unlink any subfolders. 
+ 
+If you create a subfolder in Dropbox after the integration has been set up it will be automatically added to the linked folder list. If you delete a subfolder or move it to an unlinked location it will be automatically removed from the linked folder list.
+
+ If a folder is unlinked for any reason, such by as direct configuration or by being moved, the Audit Trail will stop. Relinking the folder will restart the Audit Trail but we cannot recover any Events that happened while the folder was unlinked.  
+{{< /note >}}
+{{< note >}}
+**Note:** DataTrails masks the file path and replaces the filename with the Asset ID in the public Asset view that is returned by Instaproof. This is intentional so that private information cannot be accidentally released via the Instaproof search results.<br>
+Knowledge of the filename is not needed to prove provenance because Instaproof will attest and verify the content of a file even if the filename has been changed.<br>
+The permissioned view that is seen by an administrator who is logged into a tenancy will show the file name and the file path.
 {{< /note >}}
 
 ### Connecting DataTrails to Dropbox
@@ -83,4 +84,4 @@ This means that this specific tenancy will no longer be used for provenance. You
 You would disconnect in Dropbox if you no longer wish to use DataTrails for provenance. This will remove access permissions for all your tenancies and should be done after you have disconnected all your individual tenancies in DataTrails.
 
 
-This is how to connect and disconnect DataTrails and Dropbox, it is that simple!
+This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our [FAQ](https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ) for more information.

@@ -15,7 +15,7 @@ aliases:
   - /docs/api-reference/events-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
@@ -85,7 +85,7 @@ The response is:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"
@@ -384,7 +384,7 @@ You should see the response:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"

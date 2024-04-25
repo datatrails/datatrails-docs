@@ -17401,8 +17401,8 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
-</span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -17413,10 +17413,12 @@ This includes previously registered statements, and newly registered statements 
 <p>For the Quickstart, create a testing 
 <a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
-</span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
-<ol>
-<li>
-<p>Create a simple json payload</p>
+</span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
+<p>Create any payload you wish to register on DataTrails. JSON based payloads are indexed for query capabilities.</p>
+<blockquote class="note callout">
+    <div><strong></strong> The current version of the DataTrails SCITT API is limited to JSON payloads.
+This will be relaxed in a future release</div>
+  </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
@@ -17424,24 +17426,22 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Create a COSE Signed Statement for the <code>payload.json</code> file</p>
+</span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
+<p>Using the <code>payload.json</code> file, create a COSE Signed Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$SUBJECT</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Register the Statement</p>
+</span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>bearer-token.txt</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><ol>
 <li>
 <p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
@@ -17461,7 +17461,7 @@ By querying the series of statements, consumers can verify who did what and when
 <li>
 <p>Query DataTrails for the collection of statements</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=</span><span class="nv">$FEED</span><span class="s2">&#34;</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$SUBJECT</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
 <blockquote class="note callout">
@@ -39178,8 +39178,8 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Feed ID, used to correlate a collection of statements about an artifact</span>
-</span></span><span class="line"><span class="cl"><span class="nv">FEED</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -39190,10 +39190,12 @@ This includes previously registered statements, and newly registered statements 
 <p>For the Quickstart, create a testing 
 <a href="https://cose-wg.github.io/cose-spec/#key-structure" target="_blank" rel="noopener">COSE Key</a> which DataTrails will cryptographically validate upon registration</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
-</span></span></code></pre></div><h2 id="generating-a-payload">Generating a Payload</h2>
-<ol>
-<li>
-<p>Create a simple json payload</p>
+</span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
+<p>Create any payload you wish to register on DataTrails. JSON based payloads are indexed for query capabilities.</p>
+<blockquote class="note callout">
+    <div><strong></strong> The current version of the DataTrails SCITT API is limited to JSON payloads.
+This will be relaxed in a future release</div>
+  </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
@@ -39201,24 +39203,22 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Create a COSE Signed Statement for the <code>payload.json</code> file</p>
+</span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
+<p>Using the <code>payload.json</code> file, create a COSE Signed Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$FEED</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --feed <span class="nv">$SUBJECT</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Register the Statement</p>
+</span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>bearer-token.txt</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><ol>
 <li>
 <p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
@@ -39238,7 +39238,7 @@ By querying the series of statements, consumers can verify who did what and when
 <li>
 <p>Query DataTrails for the collection of statements</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=</span><span class="nv">$FEED</span><span class="s2">&#34;</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id<span class="o">=</span><span class="nv">$SUBJECT</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
 <blockquote class="note callout">

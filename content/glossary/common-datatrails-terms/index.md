@@ -23,7 +23,6 @@ Select a term for more information.
 | [access policy](/platform/overview/core-concepts/#access-policies)       | grants chosen Asset and Event access to stakeholders                                                                 |
 | [actor](/platform/overview/creating-an-asset/)| person/machine/software integration that created a particular entry on the provenance record|
 | [administrator](/developers/developer-patterns/getting-access-tokens-using-app-registrations/#creating-an-app-registration)           | user with permission to see all Asset and Event information within a Tenancy, and to grant access to other users                                   |
-| [anchored](/developers/developer-patterns/verifying-with-simple-hash/)  | Simple Hash events are committed to the blockchain by hashing them in batches. The hash recorded on the chain is called the anchor |
 | [asset](/platform/overview/core-concepts/#assets)               | a DataTrails Asset is an entry in your tenancy, which has a collection of attributes that describes its current state and a complete life history of Events |
 | [asset attributes](/platform/overview/creating-an-asset/#creating-an-asset)    | key-value pairs that represent information about an Asset                                                            |
 | [asset ID](/platform/overview/creating-an-asset/)| the permanent unique identifier for an Asset, under which all provenance information (Events) can be found|
@@ -46,17 +45,16 @@ Select a term for more information.
 | [organization](/platform/administration/verified-domain/)| any entity with a distinct DataTrails account who publishes or verifies provenance information on the platform|
 | [principal_accepted](/platform/overview/advanced-concepts/#user-principals-on-events)| the actual user principal information belonging to the credential used to access the DataTrails REST interface|
 | [principal_declared](/platform/overview/advanced-concepts/#user-principals-on-events)| an optional user-supplied value that tells who performed an Event|
-| [proof mechanism](/platform/overview/core-concepts/#proof-mechanisms)           | method by which information on the DataTrails blockchain can be verified; selected when an Asset is created                                                                                       |
+| [proof mechanism](/platform/overview/core-concepts/#proving-provenance)           | method by which information to the DataTrails distributed ledger can be verified                                                                              |
 | [provenance](https://en.wiktionary.org/wiki/provenance) | the version and ownership history of a piece of data. With DataTrails this is an immutable audit trail to prove Who Did What When to any piece of data  |
 | [public asset](/platform/overview/public-attestation/)        | Assets that can be used to publicly assert data, accessible by URL without the need for a DataTrails account                                                   |
 | [selector](/platform/overview/creating-an-asset/#creating-an-asset)            | identifying attribute the Yaml Runner will use to check if your Asset exists already before attempting to create it  |
-| [simple hash](/platform/overview/advanced-concepts/#simple-hash)            | Proof Mechanism that commits information to the DataTrails blockchain in batches; value can confirm that information in the batch has not changed |
 | [tenancy](/platform/overview/core-concepts/#tenancies)             | an organization’s private area within DataTrails, containing Asset and Event data                                         |
 | [tenant display name](/platform/administration/identity-and-access-management/#tenant-display-name) | displayed only within own Tenancy for easy identification and switching |
 | [tenant_accepted](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was actually received on the DataTrails REST interface |
 | [tenant_committed](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was confirmed distributed to all DLT nodes in the value chain |
 | [tenant_declared](/platform/overview/advanced-concepts/#timestamps-on-events) | an optional user-supplied value that tells when an Event happened |
-| [transaction](/developers/developer-patterns/verifying-with-simple-hash/)| final commitment of data to the Distributed Ledger Technology so that it is sealed and cannot be modifed, tampered or erased|
+| [transaction](/developers/developer-patterns/verifying-with-simple-hash/)| final commitment of data to the Distributed Ledger Technology so that it is sealed and cannot be modified, tampered or erased|
 | [unlinked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has not been selected to be linked to DataTrails during the configuration or reconfiguration of an Integration                                              |
 | [verified domain](/platform/administration/verified-domain/)     | tenancy name visible to others in place of the tenancy ID when viewing the Asset Overview of a public Asset or a shared private Asset. Must be verified by the DataTrails team                                        |
 | [verified organization](/platform/administration/verified-domain/)| an organization which has paid to have their domain verified and displayed in place of their tenancy ID in Instaproof results and in the Asset Overview |

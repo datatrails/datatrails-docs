@@ -56,7 +56,7 @@ The **Other Results** results are those from from unverified DataTrails accounts
 
 While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in DataTrails is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
 
-### What Do the Instaproof Results Mean
+### What Do the Instaproof Results Mean?
 
 #### Immutable Audit Trail
 
@@ -95,7 +95,7 @@ The **Overview** information about the Event
 
 **Asset Identity** - the ID of the parent Asset for this Event.
 
-**Transaction** - This link contains the details of the blockchain transaction.
+**Transaction** - This link contains the details of the Event transaction.
 {{< img src="InstaproofTransaction.png" alt="Rectangle" caption="<em>Transaction Details</em>" class="border-0" >}}
 
 **Type** - For Document Profile Events this will always be 'Publish'

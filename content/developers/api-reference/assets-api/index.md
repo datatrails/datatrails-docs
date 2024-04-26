@@ -252,7 +252,7 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 ```bash
 curl -g -v -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+     "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG"
 ```
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema

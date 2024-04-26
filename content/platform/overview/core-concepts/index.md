@@ -39,26 +39,27 @@ Events can never be deleted or modified. Events provide details on Asset attribu
 
 ## Proof Mechanisms
 
-Assets and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to being able to use them.
-
-When [creating an Asset](/platform/overview/creating-an-asset/), DataTrails uses a proof mechanism for that Asset and its Events. This determines how your data is recorded to the DataTrails distributed ledger. 
+Artifacts and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to knowing the information is secure and trustworthy.
 
 DataTrails attestations are committed to immutable storage that is underpinned by cryptographically verifiable Merkle Mountain Range data structures for long term verifiability, even when offline.
 
-{{< img src="merkleflow.png" alt="Rectangle" caption="<em></em>" class="border-0" >}}
-
 **Four Increasing Trust Levels**
 
-In the customer's environment, data can be tampered, shredded, backdated...
+At DataTrails we believe in holding ourselves to the same levels of accountability as our customers, and the Merkle Log proof mechanism provides the robustness, integrity and availability guarantees needed to ensure data authenticity in any digital or data supply chain. And you don't have to just take our word for it: you can check.
 
-Once `STORED` in DataTrails and shared with partners, no party to the transaction can tamper, back-date or shred evidence. However there could be a suspicion that DataTrails (or a hacker in our systems, or Microsoft under subpœna) could tamper with the data, or make it unavailable or something.
+Here's how it works:
 
-Once `COMMITTED` in the customer's Tenancy Merkle tree in public blob storage, customers can prove their Events to 3rd parties, AND any tampering by DataTrails is detectable (as long people check). Because this data is public, anyone can keep and maintain a copy just in case DataTrails' version disappears. If this checking is weak, and/or copies are not made, then in principle Data Trails could create forks.
+{{< img src="merkleflow.png" alt="Rectangle" caption="<em></em>" class="border-0" >}}
 
-By adding all Tenancies to the Merkle Mountain Range (MMR) and signing the root, Events move to the `CONFIRMED` stage. The signature on to root holds DataTrails to account and prevents forks, and also prevents a kind of sybil attack that could otherwise be mounted by 3rd party verifiers. Even so, a tiny chance of tampering remains: DataTrails could possibly sign multiple MMRs and maintain multiple split histories, then present whichever version of the history is most advantageous.
+Without an Immutable Audit Trail, there is always the risk - or at least the suspicion - that data can be shredded, backdated or otherwise tampered with.
 
-To make the whole history and individual events `UNEQUIVOCAL`, the root hash of the Committed MMR is periodically broadcast to single, well known location outside of DataTrails control (such as a smart contract address on Ethereum, or an official X account).
+Once `STORED` in DataTrails and shared with partners, no party to the transaction can tamper, back-date or shred evidence. However while the security and integrity of our customers' data is our top priority, there could still be a suspicion that DataTrails (or a hacker in our systems, or our cloud service provider under subpœna) could tamper with the data, or make it unavailable.
 
+Once `COMMITTED` in the customer’s Tenancy Merkle tree in public blob storage, customers can prove their Events to 3rd parties, AND any tampering by DataTrails is detectable. Because this data is public, anyone can keep and maintain a copy just in case DataTrails’ version disappears. These copies are great for availability and holding DataTrails accountable, but there is a risk that a kind of Sybil attack could be mounted where the community creates forks and then tries to accuse the DataTrails version of being wrong.
+
+By adding all Tenancies to the Merkle Mountain Range (MMR) and signing the root, Events move to the `CONFIRMED` stage. The signature on the root at once holds DataTrails to account *and* prevents forks and the Sybil attack mentioned above. Even so, a tiny chance of tampering remains: in principle, multiple MMRs could be signed, creating multiple versions of history.
+
+To make the whole history and individual events `UNEQUIVOCAL`, the root hash of the Committed MMR is periodically broadcast so that it is clear that there is one, and only one, version of history to underpin your data authenticity.
 
 ## Access Policies
 

@@ -15,7 +15,6 @@
 /docs/developer-patterns/namespace/ /developers/developer-patterns/namespace/
 ../quickstart/creating-an-event-against-an-asset /platform/overview/creating-an-event-against-an-asset/
 /docs/rkvst-basics/creating-an-event-against-an-asset/ /platform/overview/creating-an-event-against-an-asset/
-/docs/beyond-the-basics/verifying-with-simple-hash/ /developers/developer-patterns/verifying-with-simple-hash/
 /docs/beyond-the-basics/public-attestation/ /platform/overview/public-attestation/
 /docs/overview/identity-and-access-management/ /platform/administration/identity-and-access-management/
 /docs/beyond-the-basics/verified-domain/ /platform/administration/verified-domain/
@@ -42,7 +41,6 @@
 /docs/developer-patterns/scitt-api/ /developers/developer-patterns/scitt-api/
 /docs/api-reference/locations-api/ /developers/api-reference/locations-api/
 /docs/api-reference/public-assets-api/ /developers/api-reference/public-assets-api/
-/docs/api-reference/system-api/ /developers/api-reference/system-api/
 /docs/api-reference/tenancies-api/ /developers/api-reference/tenancies-api/
 /docs/yaml-reference/story-runner-components/ /developers/yaml-reference/story-runner-components/
 /docs/yaml-reference/assets/ /developers/yaml-reference/assets/

@@ -37,7 +37,7 @@ Events are things that happen during an Asset's lifecycle. Each Event Record con
 
 Events can never be deleted or modified. Events provide details on Asset attributes, such as updating the weight of a shipment, and/or details about the event itself, such as a recording a new document version.
 
-## Proof Mechanisms
+## Proving Provenance
 
 Artifacts and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to knowing the information is secure and trustworthy.
 

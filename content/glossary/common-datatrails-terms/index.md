@@ -45,7 +45,7 @@ Select a term for more information.
 | [organization](/platform/administration/verified-domain/)| any entity with a distinct DataTrails account who publishes or verifies provenance information on the platform|
 | [principal_accepted](/platform/overview/advanced-concepts/#user-principals-on-events)| the actual user principal information belonging to the credential used to access the DataTrails REST interface|
 | [principal_declared](/platform/overview/advanced-concepts/#user-principals-on-events)| an optional user-supplied value that tells who performed an Event|
-| [proof mechanism](/platform/overview/core-concepts/#proof-mechanisms)           | method by which information to the DataTrails distributed ledger can be verified                                                                              |
+| [proof mechanism](/platform/overview/core-concepts/#proving-provenance)           | method by which information to the DataTrails distributed ledger can be verified                                                                              |
 | [provenance](https://en.wiktionary.org/wiki/provenance) | the version and ownership history of a piece of data. With DataTrails this is an immutable audit trail to prove Who Did What When to any piece of data  |
 | [public asset](/platform/overview/public-attestation/)        | Assets that can be used to publicly assert data, accessible by URL without the need for a DataTrails account                                                   |
 | [selector](/platform/overview/creating-an-asset/#creating-an-asset)            | identifying attribute the Yaml Runner will use to check if your Asset exists already before attempting to create it  |

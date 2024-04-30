@@ -28,6 +28,10 @@ DataTrails empowers this by providing an immutable lineage record for all aspect
 
 {{< img src="aitransparency.png" alt="Rectangle" caption="<em>Opportunities for Transparency</em>" class="border-0" >}}
 
+RAG: Retrieval Augmented Generation<br>
+SHAP: SHapley Additive exPlanations<br>
+LIME: Local Interpretable Model-agnostic Explanations
+
 ### Considerations
 
 **Policy and Standards Compliance:** A set of Asset attributes can be created to record the baseline compliance of the AI system. This can include internal policies such as Bias, Discrimination and Copyright statements or external policies such as GDPR and other legal frameworks.

@@ -34,6 +34,8 @@ The platform allows multi-party sharing and visibility of supply chain data whic
 
 It also provides proof of the ownership and operational status of both digital and physical assets and enhances statements of compliance and quality assurance. 
 
+{{< img src="chainofcustody.png" alt="Rectangle" caption="<em>Chain of Custody</em>" class="border-0" >}}
+
 ### Considerations
 
 **Custom Attributes:** A core set of attributes can be created specifically to suit each asset and event type. DataTrails has the flexibility to allow these to be modified as the business needs develop over time. They are not set in stone.

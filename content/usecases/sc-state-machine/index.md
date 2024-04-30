@@ -1,5 +1,5 @@
 ---
-title: "Supply Chain: State Machine"
+title: "Supply Chain: Process Governance and Modelling"
 description: "DataTrails ensures Integrity, Transparency and Trust for Supply Chains"
 lead: "Tracking multi-stakeholder business processes"
 date: 2024-03-26T14:03:01Z
@@ -16,13 +16,15 @@ aliases:
     - /usecases/state-machine/
 ---
 
-A common pattern for tracking an Asset lifecycle is the *State Machine* pattern. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in DataTrails not only ensures transparency and accountability among parties, but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.
+A common pattern for tracking an Asset lifecycle is the *State Machine* pattern for Multi-party business processes. This is a good choice for multi-stakeholder process modelling, particularly where the order of operations is important or activities are triggered by actions of partners. Tracing multi-stakeholder business processes in DataTrails not only ensures transparency and accountability among parties, but is also faster and more reliable than typical cross-organization data sharing and process management involving phone calls and spreadsheets.
 
 Modelling such systems in DataTrails can help to rapidly answer questions like *"are my processes running smoothly?"*, *"do I need to act?"*, and *"has this asset been correctly managed?"*. In audit situations, the Asset histories also allow stakeholders to look back in time and ask *"who knew what at the time? Could process violations have been detected earlier?"*
 
 ## Multi-party change management and approvals
 
 This pattern uses a purely virtual Asset to represent a policy or process and coordinate movement through that process, complete with multi-party inputs and approvals. The emphasis here is on Events rather than Asset attributes: What Happened? Who Was There? What evidence was used to decide to move to the next sage of the process?
+
+{{< img src="processgovernance.png" alt="Rectangle" caption="<em>Process Governance</em>" class="border-0" >}}
 
 ### Considerations
 

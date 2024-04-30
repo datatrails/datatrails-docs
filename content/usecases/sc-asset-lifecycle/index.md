@@ -15,9 +15,13 @@ toc: true
 
 Tracking and tracing the lifecycle of physical Assets - from IoT Devices (embedded sensors, handheld equipment) to a whole distribution depot - is a key strength of DataTrails. The ability to collect and examine the entire life history of critical Assets - their provenance - is crucial to building secure and trustworthy systems.
 
+This also applies to digital assets such as software applications, equipment firmware, images and documents. Every item involved in the supply chain has a lifecycle.
+
 ## Asset lifecycle tracing
 
 Knowing what state an asset is in, whether or not it is compliant with organizational policy, and whether it needs any attention right now can help a connected system run smoothly. This eliminates the mundane in lifecycle management and allows expert resources to focus only on those parts of the estate that need attention.
+
+{{< img src="assetlifecycle.png" alt="Rectangle" caption="<em>Asset Lifecycle</em>" class="border-0" >}}
 
 ### Considerations
 

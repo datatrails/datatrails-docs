@@ -15,22 +15,25 @@ aliases:
   - /docs/developer-patterns/scitt-api/
 ---
 
+{{< note >}}
+The following Quickstart aligns with the [SCITT Architecture Draft 07](https://ietf-wg-scitt.github.io/draft-ietf-scitt-architecture/draft-ietf-scitt-architecture.html)
+{{< /note >}}
+
 {{< caution >}}
-The SCITT API is currently in preview and subject to change
+The DataTrails SCITT API is currently in preview and subject to change
 {{< /caution >}}
 
 The **S**upply **C**hain **I**ntegrity, **T**ransparency and **T**rust (SCITT) initiative is a set of [IETF standards](https://datatracker.ietf.org/group/scitt/documents/) for managing the compliance and auditability of goods and services across end-to-end supply chains.
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.
 
-To assure insights to supply chain artifacts are current, the SCITT APIs provide a correlation of statements, allowing verifiers to view a full history of statements.
+To assure insights to supply chain artifacts are current, the SCITT APIs provide a correlation of statements, allowing verifiers to view a full history of statements for a given artifact.
 This includes previously registered statements, and newly registered statements providing the most up to date insights.
 
 This quickstart will:
 
 1. create, or use an existing a key to sign a collection of statements about an artifact
 1. create and register a statement for the artifact
-1. create and register an attestation for the artifact
-1. query a collection of statements about the artifact
+1. query the collection of statements about the artifact, using the subject property
 
 ## Prerequisites
 
@@ -69,19 +72,23 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # signing key to sign the SCITT Statements
     SIGNING_KEY="my-signing-key.pem"
 
+    # File representing the statement being registered
+    STATEMENT_FILE="statement.json"
+    
     # File representing the signed statement to be registered
     SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
-    # Feed ID, used to correlate a collection of statements about an artifact
-    FEED="my-product-id"
+    # An Issuer created unique identifier used to correlate statements about an artifact
+    SUBJECT="synsation.io/products/product42/v1.0.1.12"
     ```
 
 1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
 
 ## Create a Signing Key
 
+The following Quickstart aligns with the [SCITT Architecture Draft 07](https://ietf-wg-scitt.github.io/draft-ietf-scitt-architecture/draft-ietf-scitt-architecture.html)
 {{< note >}}
-If you already have a COSE Key, skip ahead to [Generating a Payload](#generating-a-payload)
+If you already have a COSE Key, skip ahead to [Generating a Statement](#generating-a-statement)
 {{< /note >}}
 
 For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
@@ -90,30 +97,53 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
   openssl ecparam -name prime256v1 -genkey -out $SIGNING_KEY
   ```
 
-## Generating a Payload
+## Generating a Statement
 
-1. Create a simple json payload
+1. Create a simple json statement
 
     ```bash
-    cat > payload.json <<EOF
+    cat > $STATEMENT_FILE <<EOF
     {
-        "author": "fred",
-        "title": "my biography",
-        "reviews": "mixed"
+        "build-server": "22",
+        "test-results": "passed",
+        "compliance-22": "compliant"
     }
     EOF
     ```
 
-1. Create a COSE Signed Statement for the `payload.json` file
+1. Optionally save the statement in the [DataTrails Events Attachments API](/developers/api-reference/events-api/#adding-attachments)
+
+   **INTERNAL-DEV-NOTE**: this is likely a curl/post command, capturing the attachment ID to save as a URL.
+
+    ```bash
+    python scitt/attach_statement.py \
+      --subject $SUBJECT \
+      --content-type "application/json" \
+      --statement-file statement.json
+
+    ATTACHMENT_URI=<something-something>
+    ```
+
+1. Create a SCITT Signed Statement for the `statement.json` file
+
+    {{< note >}}
+    In this version, signed statements are always registered as hashes of the statement file (Equivalent to:`--payload-type statement-hash`), which is the default and only currently supported parameter.
+  
+  A `location-hint` parameter stores a reference to a location the statement may be stored.
+  
+  Verification is based on the hash of the file, which can be verified from any location.
+    {{< /note >}}
 
     ```bash
     python scitt/create_signed_statement.py \
       --signing-key-file $SIGNING_KEY \
       --issuer $ISSUER \
-      --feed $FEED \
+      --subject $SUBJECT \
       --content-type "application/json" \
-      --payload-file payload.json \
+      --location-hint $ATTACHMENT_URI \
+      --statement-file statement.json \
       --output-file $SIGNED_STATEMENT_FILE
+    ```
 
 1. Register the Statement
 
@@ -123,6 +153,20 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
                     https://app.datatrails.ai/archivist/v1/publicscitt/entries \
                     | jq -r .operationID)
     ```
+
+    {{< note >}}
+    **DEV-NOTE:** Registering the statement will create a DataTrails event with the following attributes:
+
+  | Source                     | DataTrails Event Attribute Name | DataTrails Event Attribute Value |
+  | -------------------------- | ------------------------------- | -------------------------------- |
+  | SCITT content-type         | scitt_content-type              | application/json                 |
+  | DataTrails Attachments API | arc_statement-location-hint     | https://app.datatrails.ai/assets/8ee550dc-d896-4d47-a8d0-aba9b1052007 |
+  | SCITT cwt-claims.iss       | scitt_issuer                    | sample.synsation.io              |
+  | statement file hash        | scitt_statement-payload         | uGunRfEH38lpqyJQbMsQStwtn9XxW/nlMKp3HReY5AE= |
+  | SCITT cwt-claims.sub       | scitt_subject                   | synsation.io/products/product42/v1.0.1.12 |
+
+  All SCITT mapped properties have a preface of `scitt_`, while DataTrails created attributes will use the historic `arc_` preface.
+    {{< /note >}}
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
 
@@ -148,7 +192,7 @@ By querying the series of statements, consumers can verify who did what and when
 
     ```bash
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED | jq
+      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
     ```
 
 {{< note >}}

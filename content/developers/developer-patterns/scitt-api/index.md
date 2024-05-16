@@ -148,14 +148,14 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
 
 ## Register the SCITT Statement on DataTrails
 
-Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`
+1. Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`
 
-  ```bash
-  OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                  --data-binary @$SIGNED_STATEMENT_FILE \
-                  https://app.datatrails.ai/archivist/v1/publicscitt/entries \
-                  | jq -r .operationID)
-  ```
+    ```bash
+    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
+                    --data-binary @$SIGNED_STATEMENT_FILE \
+                    https://app.datatrails.ai/archivist/v1/publicscitt/entries \
+                    | jq -r .operationID)
+    ```
 
     {{< note >}}
     **DEV-NOTE:** Registering the statement will create a DataTrails event with the following attributes:
@@ -168,7 +168,9 @@ Submit the Signed Statement to DataTrails, using the credentials in the `bearer-
   | statement file hash        | scitt_statement-payload         | uGunRfEH38lpqyJQbMsQStwtn9XxW/nlMKp3HReY5AE= |
   | SCITT cwt-claims.sub       | scitt_subject                   | synsation.io/products/product42/v1.0.1.12 |
 
-  All SCITT mapped properties have a preface of `scitt_`, while DataTrails created attributes will use the historic `arc_` preface.
+  All SCITT mapped properties have a preface of `scitt_`,
+
+  while DataTrails created attributes will use the historic `arc_` preface.
     {{< /note >}}
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step

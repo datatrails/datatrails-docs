@@ -26,7 +26,7 @@ When the document version is no longer to be used there is a Withdraw Event.
 These Events track key moments of an Document's lifecycle; details of Who Did What When to each version of the document.
 
 {{< note >}}
-Before registering an Event, follow [this guide](/platform/overview/registering-a-document-profile-asset/) to register your first Document Asset.
+**Note:** Before registering an Event, follow [this guide](/platform/overview/registering-a-document-profile-asset/) to register your first Document Asset.
 {{< /note >}}
 
 ## Registering Events
@@ -67,7 +67,7 @@ Create an empty file, in later steps we will add the correct JSON.
 {{< /tabs >}}
 <br>
 {{< note >}}
-In addition to the Asset and Event attributes that are part of the Document Profile, it is possible to record other attributes that are not part of the profile. These are:
+**Note:** In addition to the Asset and Event attributes that are part of the Document Profile, it is possible to record other attributes that are not part of the profile. These are:
   
 * `Event Attributes` - Attributes specific to an Event, i.e. a new author.
 * `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. the new document hash.
@@ -78,7 +78,7 @@ In addition to the Asset and Event attributes that are part of the Document Prof
 {{< tabs name="add_new_version" >}}
 {{{< tab name="UI" >}}
 Click on the `Add New Version` button.<br>
-Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the Auto-fill box or you can manually enter the document hash.
+Information that is specific to the Document Profile is entered in the Document Information tab. As with registering the document, the new version can be dragged into the auto-fill dropzone or you can manually enter the document hash.
 {{< img src="AddNewVersion.png" alt="Rectangle" caption="<em>Document Information</em>" class="border-0" >}}
 The Advanced Options tab is for additional Asset and Event attributes that are not part of the document profile.
 {{< img src="AddNewVersionDetails.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
@@ -294,7 +294,7 @@ curl -v -X POST \
 1. Viewing Event details
 {{< tabs name="view_event" >}}
 {{{< tab name="UI" >}}
-The Event History can be seen in the Asset Overview from step 1, simply click on the Event History tab and then any Event row to view it.<br>
+The Event History can be seen in the Asset Overview from [step 1](/platform/overview/registering-an-event-against-a-document-profile-asset/#registering-events), simply click on the Event History tab and then any Event row to view it.<br>
 The Overview tab shows the details of the Event including the version and document hash of this specific version.
 
 {{< img src="EventDetails.png" alt="Rectangle" caption="<em>Viewing an Event</em>" class="border-0" >}}

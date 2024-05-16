@@ -1,7 +1,7 @@
 ---
  title: "Public Attestation"
  description: "Public Assets vs Permissioned Assets"
- lead: "Transparency through Public Attestation"
+ lead: 
  date: 2021-05-18T14:52:25+01:00
  lastmod: 2021-05-18T14:52:25+01:00
  draft: false
@@ -14,23 +14,30 @@
  aliases:
   - /docs/beyond-the-basics/public-attestation/
 ---
+## Transparency through Public Attestation
 
-You may wish to attest information to the general public, without the need for viewers to log-in to their DataTrails account. `Public Assets` can be used to publicly assert data, also referred to as Public Attestation. For example, you may attest to data containing a vulnerability report against an OpenSource software package or the maintenance records for a building.
+Not everything needs to be kept secret.
 
-Permissioned Assets can only be shared through the creation of [Access Policies](/platform/administration/sharing-assets-with-obac/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link sharing you may have seen in file sharing services such as Google Drive or DropBox.
+Using the example of an image in a news report, the publisher needs everyone to be able to see the image but at the same time the viewers of the image want to know that it is genuine while the owner of the image will want to be credited. There needs to be a way for consumers of data to anonymously verify the data that they are consuming is genuine and also where it came from.
 
-Any Events updating a Public Asset will also be public, and will each have their own unique Public URL.
+Public attestation allows you to [attest](https://www.merriam-webster.com/dictionary/attest) information about data to the general public, without the need for the users of the information to log-in to your DataTrails account by using `Public Assets`.
 
-Following the link to a Public Asset or Public Event will allow read-only access to its information, without the need to sign in to DataTrails.
+`Permissioned Assets` can only be shared through the creation of [Access Policies](/platform/administration/sharing-access-outside-your-tenant/). Public Assets, however, may be shared with a `Public URL` that points to a read-only view of the Asset, similar to the link-based sharing you may have seen in file sharing services such as Google Drive or DropBox.
+
+Any Events recorded against a Public Asset will also be public, and each Event will have a unique Public URL.
+
+This means that following the link to a Public Asset or Public Event will allow read-only access to the Audit Trail, without the need to sign in to DataTrails.
+
+Anyone with the Public URL can access and view the Audit Trail and verify the data but only those with access to the Permissioned URL can make the attestation about the data.
 
 {{< note >}}
-For more detailed Asset creation instructions, visit [Creating an Asset](/platform/overview/creating-an-asset/).
+**Note:** For more detailed Asset creation instructions, visit [Creating an Asset](/platform/overview/creating-an-asset/).
 {{< /note >}}
 
 ## Creating a Publicly Attested Asset
 
 {{< warning >}}
-**Warning**: Assets can only be made public at Asset Creation and cannot be made private afterwards. The Asset and all its Events will be publicly accessible forever.
+**Warning**: Assets can only be made public at Asset Creation and **cannot be made private afterwards**. The Asset and all its Events will be publicly accessible **forever**.
 {{< /warning >}}
 
 1. Create an Asset with your desired attributes and set it to public. See [Creating an Asset](/platform/overview/creating-an-asset/) for detailed instructions on this topic.
@@ -60,9 +67,6 @@ Create a JSON file with your desired Asset details. Set keyword `public` to true
 {{< /tabs >}}
 
 1. Publish your Public Asset
-{{< warning >}}
-**WARNING:** Once an Asset is made public, it cannot be made private. The Asset and all its Events will be publicly accessible forever.
-{{< /warning >}}
 {{< tabs name="set_public_public" >}}
 {{{< tab name="UI" >}}
 Click `Register Asset` to complete your Public Asset creation.

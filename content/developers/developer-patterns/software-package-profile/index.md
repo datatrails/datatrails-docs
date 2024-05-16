@@ -15,15 +15,9 @@ toc: true
 
 ## Overview
 
-Maintaining and publishing an accurate Software Bill of Materials (SBOM) is an essential cybersecurity activity for all vendors of critical software and cyber physical systems. However, publishing is not enough: users of the software also need to be able to find the information and be able to understand it in order to make strong and rational decisions about their own system security.
+The DataTrails Software Package profile is a set of suggested Asset and Event attributes that enable the recording of an immutable and verifiable Software Bill of Materials (SBOM).
 
-In its [recommendations for the minimum required elements of an SBOM](https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom), the NTIA identifies the need to balance transparency with access controls ("*SBOMs should be available in a timely fashion to those who need them and must have appropriate access permissions and roles in place*"), and illustrates in its [NTIA SBOM Proof of Concept](https://www.ntia.doc.gov/files/ntia/publications/ntia_sbom_energy_pocplanning.pdf) the need for strong stakeholder community management and a trusted SBOM data sharing mechanism which protects the interests of all parties.
-
-The DataTrails Software Package profile is a set of suggested Asset and Event attributes that offers a solution to this sharing and distribution problem: vendors retain control of their proprietary information and release processes while customers have assured and reliable visibility into their digital supply chain risks with reliable access to current and historical SBOM data for the components they rely on.
-
-As an Asset, a Software Package may hold many different SBOMs over its lifecycle representing the introduction of new releases and versions of the Software Package. Each ‘Release’ is recorded as an Event to capture the known SBOM at the time.
-
-If a particular Software Package has constituent components composed of other Software Package Assets this would be tracked within the SBOM of the component Supplied Software Package, ensuring full traceability across the Supply Chain.
+The [NTIA](https://www.ntia.gov/sites/default/files/publications/sbom_faq_-_20201116_0.pdf) describes a SBOM as "*a formal record containing the details and supply chain relationships of various components used in building software.*"
 
 ## Software Package Profile Asset Attributes
 
@@ -47,7 +41,8 @@ The `sbom_` prefix is used to designate attributes that are part of the profile.
 
 ### Public SBOM
 
-You must express `public` as an asset attribute and have `true` as a property to make an SBOM public. The default is 'false'.
+In the API, you must express `public` as an asset attribute and have `true` as a property to make an SBOM public. The default is 'false'.
+In the UI this is done by setting `Attest Publicly` to `On`.
 
 {{< tabs name="create_sbom_public" >}}
 {{{< tab name="UI" >}}
@@ -71,7 +66,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: Publicly Attested Asset 

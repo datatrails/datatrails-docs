@@ -16,14 +16,14 @@ aliases:
   - /docs/rkvst-basics/creating-an-event-against-an-asset/
 ---
 
-If you wish to begin tracking your Asset history, you need to create Events.
+If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.
 
 Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.
 
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
 {{< note >}}
-Before creating an Event, follow [this guide](/platform/overview/creating-an-asset/) to create your first example Asset.
+Before creating an Event, follow [this guide](/platform/overview/creating-an-asset/) to create your first Asset.
 {{< /note >}}
 
 ## Creating Events
@@ -35,7 +35,10 @@ When viewing your Asset, click the `Record Event` button.
 {{< img src="EventRecord.png" alt="Rectangle" caption="<em>Recording an Event</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
-To use the YAML Runner, please visit [this link](https://python.datatrails.ai/runner/index.html) for installation instructions.
+{{< note >}}
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
+{{< /note >}}
 
 To create your Event, use the action `EVENTS_CREATE`.
 
@@ -75,7 +78,7 @@ Fill out metadata about your Event
 
 `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
+In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type` from the UI.
 
 ```yaml
 ---
@@ -96,7 +99,7 @@ steps:
 
 Fill out metadata about your Event; `operation` and `behaviour` detail what class of Event is being performed. By default this should always be `Record` and `RecordEvidence`, respectively.
 
-In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent `Event Description` and `Event Type`.
+In the attributes section you should also add the required DataTrails attributes `arc_description` and `arc_display_type` to represent the UI fields `Event Description` and `Event Type`.
 
 ```json
 {
@@ -116,10 +119,10 @@ This Event will be POSTed to a specific Asset endpoint when the curl command is 
 1. You may enter both Event and Asset attributes
 
    `Event Attributes` - Attributes specific to an Event, i.e. which device recorded the Event<br>
-   `Asset Attributes` - Attributes of the Asset that may change as a result of the Event, i.e. overall weight of a container
+   `Asset Attributes` - Attributes of the Asset that **may change** as a result of the Event, i.e. overall weight of a container
 {{< tabs name="add_event_attr" >}}
 {{{< tab name="UI" >}}
-Select the `Add Attribute` button on each tab to add your key-value pairs. You may also add an attachment to your Event. Select the symbol to upload a file. In this case, we will attach a text document called `Inspection Standards`.
+Select the `Add Attribute` button on each tab to add your key-value pairs.<br>You may also add an attachment to your Event. In this example we will attach a text document called `Inspection Standards` as a custom attribute. Select the symbol to upload a file.
 {{< img src="AttachmentUpload.png" alt="Rectangle" caption="<em>Event Specific Attributes</em>" class="border-0" >}}
 
 {{< img src="EventAssetAttributes.png" alt="Rectangle" caption="<em>Event Asset Attributes</em>" class="border-0" >}}
@@ -192,8 +195,8 @@ Add your `event_attributes` and `asset_attributes` as key-value pairs. Use the `
 {{< /tabs >}}
 Here we see someone noted the type of cargo loaded in the Event, and recorded the total weight of the cargo using a newly defined `Weight` attribute.<br><br>
 Every Event has an automatically generated `timestamp_accepted` and `principal_accepted` attribute that records _when_ who performed what, as submitted to DataTrails.<br><br>
-There is an option to append `timestamp_declared` and `principal_declared` attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
-Documents and images can be recorded with an Event in the same way as an Asset. This is useful for storing associated material for posterity. For example, each `Inspection` Event can store the documentation for a specific standard used for container inspection. This allows historical compliance checking of Events.
+There is an option to append [`timestamp_declared`](/platform/overview/advanced-concepts/#timestamps-on-events) and [`principal_declared`](/platform/overview/advanced-concepts/#user-principals-on-events) attributes on the Event, for example, if the Event happened offline or a third party reports it. This creates a more detailed record.<br><br>
+Documents and images can be recorded with an Event in the same way as an Asset. This is useful for storing additional material that is linked to the Audit Trail metadata for posterity.<br>For example, each `Inspection` Event can store the documentation for the specific standard used for each container inspection. This allows historical checking of Events and the standard and processes that were applied at the time.
 
 1. Record your Event
 {{< tabs name="record_event" >}}

@@ -156,7 +156,7 @@ steps:
 
 ## Subjects Wait for Confirmation
 
-This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed.
+This action tells the YAML Runner to wait before proceeding to the next step until all Subjects that meet your specified criteria are confirmed/committed.
 
 `subject_label` is required, and may be specified as the friendly name defined in a previous step or as the Subject ID of an existing subject, in the form `subjects/<subject-id>`.
 

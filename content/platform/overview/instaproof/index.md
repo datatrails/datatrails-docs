@@ -12,9 +12,9 @@ menu:
 weight: 37
 toc: true
 ---
-Instaproof provides data provenance and authenticity with a simple drag-and-drop.
+Instaproof allows anonymous access to the Audit Trail of a file. providing data provenance and authenticity with a simple drag-and-drop.
 
-Instaproof will search amongst the assets that have been registered with the document profile and return a list of all assets that have a matching hash value.
+Instaproof will search amongst the [Publicly Attested](/platform/overview/public-attestation/) assets that have been registered with the Document Profile and return a list of all assets that have a matching hash value.
 
 The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See [Document Profile](/developers/developer-patterns/document-profile) more more information.
 
@@ -31,7 +31,7 @@ If the document that you are verifying has not been found, you will see a red re
    * The document owner has not published this version of the document as an event
    * The document has been modified since it was registered with DataTrails
 
-   In all cases you should contact the document owner to find out whether your document version can be trusted.
+   <br>In all cases you should contact the document owner to find out whether your document version can be trusted.
 
 1. **Document Found**
 {{< note >}}
@@ -39,19 +39,24 @@ If the document that you are verifying has not been found, you will see a red re
 {{< /note >}}
 If the document has been registered with DataTrails, you will see a green response banner together with a list of all the matching Document Profile Assets. This means that the version of the document that you have has a verifiable provenance record and an immutable audit trail.
 {{< img src="InstaproofFound.png" alt="Rectangle" caption="<em>Document Found</em>" class="border-0" >}}
-At the top you can see the document that was checked and found on Instaproof. Don't worry! It's all kept locally - we don't need to peek inside your documents to find their provenance.  
 
-    You can check additional documents by dragging them on top of here.
+At the top of the image you can see the document that was checked and found on Instaproof.  
 
-    Some of the results may be from verified organizations and others from unverified members of the DataTrails community. All results contribute something to the provenance and life history of this document.
+{{< note >}}
+**Note:** We don't need to access your document to find its provenance, everything that you see in the Instaproof results is held locally and was recorded by the document owner when the document was registered or events were recorded.
+{{< /note >}}
 
-    A **Verified Organization** has a [verified domain](/platform/administration/verified-domain/) associated with their DataTrails account. This helps to confirm the identity of the document source and is likely the thing to look for if you want 'official' provenance records.
+You can check additional documents by dragging them on top of this area.
 
-    The **Other Results** results are those from from unverified DataTrails accounts - other members of the DataTrails community who have made claims or observations about the document you're interested in.
+Some of the results may be from verified organizations and others from unverified members of the DataTrails community. All results contribute something to the provenance and life history of this document.
 
-    While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in DataTrails is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
+A **Verified Organization** has a [verified domain](/platform/administration/verified-domain/) associated with their DataTrails account. This helps to confirm the identity of the document source and is likely the thing to look for if you want 'official' provenance records. A Verified Domain can be used to link an identity (such as a company or a brand name) to a DataTrails Tenancy.
 
-### What Do the Instaproof Results Mean
+The **Other Results** results are those from from unverified DataTrails accounts - other members of the DataTrails community who have made claims or observations about the document you're interested in.
+
+While they may seem less 'official' than verified account results, they may still be useful to you. The identity of all users making attestations in DataTrails is checked, recorded, and immutable, even if they are not (yet) associated with a verified domain name.
+
+### What Do the Instaproof Results Mean?
 
 #### Immutable Audit Trail
 
@@ -73,8 +78,7 @@ Includes the current version, the organization, and Verified Domain badge, if ap
 **Versions** - the published versions of the document
 
 {{< note >}}
-**Note:**
-The share button allows you to access and copy the private and public (if enabled) links for the asset to share with other users. Private links are for logged in users with assigned permissions, Public links are for everyone.
+**Note:** The share button allows you to access and copy the permissioned and public (if enabled) links for the asset to share with other users. Private links are for logged in users with permissions assigned in an Access Policy, Public links are for everyone.
 {{< /note >}}
 
 {{< img src="InstaproofShare.png" alt="Rectangle" caption="<em>Share Links</em>" class="border-0" >}}
@@ -91,7 +95,7 @@ The **Overview** information about the Event
 
 **Asset Identity** - the ID of the parent Asset for this Event.
 
-**Transaction** - This link contains the details of the blockchain transaction.
+**Transaction** - This link contains the details of the Event transaction.
 {{< img src="InstaproofTransaction.png" alt="Rectangle" caption="<em>Transaction Details</em>" class="border-0" >}}
 
 **Type** - For Document Profile Events this will always be 'Publish'

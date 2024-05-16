@@ -23,7 +23,7 @@ Additionally, an individual user can be part of multiple Tenancies.
 
 ### How do I add users to my organization?
 
-DataTrails Invites make it easy to add accounts to your tenancy.
+DataTrails Invites make it easy to add users to your tenancy.
 
 As an [administrator](/platform/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add.
 

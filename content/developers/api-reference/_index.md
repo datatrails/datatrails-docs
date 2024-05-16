@@ -19,16 +19,13 @@ aliases:
       <a href="/developers/api-reference/assets-api/">Assets API &rarr;</a><br>
       <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
       <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
-      <a href="/developers/api-reference/blockchain-api/">Blockchain API (v1alpha2) &rarr;</a><br>
       <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
-      <a href="/developers/api-reference/invites-api/">Invites API &rarr;</a><br>
       <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
       <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
-      <a href="/developers/api-reference/system-api/">System API &rarr;</a><br>
       <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
-      <a href="/developers/api-reference/tls-ca-certificates-api/">TLS CA Certificates API &rarr;</a></p>
+      <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>

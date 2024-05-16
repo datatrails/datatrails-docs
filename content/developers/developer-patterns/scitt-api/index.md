@@ -37,8 +37,9 @@ This quickstart will:
 
 ## Prerequisites
 
-- [A DataTrails subscription](https://app.datatrails.ai/signup)
+- [A DataTrails subscription](https://app.datatrails.ai/signup) with a [Token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) for API access
 - [DataTrails sample code](#datatrails-sample-code)
+- [Python](https://www.python.org/downloads/) to run the samples
 - [Environment Configuration](#environment-configuration)
 
 ### DataTrails Sample Code
@@ -82,8 +83,6 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     SUBJECT="synsation.io/products/product42/v1.0.1.12"
     ```
 
-1. Create a [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) stored as a file, in a secure local directory with 0600 permissions.
-
 ## Create a Signing Key
 
 The following Quickstart aligns with the [SCITT Architecture Draft 07](https://ietf-wg-scitt.github.io/draft-ietf-scitt-architecture/draft-ietf-scitt-architecture.html)
@@ -124,6 +123,8 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
     ATTACHMENT_URI=<something-something>
     ```
 
+## Create a SCITT Signed Statement
+
 1. Create a SCITT Signed Statement for the `statement.json` file
 
     {{< note >}}
@@ -145,14 +146,16 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
       --output-file $SIGNED_STATEMENT_FILE
     ```
 
-1. Register the Statement
+## Register the SCITT Statement on DataTrails
 
-    ```bash
-    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                    --data-binary @$SIGNED_STATEMENT_FILE \
-                    https://app.datatrails.ai/archivist/v1/publicscitt/entries \
-                    | jq -r .operationID)
-    ```
+Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`
+
+  ```bash
+  OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
+                  --data-binary @$SIGNED_STATEMENT_FILE \
+                  https://app.datatrails.ai/archivist/v1/publicscitt/entries \
+                  | jq -r .operationID)
+  ```
 
     {{< note >}}
     **DEV-NOTE:** Registering the statement will create a DataTrails event with the following attributes:

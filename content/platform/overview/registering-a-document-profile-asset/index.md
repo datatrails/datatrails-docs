@@ -24,13 +24,6 @@ Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more
 {{< /note >}}
 
 ## Registering a Document
-
-{{< note >}}
-**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
-
-[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
-{{< /note >}}
-
 1. Register your Document
 {{< tabs name="add_asset" >}}
 {{< tab name="UI" >}}
@@ -38,6 +31,10 @@ Using the sidebar, select `Assets & Documents` and then `Register Document`.
 {{< img src="RegDocMenu.png" alt="Rectangle" caption="<em>Registering a Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
+{{< note >}}
+**Note:** To use the YAML Runner you will need to install the `datatrails-archivist` python package.
+[Click here](https://python.datatrails.ai/runner/index.html) for installation instructions.
+{{< /note >}}
 The DataTrails YAML runner is executed as a series of steps, each step representing a single operation with an `action`.
 
 In order to create an Asset we use the action `ASSETS_CREATE_IF_NOT_EXISTS`.
@@ -135,9 +132,9 @@ In the file you created earlier, begin adding metadata for your Asset:
 1. The `Advanced Options` tab is where you enter the Asset Attributes that are required for all asset types and also the optional document profile asset attributes.
 
    * `Document Type` - This is the class of the object; while it is arbitrary, it is best to have consistency amongst the type of Documents you use i.e. if it is a purchase order, the type could be `Purchase Order`, which will then be pre-populated for future Documents to use as their own types.
-   * `Proof Mechanism` - The method used to commit the blockchain transaction.
+   * `Proof Mechanism` - The method used to record the transaction to the DataTrails distributed ledger.
 
-    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on selecting a Proof Mechanism for your Document
+    Please see our [Core Concepts](/platform/overview/core-concepts/#proving-provenance) section for more information on the Proof Mechanism for your Document
 {{< tabs name="add_asset_details_min" >}}
 {{{< tab name="UI" >}}
 {{< img src="RegDocAdvancedOptions.png" alt="Rectangle" caption="<em>Advanced Options</em>" class="border-0" >}}
@@ -157,7 +154,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -183,7 +179,6 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```
@@ -224,7 +219,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     public: true
     attributes: 
       arc_display_name: My First Document 
@@ -262,7 +256,6 @@ This example also adds a location to our Asset. To find out more about locations
 
     },
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "public": true
 }
 ```

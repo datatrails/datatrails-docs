@@ -15,13 +15,13 @@ aliases:
   - /docs/api-reference/assets-api/
 ---
 {{< note >}}
-This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 {{< note >}}
-For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/overview/creating-an-asset/) guide.
+**Note:** For more information on Assets and Asset creation, visit our [Core Concepts](/platform/overview/core-concepts/#assets) and [Creating an Asset](/platform/overview/creating-an-asset/) guide.
 {{< /note >}}
 
 ## Asset API Examples
@@ -43,16 +43,16 @@ Define the asset parameters and store in `/path/to/jsonfile`:
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
   "public": false
 }
 ```
+{{< note >}}
+**Note:** The values for `arc_blob_hash_value` and `arc_blob_identity` are taken from the response of the Upload call of the [Blob API](https://docs.datatrails.ai/developers/api-reference/blobs-api/).
+{{< /note >}}
 
 Create the Asset:
 
@@ -78,8 +78,6 @@ The response is:
       "arc_file_name": "somepic.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "behaviours": [
     "RecordEvidence"
@@ -87,7 +85,6 @@ The response is:
   "confirmation_status": "PENDING",
   "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX",
-  "proof_mechanism": "SIMPLE_HASH",
   "public": false,
   "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "tracked": "TRACKED"
@@ -100,7 +97,7 @@ The response is:
 **Warning**: Assets can only be made public at Asset creation and cannot be made private afterwards.
 {{< /warning >}}
 
-In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](/platform/administration/sharing-assets-with-obac/) or the [IAM Policies API Reference](../iam-policies-api/).
+In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](/platform/administration/sharing-access-outside-your-tenant/) or the [IAM Policies API Reference](../iam-policies-api/).
 
 However, it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.
 
@@ -138,8 +135,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
     "behaviours": [
         "Builtin",
         "RecordEvidence"
-    ],
-    "proof_mechanism":"SIMPLE_HASH"
+    ]
 }
 ```
 {{< note >}}
@@ -181,7 +177,6 @@ The response is:
     "owner": "",
     "at_time": "2023-09-27T11:32:22Z",
     "storage_integrity": "TENANT_STORAGE",
-    "proof_mechanism": "SIMPLE_HASH",
     "chain_id": "8275868384",
     "public": false,
     "tenant_identity": ""
@@ -257,7 +252,7 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 ```bash
 curl -g -v -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+     "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG"
 ```
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema

@@ -267,7 +267,7 @@ This example also adds a location to our Asset. To find out more about locations
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
 Click `Register Document`.
-{{< img src="RegDocCreate.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
+{{< img src="RegDocAdvancedOptions2.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!

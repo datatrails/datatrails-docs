@@ -86,7 +86,7 @@ Create an empty file, in later steps we will add the correct JSON.
 When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type `Shipping Container` and that is located in the `UK Factory`.
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type `Shipping Container`.
 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}

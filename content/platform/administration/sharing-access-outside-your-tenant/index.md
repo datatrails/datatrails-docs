@@ -146,7 +146,7 @@ curl -v -X GET \
 When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset in the `UK Factory` location created earlier, as well as the type of Asset (`Shipping Container`).
+Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset of the type `Shipping Container`.
 
 {{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}

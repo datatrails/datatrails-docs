@@ -9105,6 +9105,8 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -9281,32 +9283,88 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                           
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Required</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>uuid</th>
-                                  <td>string</td>
-                                  <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
-                                
-                                <tr>
-                                  <th>body</th>
-                                  <td></td>
-                                  <td>true</td>
-                                  <td></td>
-                                
-                              </tbody>
-                            </table>
-                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerrequestAssets_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestAssets_API7' aria-expanded="true" aria-controls='collapserequestAssets_API7'>
+                                    <span>Example Request</span>
+                                  </button>
+                              </h3>
+                              <div id='collapserequestAssets_API7' class="accordion-collapse collapse" aria-labelledby='headerrequestAssets_API7' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "asset_attributes": {
+    "colour": "Midnight Blue"
+  },
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
+  },
+  "operation": "Record"
+}</code></pre>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <th>asset_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of asset attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>behaviour</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>event_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of event attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>operation</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>principal_declared</th>
+                                    <td></td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>timestamp_declared</th>
+                                    <td>string</td>
+                                    
+                                      <td>time of event as declared by the user</td>
+                                    
+                                  
+                                </tbody>
+                              </table>
+                            
                         
                       
 
@@ -14076,6 +14134,8 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -14252,32 +14312,88 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                           
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Required</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>uuid</th>
-                                  <td>string</td>
-                                  <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
-                                
-                                <tr>
-                                  <th>body</th>
-                                  <td></td>
-                                  <td>true</td>
-                                  <td></td>
-                                
-                              </tbody>
-                            </table>
-                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerrequestAssets_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestAssets_API7' aria-expanded="true" aria-controls='collapserequestAssets_API7'>
+                                    <span>Example Request</span>
+                                  </button>
+                              </h3>
+                              <div id='collapserequestAssets_API7' class="accordion-collapse collapse" aria-labelledby='headerrequestAssets_API7' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "asset_attributes": {
+    "colour": "Midnight Blue"
+  },
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
+  },
+  "operation": "Record"
+}</code></pre>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <th>asset_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of asset attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>behaviour</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>event_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of event attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>operation</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>principal_declared</th>
+                                    <td></td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>timestamp_declared</th>
+                                    <td>string</td>
+                                    
+                                      <td>time of event as declared by the user</td>
+                                    
+                                  
+                                </tbody>
+                              </table>
+                            
                         
                       
 
@@ -19139,6 +19255,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Archivist events for a public asset</p>
 
+                      
+                        
                       
                         
                       
@@ -30295,6 +30413,8 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -30471,32 +30591,88 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                           
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Required</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>uuid</th>
-                                  <td>string</td>
-                                  <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
-                                
-                                <tr>
-                                  <th>body</th>
-                                  <td></td>
-                                  <td>true</td>
-                                  <td></td>
-                                
-                              </tbody>
-                            </table>
-                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerrequestAssets_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestAssets_API7' aria-expanded="true" aria-controls='collapserequestAssets_API7'>
+                                    <span>Example Request</span>
+                                  </button>
+                              </h3>
+                              <div id='collapserequestAssets_API7' class="accordion-collapse collapse" aria-labelledby='headerrequestAssets_API7' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "asset_attributes": {
+    "colour": "Midnight Blue"
+  },
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
+  },
+  "operation": "Record"
+}</code></pre>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <th>asset_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of asset attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>behaviour</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>event_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of event attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>operation</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>principal_declared</th>
+                                    <td></td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>timestamp_declared</th>
+                                    <td>string</td>
+                                    
+                                      <td>time of event as declared by the user</td>
+                                    
+                                  
+                                </tbody>
+                              </table>
+                            
                         
                       
 
@@ -35266,6 +35442,8 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                       
+                        
+                      
 
                       
                         
@@ -35442,32 +35620,88 @@ If you are looking for a simple way to test our API you might prefer our
                       
                         
                           
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Required</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>uuid</th>
-                                  <td>string</td>
-                                  <td>true</td>
-                                  <td>Specify the Asset UUID where <code>assets/{uuid}</code> is the Asset Identity e.g. <code>add30235-1424-4fda-840a-d5ef82c4c96f</code> from Identity <code>assets/add30235-1424-4fda-840a-d5ef82c4c96f</code></td>
-                                
-                                <tr>
-                                  <th>body</th>
-                                  <td></td>
-                                  <td>true</td>
-                                  <td></td>
-                                
-                              </tbody>
-                            </table>
-                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerrequestAssets_API7'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestAssets_API7' aria-expanded="true" aria-controls='collapserequestAssets_API7'>
+                                    <span>Example Request</span>
+                                  </button>
+                              </h3>
+                              <div id='collapserequestAssets_API7' class="accordion-collapse collapse" aria-labelledby='headerrequestAssets_API7' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "asset_attributes": {
+    "colour": "Midnight Blue"
+  },
+  "behaviour": "RecordEvidence",
+  "event_attributes": {
+    "arc_description": "Painted the fence",
+    "arc_display_type": "Paint"
+  },
+  "operation": "Record"
+}</code></pre>
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <table class="table table-striped table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <th>asset_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of asset attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>behaviour</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>event_attributes</th>
+                                    <td>object</td>
+                                    
+                                      <td>key value mapping of event attributes</td>
+                                    
+                                  
+                                  <tr>
+                                    <th>operation</th>
+                                    <td>string</td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>principal_declared</th>
+                                    <td></td>
+                                    
+                                      <td></td>
+                                    
+                                  
+                                  <tr>
+                                    <th>timestamp_declared</th>
+                                    <td>string</td>
+                                    
+                                      <td>time of event as declared by the user</td>
+                                    
+                                  
+                                </tbody>
+                              </table>
+                            
                         
                       
 
@@ -40329,6 +40563,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Archivist events for a public asset</p>
 
+                      
+                        
                       
                         
                       

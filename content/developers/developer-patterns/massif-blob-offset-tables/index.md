@@ -38,7 +38,7 @@ New leaves are added to the last blob in the log.
 
 ...but it is not always convenient to do so.
 
-Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
+Using the [veracity](https://github.com/datatrails/veracity/) tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
                        14
                           \
@@ -67,7 +67,7 @@ The leaf values are indices into the trie fields (not considered further in this
 It is fairly easy to validate the leaves and nodes by hand. The reproducing the
 Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
-## Pre-computes for your first million events
+## Pre-computes for your first 1/2 million events
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |

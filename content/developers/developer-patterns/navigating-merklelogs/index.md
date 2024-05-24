@@ -19,13 +19,16 @@ We call this verifiable data your *log* or *transparency log*.
 Once verifiable data is written to this log we never change it.
 The log only grows, it never shrinks and data in it never moves.
 
-[DataTrails provides extensive open-source tooling](<url>) to work with this format in an offline setting.
+DataTrails provides extensive open-source tooling to work with this format in an offline setting.
 
 To take advantage of this you will need:
 
-1. A copy of the section of the log containing your event.
+1. A copy of the section of the log containing your event (or the url to our
+   publicly available log data)
 1. A copy of any log *seal* from *any* time after your event was included.
 1. A copy of any events you wish to verify (that you retained or that you later retrieved).
+
+The general log implementation is [go-datatrails-merklelog](https://github.com/datatrails/go-datatrails-merklelog). [go-datatrails-demos](https://github.com/datatrails/go-datatrails-demos/) includes examples for different kinds of verification, and [veracity](https://github.com/datatrails/veracity/) is a tool for introspecting logs in their native storage.
 
 Should you wish to do this from first principals, using only the raw verifiable data structure, you will additionally need the understanding of the log format offered by this article.
 
@@ -42,7 +45,7 @@ In this context, it means a [group of mountains that form a large mass](https://
 This term is due to the name of the verifiable data structure used for the log: An MMR or "Merkle Mountain Range" [^1].
 
 [^1]: Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably [zcash](https://zips.z.cash/zip-0221), [mimblewimble](), and [many others](https://zips.z.cash/zip-0221#additional-reading).
-Merkle Mountain Ranges are attributed to [Peter Todd](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html), though much parallel invention has occurred.
+Merkle Mountain Ranges are attributed to [Peter Todd](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html), though much parallel invention has occurred. The "post order", write once & append only nature of the tree organisation was first discussed in 3.3 of the [Crosby, Wallach paper](https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf).
 They have been independently analyzed in the context of [cryptographic asynchronous accumulators](https://eprint.iacr.org/2015/718.pdf), Generalized multi-proofs for [Binary Numeral Trees](https://eprint.iacr.org/2021/038.pdf).
 And also by the [ethereum research community](https://ethresear.ch/t/batching-and-cyclic-partitioning-of-logs/536).
 
@@ -78,17 +81,21 @@ All individual entries in the log are either exactly 32 bytes or a small multipl
   +----------------+
 ```
 
-{{< note >}}TODO: change this tenant identity for a production tenant. This one is from a testing environment{{< /note >}}
 Given a tenant identity of `72dc8b10-dde5-43fe-99bc-16a37fd98c6a` that tenants first massif blob can be found at:
 
 **https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifs/0000000000000000.log**
 
-This is a simple reverse proxy to the native azure blob store where your logs are stored:
-
-**https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/v1/mmrs/tenant/**
-
 Each massif is stored in a numbered file.
 The filename is the 16-character, zero-padded, massif index.
+
+The datatrails attestation for each massif can be found at a closely associated
+url. For the massif above it is
+
+
+**https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifseals/0000000000000000.sth**
+
+These paths are served via a simple reverse proxy to the native azure commodity storage where your logs are stored. The full [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/) for getting specific massif blobs can be utilised. For reasons of cost all operations are subject to rate limits, listing blobs is not possible, though filtering blobs by tags is permitted. Both the massif blobs and the log seal blobs are always tagged with the most recent idtimestamp for the log. In the case of the masssif blobs, it is the idtimestamp most recently added to the log. In the case of the seal blob it is the most recent log entry that has been attested by datatrails. The tag name is `lastid`
+
 
 ## When re-creating inclusion proofs, you are guaranteed to only need a single massif
 
@@ -120,14 +127,12 @@ Using the following curl command, you can read the version and format informatio
 
 ```bash
 curl -s \
- -H "Range: bytes=0-31" \
- -H "x-ms-blob-type: BlockBlob" \
- -H "x-ms-version: 2019-12-12" \
-https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/\
-v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
-0000000000000000.log | od -An -tx1 | tr -d ' \n'
+  -H "Range: bytes=0-31" \
+  -H "x-ms-blob-type: BlockBlob" \
+  -H "x-ms-version: 2019-12-12" \
+https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8/0/massifs/0000000000000000.log | od -An -tx1 | tr -d ' \n'
 
-00000000000000008e84dbbb6513a60000000000000000000000010e00000000
+00000000000000008f01a7bb5d0cbb0000000000000000000000010e00000000
 ```
 
 Note that this request requires no authentication or authorization.
@@ -160,7 +165,7 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
       bytes.fromhex("8e84dbbb6513a6")[:-2]).hex(), base=16
       ) + epoch*((2**40)-1)
    datetime.datetime.fromtimestamp(unixms/1000)
-   
+
    datetime.datetime(2024, 3, 28, 11, 39, 36, 676000)
    ```
 
@@ -169,7 +174,15 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
 In this example, the last entry in the log (at that time) was 2024/03/28, a little after 11.30 am.
 
-## The trieData entries are 512 bytes each and are formed from two fields
+## The trieData entries are 512 bits each and are formed from two fields
+
+With the trie keys, full data recovery can be verified without needing to remember the order that events were added to the log.
+
+Massifs can be recovered independently even if the data for other massifs is incomplete.
+
+The index also provides for proof of exclusion. Proof that a specific event is not in the index. As the event identities contribute to both the index keys and the leaf entries, and as the keys are time ordered on addition, it is possible to audit the specific range.
+This will confirm the log is consistent with the index for the time range in which the disputed item is claimed to exist.
+
 
 The trieData section is 2 * 32 * 2<sup>height</sup> bytes long. (Which is exactly double what we need).
 For the standard massif height of 14, it has 8192 entries in the first 524288 bytes.
@@ -197,50 +210,14 @@ Each entry is formatted like this
 
 ```
 0                                                        31
-SHA256(BYTE(0x00) || BYTES(idTimestamp) || event.identity)
+SHA256(BYTE(0x00) || tenant-identity || event.identity)
 0                                       BYTES(IDTIMESTAMP)
 32                                      56               63
 ```
 
-Note that the idtimestamp is unique to your tenant and the wider system, so even when sharing events with other tenants, this will not correlate directly with activity in their logs.
+Described in further detail in the [term-cheatsheet](https://github.com/datatrails/go-datatrails-merklelog/blob/main/term-cheatsheet.md#trie-entry)
 
-If you have the event record from the Events API, the idtimestamp is found at `merklelog_entry.commit.idtimestamp`.
-It is a hex string and prefixed with `01` which is the epoch from the header.
-
-To condition the string value, strip the leading `01` and convert the remaining hex to binary.
-Then substitute those bytes, in presentation order, for idTimestamp above.
-
-Reworking our python example above to deal with the epoch prefix would look like this:
-
-```python
-epoch = 1
-unixms=int((
-  bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
-  ) + epoch*((2**40)-1)
-```
-
-And the bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
-
-If your event identity was
-
-  `assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2`
-
-Then its trieKey would be
-
-`b8e04443d64b8f1603fff250952b29e71d6c2d221afd8d60dec133c63e7325d9`
-
-The following python snippet would generate it from your event data should you wish to confirm what should be in the index at a specific position.
-
-```python
-h = hashlib.sha256()
-h.update(bytes([0]))
-h.update(bytes.fromhex("018e84dbbb6513a6"[2:]))
-h.update("assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2".encode())
-h.hexdigest()
-```
-
-The variable portion *for the first massif* contains exactly *16383* MMR *nodes*.
-Of those nodes, *8192* are the leaf entries in the Merkle tree corresponding to your events.
+Note that the inclusion of your tenant identity in the hash makes the entry unique to your tenant. So even when sharing events with other tenants, this will not correlate directly with activity in their logs.
 
 When a massif is initialized the trieData is pre-populated for all leaves and set to all zero bytes.
 As events are recorded in the log, the zero-padded index is filled in.
@@ -248,7 +225,74 @@ A sub-range of field 0 will change when saving the last idtimestamp in it.
 The mmr node values are strictly only ever appended to the blob.
 Once appended they will never change and they will never move.
 
-If you know the byte offset in the blob for the start of the mmr data then you can check the number of mmr nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
+
+Returning to the trieData section, If your event identity was
+
+  `assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2a`
+
+Then its trieKey would be
+
+`eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d`
+
+The following python snippet would generate it from your event data should you wish to confirm what should be in the index at a specific position.
+
+{{< tabs name="triekey" >}}
+   {{< tab name="Python" >}}
+
+   ```python
+  def triekey(tenant, event):
+      h = hashlib.sha256()
+      h.update(bytes([0]))
+      h.update(tenant.encode())
+      h.update(event.encode())
+      return h.hexdigest()
+   ```
+  {{< /tab >}}
+{{< /tabs >}}
+
+Then,
+
+```python
+print(triekey(
+   "tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8",
+   "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
+
+```
+
+Will output
+
+'eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d'
+
+This example is an event on a public asset, so it can also be found in the
+public tenant's merkle log
+
+Again we use curl, this time to fetch the public tenants log,
+
+```bash
+curl -s \
+  -H "x-ms-blob-type: BlockBlob" \
+  -H "x-ms-version: 2019-12-12" \
+  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log -o mmr.log
+```
+
+And we can obtain the trie key for the same event shared into the public
+tenant:
+
+```python
+print(triekey(
+   "tenant/6ea5cd00-c711-3649-6914-7b125928bbb4",
+   "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
+```
+Which is: `6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385`
+
+
+Noting that we do not include the 'public' routing prefix on the event identity.
+
+This works the same for regular OBAC shares.
+
+It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity. For permissioned events, this will only be available to you if you are included in the sharing policy. The idtimestamp is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
+
+It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.
 
 ## The peak stack and mmr data sizes are computable.
 
@@ -277,9 +321,17 @@ For the forseeable future (at least months) we don't anticipate needing to do th
 
 ## How to read a specific mmr node by its *mmrIndex*
 
+The variable portion *for the first massif* contains exactly *16383* MMR *nodes*.
+Of those nodes, *8192* are the leaf entries in the Merkle tree corresponding to your events.
+
+If you know the byte offset in the blob for the start of the mmr data then you can check the number of mmr nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
+
 Find the smallest "Last Node" in [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) that is greater than your *mmrIndex* and use that row as your massif index
 
-Then taking massif index 0 (row 0) for example, and using the first mmrIndex for ease of example
+Then taking massif index 0 (row 0) for example, and using the first mmrIndex for ease of example, and working with the public tenant so we can all see the original event data.
+
+
+**https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log**
 
 ```python
 LOGSTART=1048864
@@ -288,23 +340,58 @@ curl -s \
 -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
 -H "x-ms-blob-type: BlockBlob" \
 -H "x-ms-version: 2019-12-12" \
-https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
-merklelogs/v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+https://app.datatrails.ai/verifiabledata/\
+merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/\
 0000000000000000.log  | od -An -tx1 | tr -d ' \n'
 
-a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
 ```
 
-The veracity demo tool can be used to confirm that
+The [veracity](https://github.com/datatrails/veracity) tool can be used to confirm that
 
 ```bash
-go run veracity/cmd/veracity/main.go -s jitavidfd1103b1099ab3aa \
- -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 node -i 0
+go run veracity/cmd/veracity/main.go \
+  --url https://app.datatrails.ai/verifiabledata \
+  --tenant tenant/6ea5cd00-c711-3649-6914-7b125928bbb4 \
+  node -i 0
 
-a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
 ```
 
 The example javascript routines below the [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) can be used to accomplish this computationally.
+
+## The leaf nodes are created by hashing your event data
+
+```
+0                                                        31
+SHA256(BYTE(0x00) || BYTES(IDTIMESTAMP) || V3-SCHEMA(event))
+```
+
+The V3 Schema defines how the content on your event is consistently converted to bytes prior to hashing.
+This works by passing the fields specified in the schema through the [bencode](https://en.wikipedia.org/wiki/Bencode) encoding system.
+
+See our knowledge base [article](https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ) for an example in javascript and the definition of the V3 fields.
+
+Note that this includes the event_identity and tenant_identity which are also included in the trieKey hash.
+
+The remaining item is conditioning the `IDTIMESTAMP` for hashing.
+
+If you have the event record from the Events API, the idtimestamp is found at `merklelog_entry.commit.idtimestamp`.
+It is a hex string and prefixed with `01` which is the epoch from the header.
+
+To condition the string value, strip the leading `01` and convert the remaining hex to binary.
+Then substitute those bytes, in presentation order, for idTimestamp above.
+
+The bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
+
+
+If you want the actual unix millisecond timestamp you can do this:
+```python
+epoch = 1
+unixms=int((
+  bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
+  ) + epoch*((2**40)-1)
+```
 
 ## But which nodes would I want ?
 
@@ -314,7 +401,7 @@ You create your leaf hash using the original pre-image data of your event and th
 
 You would have:
 
-* The V3 canonical set of fields from your event
+* The V3 canonical set of fields from your event (as described in our knowledge base [article](https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ))
 * The `merklelog_entry.commit.index` (the mmrIndex of the event in the log)
 * The `merklelog_entry.commit.idtimestamp` uniquely placing the record of the log in time (according to our cloud service provider)
 

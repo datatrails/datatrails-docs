@@ -1534,8 +1534,8 @@ The first Event will always be the Asset Creation. In the next section, we will 
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
-    <div><strong></strong> Before creating an Event, follow 
-<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset.</div>
+    <div><strong></strong> <strong>Note:</strong> Before creating an Event, follow 
+<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
@@ -1906,7 +1906,7 @@ Please see the
 <a href="/platform/overview/public-attestation/">Public Attestation</a>.</p>
 <p>The following steps will guide you in creating your first Document Profile Asset.</p>
 <blockquote class="note callout">
-    <div><strong></strong> Check out our 
+    <div><strong></strong> <strong>Note:</strong> Check out our 
 <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> for more general information on Assets and 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a> for details of the Document Profile asset and event attributes.</div>
   </blockquote>
@@ -2533,7 +2533,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before registering an Event, follow 
-<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset.</div>
+<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
@@ -12697,6 +12697,12 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.</p>
+<p>One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.</p>
+<p>Another is to parse the Event API call for <strong>400 Bad Request</strong> errors (optionally also check for <strong>429 Too Many Requests</strong> errors) and then retry the call after a few seconds.</p>
+</div>
+  </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -13046,6 +13052,17 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+<h4 id="fetch-events-by-minimum-confirmation-status">Fetch Events by Minimum Confirmation Status</h4>
+<p>To fetch all Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.
+For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  
@@ -22842,8 +22859,8 @@ The first Event will always be the Asset Creation. In the next section, we will 
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
-    <div><strong></strong> Before creating an Event, follow 
-<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset.</div>
+    <div><strong></strong> <strong>Note:</strong> Before creating an Event, follow 
+<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
@@ -23214,7 +23231,7 @@ Please see the
 <a href="/platform/overview/public-attestation/">Public Attestation</a>.</p>
 <p>The following steps will guide you in creating your first Document Profile Asset.</p>
 <blockquote class="note callout">
-    <div><strong></strong> Check out our 
+    <div><strong></strong> <strong>Note:</strong> Check out our 
 <a href="/platform/overview/core-concepts/#assets">Core Concepts</a> for more general information on Assets and 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a> for details of the Document Profile asset and event attributes.</div>
   </blockquote>
@@ -23841,7 +23858,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before registering an Event, follow 
-<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset.</div>
+<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
@@ -34005,6 +34022,12 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-api-examples">Events API Examples</h2>
 <p>Create the 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.</p>
+<p>One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.</p>
+<p>Another is to parse the Event API call for <strong>400 Bad Request</strong> errors (optionally also check for <strong>429 Too Many Requests</strong> errors) and then retry the call after a few seconds.</p>
+</div>
+  </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -34354,6 +34377,17 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&#34;</span>
 </span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+<h4 id="fetch-events-by-minimum-confirmation-status">Fetch Events by Minimum Confirmation Status</h4>
+<p>To fetch all Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.
+For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED&#34;</span>
+</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  

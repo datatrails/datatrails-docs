@@ -20,7 +20,7 @@ As it builds on the standard DataTrails asset the same processes are used for [P
 The following steps will guide you in creating your first Document Profile Asset.
 
 {{< note >}}
-Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more general information on Assets and [Document Profile](/developers/developer-patterns/document-profile/) for details of the Document Profile asset and event attributes.
+**Note:** Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more general information on Assets and [Document Profile](/developers/developer-patterns/document-profile/) for details of the Document Profile asset and event attributes.
 {{< /note >}}
 
 ## Registering a Document

@@ -24,6 +24,14 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
+{{< note >}}
+**Note:** You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.
+
+One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.
+
+Another is to parse the Event API call for **400 Bad Request** errors (optionally also check for **429 Too Many Requests** errors) and then retry the call after a few seconds.
+{{< /note >}}
+
 ### Event Creation
 
 Define the Event parameters and store in `/path/to/jsonfile`:
@@ -474,6 +482,27 @@ curl -g -v -X GET \
 ```
 
 Returns all Events which do not have `arc_display_type` or in which `arc_display_type` is empty.
+
+#### Fetch Events by Minimum Confirmation Status
+
+To fetch all Events with a specified confirmation status or higher, `GET` the Events resource and filter on `minimum_trust`.
+For example:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED"
+```
+
+Returns all Events which have a `confirmation_status` level of COMMITTED, CONFIRMED or UNEQUIVOCAL. 
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED"
+```
+
+Returns all Events which have a `confirmation_status` level of CONFIRMED or UNEQUIVOCAL. 
 
 ## Events OpenAPI Docs
 

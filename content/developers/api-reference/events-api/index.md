@@ -99,6 +99,77 @@ The response is:
   "transaction_id": "0x07569"
 }
 ```
+### Updating an Asset Attribute
+
+To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the [Assets API reference](https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation) example.
+
+```json
+{
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+       "arc_display_type": "groom",
+       "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {   
+       "weight": "3.5kg"
+    },
+    "public": false
+}    
+```
+POST the Event to update the Asset:
+
+```bash
+curl -v -X POST \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+        "arc_display_type": "groom",
+        "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {
+        "weight": "3.5kg"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2024-05-30T12:28:50Z",
+    "timestamp_accepted": "2024-05-30T12:28:50Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": "",
+    "merklelog_entry": {
+        "commit": null,
+        "confirm": null,
+        "unequivocal": null
+    }
+}    
+  ```
 
 ### Document Profile Event Creation
 

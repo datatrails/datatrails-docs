@@ -217,7 +217,7 @@ This example also adds a location to our Asset. To find out more about locations
         "Width": "2.43m",
         "Length": "6.06m",
         "Height": "2.59m",
-        "arc_home_location_identity": "locations/<location-id>",
+        "arc_home_location_identity": "locations/<location-id>"
     }
 }
 ```

@@ -26,7 +26,7 @@ When the document version is no longer to be used there is a Withdraw Event.
 These Events track key moments of an Document's lifecycle; details of Who Did What When to each version of the document.
 
 {{< note >}}
-**Note:** Before registering an Event, follow [this guide](/platform/overview/registering-a-document-profile-asset/) to register your first Document Asset.
+**Note:** Before registering an Event, follow [this guide](/platform/overview/registering-a-document-profile-asset/) to register your first Document Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.
 {{< /note >}}
 
 ## Registering Events

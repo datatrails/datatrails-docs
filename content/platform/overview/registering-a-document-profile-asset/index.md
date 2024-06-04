@@ -20,7 +20,7 @@ As it builds on the standard DataTrails asset the same processes are used for [P
 The following steps will guide you in creating your first Document Profile Asset.
 
 {{< note >}}
-Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more general information on Assets and [Document Profile](/developers/developer-patterns/document-profile/) for details of the Document Profile asset and event attributes.
+**Note:** Check out our [Core Concepts](/platform/overview/core-concepts/#assets) for more general information on Assets and [Document Profile](/developers/developer-patterns/document-profile/) for details of the Document Profile asset and event attributes.
 {{< /note >}}
 
 ## Registering a Document
@@ -267,7 +267,7 @@ This example also adds a location to our Asset. To find out more about locations
 {{< tabs name="finish_create_asset" >}}
 {{{< tab name="UI" >}}
 Click `Register Document`.
-{{< img src="RegDocCreate.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
+{{< img src="RegDocAdvancedOptions2.png" alt="Rectangle" caption="<em>Register the Document</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="YAML" >}}
 Use the [archivist_runner](https://python.datatrails.ai/runner/index.html) command to run your YAML file!

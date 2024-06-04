@@ -33,6 +33,12 @@ Without domain verification, the `Organization` is noted as the publisher's Tena
 
 {{< img src="DomainBadge.png" alt="Rectangle" caption="<em>Organization with Verified Domain</em>" class="border-0" >}}
 
+{{< note >}}
+**Note:** You do not see the badge if you are logged into DataTrails.
+{{< /note >}}
+
+{{< img src="OwnerView.png" alt="Rectangle" caption="<em>Organization seen when logged in</em>" class="border-0" >}}
+
 ## How can I get my organization's domain verified?
 
 The DataTrails team is happy to help you obtain your verified domain badge. Please contact support@datatrails.ai from an email address which includes the domain you wish to verify. For example, email us from @datatrails.ai to verify the datatrails.ai domain. We will send you a confirmation email to make sure that the details are correct.

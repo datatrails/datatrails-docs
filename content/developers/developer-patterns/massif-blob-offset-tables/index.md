@@ -11,8 +11,9 @@
  toc: true
 ---
 
-This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
-The algorithms to reproduce this are relatively simple.
+This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format. This is supplemental to [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs) which is the recommended introduction to the details of the log format.
+
+The algorithms to reproduce the lookup tables are relatively simple.
 We provide open-source implementations, but in many contexts, it is simpler to use these pre-calculations.
 These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
 
@@ -53,6 +54,9 @@ Using the [veracity](https://github.com/datatrails/veracity/) tool with the foll
     go run veracity/cmd/veracity/main.go --height 2 massifs --count 6
 
 In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
+
+*Stack Start* is the end of the fixed header information, the relevant parts of which are described in [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs).
+
 The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at *mmr Start*
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
@@ -68,6 +72,8 @@ It is fairly easy to validate the leaves and nodes by hand. The reproducing the
 Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
 ## Pre-computes for your first 1/2 million events
+
+Our production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |

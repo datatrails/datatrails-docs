@@ -51,13 +51,11 @@ And also by the [ethereum research community](https://ethresear.ch/t/batching-an
 
 Each massif contains the verifiable data for a fixed number, and sequential range, of your events.
 The number of events is determined by your log configuration parameter `massif height`.
-Currently, all logs have a massif height of `14` And the number of event *leaf* log entries in each massif is 2<sup>height-1</sup>, which is 2<sup>14-1</sup> leaves, which is `8192` leaves [^2].
 
-[^2]: Sometimes, DataTrails may re-size your massifs.
-We can do this without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration.
-Simple binary file compare operations can show that the verifiable data for the new configuration is the same as in the original should you wish to assure yourself of this fact.
+Currently, all logs have a massif height of `14` And the number of event *leaf* log entries in each massif is 2<sup>height-1</sup>, which is 2<sup>14-1</sup> leaves, which is `8192` leaves. 14 was picked because it affords a massif storage size of comfortably under 4mb (less than 2 actually), and for many situations it is practical to handle this size as "one lump". We discuss [reconfiguration here](#the-massif-height-is-constant-for-all-blobs-in-a-log-configuration)
 
-Here, we have drawn `massif n` as open ended to illustrate that the last massif is always in the process of being *appended* to.
+
+Above, we have drawn `massif n` as open ended to illustrate that the last massif is always in the process of being *appended* to.
 
 [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) gives you a shortcut for picking the right massif.
 It can also be fairly easily computed from only the `merklelog_entry.commit.index` *mmrIndex* on your event using the example javascript on that page.
@@ -141,13 +139,15 @@ The structure of the header field is:
 
 ```output
 | type| idtimestamp| reserved |  version | epoch  |massif height| massif i |
-| 0   | 8        15|          |  21 - 22 | 23   26|27         27| 28 -  31 |
-| 1   |     8      |          |      2   |    4   |      1      |     4    |
+| 0   | 8        15|          |  21 - 22 | 23   26|27         27| 28 -  31 | start and end byte indices, closed range
+| 1   |     8      |          |      2   |    4   |      1      |     4    | count of bytes
 ```
 
 The idtimestamp of the last leaf entry added to the log is always set in the header field.
 
-You can see from the hex data above, that the idtimestamp of the last entry in the log is `8e84dbbb6513a6`, the version is 0, the timestamp epoch is 1, the massif height is 14, and the massif index is 0.
+You can see from the hex data above, that the idtimestamp of the last entry in the log is `8e84dbbb6513a600`[^3], the version is 0, the timestamp epoch is 1, the massif height is 14, and the massif index is 0.
+
+[^3]: The idtimetamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp. We use a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme. Our implementation can be found at [nextid.go](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118)
 
 ### Decoding an idtimestamp
 
@@ -162,7 +162,7 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
    epoch=1
    unixms=int((
-      bytes.fromhex("8e84dbbb6513a6")[:-2]).hex(), base=16
+      bytes.fromhex("8e84dbbb6513a600")[:-3]).hex(), base=16
       ) + epoch*((2**40)-1)
    datetime.datetime.fromtimestamp(unixms/1000)
 
@@ -304,16 +304,23 @@ They all have very hardware-sympathetic implementations.
 
 For massif height 14, the fixed size portion is `1048864` bytes.
 
-All massifs in a log are guaranteed to be the same *height*.
-If your log is re-configured having first been available at
+A typical url for a massif storage blob looks like:
 
-`https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/`
+https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8/0/massifs/0000000000000000.log
 
-Then on re-configuration it will become available (without downtime) at:
+In the above, the *log configuration* identifier is the `/0/` between the tenant uuid and the `massifs/0000000000000000.log`
 
-`https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/1/`
+We record the massif height in the start record of every massif. And we guarantee that all massifs in a single configuration path have the same **massif height**.
 
-And the previous path will no longer receive any additions.
+Currently all tenants use the same configuration.
+
+In the future, DataTrails may re-size your massifs. In a log reconfiguration activity, we would first publish the tail of the log to the new path, eg `/1/massifs/0000000000000123.log`. The log is instantly available for continued growth. The historic configuration continues to be available under the `/0/` path. And, depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.
+
+We can do this without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration. In the event that we do re-configure in this way, a log configuration description will also be published along side the massifs and seals.
+
+Simple binary file compare operations can show that the verifiable data for the new configuration is the same as in the original should you wish to assure yourself of this fact.
+
+The previous configuration path will no longer receive any additions.
 
 {{< note >}}
 For the forseeable future (at least months) we don't anticipate needing to do this.
@@ -435,8 +442,16 @@ Using our "canonical" mmr log for illustration, we get this diagram
 
 The sibling *proof* path for the leaf with `mmrIndex` 7 would be [8, 12, 6], and the "peak bagging" algorithm would then be applied to get the root.
 
+H(7 || 8) = 9
+H(9 || 12) = 13
+H(6 || 13) = 14
+
+14 is a peak in the MMR, and the precised set of peaks are determined exclusively from the current mmr size, which is 23 in this case. Showing a leaf has an authentication path to a peak for the MMR is sufficient to prove its inclusion.
+
 A very nice visualization of how the peaks combine is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
+
+In that paper, the accumulator *is* the set of peaks for a given mmr size.
 
 ## The "look back" peak stack can be visualized like this
 
@@ -467,6 +482,7 @@ h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif 'tree line'
       |     |     |      |       |       |       |
     0 |0   1 3   4| 7   8|10   11|15   16|18   19|
 ```
+Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1. This comes from various implementation conventions.
 
 We call the look-back nodes the *peak stack*, because it always corresponds to the peaks of the earlier sub-trees.
 We don't pop things off it ever, we just happen to reference it in reverse order of addition when adding new leaves.
@@ -492,7 +508,7 @@ The massif has exactly 3 nodes
 The peak stack is empty
 
 ```output
-  1    2  | --- massif tree line massif height index = 2-1
+  1    2  | --- massif tree line massif height index = 1
       / \ |
      0   1| MMR INDICES
      -----|
@@ -504,12 +520,14 @@ The peak stack is empty
 
 ### massif 1
 
-The peak stack is [2]
+The peak stack is [2]. When we add node 4, the "back fill nodes" are added to complete the path. Note that node 6 below is created for and stored in massif 1. A the log grows, the accumulator (peak stack) moves on. However, historic authentication paths can always be proven to exist in all future accumulators. If you have a pair of signed accumulators that are not consistent with this, you have evidence the log is broken.
+
+Importantly, in massif 1, when computing an authentication path for nodes 3 or 4, the only node that is required from massif 0 is available locally in the peak stack (in massif 1). This means that should you lose interest in the leaf entries from massif 0, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log. And if you retain the seal from massif 0, you only strictly need to retain leaves of interest and their authentication paths.
 
 ```output
-2       6
+2       6       --- max height index = 2
          \
-1    2  | 5   | --- massif tree line massif height index = 2-1
+1    2  | 5   | --- massif tree line massif height index = 1
     / \ |/  \ |
    0   1|3   4| MMR INDICES
    -----|-----|

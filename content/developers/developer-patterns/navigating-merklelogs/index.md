@@ -140,9 +140,9 @@ The structure of the header field is:
 
 The idtimestamp of the last leaf entry added to the log is always set in the header field.
 
-You can see from the hex data above, that the idtimestamp of the last entry in the log is `8e84dbbb6513a600`[^3], the version is 0, the timestamp epoch is 1, the massif height is 14, and the massif index is 0.
+You can see from the hex data above, that the idtimestamp of the last entry in the log is `8e84dbbb6513a600`[^2], the version is 0, the timestamp epoch is 1, the massif height is 14, and the massif index is 0.
 
-[^3]: The idtimetamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp. We use a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme. Our implementation can be found at [nextid.go](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118)
+[^2]: The idtimetamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp. We use a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme. Our implementation can be found at [nextid.go](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118)
 
 ### Decoding an idtimestamp
 
@@ -413,13 +413,15 @@ To understand this we need to dig into how we organize the nodes in your Merkle 
 
 Merkle trees, at their heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree. For an MMR, a single root can be produced by "bagging the peaks". But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the mmr. Having the peak list is equivalent to having a single root. And having a path that leads to a peak is equivalent to having a path to a single root. The peak list is an accumulator state and a path to an accumulator is actually more useful.
 
-The formal details, and a a very nice visualization of how the peaks combine, is available in this paper on
+The formal details, and a very nice visualization of how the peaks combine, is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
 
 The peaks are exactly the accumulator described there.
 
-All entries in a Merkle log each have a unique and *short* path of hashes, which when hashed together according to the data structures rules, will re-create the same root (or lead to the same accumulator entry).
+All entries in a Merkle log each have a unique and *short* path of hashes[^3]: , which when hashed together according to the data structures rules, will re-create the same root (or lead to the same accumulator entry).
 If such a path does not exist, then by definition the leaf is not included - it is not in the log.
+
+[^3]: Such a path of hashes is commonly referred to as a "proof", a "witness", and an "authentication path". A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to "verification" and "verifiable data structure" in this article.
 
 Where do those paths come from?
 They come from adjacent and ancestor nodes in the hierarchical tree. And this means that when producing the path we need to access nodes throughout the tree to produce the proof.
@@ -446,7 +448,7 @@ H(9 || 12) = 13
 H(6 || 13) = 14
 ```
 
-14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has an authentication path to a peak for the MMR is sufficient to prove its inclusion in the MMR.
+14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has a path to a peak for the MMR is sufficient to prove its inclusion in the MMR.
 
 ## The "look back" peak stack can be visualized like this
 
@@ -457,7 +459,7 @@ For an MMR, the common root is defined by an algorithm for combining the adjacen
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.
 
-While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so. Typically, authentication use cases are better served by paths to an accumulator.
+While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so. Typically, verification use cases are better served by paths to an accumulator.
 
 This detail is what permits us to publish the log data immediately that your events are added to the log.
 
@@ -556,15 +558,15 @@ This layout is also known as a "post order" traversal of a binary tree.
 
 Note that the addition of node 6, while backfilling for 4, requires node 2 from the previous massif 0.  This is why it is carried forward in the peak stack.
 
-We can also see that is the *only* node that is required from massif 0 for *any* authentication path in massif 1.
+We can also see that is the *only* node that is required from massif 0 for *any* verification path in massif 1.
 
-As the log grows, the accumulator (peak stack) moves on.  However, historic authentication paths can always be proven to exist in all future accumulators.  If you have a pair of signed accumulators that are not consistent with this, you have evidence the log is broken.
+As the log grows, the accumulator (peak stack) moves on.  However, historic verification paths can always be proven to exist in all future accumulators.  If you have a pair of signed accumulators that are not consistent with this, you have evidence the log is broken.
 
-The key point here is that, in massif 1, when computing an authentication path for nodes 3 or 4, the only node that is required from massif 0 is available locally in the peak stack (in massif 1).
+The key point here is that, in massif 1, when computing a verification path for nodes 3 or 4, the only node that is required from massif 0 is available locally in the peak stack (in massif 1).
 
 This means that should you lose interest in the leaf entries from massif 0, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.
 
-If you retain the seal from massif 0, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their authentication paths.
+If you retain the seal from massif 0, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.
 
 ### massif 2
 
@@ -586,7 +588,7 @@ The layout for massif 2, showing the peak stack is [6]
 +---++---+-------+
 ```
 
-Note that 6 has replaced 2. The 2 is not required for any authentication path
+Note that 6 has replaced 2. The 2 is not required for any verification path
 for elements added in massif 2 or beyond.
 
 ### massif 3

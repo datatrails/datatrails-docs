@@ -315,7 +315,7 @@ Simple binary file compare operations can show that the verifiable data for the 
 The previous configuration path will no longer receive any additions.
 
 {{< note >}}
-For the forseeable future (at least months) we don't anticipate needing to do this.
+For the foreseeable future (at least months) we don't anticipate needing to do this.
 {{< /note >}}
 
 ## How to read a specific mmr node by its *mmrIndex*
@@ -346,10 +346,10 @@ merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/\
 c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
 ```
 
-The [veracity](https://github.com/datatrails/veracity) tool can be used to confirm that
+The [veracity](https://github.com/datatrails/veracity/blob/main/README.md#installation) tool can be used to confirm that
 
 ```bash
-go run veracity/cmd/veracity/main.go \
+veracity \
   --url https://app.datatrails.ai/verifiabledata \
   --tenant tenant/6ea5cd00-c711-3649-6914-7b125928bbb4 \
   node -i 0

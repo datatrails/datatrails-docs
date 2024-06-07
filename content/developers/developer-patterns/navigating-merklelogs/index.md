@@ -411,7 +411,7 @@ To understand this we need to dig into how we organize the nodes in your Merkle 
 
 ## The tree maps to storage like this
 
-Merkle trees, at there heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree. For an MMR, a single root can be produced by "bagging the peaks". But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the mmr. Having the peak list is equivalent to having a single root. And having a path that leads to a peak, is equivalent to having a path to a single root. The peak list is an accumulator state, and a path to an accumulator is actually more useful.
+Merkle trees, at there heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree. For an MMR, a single root can be produced by "bagging the peaks". But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the mmr. Having the peak list is equivalent to having a single root. And having a path that leads to a peak is equivalent to having a path to a single root. The peak list is an accumulator state and a path to an accumulator is actually more useful.
 
 The formal details, and a a very nice visualization of how the peaks combine, is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
@@ -440,11 +440,13 @@ Using our "canonical" mmr log for illustration, we get this diagram, the vertica
 
 The sibling *proof* path for the leaf with `mmrIndex` 7 would be [8, 12, 6], and the "peak bagging" algorithm would then be applied to get the root if that was desired.
 
+```output
 H(7 || 8) = 9
 H(9 || 12) = 13
 H(6 || 13) = 14
+```
 
-14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size, which is 23 in this case. Showing a leaf has an authentication path to a peak for the MMR is sufficient to prove its inclusion in the MMR.
+14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has an authentication path to a peak for the MMR is sufficient to prove its inclusion in the MMR.
 
 ## The "look back" peak stack can be visualized like this
 
@@ -455,13 +457,13 @@ For an MMR, the common root is defined by an algorithm for combining the adjacen
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.
 
-While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much les value in doing so. Typically, authentication use cases are better served by paths to an accumulator.
+While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so. Typically, authentication use cases are better served by paths to an accumulator.
 
 This detail is what permits us to publish the log data immediately that your events are added to the log.
 
 So the specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of "which other nodes do I need".  Such that we *know* categorically that we do not need to look *forward* of the current massif and further we know precisely which nodes we need from the previous massifs.
 
-The "free nodes" in the alpine zone always require "ancestors" from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log. But those ancestors are precisely the peaks forming the accumlator that we want anyway so we can attest to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.
+The "free nodes" in the alpine zone always require "ancestors" from previous nodes when producing inclusion proofs that pass through them and when adding new nodes to the end of the log. But those ancestors are precisely the peaks forming the accumulator that we want anyway so we can attest to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.
 
 The progression of the peak stack (accumulator) can be visualized like this. In this diagram we gather the dependent nodes into the massifs they belong too and carry forward the peak stack (accumulator) that fully authenticates the entire state of the MMR preceding the massif.
 

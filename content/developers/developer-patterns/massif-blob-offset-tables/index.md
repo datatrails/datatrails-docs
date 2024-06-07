@@ -17,7 +17,7 @@ The algorithms to reproduce the lookup tables are relatively simple.
 We provide open-source implementations, but in many contexts, it is simpler to use these pre-calculations.
 These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
 
-This is a fast review of the log format. We explain this in more detail at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
+This is a quick review of the log format. We explain this in more detail at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
 ## Each log is comprised of many blobs, each containing a fixed number of leaves
 

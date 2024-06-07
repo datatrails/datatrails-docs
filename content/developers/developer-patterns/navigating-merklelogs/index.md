@@ -411,7 +411,7 @@ To understand this we need to dig into how we organize the nodes in your Merkle 
 
 ## The tree maps to storage like this
 
-Merkle trees, at there heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree. For an MMR, a single root can be produced by "bagging the peaks". But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the mmr. Having the peak list is equivalent to having a single root. And having a path that leads to a peak is equivalent to having a path to a single root. The peak list is an accumulator state and a path to an accumulator is actually more useful.
+Merkle trees, at their heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree. For an MMR, a single root can be produced by "bagging the peaks". But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the mmr. Having the peak list is equivalent to having a single root. And having a path that leads to a peak is equivalent to having a path to a single root. The peak list is an accumulator state and a path to an accumulator is actually more useful.
 
 The formal details, and a a very nice visualization of how the peaks combine, is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)

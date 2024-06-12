@@ -28,7 +28,7 @@ By combining all three, to complete the Supply Chain, DataTrails allows you to:
 * Use defined and continuously improving process
 
 ## Chain of Custody
-DataTrails records `who did what when` (and `where` when appropriate) to build an immutable and auditable record of the entire history of an product as it passes through the supply chain.
+The DataTrails platform records `who did what when` (and `where` when appropriate) to build an immutable and auditable account of the entire history of an product as it passes through the supply chain. This is the Data Trail.
 
 The platform allows multi-party sharing and visibility of supply chain data which empowers trusted data exchange and verification. Supply chain partners have a single source of truth that gives them confidence that decisions are made by the right people, at the right step of the process, using the right data and with confidence that the data is the correct version and is untampered. 
 

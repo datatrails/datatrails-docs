@@ -9,22 +9,24 @@ images: []
 menu: 
   usecases:
     parent: "usecases"
-weight: 31
+weight: 30
 toc: true
 ---
 
 As AI technologies become more common the need for trust in AI increases at a greater rate. There is a need to trust the AI model, the dataset that trains the AI machine, the statements about governance and compliance made by the AI vendor before you can trust the output of the AI machine.
 
-Responsible AI includes an ethical and legal viewpoint to ensure that AI works for the good of society, fundamental to this is Trust and Transparency. 
-We need to be certain that an AI machine is making decisions that are no worse than those that would be made by a trained and competent human.
-We need to know that it has been trained on 'good' data, not 'bad' data.
-We need to know that the system has been designed to be compliant with the correct standards and policies.
-We need to know that it will not misuse our personal information.
-We need to know that the system is being developed and improved to those same standards.
+Responsible AI includes an ethical and legal viewpoint to ensure that AI works for the good of society, fundamental to this is Trust and Transparency.
+
+As consumers of the AI model:
+* We need to be certain that an AI machine is making decisions that are no worse than those that would be made by a trained and competent human.
+* We need to know that it has been trained on 'good' data, not 'bad' data.
+* We need to know that the system has been designed to be compliant with the correct standards and policies.
+* We need to know that it will not misuse our personal information.
+* We need to know that the system is being developed and improved to those same standards.
 
 Above all, we don't want to take the vendors word for it, they need to *prove* it!
 
-DataTrails empowers this by providing an immutable lineage record for all aspects of the AI machine which supports responsible and ethical governance, coupled with transparency and traceability of the training data and output analysis. Together these enhance the explainability and interpretability of the AI machine's output which results in trust and efficient decision making by the user whether that user is a human or another AI machine.     
+DataTrails empowers this by providing an immutable lineage record (the data trail) for all aspects of the AI machine which supports responsible and ethical governance, coupled with transparency and traceability of the training data and output analysis. Together these enhance the explainability and interpretability of the AI machine's output which results in trust and efficient decision making by the user whether that user is a human or another AI machine.     
 
 {{< img src="aitransparency.png" alt="Rectangle" caption="<em>Opportunities for Transparency</em>" class="border-0" >}}
 

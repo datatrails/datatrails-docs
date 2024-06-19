@@ -209,7 +209,7 @@ This example also adds a location to our Asset. To find out more about locations
 
 ```json
 {
-    "behaviours": ["RecordEvidence"]
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container",

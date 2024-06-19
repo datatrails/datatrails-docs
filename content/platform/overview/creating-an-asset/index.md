@@ -140,7 +140,7 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
 ```json
 {
-    "behaviours": ["RecordEvidence"]
+    "behaviours": ["RecordEvidence"],
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container"

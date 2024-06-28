@@ -54,7 +54,6 @@ Select a term for more information.
 | [tenant_accepted](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was actually received on the DataTrails REST interface |
 | [tenant_committed](/platform/overview/advanced-concepts/#timestamps-on-events) | the time an event was confirmed distributed to all DLT nodes in the value chain |
 | [tenant_declared](/platform/overview/advanced-concepts/#timestamps-on-events) | an optional user-supplied value that tells when an Event happened |
-| [transaction](/developers/developer-patterns/verifying-with-simple-hash/)| final commitment of data to the Distributed Ledger Technology so that it is sealed and cannot be modified, tampered or erased|
 | [unlinked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has not been selected to be linked to DataTrails during the configuration or reconfiguration of an Integration                                              |
 | [verified domain](/platform/administration/verified-domain/)     | tenancy name visible to others in place of the tenancy ID when viewing the Asset Overview of a public Asset or a shared private Asset. Must be verified by the DataTrails team                                        |
 | [verified organization](/platform/administration/verified-domain/)| an organization which has paid to have their domain verified and displayed in place of their tenancy ID in Instaproof results and in the Asset Overview |

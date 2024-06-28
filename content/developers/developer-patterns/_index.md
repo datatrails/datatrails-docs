@@ -20,7 +20,6 @@ aliases:
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
-      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>

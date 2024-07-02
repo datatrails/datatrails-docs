@@ -110,11 +110,12 @@ Create a COSE Signed Statement, hashing the content of the `payload.json` file
 
 ```bash
 python scitt/create_hashed_signed_statement.py \
-  --signing-key-file $SIGNING_KEY \
-  --issuer $ISSUER \
-  --subject $SUBJECT \
   --content-type "application/json" \
+  --issuer $ISSUER \
+  --location-hint "https://storage.example/$SUBJECT" \
   --payload-file payload.json \
+  --signing-key-file $SIGNING_KEY \
+  --subject $SUBJECT \
   --output-file $SIGNED_STATEMENT_FILE
 ```
 

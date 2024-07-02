@@ -91,12 +91,8 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
 
 ## Generate a Payload
 
-Create any payload you wish to register on DataTrails. JSON based payloads are indexed for query capabilities.
-
-{{< note >}}
-The current version of the DataTrails SCITT API is limited to JSON payloads.
-This will be relaxed in a future release
-{{< /note >}}
+Create any payload you wish to register on DataTrails.
+JSON based payloads are indexed for query capabilities.
 
 ```bash
 cat > payload.json <<EOF
@@ -110,13 +106,13 @@ EOF
 
 ## Create a COSE Signed Statement
 
-Using the `payload.json` file, create a COSE Signed Statement
+Create a COSE Signed Statement, hashing the content of the `payload.json` file
 
 ```bash
-python scitt/create_signed_statement.py \
+python scitt/create_hashed_signed_statement.py \
   --signing-key-file $SIGNING_KEY \
   --issuer $ISSUER \
-  --feed $SUBJECT \
+  --subject $SUBJECT \
   --content-type "application/json" \
   --payload-file payload.json \
   --output-file $SIGNED_STATEMENT_FILE
@@ -157,7 +153,7 @@ By querying the series of statements, consumers can verify who did what and when
 
     ```bash
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$SUBJECT | jq
+      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
     ```
 
 {{< note >}}

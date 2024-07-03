@@ -8166,7 +8166,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -8184,7 +8184,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -8313,7 +8313,7 @@ If you are looking for a simple way to test our API you might prefer our
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false
 }</code></pre>
                                   </div>
@@ -8399,7 +8399,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -8956,7 +8956,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -9116,6 +9116,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Events</p>
 
+                      
+                        
                       
                         
                       
@@ -13273,7 +13275,7 @@ For example:</p>
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -13291,7 +13293,7 @@ For example:</p>
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -13420,7 +13422,7 @@ For example:</p>
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false
 }</code></pre>
                                   </div>
@@ -13506,7 +13508,7 @@ For example:</p>
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -14063,7 +14065,7 @@ For example:</p>
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -14223,6 +14225,8 @@ For example:</p>
                       <p><a href=""></a></p>
                       <p>Description: Lists Events</p>
 
+                      
+                        
                       
                         
                       
@@ -16269,7 +16273,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -16287,7 +16291,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -19244,7 +19248,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -19399,6 +19403,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Archivist events for a public asset</p>
 
+                      
+                        
                       
                         
                       
@@ -21218,7 +21224,6 @@ If you are looking for a simple way to test our API you might prefer our
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
-      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
@@ -29618,7 +29623,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -29636,7 +29641,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -29765,7 +29770,7 @@ If you are looking for a simple way to test our API you might prefer our
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false
 }</code></pre>
                                   </div>
@@ -29851,7 +29856,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -30408,7 +30413,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -30568,6 +30573,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Events</p>
 
+                      
+                        
                       
                         
                       
@@ -34725,7 +34732,7 @@ For example:</p>
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -34743,7 +34750,7 @@ For example:</p>
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -34872,7 +34879,7 @@ For example:</p>
   "behaviours": [
     "RecordEvidence"
   ],
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false
 }</code></pre>
                                   </div>
@@ -34958,7 +34965,7 @@ For example:</p>
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -35515,7 +35522,7 @@ For example:</p>
   "confirmation_status": "PENDING",
   "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -35675,6 +35682,8 @@ For example:</p>
                       <p><a href=""></a></p>
                       <p>Description: Lists Events</p>
 
+                      
+                        
                       
                         
                       
@@ -37721,7 +37730,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/add30235-1424-4fda-840a-d5ef82c4c96f",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -37739,7 +37748,7 @@ If you are looking for a simple way to test our API you might prefer our
       "confirmation_status": "PENDING",
       "identity": "assets/cef61346-2453-5aeb-921c-e6fa93d5b032",
       "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-      "proof_mechanism": "SIMPLE_HASH",
+      "proof_mechanism": "MERKLE_LOG",
       "public": false,
       "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
       "tracked": "TRACKED"
@@ -40696,7 +40705,7 @@ If you are looking for a simple way to test our API you might prefer our
   "confirmation_status": "PENDING",
   "identity": "publicassets/add30235-1424-4fda-840a-d5ef82c4c96f",
   "owner": "0x601f5A7D3e6dcB55e87bf2F17bC8A27AaCD3511",
-  "proof_mechanism": "SIMPLE_HASH",
+  "proof_mechanism": "MERKLE_LOG",
   "public": false,
   "tenant_identity": "tenant/8e0b600c-8234-43e4-860c-e95bdcd695a9",
   "tracked": "TRACKED"
@@ -40851,6 +40860,8 @@ If you are looking for a simple way to test our API you might prefer our
                       <p><a href=""></a></p>
                       <p>Description: Lists Archivist events for a public asset</p>
 
+                      
+                        
                       
                         
                       
@@ -42670,7 +42681,6 @@ If you are looking for a simple way to test our API you might prefer our
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
-      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>

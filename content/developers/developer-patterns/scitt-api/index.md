@@ -28,8 +28,7 @@ This includes previously registered statements, and newly registered statements 
 This quickstart will:
 
 1. create, or use an existing a key to sign a collection of statements about an artifact
-1. create and register a statement for the artifact
-1. create and register an attestation for the artifact
+1. create and register a statement for an artifact
 1. query a collection of statements about the artifact
 
 ## Prerequisites
@@ -80,10 +79,10 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 ## Create a Signing Key
 
 {{< note >}}
-If you already have a COSE Key, skip ahead to [Generating a Payload](#generating-a-payload)
+If you already have a signing key, skip ahead to [Generating a Payload](#generating-a-payload)
 {{< /note >}}
 
-For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
+For the Quickstart, create a testing key which DataTrails will cryptographically validate upon registration
 
   ```bash
   openssl ecparam -name prime256v1 -genkey -out $SIGNING_KEY
@@ -92,7 +91,6 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
 ## Generate a Payload
 
 Create any payload you wish to register on DataTrails.
-JSON based payloads are indexed for query capabilities.
 
 ```bash
 cat > payload.json <<EOF
@@ -106,7 +104,8 @@ EOF
 
 ## Create a COSE Signed Statement
 
-Create a COSE Signed Statement, hashing the content of the `payload.json` file
+Create a COSE Signed Statement, hashing the content of the `payload.json` file.
+The payload may already be stored in another storage/package manager, which can be referenced with the `--location-hint` parameter.
 
 ```bash
 python scitt/create_hashed_signed_statement.py \
@@ -121,14 +120,19 @@ python scitt/create_hashed_signed_statement.py \
 
 ## Register the SCITT Statement on DataTrails
 
-Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`
+1. Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`.
 
-  ```bash
-  OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                  --data-binary @$SIGNED_STATEMENT_FILE \
-                  https://app.datatrails.ai/archivist/v1/publicscitt/entries \
-                  | jq -r .operationID)
-  ```
+    ```bash
+    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
+                    --data-binary @$SIGNED_STATEMENT_FILE \
+                    https://app.datatrails.ai/archivist/v1/publicscitt/entries \
+                    | jq -r .operationID)
+    ```
+
+    {{< note >}}
+    You may need to remove `jq` to see details of an error.
+    If errors occur, [verify the bearer-token is properly set](/developers/developer-patterns/getting-access-tokens-using-app-registrations).
+    {{< /note >}}
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
 

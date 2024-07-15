@@ -165,6 +165,41 @@ By querying the series of statements, consumers can verify who did what and when
 Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.
 {{< /note >}}
 
+## Verify Receipt Integrity
+
+To verify the signature of the receipt
+
+```console
+python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
+```
+
+## Verify Inclusion Within the Datatrails Ledger
+
+To verify the ledger hasn't been tampered with, please see the .
+As [SCITT]() and the [SCITT Reference APIs (SCRAPI)]() complete, the [DataTrails veracity project](https://github.com/datatrails/veracity) is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.
+
+1. Convert the SCITT `Entry_ID` to a DataTrails Event_ID to verify inclusion.
+
+   ```console
+   EVENT_ID=$(echo $ENTRY_ID | tr "_" "/")
+   ```
+
+1. Download the Event verifiable data structure, based on the DataTrails `Event_ID`
+
+   ```console
+   curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID > event.json
+   ```
+
+1. Verify the the log has not been tampered with
+
+   ```console
+   cat event.json | \
+    veracity --data-url $DATATRAILS_URL/verifiabledata \
+    --tenant=$PUBLIC_TENANT_ID \
+    --loglevel=INFO \
+    verify-included
+   ```
+
 ## Summary
 
 The quickstart created a collection of statements for a given artifact.

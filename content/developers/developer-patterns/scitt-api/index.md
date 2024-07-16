@@ -178,7 +178,7 @@ python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
 To verify the ledger hasn't been tampered with, please see the .
 As [SCITT]() and the [SCITT Reference APIs (SCRAPI)]() complete, the [DataTrails veracity project](https://github.com/datatrails/veracity) is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.
 
-1. Convert the SCITT `Entry_ID` to a DataTrails Event_ID to verify inclusion.
+1. Convert the SCITT `Entry_ID` to a DataTrails `Event_ID` to verify inclusion.
 
    ```console
    EVENT_ID=$(echo $ENTRY_ID | tr "_" "/")

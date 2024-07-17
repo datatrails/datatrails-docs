@@ -66,8 +66,6 @@ Create an empty file, in later steps we will add the correct JSON.
 
 1. Add details to your new Asset.
 
-    The Proof Mechanism [`Simple Hash`](/platform/overview/advanced-concepts/#simple-hash) commits a batch of events as one blockchain transaction. This allows you to audit if the asset has changed during that time period.
-    Please see our [Advanced Concepts](/platform/overview/advanced-concepts/#proof-mechanisms) section for more information on the Proof Mechanism for your Asset.
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 You will see an Asset Creation form, where you provide details of your new Asset:
@@ -91,7 +89,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
 ```
 
 {{< /tab >}}
@@ -102,8 +99,7 @@ In the file you created earlier, begin adding metadata for your Asset:
 
 ```json
 {
-    "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH"
+    "behaviours": ["RecordEvidence"]
 }
 ```
 
@@ -133,7 +129,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
@@ -146,7 +141,6 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 ```json
 {
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container"
@@ -190,7 +184,6 @@ steps:
         - arc_display_name
     behaviours: 
       - RecordEvidence
-    proof_mechanism: SIMPLE_HASH
     attributes: 
       arc_display_name: My First Container 
       arc_display_type: Shipping Container
@@ -217,7 +210,6 @@ This example also adds a location to our Asset. To find out more about locations
 ```json
 {
     "behaviours": ["RecordEvidence"],
-    "proof_mechanism": "SIMPLE_HASH",
     "attributes": {
         "arc_display_name": "My First Container",
         "arc_display_type": "Shipping Container",
@@ -225,7 +217,7 @@ This example also adds a location to our Asset. To find out more about locations
         "Width": "2.43m",
         "Length": "6.06m",
         "Height": "2.59m",
-        "arc_home_location_identity": "locations/<location-id>",
+        "arc_home_location_identity": "locations/<location-id>"
     }
 }
 ```

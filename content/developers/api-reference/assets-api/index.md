@@ -34,22 +34,20 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
+  "behaviours": ["RecordEvidence"],
   "attributes": {
     "picture_from_yesterday": {
       "arc_attribute_type": "arc_attachment",
       "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
       "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "somepic.jpeg",
+      "arc_file_name": "cat.jpeg",
       "arc_display_name": "Picture from yesterday",
     },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    "arc_display_name": "My Cat",
+    "arc_display_type": "Cat",
+    "weight": "3.6kg"
   },
-  "behaviours": [
-    "RecordEvidence"
-  ],
-  "proof_mechanism": "SIMPLE_HASH",
   "public": false
 }
 ```
@@ -71,31 +69,104 @@ The response is:
 
 ```json
 {
-  "at_time": "2019-11-27T14:44:19Z",
-  "attributes": {
-    "picture_from_yesterday": {
-      "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "somepic.jpeg",
-      "arc_display_name": "Picture from yesterday",
-    },
-    "arc_firmware_version": "3.2.1",
-    "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  },
-  "behaviours": [
-    "RecordEvidence"
-  ],
-  "confirmation_status": "PENDING",
   "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX",
-  "proof_mechanism": "SIMPLE_HASH",
-  "public": false,
-  "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "tracked": "TRACKED"
-}
+    "behaviours": ["RecordEvidence"],
+    "attributes": {
+        "arc_display_type": "Cat",
+        "weight": "3.6kg",
+        "picture_from_yesterday": {
+            "arc_blob_hash_alg": "SHA256",
+            "arc_file_name": "cat.jpeg",
+            "arc_display_name": "Picture from yesterday",
+            "arc_attribute_type": "arc_attachment",
+            "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        },
+        "arc_display_name": "My Cat"
+    },
+    "confirmation_status": "COMMITTED",
+    "tracked": "TRACKED",
+    "owner": "",
+    "at_time": "2024-05-30T12:26:37Z",
+    "proof_mechanism": "MERKLE_LOG",
+    "chain_id": "8275868384",
+    "public": false,
+    "tenant_identity": ""
+}    
+  ```
+#### Updating an Asset Attribute
+
+To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat from the previous example.
+
+See the [Events API reference](https://docs.datatrails.ai/developers/api-reference/events-api/) for more information about Events.
+
+```json
+{
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+       "arc_display_type": "groom",
+       "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {   
+       "weight": "3.5kg"
+    },
+    "public": false
+}    
 ```
+POST the Event to update the Asset:
+
+```bash
+curl -v -X POST \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+        "arc_display_type": "groom",
+        "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {
+        "weight": "3.5kg"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2024-05-30T12:28:50Z",
+    "timestamp_accepted": "2024-05-30T12:28:50Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": "",
+    "merklelog_entry": {
+        "commit": null,
+        "confirm": null,
+        "unequivocal": null
+    }
+}    
+  ```
 
 #### Creating a Public Asset
 
@@ -141,8 +212,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
     "behaviours": [
         "Builtin",
         "RecordEvidence"
-    ],
-    "proof_mechanism":"SIMPLE_HASH"
+    ]
 }
 ```
 {{< note >}}
@@ -184,7 +254,6 @@ The response is:
     "owner": "",
     "at_time": "2023-09-27T11:32:22Z",
     "storage_integrity": "TENANT_STORAGE",
-    "proof_mechanism": "SIMPLE_HASH",
     "chain_id": "8275868384",
     "public": false,
     "tenant_identity": ""
@@ -260,7 +329,7 @@ To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resour
 ```bash
 curl -g -v -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivist/v2/assets?attributes.proof_mechanism=simple_hash"
+     "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG"
 ```
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema

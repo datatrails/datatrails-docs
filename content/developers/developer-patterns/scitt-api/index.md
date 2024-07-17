@@ -28,8 +28,7 @@ This includes previously registered statements, and newly registered statements 
 This quickstart will:
 
 1. create, or use an existing a key to sign a collection of statements about an artifact
-1. create and register a statement for the artifact
-1. create and register an attestation for the artifact
+1. create and register a statement for an artifact
 1. query a collection of statements about the artifact
 
 ## Prerequisites
@@ -73,48 +72,55 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # File representing the signed statement to be registered
     SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
-    # Feed ID, used to correlate a collection of statements about an artifact
-    FEED="my-product-id"
+    # Subject is a property used to correlate a collection of statements about an artifact
+    SUBJECT="my-product-id"
     ```
 
 ## Create a Signing Key
 
 {{< note >}}
-If you already have a COSE Key, skip ahead to [Generating a Payload](#generating-a-payload)
+If you already have a signing key, skip ahead to [Generating a Payload](#generating-a-payload)
 {{< /note >}}
 
-For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-spec/#key-structure) which DataTrails will cryptographically validate upon registration
+For the Quickstart, create a testing key which DataTrails will cryptographically validate upon registration
 
   ```bash
   openssl ecparam -name prime256v1 -genkey -out $SIGNING_KEY
   ```
 
-## Generating a Payload
+## Generate a Payload
 
-1. Create a simple json payload
+Create any payload you wish to register on DataTrails.
 
-    ```bash
-    cat > payload.json <<EOF
-    {
-        "author": "fred",
-        "title": "my biography",
-        "reviews": "mixed"
-    }
-    EOF
-    ```
+```bash
+cat > payload.json <<EOF
+{
+    "author": "fred",
+    "title": "my biography",
+    "reviews": "mixed"
+}
+EOF
+```
 
-1. Create a COSE Signed Statement for the `payload.json` file
+## Create a COSE Signed Statement
 
-    ```bash
-    python scitt/create_signed_statement.py \
-      --signing-key-file $SIGNING_KEY \
-      --issuer $ISSUER \
-      --feed $FEED \
-      --content-type "application/json" \
-      --payload-file payload.json \
-      --output-file $SIGNED_STATEMENT_FILE
+Create a COSE Signed Statement, hashing the content of the `payload.json` file.
+The payload may already be stored in another storage/package manager, which can be referenced with the `--location-hint` parameter.
 
-1. Register the Statement
+```bash
+python scitt/create_hashed_signed_statement.py \
+  --content-type "application/json" \
+  --issuer $ISSUER \
+  --location-hint "https://storage.example/$SUBJECT" \
+  --payload-file payload.json \
+  --signing-key-file $SIGNING_KEY \
+  --subject $SUBJECT \
+  --output-file $SIGNED_STATEMENT_FILE
+```
+
+## Register the SCITT Statement on DataTrails
+
+1. Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`.
 
     ```bash
     OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
@@ -122,6 +128,11 @@ For the Quickstart, create a testing [COSE Key](https://cose-wg.github.io/cose-s
                     https://app.datatrails.ai/archivist/v1/publicscitt/entries \
                     | jq -r .operationID)
     ```
+
+    {{< note >}}
+    You may need to remove `jq` to see details of an error.
+    If errors occur, [verify the bearer-token is properly set](/developers/developer-patterns/getting-access-tokens-using-app-registrations).
+    {{< /note >}}
 
 1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
 
@@ -147,7 +158,7 @@ By querying the series of statements, consumers can verify who did what and when
 
     ```bash
     curl -H @$HOME/.datatrails/bearer-token.txt \
-      "https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.feed_id=$FEED" | jq
+      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
     ```
 
 {{< note >}}

@@ -24,6 +24,14 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
+{{< note >}}
+**Note:** You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.
+
+One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.
+
+Another is to parse the Event API call for **400 Bad Request** errors (optionally also check for **429 Too Many Requests** errors) and then retry the call after a few seconds.
+{{< /note >}}
+
 ### Event Creation
 
 Define the Event parameters and store in `/path/to/jsonfile`:
@@ -85,12 +93,83 @@ The response is:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"
 }
 ```
+### Updating an Asset Attribute
+
+To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the [Assets API reference](https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation) example.
+
+```json
+{
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+       "arc_display_type": "groom",
+       "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {   
+       "weight": "3.5kg"
+    },
+    "public": false
+}    
+```
+POST the Event to update the Asset:
+
+```bash
+curl -v -X POST \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    -H "Content-type: application/json" \
+    -d "@/path/to/jsonfile" \
+    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+```
+
+The response is:
+
+```json
+{
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+        "arc_display_type": "groom",
+        "additional_checks": "weigh the cat"
+    },
+    "asset_attributes": {
+        "weight": "3.5kg"
+    },
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2024-05-30T12:28:50Z",
+    "timestamp_accepted": "2024-05-30T12:28:50Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "principal_accepted": {
+        "issuer": "https://app.datatrails.ai/appidpv1",
+        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "display_name": "Custom Integration",
+        "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": "",
+    "merklelog_entry": {
+        "commit": null,
+        "confirm": null,
+        "unequivocal": null
+    }
+}    
+  ```
 
 ### Document Profile Event Creation
 
@@ -384,7 +463,7 @@ You should see the response:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "CONFIRMED",
+  "confirmation_status": "COMMITTED",
   "block_number": 12,
   "transaction_index": 5,
   "transaction_id": "0x07569"
@@ -474,6 +553,27 @@ curl -g -v -X GET \
 ```
 
 Returns all Events which do not have `arc_display_type` or in which `arc_display_type` is empty.
+
+#### Fetch Events by Minimum Confirmation Status
+
+To fetch all Events with a specified confirmation status or higher, `GET` the Events resource and filter on `minimum_trust`.
+For example:
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED"
+```
+
+Returns all Events which have a `confirmation_status` level of COMMITTED, CONFIRMED or UNEQUIVOCAL. 
+
+```bash
+curl -g -v -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED"
+```
+
+Returns all Events which have a `confirmation_status` level of CONFIRMED or UNEQUIVOCAL. 
 
 ## Events OpenAPI Docs
 

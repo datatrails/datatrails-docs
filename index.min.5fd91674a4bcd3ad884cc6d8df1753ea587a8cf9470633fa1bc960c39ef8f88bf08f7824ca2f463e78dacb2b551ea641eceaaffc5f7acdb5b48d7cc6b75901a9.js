@@ -17613,11 +17613,49 @@ By querying the series of statements, consumers can verify who did what and when
 <blockquote class="note callout">
     <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
   </blockquote>
+<h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
+<p>To verify the signature of the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
+</span></span></span></code></pre></div><h2 id="verify-inclusion-within-the-datatrails-ledger">Verify Inclusion Within the Datatrails Ledger</h2>
+<p>As 
+<a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">SCITT</a> and the 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-scrapi/" target="_blank" rel="noopener">SCITT Reference APIs (SCRAPI)</a> complete RFC adoption, the 
+<a href="https://github.com/datatrails/veracity" target="_blank" rel="noopener">DataTrails veracity project</a> is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.</p>
+<p>The following steps demonstrate veracity verification with SCITT Registered Signed Statements</p>
+<ol>
+<li>
+<p>Convert the SCITT <code>Entry_ID</code> to a DataTrails <code>Event_ID</code> to verify inclusion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">EVENT_ID=$(echo &#34;public$ENTRY_ID&#34; | tr &#34;_&#34; &#34;/&#34;)
+</span></span></span></code></pre></div></li>
+<li>
+<p>Download the Event verifiable data structure, based on the DataTrails <code>Event_ID</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID &gt; event.json
+</span></span></span></code></pre></div></li>
+<li>
+<p>Verify the the log has not been tampered with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat event.json | \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> veracity --data-url https://app.datatrails.ai/verifiabledata \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> --loglevel=INFO \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> verify-included
+</span></span></span></code></pre></div></li>
+<li>
+<p>Tamper with the local replica, backdating an entries from 2024 to 2023</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i -e &#39;s/2024/2023/g&#39; ./event.json
+</span></span></span></code></pre></div></li>
+<li>
+<p>Re-verify inclusion with <code>veracity verify-included</code>, noting the error</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">veracity --data-url https://app.datatrails.ai/verifiabledata \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         --loglevel=INFO \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         verify-included &lt; event.json
+</span></span></span></code></pre></div></li>
+</ol>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
-Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
-There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, and/or filter statements by the issuer.</p>
+Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
+<p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
+By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers &amp; metadata.</p>
 <p>For more information:</p>
 <!-- - [DataTrails SCITT API Reference](TBD) -->
 <ul>
@@ -39073,11 +39111,49 @@ By querying the series of statements, consumers can verify who did what and when
 <blockquote class="note callout">
     <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
   </blockquote>
+<h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
+<p>To verify the signature of the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
+</span></span></span></code></pre></div><h2 id="verify-inclusion-within-the-datatrails-ledger">Verify Inclusion Within the Datatrails Ledger</h2>
+<p>As 
+<a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">SCITT</a> and the 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-scrapi/" target="_blank" rel="noopener">SCITT Reference APIs (SCRAPI)</a> complete RFC adoption, the 
+<a href="https://github.com/datatrails/veracity" target="_blank" rel="noopener">DataTrails veracity project</a> is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.</p>
+<p>The following steps demonstrate veracity verification with SCITT Registered Signed Statements</p>
+<ol>
+<li>
+<p>Convert the SCITT <code>Entry_ID</code> to a DataTrails <code>Event_ID</code> to verify inclusion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">EVENT_ID=$(echo &#34;public$ENTRY_ID&#34; | tr &#34;_&#34; &#34;/&#34;)
+</span></span></span></code></pre></div></li>
+<li>
+<p>Download the Event verifiable data structure, based on the DataTrails <code>Event_ID</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID &gt; event.json
+</span></span></span></code></pre></div></li>
+<li>
+<p>Verify the the log has not been tampered with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat event.json | \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> veracity --data-url https://app.datatrails.ai/verifiabledata \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> --loglevel=INFO \\
+</span></span></span><span class="line"><span class="cl"><span class="go"> verify-included
+</span></span></span></code></pre></div></li>
+<li>
+<p>Tamper with the local replica, backdating an entries from 2024 to 2023</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i -e &#39;s/2024/2023/g&#39; ./event.json
+</span></span></span></code></pre></div></li>
+<li>
+<p>Re-verify inclusion with <code>veracity verify-included</code>, noting the error</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">veracity --data-url https://app.datatrails.ai/verifiabledata \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         --loglevel=INFO \\
+</span></span></span><span class="line"><span class="cl"><span class="go">         verify-included &lt; event.json
+</span></span></span></code></pre></div></li>
+</ol>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
-Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from.
-There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, and/or filter statements by the issuer.</p>
+Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
+<p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
+By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers &amp; metadata.</p>
 <p>For more information:</p>
 <!-- - [DataTrails SCITT API Reference](TBD) -->
 <ul>

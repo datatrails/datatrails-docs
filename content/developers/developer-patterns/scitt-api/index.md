@@ -189,7 +189,6 @@ The following steps demonstrate veracity verification with SCITT Registered Sign
 
    ```console
    curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID > event.json
-   
    ```
 
 1. Verify the the log has not been tampered with

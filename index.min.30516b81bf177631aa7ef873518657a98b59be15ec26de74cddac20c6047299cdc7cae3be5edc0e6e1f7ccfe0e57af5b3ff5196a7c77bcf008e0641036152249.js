@@ -35,7 +35,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> App Registration is the old name for a Custom Integration.</div>
   </blockquote></p>
-<p><code>Custom Integrations</code> have a <code>CLIENT_ID</code> and a <code>SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
+<p><code>Custom Integrations</code> have a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
 <a href="https://jwt.io/introduction/" target="_blank" rel="noopener">JSON Web Tokens</a> (JWT).</p>
 <p>DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.</p>
 <p>The high level steps are:</p>
@@ -46,7 +46,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <li>Use the Access Token to make a REST API call to your tenancy.</li>
 </ol>
 <h2 id="creating-a-custom-integration">Creating a Custom Integration</h2>
-<p>If you have already saved a <code>CLIENT_ID</code> and a <code>SECRET</code>, with the correct 
+<p>If you have already saved a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, with the correct 
 <a href="#grant-permissions-to-custom-integration">permissions applied</a>, skip to 
 <a href="#getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</a></p>
 <blockquote class="note callout">
@@ -114,7 +114,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
   </blockquote></li>
 <li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
+<li>You will then be presented with the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -139,7 +139,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </div>
 </div>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
+    <div><strong></strong> <strong>Caution:</strong> Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> to a password manager or secret management service as the <code>DATATRAILS_CLIENT_SECRET</code> can <strong>not</strong> be viewed again. A new <code>DATATRAILS_CLIENT_SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>DATATRAILS_CLIENT_SECRET</code>.</div>
   </blockquote></li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
@@ -263,25 +263,25 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 <h2 id="getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</h2>
 <p>Having completed the steps to create a 
 <a href="./#creating-a-custom-integration">custom integration</a> and 
-<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>CLIENT_ID</code> and the <code>SECRET</code>, a token can be obtained with the following command.</p>
+<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>DATATRAILS_CLIENT_ID</code> and the <code>DATATRAILS_CLIENT_SECRET</code>, a token can be obtained with the following command.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To make things easy we will use local variables and files to store the credentials and token but you can use any method that you wish.</div>
   </blockquote>
 <ol>
 <li>
-<p>Save the <code>CLIENT_ID</code> and <code>SECRET</code> saved from above, to local variables
+<p>Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> saved from above, to local variables
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications</div>
   </blockquote></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CLIENT_ID</span><span class="o">=</span>your_id
-</span></span><span class="line"><span class="cl"><span class="nv">SECRET</span><span class="o">=</span>your_secret
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_ID</span><span class="o">=</span>your_id
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="o">=</span>your_secret
 </span></span></code></pre></div></li>
 <li>
 <p>Generate a token using your pre-existing <code>Custom Integration</code> details, saving to a <code>RESPONSE</code> variable</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
 </span></span></code></pre></div></li>
 <li>
@@ -348,7 +348,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;assets&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;next_page_token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, Navigate to <code>Assets</code> confirm existing assets. If assets exist, confirm the <code>CLIENT_ID</code>, <code>SECRET</code> and <code>Access Policy</code> are configured and referenced properly.</p>
+</span></span></code></pre></div><p>In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, Navigate to <code>Assets</code> confirm existing assets. If assets exist, confirm the <code>DATATRAILS_CLIENT_ID</code>, <code>DATATRAILS_CLIENT_SECRET</code> and <code>Access Policy</code> are configured and referenced properly.</p>
 <h2 id="troubleshooting-token-generation">Troubleshooting Token Generation</h2>
 <p>The header and payload of the <code>TOKEN</code> may be examined with the following commands. This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.</p>
 <blockquote class="warning callout">
@@ -17543,6 +17543,9 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
@@ -17569,35 +17572,24 @@ The payload may already be stored in another storage/package manager, which can 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_hashed_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --location-hint <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
 <ol>
 <li>
-<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>bearer-token.txt</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
-</span></span></code></pre></div><blockquote class="note callout">
-    <div><strong></strong> You may need to remove <code>jq</code> to see details of an error.
-If errors occur, 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">verify the bearer-token is properly set</a>.</div>
-  </blockquote>
-</li>
-<li>
-<p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/register_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file signed-statement.cbor <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
 </span></span></code></pre></div></li>
 <li>
-<p>Retrieve a SCITT Receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o receipt.cbor
+<p>View the Transparent Statement, as a result of registering the Signed Statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input signed-statement.cbor
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -17615,43 +17607,9 @@ By querying the series of statements, consumers can verify who did what and when
   </blockquote>
 <h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
 <p>To verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
-</span></span></span></code></pre></div><h2 id="verify-inclusion-within-the-datatrails-ledger">Verify Inclusion Within the Datatrails Ledger</h2>
-<p>As 
-<a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">SCITT</a> and the 
-<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-scrapi/" target="_blank" rel="noopener">SCITT Reference APIs (SCRAPI)</a> complete RFC adoption, the 
-<a href="https://github.com/datatrails/veracity" target="_blank" rel="noopener">DataTrails veracity project</a> is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.</p>
-<p>The following steps demonstrate veracity verification with SCITT Registered Signed Statements</p>
-<ol>
-<li>
-<p>Convert the SCITT <code>Entry_ID</code> to a DataTrails <code>Event_ID</code> to verify inclusion.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">EVENT_ID=$(echo &#34;public$ENTRY_ID&#34; | tr &#34;_&#34; &#34;/&#34;)
-</span></span></span></code></pre></div></li>
-<li>
-<p>Download the Event verifiable data structure, based on the DataTrails <code>Event_ID</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID &gt; event.json
-</span></span></span></code></pre></div></li>
-<li>
-<p>Verify the the log has not been tampered with</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat event.json | \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> veracity --data-url https://app.datatrails.ai/verifiabledata \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> --loglevel=INFO \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> verify-included
-</span></span></span></code></pre></div></li>
-<li>
-<p>Tamper with the local replica, backdating an entries from 2024 to 2023</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i -e &#39;s/2024/2023/g&#39; ./event.json
-</span></span></span></code></pre></div></li>
-<li>
-<p>Re-verify inclusion with <code>veracity verify-included</code>, noting the error</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">veracity --data-url https://app.datatrails.ai/verifiabledata \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         --loglevel=INFO \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         verify-included &lt; event.json
-</span></span></span></code></pre></div></li>
-</ol>
-<h2 id="summary">Summary</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py \\
+</span></span></span><span class="line"><span class="cl"><span class="go">  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
+</span></span></span></code></pre></div><h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
 <p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
@@ -21533,7 +21491,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> App Registration is the old name for a Custom Integration.</div>
   </blockquote></p>
-<p><code>Custom Integrations</code> have a <code>CLIENT_ID</code> and a <code>SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
+<p><code>Custom Integrations</code> have a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
 <a href="https://jwt.io/introduction/" target="_blank" rel="noopener">JSON Web Tokens</a> (JWT).</p>
 <p>DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.</p>
 <p>The high level steps are:</p>
@@ -21544,7 +21502,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <li>Use the Access Token to make a REST API call to your tenancy.</li>
 </ol>
 <h2 id="creating-a-custom-integration">Creating a Custom Integration</h2>
-<p>If you have already saved a <code>CLIENT_ID</code> and a <code>SECRET</code>, with the correct 
+<p>If you have already saved a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, with the correct 
 <a href="#grant-permissions-to-custom-integration">permissions applied</a>, skip to 
 <a href="#getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</a></p>
 <blockquote class="note callout">
@@ -21612,7 +21570,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
   </blockquote></li>
 <li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
+<li>You will then be presented with the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -21637,7 +21595,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </div>
 </div>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
+    <div><strong></strong> <strong>Caution:</strong> Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> to a password manager or secret management service as the <code>DATATRAILS_CLIENT_SECRET</code> can <strong>not</strong> be viewed again. A new <code>DATATRAILS_CLIENT_SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>DATATRAILS_CLIENT_SECRET</code>.</div>
   </blockquote></li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
@@ -21761,25 +21719,25 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 <h2 id="getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</h2>
 <p>Having completed the steps to create a 
 <a href="./#creating-a-custom-integration">custom integration</a> and 
-<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>CLIENT_ID</code> and the <code>SECRET</code>, a token can be obtained with the following command.</p>
+<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>DATATRAILS_CLIENT_ID</code> and the <code>DATATRAILS_CLIENT_SECRET</code>, a token can be obtained with the following command.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To make things easy we will use local variables and files to store the credentials and token but you can use any method that you wish.</div>
   </blockquote>
 <ol>
 <li>
-<p>Save the <code>CLIENT_ID</code> and <code>SECRET</code> saved from above, to local variables
+<p>Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> saved from above, to local variables
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications</div>
   </blockquote></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">CLIENT_ID</span><span class="o">=</span>your_id
-</span></span><span class="line"><span class="cl"><span class="nv">SECRET</span><span class="o">=</span>your_secret
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_ID</span><span class="o">=</span>your_id
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="o">=</span>your_secret
 </span></span></code></pre></div></li>
 <li>
 <p>Generate a token using your pre-existing <code>Custom Integration</code> details, saving to a <code>RESPONSE</code> variable</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
 </span></span></code></pre></div></li>
 <li>
@@ -21846,7 +21804,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;assets&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;next_page_token&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, Navigate to <code>Assets</code> confirm existing assets. If assets exist, confirm the <code>CLIENT_ID</code>, <code>SECRET</code> and <code>Access Policy</code> are configured and referenced properly.</p>
+</span></span></code></pre></div><p>In the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>, Navigate to <code>Assets</code> confirm existing assets. If assets exist, confirm the <code>DATATRAILS_CLIENT_ID</code>, <code>DATATRAILS_CLIENT_SECRET</code> and <code>Access Policy</code> are configured and referenced properly.</p>
 <h2 id="troubleshooting-token-generation">Troubleshooting Token Generation</h2>
 <p>The header and payload of the <code>TOKEN</code> may be examined with the following commands. This is useful when investigating if tokens contain the correct custom claims or tokens that may appear malformed.</p>
 <blockquote class="warning callout">
@@ -39041,6 +38999,9 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
 </span></span></code></pre></div></li>
@@ -39067,35 +39028,24 @@ The payload may already be stored in another storage/package manager, which can 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_hashed_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --location-hint <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
 </span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
 <ol>
 <li>
-<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>bearer-token.txt</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">OPERATION_ID</span><span class="o">=</span><span class="k">$(</span>curl -X POST -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --data-binary @<span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                https://app.datatrails.ai/archivist/v1/publicscitt/entries <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>                <span class="p">|</span> jq -r .operationID<span class="k">)</span>
-</span></span></code></pre></div><blockquote class="note callout">
-    <div><strong></strong> You may need to remove <code>jq</code> to see details of an error.
-If errors occur, 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">verify the bearer-token is properly set</a>.</div>
-  </blockquote>
-</li>
-<li>
-<p>Monitor for the Statement to be anchored. Once <code>&quot;status&quot;: &quot;succeeded&quot;</code>, proceed to the next step</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ENTRY_ID</span><span class="o">=</span><span class="k">$(</span>python scitt/check_operation_status.py --operation-id <span class="nv">$OPERATION_ID</span><span class="k">)</span>
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/register_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file signed-statement.cbor <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
 </span></span></code></pre></div></li>
 <li>
-<p>Retrieve a SCITT Receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v1/publicscitt/entries/<span class="nv">$ENTRY_ID</span>/receipt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o receipt.cbor
+<p>View the Transparent Statement, as a result of registering the Signed Statement</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input signed-statement.cbor
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -39113,43 +39063,9 @@ By querying the series of statements, consumers can verify who did what and when
   </blockquote>
 <h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
 <p>To verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
-</span></span></span></code></pre></div><h2 id="verify-inclusion-within-the-datatrails-ledger">Verify Inclusion Within the Datatrails Ledger</h2>
-<p>As 
-<a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">SCITT</a> and the 
-<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-scrapi/" target="_blank" rel="noopener">SCITT Reference APIs (SCRAPI)</a> complete RFC adoption, the 
-<a href="https://github.com/datatrails/veracity" target="_blank" rel="noopener">DataTrails veracity project</a> is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.</p>
-<p>The following steps demonstrate veracity verification with SCITT Registered Signed Statements</p>
-<ol>
-<li>
-<p>Convert the SCITT <code>Entry_ID</code> to a DataTrails <code>Event_ID</code> to verify inclusion.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">EVENT_ID=$(echo &#34;public$ENTRY_ID&#34; | tr &#34;_&#34; &#34;/&#34;)
-</span></span></span></code></pre></div></li>
-<li>
-<p>Download the Event verifiable data structure, based on the DataTrails <code>Event_ID</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID &gt; event.json
-</span></span></span></code></pre></div></li>
-<li>
-<p>Verify the the log has not been tampered with</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat event.json | \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> veracity --data-url https://app.datatrails.ai/verifiabledata \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> --loglevel=INFO \\
-</span></span></span><span class="line"><span class="cl"><span class="go"> verify-included
-</span></span></span></code></pre></div></li>
-<li>
-<p>Tamper with the local replica, backdating an entries from 2024 to 2023</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i -e &#39;s/2024/2023/g&#39; ./event.json
-</span></span></span></code></pre></div></li>
-<li>
-<p>Re-verify inclusion with <code>veracity verify-included</code>, noting the error</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">veracity --data-url https://app.datatrails.ai/verifiabledata \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         --tenant=&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34; \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         --loglevel=INFO \\
-</span></span></span><span class="line"><span class="cl"><span class="go">         verify-included &lt; event.json
-</span></span></span></code></pre></div></li>
-</ol>
-<h2 id="summary">Summary</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py \\
+</span></span></span><span class="line"><span class="cl"><span class="go">  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
+</span></span></span></code></pre></div><h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
 <p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.

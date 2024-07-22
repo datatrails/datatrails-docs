@@ -72,6 +72,9 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # File representing the signed statement to be registered
     SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
+    # File representing the transparent statement, which includes the signed statement and the registration receipt
+    TRANSPARENT_STATEMENT_FILE="transparent-statement.cbor"
+
     # Subject is a property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
     ```
@@ -111,8 +114,8 @@ The payload may already be stored in another storage/package manager, which can 
 python scitt/create_hashed_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --location-hint "https://storage.example/$SUBJECT" \
   --payload-file payload.json \
+  --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
   --subject $SUBJECT \
   --output-file $SIGNED_STATEMENT_FILE
@@ -120,33 +123,20 @@ python scitt/create_hashed_signed_statement.py \
 
 ## Register the SCITT Statement on DataTrails
 
-1. Submit the Signed Statement to DataTrails, using the credentials in the `bearer-token.txt`.
+1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 
     ```bash
-    OPERATION_ID=$(curl -X POST -H @$HOME/.datatrails/bearer-token.txt \
-                    --data-binary @$SIGNED_STATEMENT_FILE \
-                    https://app.datatrails.ai/archivist/v1/publicscitt/entries \
-                    | jq -r .operationID)
+    python scitt/register_signed_statement.py \
+      --signed-statement-file signed-statement.cbor \
+      --output-file $TRANSPARENT_STATEMENT_FILE \
+      --log-level INFO
     ```
 
-    {{< note >}}
-    You may need to remove `jq` to see details of an error.
-    If errors occur, [verify the bearer-token is properly set](/developers/developer-patterns/getting-access-tokens-using-app-registrations).
-    {{< /note >}}
-
-1. Monitor for the Statement to be anchored. Once `"status": "succeeded"`, proceed to the next step
+1. View the Transparent Statement, as a result of registering the Signed Statement
 
     ```bash
-    ENTRY_ID=$(python scitt/check_operation_status.py --operation-id $OPERATION_ID)
-    ```
-
-1. Retrieve a SCITT Receipt
-
-    ```bash
-    
-    curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v1/publicscitt/entries/$ENTRY_ID/receipt \
-      -o receipt.cbor
+    python scitt/dump_cbor.py \
+      --input signed-statement.cbor
     ```
 
 ## Retrieve Statements for the Artifact
@@ -170,7 +160,8 @@ Coming soon: Filter on specific content types, such as what SBOMs have been regi
 To verify the signature of the receipt
 
 ```console
-python scitt/verify_receipt_signature.py --receipt-file receipt.cbor
+python scitt/verify_receipt_signature.py \
+  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
 ```
 
 ## Verify Inclusion Within the Datatrails Ledger

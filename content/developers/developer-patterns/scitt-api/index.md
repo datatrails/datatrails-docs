@@ -164,49 +164,6 @@ python scitt/verify_receipt_signature.py \
   --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
 ```
 
-## Verify Inclusion Within the Datatrails Ledger
-
-As [SCITT](https://datatracker.ietf.org/wg/scitt/about/) and the [SCITT Reference APIs (SCRAPI)](https://datatracker.ietf.org/doc/draft-ietf-scitt-scrapi/) complete RFC adoption, the [DataTrails veracity project](https://github.com/datatrails/veracity) is used to verify inclusion within the DataTrails Merkle Mountain Range based SCITT Implementation.
-
-The following steps demonstrate veracity verification with SCITT Registered Signed Statements
-
-1. Convert the SCITT `Entry_ID` to a DataTrails `Event_ID` to verify inclusion.
-
-   ```console
-   EVENT_ID=$(echo "public$ENTRY_ID" | tr "_" "/")
-   ```
-
-1. Download the Event verifiable data structure, based on the DataTrails `Event_ID`
-
-   ```console
-   curl -sL https://app.datatrails.ai/archivist/v2/$EVENT_ID > event.json
-   ```
-
-1. Verify the the log has not been tampered with
-
-   ```console
-   cat event.json | \
-    veracity --data-url https://app.datatrails.ai/verifiabledata \
-    --tenant="tenant/6ea5cd00-c711-3649-6914-7b125928bbb4" \
-    --loglevel=INFO \
-    verify-included
-   ```
-
-1. Tamper with the local replica, backdating an entries from 2024 to 2023
-
-    ```console
-    sed -i -e 's/2024/2023/g' ./event.json
-    ```
-
-1. Re-verify inclusion with `veracity verify-included`, noting the error
-
-    ```console
-    veracity --data-url https://app.datatrails.ai/verifiabledata \
-             --tenant="tenant/6ea5cd00-c711-3649-6914-7b125928bbb4" \
-             --loglevel=INFO \
-             verify-included < event.json
-    ```
-
 ## Summary
 
 The quickstart created a collection of statements for a given artifact.

@@ -261,7 +261,7 @@ Once appended they will never change and they will never move.
 
 If you know the byte offset in the blob for the start of the mmr data then you can check the number of mmr nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
 
-## The peak stack and mmr data sizes are computable
+## The Peak Stack and Mmr Data Sizes Are Computable
 
 See [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) to avoid needing to calculate these.
 Implementations of the O(log base 2 n) algorithms are provided in various languages.
@@ -269,51 +269,60 @@ They all have very hardware-sympathetic implementations.
 
 ## The Massif Height Is Constant for All Blobs in a Log Configuration
 
-For massif height 14, the fixed size portion is `1048864` bytes.
+For a massif height of `14`, the fixed size portion is `1048864` bytes.
 
 All massifs in a log are guaranteed to be the same *height*.
-If your log is re-configured having first been available at
-
+If the log is re-configured having first been available at:  
 `https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/`
 
-Then on re-configuration it will become available (without downtime) at:
-
+On re-configuration the log will become available (without downtime) at:  
 `https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/1/`
 
-And the previous path will no longer receive any additions.
+The previous path will no longer receive any additions.
 
 {{< note >}}
-For the forseeable future (at least months) we don't anticipate needing to do this.
+For the forseeable future (at least months) DataTrails does not anticipate needing to reconfigure the massif height.
 {{< /note >}}
 
-## How to Read a Specific Mmr Node by mmrindex
+## Reading a Specific MMR Node by mmrindex
 
-Find the smallest "Last Node" in [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) that is greater than your *mmrIndex* and use that row as your massif index
+To read a specific mmr node, find the smallest `Last Node` in [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) that is greater than your *mmrIndex* and use that row as your massif index.
 
-Then taking massif index 0 (row 0) for example, and using the first mmrIndex for ease of example
+Taking the massif index of 0 (row 0) use the first mmrIndex:
 
-```python
-LOGSTART=1048864
-MMRINDEX=0
-curl -s \
--H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
--H "x-ms-blob-type: BlockBlob" \
--H "x-ms-version: 2019-12-12" \
-https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
-merklelogs/v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
-0000000000000000.log  | od -An -tx1 | tr -d ' \n'
+{{< tabs name="convert idtimestamp" >}}
+   {{< tab name="Python" >}}
+  ```python
+  LOGSTART=1048864
+  MMRINDEX=0
+  curl -s \
+  -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
+  -H "x-ms-blob-type: BlockBlob" \
+  -H "x-ms-version: 2019-12-12" \
+  https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
+  merklelogs/v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+  0000000000000000.log  | od -An -tx1 | tr -d ' \n'
 
-a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
-```
+  a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+  ```
+  {{< /tab >}}
+{{< /tabs >}}
 
-The veracity demo tool can be used to confirm that
+Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
 
-```bash
-go run veracity/cmd/veracity/main.go -s jitavidfd1103b1099ab3aa \
- -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 node -i 0
-
-a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
-```
+{{< tabs name="verfify with veracity" >}}
+   {{< tab name="bash" >}}
+  ```bash
+  veracity -s jitavidfd1103b1099ab3aa \
+  -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 \
+  node -i 0
+  ```
+  generates:
+  ```output
+  a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+  ```
+  {{< /tab >}}
+{{< /tabs >}}
 
 The example javascript routines below the [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) can be used to accomplish this computationally.
 

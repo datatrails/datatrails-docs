@@ -7,7 +7,7 @@
  menu:
    developers:
      parent: "developer-patterns"
- weight: 34
+ weight: 40
  toc: true
  aliases:
   - /docs/beyond-the-basics/navigating-merklelogs/

@@ -7,39 +7,50 @@
  menu:
    developers:
      parent: "developer-patterns"
- weight: 34
+ weight: 41
  toc: true
 ---
 
 This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
 The algorithms to reproduce this are relatively simple.
-We provide open-source implementations, but in many contexts, it is simpler to use these pre-calculations.
+DataTrails provides [open-source implementations](https://github.com/datatrails/veracity/), but in many contexts it is simpler to use these pre-calculations.
 These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.
 
 This is a fast review of the log format. We explain this in more detail at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
-## Each log is comprised of many blobs, each containing a fixed number of leaves
+## Each Log Is Comprised of Many Blobs, Each Containing a Fixed Number of Leaves
 
-    +----------------+ +----------------+ .. +-----------+
-    |     massif 0   | |     massif 1   |    |  massif n
-    +----------------+ +----------------+ .. +-----------+
+```output
+    +----------+ +----------+ .. +----------+
+    | massif 0 | | massif 1 |    | massif n
+    +----------+ +----------+ .. +----------+
+```
 
 New leaves are added to the last blob in the log.
 
-## Each individual blob has a fixed size portion and two variably sized sections
+## Each Individual Blob Has a Fixed Size Portion and Two Variably Sized Sections
 
+```output
     |--------.----------.----------.---------|
     |  fixed  size      | computable size    |
     |--------.----------.----------.---------|
     | header | trieData |peak stack| mmrData |
     |--------.----------.----------.---------|
+```
 
-## The peak stack and mmr data sizes are computable
+## The Peak Stack and MMR Data Sizes Are Computable
 
 ...but it is not always convenient to do so.
 
-Using the `veracity` tool with the following command line we can reproduce our canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
+Using `veracity`, the following command line can reproduce a canonical "illustrative" log from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
 
+```bash
+veracity --height 2 massifs --count 6
+```
+
+generates:
+
+```output
                        14
                           \
                 6           13             21
@@ -48,26 +59,24 @@ Using the `veracity` tool with the following command line we can reproduce our c
           |     |     |      |       |       |     |
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19| MMR INDICES
         0 |0   1| 2  3| 4   5|6     7|8     9|10 11| LEAF INDICES
+```
 
-
-    go run veracity/cmd/veracity/main.go --height 2 massifs --count 6
-
-In the following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
+The following table *Stack Start* and *mmr Start* are byte offsets from the start of the file.
 The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at *mmr Start*
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |
-|       0|     544    |     544   |       0    |       1    |       0     |       2   | []
-|       1|     544    |     576   |       2    |       3    |       3     |       6   | [2]
-|       2|     544    |     576   |       4    |       5    |       7     |       9   | [6]
-|       3|     544    |     608   |       6    |       7    |      10     |      14   | [6,9]
-|       4|     544    |     576   |       8    |       9    |      15     |      17   | [14]
-|       5|     544    |     608   |      10    |      11    |      18     |      21   | [14,17]
+|       0|     544    |     544   |       0    |       1    |       0     |       2   | []         |
+|       1|     544    |     576   |       2    |       3    |       3     |       6   | [2]        |
+|       2|     544    |     576   |       4    |       5    |       7     |       9   | [6]        |
+|       3|     544    |     608   |       6    |       7    |      10     |      14   | [6,9]      |
+|       4|     544    |     576   |       8    |       9    |      15     |      17   | [14]       |
+|       5|     544    |     608   |      10    |      11    |      18     |      21   | [14,17]    |
 
-It is fairly easy to validate the leaves and nodes by hand. The reproducing the
-Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs)
+It is fairly easy to validate the leaves and nodes by hand.
+Reproducing the Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs).
 
-## Pre-computes for your first million events
+## Pre-computes for Your First Million Events
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |
@@ -134,116 +143,115 @@ Stack Start needs details from [Navigating the Merkle Log](/developers/developer
 |      60| 1048864| 1048992|  491520|  499711|  983036|  999418| [524286,786429,917500,983035]
 |      61| 1048864| 1049024|  499712|  507903|  999419| 1015802| [524286,786429,917500,983035,999418]
 
-## The algorithms backing the table generation
+## The Algorithms Backing the Table Generation
 
-In combination with the format information at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs) the pre-computed tables above can be generated using these examples.
-DataTrails provides open source, go-lang based, tooling at [URL] (_[__]__ )
+In combination with the format information at [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs) the pre-computed tables above can be generated using these examples using the DataTrails open source, go-lang based [veracity](https://github.com/datatrails/veracity/) tooling.
 
 {{< tabs name="convert idtimestamp" >}}
   {{< tab name="Leaf Count and Massif Index" >}}
 
-
-```javascript
-function massifIndex(mmrIndex, massifHeight) {
-  const nl =  Number(leafCount(mmrIndex + 1n));
-  const f = Number(1n << massifHeight);
-  const massifIndex = Math.floor(nl / f);
-  return massifIndex;
-}
-
-// returns the number of leaves in the largest mmr whose size is <= the supplied size
-function leafCount(mmrSize) {
-  let pos = BigInt(mmrSize);
-  if (pos == BigInt(0)) return 0n;
-  let peakSize = ((1n << 64n) - 1n) >> BigInt(clz64(mmrSize));
-  let peakMap = 0n;
-  for (; peakSize > 0n;) {
-    peakMap <<= 1n
-    if (pos >= peakSize) {
-      pos -= peakSize;
-      peakMap |= 1n;
-    }
-    peakSize >>= 1n;
+  ```javascript
+  function massifIndex(mmrIndex, massifHeight) {
+    const nl =  Number(leafCount(mmrIndex + 1n));
+    const f = Number(1n << massifHeight);
+    const massifIndex = Math.floor(nl / f);
+    return massifIndex;
   }
-  return peakMap;
-}
 
-function clz64(num) {
-  if (!typeof num === 'bigint') throw new Error(`num must be bigint not ${typeof num}`);
-  num = BigInt.asUintN(64, num);
+  // returns the number of leaves in the largest mmr whose size is <= the supplied size
+  function leafCount(mmrSize) {
+    let pos = BigInt(mmrSize);
+    if (pos == BigInt(0)) return 0n;
+    let peakSize = ((1n << 64n) - 1n) >> BigInt(clz64(mmrSize));
+    let peakMap = 0n;
+    for (; peakSize > 0n;) {
+      peakMap <<= 1n
+      if (pos >= peakSize) {
+        pos -= peakSize;
+        peakMap |= 1n;
+      }
+      peakSize >>= 1n;
+    }
+    return peakMap;
+  }
 
-  const hi = num >> 32n;
-  let lz = Math.clz32(Number(hi));
-  if (lz !== 0) return lz;
-  const lo = Number((num & ((1n << 32n) - 1n)));
-  return 32 + Math.clz32(lo);
-}
-```
+  function clz64(num) {
+    if (!typeof num === 'bigint') throw new Error(`num must be bigint not ${typeof num}`);
+    num = BigInt.asUintN(64, num);
+
+    const hi = num >> 32n;
+    let lz = Math.clz32(Number(hi));
+    if (lz !== 0) return lz;
+    const lo = Number((num & ((1n << 32n) - 1n)));
+    return 32 + Math.clz32(lo);
+  }
+  ```
 
   {{< /tab >}}
   {{< tab name="mmrIndex from leafIndex" >}}
 
-```javascript
-function treeIndex(iLeaf) {
-  let sum = 0n; // Assuming iLeaf can be very large, use BigInt for accuracy.
-  let i = BigInt(iLeaf); // Ensure iLeaf is treated as BigInt
+  ```javascript
+  function treeIndex(iLeaf) {
+    let sum = 0n; // Assuming iLeaf can be very large, use BigInt for accuracy.
+    let i = BigInt(iLeaf); // Ensure iLeaf is treated as BigInt
 
-  while (i > 0n) {
-      const height = log2Uint64(i) + 1n;
-      sum += spurSumHeight(height) + BigInt(height);
-      const half = 1n << (height - 1n);
-      i -= half;
+    while (i > 0n) {
+        const height = log2Uint64(i) + 1n;
+        sum += spurSumHeight(height) + BigInt(height);
+        const half = 1n << (height - 1n);
+        i -= half;
+    }
+
+    return sum;
   }
 
-  return sum;
-}
+  // spurSumHeight counts the interior 'spur' nodes required for the given height
+  function spurSumHeight(height) {
+    height = BigInt(height); // Ensure height is treated as BigInt
 
-// spurSumHeight counts the interior 'spur' nodes required for the given height
-function spurSumHeight(height) {
-  height = BigInt(height); // Ensure height is treated as BigInt
+    if (height === BigInt(0)) {
+        return BigInt(0);
+    }
 
-  if (height === BigInt(0)) {
-      return BigInt(0);
+    let sum = BigInt(0);
+    for (let i = BigInt(1); i <= height - BigInt(1); i += BigInt(1)) {
+        sum += (BigInt(1) << (height - BigInt(1) - i)) * i;
+    }
+    return sum;
   }
 
-  let sum = BigInt(0);
-  for (let i = BigInt(1); i <= height - BigInt(1); i += BigInt(1)) {
-      sum += (BigInt(1) << (height - BigInt(1) - i)) * i;
+  function log2Uint64(num) {
+    if (typeof num === 'bigint') {
+        if (num <= 1n) return 0n; // log2(1) = 0 and log2(0) is undefined, handled as 0 for simplicity
+        let log = 0n;
+        while (num > 1n) {
+            num >>= 1n;
+            log += 1n;
+        }
+        return log;
+    }
+
+    if (num <= 1) return 0; // Similarly, handle log2(1) = 0 and log2(0) as 0
+    return Math.floor(Math.log2(num));
   }
-  return sum;
-}
+  ```
 
-function log2Uint64(num) {
-  if (typeof num === 'bigint') {
-      if (num <= 1n) return 0n; // log2(1) = 0 and log2(0) is undefined, handled as 0 for simplicity
-      let log = 0n;
-      while (num > 1n) {
-          num >>= 1n;
-          log += 1n;
-      }
-      return log;
-  }
-
-  if (num <= 1) return 0; // Similarly, handle log2(1) = 0 and log2(0) as 0
-  return Math.floor(Math.log2(num));
-}
-
-```
   {{< /tab >}}
   {{< tab name="Peak Stack Length" >}}
-```
-/** Calculate the size of a massifs peak stack by passing the massifIndex in place of iLeaf */
-function leafMinusSpurSum(iLeaf) {
-  let sum = BigInt(iLeaf);
-  iLeaf = sum >> BigInt(1);
 
-  while (iLeaf > 0) {
-      sum -= iLeaf;
-      iLeaf >>= BigInt(1);
+  ```javascript
+  /** Calculate the size of a massifs peak stack by passing the massifIndex in place of iLeaf */
+  function leafMinusSpurSum(iLeaf) {
+    let sum = BigInt(iLeaf);
+    iLeaf = sum >> BigInt(1);
+
+    while (iLeaf > 0) {
+        sum -= iLeaf;
+        iLeaf >>= BigInt(1);
+    }
+    return sum;
   }
-  return sum;
-}
-```
+  ```
+
   {{< /tab >}}
 {{< /tabs >}}
-

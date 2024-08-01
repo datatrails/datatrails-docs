@@ -33,10 +33,10 @@ If you already know the basics, and want a straight forward way to deal with the
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
 
-```goat
-+-------------+ +-------------+ .. +-----------+
-|  massif 0   | |  massif 1   |    |  massif n
-+-------------+ +-------------+ .. +-----------+
+```output
++------------+ +------------+ .. +----------+
+| massif 0   | | massif 1   |    | massif n
++------------+ +------------+ .. +----------+
 ```
 
 > Illustration demonstrating the last massif is always in the process of being *appended* to
@@ -66,7 +66,7 @@ It can also be fairly easily computed from only the `merklelog_entry.commit.inde
 Every massif in a log is structured as a series of `32` byte fields.
 All individual entries in the log are either 32 bytes or a small multiple of `32`.
 
-```
+```output
   0               32
   +----------------+
   |                | field 0
@@ -94,7 +94,7 @@ The filename (`0000000000000000.log`) is the 16-character, zero-padded, massif i
 
 The variable section of the massif blob is further split into *look back* nodes, and regular massif nodes:
 
-```
+```output
 +----------------+----------------+
 | FIXED          | HEADER DATA    |
 |                +----------------+  fixed size
@@ -118,18 +118,27 @@ DataTrails provides implementations of the algorithms needed to produce those ta
 
 The following curl command reads the version and format information from the header field `0`
 
-```bash
-curl -s \
- -H "Range: bytes=0-31" \
- -H "x-ms-blob-type: BlockBlob" \
- -H "x-ms-version: 2019-12-12" \
-https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/\
-v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
-0000000000000000.log | od -An -tx1 | tr -d ' \n'
-```
-```output
-efbbbf3c3f786d6c...d6573736167653e3c2f4572726f723e
-```
+{{< tabs >}}
+   {{< tab name="bash" >}}
+
+  ```bash
+  curl -s \
+  -H "Range: bytes=0-31" \
+  -H "x-ms-blob-type: BlockBlob" \
+  -H "x-ms-version: 2019-12-12" \
+  https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/\
+  v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+  0000000000000000.log | od -An -tx1 | tr -d ' \n'
+  ```
+
+  generates:
+
+  ```output
+  efbbbf3c3f786d6c...d6573736167653e3c2f4572726f723e
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 Note: the request requires no authentication or authorization.
 
@@ -150,7 +159,7 @@ In the hex data above, the idtimestamp of the last entry in the log is `8e84dbbb
 The idtimestamp is 40 bits of time at millisecond precision.
 The idtimestamp in the header field is always set to the idtimestamp of the most recently added leaf.
 
-{{< tabs name="convert idtimestamp" >}}
+{{< tabs >}}
    {{< tab name="Python" >}}
 
    ```python
@@ -172,7 +181,7 @@ In this example, the last entry in the log (at that time) was `2024/03/28`, a li
 
 ## Triedata Entries Are 512 Bytes Each and Are Formed From Two Fields
 
-The trieData section is 2 * 32 * 2<sup>height</sup> bytes long, which is exactly double what is needed.
+The trieData section is 2 \* 32 \* 2<sup>height</sup> bytes long, which is exactly double what is needed.
 For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.
 The subsequent 524,288 will always be zero.
 The format of each entry is then, for a massif height of 14:
@@ -196,7 +205,7 @@ The format of each entry is then, for a massif height of 14:
 
 Each entry is formatted like this
 
-```
+```output
 0                                                        31
 SHA256(BYTE(0x00) || BYTES(idTimestamp) || event.identity)
 0                                       BYTES(IDTIMESTAMP)
@@ -214,7 +223,7 @@ Then substitute those bytes, in presentation order, for idTimestamp above.
 
 Reworking the python example above to deal with the epoch prefix would look like this:
 
-{{< tabs name="convert idtimestamp" >}}
+{{< tabs >}}
    {{< tab name="Python" >}}
 
   ```python
@@ -238,8 +247,9 @@ The trieKey would be:
 
 The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.
 
-{{< tabs name="convert idtimestamp" >}}
+{{< tabs >}}
    {{< tab name="Python" >}}
+
   ```python
   h = hashlib.sha256()
   h.update(bytes([0]))
@@ -247,6 +257,7 @@ The following python snippet generates a trieKey from the event data to confirm 
   h.update("assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2".encode())
   h.hexdigest()
   ```
+
   {{< /tab >}}
 {{< /tabs >}}
 
@@ -290,8 +301,9 @@ To read a specific mmr node, find the smallest `Last Node` in [Massif Blob Pre-C
 
 Taking the massif index of 0 (row 0) use the first mmrIndex:
 
-{{< tabs name="convert idtimestamp" >}}
+{{< tabs >}}
    {{< tab name="Python" >}}
+
   ```python
   LOGSTART=1048864
   MMRINDEX=0
@@ -305,91 +317,96 @@ Taking the massif index of 0 (row 0) use the first mmrIndex:
 
   a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
   ```
+
   {{< /tab >}}
 {{< /tabs >}}
 
 Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
 
-{{< tabs name="verfify with veracity" >}}
+{{< tabs >}}
    {{< tab name="bash" >}}
+
   ```bash
   veracity -s jitavidfd1103b1099ab3aa \
   -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 \
   node -i 0
   ```
-  generates:
+
   ```output
   a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
   ```
+
   {{< /tab >}}
 {{< /tabs >}}
 
-The example javascript routines below the [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) can be used to accomplish this computationally.
+The example javascript in [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables#the-algorithms-backing-the-table-generation) can be used to accomplish this computationally.
 
 ## Which Nodes
 
-Typically, you would be verifying the inclusion of an event in the log.
-This inclusion is verified by selecting the sibling path needed to recreate the root hash starting from your leaf hash.
-You create your leaf hash using the original pre-image data of your event and the *commit* values assigned to it when it was included in the log.
+Typically, verifiers would verify the inclusion of an event in the log.
+The inclusion is verified by selecting the sibling path needed to recreate the root hash starting from your leaf hash.
+Create the leaf hash using the original pre-image data of your event and the *commit* values assigned to it when it was included in the log.
 
-You would have:
+For example:
 
 * The V3 canonical set of fields from your event
 * The `merklelog_entry.commit.index` (the mmrIndex of the event in the log)
 * The `merklelog_entry.commit.idtimestamp` uniquely placing the record of the log in time (according to our cloud service provider)
 
-We are going to give the subject of determining the sibling path its own article. Here we are going to set the scene by covering how our logical tree nodes map to storage.
+Determining the sibling path will be a future article.
+First, set the scene by covering how the logical tree nodes map to storage.
 
-So what is a sibling path?
-To understand this we need to dig into how we organize the nodes in your Merkle log in storage and memory.
+What is a sibling path?
+To understand this we need to dig into how DataTrails organizes the nodes in the Merkle log in storage and memory.
 
 ## Tree Mapping to Storage
 
-Merkle trees, at there heart, *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree.
+Merkle trees *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree.
 
 All entries in a Merkle log each have a unique and *short* path of hashes, which when hashed together according to the data structures rules, will re-create the same root.
-If such a path does not exist, then by definition the leaf is not included - it is not in the log.
+If such a path does not exist, by definition the leaf is not included - it is not in the log.
 
 Where do those paths come from?
 They come from adjacent and ancestor nodes in the hierarchical tree.
-And this means that when producing the path we need to access nodes throughout the tree to produce the proof.
+This means that when producing the path we need to access nodes throughout the tree to produce the proof.
 
-Using our "canonical" mmr log for illustration, we get this diagram
+Using the "canonical" MMR log for illustration, we get this diagram:
 
 ```output
-                       14 we call these the 'spur' nodes, as they each depend on ancestor nodes
-                          \
-                6           13             22        (affectionately called the alpine zone)
+                          We call these the 'spur' nodes,
+                       14 as they each depend on ancestor nodes
+                          \        affectionately called the alpine zone
+                6           13             22   
                   \            \              \
     h=2 1 |  2  |  5  |   9  |  12   |  17   | 21  | -- massif 'tree line'
           |     |     |      |       |       |     |
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
 ```
 
-The sibling *proof* path for the leaf with `mmrIndex` 7 would be [8, 12, 6], and the "peak bagging" algorithm would then be applied to get the root.
+The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm would then be applied to get the root.
 
 A very nice visualization of how the peaks combine is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
 
-## The “Look Back” Peak Stack Can Be Visualized Like This
+## Visualizing the “Look Back” Peak Stack
 
-A specific challenge for log implementations with very large data sets is  answering "how far back" or "how far forward" may I need to look?
+A specific challenge for log implementations with very large data sets is answering "how far back" or "how far forward" may be seen?
 
 MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root.
 For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.
 
-This detail is what permits us to publish the log data immediately that your events are added.
+This detail is what permits DataTrails to publish the log data immediately after events are added.
 
-So the specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of "which other nodes do I need".
-Such that we *know* categorically that we do not need to look *forward* of the current massif and further we know precisely which nodes we need from the previous massifs.
+The specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of *"Which other nodes do I need"*.
+Such that we *know* categorically it is not needed to look *forward* of the current massif and it is precisely known which nodes are needed from the previous massifs.
 
 The "free nodes" in the alpine zone always require "ancestors" from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log.
-Here we can see they are very predictable (can be calculated without reference to the tree data).
-We accumulate these peaks in a stack because the pop order is the order we need them when adding leaves at the end of the log.
+Below we can see the nodes are very predictable as they can be calculated without reference to the tree data.
+These peaks accumulate in a stack because the pop order is the order needed when adding leaves to the end of the log.
 
-The result can be visualized like this
+The result can be visualized like this:
 
 ```output
       |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
@@ -401,8 +418,9 @@ h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif 'tree line'
     0 |0   1 3   4| 7   8|10   11|15   16|18   19|
 ```
 
-We call the look-back nodes the *peak stack*, because it always corresponds to the peaks of the earlier sub-trees.
-We don't pop things off it ever, we just happen to reference it in reverse order of addition when adding new leaves.
+The look-back nodes are called the *peak stack* because they always correspond to the peaks of the earlier sub-trees.
+Entries don't pop off, ever.
+Entries just happen to reference it in reverse order of addition when adding new leaves.
 
 The stability of the MMR data comes from the fact that the sub trees are not merged until a right sibling tree of equal height has been produced.
 
@@ -412,7 +430,7 @@ A worked example for a Merkle log whose height configuration parameter is set to
 
 ### Massif 0
 
-Viewed horizontally, and only considering the peak stack and the mmr nodes, the first massif, in our canonical example, will look like this
+Viewed horizontally, and only considering the peak stack and the mmr nodes, the first massif, in the canonical example will look like this:
 
 ```output
 ++---+---+---+
@@ -472,7 +490,7 @@ The peak stack is [6]
 
 The peak stack is [6, 9]
 
-```
+```output
                  14
                    \
                     \
@@ -518,4 +536,4 @@ The peak stack is [14]
 * The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
 * The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
 * Open-source tooling exists in multiple languages for navigating the format.
-* Once you have a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails
+* Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.

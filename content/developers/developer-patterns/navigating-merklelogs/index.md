@@ -168,13 +168,13 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
   {{< /tab >}}
 {{< /tabs >}}
 
-In this example, the last entry in the log (at that time) was 2024/03/28, a little after 11.30 am.
+In this example, the last entry in the log (at that time) was `2024/03/28`, a little after 11.30am.
 
-## The Triedata Entries Are 512 Bytes Each and Are Formed From Two Fields
+## Triedata Entries Are 512 Bytes Each and Are Formed From Two Fields
 
-The trieData section is 2 * 32 * 2<sup>height</sup> bytes long. (Which is exactly double what we need).
-For the standard massif height of 14, it has 8192 entries in the first 524288 bytes.
-The subsequent 524288 will always be zero.
+The trieData section is 2 * 32 * 2<sup>height</sup> bytes long, which is exactly double what is needed.
+For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.
+The subsequent 524,288 will always be zero.
 The format of each entry is then, for a massif height of 14:
 
 ```output
@@ -203,42 +203,52 @@ SHA256(BYTE(0x00) || BYTES(idTimestamp) || event.identity)
 32                                      56               63
 ```
 
-Note that the idtimestamp is unique to your tenant and the wider system, so even when sharing events with other tenants, this will not correlate directly with activity in their logs.
+Note that the idtimestamp is unique to the tenant and the DataTrails service.
+When sharing events with other tenants, the idtimestamp will not correlate directly with activity in other tenant logs.
 
-If you have the event record from the Events API, the idtimestamp is found at `merklelog_entry.commit.idtimestamp`.
-It is a hex string and prefixed with `01` which is the epoch from the header.
+Given the event record from the Events API, the idtimestamp is found at `merklelog_entry.commit.idtimestamp`.
+The idtimestamp is a hex string and prefixed with `01` which is the epoch from the header.
 
 To condition the string value, strip the leading `01` and convert the remaining hex to binary.
 Then substitute those bytes, in presentation order, for idTimestamp above.
 
-Reworking our python example above to deal with the epoch prefix would look like this:
+Reworking the python example above to deal with the epoch prefix would look like this:
 
-```python
-epoch = 1
-unixms=int((
-  bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
-  ) + epoch*((2**40)-1)
-```
+{{< tabs name="convert idtimestamp" >}}
+   {{< tab name="Python" >}}
 
-And the bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
+  ```python
+  epoch = 1
+  unixms=int((
+    bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
+    ) + epoch*((2**40)-1)
+  ```
 
-If your event identity was
+  {{< /tab >}}
+{{< /tabs >}}
 
+The bytes for the hash are:  
+`bytes.fromhex("018e84dbbb6513a6"[2:])`
+
+Given an event identity of:  
   `assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2`
 
-Then its trieKey would be
-
+The trieKey would be:  
 `b8e04443d64b8f1603fff250952b29e71d6c2d221afd8d60dec133c63e7325d9`
 
-The following python snippet would generate it from your event data should you wish to confirm what should be in the index at a specific position.
+The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.
 
-```python
-h = hashlib.sha256()
-h.update(bytes([0]))
-h.update(bytes.fromhex("018e84dbbb6513a6"[2:]))
-h.update("assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2".encode())
-h.hexdigest()
-```
+{{< tabs name="convert idtimestamp" >}}
+   {{< tab name="Python" >}}
+  ```python
+  h = hashlib.sha256()
+  h.update(bytes([0]))
+  h.update(bytes.fromhex("018e84dbbb6513a6"[2:]))
+  h.update("assets/31de2eb6-de4f-4e5a-9635-38f7cd5a0fc8/events/21d55b73-b4bc-4098-baf7-336ddee4f2f2".encode())
+  h.hexdigest()
+  ```
+  {{< /tab >}}
+{{< /tabs >}}
 
 The variable portion *for the first massif* contains exactly *16383* MMR *nodes*.
 Of those nodes, *8192* are the leaf entries in the Merkle tree corresponding to your events.

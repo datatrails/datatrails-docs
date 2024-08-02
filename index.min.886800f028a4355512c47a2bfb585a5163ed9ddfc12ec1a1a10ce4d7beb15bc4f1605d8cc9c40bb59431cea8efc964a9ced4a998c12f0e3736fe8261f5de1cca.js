@@ -17589,7 +17589,12 @@ The payload may already be stored in another storage/package manager, which can 
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input signed-statement.cbor
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input transparent-statement.cbor
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the signature of the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/verify_receipt_signature.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -17605,11 +17610,7 @@ By querying the series of statements, consumers can verify who did what and when
 <blockquote class="note callout">
     <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
   </blockquote>
-<h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
-<p>To verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py \\
-</span></span></span><span class="line"><span class="cl"><span class="go">  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
-</span></span></span></code></pre></div><h2 id="summary">Summary</h2>
+<h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
 <p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
@@ -39045,7 +39046,12 @@ The payload may already be stored in another storage/package manager, which can 
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input signed-statement.cbor
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input transparent-statement.cbor
+</span></span></code></pre></div></li>
+<li>
+<p>Verify the signature of the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/verify_receipt_signature.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
@@ -39061,11 +39067,7 @@ By querying the series of statements, consumers can verify who did what and when
 <blockquote class="note callout">
     <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
   </blockquote>
-<h2 id="verify-receipt-integrity">Verify Receipt Integrity</h2>
-<p>To verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">python scitt/verify_receipt_signature.py \\
-</span></span></span><span class="line"><span class="cl"><span class="go">  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
-</span></span></span></code></pre></div><h2 id="summary">Summary</h2>
+<h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
 <p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.

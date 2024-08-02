@@ -35,7 +35,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> App Registration is the old name for a Custom Integration.</div>
   </blockquote></p>
-<p><code>Custom Integrations</code> have a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
+<p><code>Custom Integrations</code> have a <code>CLIENT_ID</code> and a <code>SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
 <a href="https://jwt.io/introduction/" target="_blank" rel="noopener">JSON Web Tokens</a> (JWT).</p>
 <p>DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.</p>
 <p>The high level steps are:</p>
@@ -46,7 +46,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <li>Use the Access Token to make a REST API call to your tenancy.</li>
 </ol>
 <h2 id="creating-a-custom-integration">Creating a Custom Integration</h2>
-<p>If you have already saved a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, with the correct 
+<p>If you have already saved a <code>CLIENT_ID</code> and a <code>SECRET</code>, with the correct 
 <a href="#grant-permissions-to-custom-integration">permissions applied</a>, skip to 
 <a href="#getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</a></p>
 <blockquote class="note callout">
@@ -114,7 +114,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
   </blockquote></li>
 <li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> required by the archivist token endpoint
+<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -139,7 +139,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </div>
 </div>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> to a password manager or secret management service as the <code>DATATRAILS_CLIENT_SECRET</code> can <strong>not</strong> be viewed again. A new <code>DATATRAILS_CLIENT_SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>DATATRAILS_CLIENT_SECRET</code>.</div>
+    <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
   </blockquote></li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
@@ -263,37 +263,37 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 <h2 id="getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</h2>
 <p>Having completed the steps to create a 
 <a href="./#creating-a-custom-integration">custom integration</a> and 
-<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>DATATRAILS_CLIENT_ID</code> and the <code>DATATRAILS_CLIENT_SECRET</code>, a token can be obtained with the following command.</p>
+<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>CLIENT_ID</code> and the <code>SECRET</code>, a token can be obtained with the following command.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To make things easy we will use local variables and files to store the credentials and token but you can use any method that you wish.</div>
   </blockquote>
 <ol>
 <li>
-<p>Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> saved from above, to local variables
+<p>Save the <code>CLIENT_ID</code> and <code>SECRET</code> saved from above, to local variables
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications</div>
+    <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications.
+Also note the environment variables below have been namespaced for DataTrails, as you may have <code>CLIENT_ID</code> and <code>SECRET</code>s for other services.</div>
   </blockquote></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_ID</span><span class="o">=</span>your_id
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="o">=</span>your_secret
 </span></span></code></pre></div></li>
 <li>
 <p>Generate a token using your pre-existing <code>Custom Integration</code> details, saving to a <code>RESPONSE</code> variable</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Save the base64 encoded <code>JWT</code> using <code>jq</code> to find <code>.access_token</code> (See 
-<a href="https://jqlang.github.io/jq/" target="_blank" rel="noopener">./jq</a> for more info)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="nv">$RESPONSE</span> <span class="p">|</span> jq -r .access_token<span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$TOKEN</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Create a Bearer Token file for reference by <code>curl</code> commands, in an <code>./datatrails/</code> directory</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.datatrails
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Save the base64 encoded \`JWT\` using \`jq\` to find \`.access_token\`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="nv">$RESPONSE</span> <span class="p">|</span> jq -r .access_token<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a Bearer Token file for reference by \`curl\`</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># in an \`./datatrails/\` directory</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.datatrails
 </span></span><span class="line"><span class="cl">chmod <span class="m">0700</span> <span class="nv">$HOME</span>/.datatrails
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the Bearer Token</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; <span class="nv">$HOME</span>/.datatrails/bearer-token.txt
 </span></span><span class="line"><span class="cl">cat <span class="nv">$HOME</span>/.datatrails/bearer-token.txt
 </span></span></code></pre></div></li>
@@ -8835,7 +8835,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -9700,7 +9700,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -13944,7 +13944,7 @@ For example:</p>
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -14809,7 +14809,7 @@ For example:</p>
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -21491,7 +21491,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> App Registration is the old name for a Custom Integration.</div>
   </blockquote></p>
-<p><code>Custom Integrations</code> have a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
+<p><code>Custom Integrations</code> have a <code>CLIENT_ID</code> and a <code>SECRET</code>, these are used to authenticate with DataTrails IAM endpoints using 
 <a href="https://jwt.io/introduction/" target="_blank" rel="noopener">JSON Web Tokens</a> (JWT).</p>
 <p>DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.</p>
 <p>The high level steps are:</p>
@@ -21502,7 +21502,7 @@ Users of the data can see a full picture of the data’s origin and history and 
 <li>Use the Access Token to make a REST API call to your tenancy.</li>
 </ol>
 <h2 id="creating-a-custom-integration">Creating a Custom Integration</h2>
-<p>If you have already saved a <code>DATATRAILS_CLIENT_ID</code> and a <code>DATATRAILS_CLIENT_SECRET</code>, with the correct 
+<p>If you have already saved a <code>CLIENT_ID</code> and a <code>SECRET</code>, with the correct 
 <a href="#grant-permissions-to-custom-integration">permissions applied</a>, skip to 
 <a href="#getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</a></p>
 <blockquote class="note callout">
@@ -21570,7 +21570,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
   </blockquote></li>
 <li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> required by the archivist token endpoint
+<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -21595,7 +21595,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </div>
 </div>
 <blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> to a password manager or secret management service as the <code>DATATRAILS_CLIENT_SECRET</code> can <strong>not</strong> be viewed again. A new <code>DATATRAILS_CLIENT_SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>DATATRAILS_CLIENT_SECRET</code>.</div>
+    <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
   </blockquote></li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
@@ -21719,37 +21719,37 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 <h2 id="getting-a-token-with-the-custom-integration">Getting a Token With the Custom Integration</h2>
 <p>Having completed the steps to create a 
 <a href="./#creating-a-custom-integration">custom integration</a> and 
-<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>DATATRAILS_CLIENT_ID</code> and the <code>DATATRAILS_CLIENT_SECRET</code>, a token can be obtained with the following command.</p>
+<a href="./#grant-access-permissions-to-your-custom-integration">grant access permissions</a>, and having taken note of the <code>CLIENT_ID</code> and the <code>SECRET</code>, a token can be obtained with the following command.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To make things easy we will use local variables and files to store the credentials and token but you can use any method that you wish.</div>
   </blockquote>
 <ol>
 <li>
-<p>Save the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code> saved from above, to local variables
+<p>Save the <code>CLIENT_ID</code> and <code>SECRET</code> saved from above, to local variables
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications</div>
+    <div><strong></strong> <strong>Note:</strong> Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications.
+Also note the environment variables below have been namespaced for DataTrails, as you may have <code>CLIENT_ID</code> and <code>SECRET</code>s for other services.</div>
   </blockquote></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_ID</span><span class="o">=</span>your_id
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="o">=</span>your_secret
 </span></span></code></pre></div></li>
 <li>
 <p>Generate a token using your pre-existing <code>Custom Integration</code> details, saving to a <code>RESPONSE</code> variable</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>            --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Save the base64 encoded <code>JWT</code> using <code>jq</code> to find <code>.access_token</code> (See 
-<a href="https://jqlang.github.io/jq/" target="_blank" rel="noopener">./jq</a> for more info)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="nv">$RESPONSE</span> <span class="p">|</span> jq -r .access_token<span class="k">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$TOKEN</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Create a Bearer Token file for reference by <code>curl</code> commands, in an <code>./datatrails/</code> directory</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.datatrails
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/appidp/token <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;grant_type=client_credentials&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;client_id=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_ID</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-urlencode <span class="s2">&#34;client_secret=</span><span class="si">\${</span><span class="nv">DATATRAILS_CLIENT_SECRET</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Save the base64 encoded \`JWT\` using \`jq\` to find \`.access_token\`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> -n <span class="nv">$RESPONSE</span> <span class="p">|</span> jq -r .access_token<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a Bearer Token file for reference by \`curl\`</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># in an \`./datatrails/\` directory</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.datatrails
 </span></span><span class="line"><span class="cl">chmod <span class="m">0700</span> <span class="nv">$HOME</span>/.datatrails
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the Bearer Token</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> Authorization: Bearer <span class="nv">$TOKEN</span> &gt; <span class="nv">$HOME</span>/.datatrails/bearer-token.txt
 </span></span><span class="line"><span class="cl">cat <span class="nv">$HOME</span>/.datatrails/bearer-token.txt
 </span></span></code></pre></div></li>
@@ -30291,7 +30291,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -31156,7 +31156,7 @@ If you are looking for a simple way to test our API you might prefer our
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>
@@ -35400,7 +35400,7 @@ For example:</p>
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f/events/11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
 }</code></pre>
                                   </div>
                                 </div>
@@ -36265,7 +36265,7 @@ For example:</p>
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
-  "publicurl": "https://app.datatrails.ai/archivist/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
+  "publicurl": "https://app.datatrails.ai/archivist/v2/publicassets/add30235-1424-4fda-840a-d5ef82c4c96f"
 }</code></pre>
                                   </div>
                                 </div>

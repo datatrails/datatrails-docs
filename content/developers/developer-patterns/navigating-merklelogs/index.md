@@ -412,7 +412,7 @@ A very nice visualization of how the peaks combine is available in this paper on
 
 A specific challenge for log implementations with very large data sets is answering "how far back" or "how far forward" may be seen?
 
-MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root.
+MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root. Further, algorithms for proofs of inclusion and consistency that work directly with the peaks offer distinct advantages for relying parties that wish to efficiently check that, once added to a log, an entry continues to be maintained in the log as it evolves```
 For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.

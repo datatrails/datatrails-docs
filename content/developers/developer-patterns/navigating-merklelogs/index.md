@@ -272,7 +272,7 @@ Once appended they will never change and they will never move.
 
 If you know the byte offset in the blob for the start of the mmr data then you can check the number of mmr nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
 
-## The Peak Stack and Mmr Data Sizes Are Computable
+## The Peak Stack and MMR Data Sizes Are Computable
 
 See [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) to avoid needing to calculate these.
 Implementations of the O(log base 2 n) algorithms are provided in various languages.

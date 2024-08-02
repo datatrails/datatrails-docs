@@ -21,7 +21,7 @@ Non-interactive access to the DataTrails platform is managed by creating `Integr
 **Note:** App Registration is the old name for a Custom Integration.
 {{< /note >}}
 
-`Custom Integrations` have a `DATATRAILS_CLIENT_ID` and a `DATATRAILS_CLIENT_SECRET`, these are used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
+`Custom Integrations` have a `CLIENT_ID` and a `SECRET`, these are used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
 
 DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.
 
@@ -34,7 +34,7 @@ The high level steps are:
 
 ## Creating a Custom Integration
 
-If you have already saved a `DATATRAILS_CLIENT_ID` and a `DATATRAILS_CLIENT_SECRET`, with the correct [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
+If you have already saved a `CLIENT_ID` and a `SECRET`, with the correct [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
 
 {{< note >}}
 **Note:** Creating App Registrations requires Tenancy **Administrator** privileges.  
@@ -58,10 +58,10 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
   See [here](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims) for more information on JWT Claims
   {{< /note >}}  
 1. Once complete, click `Confirm` to complete the custom integration
-1. You will then be presented with the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET` required by the archivist token endpoint
+1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 {{< caution >}}
-**Caution:** Save the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET` to a password manager or secret management service as the `DATATRAILS_CLIENT_SECRET` can **not** be viewed again. A new `DATATRAILS_CLIENT_SECRET` can be regenerated in the Integration configuration screen but this replaces and invalidates the previous `DATATRAILS_CLIENT_SECRET`.
+**Caution:** Save the `CLIENT_ID` and `SECRET` to a password manager or secret management service as the `SECRET` can **not** be viewed again. A new `SECRET` can be regenerated in the Integration configuration screen but this replaces and invalidates the previous `SECRET`.
 {{< /caution >}}  
 
 ### Grant Access Permissions to your Custom Integration
@@ -95,16 +95,16 @@ The steps below show how to create and assign an Access Policy to control the ab
 
 ## Getting a Token With the Custom Integration
 
-
-Having completed the steps to create a [custom integration](./#creating-a-custom-integration) and [grant access permissions](./#grant-access-permissions-to-your-custom-integration), and having taken note of the `DATATRAILS_CLIENT_ID` and the `DATATRAILS_CLIENT_SECRET`, a token can be obtained with the following command.
+Having completed the steps to create a [custom integration](./#creating-a-custom-integration) and [grant access permissions](./#grant-access-permissions-to-your-custom-integration), and having taken note of the `CLIENT_ID` and the `SECRET`, a token can be obtained with the following command.
 
 {{< note >}}
 **Note:** To make things easy we will use local variables and files to store the credentials and token but you can use any method that you wish.
 {{< /note >}}
 
-1. Save the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET` saved from above, to local variables
+1. Save the `CLIENT_ID` and `SECRET` saved from above, to local variables
   {{< note >}}
-  **Note:** Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications
+  **Note:** Remember that you can regenerate the secret but this will invalidate the previous credentials which may be being used by other applications.
+  Also note the environment variables below have been namespaced for DataTrails, as you may have `CLIENT_ID` and `SECRET`s for other services.
   {{< /note >}}
 
    ```bash
@@ -115,25 +115,21 @@ Having completed the steps to create a [custom integration](./#creating-a-custom
 1. Generate a token using your pre-existing `Custom Integration` details, saving to a `RESPONSE` variable
 
     ```bash
-    RESPONSE=$(curl https://app.datatrails.ai/archivist/iam/v1/appidp/token \
-                --data-urlencode "grant_type=client_credentials" \
-                --data-urlencode "client_id=${DATATRAILS_CLIENT_ID}" \
-                --data-urlencode "client_secret=${DATATRAILS_CLIENT_SECRET}")
-    echo $RESPONSE
-    ```
+    RESPONSE=$(curl \
+        https://app.datatrails.ai/archivist/iam/v1/appidp/token \
+        --data-urlencode "grant_type=client_credentials" \
+        --data-urlencode "client_id=${DATATRAILS_CLIENT_ID}" \
+        --data-urlencode "client_secret=${DATATRAILS_CLIENT_SECRET}")
 
-1. Save the base64 encoded `JWT` using `jq` to find `.access_token` (See [./jq](https://jqlang.github.io/jq/) for more info)
-
-    ```bash
+    # Save the base64 encoded `JWT` using `jq` to find `.access_token`
     TOKEN=$(echo -n $RESPONSE | jq -r .access_token)
-    echo $TOKEN
-    ```
 
-1. Create a Bearer Token file for reference by `curl` commands, in an `./datatrails/` directory
-
-    ```bash
+    # Create a Bearer Token file for reference by `curl`
+    # in an `./datatrails/` directory
     mkdir -p $HOME/.datatrails
     chmod 0700 $HOME/.datatrails
+    
+    # Create the Bearer Token
     echo Authorization: Bearer $TOKEN > $HOME/.datatrails/bearer-token.txt
     cat $HOME/.datatrails/bearer-token.txt
     ```

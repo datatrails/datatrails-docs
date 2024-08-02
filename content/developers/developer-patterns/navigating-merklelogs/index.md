@@ -96,7 +96,7 @@ Given a tenant identity of `72dc8b10-dde5-43fe-99bc-16a37fd98c6a` that tenants f
 
 This is a simple reverse proxy to the native azure blob store where your logs are stored:
 
-[https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/v1/mmrs/tenant/](https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/v1/mmrs/tenant/)
+[https://app.datatrails.ai/verifiabledata//merklelogs/v1/mmrs/tenant/](https://app.datatrails.ai/verifiabledata//merklelogs/v1/mmrs/tenant/)
 
 Each massif is stored in a numbered file.
 The filename (`0000000000000000.log`) is the 16-character, zero-padded, massif index.
@@ -137,7 +137,7 @@ The following curl command reads the version and format information from the hea
   -H "Range: bytes=0-31" \
   -H "x-ms-blob-type: BlockBlob" \
   -H "x-ms-version: 2019-12-12" \
-  https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/\
+  https://app.datatrails.ai/verifiabledata//merklelogs/\
   v1/mmrs/tenant/$TENANT/0/massifs/\
   0000000000000000.log | od -An -tx1 | tr -d ' \n'
   ```
@@ -326,7 +326,7 @@ Taking the massif index of 0 (row 0) use the first mmrIndex:
   -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
   -H "x-ms-blob-type: BlockBlob" \
   -H "x-ms-version: 2019-12-12" \
-  https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
+  https://app.datatrails.ai/verifiabledata//\
   merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/\
   0000000000000000.log  | od -An -tx1 | tr -d ' \n'
   ```

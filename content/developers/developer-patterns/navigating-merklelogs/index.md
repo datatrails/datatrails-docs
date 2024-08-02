@@ -194,7 +194,7 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
 In this example, the last entry in the log (at that time) was `2024/03/28`, a little after 11.30am.
 
-## Triedata Entries Are 512 Bytes Each and Are Formed From Two Fields
+## Trie data Entries Are 512 Bytes Each and Are Formed From Two Fields
 
 The trieData section is 2 \* 32 \* 2<sup>height</sup> bytes long, which is exactly double what is needed.
 For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.
@@ -287,7 +287,7 @@ Once appended they will never change and they will never move.
 
 If you know the byte offset in the blob for the start of the mmr data then you can check the number of mmr nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
 
-## The Peak Stack and Mmr Data Sizes Are Computable
+## The Peak Stack and MMR Data Sizes Are Computable
 
 See [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) to avoid needing to calculate these.
 Implementations of the O(log base 2 n) algorithms are provided in various languages.
@@ -379,7 +379,7 @@ First, set the scene by covering how the logical tree nodes map to storage.
 What is a sibling path?
 To understand this we need to dig into how DataTrails organizes the nodes in the Merkle log in storage and memory.
 
-## Tree Mapping to Storage
+## Tree Layout in Storage
 
 Merkle trees *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree.
 

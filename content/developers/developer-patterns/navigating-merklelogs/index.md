@@ -359,7 +359,7 @@ First, set the scene by covering how the logical tree nodes map to storage.
 What is a sibling path?
 To understand this we need to dig into how DataTrails organizes the nodes in the Merkle log in storage and memory.
 
-## Tree Mapping to Storage
+## Tree Layout in Storage
 
 Merkle trees *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree.
 

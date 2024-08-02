@@ -383,7 +383,7 @@ Using the "canonical" MMR log for illustration, we get this diagram:
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
 ```
 
-The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm would then be applied to get the root.
+The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm may then be applied to get a single root. It is a feature specific to MMR's is that the path to the peak containing the leaf is sufficient, for a basic introduction to merkle tree inclusion proofs this distinction is not important```
 
 A very nice visualization of how the peaks combine is available in this paper on
 [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)

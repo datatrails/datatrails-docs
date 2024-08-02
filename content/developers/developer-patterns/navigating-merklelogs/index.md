@@ -179,7 +179,7 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
 In this example, the last entry in the log (at that time) was `2024/03/28`, a little after 11.30am.
 
-## Triedata Entries Are 512 Bytes Each and Are Formed From Two Fields
+## Trie data Entries Are 512 Bytes Each and Are Formed From Two Fields
 
 The trieData section is 2 \* 32 \* 2<sup>height</sup> bytes long, which is exactly double what is needed.
 For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.

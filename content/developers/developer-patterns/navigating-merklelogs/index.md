@@ -352,6 +352,8 @@ Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
   node -i 0
   ```
 
+  Generates:
+
   ```output
   a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
   ```

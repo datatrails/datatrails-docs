@@ -26,17 +26,28 @@ To take verify DataTrails logs, you will need:
 1. A copy of the section of the log containing your event
 1. A copy of any log *seal* from *any* time after your event was included
 1. A copy of any events you wish to verify are included within the log
+1. A Tenant ID to run the samples
 
 Should you wish to do this from first principals, using only the raw verifiable data structure, you will additionally need the understanding of the log format offered by this article.
 
 If you already know the basics, and want a straight forward way to deal with the dynamically sized portions of the format, please see [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables)
 
+## Environment Configuration
+
+To ease copying and pasting commands, update any variables to fit your environment:
+
+```bash
+# Use this DataTrails public sample Tenant, or replace with your Tenant ID
+TENANT="73b06b4e-504e-4d31-9fd9-5e606f329b51"
+DATATRAILS_URL="https://app.datatrails.ai"
+```
+
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
 
 ```output
-+------------+ +------------+ .. +----------+
-| massif 0   | | massif 1   |    | massif n
-+------------+ +------------+ .. +----------+
++-----------+ +-----------+ .. +----------+
+| massif 0  | | massif 1  |    | massif n
++-----------+ +-----------+ .. +----------+
 ```
 
 > Illustration demonstrating the last massif is always in the process of being *appended* to
@@ -127,7 +138,7 @@ The following curl command reads the version and format information from the hea
   -H "x-ms-blob-type: BlockBlob" \
   -H "x-ms-version: 2019-12-12" \
   https://jitavidfd1103b1099ab3aa.blob.core.windows.net/merklelogs/\
-  v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+  v1/mmrs/tenant/$TENANT/0/massifs/\
   0000000000000000.log | od -An -tx1 | tr -d ' \n'
   ```
 
@@ -170,7 +181,11 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
       bytes.fromhex("8e84dbbb6513a6")[:-2]).hex(), base=16
       ) + epoch*((2**40)-1)
    datetime.datetime.fromtimestamp(unixms/1000)
-   
+   ```
+
+   Generates:
+
+   ```output
    datetime.datetime(2024, 3, 28, 11, 39, 36, 676000)
    ```
 
@@ -312,9 +327,13 @@ Taking the massif index of 0 (row 0) use the first mmrIndex:
   -H "x-ms-blob-type: BlockBlob" \
   -H "x-ms-version: 2019-12-12" \
   https://jitavidfd1103b1099ab3aa.blob.core.windows.net/\
-  merklelogs/v1/mmrs/tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51/0/massifs/\
+  merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/\
   0000000000000000.log  | od -An -tx1 | tr -d ' \n'
+  ```
 
+  Generates:
+
+  ```output
   a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
   ```
 
@@ -327,8 +346,9 @@ Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
    {{< tab name="bash" >}}
 
   ```bash
-  veracity -s jitavidfd1103b1099ab3aa \
-  -t tenant/73b06b4e-504e-4d31-9fd9-5e606f329b51 \
+  veracity \
+  --data-url $DATATRAILS_URL/verifiabledata \
+  -t tenant/$TENANT \
   node -i 0
   ```
 

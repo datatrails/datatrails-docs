@@ -136,7 +136,14 @@ python scitt/create_hashed_signed_statement.py \
 
     ```bash
     python scitt/dump_cbor.py \
-      --input signed-statement.cbor
+      --input transparent-statement.cbor
+    ```
+
+1. Verify the signature of the receipt
+
+    ```bash
+    python scitt/verify_receipt_signature.py \
+      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
     ```
 
 ## Retrieve Statements for the Artifact
@@ -154,15 +161,6 @@ By querying the series of statements, consumers can verify who did what and when
 {{< note >}}
 Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.
 {{< /note >}}
-
-## Verify Receipt Integrity
-
-To verify the signature of the receipt
-
-```console
-python scitt/verify_receipt_signature.py \
-  --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
-```
 
 ## Summary
 

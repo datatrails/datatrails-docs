@@ -638,9 +638,9 @@ The peak stack is [14]
 
 ## Takeaways
 
-- Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.
-- Once verification data is written to the log, it never changes.
-- The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
-- The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
-- Open-source tooling exists in multiple languages for navigating the format.
-- Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.
+* Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.
+* Once verification data is written to the log, it never changes.
+* The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
+* The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
+* Open-source tooling exists in multiple languages for navigating the format.
+* Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.

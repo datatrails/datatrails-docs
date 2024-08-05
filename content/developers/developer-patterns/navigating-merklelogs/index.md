@@ -14,10 +14,10 @@
 ---
 
 DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
-The verifiable data is synonymous with *log* or *transparency log*.
+"Verifiable data" is synonymous with *log* or *transparency log*.
 
-Once verifiable data is written to this log it is never changed.
-The log only grows, it never shrinks and data in it never moves.
+Once verifiable data is written to the log it is never changed.
+The log only grows, it never shrinks and data in it never moves within the log.
 
 [DataTrails provides open-source tooling](https://github.com/datatrails/veracity/) for working with this Merkle Log format in offline environments.
 
@@ -34,6 +34,7 @@ For reference:
 - DataTrails log implementation: [go-datatrails-merklelog](https://github.com/datatrails/go-datatrails-merklelog).
 - Examples for verification: [go-datatrails-demos](https://github.com/datatrails/go-datatrails-demos/)
 - Log inclusion and introspection: [veracity](https://github.com/datatrails/veracity/blob/main/README.md)
+
 Should you wish to reproduce these examples from first principals, using only the raw verifiable data structure, you will additionally need the understanding of the log format offered by this article.
 
 If you already know the basics, and want a straight forward way to deal with the dynamically sized portions of the format, please see [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables)
@@ -44,8 +45,8 @@ To ease copying and pasting commands, update any variables to fit your environme
 
 ```bash
 # Use this DataTrails public sample Tenant, or replace with your Tenant ID
-TENANT="73b06b4e-504e-4d31-9fd9-5e606f329b51"
-DATATRAILS_URL="https://app.datatrails.ai"
+EXPORT TENANT="73b06b4e-504e-4d31-9fd9-5e606f329b51"
+EXPORT DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
@@ -60,7 +61,7 @@ DATATRAILS_URL="https://app.datatrails.ai"
 
 What is a massif?
 In this context, a massif means a [group of mountains that form a large mass](https://www.oxfordlearnersdictionaries.com/definition/american_english/massif).
-This term is due to the name of the verifiable data structure used for the Merkle Mountain Range [^1] (MMR) based log.
+Massif originates from the verifiable data structure used in the Merkle Mountain Range [^1] (MMR) based log.
 
 [^1]: Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably [zcash](https://zips.z.cash/zip-0221), [mimblewimble](), and [many others](https://zips.z.cash/zip-0221#additional-reading).
 Merkle Mountain Ranges are attributed to [Peter Todd](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html), though much parallel invention has occurred.
@@ -96,7 +97,9 @@ All individual entries in the log are either 32 bytes or a small multiple of `32
 
 Given a tenant identity of `72dc8b10-dde5-43fe-99bc-16a37fd98c6a` that tenants first massif blob can be found at:
 
-[https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifs/0000000000000000.log](https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifs/0000000000000000.log)
+```bash
+curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log
+```
 
 Each massif is stored in a numbered file.
 The filename (`0000000000000000.log`) is the 16-character, zero-padded, massif index.
@@ -104,7 +107,10 @@ The filename (`0000000000000000.log`) is the 16-character, zero-padded, massif i
 The datatrails attestation for each massif can be found at a closely associated url.
 
 For the massif above it is:  
-[https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifseals/0000000000000000.sth](https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/72dc8b10-dde5-43fe-99bc-16a37fd98c6a/0/massifseals/0000000000000000.sth)
+
+```bash
+curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifseals/0000000000000000.sth
+```
 
 This is a simple reverse proxy to the native azure blob store where your logs are store.
 The full [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/) for getting specific massif blobs can be utilized.
@@ -132,9 +138,7 @@ The variable section of the massif blob is further split into *look back* nodes,
 ```
 
 {{< note >}}TODO: check that the formatting of this table is OK{{< /note >}}
-DataTrails provides convenience look up tables for [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables)
-
-DataTrails provides implementations of the algorithms needed to produce those tables in many languages under an MIT license.
+DataTrails provides convenience look up tables for [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables), and implementations of the algorithms needed to produce those tables in many languages under an MIT license.
 
 ## The First 32 Byte Field in Every Massif Is the Sequencing Header
 
@@ -176,7 +180,7 @@ The idtimestamp of the last leaf entry added to the log is always set in the hea
 
 In the hex data above, the idtimestamp of the last entry in the log is `8e84dbbb6513a6`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
 
-[^2]: The idtimetamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
+[^2]: The idtimestamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
 DataTrails uses a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme.
 The DataTrails implementation can be found at [nextid.go](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118)
 
@@ -277,23 +281,20 @@ The following python snippet generates a trieKey from the event data to confirm 
       h.update(tenant.encode())
       h.update(event.encode())
       return h.hexdigest()
+
+  print(triekey(
+    "tenant/$TENANT",
+    "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
    ```
- 
+
+  generates:
+
+  ```output
+  eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d
+  ```
+
   {{< /tab >}}
 {{< /tabs >}}
-
-Then,
-
-```python
-print(triekey(
-   "tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8",
-   "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
-
-```
-
-Will output
-
-'eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d'
 
 This example is an event on a public asset, so it can also be found in the
 public tenant's merkle log
@@ -448,8 +449,8 @@ Then substitute those bytes, in presentation order, for idTimestamp above.
 
 The bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
 
-
 If you want the actual unix millisecond timestamp you can do this:
+
 ```python
 epoch = 1
 unixms=int((
@@ -488,10 +489,11 @@ The formal details, and a very nice visualization of how the peaks combine, is a
 
 The peaks are exactly the accumulator described there.
 
-All entries in a Merkle log each have a unique and *short* path of hashes, which when hashed together according to the data structures rules, will re-create the same root.
+All entries in a Merkle log each have a unique and *short* path of hashes[^3]: , which when hashed together according to the data structures rules, will re-create the same root.
 If such a path does not exist, by definition the leaf is not included - it is not in the log.
 
-[^3]: Such a path of hashes is commonly referred to as a "proof", a "witness", and an "authentication path". A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to "verification" and "verifiable data structure" in this article.
+[^3]: Such a path of hashes is commonly referred to as a "proof", a "witness", and an "authentication path".
+A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to "verification" and "verifiable data structure" in this article.
 
 Where do those paths come from?
 They come from adjacent and ancestor nodes in the hierarchical tree.
@@ -553,7 +555,8 @@ h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif height 'tree line'
       |     |     |      |       |       |       |
     0 |0   1 3   4| 7   8|10   11|15   16|18   19|
 ```
-_Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1._
+
+*Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1.*
 
 The log configuration parameter massif height is the "tree line".
 The first leaf addition that causes "break out" is the last leaf of that particular massif.
@@ -579,7 +582,7 @@ The peak stack size is established for a massif when it is created in its empty 
 
 When viewed horizontally, we start by denoting the empty stack like this.
 
-```
+```output
 ++
 ||
 ++

@@ -21,9 +21,10 @@ The log only grows, it never shrinks and data in it never moves.
 
 [DataTrails provides open-source tooling](https://github.com/datatrails/veracity/) for working with this Merkle Log format in offline environments.
 
-To take verify DataTrails logs, you will need:
+To verify DataTrails logs, you will need:
 
-1. A copy of the section of the log containing your event
+1. A copy of the section of the log containing your event, (or the url to the
+   publicly available log data)
 1. A copy of any log *seal* from *any* time after your event was included
 1. A copy of any events you wish to verify are included within the log
 1. A Tenant ID to run the samples
@@ -63,6 +64,7 @@ This term is due to the name of the verifiable data structure used for the Merkl
 
 [^1]: Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably [zcash](https://zips.z.cash/zip-0221), [mimblewimble](), and [many others](https://zips.z.cash/zip-0221#additional-reading).
 Merkle Mountain Ranges are attributed to [Peter Todd](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html), though much parallel invention has occurred.
+The "post order", write once & append only nature of the tree organization was first discussed in 3.3 of the [Crosby, Wallach paper](https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf).
 They have been independently analyzed in the context of [cryptographic asynchronous accumulators](https://eprint.iacr.org/2015/718.pdf), Generalized multi-proofs for [Binary Numeral Trees](https://eprint.iacr.org/2021/038.pdf).
 And also by the [ethereum research community](https://ethresear.ch/t/batching-and-cyclic-partitioning-of-logs/536).
 
@@ -172,7 +174,7 @@ The structure of the header field is:
 
 The idtimestamp of the last leaf entry added to the log is always set in the header field.
 
-In the hex data above, the idtimestamp of the last entry in the log is `8e84dbbb6513a6`, the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
+In the hex data above, the idtimestamp of the last entry in the log is `8e84dbbb6513a6`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
 
 [^2]: The idtimetamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
 DataTrails uses a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme.
@@ -242,7 +244,7 @@ Each entry is formatted like this
 
 ```output
 0                                                        31
-SHA256(BYTE(0x00) || BYTES(idTimestamp) || event.identity)
+SHA256(BYTE(0x00) || tenant-identity || event.identity)
 0                                       BYTES(IDTIMESTAMP)
 32                                      56               63
 ```
@@ -313,14 +315,16 @@ print(triekey(
    "tenant/6ea5cd00-c711-3649-6914-7b125928bbb4",
    "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
 ```
-Which is: `6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385`
 
+Which is: `6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385`
 
 Noting that we do not include the 'public' routing prefix on the event identity.
 
 This works the same for regular OBAC shares.
 
-It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity. For permissioned events, this will only be available to you if you are included in the sharing policy. The idtimestamp is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
+It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
+For permissioned events, this will only be available to you if you are included in the sharing policy.
+The idtimestamp is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
 
 It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.
 
@@ -344,9 +348,14 @@ We record the massif height in the start record of every massif. And we guarante
 
 Currently all tenants use the same configuration.
 
-In the future, DataTrails may re-size your massifs. In a log reconfiguration activity, we would first publish the tail of the log to the new path, eg `/1/massifs/0000000000000123.log`. The log is instantly available for continued growth. The historic configuration continues to be available under the `/0/` path. And, depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.
+In the future, DataTrails may re-size your massifs.
+In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path, eg `/1/massifs/0000000000000123.log`.
+The log would be immediately available for continued growth.
+The historic configuration continues to be available under the `/0/` path.
+Depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.
 
-We can do this without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration. In the event that we do re-configure in this way, a log configuration description will also be published along side the massifs and seals.
+This is achieved without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration.
+If reconfigured, a log configuration description will also be published along side the massifs and seals.
 
 Simple binary file compare operations can show that the verifiable data for the new configuration is the same as in the original should you wish to assure yourself of this fact.
 
@@ -456,9 +465,9 @@ Create the leaf hash using the original pre-image data of your event and the *co
 
 For example:
 
-* The V3 canonical set of fields from your event
-* The `merklelog_entry.commit.index` (the mmrIndex of the event in the log)
-* The `merklelog_entry.commit.idtimestamp` uniquely placing the record of the log in time (according to our cloud service provider)
+- The V3 canonical set of fields from your event (as described in our knowledge base [article](https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ))
+- The `merklelog_entry.commit.index` (the mmrIndex of the event in the log)
+- The `merklelog_entry.commit.idtimestamp` uniquely placing the record of the log in time (according to our cloud service provider)
 
 Determining the sibling path will be a future article.
 First, set the scene by covering how the logical tree nodes map to storage.
@@ -469,15 +478,28 @@ To understand this we need to dig into how DataTrails organizes the nodes in the
 ## Tree Layout in Storage
 
 Merkle trees *prove* things by providing paths of hashes that lead to a single *common root* for all nodes in the tree.
+For an MMR, a single root can be produced by "bagging the peaks".
+But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the MMR.
+Having the peak list is equivalent to having a single root.
+And having a path that leads to a peak is equivalent to having a path to a single root
+The peak list is an accumulator state and a path to an accumulator is actually more useful.
+
+The formal details, and a very nice visualization of how the peaks combine, is available in this paper on [cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
+
+The peaks are exactly the accumulator described there.
 
 All entries in a Merkle log each have a unique and *short* path of hashes, which when hashed together according to the data structures rules, will re-create the same root.
 If such a path does not exist, by definition the leaf is not included - it is not in the log.
+
+[^3]: Such a path of hashes is commonly referred to as a "proof", a "witness", and an "authentication path". A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to "verification" and "verifiable data structure" in this article.
 
 Where do those paths come from?
 They come from adjacent and ancestor nodes in the hierarchical tree.
 This means that when producing the path we need to access nodes throughout the tree to produce the proof.
 
-Using the "canonical" MMR log for illustration, we get this diagram:
+Using the "canonical" MMR log for illustration, we get this diagram.
+The vertical axis is labeled by height index, which is just height - 1.
+The connecting diagonal dashes above the "tree line" indicate nodes that belong to one massif but depend on nodes in earlier massifs.
 
 ```output
                           We call these the 'spur' nodes,
@@ -490,19 +512,27 @@ Using the "canonical" MMR log for illustration, we get this diagram:
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
 ```
 
-The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm may then be applied to get a single root. It is a feature specific to MMR's is that the path to the peak containing the leaf is sufficient, for a basic introduction to merkle tree inclusion proofs this distinction is not important```
+The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm may then be applied to get the root if that was desired.
 
-A very nice visualization of how the peaks combine is available in this paper on
-[cryptographic, asynchronous, accumulators](https://eprint.iacr.org/2015/718.pdf) (see Fig 4, page 12)
+```output
+H(7 || 8) = 9
+H(9 || 12) = 13
+H(6 || 13) = 14
+```
+
+14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has a path to a peak for the MMR is sufficient to prove its inclusion in the MMR.
 
 ## Visualizing the “Look Back” Peak Stack
 
 A specific challenge for log implementations with very large data sets is answering "how far back" or "how far forward" may be seen?
 
-MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root. Further, algorithms for proofs of inclusion and consistency that work directly with the peaks offer distinct advantages for relying parties that wish to efficiently check that, once added to a log, an entry continues to be maintained in the log as it evolves```
+MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root.
 For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.
+
+While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so.
+Typically, verification use cases are better served by paths to an accumulator.
 
 This detail is what permits DataTrails to publish the log data immediately after events are added.
 
@@ -510,26 +540,34 @@ The specific properties of Merkle Mountain Ranges lead to an efficiently computa
 Such that we *know* categorically it is not needed to look *forward* of the current massif and it is precisely known which nodes are needed from the previous massifs.
 
 The "free nodes" in the alpine zone always require "ancestors" from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log.
-Below we can see the nodes are very predictable as they can be calculated without reference to the tree data.
-These peaks accumulate in a stack because the pop order is the order needed when adding leaves to the end of the log.
+But those ancestors are precisely the peaks forming the accumulator that we want anyway so we can attest to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.
 
-The result can be visualized like this:
+The progression of the peak stack (accumulator) can be visualized like this. In this diagram we gather the dependent nodes into the massifs they belong too and carry forward the peak stack (accumulator) that fully authenticates the entire state of the MMR preceding the massif.
 
 ```output
       |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
       |     |     |      |       |       |       |
       |     |6    |      |13, 14 |       |22     | spurs
       |     |     |      |       |       |       |
-h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif 'tree line'
+h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif height 'tree line'
       |     |     |      |       |       |       |
     0 |0   1 3   4| 7   8|10   11|15   16|18   19|
 ```
+_Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1._
 
-The look-back nodes are called the *peak stack* because they always correspond to the peaks of the earlier sub-trees.
+The log configuration parameter massif height is the "tree line".
+The first leaf addition that causes "break out" is the last leaf of that particular massif.
+The "break out nodes" for the last leaf are stored in the same massif as the leaf.
+While the leaf count for each massif is fixed, the number of nodes is variable.
+The variance is deterministic given only the MMR size.
+
+The look-back nodes are called the *peak stack* because the operations we use to maintain it are stack like.
 Entries don't pop off, ever.
 Entries just happen to reference it in reverse order of addition when adding new leaves.
 
 The stability of the MMR data comes from the fact that the sub trees are not merged until a right sibling tree of equal height has been produced.
+This means when merged, the sub trees do not change in content or organization, nodes are simply appended to commit them to the log.
+This results in the "write-once" and "append only" properties discussed in the [crosby-wallach](https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf) 3.3 "Storing the log on secondary storage"
 
 ## How the Tree Spans the Massifs
 
@@ -537,7 +575,19 @@ A worked example for a Merkle log whose height configuration parameter is set to
 
 ### Massif 0
 
-Viewed horizontally, and only considering the peak stack and the MMR nodes, the first massif, in the canonical example will look like this:
+The peak stack size is established for a massif when it is created in its empty state. The size is efficiently calculable from the MMR Index at the start of the new massif. For the first massif the stack will be empty.
+
+When viewed horizontally, we start by denoting the empty stack like this.
+
+```
+++
+||
+++
+```
+
+Then, the leaves for the complete MMR of size 3 from our canonical example are added after the peak stack.
+
+This gives us the final form for massif 0 as:
 
 ```output
 ++---+---+---+
@@ -547,39 +597,63 @@ Viewed horizontally, and only considering the peak stack and the MMR nodes, the 
 
 The massif has exactly 3 nodes
 
-The peak stack is empty
+The peak stack is empty, and the global tree looks like this:
 
 ```output
-  1    2  | --- massif tree line massif height index = 2-1
+
+  1    2  | --- massif tree line massif height index = 1
       / \ |
      0   1| MMR INDICES
      -----|
-
-++---+---+---+
-|| 0 | 1 | 2 |
-++---+-------+
+       0  | MASSIF
 ```
 
 ### Massif 1
 
-The peak stack is [2]
+Once massif 1 has been constructed, the global tree would be:
 
 ```output
-2       6
+2       6       --- max height index = 2
          \
-1    2  | 5   | --- massif tree line massif height index = 2-1
+1    2  | 5   | --- massif tree line massif height index = 1
     / \ |/  \ |
    0   1|3   4| MMR INDICES
    -----|-----|
+     0  |  1  | MASSIF
+```
 
+The layout of massif 1 in storage is
+
+```output
 +---++---+---+---+---+
 | 2 || 3 | 4 | 5 | 6 |
 +---++---+-------+---+
 ```
 
+For massif 1, the peak stack is [2].
+When node 4 was added, the "back fill nodes" were added to "complete the tree" and were also stored in massif 1.
+The "break out" nodes visually overhang the previous massif, but are stored in massif 1.
+
+This layout is also known as a "post order" traversal of a binary tree.
+
+Note that the addition of node 6, while backfilling for 4, requires node 2 from the previous massif 0.
+This is why it is carried forward in the peak stack.
+
+We can also see that is the *only* node that is required from massif 0 for *any* verification path in massif 1.
+
+As the log grows, the accumulator (peak stack) moves on.
+However, historic verification paths can always be proven to exist in all future accumulators.
+Given a pair of signed accumulators that are inconsistent, the broken log is evident.
+
+The key point here is that, in massif 1, when computing a verification path for nodes 3 or 4, the only node that is required from massif 0 is available locally in the peak stack (in massif 1).
+
+This means that should you lose interest in the leaf entries from massif 0, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.
+
+If you retain the seal from massif 0, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.
+
 ### Massif 2
 
-The peak stack is [6]
+The global tree at the end of massif 2
 
 ```output
 2       6
@@ -587,27 +661,44 @@ The peak stack is [6]
 1    2  |  5  |  9  |
     / \ |/  \ | / \ |
    0   1|3   4|7   8|
+   -----|-----|-----|
+     0  |  1  |  2  | MASSIF
+```
 
+The layout for massif 2, showing the peak stack is [6]
+
+```output
 +---++---+---+---+
 | 6 || 7 | 8 | 9 |
 +---++---+-------+
 ```
 
-### Massif 3
+Note that 6 has replaced 2.
+The 2 is not required for any verification path for elements added in massif 2 or beyond.
 
-The peak stack is [6, 9]
+### massif 3
+
+The global tree at the end of massif 3
 
 ```output
-                 14
+  3              14
                    \
                     \
                      \
-  2        6          13
-            \           \
-  1    2  |  5  |  9  |  \   |
-      / \ |/  \ | / \ |  12  |
-     0   1|3   4|7   8|  /  \|
+  2        6         13
+            \          \
+  1    2  |  5  |  9  | 12  |
+      / \ |/  \ | / \ | / \ |
+     0   1|3   4|7   8|10 11|
+     -----|-----|-----|-----|
+     | 0  |  1  |  2  |  3  |
+     -----|-----|-----|-----|
+```
 
+The peak stack is [6, 9]. Because both nodes 6 and 9 were needed to complete
+the MMR that includes leaf node 11.
+
+```output
 +---+---++----+----+----+----+----+
 | 6 | 9 || 10 | 11 | 12 | 13 | 14 |
 +---+---++----+----+----+----+----+
@@ -615,22 +706,29 @@ The peak stack is [6, 9]
 
 ### Massif 4
 
+The global tree at the end of massif 4
+
+```output
+  3              14
+                   \
+                    \
+                     \
+  2        6         13
+            \          \
+  1    2  |  5  |  9  | 12  |  17  |
+      / \ |/  \ | / \ | / \ | /  \ |
+     0   1|3   4|7   8|10 11|15  16|
+     -----|-----|-----|-----|------|
+     | 0  |  1  |  2  |  3  |   4  |
+     -----|-----|-----|-----|------|
+```
+
 Note that this case is particularly interesting because it completes a full cycle from one perfect power-sized tree to the next.
 A fact of the MMR construction is the look back is never further than the most recent 'perfect' tree completing massif.
 
-The peak stack is [14]
+So the peak stack is [14], discarding 6 and 9, and the massif 4 layout is:
 
 ```output
-3              14
-                 \
-                  \
-                   \
-2        6          13
-          \           \
-1    2  |  5  |  9  |  \    |  17  |
-    / \ |/  \ | / \ |  12   | /  \ |
-   0   1|3   4|7   8|  /  \ |15  16|
-
 +---++----+----+----+
 | 14|| 15 | 16 | 17 |
 +---++----+----+----+
@@ -638,9 +736,9 @@ The peak stack is [14]
 
 ## Takeaways
 
-* Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.
-* Once verification data is written to the log, it never changes.
-* The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
-* The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
-* Open-source tooling exists in multiple languages for navigating the format.
-* Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.
+- Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.
+- Once verification data is written to the log, it never changes.
+- The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
+- The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
+- Open-source tooling exists in multiple languages for navigating the format.
+- Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.

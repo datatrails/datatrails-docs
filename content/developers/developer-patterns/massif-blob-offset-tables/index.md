@@ -80,6 +80,7 @@ It is fairly easy to validate the leaves and nodes by hand.
 Reproducing the Stack Start needs details from [Navigating the Merkle Log](/developers/developer-patterns/navigating-merklelogs).
 
 ## Pre-computes for Your First Million Events
+
 DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |

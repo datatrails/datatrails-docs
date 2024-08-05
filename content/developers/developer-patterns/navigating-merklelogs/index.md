@@ -19,7 +19,7 @@ DataTrails publishes the data necessary for immediately verifying events to high
 Once verifiable data is written to the log it is never changed.
 The log only grows, it never shrinks and data in it never moves within the log.
 
-[DataTrails provides open-source tooling](https://github.com/datatrails/veracity/) for working with this Merkle Log format in offline environments.
+DataTrails provides [open-source tooling](https://github.com/datatrails/veracity/) for working with this Merkle Log format in offline environments.
 
 To verify DataTrails logs, you will need:
 
@@ -45,8 +45,8 @@ To ease copying and pasting commands, update any variables to fit your environme
 
 ```bash
 # Use this DataTrails public sample Tenant, or replace with your Tenant ID
-EXPORT TENANT="73b06b4e-504e-4d31-9fd9-5e606f329b51"
-EXPORT DATATRAILS_URL="https://app.datatrails.ai"
+export TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
@@ -306,15 +306,15 @@ Again we use curl, this time to fetch the public tenants log,
 curl -s \
   -H "x-ms-blob-type: BlockBlob" \
   -H "x-ms-version: 2019-12-12" \
-  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log -o mmr.log
+  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o mmr.log
 ```
 
-And we can obtain the trie key for the same event shared into the public
-tenant:
+And we can obtain the trie key for the same event shared into the public tenant:
 
 ```python
+# Python
 print(triekey(
-   "tenant/6ea5cd00-c711-3649-6914-7b125928bbb4",
+   "tenant/$TENANT",
    "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
 ```
 
@@ -340,17 +340,15 @@ They all have very hardware-sympathetic implementations.
 
 For a massif height of `14`, the fixed size portion is `1048864` bytes.
 
-A typical url for a massif storage blob looks like:
-
-https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8/0/massifs/0000000000000000.log
+A typical url for a massif storage blob looks like:  
+`https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8/0/massifs/0000000000000000.log`
 
 In the above, the *log configuration* identifier is the `/0/` between the tenant uuid and the `massifs/0000000000000000.log`
 
-We record the massif height in the start record of every massif. And we guarantee that all massifs in a single configuration path have the same **massif height**.
+The massif height is recorded at the start record of every massif, and guarantees that all massifs in a single configuration path have the same **massif height**.
 
-Currently all tenants use the same configuration.
-
-In the future, DataTrails may re-size your massifs.
+Currently all DataTrails tenants use the same configuration.
+In the future, DataTrails may change the height for massifs.
 In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path, eg `/1/massifs/0000000000000123.log`.
 The log would be immediately available for continued growth.
 The historic configuration continues to be available under the `/0/` path.
@@ -372,7 +370,7 @@ For the forseeable future (at least months) DataTrails does not anticipate needi
 The variable portion *for the first massif* contains exactly *16383* MMR *nodes*.
 Of those nodes, *8192* are the leaf entries in the Merkle tree corresponding to your events.
 
-If you know the byte offset in the blob for the start of the MMR data then you can check the number of MMR nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
+Given a byte offset in the blob for the start of the MMR data, a query can check for the number of MMR nodes currently in it by doing `(blobSize - mmrDataStart)/32`.
 
 To read a specific MMR node, find the smallest `Last Node` in [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables) that is greater than your *mmrIndex* and use that row as your massif index.
 
@@ -438,10 +436,9 @@ This works by passing the fields specified in the schema through the [bencode](h
 
 See our knowledge base [article](https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ) for an example in javascript and the definition of the V3 fields.
 
-Note that this includes the event_identity and tenant_identity which are also included in the trieKey hash.
+Note that this includes the `event_identity` and `tenant_identity` which are also included in the trieKey hash.
 
 The remaining item is conditioning the `IDTIMESTAMP` for hashing.
-
 If you have the event record from the Events API, the idtimestamp is found at `merklelog_entry.commit.idtimestamp`.
 It is a hex string and prefixed with `01` which is the epoch from the header.
 
@@ -452,12 +449,18 @@ The bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
 
 If you want the actual unix millisecond timestamp you can do this:
 
-```python
-epoch = 1
-unixms=int((
-  bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
-  ) + epoch*((2**40)-1)
-```
+{{< tabs >}}
+   {{< tab name="Python" >}}
+
+  ```python
+  epoch = 1
+  unixms=int((
+    bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
+    ) + epoch*((2**40)-1)
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 ## Which Nodes
 
@@ -634,30 +637,30 @@ The layout of massif 1 in storage is
 +---++---+-------+---+
 ```
 
-For massif 1, the peak stack is [2].
-When node 4 was added, the "back fill nodes" were added to "complete the tree" and were also stored in massif 1.
-The "break out" nodes visually overhang the previous massif, but are stored in massif 1.
+For massif `1`, the peak stack is `[2]`.
+When node `4` was added, the "back fill nodes" were added to "complete the tree" and were also stored in massif `1`.
+The "break out" nodes visually overhang the previous massif, but are stored in massif `1`.
 
 This layout is also known as a "post order" traversal of a binary tree.
 
-Note that the addition of node 6, while backfilling for 4, requires node 2 from the previous massif 0.
+Note that the addition of node `6`, while backfilling for `4`, requires node `2` from the previous massif `0`.
 This is why it is carried forward in the peak stack.
 
-We can also see that is the *only* node that is required from massif 0 for *any* verification path in massif 1.
+We can also see that is the *only* node that is required from massif `0` for *any* verification path in massif `1`.
 
 As the log grows, the accumulator (peak stack) moves on.
 However, historic verification paths can always be proven to exist in all future accumulators.
 Given a pair of signed accumulators that are inconsistent, the broken log is evident.
 
-The key point here is that, in massif 1, when computing a verification path for nodes 3 or 4, the only node that is required from massif 0 is available locally in the peak stack (in massif 1).
+The key point here is that, in massif `1`, when computing a verification path for nodes `3` or `4`, the only node that is required from massif `0` is available locally in the peak stack (in massif `1`).
 
-This means that should you lose interest in the leaf entries from massif 0, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.
+This means that should you lose interest in the leaf entries from massif `0`, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.
 
-If you retain the seal from massif 0, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.
+If you retain the seal from massif `0`, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.
 
 ### Massif 2
 
-The global tree at the end of massif 2
+The global tree at the end of massif `2`
 
 ```output
 2       6
@@ -669,7 +672,7 @@ The global tree at the end of massif 2
      0  |  1  |  2  | MASSIF
 ```
 
-The layout for massif 2, showing the peak stack is [6]
+The layout for massif `2`, showing the peak stack is `[6]`
 
 ```output
 +---++---+---+---+
@@ -677,12 +680,12 @@ The layout for massif 2, showing the peak stack is [6]
 +---++---+-------+
 ```
 
-Note that 6 has replaced 2.
-The 2 is not required for any verification path for elements added in massif 2 or beyond.
+Note that `6` has replaced `2`.
+The `2` is not required for any verification path for elements added in massif `2` or beyond.
 
 ### massif 3
 
-The global tree at the end of massif 3
+The global tree at the end of massif `3`
 
 ```output
   3              14
@@ -699,8 +702,8 @@ The global tree at the end of massif 3
      -----|-----|-----|-----|
 ```
 
-The peak stack is [6, 9]. Because both nodes 6 and 9 were needed to complete
-the MMR that includes leaf node 11.
+The peak stack is `[6, 9]`. Because both nodes `6` and `9` were needed to complete
+the MMR that includes leaf node `11`.
 
 ```output
 +---+---++----+----+----+----+----+
@@ -710,7 +713,7 @@ the MMR that includes leaf node 11.
 
 ### Massif 4
 
-The global tree at the end of massif 4
+The global tree at the end of massif `4`
 
 ```output
   3              14
@@ -730,7 +733,7 @@ The global tree at the end of massif 4
 Note that this case is particularly interesting because it completes a full cycle from one perfect power-sized tree to the next.
 A fact of the MMR construction is the look back is never further than the most recent 'perfect' tree completing massif.
 
-So the peak stack is [14], discarding 6 and 9, and the massif 4 layout is:
+So the peak stack is `[14]`, discarding `6` and `9`, and the massif `4` layout is:
 
 ```output
 +---++----+----+----+
@@ -744,5 +747,5 @@ So the peak stack is [14], discarding 6 and 9, and the massif 4 layout is:
 - Once verification data is written to the log, it never changes.
 - The "look back" nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.
 - The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.
-- Open-source tooling exists in multiple languages for navigating the format.
+- [Open-source tooling](https://github.com/datatrails/veracity/) exists in multiple languages for navigating the format.
 - Given a signed "root", all entries in any copies of your log are irrefutably attested by DataTrails.

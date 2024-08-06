@@ -19971,6 +19971,14 @@ If you are looking for a simple way to test our API you might prefer our
                                   <div style="width: 100%;">
                                     <pre><code>{
   "display_name": "My First Tenancy",
+  "enterprise_sso_config": {
+    "client_id": "foo",
+    "client_secret": "",
+    "config_url": "foo",
+    "issuer": "foo",
+    "policy_id": "foo"
+  },
+  "enterprise_sso_enabled": true,
   "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
   "verified_domain": "foo.com"
 }</code></pre>
@@ -20104,6 +20112,14 @@ If you are looking for a simple way to test our API you might prefer our
                                   <div style="width: 100%;">
                                     <pre><code>{
   "display_name": "My First Tenancy",
+  "enterprise_sso_config": {
+    "client_id": "foo",
+    "client_secret": "",
+    "config_url": "foo",
+    "issuer": "foo",
+    "policy_id": "foo"
+  },
+  "enterprise_sso_enabled": true,
   "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
   "verified_domain": "foo.com"
 }</code></pre>
@@ -41428,6 +41444,14 @@ If you are looking for a simple way to test our API you might prefer our
                                   <div style="width: 100%;">
                                     <pre><code>{
   "display_name": "My First Tenancy",
+  "enterprise_sso_config": {
+    "client_id": "foo",
+    "client_secret": "",
+    "config_url": "foo",
+    "issuer": "foo",
+    "policy_id": "foo"
+  },
+  "enterprise_sso_enabled": true,
   "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
   "verified_domain": "foo.com"
 }</code></pre>
@@ -41561,6 +41585,14 @@ If you are looking for a simple way to test our API you might prefer our
                                   <div style="width: 100%;">
                                     <pre><code>{
   "display_name": "My First Tenancy",
+  "enterprise_sso_config": {
+    "client_id": "foo",
+    "client_secret": "",
+    "config_url": "foo",
+    "issuer": "foo",
+    "policy_id": "foo"
+  },
+  "enterprise_sso_enabled": true,
   "identity": "tenant/08838336-c357-460d-902a-3aba9528dd22",
   "verified_domain": "foo.com"
 }</code></pre>

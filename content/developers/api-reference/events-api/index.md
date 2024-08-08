@@ -25,11 +25,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 {{< note >}}
-**Note:** You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.
-
-One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.
-
-Another is to parse the Event API call for **400 Bad Request** errors (optionally also check for **429 Too Many Requests** errors) and then retry the call after a few seconds.
+**Note:** You will need to create an Asset first in order to submit Events against it.
 {{< /note >}}
 
 ### Event Creation

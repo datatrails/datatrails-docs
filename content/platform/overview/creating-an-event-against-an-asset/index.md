@@ -150,7 +150,7 @@ steps:
       - filename: inspection_standards.pdf
         content_type: document/pdf
         display_name: Inspection Standards
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

@@ -49,7 +49,7 @@ steps:
     attributes: 
       arc_display_name: Shipping Container
       arc_display_type: Shipping Container
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}
@@ -124,7 +124,7 @@ steps:
       arc_display_name: Box-1
       arc_display_type: Box
       within_container: Shipping Container
-    confirm: true
+    confirm: false
 ```
 
 Repeat the above a few times, editing the `arc_display_name` to add several boxes within the `Shipping Container`

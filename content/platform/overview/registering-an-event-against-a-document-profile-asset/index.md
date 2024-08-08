@@ -115,7 +115,7 @@ steps:
           email: dee@writeme.org
         - display_name: Anne Author
           email: anne@writeme.org  
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}
@@ -185,7 +185,7 @@ steps:
     event_attributes:
       arc_description: Withdraw My First Document
       arc_display_type: Withdraw
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}
@@ -236,7 +236,7 @@ steps:
     event_attributes:
       arc_description: Document review
       arc_display_type:  Review
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

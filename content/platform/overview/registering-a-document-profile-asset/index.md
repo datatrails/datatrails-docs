@@ -101,7 +101,7 @@ steps:
       document_hash_value: ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c
       document_hash_alg: sha256
       document_version: "1"
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}
@@ -161,7 +161,7 @@ steps:
       document_hash_value: ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c
       document_hash_alg: sha256
       document_version: "1"
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

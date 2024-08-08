@@ -72,7 +72,7 @@ steps:
       arc_display_type: Example
       arc_description: This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails.
       some_custom_attribute: anything you like
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

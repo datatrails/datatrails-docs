@@ -45,7 +45,8 @@ To ease copying and pasting commands, update any variables to fit your environme
 
 ```bash
 # Use this DataTrails public sample Tenant, or replace with your Tenant ID
-export TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+export PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+export TENANT="7dfaa5ef-226f-4f40-90a5-c015e59998a8"
 export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
@@ -63,7 +64,7 @@ What is a massif?
 In this context, a massif means a [group of mountains that form a large mass](https://www.oxfordlearnersdictionaries.com/definition/american_english/massif).
 Massif originates from the verifiable data structure used in the Merkle Mountain Range [^1] (MMR) based log.
 
-[^1]: Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably [zcash](https://zips.z.cash/zip-0221), [mimblewimble](), and [many others](https://zips.z.cash/zip-0221#additional-reading).
+[^1]: Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably [zcash](https://zips.z.cash/zip-0221), [mimblewimble](https://github.com/mimblewimble/grin/blob/master/doc/mmr.md), and [many others](https://zips.z.cash/zip-0221#additional-reading).
 
 Merkle Mountain Ranges are attributed to [Peter Todd](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html), though much parallel invention has occurred.
 The "post order", write once & append only nature of the tree organization was first discussed in 3.3 of the [Crosby, Wallach paper](https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf).
@@ -96,10 +97,10 @@ All individual entries in the log are either 32 bytes or a small multiple of `32
   +----------------+
 ```
 
-Given a tenant identity of `72dc8b10-dde5-43fe-99bc-16a37fd98c6a` that tenants first massif blob can be found at:
+Recalling our configuration (above), sets TENANT, that tenants first massif blob can be found at:
 
 ```bash
-curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log
+curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o 0.log
 ```
 
 Each massif is stored in a numbered file.
@@ -110,7 +111,7 @@ The datatrails attestation for each massif can be found at a closely associated 
 For the massif above it is:  
 
 ```bash
-curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifseals/0000000000000000.sth
+curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifseals/0000000000000000.sth -o 0.sth
 ```
 
 This is a simple reverse proxy to the native azure blob store where your logs are store.
@@ -121,7 +122,7 @@ In the case of the masssif blobs, it is the idtimestamp most recently added to t
 
 ## Re-Creating Inclusion Proofs Requires Only One Massif
 
-The variable section of the massif blob is further split into *look back* nodes, and regular massif nodes:
+The variable section of the massif blob is further split into the *accumulator* for the preceding log state followed by the regular massif nodes:
 
 ```output
 +----------------+----------------+
@@ -129,14 +130,17 @@ The variable section of the massif blob is further split into *look back* nodes,
 |                +----------------+  fixed size
 |        SIZE    | TRIE-DATA      |  pre-filled with zeros, populated as leaves are added
 +----------------+----------------+
-| VARIABLE       | PEAK           | "look back nodes" write once
-|                |         STACK  |   on massif create
+| VARIABLE       | PEAK           |  accumulator succinctly committing the entire preceding log state,
+|                |         STACK  |    which is write once on massif create
 |                +----------------+
 |                | MMR            | grows until 2^(height-1) leaves are added
 .                .   NODES        |
 .   APPEND ONLY  .                |
 +----------------+----------------+
 ```
+
+The accumulator is more precisely a cryptographic, asynchronous, accumulator whose properties are formally defined in this [paper](https://eprint.iacr.org/2015/718.pdf).
+We refer to it as the peak stack due to how we maintain it and the fact that it is composed exclusively of "peak" nodes taken from the preceding log.
 
 {{< note >}}TODO: check that the formatting of this table is OK{{< /note >}}
 DataTrails provides convenience look up tables for [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables), and implementations of the algorithms needed to produce those tables in many languages under an MIT license.
@@ -154,14 +158,14 @@ The following curl command reads the version and format information from the hea
     -H "x-ms-blob-type: BlockBlob" \
     -H "x-ms-version: 2019-12-12" \
     https://app.datatrails.ai/verifiabledata//merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log \
-    od -An -tx1 | \
-    tr -d ' \n'
+    | od -An -tx1 \
+    | tr -d ' \n'
   ```
 
   generates:
 
   ```output
-  efbbbf3c3f786d6c...d6573736167653e3c2f4572726f723e
+  000000000000000090c068525f046c0000000000000000000000010e00000000
   ```
 
   {{< /tab >}}
@@ -179,7 +183,7 @@ The structure of the header field is:
 
 The idtimestamp of the last leaf entry added to the log is always set in the header field.
 
-In the hex data above, the idtimestamp of the last entry in the log is `8e84dbbb6513a6`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
+In the hex data above, the idtimestamp of the last entry in the log is `90c068525f046c00`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
 
 [^2]: The idtimestamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
 DataTrails uses a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme.
@@ -198,21 +202,21 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
    epoch=1
    unixms=int((
-      bytes.fromhex("8e84dbbb6513a600")[:-3]).hex(), base=16
+      bytes.fromhex("90c068525f046c00")[:-3]).hex(), base=16
       ) + epoch*((2**40)-1)
-   datetime.datetime.fromtimestamp(unixms/1000)
+   print(datetime.datetime.fromtimestamp(unixms/1000))
    ```
 
    Generates:
 
    ```output
-   datetime.datetime(2024, 3, 28, 11, 39, 36, 676000)
+   2024-07-17 12:16:20.702000
    ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
-In this example, the last entry in the log (at that time) was `2024/03/28`, a little after 11.30am.
+In this example, the last entry in the log (at that time) was `2024/07/17`, a little after 16:20 UTC.
 
 ## The trieData entries are 512 bits each and are formed from two fields
 
@@ -275,18 +279,23 @@ The following python snippet generates a trieKey from the event data to confirm 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-   ```python
-  def triekey(tenant, event):
-      h = hashlib.sha256()
-      h.update(bytes([0]))
-      h.update(tenant.encode())
-      h.update(event.encode())
-      return h.hexdigest()
+    ```python
 
-  print(triekey(
-    "tenant/$TENANT",
+    import hashlib
+
+    TENANT="7dfaa5ef-226f-4f40-90a5-c015e59998a8"
+
+    def triekey(tenant, event):
+        h = hashlib.sha256()
+        h.update(bytes([0]))
+        h.update(tenant.encode())
+        h.update(event.encode())
+        return h.hexdigest()
+
+    print(triekey(
+    "tenant/" + TENANT,
     "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
-   ```
+    ```
 
   generates:
 
@@ -312,9 +321,10 @@ curl -s \
 And we can obtain the trie key for the same event shared into the public tenant:
 
 ```python
-# Python
+PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+
 print(triekey(
-   "tenant/$TENANT",
+   "tenant/" + PUBLIC_TENANT,
    "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
 ```
 
@@ -326,7 +336,8 @@ This works the same for regular OBAC shares.
 
 It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
 For permissioned events, this will only be available to you if you are included in the sharing policy.
-The idtimestamp is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
+The idtimestamp is different for each log, guaranteed unique within the context of a single log, and,
+assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
 
 It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.
 
@@ -377,25 +388,22 @@ To read a specific MMR node, find the smallest `Last Node` in [Massif Blob Pre-C
 Taking the massif index of 0 (row 0) use the first mmrIndex:
 
 {{< tabs >}}
-   {{< tab name="Python" >}}
+   {{< tab>}}
 
-  ```python
-  LOGSTART=1048864
-  MMRINDEX=0
-  curl -s \
+  ```bash
+  LOGSTART=1048864 MMRINDEX=0 curl -s \
     -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
     -H "x-ms-blob-type: BlockBlob" \
     -H "x-ms-version: 2019-12-12" \
-    https://app.datatrails.ai/verifiabledata//\
-    merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log  | \
-    od -An -tx1 | \
-    tr -d ' \n'
+    https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$PUBLIC_TENANT/0/massifs/0000000000000000.log  \
+    | od -An -tx1 \
+    | tr -d ' \n'
   ```
 
   Generates:
 
   ```output
-  a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+  c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
   ```
 
   {{< /tab >}}
@@ -409,14 +417,14 @@ Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
   ```bash
   veracity \
   --data-url $DATATRAILS_URL/verifiabledata \
-  -t tenant/$TENANT \
+  -t tenant/$PUBLIC_TENANT \
   node -i 0
   ```
 
   Generates:
 
   ```output
-  a45e21c14ee5a0d12d4544524582b5feb074650e6bb2b31ed9a3aeffe4883099
+  c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
   ```
 
   {{< /tab >}}
@@ -505,11 +513,11 @@ This means that when producing the path we need to access nodes throughout the t
 
 Using the "canonical" MMR log for illustration, we get this diagram.
 The vertical axis is labeled by height index, which is just height - 1.
-The connecting diagonal dashes above the "tree line" indicate nodes that belong to one massif but depend on nodes in earlier massifs.
+The connecting diagonal dashes above the "tree line" indicate nodes that belong to one massif but depend on peaks accumulated from earlier massifs.
 
 ```output
-                          We call these the 'spur' nodes,
-                       14 as they each depend on ancestor nodes
+                          
+                       14 
                           \        affectionately called the alpine zone
                 6           13             22   
                   \            \              \
@@ -519,6 +527,7 @@ The connecting diagonal dashes above the "tree line" indicate nodes that belong 
 ```
 
 The sibling *proof* path for the leaf with `mmrIndex` `7` would be [`8`, `12`, `6`], and the "peak bagging" algorithm may then be applied to get the root if that was desired.
+An inclusion proof against an accumulator entry both equivalent and also more durable, as it is permanently consistent with all future accumulator states.
 
 ```output
 H(7 || 8) = 9
@@ -532,7 +541,7 @@ H(6 || 13) = 14
 
 A specific challenge for log implementations with very large data sets is answering "how far back" or "how far forward" may be seen?
 
-MMRs differ from classic binary Merkle trees in how the incomplete sub-trees are combined into a common root.
+MMRs differ from classic binary Merkle trees in how, or even *if*, the incomplete sub-trees are combined into a common root.
 For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
 Rather than by the more traditional, temporary, assignment of un-balanced siblings.
 Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.
@@ -540,13 +549,13 @@ Such un-balanced siblings would later have to be re-assigned (balanced) when the
 While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so.
 Typically, verification use cases are better served by paths to an accumulator.
 
-This detail is what permits DataTrails to publish the log data immediately after events are added.
+The linear and write once nature of this storage organization is what permits DataTrails to publish the log data immediately after events are added.
 
 The specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of *"Which other nodes do I need"*.
 Such that we *know* categorically it is not needed to look *forward* of the current massif and it is precisely known which nodes are needed from the previous massifs.
 
 The "free nodes" in the alpine zone always require "ancestors" from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log.
-But those ancestors are precisely the peaks forming the accumulator that we want anyway so we can attest to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.
+But those ancestors are precisely the peaks forming the accumulator that attests to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.
 
 The progression of the peak stack (accumulator) can be visualized like this. In this diagram we gather the dependent nodes into the massifs they belong too and carry forward the peak stack (accumulator) that fully authenticates the entire state of the MMR preceding the massif.
 
@@ -573,6 +582,7 @@ Entries don't pop off, ever.
 Entries just happen to reference it in reverse order of addition when adding new leaves.
 
 The stability of the MMR data comes from the fact that the sub trees are not merged until a right sibling tree of equal height has been produced.
+Merging is accomplished by *appending* the new parent immediately after the right sibling.
 This means when merged, the sub trees do not change in content or organization, nodes are simply appended to commit them to the log.
 This results in the "write-once" and "append only" properties discussed in the [crosby-wallach](https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf) 3.3 "Storing the log on secondary storage"
 

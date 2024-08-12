@@ -27,7 +27,9 @@ The `asset_label` must match the setting when the Asset was created in an earlie
 
 There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to DataTrails and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to DataTrails and adds the response to the Event before posting.
 
-`confirm: true` tells the YAML Runner to wait for the Event to be committed before moving to the next step. This is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view the Event. If this is not needed then do not wait for confirmation.
+`confirm: true` tells the YAML Runner to wait for the Event to be committed before moving to the next step.
+This is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view the Event.
+If this is not needed then do not wait for confirmation.
 
 For example:
 

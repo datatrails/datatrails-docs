@@ -138,7 +138,8 @@ steps:
 
 This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.
 
-This step is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view or interact with your Assets. If this is not needed then do not wait for confirmation.
+This step is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view or interact with your Assets.
+If this is not needed then do not wait for confirmation.
 
 ```yaml
 ---

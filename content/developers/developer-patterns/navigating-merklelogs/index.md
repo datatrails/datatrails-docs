@@ -45,8 +45,8 @@ To ease copying and pasting commands, update any variables to fit your environme
 
 ```bash
 # Use this DataTrails public sample Tenant, or replace with your Tenant ID
-export PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
-export TENANT="7dfaa5ef-226f-4f40-90a5-c015e59998a8"
+export PUBLIC_TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
+export TENANT="<your-tenant>"
 export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
@@ -97,7 +97,7 @@ All individual entries in the log are either 32 bytes or a small multiple of `32
   +----------------+
 ```
 
-Recalling our configuration (above), sets TENANT, that tenants first massif blob can be found at:
+Recalling our configuration (above), the tenants first massif blob can be found at:
 
 ```bash
 curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o 0.log
@@ -162,7 +162,7 @@ The following curl command reads the version and format information from the hea
     | tr -d ' \n'
   ```
 
-  generates:
+  generates a version information, similar to:
 
   ```output
   000000000000000090c068525f046c0000000000000000000000010e00000000
@@ -279,37 +279,36 @@ The following python snippet generates a trieKey from the event data to confirm 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-    ```python
+  ```python
+  import hashlib
+  import os
 
-    import hashlib
+  TENANT=os.environ['PUBLIC_TENANT']
 
-    TENANT="7dfaa5ef-226f-4f40-90a5-c015e59998a8"
+  def triekey(tenant, event):
+      h = hashlib.sha256()
+      h.update(bytes([0]))
+      h.update(tenant.encode())
+      h.update(event.encode())
+      return h.hexdigest()
 
-    def triekey(tenant, event):
-        h = hashlib.sha256()
-        h.update(bytes([0]))
-        h.update(tenant.encode())
-        h.update(event.encode())
-        return h.hexdigest()
-
-    print(triekey(
-    "tenant/" + TENANT,
-    "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
-    ```
+  print(triekey(
+  "tenant/" + TENANT,
+  "assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208"))
+  ```
 
   generates:
 
   ```output
-  eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d
+  d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
   ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
-This example is an event on a public asset, so it can also be found in the
-public tenant's merkle log
+The above example is an event on a public asset, so it can be found in the public tenant's merkle log.
 
-Again we use curl, this time to fetch the public tenants log,
+Using curl, fetch the public tenants log,
 
 ```bash
 curl -s \
@@ -318,17 +317,44 @@ curl -s \
   https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o mmr.log
 ```
 
-And we can obtain the trie key for the same event shared into the public tenant:
+NOTE:
+To stay within python, could we do something similar to:
 
-```python
-PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+{{< tabs >}}
+   {{< tab name="Python" >}}
 
-print(triekey(
-   "tenant/" + PUBLIC_TENANT,
-   "assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2aa"))
-```
+  ```python
+  import requests
+  r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+TENANT+'/0/massifs/0000000000000000.log')
+  print(r.text)
+  ```
 
-Which is: `6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385`
+  {{< /tab >}}
+{{< /tabs >}}
+
+Obtain the trie key for the public tenant event:
+
+{{< tabs >}}
+   {{< tab name="Python" >}}
+
+  ```python
+
+  ASSET='20d6f57c-bce2-4be9-8e70-95ded25399b7'
+  EVENT='bbd934cb-a20f-44c9-aa5d-a3ce333c5208'
+
+  print(triekey(
+    'tenant/' + TENANT,
+    'assets/'+ASSET+'/events/'+EVENT))
+  ```
+
+  Generates:
+
+  ```output
+  6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 Noting that we do not include the 'public' routing prefix on the event identity.
 
@@ -388,10 +414,12 @@ To read a specific MMR node, find the smallest `Last Node` in [Massif Blob Pre-C
 Taking the massif index of 0 (row 0) use the first mmrIndex:
 
 {{< tabs >}}
-   {{< tab>}}
+   {{< tab name="Bash" >}}
 
   ```bash
-  LOGSTART=1048864 MMRINDEX=0 curl -s \
+  LOGSTART=1048864
+  MMRINDEX=0 
+  curl -s \
     -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
     -H "x-ms-blob-type: BlockBlob" \
     -H "x-ms-version: 2019-12-12" \
@@ -416,7 +444,7 @@ Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
 
   ```bash
   veracity \
-  --data-url $DATATRAILS_URL/verifiabledata \
+  --data-url "https://app.datatrails.ai/verifiabledata" \
   -t tenant/$PUBLIC_TENANT \
   node -i 0
   ```
@@ -465,6 +493,7 @@ If you want the actual unix millisecond timestamp you can do this:
   unixms=int((
     bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
     ) + epoch*((2**40)-1)
+  print(unixms)
   ```
 
   {{< /tab >}}

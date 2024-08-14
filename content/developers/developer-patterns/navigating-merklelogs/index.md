@@ -47,7 +47,6 @@ To ease copying and pasting commands, update any variables to fit your environme
 # Use this DataTrails public sample Tenant, or replace with your Tenant ID
 export PUBLIC_TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
 export TENANT="<your-tenant>"
-export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
@@ -283,9 +282,10 @@ The following python snippet generates a trieKey from the event data to confirm 
   import hashlib
   import os
 
-  TENANT=os.environ['PUBLIC_TENANT']
+  TENANT=os.environ['TENANT']
+  PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
 
-  def triekey(tenant, event):
+  def triekey(PUBLIC_TENANT, event):
       h = hashlib.sha256()
       h.update(bytes([0]))
       h.update(tenant.encode())
@@ -343,7 +343,7 @@ Obtain the trie key for the public tenant event:
   EVENT='bbd934cb-a20f-44c9-aa5d-a3ce333c5208'
 
   print(triekey(
-    'tenant/' + TENANT,
+    'tenant/' + PUBLIC_TENANT,
     'assets/'+ASSET+'/events/'+EVENT))
   ```
 

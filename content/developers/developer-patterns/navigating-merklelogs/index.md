@@ -44,9 +44,17 @@ If you already know the basics, and want a straight forward way to deal with the
 To ease copying and pasting commands, update any variables to fit your environment:
 
 ```bash
-# Use this DataTrails public sample Tenant, or replace with your Tenant ID
-export PUBLIC_TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
-export TENANT="<your-tenant>"
+# Public events created by any DataTrails tenant are shared automatically to the
+# public tenant
+export PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+
+# Protected events are only visible to you, but there commitment (hash) in your
+# log is public. These examples use DataTrail's Synsation demo tenant.  You can
+# replace TENANT with your Tenant ID in the following examples. You cannot read
+# the Synsation event data, but you can see the corresponding log entries.
+export TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
+
+export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
@@ -131,7 +139,7 @@ The variable section of the massif blob is further split into the *accumulator* 
 +----------------+----------------+
 | VARIABLE       | PEAK           |  accumulator succinctly committing the entire preceding log state,
 |                |         STACK  |    which is write once on massif create
-|                +----------------+
+|   write once   +----------------+
 |                | MMR            | grows until 2^(height-1) leaves are added
 .                .   NODES        |
 .   APPEND ONLY  .                |
@@ -141,7 +149,6 @@ The variable section of the massif blob is further split into the *accumulator* 
 The accumulator is more precisely a cryptographic, asynchronous, accumulator whose properties are formally defined in this [paper](https://eprint.iacr.org/2015/718.pdf).
 We refer to it as the peak stack due to how we maintain it and the fact that it is composed exclusively of "peak" nodes taken from the preceding log.
 
-{{< note >}}TODO: check that the formatting of this table is OK{{< /note >}}
 DataTrails provides convenience look up tables for [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables), and implementations of the algorithms needed to produce those tables in many languages under an MIT license.
 
 ## The First 32 Byte Field in Every Massif Is the Sequencing Header
@@ -156,7 +163,7 @@ The following curl command reads the version and format information from the hea
     -H "Range: bytes=0-31" \
     -H "x-ms-blob-type: BlockBlob" \
     -H "x-ms-version: 2019-12-12" \
-    https://app.datatrails.ai/verifiabledata//merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log \
+    https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log \
     | od -An -tx1 \
     | tr -d ' \n'
   ```
@@ -164,13 +171,13 @@ The following curl command reads the version and format information from the hea
   generates a version information, similar to:
 
   ```output
-  000000000000000090c068525f046c0000000000000000000000010e00000000
+  00000000000000009148fda07f06640000000000000000000000010e00000000
   ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
-Note: the request requires no authentication or authorization.
+{{< note >}}the request requires no authentication or authorization.{{< /note >}}
 
 The structure of the header field is:
 
@@ -182,7 +189,7 @@ The structure of the header field is:
 
 The idtimestamp of the last leaf entry added to the log is always set in the header field.
 
-In the hex data above, the idtimestamp of the last entry in the log is `90c068525f046c00`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
+In the hex data above, the idtimestamp of the last entry in the log is `9148fcc832066400`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
 
 [^2]: The idtimestamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
 DataTrails uses a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme.
@@ -198,24 +205,48 @@ The idtimestamp in the header field is always set to the idtimestamp of the most
 
    ```python
    import datetime
+   
+   def idtimestamp_to_date(id: str):
+       """Safely convert an idtimestamp hex string to a regular date time"""
 
-   epoch=1
-   unixms=int((
-      bytes.fromhex("90c068525f046c00")[:-3]).hex(), base=16
-      ) + epoch*((2**40)-1)
-   print(datetime.datetime.fromtimestamp(unixms/1000))
+       # ignore the common '0x' prefix
+       if (id.startswith("0x")):
+           id = id[2:]
+   
+       if len(id) > 18:
+           raise ValueError("idtimestamp must be 18 or 16 hex chars")
+   
+       epoch = 1 # the epochs are aligned with the unix epoch but are half as long
+       if len(id) == 18:
+           epoch = int(id[:2])
+           id = id[2:]
+       if len(id) != 16:
+           raise ValueError("idtimestamp must be 18 or 16 hex chars")
+   
+       # To get the time portion we strip the trailing sequence and generator id
+       unixms=int((
+          bytes.fromhex(id)[:-3]).hex(), base=16
+          ) + epoch*((2**40)-1)
+       return datetime.datetime.fromtimestamp(unixms/1000)
+
+
+   if __name__=="__main__":
+       import sys
+       print(idtimestamp_to_date(sys.argv[1]))
    ```
+
+   Saving this to `idtime.py` and running `python3 9148fcc832066400`
 
    Generates:
 
    ```output
-   2024-07-17 12:16:20.702000
+   2024-08-13 00:46:51.569000
    ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
-In this example, the last entry in the log (at that time) was `2024/07/17`, a little after 16:20 UTC.
+In this example, the last entry in the log (at that time) was `2024/08/13`, a little before 1am UTC.
 
 ## The trieData entries are 512 bits each and are formed from two fields
 
@@ -223,7 +254,9 @@ With the trie keys, full data recovery can be verified without needing to rememb
 
 Massifs can be recovered independently even if the data for other massifs is incomplete.
 
-The index also provides for proof of exclusion. Proof that a specific event is not in the index. As the event identities contribute to both the index keys and the leaf entries, and as the keys are time ordered on addition, it is possible to audit the specific range.
+The index also provides for proof of exclusion. Proof that a specific event is not in the index.
+As the event identities contribute to both the index keys and the leaf entries,
+and as the keys are time ordered on addition, it is possible to audit the specific range.
 This will confirm the log is consistent with the index for the time range in which the disputed item is claimed to exist.
 
 The trieData section is 2 \* 32 \* 2<sup>height</sup> bytes long, which is exactly double what is needed.
@@ -267,11 +300,12 @@ A sub-range of field 0 will change when saving the last idtimestamp in it.
 The MMR node values are strictly only ever appended to the blob.
 Once appended they will never change and they will never move.
 
-Returning to the trieData section, given an event identity of:  
-`assets/87dd2e5a-42b4-49a5-8693-97f40a5af7f8/events/a022f458-8e55-4d63-a200-4172a42fc2a`
+Returning to the trieData section, given an event identity of: 
 
-The trieKey would be:  
-`eda55087407b2e6f52c668f039c624d2382422ea8c765d618a0bbbef2936223d`
+`assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208`
+
+The trieKey for the synstation tenant's log is:
+`d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9`
 
 The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.
 
@@ -285,7 +319,7 @@ The following python snippet generates a trieKey from the event data to confirm 
   TENANT=os.environ['TENANT']
   PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
 
-  def triekey(PUBLIC_TENANT, event):
+  def triekey(tenant, event):
       h = hashlib.sha256()
       h.update(bytes([0]))
       h.update(tenant.encode())
@@ -302,7 +336,6 @@ The following python snippet generates a trieKey from the event data to confirm 
   ```output
   d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
   ```
-
   {{< /tab >}}
 {{< /tabs >}}
 
@@ -317,48 +350,114 @@ curl -s \
   https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o mmr.log
 ```
 
-NOTE:
-To stay within python, could we do something similar to:
+Using python, we can more readily illustrate the 32 byte aligned format
 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-  ```python
-  import requests
-  r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+TENANT+'/0/massifs/0000000000000000.log')
-  print(r.text)
-  ```
+    ```python
+
+    import requests
+    import binascii
+ 
+    def readfields(tenant, log="0000000000000000"):
+        r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+tenant+'/0/massifs/'+log+'.log')
+        hex = binascii.hexlify(r.content).decode('utf-8')
+        for i in range(int(len(hex) / 64)):
+            yield hex[i*64:(i+1)*64]
+ 
+ 
+    if __name__ == "__main__":
+        import sys
+        log = "0000000000000000"
+        if len(sys.argv) > 2:
+            log = sys.argv[2]
+        for field in readfields(sys.argv[1], log):
+            print(field)
+    ```
+
+    The first few fields will look like
+
+    ```output
+    00000000000000009148fda07f06640000000000000000000000010e00000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+    0000000000000000000000000000000000000000000000009148fcc832066400
+    f67192c6a4fe6a3454000225647deb37e7c488461b1d52f8d1dc58222d49d4db
+    0000000000000000000000000000000000000000000000009148fccedb045d00
+    1057b8d9caaf1f09e46e04a4e36295276fa8f2ef676144f4b90fc47e335ea51e
+    0000000000000000000000000000000000000000000000009148fd0d47066400
+    7fe0c5553a639bbeb5e0c26e24c94722f126fa258560097c531e9eb12e12dc88
+    0000000000000000000000000000000000000000000000009148fd52e7066400
+    0e561df1aa165967ffe12b0d84491e29349d0022f840d9dcb5bb3fe62551ef5c
+    0000000000000000000000000000000000000000000000009148fda07f066400
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    ```
 
   {{< /tab >}}
 {{< /tabs >}}
+
+Note the trieKey we derived earlier is easily spotted at row 9, and its
+idtimestamp, `9148fcc832066400`, is in the subsequent field
+
+All public events are automatically shared to the public tenant. This makes the
+event data visible without access control. The example event we created in the
+Synsation tenant is a public event. We can obtain its corresponding entry in the
+log by deriving its trieKey, and recalling our implementation for `triekey` above
+
 
 Obtain the trie key for the public tenant event:
 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-  ```python
+    ```python
 
-  ASSET='20d6f57c-bce2-4be9-8e70-95ded25399b7'
-  EVENT='bbd934cb-a20f-44c9-aa5d-a3ce333c5208'
+    import hashlib
+    import os
 
-  print(triekey(
-    'tenant/' + PUBLIC_TENANT,
-    'assets/'+ASSET+'/events/'+EVENT))
-  ```
+    TENANT=os.environ['TENANT']
+    PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
 
-  Generates:
+    def triekey(tenant, event):
+        h = hashlib.sha256()
+        h.update(bytes([0]))
+        h.update(tenant.encode())
+        h.update(event.encode())
+        return h.hexdigest()
+        
+    print(triekey(
+      "tenant/" + PUBLIC_TENANT,
+      "assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208"))
+    ```
 
-  ```output
-  6372ef3f14a643fb00d24f5fef11c0bf796fb0dde48bbfa8cc4d08b400be2385
-  ```
+    Generates:
+
+    ```output
+    c31114a64b9dca1376d7af999d35b4fa05a75965cb49d2b58386e19b8bbc73a9
+    ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
+If you similarly run `getlog` (from our example above) on the public tenant, the public trieKey is found
+at line 2390.  As this log commits events shared from many tenants, the MMRIndex
+of the publicly committed event is different (and quite a lot higher)
+
+The full details of the publicly available event can be found [here](https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/bbd934cb-a20f-44c9-aa5d-a3ce333c5208?public=true)
+
 Noting that we do not include the 'public' routing prefix on the event identity.
 
-This works the same for regular OBAC shares.
+This works the same for regular OBAC shares, a shared event is committed both to
+the originating tenants log and to the recipient tenants log.
 
 It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
 For permissioned events, this will only be available to you if you are included in the sharing policy.
@@ -548,9 +647,9 @@ The connecting diagonal dashes above the "tree line" indicate nodes that belong 
                           
                        14 
                           \        affectionately called the alpine zone
-                6           13             22   
+                6           13             21   
                   \            \              \
-    h=2 1 |  2  |  5  |   9  |  12   |  17   | 21  | -- massif 'tree line'
+    h=2 1 |  2  |  5  |   9  |  12   |  17   | 20  | -- massif 'tree line'
           |     |     |      |       |       |     |
         0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
 ```
@@ -591,9 +690,9 @@ The progression of the peak stack (accumulator) can be visualized like this. In 
 ```output
       |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
       |     |     |      |       |       |       |
-      |     |6    |      |13, 14 |       |22     | spurs
+      |     |6    |      |13, 14 |       |21     | spurs
       |     |     |      |       |       |       |
-h=2 1 |  2  |  5  |   9  |  12   |  17   |  21   | <-- massif height 'tree line'
+h=2 1 |  2  |  5  |   9  |  12   |  17   |  20   | <-- massif height 'tree line'
       |     |     |      |       |       |       |
     0 |0   1 3   4| 7   8|10   11|15   16|18   19|
 ```

@@ -477,7 +477,7 @@ They all have very hardware-sympathetic implementations.
 For a massif height of `14`, the fixed size portion is `1048864` bytes.
 
 A typical url for a massif storage blob looks like:  
-`https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/7dfaa5ef-226f-4f40-90a5-c015e59998a8/0/massifs/0000000000000000.log`
+`https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log`
 
 In the above, the *log configuration* identifier is the `/0/` between the tenant uuid and the `massifs/0000000000000000.log`
 
@@ -513,28 +513,29 @@ To read a specific MMR node, find the smallest `Last Node` in [Massif Blob Pre-C
 Taking the massif index of 0 (row 0) use the first mmrIndex:
 
 {{< tabs >}}
-   {{< tab name="Bash" >}}
+    {{< tab name="Bash" >}}
 
-  ```bash
-  LOGSTART=1048864
-  MMRINDEX=0 
-  curl -s \
-    -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
-    -H "x-ms-blob-type: BlockBlob" \
-    -H "x-ms-version: 2019-12-12" \
-    https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$PUBLIC_TENANT/0/massifs/0000000000000000.log  \
-    | od -An -tx1 \
-    | tr -d ' \n'
-  ```
+    ```bash
+    LOGSTART=1048864
+    MMRINDEX=2376
+    curl -s \
+      -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
+      -H "x-ms-blob-type: BlockBlob" \
+      -H "x-ms-version: 2019-12-12" \
+      https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$PUBLIC_TENANT/0/massifs/0000000000000000.log  \
+      | od -An -tx1 \
+      | tr -d ' \n'
+    ```
 
-  Generates:
+    Generates:
 
-  ```output
-  c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
-  ```
-
-  {{< /tab >}}
+    ```output
+    3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+    ```
+    {{< /tab >}}
 {{< /tabs >}}
+
+You can confirm this on the merklelog [page](https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/861dd529-3616-4ad2-b2a9-702da77b8588?public=true) in the public tenant for this event. Look for the "Merkle Leaf" field. 
 
 Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
 
@@ -545,13 +546,13 @@ Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
   veracity \
   --data-url "https://app.datatrails.ai/verifiabledata" \
   -t tenant/$PUBLIC_TENANT \
-  node -i 0
+  node -i 2376
   ```
 
   Generates:
 
   ```output
-  c771c6d578944e907d476d43766fb45ae9b63bbd7730f21c71a2fc8ab313547b
+  3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
   ```
 
   {{< /tab >}}
@@ -580,23 +581,9 @@ It is a hex string and prefixed with `01` which is the epoch from the header.
 To condition the string value, strip the leading `01` and convert the remaining hex to binary.
 Then substitute those bytes, in presentation order, for idTimestamp above.
 
-The bytes for the hash are just `bytes.fromhex("018e84dbbb6513a6"[2:])`
+The bytes for the hash are just `bytes.fromhex("019148fccdbf066400"[2:])`
 
-If you want the actual unix millisecond timestamp you can do this:
-
-{{< tabs >}}
-   {{< tab name="Python" >}}
-
-  ```python
-  epoch = 1
-  unixms=int((
-    bytes.fromhex("018e84dbbb6513a6"[2:])[:-2]).hex(), base=16
-    ) + epoch*((2**40)-1)
-  print(unixms)
-  ```
-
-  {{< /tab >}}
-{{< /tabs >}}
+You can use the earlier python example to convert this format to a regular date time.
 
 ## Which Nodes
 

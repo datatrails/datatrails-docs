@@ -13,13 +13,14 @@
   - /docs/beyond-the-basics/navigating-merklelogs/
 ---
 
+This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.
+
 DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
 "Verifiable data" is synonymous with *log* or *transparency log*.
-
 Once verifiable data is written to the log it is never changed.
 The log only grows, it never shrinks and data in it never moves within the log.
 
-DataTrails provides [open-source tooling](https://github.com/datatrails/veracity/) for working with this Merkle Log format in offline environments.
+To work with Merkle Log format, DataTrails provides [open-source tooling](https://github.com/datatrails/veracity/) for working in offline environments.
 
 To verify DataTrails logs, you will need:
 
@@ -35,26 +36,34 @@ For reference:
 - Examples for verification: [go-datatrails-demos](https://github.com/datatrails/go-datatrails-demos/)
 - Log inclusion and introspection: [veracity](https://github.com/datatrails/veracity/blob/main/README.md)
 
-Should you wish to reproduce these examples from first principals, using only the raw verifiable data structure, you will additionally need the understanding of the log format offered by this article.
+To reproduce these examples from first principals, using only the raw verifiable data structure, an understanding of the log format is provided by this article.
 
 If you already know the basics, and want a straight forward way to deal with the dynamically sized portions of the format, please see [Massif Blob Pre-Calculated Offsets](/developers/developer-patterns/massif-blob-offset-tables)
 
 ## Environment Configuration
 
-To ease copying and pasting commands, update any variables to fit your environment:
+DataTrails operates customer specific Tenants, and a single public tenant.
+
+- **Public events** are shared on the DataTrails public tenant.
+
+- **Protected events** are only visible to the tenant owner, but the commitment (hash) in the log is public.
+
+The examples in this article use a DataTrail's Synsation demo tenant's to represent protected events.
+
+To view *your* protected events, replace `TENANT` with your `Tenant ID`.
+
+Within the [DataTrails app](https://app.datatrails.ai), click the top/right corner, selecting copy Tenancy Identity.
+{{< img src="CopyTenancyIdentity.png" alt="Rectangle" caption="<em>Copy Tenant ID</em>" class="border-0" >}}
+
+Update the variables to fit your environment:
 
 ```bash
-# Public events created by any DataTrails tenant are shared automatically to the
-# public tenant
+# DataTrails Public Tenant
 export PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
 
-# Protected events are only visible to you, but there commitment (hash) in your
-# log is public. These examples use DataTrail's Synsation demo tenant.  You can
-# replace TENANT with your Tenant ID in the following examples. You cannot read
-# the Synsation event data, but you can see the corresponding log entries.
+# Synsation Demo Tenant
+# Replace to view your Tenant logs ane events
 export TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
-
-export DATATRAILS_URL="https://app.datatrails.ai"
 ```
 
 ## Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves
@@ -106,26 +115,37 @@ All individual entries in the log are either 32 bytes or a small multiple of `32
 
 Recalling our configuration (above), the tenants first massif blob can be found at:
 
-```bash
-curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o 0.log
-```
+{{< tabs >}}
+   {{< tab name="bash" >}}
+
+  ```bash
+  curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o 0.log
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 Each massif is stored in a numbered file.
 The filename (`0000000000000000.log`) is the 16-character, zero-padded, massif index.
 
-The datatrails attestation for each massif can be found at a closely associated url.
+The DataTrails attestation for each massif can be found at a closely associated url.
 
 For the massif above it is:  
+{{< tabs >}}
+   {{< tab name="bash" >}}
 
-```bash
-curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifseals/0000000000000000.sth -o 0.sth
-```
+  ```bash
+  curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifseals/0000000000000000.sth -o 0.sth
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 This is a simple reverse proxy to the native azure blob store where your logs are store.
-The full [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/) for getting specific massif blobs can be utilized.
+The full [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/) provides getting specific massif blobs.
 For reasons of cost, all operations are subject to rate limits, listing blobs is not possible, though filtering blobs by tags is permitted.
 Both the massif blobs and the log seal blobs are always tagged with the most recent idtimestamp for the log.
-In the case of the masssif blobs, it is the idtimestamp most recently added to the log. In the case of the seal blob it is the most recent log entry that has been attested by datatrails. The tag name is `lastid`
+In the case of the masssif blobs, it is the idtimestamp most recently added to the log. In the case of the seal blob it is the most recent log entry that has been attested by DataTrails. The tag name is `lastid`
 
 ## Re-Creating Inclusion Proofs Requires Only One Massif
 
@@ -177,7 +197,7 @@ The following curl command reads the version and format information from the hea
   {{< /tab >}}
 {{< /tabs >}}
 
-{{< note >}}the request requires no authentication or authorization.{{< /note >}}
+{{< note >}}The request requires no authentication or authorization.{{< /note >}}
 
 The structure of the header field is:
 
@@ -187,61 +207,59 @@ The structure of the header field is:
 | 1   |     8      |          |      2   |    4   |      1      |     4    | count of bytes
 ```
 
-The idtimestamp of the last leaf entry added to the log is always set in the header field.
+The `idtimestamp` of the last leaf entry added to the log is always set in the header field.
 
-In the hex data above, the idtimestamp of the last entry in the log is `9148fcc832066400`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
+In the hex data above, the `idtimestamp` of the last entry in the log is `9148fcc832066400`[^2], the version is `0`, the timestamp epoch is `1`, the massif height is `14`, and the massif index is `0`.
 
-[^2]: The idtimestamp value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
+[^2]: The `idtimestamp` value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
 DataTrails uses a variant of the [Snowflake ID](https://en.wikipedia.org/wiki/Snowflake_ID) scheme.
 The DataTrails implementation can be found at [nextid.go](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118)
 
 ### Decoding an idtimestamp
 
-The idtimestamp is 40 bits of time at millisecond precision.
-The idtimestamp in the header field is always set to the idtimestamp of the most recently added leaf.
+The `idtimestamp` is 40 bits of time at millisecond precision.
+The `idtimestamp` in the header field is always set to the `idtimestamp` of the most recently added leaf.
+
+The following examples depend on a python environment:
 
 {{< tabs >}}
-   {{< tab name="Python" >}}
+  {{< tab name="Python" >}}
 
-   ```python
-   import datetime
-   
-   def idtimestamp_to_date(id: str):
-       """Safely convert an idtimestamp hex string to a regular date time"""
+  ```python
+  import datetime
+  import sys
 
-       # ignore the common '0x' prefix
-       if (id.startswith("0x")):
-           id = id[2:]
-   
-       if len(id) > 18:
-           raise ValueError("idtimestamp must be 18 or 16 hex chars")
-   
-       epoch = 1 # the epochs are aligned with the unix epoch but are half as long
-       if len(id) == 18:
-           epoch = int(id[:2])
-           id = id[2:]
-       if len(id) != 16:
-           raise ValueError("idtimestamp must be 18 or 16 hex chars")
-   
-       # To get the time portion we strip the trailing sequence and generator id
-       unixms=int((
+  def idtimestamp_to_date(id: str):
+      """Safely convert an idtimestamp hex string to a regular date time"""
+      
+      # ignore the common '0x' prefix
+      if (id.startswith("0x")):
+          id = id[2:]
+      
+      if len(id) > 18:
+          raise ValueError("idtimestamp must be 18 or 16 hex chars")
+      epoch = 1 # the epochs are aligned with the unix epoch but are half as long
+      if len(id) == 18:
+          epoch = int(id[:2])
+          id = id[2:]
+      
+      if len(id) != 16:
+          raise ValueError("idtimestamp must be 18 or 16 hex chars")
+      
+      # To get the time portion we strip the trailing sequence and generator id
+      unixms=int((
           bytes.fromhex(id)[:-3]).hex(), base=16
           ) + epoch*((2**40)-1)
-       return datetime.datetime.fromtimestamp(unixms/1000)
+      return datetime.datetime.fromtimestamp(unixms/1000)
 
+  print(idtimestamp_to_date('9148fcc832066400'))
+  ```
 
-   if __name__=="__main__":
-       import sys
-       print(idtimestamp_to_date(sys.argv[1]))
-   ```
+  Generates:
 
-   Saving this to `idtime.py` and running `python3 9148fcc832066400`
-
-   Generates:
-
-   ```output
-   2024-08-13 00:46:51.569000
-   ```
+  ```output
+  2024-08-13 00:46:51.569000
+  ```
 
   {{< /tab >}}
 {{< /tabs >}}
@@ -291,20 +309,20 @@ SHA256(BYTE(0x00) || tenant-identity || event.identity)
 ```
 
 Described in further detail in the [term-cheatsheet](https://github.com/datatrails/go-datatrails-merklelog/blob/main/term-cheatsheet.md#trie-entry)
-Note that the idtimestamp is unique to the tenant and the DataTrails service.
-When sharing events with other tenants, the idtimestamp will not correlate directly with activity in other tenant logs.
+Note that the `idtimestamp` is unique to the tenant and the DataTrails service.
+When sharing events with other tenants, the `idtimestamp` will not correlate directly with activity in other tenant logs.
 
 When a massif is initialized the trieData is pre-populated for all leaves and set to all zero bytes.
 As events are recorded in the log, the zero-padded index is filled in.
-A sub-range of field 0 will change when saving the last idtimestamp in it.
+A sub-range of field 0 will change when saving the last `idtimestamp` in it.
 The MMR node values are strictly only ever appended to the blob.
 Once appended they will never change and they will never move.
 
-Returning to the trieData section, given an event identity of: 
+Returning to the trieData section, given an event identity of:
 
 `assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208`
 
-The trieKey for the synstation tenant's log is:
+The trieKey for the synsation tenant's log is:
 `d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9`
 
 The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.
@@ -318,6 +336,8 @@ The following python snippet generates a trieKey from the event data to confirm 
 
   TENANT=os.environ['TENANT']
   PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
+  ASSET='20d6f57c-bce2-4be9-8e70-95ded25399b7'
+  EVENT='bbd934cb-a20f-44c9-aa5d-a3ce333c5208'
 
   def triekey(tenant, event):
       h = hashlib.sha256()
@@ -328,7 +348,7 @@ The following python snippet generates a trieKey from the event data to confirm 
 
   print(triekey(
   "tenant/" + TENANT,
-  "assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208"))
+  "assets/" + ASSET + "/events/" + EVENT))
   ```
 
   generates:
@@ -336,133 +356,152 @@ The following python snippet generates a trieKey from the event data to confirm 
   ```output
   d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
   ```
+
   {{< /tab >}}
 {{< /tabs >}}
 
 The above example is an event on a public asset, so it can be found in the public tenant's merkle log.
 
-Using curl, fetch the public tenants log,
-
-```bash
-curl -s \
-  -H "x-ms-blob-type: BlockBlob" \
-  -H "x-ms-version: 2019-12-12" \
-  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o mmr.log
-```
-
-Using python, we can more readily illustrate the 32 byte aligned format
+Using the python requests object (or curl), fetch the public tenants log,
 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-    ```python
+  ```python
+  import requests
+  import os
 
-    import requests
-    import binascii
- 
-    def readfields(tenant, log="0000000000000000"):
-        r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+tenant+'/0/massifs/'+log+'.log')
-        hex = binascii.hexlify(r.content).decode('utf-8')
-        for i in range(int(len(hex) / 64)):
-            yield hex[i*64:(i+1)*64]
- 
- 
-    if __name__ == "__main__":
-        import sys
-        log = "0000000000000000"
-        if len(sys.argv) > 2:
-            log = sys.argv[2]
-        for field in readfields(sys.argv[1], log):
-            print(field)
-    ```
+  TENANT=os.environ['TENANT']
+  
+  r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+
+    TENANT+'/0/massifs/0000000000000000.log',
+    headers={"x-ms-blob-type": "BlockBlob", "x-ms-version": "2019-12-12"})
+  
+  with open("mmr.log", "w") as f:
+    f.write(r.text)
+  ```
 
-    The first few fields will look like
+  {{< /tab >}}
+  {{< tab name="Bash" >}}
 
-    ```output
-    00000000000000009148fda07f06640000000000000000000000010e00000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
-    0000000000000000000000000000000000000000000000009148fcc832066400
-    f67192c6a4fe6a3454000225647deb37e7c488461b1d52f8d1dc58222d49d4db
-    0000000000000000000000000000000000000000000000009148fccedb045d00
-    1057b8d9caaf1f09e46e04a4e36295276fa8f2ef676144f4b90fc47e335ea51e
-    0000000000000000000000000000000000000000000000009148fd0d47066400
-    7fe0c5553a639bbeb5e0c26e24c94722f126fa258560097c531e9eb12e12dc88
-    0000000000000000000000000000000000000000000000009148fd52e7066400
-    0e561df1aa165967ffe12b0d84491e29349d0022f840d9dcb5bb3fe62551ef5c
-    0000000000000000000000000000000000000000000000009148fda07f066400
-    0000000000000000000000000000000000000000000000000000000000000000
-    0000000000000000000000000000000000000000000000000000000000000000
-    ```
+  ```bash
+  curl -s \
+    -H "x-ms-blob-type: BlockBlob" \
+    -H "x-ms-version: 2019-12-12" \
+    https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$TENANT/0/massifs/0000000000000000.log -o mmr.log
+  ```
+
+  {{< /tab >}}
+{{< /tabs >}}
+
+Using python, we can more readily illustrate the 32 byte aligned format.
+
+{{< tabs >}}
+   {{< tab name="Python" >}}
+
+  ```python
+  import requests
+  import binascii
+  import sys
+  
+  def readfields(tenant, log="0000000000000000"):
+      r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+tenant+'/0/massifs/'+log+'.log')
+      hex = binascii.hexlify(r.content).decode('utf-8')
+      for i in range(int(len(hex) / 64)):
+          yield hex[i*64:(i+1)*64]
+  
+  log = "0000000000000000"
+  for field in readfields(`UNKNOWN-VALUE`, log):
+      print(field)
+  ```
+
+  The first few fields will look like
+
+  ```output
+  00000000000000009148fda07f06640000000000000000000000010e00000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+  0000000000000000000000000000000000000000000000009148fcc832066400
+  f67192c6a4fe6a3454000225647deb37e7c488461b1d52f8d1dc58222d49d4db
+  0000000000000000000000000000000000000000000000009148fccedb045d00
+  1057b8d9caaf1f09e46e04a4e36295276fa8f2ef676144f4b90fc47e335ea51e
+  0000000000000000000000000000000000000000000000009148fd0d47066400
+  7fe0c5553a639bbeb5e0c26e24c94722f126fa258560097c531e9eb12e12dc88
+  0000000000000000000000000000000000000000000000009148fd52e7066400
+  0e561df1aa165967ffe12b0d84491e29349d0022f840d9dcb5bb3fe62551ef5c
+  0000000000000000000000000000000000000000000000009148fda07f066400
+  0000000000000000000000000000000000000000000000000000000000000000
+  0000000000000000000000000000000000000000000000000000000000000000
+  ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
 Note the trieKey we derived earlier is easily spotted at row 9, and its
-idtimestamp, `9148fcc832066400`, is in the subsequent field
+`idtimestamp`, `9148fcc832066400`, is in the subsequent field
 
 All public events are automatically shared to the public tenant. This makes the
 event data visible without access control. The example event we created in the
 Synsation tenant is a public event. We can obtain its corresponding entry in the
 log by deriving its trieKey, and recalling our implementation for `triekey` above
 
-
 Obtain the trie key for the public tenant event:
 
 {{< tabs >}}
    {{< tab name="Python" >}}
 
-    ```python
+  ```python
+  import hashlib
+  import os
+  
+  TENANT=os.environ['TENANT']
+  PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
+  ASSET='20d6f57c-bce2-4be9-8e70-95ded25399b7'
+  EVENT='bbd934cb-a20f-44c9-aa5d-a3ce333c5208'
+  
+  def triekey(tenant, event):
+      h = hashlib.sha256()
+      h.update(bytes([0]))
+      h.update(tenant.encode())
+      h.update(event.encode())
+      return h.hexdigest()
+  
+  print(triekey(
+    "tenant/" + PUBLIC_TENANT,
+    "assets/" + ASSET +
+    "/events/" + EVENT))
+  ```
 
-    import hashlib
-    import os
+  Generates:
 
-    TENANT=os.environ['TENANT']
-    PUBLIC_TENANT=os.environ['PUBLIC_TENANT']
-
-    def triekey(tenant, event):
-        h = hashlib.sha256()
-        h.update(bytes([0]))
-        h.update(tenant.encode())
-        h.update(event.encode())
-        return h.hexdigest()
-        
-    print(triekey(
-      "tenant/" + PUBLIC_TENANT,
-      "assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208"))
-    ```
-
-    Generates:
-
-    ```output
-    c31114a64b9dca1376d7af999d35b4fa05a75965cb49d2b58386e19b8bbc73a9
-    ```
+  ```output
+  c31114a64b9dca1376d7af999d35b4fa05a75965cb49d2b58386e19b8bbc73a9
+  ```
 
   {{< /tab >}}
 {{< /tabs >}}
 
-If you similarly run `getlog` (from our example above) on the public tenant, the public trieKey is found
+If you similarly run `getlog` (from the example above) on the public tenant, the public trieKey is found
 at line 2390.  As this log commits events shared from many tenants, the MMRIndex
 of the publicly committed event is different (and quite a lot higher)
 
 The full details of the publicly available event can be found [here](https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/bbd934cb-a20f-44c9-aa5d-a3ce333c5208?public=true)
 
-Noting that we do not include the 'public' routing prefix on the event identity.
+Noting that the `public` routing prefix is not prepended on the event identity.
 
 This works the same for regular OBAC shares, a shared event is committed both to
 the originating tenants log and to the recipient tenants log.
 
 It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
-For permissioned events, this will only be available to you if you are included in the sharing policy.
-The idtimestamp is different for each log, guaranteed unique within the context of a single log, and,
-assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
+For permissioned events, this will only be available if the executing identity is included in the sharing policy.
+The `idtimestamp` is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.
 
 It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.
 
@@ -485,7 +524,7 @@ The massif height is recorded at the start record of every massif, and guarantee
 
 Currently all DataTrails tenants use the same configuration.
 In the future, DataTrails may change the height for massifs.
-In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path, eg `/1/massifs/0000000000000123.log`.
+In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path. For example: (`/1/massifs/0000000000000123.log`).
 The log would be immediately available for continued growth.
 The historic configuration continues to be available under the `/0/` path.
 Depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.
@@ -513,29 +552,30 @@ To read a specific MMR node, find the smallest `Last Node` in [Massif Blob Pre-C
 Taking the massif index of 0 (row 0) use the first mmrIndex:
 
 {{< tabs >}}
-    {{< tab name="Bash" >}}
+  {{< tab name="Bash" >}}
 
-    ```bash
-    LOGSTART=1048864
-    MMRINDEX=2376
-    curl -s \
-      -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
-      -H "x-ms-blob-type: BlockBlob" \
-      -H "x-ms-version: 2019-12-12" \
-      https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$PUBLIC_TENANT/0/massifs/0000000000000000.log  \
-      | od -An -tx1 \
-      | tr -d ' \n'
-    ```
+  ```bash
+  LOGSTART=1048864
+  MMRINDEX=2376
+  curl -s \
+    -H "Range: bytes=$(($LOGSTART+$MMRINDEX*32))-$(($LOGSTART+$MMRINDEX*32+31))" \
+    -H "x-ms-blob-type: BlockBlob" \
+    -H "x-ms-version: 2019-12-12" \
+    https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/$PUBLIC_TENANT/0/massifs/0000000000000000.log  \
+    | od -An -tx1 \
+    | tr -d ' \n'
+  ```
 
-    Generates:
+  Generates:
 
-    ```output
-    3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
-    ```
-    {{< /tab >}}
+  ```output
+  3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+  ```
+
+  {{< /tab >}}
 {{< /tabs >}}
 
-You can confirm this on the merklelog [page](https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/861dd529-3616-4ad2-b2a9-702da77b8588?public=true) in the public tenant for this event. Look for the "Merkle Leaf" field. 
+You can confirm this on the merklelog [page](https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/861dd529-3616-4ad2-b2a9-702da77b8588?public=true) in the public tenant for this event. Look for the "Merkle Leaf" field.
 
 Optionally use [veracity](https://github.com/datatrails/veracity/) to confirm:
 

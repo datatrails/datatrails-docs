@@ -305,7 +305,7 @@ steps:
       arc_display_name: My First Container
       arc_display_type: Shipping Container
       arc_home_location_identity: <your-location-id>
-    confirm: true
+    confirm: false
 ```
 
 The YAML Runner also allows you to create new locations at Asset Creation.
@@ -335,7 +335,7 @@ steps:
       attributes: 
         action: LOCATIONS_CREATE_IF_NOT_EXISTS
         location_label: UK Factory
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}
@@ -383,7 +383,7 @@ steps:
       new_event: Record Asset Location
     asset_attributes:
       arc_home_location_identity: locations/<location-id>
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

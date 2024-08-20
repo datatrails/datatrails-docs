@@ -170,7 +170,6 @@ Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `
 
 This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
 
-It's also good practice to include `confirm: true` which tells DataTrails to finish committing the Asset before moving to the next step.
 
 ```yaml
 ---
@@ -198,7 +197,7 @@ steps:
       description: Box intersection between Mill Road and East Road
       latitude: 52.2025
       longitude: 0.1311
-    confirm: true
+    confirm: false
 ```
 
 {{< /tab >}}

@@ -898,7 +898,7 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
@@ -1008,7 +1008,7 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
 </div>
   <div id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2">
@@ -1315,7 +1315,6 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
 <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
-<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells DataTrails to finish committing the Asset before moving to the next step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -1341,7 +1340,7 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Box intersection between Mill Road and East Road</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span><span class="m">52.2025</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">0.1311</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_extended_attributes-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-2">
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
@@ -1714,7 +1713,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">inspection_standards.pdf</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">document/pdf</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Inspection Standards</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2">
 <p>You may add an attachment to your Event. To do so you will need to upload your attachment to DataTrails using the 
@@ -2023,7 +2022,7 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2">
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
@@ -2101,7 +2100,7 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2">
 <p>The DataTrails API uses the reserved attributes <code>arc_display_name</code> and <code>arc_display_type</code>  to represent <code>Asset Name</code> and <code>Asset Type</code>respectively.</p>
@@ -2666,7 +2665,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">dee@writeme.org</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Anne Author</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">anne@writeme.org  </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_new_version-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-2">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
@@ -2745,7 +2744,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
 <p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
@@ -2807,7 +2806,7 @@ The <code>Record Event</code> button provides a way to record generic events tha
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Document review</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w">  </span><span class="l">Review</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -3070,7 +3069,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Example</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">some_custom_attribute</span><span class="p">:</span><span class="w"> </span><span class="l">anything you like</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="create_sbom_public-2" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-2">
 <p>Create a JSON file with your desired Asset details. Set keyword <code>public</code> to true.</p>
@@ -6507,7 +6506,7 @@ An example response for a non-compliant Asset</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_home_location_identity</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;your-location-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>The YAML Runner also allows you to create new locations at Asset Creation.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -6533,7 +6532,7 @@ An example response for a non-compliant Asset</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">LOCATIONS_CREATE_IF_NOT_EXISTS</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">location_label</span><span class="p">:</span><span class="w"> </span><span class="l">UK Factory</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2">
 <p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
@@ -6619,7 +6618,7 @@ For more information on creating Events, please visit
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">new_event</span><span class="p">:</span><span class="w"> </span><span class="l">Record Asset Location</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_home_location_identity</span><span class="p">:</span><span class="w"> </span><span class="l">locations/&lt;location-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_to_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -12766,10 +12765,7 @@ If you are looking for a simple way to test our API you might prefer our
 <p>Create the 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.</p>
-<p>One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.</p>
-<p>Another is to parse the Event API call for <strong>400 Bad Request</strong> errors (optionally also check for <strong>429 Too Many Requests</strong> errors) and then retry the call after a few seconds.</p>
-</div>
+    <div><strong></strong> <strong>Note:</strong> You will need to create an Asset first in order to submit Events against it.</div>
   </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -20829,7 +20825,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ev_pump</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>The output of this action is available in the 
 <a href="https://app.datatrails.ai" target="_blank" rel="noopener">DataTrails UI</a>:</p>
 
@@ -20870,7 +20866,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ev_pump</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-list">Assets List</h2>
 <p>This action returns a list of all Assets that meet your specified criteria. Setting <code>print_response: true</code> is necessary to print the full output.</p>
 <p>In the example below, our action will return a list of all Assets with <code>arc_display_type: pump</code>.</p>
@@ -20918,6 +20914,8 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-wait-for-confirmed">Assets Wait For Confirmed</h2>
 <p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.</p>
+<p>This step is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view or interact with your Assets.
+If this is not needed then do not wait for confirmation.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -20934,7 +20932,9 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-create">Events Create</h2>
 <p>The <code>asset_label</code> must match the setting when the Asset was created in an earlier step. The <code>asset_label</code> may also be specified as the Asset ID of an existing Asset, in the form <code>assets/&lt;asset-id&gt;</code>.</p>
 <p>There are a few optional settings that can be used when creating Events. <code>attachments</code> uploads the attachment to DataTrails and the response is added to the Event before posting. <code>location</code> creates the location if it does not exist and adds it to the Event. The <code>sbom</code> setting uploads the SBOM to DataTrails and adds the response to the Event before posting.</p>
-<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.</p>
+<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.
+This is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view the Event.
+If this is not needed then do not wait for confirmation.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -20968,7 +20968,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attachments</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">functests/test_resources/doors/events/door_open.png</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">image/png</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>This example creates an Event with custom Event attributes, creates and adds a location, and adds an image attachment.</p>
 <p>Events may also be used to release a software package as an SBOM, such as the example below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -20980,7 +20980,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">ACME Corporation Detector SAAS Released YYYYMMDD.1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Software Package Release</span><span class="w">
@@ -20988,7 +20988,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">functests/test_resources/sbom/gen1.xml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">text/xml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">ACME Generation1 SBOM</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">True</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">privacy</span><span class="p">:</span><span class="w"> </span><span class="l">PRIVATE</span><span class="w">
 </span></span></span></code></pre></div><h2 id="events-list">Events List</h2>
@@ -22371,7 +22371,7 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
@@ -22481,7 +22481,7 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
 </div>
   <div id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2">
@@ -22788,7 +22788,6 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
 <p>This example also adds a location to our asset. To find out more about locations, 
 <a href="/platform/administration/grouping-assets-by-location/">click here</a>.</p>
-<p>It&rsquo;s also good practice to include <code>confirm: true</code> which tells DataTrails to finish committing the Asset before moving to the next step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -22814,7 +22813,7 @@ The DataTrails YAML runner is executed as a series of steps, each step represent
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Box intersection between Mill Road and East Road</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">latitude</span><span class="p">:</span><span class="w"> </span><span class="m">52.2025</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">longitude</span><span class="p">:</span><span class="w"> </span><span class="m">0.1311</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_extended_attributes-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_extended_attributes-2">
 <p>Extended attributes are custom key-value pairs, such as <code>Width</code>, <code>Length</code>, and <code>Height</code> you see below.</p>
@@ -23187,7 +23186,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">inspection_standards.pdf</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">document/pdf</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Inspection Standards</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_event_attr-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_event_attr-2">
 <p>You may add an attachment to your Event. To do so you will need to upload your attachment to DataTrails using the 
@@ -23496,7 +23495,7 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details-2">
 <p>In the file you created earlier, begin adding metadata for your Asset:</p>
@@ -23574,7 +23573,7 @@ The Trust data:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_value</span><span class="p">:</span><span class="w"> </span><span class="l">ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_hash_alg</span><span class="p">:</span><span class="w"> </span><span class="l">sha256</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">document_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_asset_details_min-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_asset_details_min-2">
 <p>The DataTrails API uses the reserved attributes <code>arc_display_name</code> and <code>arc_display_type</code>  to represent <code>Asset Name</code> and <code>Asset Type</code>respectively.</p>
@@ -24139,7 +24138,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">dee@writeme.org</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Anne Author</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l">anne@writeme.org  </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_new_version-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_new_version-2">
 <p>Add your <code>event_attributes</code> and <code>asset_attributes</code> as key-value pairs.</p>
@@ -24218,7 +24217,7 @@ The Advanced Options tab is for additional Asset and Event attributes that are n
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw My First Document</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Withdraw</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="withdraw_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="withdraw_event-2">
 <p>Use the attribute/value pairs in the example below to register a <code>Withdraw</code> event</p>
@@ -24280,7 +24279,7 @@ The <code>Record Event</code> button provides a way to record generic events tha
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Document review</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w">  </span><span class="l">Review</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="record_event-2" class="tab-pane fade" role="tabpanel" aria-labelledby="record_event-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -24543,7 +24542,7 @@ Set the <code>Attest Publicly</code> toggle to <code>On</code>.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Example</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">This example asset is publicly attested, so anyone with the link can access its details without signing in to DataTrails.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">some_custom_attribute</span><span class="p">:</span><span class="w"> </span><span class="l">anything you like</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="create_sbom_public-2" class="tab-pane fade" role="tabpanel" aria-labelledby="create_sbom_public-2">
 <p>Create a JSON file with your desired Asset details. Set keyword <code>public</code> to true.</p>
@@ -27980,7 +27979,7 @@ An example response for a non-compliant Asset</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">My First Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_home_location_identity</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;your-location-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>The YAML Runner also allows you to create new locations at Asset Creation.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -28006,7 +28005,7 @@ An example response for a non-compliant Asset</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">LOCATIONS_CREATE_IF_NOT_EXISTS</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">location_label</span><span class="p">:</span><span class="w"> </span><span class="l">UK Factory</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_at_asset_create-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_at_asset_create-2">
 <p>A pre-existing location can be added during Asset creation, using the Location ID as an identifier (e.g. <code>locations/&lt;location-id&gt;</code>).</p>
@@ -28092,7 +28091,7 @@ For more information on creating Events, please visit
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">new_event</span><span class="p">:</span><span class="w"> </span><span class="l">Record Asset Location</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_home_location_identity</span><span class="p">:</span><span class="w"> </span><span class="l">locations/&lt;location-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div></div>
   <div id="add_to_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="add_to_asset-2">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -34239,10 +34238,7 @@ If you are looking for a simple way to test our API you might prefer our
 <p>Create the 
 <a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
 <blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> You will need to create an Asset and wait for it to reach COMMITTED state before attempting to record an Event against that Asset. If you do not do this the API call will respond with an error.</p>
-<p>One solution is to make a GET API call against the Asset ID and check that the confirmation_status field is COMMITTED, CONFIRMED of UNEQUIVOCAL before making the call to record the Event.</p>
-<p>Another is to parse the Event API call for <strong>400 Bad Request</strong> errors (optionally also check for <strong>429 Too Many Requests</strong> errors) and then retry the call after a few seconds.</p>
-</div>
+    <div><strong></strong> <strong>Note:</strong> You will need to create an Asset first in order to submit Events against it.</div>
   </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <p>Define the Event parameters and store in <code>/path/to/jsonfile</code>:</p>
@@ -42302,7 +42298,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ev_pump</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>The output of this action is available in the 
 <a href="https://app.datatrails.ai" target="_blank" rel="noopener">DataTrails UI</a>:</p>
 
@@ -42343,7 +42339,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ev_pump</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-list">Assets List</h2>
 <p>This action returns a list of all Assets that meet your specified criteria. Setting <code>print_response: true</code> is necessary to print the full output.</p>
 <p>In the example below, our action will return a list of all Assets with <code>arc_display_type: pump</code>.</p>
@@ -42391,6 +42387,8 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">pump</span><span class="w">
 </span></span></span></code></pre></div><h2 id="assets-wait-for-confirmed">Assets Wait For Confirmed</h2>
 <p>This action tells the YAML Runner to wait before proceeding to the next step until all Assets that meet your specified criteria are confirmed/committed.</p>
+<p>This step is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view or interact with your Assets.
+If this is not needed then do not wait for confirmation.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
@@ -42407,7 +42405,9 @@ If you are looking for a simple way to test our API you might prefer our
 <h2 id="events-create">Events Create</h2>
 <p>The <code>asset_label</code> must match the setting when the Asset was created in an earlier step. The <code>asset_label</code> may also be specified as the Asset ID of an existing Asset, in the form <code>assets/&lt;asset-id&gt;</code>.</p>
 <p>There are a few optional settings that can be used when creating Events. <code>attachments</code> uploads the attachment to DataTrails and the response is added to the Event before posting. <code>location</code> creates the location if it does not exist and adds it to the Event. The <code>sbom</code> setting uploads the SBOM to DataTrails and adds the response to the Event before posting.</p>
-<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.</p>
+<p><code>confirm: true</code> tells the YAML Runner to wait for the Event to be committed before moving to the next step.
+This is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view the Event.
+If this is not needed then do not wait for confirmation.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
@@ -42441,7 +42441,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attachments</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">functests/test_resources/doors/events/door_open.png</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">image/png</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div><p>This example creates an Event with custom Event attributes, creates and adds a location, and adds an image attachment.</p>
 <p>Events may also be used to release a software package as an SBOM, such as the example below:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
@@ -42453,7 +42453,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">operation</span><span class="p">:</span><span class="w"> </span><span class="l">Record</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviour</span><span class="p">:</span><span class="w"> </span><span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_attributes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">ACME Corporation Detector SAAS Released YYYYMMDD.1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Software Package Release</span><span class="w">
@@ -42461,7 +42461,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">functests/test_resources/sbom/gen1.xml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">content_type</span><span class="p">:</span><span class="w"> </span><span class="l">text/xml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">ACME Generation1 SBOM</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">True</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">privacy</span><span class="p">:</span><span class="w"> </span><span class="l">PRIVATE</span><span class="w">
 </span></span></span></code></pre></div><h2 id="events-list">Events List</h2>

@@ -403,6 +403,8 @@ Using python, we can more readily illustrate the 32 byte aligned format.
   import requests
   import binascii
   import sys
+  SYNSATION_TENANT = "6a009b40-eb55-4159-81f0-69024f89f53c"
+  TENANT=os.environ.get('TENANT', SYNSATION_TENANT) # default to synsation if not in env 
   
   def readfields(tenant, log="0000000000000000"):
       r = requests.get('https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/'+tenant+'/0/massifs/'+log+'.log')
@@ -411,7 +413,7 @@ Using python, we can more readily illustrate the 32 byte aligned format.
           yield hex[i*64:(i+1)*64]
   
   log = "0000000000000000"
-  for field in readfields(`UNKNOWN-VALUE`, log):
+  for field in readfields(TENANT, log):
       print(field)
   ```
 

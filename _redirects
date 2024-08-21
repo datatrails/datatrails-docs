@@ -1,14 +1,15 @@
 # redirects for Netlify - https://www.netlify.com/docs/redirects/
 /docs/overview/introduction/ /platform/overview/introduction/
-/docs/user-patterns/authenticity-and-attestation/ /usecases/authenticity-and-attestation/
 ../setup-and-administration/getting-access-tokens-using-app-registrations /developers/developer-patterns/getting-access-tokens-using-app-registrations/
 /docs/rkvst-basics/getting-access-tokens-using-app-registrations/ /developers/developer-patterns/getting-access-tokens-using-app-registrations/
 ../quickstart/when-who-did-what-to-an-asset /platform/overview/core-concepts/
 /docs/overview/core-concepts/ /platform/overview/core-concepts/
-/docs/user-patterns/bill-of-materials/ /usecases/bill-of-materials/
+/docs/user-patterns/authenticity-and-attestation/ /usecases/authenticity-media-files/
+/usecases/authenticity-and-attestation/ /usecases/authenticity-media-files/
+/docs/user-patterns/state-machine/ /usecases/sc-state-machine/
+/usecases/state-machine/ /usecases/sc-state-machine/
 /docs/overview/advanced-concepts/ /platform/overview/advanced-concepts/
 /docs/developer-patterns/containers-as-assets/ /developers/developer-patterns/containers-as-assets/
-/docs/user-patterns/state-machine/ /usecases/state-machine/
 /docs/developer-patterns/namespace/ /developers/developer-patterns/namespace/
 ../quickstart/creating-an-asset /platform/overview/creating-an-asset/
 ../quickstart/tutorial /platform/overview/creating-an-asset/
@@ -16,6 +17,7 @@
 ../quickstart/creating-an-event-against-an-asset /platform/overview/creating-an-event-against-an-asset/
 /docs/rkvst-basics/creating-an-event-against-an-asset/ /platform/overview/creating-an-event-against-an-asset/
 /docs/beyond-the-basics/public-attestation/ /platform/overview/public-attestation/
+/docs/user-patterns/bill-of-materials/ /usecases/bill-of-materials/
 /docs/beyond-the-basics/navigating-merklelogs/ /developers/developer-patterns/navigating-merklelogs/
 /docs/overview/identity-and-access-management/ /platform/administration/identity-and-access-management/
 /docs/beyond-the-basics/verified-domain/ /platform/administration/verified-domain/

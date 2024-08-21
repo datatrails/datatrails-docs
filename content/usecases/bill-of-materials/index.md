@@ -9,7 +9,7 @@ images: []
 menu:
   usecases:
     parent: "usecases"
-weight: 31
+weight: 40
 toc: true
 aliases:
   - /docs/user-patterns/bill-of-materials/

@@ -1099,7 +1099,26 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></div></div>
 
-`},{id:5,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
+`},{id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
+<p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
+<p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;test_02-17-23&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Width&#34;</span><span class="p">:</span> <span class="s2">&#34;2.43m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Length&#34;</span><span class="p">:</span> <span class="s2">&#34;6.06m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Height&#34;</span><span class="p">:</span> <span class="s2">&#34;2.59m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>To use namespace as a variable, such as the date, add the argument to your Bash environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
+</span></span></code></pre></div><p>See 
+<a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
+`},{id:6,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
 <p>Each Asset will have a history of any actions performed upon it by any actor.</p>
 <p>You may share Assets and their history with specific stakeholders using 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">permission sharing</a>. DataTrails also enables you to publicly attest the provenance of your Assets. To learn how, see 
@@ -1510,25 +1529,6 @@ Here we see all details entered: The extended attributes and a history of Events
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
 </li>
 </ol>
-`},{id:6,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
-<p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
-<p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;test_02-17-23&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Width&#34;</span><span class="p">:</span> <span class="s2">&#34;2.43m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Length&#34;</span><span class="p">:</span> <span class="s2">&#34;6.06m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Height&#34;</span><span class="p">:</span> <span class="s2">&#34;2.59m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>To use namespace as a variable, such as the date, add the argument to your Bash environment:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
-</span></span></code></pre></div><p>See 
-<a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
 `},{id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
@@ -4165,7 +4165,725 @@ Set the toggle next to <code>Attest Publicly</code> to <code>ON</code>.</p>
 </p>
 </li>
 </ol>
-`},{id:14,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+`},{id:14,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
+<p>DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
+&ldquo;Verifiable data&rdquo; is synonymous with <em>log</em> or <em>transparency log</em>.
+Once verifiable data is written to the log it is never changed.
+The log only grows, it never shrinks and data in it never moves within the log.</p>
+<p>To work with Merkle Log format, DataTrails provides 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source tooling</a> for working in offline environments.</p>
+<p>To verify DataTrails logs, you will need:</p>
+<ol>
+<li>A copy of the section of the log containing your event, (or the url to the
+publicly available log data)</li>
+<li>A copy of any log <em>seal</em> from <em>any</em> time after your event was included</li>
+<li>A copy of any events you wish to verify are included within the log</li>
+<li>A Tenant ID to run the samples</li>
+</ol>
+<p>For reference:</p>
+<ul>
+<li>DataTrails log implementation: 
+<a href="https://github.com/datatrails/go-datatrails-merklelog" target="_blank" rel="noopener">go-datatrails-merklelog</a>.</li>
+<li>Examples for verification: 
+<a href="https://github.com/datatrails/go-datatrails-demos/" target="_blank" rel="noopener">go-datatrails-demos</a></li>
+<li>Log inclusion and introspection: 
+<a href="https://github.com/datatrails/veracity/blob/main/README.md" target="_blank" rel="noopener">veracity</a></li>
+</ul>
+<p>To reproduce these examples from first principals, using only the raw verifiable data structure, an understanding of the log format is provided by this article.</p>
+<p>If you already know the basics, and want a straight forward way to deal with the dynamically sized portions of the format, please see 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a></p>
+<h2 id="environment-configuration">Environment Configuration</h2>
+<p>DataTrails operates customer specific Tenants, and a single public tenant.</p>
+<ul>
+<li>
+<p><strong>Public events</strong> are shared on the DataTrails public tenant.</p>
+</li>
+<li>
+<p><strong>Protected events</strong> are only visible to the tenant owner, but the commitment (hash) in the log is public.</p>
+</li>
+</ul>
+<p>The examples in this article use a DataTrail&rsquo;s Synsation demo tenant&rsquo;s to represent protected events.</p>
+<p>To view <em>your</em> protected events, replace <code>TENANT</code> with your <code>Tenant ID</code>.</p>
+<p>Within the 
+<a href="https://app.datatrails.ai" target="_blank" rel="noopener">DataTrails app</a>, click the top/right corner, selecting copy Tenancy Identity.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#CopyTenancyIdentity" img class="img-fluid responsive" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity.png" width="432" height="282" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity.png" width="432" height="282" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Copy Tenant ID</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="CopyTenancyIdentity" tabindex="-1" aria-labelledby="CopyTenancyIdentity" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" width="432" height="282" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>Update the variables to fit your environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># DataTrails Public Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PUBLIC_TENANT</span><span class="o">=</span><span class="s2">&#34;6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Synsation Demo Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace to view your Tenant logs ane events</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TENANT</span><span class="o">=</span><span class="s2">&#34;6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span></code></pre></div><h2 id="each-log-is-comprised-of-many-massif-blobs-each-containing-a-fixed-number-of-leaves">Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+-----------+ +-----------+ .. +----------+
+</span></span><span class="line"><span class="cl">| massif 0  | | massif 1  |    | massif n
+</span></span><span class="line"><span class="cl">+-----------+ +-----------+ .. +----------+
+</span></span></code></pre></div><blockquote>
+<p>Illustration demonstrating the last massif is always in the process of being <em>appended</em> to</p>
+</blockquote>
+<p>What is a massif?
+In this context, a massif means a 
+<a href="https://www.oxfordlearnersdictionaries.com/definition/american_english/massif" target="_blank" rel="noopener">group of mountains that form a large mass</a>.
+Massif originates from the verifiable data structure used in the Merkle Mountain Range <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (MMR) based log.</p>
+<p>Merkle Mountain Ranges are attributed to 
+<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html" target="_blank" rel="noopener">Peter Todd</a>, though much parallel invention has occurred.
+The &ldquo;post order&rdquo;, write once &amp; append only nature of the tree organization was first discussed in 3.3 of the 
+<a href="https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" target="_blank" rel="noopener">Crosby, Wallach paper</a>.
+They have been independently analyzed in the context of 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">cryptographic asynchronous accumulators</a>, Generalized multi-proofs for 
+<a href="https://eprint.iacr.org/2021/038.pdf" target="_blank" rel="noopener">Binary Numeral Trees</a>.
+And also by the 
+<a href="https://ethresear.ch/t/batching-and-cyclic-partitioning-of-logs/536" target="_blank" rel="noopener">ethereum research community</a>.</p>
+<p>Each massif contains the verifiable data for a fixed number, and sequential range, of events.
+The number of events is determined by the log configuration parameter <code>massif height</code>.
+Within DataTrails, all logs currently have a massif height of <code>14</code>, and the number of event <em>leaf</em> log entries in each massif is 2<sup>height-1</sup>, which is 2<sup>14-1</sup> leaves, which is <code>8192</code> leaves.
+<code>14</code> was chosen as it affords a massif storage size of comfortably under 4mb (less than 2 actually), and for many situations it is practical to handle this size as &ldquo;one lump&rdquo;.
+See 
+<a href="#the-massif-height-is-constant-for-all-blobs-in-a-log-configuration">reconfiguration</a> for more info.</p>
+<p>
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> provides a shortcut for picking the right massif.
+It can also be fairly easily computed from only the <code>merklelog_entry.commit.index</code> <em>mmrIndex</em> on the event using the 
+<a href="/developers/developer-patterns/massif-blob-offset-tables#the-algorithms-backing-the-table-generation">example javascript</a>.</p>
+<h2 id="every-massif-blob-is-a-series-of-32-byte-aligned-fields">Every Massif Blob Is a Series of 32 Byte Aligned Fields</h2>
+<p>Every massif in a log is structured as a series of <code>32</code> byte fields.
+All individual entries in the log are either 32 bytes or a small multiple of <code>32</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  0               32
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  |                | field 0
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  .                .
+</span></span><span class="line"><span class="cl">  .                .
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  |                | field n
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span></code></pre></div><p>Recalling our configuration (above), the tenants first massif blob can be found at:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-1" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-1"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log -o 0.log
+</span></span></code></pre></div></div></div>
+
+<p>Each massif is stored in a numbered file.
+The filename (<code>0000000000000000.log</code>) is the 16-character, zero-padded, massif index.</p>
+<p>The DataTrails attestation for each massif can be found at a closely associated url.</p>
+<p>For the massif above it is:<br>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-2" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-2"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifseals/0000000000000000.sth -o 0.sth
+</span></span></code></pre></div></div></div>
+</p>
+<p>This is a simple reverse proxy to the native azure blob store where your logs are store.
+The full 
+<a href="https://learn.microsoft.com/en-us/rest/api/azure/" target="_blank" rel="noopener">Azure REST API</a> provides getting specific massif blobs.
+For reasons of cost, all operations are subject to rate limits, listing blobs is not possible, though filtering blobs by tags is permitted.
+Both the massif blobs and the log seal blobs are always tagged with the most recent idtimestamp for the log.
+In the case of the masssif blobs, it is the idtimestamp most recently added to the log. In the case of the seal blob it is the most recent log entry that has been attested by DataTrails. The tag name is <code>lastid</code></p>
+<h2 id="re-creating-inclusion-proofs-requires-only-one-massif">Re-Creating Inclusion Proofs Requires Only One Massif</h2>
+<p>The variable section of the massif blob is further split into the <em>accumulator</em> for the preceding log state followed by the regular massif nodes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+----------------+----------------+
+</span></span><span class="line"><span class="cl">| FIXED          | HEADER DATA    |
+</span></span><span class="line"><span class="cl">|                +----------------+  fixed size
+</span></span><span class="line"><span class="cl">|        SIZE    | TRIE-DATA      |  pre-filled with zeros, populated as leaves are added
+</span></span><span class="line"><span class="cl">+----------------+----------------+
+</span></span><span class="line"><span class="cl">| VARIABLE       | PEAK           |  accumulator succinctly committing the entire preceding log state,
+</span></span><span class="line"><span class="cl">|                |         STACK  |    which is write once on massif create
+</span></span><span class="line"><span class="cl">|   write once   +----------------+
+</span></span><span class="line"><span class="cl">|                | MMR            | grows until 2^(height-1) leaves are added
+</span></span><span class="line"><span class="cl">.                .   NODES        |
+</span></span><span class="line"><span class="cl">.   APPEND ONLY  .                |
+</span></span><span class="line"><span class="cl">+----------------+----------------+
+</span></span></code></pre></div><p>The accumulator is more precisely a cryptographic, asynchronous, accumulator whose properties are formally defined in this 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">paper</a>.
+We refer to it as the peak stack due to how we maintain it and the fact that it is composed exclusively of &ldquo;peak&rdquo; nodes taken from the preceding log.</p>
+<p>DataTrails provides convenience look up tables for 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a>, and implementations of the algorithms needed to produce those tables in many languages under an MIT license.</p>
+<h2 id="the-first-32-byte-field-in-every-massif-is-the-sequencing-header">The First 32 Byte Field in Every Massif Is the Sequencing Header</h2>
+<p>The following curl command reads the version and format information from the header field <code>0</code></p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-3" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-3"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Range: bytes=0-31&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> od -An -tx1 <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> tr -d <span class="s1">&#39; \\n&#39;</span>
+</span></span></code></pre></div><p>generates a version information, similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00000000000000009148fda07f06640000000000000000000000010e00000000
+</span></span></code></pre></div></div></div>
+
+<blockquote class="note callout">
+    <div><strong></strong> The request requires no authentication or authorization.</div>
+  </blockquote>
+<p>The structure of the header field is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">| type| idtimestamp| reserved |  version | epoch  |massif height| massif i |
+</span></span><span class="line"><span class="cl">| 0   | 8        15|          |  21 - 22 | 23   26|27         27| 28 -  31 | start and end byte indices, closed range
+</span></span><span class="line"><span class="cl">| 1   |     8      |          |      2   |    4   |      1      |     4    | count of bytes
+</span></span></code></pre></div><p>The <code>idtimestamp</code> of the last leaf entry added to the log is always set in the header field.</p>
+<p>In the hex data above, the <code>idtimestamp</code> of the last entry in the log is <code>9148fcc832066400</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, the version is <code>0</code>, the timestamp epoch is <code>1</code>, the massif height is <code>14</code>, and the massif index is <code>0</code>.</p>
+<h3 id="decoding-an-idtimestamp">Decoding an idtimestamp</h3>
+<p>The <code>idtimestamp</code> is 40 bits of time at millisecond precision.
+The <code>idtimestamp</code> in the header field is always set to the <code>idtimestamp</code> of the most recently added leaf.</p>
+<p>The following examples depend on a python environment:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-4" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-4"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">idtimestamp_to_date</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Safely convert an idtimestamp hex string to a regular date time&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># ignore the common &#39;0x&#39; prefix</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;0x&#34;</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;idtimestamp must be 18 or 16 hex chars&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">epoch</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># the epochs are aligned with the unix epoch but are half as long</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">16</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;idtimestamp must be 18 or 16 hex chars&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># To get the time portion we strip the trailing sequence and generator id</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unixms</span><span class="o">=</span><span class="nb">int</span><span class="p">((</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">id</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">16</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span> <span class="o">+</span> <span class="n">epoch</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mi">40</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">unixms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">idtimestamp_to_date</span><span class="p">(</span><span class="s1">&#39;9148fcc832066400&#39;</span><span class="p">))</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2024-08-13 00:46:51.569000
+</span></span></code></pre></div></div></div>
+
+<p>In this example, the last entry in the log (at that time) was <code>2024/08/13</code>, a little before 1am UTC.</p>
+<h2 id="the-triedata-entries-are-512-bits-each-and-are-formed-from-two-fields">The trieData entries are 512 bits each and are formed from two fields</h2>
+<p>With the trie keys, full data recovery can be verified without needing to remember the order that events were added to the log.</p>
+<p>Massifs can be recovered independently even if the data for other massifs is incomplete.</p>
+<p>The index also provides for proof of exclusion. Proof that a specific event is not in the index.
+As the event identities contribute to both the index keys and the leaf entries,
+and as the keys are time ordered on addition, it is possible to audit the specific range.
+This will confirm the log is consistent with the index for the time range in which the disputed item is claimed to exist.</p>
+<p>The trieData section is 2 * 32 * 2<sup>height</sup> bytes long, which is exactly double what is needed.
+For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.
+The subsequent 524,288 will always be zero.
+The format of each entry is then, for a massif height of 14:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">| HEADER DATA    |
+</span></span><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">288
+</span></span><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">| TRIE-DATA      |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|................| 288 + 524288 = 524576
+</span></span><span class="line"><span class="cl">|  always        |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|       zero     |
+</span></span><span class="line"><span class="cl">+----------------+ 288 + 524288 * 2 = 1048864
+</span></span></code></pre></div><p>Each entry is formatted like this</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0                                                        31
+</span></span><span class="line"><span class="cl">SHA256(BYTE(0x00) || tenant-identity || event.identity)
+</span></span><span class="line"><span class="cl">0                                       BYTES(IDTIMESTAMP)
+</span></span><span class="line"><span class="cl">32                                      56               63
+</span></span></code></pre></div><p>Described in further detail in the 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/term-cheatsheet.md#trie-entry" target="_blank" rel="noopener">term-cheatsheet</a>
+Note that the <code>idtimestamp</code> is unique to the tenant and the DataTrails service.
+When sharing events with other tenants, the <code>idtimestamp</code> will not correlate directly with activity in other tenant logs.</p>
+<p>When a massif is initialized the trieData is pre-populated for all leaves and set to all zero bytes.
+As events are recorded in the log, the zero-padded index is filled in.
+A sub-range of field 0 will change when saving the last <code>idtimestamp</code> in it.
+The MMR node values are strictly only ever appended to the blob.
+Once appended they will never change and they will never move.</p>
+<p>Returning to the trieData section, given an event identity of:</p>
+<p><code>assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208</code></p>
+<p>The trieKey for the synsation tenant&rsquo;s log is:
+<code>d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9</code></p>
+<p>The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-5" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-5"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">PUBLIC_TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PUBLIC_TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASSET</span><span class="o">=</span><span class="s1">&#39;20d6f57c-bce2-4be9-8e70-95ded25399b7&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EVENT</span><span class="o">=</span><span class="s1">&#39;bbd934cb-a20f-44c9-aa5d-a3ce333c5208&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">triekey</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">triekey</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;tenant/&#34;</span> <span class="o">+</span> <span class="n">TENANT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;assets/&#34;</span> <span class="o">+</span> <span class="n">ASSET</span> <span class="o">+</span> <span class="s2">&#34;/events/&#34;</span> <span class="o">+</span> <span class="n">EVENT</span><span class="p">))</span>
+</span></span></code></pre></div><p>generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+</span></span></code></pre></div></div></div>
+
+<p>The above example is an event on a public asset, so it can be found in the public tenant&rsquo;s merkle log.</p>
+<p>Using the python requests object (or curl), fetch the public tenants log,</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-6" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" aria-selected="true">Python</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" aria-selected="false">Bash</button>
+		</li></ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-6"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/&#39;</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="n">TENANT</span><span class="o">+</span><span class="s1">&#39;/0/massifs/0000000000000000.log&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;x-ms-blob-type&#34;</span><span class="p">:</span> <span class="s2">&#34;BlockBlob&#34;</span><span class="p">,</span> <span class="s2">&#34;x-ms-version&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-12-12&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;mmr.log&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></div></div>
+  <div id="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" class="tab-pane fade" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log -o mmr.log
+</span></span></code></pre></div></div></div>
+
+<p>Using python, we can more readily illustrate the 32 byte aligned format.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-7" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-7"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">binascii</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="n">SYNSATION_TENANT</span> <span class="o">=</span> <span class="s2">&#34;6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TENANT&#39;</span><span class="p">,</span> <span class="n">SYNSATION_TENANT</span><span class="p">)</span> <span class="c1"># default to synsation if not in env </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">readfields</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="s2">&#34;0000000000000000&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/&#39;</span><span class="o">+</span><span class="n">tenant</span><span class="o">+</span><span class="s1">&#39;/0/massifs/&#39;</span><span class="o">+</span><span class="n">log</span><span class="o">+</span><span class="s1">&#39;.log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">hex</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">hex</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="nb">hex</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">64</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">64</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">log</span> <span class="o">=</span> <span class="s2">&#34;0000000000000000&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">readfields</span><span class="p">(</span><span class="n">TENANT</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+</span></span></code></pre></div><p>The first few fields will look like</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00000000000000009148fda07f06640000000000000000000000010e00000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fcc832066400
+</span></span><span class="line"><span class="cl">f67192c6a4fe6a3454000225647deb37e7c488461b1d52f8d1dc58222d49d4db
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fccedb045d00
+</span></span><span class="line"><span class="cl">1057b8d9caaf1f09e46e04a4e36295276fa8f2ef676144f4b90fc47e335ea51e
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fd0d47066400
+</span></span><span class="line"><span class="cl">7fe0c5553a639bbeb5e0c26e24c94722f126fa258560097c531e9eb12e12dc88
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fd52e7066400
+</span></span><span class="line"><span class="cl">0e561df1aa165967ffe12b0d84491e29349d0022f840d9dcb5bb3fe62551ef5c
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fda07f066400
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span></code></pre></div></div></div>
+
+<p>Note the trieKey we derived earlier is easily spotted at row 9, and its
+<code>idtimestamp</code>, <code>9148fcc832066400</code>, is in the subsequent field</p>
+<p>All public events are automatically shared to the public tenant. This makes the
+event data visible without access control. The example event we created in the
+Synsation tenant is a public event. We can obtain its corresponding entry in the
+log by deriving its trieKey, and recalling our implementation for <code>triekey</code> above</p>
+<p>Obtain the trie key for the public tenant event:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-8" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-8"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">PUBLIC_TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PUBLIC_TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASSET</span><span class="o">=</span><span class="s1">&#39;20d6f57c-bce2-4be9-8e70-95ded25399b7&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EVENT</span><span class="o">=</span><span class="s1">&#39;bbd934cb-a20f-44c9-aa5d-a3ce333c5208&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">triekey</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">triekey</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tenant/&#34;</span> <span class="o">+</span> <span class="n">PUBLIC_TENANT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;assets/&#34;</span> <span class="o">+</span> <span class="n">ASSET</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/events/&#34;</span> <span class="o">+</span> <span class="n">EVENT</span><span class="p">))</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">c31114a64b9dca1376d7af999d35b4fa05a75965cb49d2b58386e19b8bbc73a9
+</span></span></code></pre></div></div></div>
+
+<p>If you similarly run <code>getlog</code> (from the example above) on the public tenant, the public trieKey is found
+at line 2390.  As this log commits events shared from many tenants, the MMRIndex
+of the publicly committed event is different (and quite a lot higher)</p>
+<p>The full details of the publicly available event can be found 
+<a href="https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/bbd934cb-a20f-44c9-aa5d-a3ce333c5208?public=true" target="_blank" rel="noopener">here</a></p>
+<p>Noting that the <code>public</code> routing prefix is not prepended on the event identity.</p>
+<p>This works the same for regular OBAC shares, a shared event is committed both to
+the originating tenants log and to the recipient tenants log.</p>
+<p>It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
+For permissioned events, this will only be available if the executing identity is included in the sharing policy.
+The <code>idtimestamp</code> is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.</p>
+<p>It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.</p>
+<h2 id="the-peak-stack-and-mmr-data-sizes-are-computable">The Peak Stack and MMR Data Sizes Are Computable</h2>
+<p>See 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> to avoid needing to calculate these.
+Implementations of the O(log base 2 n) algorithms are provided in various languages.
+They all have very hardware-sympathetic implementations.</p>
+<h2 id="the-massif-height-is-constant-for-all-blobs-in-a-log-configuration">The Massif Height Is Constant for All Blobs in a Log Configuration</h2>
+<p>For a massif height of <code>14</code>, the fixed size portion is <code>1048864</code> bytes.</p>
+<p>A typical url for a massif storage blob looks like:<br>
+<code>https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log</code></p>
+<p>In the above, the <em>log configuration</em> identifier is the <code>/0/</code> between the tenant uuid and the <code>massifs/0000000000000000.log</code></p>
+<p>The massif height is recorded at the start record of every massif, and guarantees that all massifs in a single configuration path have the same <strong>massif height</strong>.</p>
+<p>Currently all DataTrails tenants use the same configuration.
+In the future, DataTrails may change the height for massifs.
+In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path. For example: (<code>/1/massifs/0000000000000123.log</code>).
+The log would be immediately available for continued growth.
+The historic configuration continues to be available under the <code>/0/</code> path.
+Depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.</p>
+<p>This is achieved without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration.
+If reconfigured, a log configuration description will also be published along side the massifs and seals.</p>
+<p>Simple binary file compare operations can show that the verifiable data for the new configuration is the same as in the original should you wish to assure yourself of this fact.</p>
+<p>The previous configuration path will no longer receive any additions.</p>
+<blockquote class="note callout">
+    <div><strong></strong> For the forseeable future (at least months) DataTrails does not anticipate needing to reconfigure the massif height.</div>
+  </blockquote>
+<h2 id="reading-a-specific-mmr-node-by-mmrindex">Reading a Specific MMR Node by mmrindex</h2>
+<p>The variable portion <em>for the first massif</em> contains exactly <em>16383</em> MMR <em>nodes</em>.
+Of those nodes, <em>8192</em> are the leaf entries in the Merkle tree corresponding to your events.</p>
+<p>Given a byte offset in the blob for the start of the MMR data, a query can check for the number of MMR nodes currently in it by doing <code>(blobSize - mmrDataStart)/32</code>.</p>
+<p>To read a specific MMR node, find the smallest <code>Last Node</code> in 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> that is greater than your <em>mmrIndex</em> and use that row as your massif index.</p>
+<p>Taking the massif index of 0 (row 0) use the first mmrIndex:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-9" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" aria-selected="true">Bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-9"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">LOGSTART</span><span class="o">=</span><span class="m">1048864</span>
+</span></span><span class="line"><span class="cl"><span class="nv">MMRINDEX</span><span class="o">=</span><span class="m">2376</span>
+</span></span><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Range: bytes=</span><span class="k">$((</span><span class="nv">$LOGSTART</span><span class="o">+</span><span class="nv">$MMRINDEX</span><span class="o">*</span><span class="m">32</span><span class="k">))</span><span class="s2">-</span><span class="k">$((</span><span class="nv">$LOGSTART</span><span class="o">+</span><span class="nv">$MMRINDEX</span><span class="o">*</span><span class="m">32</span><span class="o">+</span><span class="m">31</span><span class="k">))</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$PUBLIC_TENANT</span>/0/massifs/0000000000000000.log  <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> od -An -tx1 <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> tr -d <span class="s1">&#39; \\n&#39;</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+</span></span></code></pre></div></div></div>
+
+<p>You can confirm this on the merklelog 
+<a href="https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/861dd529-3616-4ad2-b2a9-702da77b8588?public=true" target="_blank" rel="noopener">page</a> in the public tenant for this event. Look for the &ldquo;Merkle Leaf&rdquo; field.</p>
+<p>Optionally use 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">veracity</a> to confirm:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-10" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-10"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data-url <span class="s2">&#34;https://app.datatrails.ai/verifiabledata&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-t tenant/<span class="nv">$PUBLIC_TENANT</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>node -i <span class="m">2376</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+</span></span></code></pre></div></div></div>
+
+<p>The example javascript in 
+<a href="/developers/developer-patterns/massif-blob-offset-tables#the-algorithms-backing-the-table-generation">Massif Blob Pre-Calculated Offsets</a> can be used to accomplish this computationally.</p>
+<h2 id="leaf-nodes-created-by-hashing-event-data">Leaf Nodes Created by Hashing Event Data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0                                                        31
+</span></span><span class="line"><span class="cl">SHA256(BYTE(0x00) || BYTES(IDTIMESTAMP) || V3-SCHEMA(event))
+</span></span></code></pre></div><p>The V3 Schema defines how the content on your event is consistently converted to bytes prior to hashing.
+This works by passing the fields specified in the schema through the 
+<a href="https://en.wikipedia.org/wiki/Bencode" target="_blank" rel="noopener">bencode</a> encoding system.</p>
+<p>See our knowledge base 
+<a href="https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ" target="_blank" rel="noopener">article</a> for an example in javascript and the definition of the V3 fields.</p>
+<p>Note that this includes the <code>event_identity</code> and <code>tenant_identity</code> which are also included in the trieKey hash.</p>
+<p>The remaining item is conditioning the <code>IDTIMESTAMP</code> for hashing.
+If you have the event record from the Events API, the idtimestamp is found at <code>merklelog_entry.commit.idtimestamp</code>.
+It is a hex string and prefixed with <code>01</code> which is the epoch from the header.</p>
+<p>To condition the string value, strip the leading <code>01</code> and convert the remaining hex to binary.
+Then substitute those bytes, in presentation order, for idTimestamp above.</p>
+<p>The bytes for the hash are just <code>bytes.fromhex(&quot;019148fccdbf066400&quot;[2:])</code></p>
+<p>You can use the earlier python example to convert this format to a regular date time.</p>
+<h2 id="which-nodes">Which Nodes</h2>
+<p>Typically, verifiers would verify the inclusion of an event in the log.
+The inclusion is verified by selecting the sibling path needed to recreate the root hash starting from your leaf hash.
+Create the leaf hash using the original pre-image data of your event and the <em>commit</em> values assigned to it when it was included in the log.</p>
+<p>For example:</p>
+<ul>
+<li>The V3 canonical set of fields from your event (as described in our knowledge base 
+<a href="https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ" target="_blank" rel="noopener">article</a>)</li>
+<li>The <code>merklelog_entry.commit.index</code> (the mmrIndex of the event in the log)</li>
+<li>The <code>merklelog_entry.commit.idtimestamp</code> uniquely placing the record of the log in time (according to our cloud service provider)</li>
+</ul>
+<p>Determining the sibling path will be a future article.
+First, set the scene by covering how the logical tree nodes map to storage.</p>
+<p>What is a sibling path?
+To understand this we need to dig into how DataTrails organizes the nodes in the Merkle log in storage and memory.</p>
+<h2 id="tree-layout-in-storage">Tree Layout in Storage</h2>
+<p>Merkle trees <em>prove</em> things by providing paths of hashes that lead to a single <em>common root</em> for all nodes in the tree.
+For an MMR, a single root can be produced by &ldquo;bagging the peaks&rdquo;.
+But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the MMR.
+Having the peak list is equivalent to having a single root.
+And having a path that leads to a peak is equivalent to having a path to a single root
+The peak list is an accumulator state and a path to an accumulator is actually more useful.</p>
+<p>The formal details, and a very nice visualization of how the peaks combine, is available in this paper on 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">cryptographic, asynchronous, accumulators</a> (see Fig 4, page 12)</p>
+<p>The peaks are exactly the accumulator described there.</p>
+<p>All entries in a Merkle log each have a unique and <em>short</em> path of hashes<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>: , which when hashed together according to the data structures rules, will re-create the same root.
+If such a path does not exist, by definition the leaf is not included - it is not in the log.</p>
+<p>Where do those paths come from?
+They come from adjacent and ancestor nodes in the hierarchical tree.
+This means that when producing the path we need to access nodes throughout the tree to produce the proof.</p>
+<p>Using the &ldquo;canonical&rdquo; MMR log for illustration, we get this diagram.
+The vertical axis is labeled by height index, which is just height - 1.
+The connecting diagonal dashes above the &ldquo;tree line&rdquo; indicate nodes that belong to one massif but depend on peaks accumulated from earlier massifs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                          
+</span></span><span class="line"><span class="cl">                       14 
+</span></span><span class="line"><span class="cl">                          \\        affectionately called the alpine zone
+</span></span><span class="line"><span class="cl">                6           13             21   
+</span></span><span class="line"><span class="cl">                  \\            \\              \\
+</span></span><span class="line"><span class="cl">    h=2 1 |  2  |  5  |   9  |  12   |  17   | 20  | -- massif &#39;tree line&#39;
+</span></span><span class="line"><span class="cl">          |     |     |      |       |       |     |
+</span></span><span class="line"><span class="cl">        0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
+</span></span></code></pre></div><p>The sibling <em>proof</em> path for the leaf with <code>mmrIndex</code> <code>7</code> would be [<code>8</code>, <code>12</code>, <code>6</code>], and the &ldquo;peak bagging&rdquo; algorithm may then be applied to get the root if that was desired.
+An inclusion proof against an accumulator entry both equivalent and also more durable, as it is permanently consistent with all future accumulator states.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">H(7 || 8) = 9
+</span></span><span class="line"><span class="cl">H(9 || 12) = 13
+</span></span><span class="line"><span class="cl">H(6 || 13) = 14
+</span></span></code></pre></div><p>14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has a path to a peak for the MMR is sufficient to prove its inclusion in the MMR.</p>
+<h2 id="visualizing-the-look-back-peak-stack">Visualizing the “Look Back” Peak Stack</h2>
+<p>A specific challenge for log implementations with very large data sets is answering &ldquo;how far back&rdquo; or &ldquo;how far forward&rdquo; may be seen?</p>
+<p>MMRs differ from classic binary Merkle trees in how, or even <em>if</em>, the incomplete sub-trees are combined into a common root.
+For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
+Rather than by the more traditional, temporary, assignment of un-balanced siblings.
+Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.</p>
+<p>While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so.
+Typically, verification use cases are better served by paths to an accumulator.</p>
+<p>The linear and write once nature of this storage organization is what permits DataTrails to publish the log data immediately after events are added.</p>
+<p>The specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of <em>&ldquo;Which other nodes do I need&rdquo;</em>.
+Such that we <em>know</em> categorically it is not needed to look <em>forward</em> of the current massif and it is precisely known which nodes are needed from the previous massifs.</p>
+<p>The &ldquo;free nodes&rdquo; in the alpine zone always require &ldquo;ancestors&rdquo; from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log.
+But those ancestors are precisely the peaks forming the accumulator that attests to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.</p>
+<p>The progression of the peak stack (accumulator) can be visualized like this. In this diagram we gather the dependent nodes into the massifs they belong too and carry forward the peak stack (accumulator) that fully authenticates the entire state of the MMR preceding the massif.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">      |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">      |     |6    |      |13, 14 |       |21     | spurs
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">h=2 1 |  2  |  5  |   9  |  12   |  17   |  20   | &lt;-- massif height &#39;tree line&#39;
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">    0 |0   1 3   4| 7   8|10   11|15   16|18   19|
+</span></span></code></pre></div><p><em>Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1.</em></p>
+<p>The log configuration parameter massif height is the &ldquo;tree line&rdquo;.
+The first leaf addition that causes &ldquo;break out&rdquo; is the last leaf of that particular massif.
+The &ldquo;break out nodes&rdquo; for the last leaf are stored in the same massif as the leaf.
+While the leaf count for each massif is fixed, the number of nodes is variable.
+The variance is deterministic given only the MMR size.</p>
+<p>The look-back nodes are called the <em>peak stack</em> because the operations we use to maintain it are stack like.
+Entries don&rsquo;t pop off, ever.
+Entries just happen to reference it in reverse order of addition when adding new leaves.</p>
+<p>The stability of the MMR data comes from the fact that the sub trees are not merged until a right sibling tree of equal height has been produced.
+Merging is accomplished by <em>appending</em> the new parent immediately after the right sibling.
+This means when merged, the sub trees do not change in content or organization, nodes are simply appended to commit them to the log.
+This results in the &ldquo;write-once&rdquo; and &ldquo;append only&rdquo; properties discussed in the 
+<a href="https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" target="_blank" rel="noopener">crosby-wallach</a> 3.3 &ldquo;Storing the log on secondary storage&rdquo;</p>
+<h2 id="how-the-tree-spans-the-massifs">How the Tree Spans the Massifs</h2>
+<p>A worked example for a Merkle log whose height configuration parameter is set to 2.</p>
+<h3 id="massif-0">Massif 0</h3>
+<p>The peak stack size is established for a massif when it is created in its empty state. The size is efficiently calculable from the MMR Index at the start of the new massif. For the first massif the stack will be empty.</p>
+<p>When viewed horizontally, we start by denoting the empty stack like this.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">++
+</span></span><span class="line"><span class="cl">||
+</span></span><span class="line"><span class="cl">++
+</span></span></code></pre></div><p>Then, the leaves for the complete MMR of size 3 from our canonical example are added after the peak stack.</p>
+<p>This gives us the final form for massif 0 as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">++---+---+---+
+</span></span><span class="line"><span class="cl">|| 0 | 1 | 2 |
+</span></span><span class="line"><span class="cl">++---+-------+
+</span></span></code></pre></div><p>The massif has exactly 3 nodes</p>
+<p>The peak stack is empty, and the global tree looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  1    2  | --- massif tree line massif height index = 1
+</span></span><span class="line"><span class="cl">      / \\ |
+</span></span><span class="line"><span class="cl">     0   1| MMR INDICES
+</span></span><span class="line"><span class="cl">     -----|
+</span></span><span class="line"><span class="cl">       0  | MASSIF
+</span></span></code></pre></div><h3 id="massif-1">Massif 1</h3>
+<p>Once massif 1 has been constructed, the global tree would be:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2       6       --- max height index = 2
+</span></span><span class="line"><span class="cl">         \\
+</span></span><span class="line"><span class="cl">1    2  | 5   | --- massif tree line massif height index = 1
+</span></span><span class="line"><span class="cl">    / \\ |/  \\ |
+</span></span><span class="line"><span class="cl">   0   1|3   4| MMR INDICES
+</span></span><span class="line"><span class="cl">   -----|-----|
+</span></span><span class="line"><span class="cl">     0  |  1  | MASSIF
+</span></span></code></pre></div><p>The layout of massif 1 in storage is</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++---+---+---+---+
+</span></span><span class="line"><span class="cl">| 2 || 3 | 4 | 5 | 6 |
+</span></span><span class="line"><span class="cl">+---++---+-------+---+
+</span></span></code></pre></div><p>For massif <code>1</code>, the peak stack is <code>[2]</code>.
+When node <code>4</code> was added, the &ldquo;back fill nodes&rdquo; were added to &ldquo;complete the tree&rdquo; and were also stored in massif <code>1</code>.
+The &ldquo;break out&rdquo; nodes visually overhang the previous massif, but are stored in massif <code>1</code>.</p>
+<p>This layout is also known as a &ldquo;post order&rdquo; traversal of a binary tree.</p>
+<p>Note that the addition of node <code>6</code>, while backfilling for <code>4</code>, requires node <code>2</code> from the previous massif <code>0</code>.
+This is why it is carried forward in the peak stack.</p>
+<p>We can also see that is the <em>only</em> node that is required from massif <code>0</code> for <em>any</em> verification path in massif <code>1</code>.</p>
+<p>As the log grows, the accumulator (peak stack) moves on.
+However, historic verification paths can always be proven to exist in all future accumulators.
+Given a pair of signed accumulators that are inconsistent, the broken log is evident.</p>
+<p>The key point here is that, in massif <code>1</code>, when computing a verification path for nodes <code>3</code> or <code>4</code>, the only node that is required from massif <code>0</code> is available locally in the peak stack (in massif <code>1</code>).</p>
+<p>This means that should you lose interest in the leaf entries from massif <code>0</code>, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.</p>
+<p>If you retain the seal from massif <code>0</code>, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.</p>
+<h3 id="massif-2">Massif 2</h3>
+<p>The global tree at the end of massif <code>2</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2       6
+</span></span><span class="line"><span class="cl">          \\
+</span></span><span class="line"><span class="cl">1    2  |  5  |  9  |
+</span></span><span class="line"><span class="cl">    / \\ |/  \\ | / \\ |
+</span></span><span class="line"><span class="cl">   0   1|3   4|7   8|
+</span></span><span class="line"><span class="cl">   -----|-----|-----|
+</span></span><span class="line"><span class="cl">     0  |  1  |  2  | MASSIF
+</span></span></code></pre></div><p>The layout for massif <code>2</code>, showing the peak stack is <code>[6]</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++---+---+---+
+</span></span><span class="line"><span class="cl">| 6 || 7 | 8 | 9 |
+</span></span><span class="line"><span class="cl">+---++---+-------+
+</span></span></code></pre></div><p>Note that <code>6</code> has replaced <code>2</code>.
+The <code>2</code> is not required for any verification path for elements added in massif <code>2</code> or beyond.</p>
+<h3 id="massif-3">massif 3</h3>
+<p>The global tree at the end of massif <code>3</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  3              14
+</span></span><span class="line"><span class="cl">                   \\
+</span></span><span class="line"><span class="cl">                    \\
+</span></span><span class="line"><span class="cl">                     \\
+</span></span><span class="line"><span class="cl">  2        6         13
+</span></span><span class="line"><span class="cl">            \\          \\
+</span></span><span class="line"><span class="cl">  1    2  |  5  |  9  | 12  |
+</span></span><span class="line"><span class="cl">      / \\ |/  \\ | / \\ | / \\ |
+</span></span><span class="line"><span class="cl">     0   1|3   4|7   8|10 11|
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|
+</span></span><span class="line"><span class="cl">     | 0  |  1  |  2  |  3  |
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|
+</span></span></code></pre></div><p>The peak stack is <code>[6, 9]</code>. Because both nodes <code>6</code> and <code>9</code> were needed to complete
+the MMR that includes leaf node <code>11</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---+---++----+----+----+----+----+
+</span></span><span class="line"><span class="cl">| 6 | 9 || 10 | 11 | 12 | 13 | 14 |
+</span></span><span class="line"><span class="cl">+---+---++----+----+----+----+----+
+</span></span></code></pre></div><h3 id="massif-4">Massif 4</h3>
+<p>The global tree at the end of massif <code>4</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  3              14
+</span></span><span class="line"><span class="cl">                   \\
+</span></span><span class="line"><span class="cl">                    \\
+</span></span><span class="line"><span class="cl">                     \\
+</span></span><span class="line"><span class="cl">  2        6         13
+</span></span><span class="line"><span class="cl">            \\          \\
+</span></span><span class="line"><span class="cl">  1    2  |  5  |  9  | 12  |  17  |
+</span></span><span class="line"><span class="cl">      / \\ |/  \\ | / \\ | / \\ | /  \\ |
+</span></span><span class="line"><span class="cl">     0   1|3   4|7   8|10 11|15  16|
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|------|
+</span></span><span class="line"><span class="cl">     | 0  |  1  |  2  |  3  |   4  |
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|------|
+</span></span></code></pre></div><p>Note that this case is particularly interesting because it completes a full cycle from one perfect power-sized tree to the next.
+A fact of the MMR construction is the look back is never further than the most recent &lsquo;perfect&rsquo; tree completing massif.</p>
+<p>So the peak stack is <code>[14]</code>, discarding <code>6</code> and <code>9</code>, and the massif <code>4</code> layout is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++----+----+----+
+</span></span><span class="line"><span class="cl">| 14|| 15 | 16 | 17 |
+</span></span><span class="line"><span class="cl">+---++----+----+----+
+</span></span></code></pre></div><h2 id="takeaways">Takeaways</h2>
+<ul>
+<li>Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.</li>
+<li>Once verification data is written to the log, it never changes.</li>
+<li>The &ldquo;look back&rdquo; nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.</li>
+<li>The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.</li>
+<li>
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">Open-source tooling</a> exists in multiple languages for navigating the format.</li>
+<li>Given a signed &ldquo;root&rdquo;, all entries in any copies of your log are irrefutably attested by DataTrails.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably 
+<a href="https://zips.z.cash/zip-0221" target="_blank" rel="noopener">zcash</a>, 
+<a href="https://github.com/mimblewimble/grin/blob/master/doc/mmr.md" target="_blank" rel="noopener">mimblewimble</a>, and 
+<a href="https://zips.z.cash/zip-0221#additional-reading" target="_blank" rel="noopener">many others</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The <code>idtimestamp</code> value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
+DataTrails uses a variant of the 
+<a href="https://en.wikipedia.org/wiki/Snowflake_ID" target="_blank" rel="noopener">Snowflake ID</a> scheme.
+The DataTrails implementation can be found at 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118" target="_blank" rel="noopener">nextid.go</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Such a path of hashes is commonly referred to as a &ldquo;proof&rdquo;, a &ldquo;witness&rdquo;, and an &ldquo;authentication path&rdquo;.
+A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to &ldquo;verification&rdquo; and &ldquo;verifiable data structure&rdquo; in this article.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+`},{id:15,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each DataTrails Tenancy represents an organization, and each DataTrails account represents an individual user.
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.</p>
@@ -4396,7 +5114,870 @@ Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code
 You will be sent to the identity provider you configured earlier to log-in, then redirected back to DataTrails.</p>
 </li>
 </ol>
-`},{id:15,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`},{id:16,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
+The algorithms to reproduce this are relatively simple.
+DataTrails provides 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source implementations</a>, but in many contexts it is simpler to use these pre-calculations.
+These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.</p>
+<p>This is a quick review of the log format.
+We explain this in more detail at 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a></p>
+<h2 id="each-log-is-comprised-of-many-blobs-each-containing-a-fixed-number-of-leaves">Each Log Is Comprised of Many Blobs, Each Containing a Fixed Number of Leaves</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    +----------+ +----------+ .. +----------+
+</span></span><span class="line"><span class="cl">    | massif 0 | | massif 1 |    | massif n
+</span></span><span class="line"><span class="cl">    +----------+ +----------+ .. +----------+
+</span></span></code></pre></div><p>New leaves are added to the last blob in the log.</p>
+<h2 id="each-individual-blob-has-a-fixed-size-portion-and-two-variably-sized-sections">Each Individual Blob Has a Fixed Size Portion and Two Variably Sized Sections</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span><span class="line"><span class="cl">    |  fixed  size      | computable size    |
+</span></span><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span><span class="line"><span class="cl">    | header | trieData |peak stack| mmrData |
+</span></span><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span></code></pre></div><h2 id="the-peak-stack-and-mmr-data-sizes-are-computable">The Peak Stack and MMR Data Sizes Are Computable</h2>
+<p>&hellip;but it is not always convenient to do so.</p>
+<p>Using <code>veracity</code>, the following command line can reproduce a canonical &ldquo;illustrative&rdquo; log from 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --height <span class="m">2</span> massifs --count <span class="m">6</span>
+</span></span></code></pre></div><p>generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                       14
+</span></span><span class="line"><span class="cl">                          \\
+</span></span><span class="line"><span class="cl">                6           13             21
+</span></span><span class="line"><span class="cl">                  \\            \\              \\
+</span></span><span class="line"><span class="cl">    h=2 1 |  2  |  5  |   9  |  12   |  17   | 20  |
+</span></span><span class="line"><span class="cl">          |     |     |      |       |       |     |
+</span></span><span class="line"><span class="cl">        0 |0   1| 3  4| 7   8|10   11|15   16|18 19| MMR INDICES
+</span></span><span class="line"><span class="cl">        0 |0   1| 2  3| 4   5|6     7|8     9|10 11| LEAF INDICES
+</span></span></code></pre></div><p>The following table <em>Stack Start</em> and <em>mmr Start</em> are byte offsets from the start of the file.
+<em>Stack Start</em> is the end of the fixed header information, the relevant parts of which are described in 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
+<p>The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at <em>mmr Start</em></p>
+<table>
+<thead>
+<tr>
+<th>Massif</th>
+<th>Stack Start</th>
+<th>mmr Start</th>
+<th>First leaf</th>
+<th>Last Leaf</th>
+<th>First Node</th>
+<th>Last Node</th>
+<th>Peak Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>544</td>
+<td>544</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>544</td>
+<td>576</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>544</td>
+<td>576</td>
+<td>4</td>
+<td>5</td>
+<td>7</td>
+<td>9</td>
+<td>[6]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>544</td>
+<td>608</td>
+<td>6</td>
+<td>7</td>
+<td>10</td>
+<td>14</td>
+<td>[6,9]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>544</td>
+<td>576</td>
+<td>8</td>
+<td>9</td>
+<td>15</td>
+<td>17</td>
+<td>[14]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>544</td>
+<td>608</td>
+<td>10</td>
+<td>11</td>
+<td>18</td>
+<td>21</td>
+<td>[14,17]</td>
+</tr>
+</tbody>
+</table>
+<p>It is fairly easy to validate the leaves and nodes by hand.
+Reproducing the Stack Start needs details from 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
+<h2 id="pre-computes-for-your-first-million-events">Pre-computes for Your First Million Events</h2>
+<p>DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$</p>
+<table>
+<thead>
+<tr>
+<th>Massif</th>
+<th>Stack Start</th>
+<th>mmr Start</th>
+<th>First leaf</th>
+<th>Last Leaf</th>
+<th>First Node</th>
+<th>Last Node</th>
+<th>Peak Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1048864</td>
+<td>1048864</td>
+<td>0</td>
+<td>8191</td>
+<td>0</td>
+<td>16382</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>8192</td>
+<td>16383</td>
+<td>16383</td>
+<td>32766</td>
+<td>[16382]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>16384</td>
+<td>24575</td>
+<td>32767</td>
+<td>49149</td>
+<td>[32766]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>24576</td>
+<td>32767</td>
+<td>49150</td>
+<td>65534</td>
+<td>[32766,49149]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>32768</td>
+<td>40959</td>
+<td>65535</td>
+<td>81917</td>
+<td>[65534]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>40960</td>
+<td>49151</td>
+<td>81918</td>
+<td>98301</td>
+<td>[65534,81917]</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>49152</td>
+<td>57343</td>
+<td>98302</td>
+<td>114684</td>
+<td>[65534,98301]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>57344</td>
+<td>65535</td>
+<td>114685</td>
+<td>131070</td>
+<td>[65534,98301,114684]</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>65536</td>
+<td>73727</td>
+<td>131071</td>
+<td>147453</td>
+<td>[131070]</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>73728</td>
+<td>81919</td>
+<td>147454</td>
+<td>163837</td>
+<td>[131070,147453]</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>81920</td>
+<td>90111</td>
+<td>163838</td>
+<td>180220</td>
+<td>[131070,163837]</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>90112</td>
+<td>98303</td>
+<td>180221</td>
+<td>196605</td>
+<td>[131070,163837,180220]</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>98304</td>
+<td>106495</td>
+<td>196606</td>
+<td>212988</td>
+<td>[131070,196605]</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>106496</td>
+<td>114687</td>
+<td>212989</td>
+<td>229372</td>
+<td>[131070,196605,212988]</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>114688</td>
+<td>122879</td>
+<td>229373</td>
+<td>245755</td>
+<td>[131070,196605,229372]</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>122880</td>
+<td>131071</td>
+<td>245756</td>
+<td>262142</td>
+<td>[131070,196605,229372,245755]</td>
+</tr>
+<tr>
+<td>16</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>131072</td>
+<td>139263</td>
+<td>262143</td>
+<td>278525</td>
+<td>[262142]</td>
+</tr>
+<tr>
+<td>17</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>139264</td>
+<td>147455</td>
+<td>278526</td>
+<td>294909</td>
+<td>[262142,278525]</td>
+</tr>
+<tr>
+<td>18</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>147456</td>
+<td>155647</td>
+<td>294910</td>
+<td>311292</td>
+<td>[262142,294909]</td>
+</tr>
+<tr>
+<td>19</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>155648</td>
+<td>163839</td>
+<td>311293</td>
+<td>327677</td>
+<td>[262142,294909,311292]</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>163840</td>
+<td>172031</td>
+<td>327678</td>
+<td>344060</td>
+<td>[262142,327677]</td>
+</tr>
+<tr>
+<td>21</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>172032</td>
+<td>180223</td>
+<td>344061</td>
+<td>360444</td>
+<td>[262142,327677,344060]</td>
+</tr>
+<tr>
+<td>22</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>180224</td>
+<td>188415</td>
+<td>360445</td>
+<td>376827</td>
+<td>[262142,327677,360444]</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>188416</td>
+<td>196607</td>
+<td>376828</td>
+<td>393213</td>
+<td>[262142,327677,360444,376827]</td>
+</tr>
+<tr>
+<td>24</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>196608</td>
+<td>204799</td>
+<td>393214</td>
+<td>409596</td>
+<td>[262142,393213]</td>
+</tr>
+<tr>
+<td>25</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>204800</td>
+<td>212991</td>
+<td>409597</td>
+<td>425980</td>
+<td>[262142,393213,409596]</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>212992</td>
+<td>221183</td>
+<td>425981</td>
+<td>442363</td>
+<td>[262142,393213,425980]</td>
+</tr>
+<tr>
+<td>27</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>221184</td>
+<td>229375</td>
+<td>442364</td>
+<td>458748</td>
+<td>[262142,393213,425980,442363]</td>
+</tr>
+<tr>
+<td>28</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>229376</td>
+<td>237567</td>
+<td>458749</td>
+<td>475131</td>
+<td>[262142,393213,458748]</td>
+</tr>
+<tr>
+<td>29</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>237568</td>
+<td>245759</td>
+<td>475132</td>
+<td>491515</td>
+<td>[262142,393213,458748,475131]</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>245760</td>
+<td>253951</td>
+<td>491516</td>
+<td>507898</td>
+<td>[262142,393213,458748,491515]</td>
+</tr>
+<tr>
+<td>31</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>253952</td>
+<td>262143</td>
+<td>507899</td>
+<td>524286</td>
+<td>[262142,393213,458748,491515,507898]</td>
+</tr>
+<tr>
+<td>32</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>262144</td>
+<td>270335</td>
+<td>524287</td>
+<td>540669</td>
+<td>[524286]</td>
+</tr>
+<tr>
+<td>33</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>270336</td>
+<td>278527</td>
+<td>540670</td>
+<td>557053</td>
+<td>[524286,540669]</td>
+</tr>
+<tr>
+<td>34</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>278528</td>
+<td>286719</td>
+<td>557054</td>
+<td>573436</td>
+<td>[524286,557053]</td>
+</tr>
+<tr>
+<td>35</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>286720</td>
+<td>294911</td>
+<td>573437</td>
+<td>589821</td>
+<td>[524286,557053,573436]</td>
+</tr>
+<tr>
+<td>36</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>294912</td>
+<td>303103</td>
+<td>589822</td>
+<td>606204</td>
+<td>[524286,589821]</td>
+</tr>
+<tr>
+<td>37</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>303104</td>
+<td>311295</td>
+<td>606205</td>
+<td>622588</td>
+<td>[524286,589821,606204]</td>
+</tr>
+<tr>
+<td>38</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>311296</td>
+<td>319487</td>
+<td>622589</td>
+<td>638971</td>
+<td>[524286,589821,622588]</td>
+</tr>
+<tr>
+<td>39</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>319488</td>
+<td>327679</td>
+<td>638972</td>
+<td>655357</td>
+<td>[524286,589821,622588,638971]</td>
+</tr>
+<tr>
+<td>40</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>327680</td>
+<td>335871</td>
+<td>655358</td>
+<td>671740</td>
+<td>[524286,655357]</td>
+</tr>
+<tr>
+<td>41</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>335872</td>
+<td>344063</td>
+<td>671741</td>
+<td>688124</td>
+<td>[524286,655357,671740]</td>
+</tr>
+<tr>
+<td>42</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>344064</td>
+<td>352255</td>
+<td>688125</td>
+<td>704507</td>
+<td>[524286,655357,688124]</td>
+</tr>
+<tr>
+<td>43</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>352256</td>
+<td>360447</td>
+<td>704508</td>
+<td>720892</td>
+<td>[524286,655357,688124,704507]</td>
+</tr>
+<tr>
+<td>44</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>360448</td>
+<td>368639</td>
+<td>720893</td>
+<td>737275</td>
+<td>[524286,655357,720892]</td>
+</tr>
+<tr>
+<td>45</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>368640</td>
+<td>376831</td>
+<td>737276</td>
+<td>753659</td>
+<td>[524286,655357,720892,737275]</td>
+</tr>
+<tr>
+<td>46</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>376832</td>
+<td>385023</td>
+<td>753660</td>
+<td>770042</td>
+<td>[524286,655357,720892,753659]</td>
+</tr>
+<tr>
+<td>47</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>385024</td>
+<td>393215</td>
+<td>770043</td>
+<td>786429</td>
+<td>[524286,655357,720892,753659,770042]</td>
+</tr>
+<tr>
+<td>48</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>393216</td>
+<td>401407</td>
+<td>786430</td>
+<td>802812</td>
+<td>[524286,786429]</td>
+</tr>
+<tr>
+<td>49</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>401408</td>
+<td>409599</td>
+<td>802813</td>
+<td>819196</td>
+<td>[524286,786429,802812]</td>
+</tr>
+<tr>
+<td>50</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>409600</td>
+<td>417791</td>
+<td>819197</td>
+<td>835579</td>
+<td>[524286,786429,819196]</td>
+</tr>
+<tr>
+<td>51</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>417792</td>
+<td>425983</td>
+<td>835580</td>
+<td>851964</td>
+<td>[524286,786429,819196,835579]</td>
+</tr>
+<tr>
+<td>52</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>425984</td>
+<td>434175</td>
+<td>851965</td>
+<td>868347</td>
+<td>[524286,786429,851964]</td>
+</tr>
+<tr>
+<td>53</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>434176</td>
+<td>442367</td>
+<td>868348</td>
+<td>884731</td>
+<td>[524286,786429,851964,868347]</td>
+</tr>
+<tr>
+<td>54</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>442368</td>
+<td>450559</td>
+<td>884732</td>
+<td>901114</td>
+<td>[524286,786429,851964,884731]</td>
+</tr>
+<tr>
+<td>55</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>450560</td>
+<td>458751</td>
+<td>901115</td>
+<td>917500</td>
+<td>[524286,786429,851964,884731,901114]</td>
+</tr>
+<tr>
+<td>56</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>458752</td>
+<td>466943</td>
+<td>917501</td>
+<td>933883</td>
+<td>[524286,786429,917500]</td>
+</tr>
+<tr>
+<td>57</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>466944</td>
+<td>475135</td>
+<td>933884</td>
+<td>950267</td>
+<td>[524286,786429,917500,933883]</td>
+</tr>
+<tr>
+<td>58</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>475136</td>
+<td>483327</td>
+<td>950268</td>
+<td>966650</td>
+<td>[524286,786429,917500,950267]</td>
+</tr>
+<tr>
+<td>59</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>483328</td>
+<td>491519</td>
+<td>966651</td>
+<td>983035</td>
+<td>[524286,786429,917500,950267,966650]</td>
+</tr>
+<tr>
+<td>60</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>491520</td>
+<td>499711</td>
+<td>983036</td>
+<td>999418</td>
+<td>[524286,786429,917500,983035]</td>
+</tr>
+<tr>
+<td>61</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>499712</td>
+<td>507903</td>
+<td>999419</td>
+<td>1015802</td>
+<td>[524286,786429,917500,983035,999418]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-algorithms-backing-the-table-generation">The Algorithms Backing the Table Generation</h2>
+<p>In combination with the format information at 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a> the pre-computed tables above can be generated using these examples using the DataTrails open source, go-lang based 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">veracity</a> tooling.</p>
+<ul class="nav nav-tabs" id="convert-idtimestamp" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#convert-idtimestamp-0" type="button" role="tab" aria-controls="convert-idtimestamp-0" aria-selected="true">Leaf Count and Massif Index</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#convert-idtimestamp-1" type="button" role="tab" aria-controls="convert-idtimestamp-1" aria-selected="false">mmrIndex from leafIndex</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#convert-idtimestamp-2" type="button" role="tab" aria-controls="convert-idtimestamp-2" aria-selected="false">Peak Stack Length</button>
+		</li></ul>
+<div class="tab-content" id="convert-idtimestamp"><div id="convert-idtimestamp-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="convert-idtimestamp-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">massifIndex</span><span class="p">(</span><span class="nx">mmrIndex</span><span class="p">,</span> <span class="nx">massifHeight</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">nl</span> <span class="o">=</span>  <span class="nb">Number</span><span class="p">(</span><span class="nx">leafCount</span><span class="p">(</span><span class="nx">mmrIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="nx">n</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="nx">massifHeight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">massifIndex</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">nl</span> <span class="o">/</span> <span class="nx">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">massifIndex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// returns the number of leaves in the largest mmr whose size is &lt;= the supplied size
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">leafCount</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">==</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">peakSize</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="mi">64</span><span class="nx">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">clz64</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">peakMap</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(;</span> <span class="nx">peakSize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">peakMap</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span><span class="nx">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;=</span> <span class="nx">peakSize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pos</span> <span class="o">-=</span> <span class="nx">peakSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">peakMap</span> <span class="o">|=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">peakSize</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">peakMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">clz64</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">===</span> <span class="s1">&#39;bigint&#39;</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">\`num must be bigint not </span><span class="si">\${</span><span class="k">typeof</span> <span class="nx">num</span><span class="si">}</span><span class="sb">\`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">num</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">.</span><span class="nx">asUintN</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">hi</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">&gt;&gt;</span> <span class="mi">32</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">lz</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">clz32</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">hi</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">lz</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nx">lz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">lo</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">((</span><span class="nx">num</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span><span class="nx">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">32</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">clz32</span><span class="p">(</span><span class="nx">lo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+  <div id="convert-idtimestamp-1" class="tab-pane fade" role="tabpanel" aria-labelledby="convert-idtimestamp-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">treeIndex</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span> <span class="c1">// Assuming iLeaf can be very large, use BigInt for accuracy.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">);</span> <span class="c1">// Ensure iLeaf is treated as BigInt
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">log2Uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">spurSumHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="o">+</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">half</span> <span class="o">=</span> <span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">i</span> <span class="o">-=</span> <span class="nx">half</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// spurSumHeight counts the interior &#39;spur&#39; nodes required for the given height
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">spurSumHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">height</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="c1">// Ensure height is treated as BigInt
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">height</span> <span class="o">===</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">height</span> <span class="o">-</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nx">i</span><span class="p">))</span> <span class="o">*</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">log2Uint64</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">===</span> <span class="s1">&#39;bigint&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span> <span class="c1">// log2(1) = 0 and log2(0) is undefined, handled as 0 for simplicity
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">let</span> <span class="nx">log</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">num</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">log</span> <span class="o">+=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">log</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Similarly, handle log2(1) = 0 and log2(0) as 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">log2</span><span class="p">(</span><span class="nx">num</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+  <div id="convert-idtimestamp-2" class="tab-pane fade" role="tabpanel" aria-labelledby="convert-idtimestamp-2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/** Calculate the size of a massifs peak stack by passing the massifIndex in place of iLeaf */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">leafMinusSpurSum</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">iLeaf</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">&gt;&gt;</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">iLeaf</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">-=</span> <span class="nx">iLeaf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">iLeaf</span> <span class="o">&gt;&gt;=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+`},{id:17,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the DataTrails team, a badge indicating that they have been verified will appear next to their domain name.
 
 
@@ -4508,7 +6089,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`},{id:16,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`},{id:18,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
@@ -4885,7 +6466,7 @@ Use the curl command to run your JSON file! See instructions for
 </ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`},{id:17,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`},{id:19,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC only allows sharing between Tenant Administrators. The external Administrator must then apply an ABAC policy within their tenancy to give their own organization&rsquo;s Non-Administrators access to your Audit Trails, where appropriate.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -5387,7 +6968,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`},{id:18,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`},{id:20,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -5742,7 +7323,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`},{id:19,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`},{id:21,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -6099,7 +7680,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`},{id:20,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`},{id:22,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -6665,7 +8246,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`},{id:21,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`},{id:23,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -7721,7 +9302,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:22,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`},{id:24,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -9771,7 +11352,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:23,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`},{id:25,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -10892,7 +12473,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`},{id:24,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -11439,7 +13020,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`},{id:25,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -12751,7 +14332,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -14877,7 +16458,7 @@ For example:</p>
   </div>
 
 
-`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -16570,7 +18151,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -17487,7 +19068,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:29,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`},{id:31,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -17617,7 +19198,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -18762,7 +20343,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -19604,7 +21185,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20739,7 +22320,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:33,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:35,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -20801,7 +22382,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:34,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -20923,7 +22504,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:35,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -21025,7 +22606,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -21074,7 +22655,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -21184,7 +22765,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -21218,7 +22799,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -21231,7 +22812,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -21240,11 +22821,14 @@ If this is not needed then do not wait for confirmation.</p>
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
+      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
+      <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>
+      <a href="/developers/developer-patterns/massif-blob-offset-tables/">Massif Blob Offset Tables &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`},{id:41,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`},{id:43,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -21362,7 +22946,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:42,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`},{id:44,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -21376,7 +22960,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -21390,7 +22974,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`},{id:44,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:46,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -21409,7 +22993,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`},{id:45,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:47,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -21425,7 +23009,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`},{id:46,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -21453,7 +23037,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`},{id:47,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
@@ -22572,7 +24156,26 @@ For example, a policy checking that maintenance times are not considerably longe
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></div></div>
 
-`}).add({id:5,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
+`}).add({id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
+<p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
+<p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;test_02-17-23&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Width&#34;</span><span class="p">:</span> <span class="s2">&#34;2.43m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Length&#34;</span><span class="p">:</span> <span class="s2">&#34;6.06m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Height&#34;</span><span class="p">:</span> <span class="s2">&#34;2.59m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>To use namespace as a variable, such as the date, add the argument to your Bash environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
+</span></span></code></pre></div><p>See 
+<a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
+`}).add({id:6,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
 <p>Each Asset will have a history of any actions performed upon it by any actor.</p>
 <p>You may share Assets and their history with specific stakeholders using 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">permission sharing</a>. DataTrails also enables you to publicly attest the provenance of your Assets. To learn how, see 
@@ -22983,25 +24586,6 @@ Here we see all details entered: The extended attributes and a history of Events
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
 </li>
 </ol>
-`}).add({id:6,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
-<p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
-<p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;My First Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Originally shipped from Shanghai&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_namespace&#34;</span><span class="p">:</span> <span class="s2">&#34;test_02-17-23&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Width&#34;</span><span class="p">:</span> <span class="s2">&#34;2.43m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Length&#34;</span><span class="p">:</span> <span class="s2">&#34;6.06m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Height&#34;</span><span class="p">:</span> <span class="s2">&#34;2.59m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>To use namespace as a variable, such as the date, add the argument to your Bash environment:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
-</span></span></code></pre></div><p>See 
-<a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
 `}).add({id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
@@ -25638,7 +27222,725 @@ Set the toggle next to <code>Attest Publicly</code> to <code>ON</code>.</p>
 </p>
 </li>
 </ol>
-`}).add({id:14,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+`}).add({id:14,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
+<p>DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
+&ldquo;Verifiable data&rdquo; is synonymous with <em>log</em> or <em>transparency log</em>.
+Once verifiable data is written to the log it is never changed.
+The log only grows, it never shrinks and data in it never moves within the log.</p>
+<p>To work with Merkle Log format, DataTrails provides 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source tooling</a> for working in offline environments.</p>
+<p>To verify DataTrails logs, you will need:</p>
+<ol>
+<li>A copy of the section of the log containing your event, (or the url to the
+publicly available log data)</li>
+<li>A copy of any log <em>seal</em> from <em>any</em> time after your event was included</li>
+<li>A copy of any events you wish to verify are included within the log</li>
+<li>A Tenant ID to run the samples</li>
+</ol>
+<p>For reference:</p>
+<ul>
+<li>DataTrails log implementation: 
+<a href="https://github.com/datatrails/go-datatrails-merklelog" target="_blank" rel="noopener">go-datatrails-merklelog</a>.</li>
+<li>Examples for verification: 
+<a href="https://github.com/datatrails/go-datatrails-demos/" target="_blank" rel="noopener">go-datatrails-demos</a></li>
+<li>Log inclusion and introspection: 
+<a href="https://github.com/datatrails/veracity/blob/main/README.md" target="_blank" rel="noopener">veracity</a></li>
+</ul>
+<p>To reproduce these examples from first principals, using only the raw verifiable data structure, an understanding of the log format is provided by this article.</p>
+<p>If you already know the basics, and want a straight forward way to deal with the dynamically sized portions of the format, please see 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a></p>
+<h2 id="environment-configuration">Environment Configuration</h2>
+<p>DataTrails operates customer specific Tenants, and a single public tenant.</p>
+<ul>
+<li>
+<p><strong>Public events</strong> are shared on the DataTrails public tenant.</p>
+</li>
+<li>
+<p><strong>Protected events</strong> are only visible to the tenant owner, but the commitment (hash) in the log is public.</p>
+</li>
+</ul>
+<p>The examples in this article use a DataTrail&rsquo;s Synsation demo tenant&rsquo;s to represent protected events.</p>
+<p>To view <em>your</em> protected events, replace <code>TENANT</code> with your <code>Tenant ID</code>.</p>
+<p>Within the 
+<a href="https://app.datatrails.ai" target="_blank" rel="noopener">DataTrails app</a>, click the top/right corner, selecting copy Tenancy Identity.
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#CopyTenancyIdentity" img class="img-fluid responsive" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity.png" width="432" height="282" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" alt="Rectangle">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity.png" width="432" height="282" alt="Rectangle"></noscript>
+  <figcaption class="figure-caption"><em>Copy Tenant ID</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="CopyTenancyIdentity" tabindex="-1" aria-labelledby="CopyTenancyIdentity" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/CopyTenancyIdentity_huacdf2ad3fd63ebf282aaf6b1948a9a1c_30713_200x0_resize_box_3.png 200w" width="432" height="282" alt="Rectangle">
+      </div>
+  
+  </div>
+</div></p>
+<p>Update the variables to fit your environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># DataTrails Public Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PUBLIC_TENANT</span><span class="o">=</span><span class="s2">&#34;6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Synsation Demo Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace to view your Tenant logs ane events</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TENANT</span><span class="o">=</span><span class="s2">&#34;6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span></code></pre></div><h2 id="each-log-is-comprised-of-many-massif-blobs-each-containing-a-fixed-number-of-leaves">Each Log Is Comprised of Many Massif Blobs, Each Containing a Fixed Number of Leaves</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+-----------+ +-----------+ .. +----------+
+</span></span><span class="line"><span class="cl">| massif 0  | | massif 1  |    | massif n
+</span></span><span class="line"><span class="cl">+-----------+ +-----------+ .. +----------+
+</span></span></code></pre></div><blockquote>
+<p>Illustration demonstrating the last massif is always in the process of being <em>appended</em> to</p>
+</blockquote>
+<p>What is a massif?
+In this context, a massif means a 
+<a href="https://www.oxfordlearnersdictionaries.com/definition/american_english/massif" target="_blank" rel="noopener">group of mountains that form a large mass</a>.
+Massif originates from the verifiable data structure used in the Merkle Mountain Range <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (MMR) based log.</p>
+<p>Merkle Mountain Ranges are attributed to 
+<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012715.html" target="_blank" rel="noopener">Peter Todd</a>, though much parallel invention has occurred.
+The &ldquo;post order&rdquo;, write once &amp; append only nature of the tree organization was first discussed in 3.3 of the 
+<a href="https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" target="_blank" rel="noopener">Crosby, Wallach paper</a>.
+They have been independently analyzed in the context of 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">cryptographic asynchronous accumulators</a>, Generalized multi-proofs for 
+<a href="https://eprint.iacr.org/2021/038.pdf" target="_blank" rel="noopener">Binary Numeral Trees</a>.
+And also by the 
+<a href="https://ethresear.ch/t/batching-and-cyclic-partitioning-of-logs/536" target="_blank" rel="noopener">ethereum research community</a>.</p>
+<p>Each massif contains the verifiable data for a fixed number, and sequential range, of events.
+The number of events is determined by the log configuration parameter <code>massif height</code>.
+Within DataTrails, all logs currently have a massif height of <code>14</code>, and the number of event <em>leaf</em> log entries in each massif is 2<sup>height-1</sup>, which is 2<sup>14-1</sup> leaves, which is <code>8192</code> leaves.
+<code>14</code> was chosen as it affords a massif storage size of comfortably under 4mb (less than 2 actually), and for many situations it is practical to handle this size as &ldquo;one lump&rdquo;.
+See 
+<a href="#the-massif-height-is-constant-for-all-blobs-in-a-log-configuration">reconfiguration</a> for more info.</p>
+<p>
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> provides a shortcut for picking the right massif.
+It can also be fairly easily computed from only the <code>merklelog_entry.commit.index</code> <em>mmrIndex</em> on the event using the 
+<a href="/developers/developer-patterns/massif-blob-offset-tables#the-algorithms-backing-the-table-generation">example javascript</a>.</p>
+<h2 id="every-massif-blob-is-a-series-of-32-byte-aligned-fields">Every Massif Blob Is a Series of 32 Byte Aligned Fields</h2>
+<p>Every massif in a log is structured as a series of <code>32</code> byte fields.
+All individual entries in the log are either 32 bytes or a small multiple of <code>32</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  0               32
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  |                | field 0
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  .                .
+</span></span><span class="line"><span class="cl">  .                .
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span><span class="line"><span class="cl">  |                | field n
+</span></span><span class="line"><span class="cl">  +----------------+
+</span></span></code></pre></div><p>Recalling our configuration (above), the tenants first massif blob can be found at:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-1" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-1"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-1-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log -o 0.log
+</span></span></code></pre></div></div></div>
+
+<p>Each massif is stored in a numbered file.
+The filename (<code>0000000000000000.log</code>) is the 16-character, zero-padded, massif index.</p>
+<p>The DataTrails attestation for each massif can be found at a closely associated url.</p>
+<p>For the massif above it is:<br>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-2" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-2"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-2-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifseals/0000000000000000.sth -o 0.sth
+</span></span></code></pre></div></div></div>
+</p>
+<p>This is a simple reverse proxy to the native azure blob store where your logs are store.
+The full 
+<a href="https://learn.microsoft.com/en-us/rest/api/azure/" target="_blank" rel="noopener">Azure REST API</a> provides getting specific massif blobs.
+For reasons of cost, all operations are subject to rate limits, listing blobs is not possible, though filtering blobs by tags is permitted.
+Both the massif blobs and the log seal blobs are always tagged with the most recent idtimestamp for the log.
+In the case of the masssif blobs, it is the idtimestamp most recently added to the log. In the case of the seal blob it is the most recent log entry that has been attested by DataTrails. The tag name is <code>lastid</code></p>
+<h2 id="re-creating-inclusion-proofs-requires-only-one-massif">Re-Creating Inclusion Proofs Requires Only One Massif</h2>
+<p>The variable section of the massif blob is further split into the <em>accumulator</em> for the preceding log state followed by the regular massif nodes:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+----------------+----------------+
+</span></span><span class="line"><span class="cl">| FIXED          | HEADER DATA    |
+</span></span><span class="line"><span class="cl">|                +----------------+  fixed size
+</span></span><span class="line"><span class="cl">|        SIZE    | TRIE-DATA      |  pre-filled with zeros, populated as leaves are added
+</span></span><span class="line"><span class="cl">+----------------+----------------+
+</span></span><span class="line"><span class="cl">| VARIABLE       | PEAK           |  accumulator succinctly committing the entire preceding log state,
+</span></span><span class="line"><span class="cl">|                |         STACK  |    which is write once on massif create
+</span></span><span class="line"><span class="cl">|   write once   +----------------+
+</span></span><span class="line"><span class="cl">|                | MMR            | grows until 2^(height-1) leaves are added
+</span></span><span class="line"><span class="cl">.                .   NODES        |
+</span></span><span class="line"><span class="cl">.   APPEND ONLY  .                |
+</span></span><span class="line"><span class="cl">+----------------+----------------+
+</span></span></code></pre></div><p>The accumulator is more precisely a cryptographic, asynchronous, accumulator whose properties are formally defined in this 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">paper</a>.
+We refer to it as the peak stack due to how we maintain it and the fact that it is composed exclusively of &ldquo;peak&rdquo; nodes taken from the preceding log.</p>
+<p>DataTrails provides convenience look up tables for 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a>, and implementations of the algorithms needed to produce those tables in many languages under an MIT license.</p>
+<h2 id="the-first-32-byte-field-in-every-massif-is-the-sequencing-header">The First 32 Byte Field in Every Massif Is the Sequencing Header</h2>
+<p>The following curl command reads the version and format information from the header field <code>0</code></p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-3" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-3"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-3-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Range: bytes=0-31&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> od -An -tx1 <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> tr -d <span class="s1">&#39; \\n&#39;</span>
+</span></span></code></pre></div><p>generates a version information, similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00000000000000009148fda07f06640000000000000000000000010e00000000
+</span></span></code></pre></div></div></div>
+
+<blockquote class="note callout">
+    <div><strong></strong> The request requires no authentication or authorization.</div>
+  </blockquote>
+<p>The structure of the header field is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">| type| idtimestamp| reserved |  version | epoch  |massif height| massif i |
+</span></span><span class="line"><span class="cl">| 0   | 8        15|          |  21 - 22 | 23   26|27         27| 28 -  31 | start and end byte indices, closed range
+</span></span><span class="line"><span class="cl">| 1   |     8      |          |      2   |    4   |      1      |     4    | count of bytes
+</span></span></code></pre></div><p>The <code>idtimestamp</code> of the last leaf entry added to the log is always set in the header field.</p>
+<p>In the hex data above, the <code>idtimestamp</code> of the last entry in the log is <code>9148fcc832066400</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, the version is <code>0</code>, the timestamp epoch is <code>1</code>, the massif height is <code>14</code>, and the massif index is <code>0</code>.</p>
+<h3 id="decoding-an-idtimestamp">Decoding an idtimestamp</h3>
+<p>The <code>idtimestamp</code> is 40 bits of time at millisecond precision.
+The <code>idtimestamp</code> in the header field is always set to the <code>idtimestamp</code> of the most recently added leaf.</p>
+<p>The following examples depend on a python environment:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-4" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-4"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-4-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">idtimestamp_to_date</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Safely convert an idtimestamp hex string to a regular date time&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># ignore the common &#39;0x&#39; prefix</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;0x&#34;</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;idtimestamp must be 18 or 16 hex chars&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">epoch</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># the epochs are aligned with the unix epoch but are half as long</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">16</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;idtimestamp must be 18 or 16 hex chars&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># To get the time portion we strip the trailing sequence and generator id</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unixms</span><span class="o">=</span><span class="nb">int</span><span class="p">((</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="nb">id</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">16</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span> <span class="o">+</span> <span class="n">epoch</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mi">40</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">unixms</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">idtimestamp_to_date</span><span class="p">(</span><span class="s1">&#39;9148fcc832066400&#39;</span><span class="p">))</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2024-08-13 00:46:51.569000
+</span></span></code></pre></div></div></div>
+
+<p>In this example, the last entry in the log (at that time) was <code>2024/08/13</code>, a little before 1am UTC.</p>
+<h2 id="the-triedata-entries-are-512-bits-each-and-are-formed-from-two-fields">The trieData entries are 512 bits each and are formed from two fields</h2>
+<p>With the trie keys, full data recovery can be verified without needing to remember the order that events were added to the log.</p>
+<p>Massifs can be recovered independently even if the data for other massifs is incomplete.</p>
+<p>The index also provides for proof of exclusion. Proof that a specific event is not in the index.
+As the event identities contribute to both the index keys and the leaf entries,
+and as the keys are time ordered on addition, it is possible to audit the specific range.
+This will confirm the log is consistent with the index for the time range in which the disputed item is claimed to exist.</p>
+<p>The trieData section is 2 * 32 * 2<sup>height</sup> bytes long, which is exactly double what is needed.
+For a standard massif height of 14, it has 8,192 entries in the first 524,288 bytes.
+The subsequent 524,288 will always be zero.
+The format of each entry is then, for a massif height of 14:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">| HEADER DATA    |
+</span></span><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">288
+</span></span><span class="line"><span class="cl">+----------------+
+</span></span><span class="line"><span class="cl">| TRIE-DATA      |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|................| 288 + 524288 = 524576
+</span></span><span class="line"><span class="cl">|  always        |
+</span></span><span class="line"><span class="cl">|                |
+</span></span><span class="line"><span class="cl">|       zero     |
+</span></span><span class="line"><span class="cl">+----------------+ 288 + 524288 * 2 = 1048864
+</span></span></code></pre></div><p>Each entry is formatted like this</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0                                                        31
+</span></span><span class="line"><span class="cl">SHA256(BYTE(0x00) || tenant-identity || event.identity)
+</span></span><span class="line"><span class="cl">0                                       BYTES(IDTIMESTAMP)
+</span></span><span class="line"><span class="cl">32                                      56               63
+</span></span></code></pre></div><p>Described in further detail in the 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/term-cheatsheet.md#trie-entry" target="_blank" rel="noopener">term-cheatsheet</a>
+Note that the <code>idtimestamp</code> is unique to the tenant and the DataTrails service.
+When sharing events with other tenants, the <code>idtimestamp</code> will not correlate directly with activity in other tenant logs.</p>
+<p>When a massif is initialized the trieData is pre-populated for all leaves and set to all zero bytes.
+As events are recorded in the log, the zero-padded index is filled in.
+A sub-range of field 0 will change when saving the last <code>idtimestamp</code> in it.
+The MMR node values are strictly only ever appended to the blob.
+Once appended they will never change and they will never move.</p>
+<p>Returning to the trieData section, given an event identity of:</p>
+<p><code>assets/20d6f57c-bce2-4be9-8e70-95ded25399b7/events/bbd934cb-a20f-44c9-aa5d-a3ce333c5208</code></p>
+<p>The trieKey for the synsation tenant&rsquo;s log is:
+<code>d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9</code></p>
+<p>The following python snippet generates a trieKey from the event data to confirm what should be in the index at a specific position.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-5" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-5"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-5-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">PUBLIC_TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PUBLIC_TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASSET</span><span class="o">=</span><span class="s1">&#39;20d6f57c-bce2-4be9-8e70-95ded25399b7&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EVENT</span><span class="o">=</span><span class="s1">&#39;bbd934cb-a20f-44c9-aa5d-a3ce333c5208&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">triekey</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">triekey</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;tenant/&#34;</span> <span class="o">+</span> <span class="n">TENANT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;assets/&#34;</span> <span class="o">+</span> <span class="n">ASSET</span> <span class="o">+</span> <span class="s2">&#34;/events/&#34;</span> <span class="o">+</span> <span class="n">EVENT</span><span class="p">))</span>
+</span></span></code></pre></div><p>generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+</span></span></code></pre></div></div></div>
+
+<p>The above example is an event on a public asset, so it can be found in the public tenant&rsquo;s merkle log.</p>
+<p>Using the python requests object (or curl), fetch the public tenants log,</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-6" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" aria-selected="true">Python</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" aria-selected="false">Bash</button>
+		</li></ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-6"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-6-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/&#39;</span><span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="n">TENANT</span><span class="o">+</span><span class="s1">&#39;/0/massifs/0000000000000000.log&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;x-ms-blob-type&#34;</span><span class="p">:</span> <span class="s2">&#34;BlockBlob&#34;</span><span class="p">,</span> <span class="s2">&#34;x-ms-version&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-12-12&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;mmr.log&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></div></div>
+  <div id="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1" class="tab-pane fade" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-6-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$TENANT</span>/0/massifs/0000000000000000.log -o mmr.log
+</span></span></code></pre></div></div></div>
+
+<p>Using python, we can more readily illustrate the 32 byte aligned format.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-7" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-7"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-7-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">binascii</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="n">SYNSATION_TENANT</span> <span class="o">=</span> <span class="s2">&#34;6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TENANT&#39;</span><span class="p">,</span> <span class="n">SYNSATION_TENANT</span><span class="p">)</span> <span class="c1"># default to synsation if not in env </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">readfields</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="s2">&#34;0000000000000000&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/&#39;</span><span class="o">+</span><span class="n">tenant</span><span class="o">+</span><span class="s1">&#39;/0/massifs/&#39;</span><span class="o">+</span><span class="n">log</span><span class="o">+</span><span class="s1">&#39;.log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">hex</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">hex</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="nb">hex</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">64</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">64</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">log</span> <span class="o">=</span> <span class="s2">&#34;0000000000000000&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">readfields</span><span class="p">(</span><span class="n">TENANT</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+</span></span></code></pre></div><p>The first few fields will look like</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00000000000000009148fda07f06640000000000000000000000010e00000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">d273400cca0d594ddbd4f04bc9275e0e6d995da1accafa00b5be879a265ecda9
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fcc832066400
+</span></span><span class="line"><span class="cl">f67192c6a4fe6a3454000225647deb37e7c488461b1d52f8d1dc58222d49d4db
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fccedb045d00
+</span></span><span class="line"><span class="cl">1057b8d9caaf1f09e46e04a4e36295276fa8f2ef676144f4b90fc47e335ea51e
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fd0d47066400
+</span></span><span class="line"><span class="cl">7fe0c5553a639bbeb5e0c26e24c94722f126fa258560097c531e9eb12e12dc88
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fd52e7066400
+</span></span><span class="line"><span class="cl">0e561df1aa165967ffe12b0d84491e29349d0022f840d9dcb5bb3fe62551ef5c
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000009148fda07f066400
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span><span class="line"><span class="cl">0000000000000000000000000000000000000000000000000000000000000000
+</span></span></code></pre></div></div></div>
+
+<p>Note the trieKey we derived earlier is easily spotted at row 9, and its
+<code>idtimestamp</code>, <code>9148fcc832066400</code>, is in the subsequent field</p>
+<p>All public events are automatically shared to the public tenant. This makes the
+event data visible without access control. The example event we created in the
+Synsation tenant is a public event. We can obtain its corresponding entry in the
+log by deriving its trieKey, and recalling our implementation for <code>triekey</code> above</p>
+<p>Obtain the trie key for the public tenant event:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-8" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" aria-selected="true">Python</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-8"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-8-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">hashlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">PUBLIC_TENANT</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PUBLIC_TENANT&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASSET</span><span class="o">=</span><span class="s1">&#39;20d6f57c-bce2-4be9-8e70-95ded25399b7&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EVENT</span><span class="o">=</span><span class="s1">&#39;bbd934cb-a20f-44c9-aa5d-a3ce333c5208&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">triekey</span><span class="p">(</span><span class="n">tenant</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">h</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">h</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">triekey</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tenant/&#34;</span> <span class="o">+</span> <span class="n">PUBLIC_TENANT</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;assets/&#34;</span> <span class="o">+</span> <span class="n">ASSET</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;/events/&#34;</span> <span class="o">+</span> <span class="n">EVENT</span><span class="p">))</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">c31114a64b9dca1376d7af999d35b4fa05a75965cb49d2b58386e19b8bbc73a9
+</span></span></code></pre></div></div></div>
+
+<p>If you similarly run <code>getlog</code> (from the example above) on the public tenant, the public trieKey is found
+at line 2390.  As this log commits events shared from many tenants, the MMRIndex
+of the publicly committed event is different (and quite a lot higher)</p>
+<p>The full details of the publicly available event can be found 
+<a href="https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/bbd934cb-a20f-44c9-aa5d-a3ce333c5208?public=true" target="_blank" rel="noopener">here</a></p>
+<p>Noting that the <code>public</code> routing prefix is not prepended on the event identity.</p>
+<p>This works the same for regular OBAC shares, a shared event is committed both to
+the originating tenants log and to the recipient tenants log.</p>
+<p>It is not possible to directly correlate activity between different tenants logs unless you know both the tenant identity and the event identity.
+For permissioned events, this will only be available if the executing identity is included in the sharing policy.
+The <code>idtimestamp</code> is different for each log, guaranteed unique within the context of a single log, and, assuming only good operation of our cloud providers clocks, guaranteed unique system wide.</p>
+<p>It is important to remember that timing analysis is possible regardless of whether we have trie keys or not.</p>
+<h2 id="the-peak-stack-and-mmr-data-sizes-are-computable">The Peak Stack and MMR Data Sizes Are Computable</h2>
+<p>See 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> to avoid needing to calculate these.
+Implementations of the O(log base 2 n) algorithms are provided in various languages.
+They all have very hardware-sympathetic implementations.</p>
+<h2 id="the-massif-height-is-constant-for-all-blobs-in-a-log-configuration">The Massif Height Is Constant for All Blobs in a Log Configuration</h2>
+<p>For a massif height of <code>14</code>, the fixed size portion is <code>1048864</code> bytes.</p>
+<p>A typical url for a massif storage blob looks like:<br>
+<code>https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log</code></p>
+<p>In the above, the <em>log configuration</em> identifier is the <code>/0/</code> between the tenant uuid and the <code>massifs/0000000000000000.log</code></p>
+<p>The massif height is recorded at the start record of every massif, and guarantees that all massifs in a single configuration path have the same <strong>massif height</strong>.</p>
+<p>Currently all DataTrails tenants use the same configuration.
+In the future, DataTrails may change the height for massifs.
+In a log reconfiguration activity, DataTrails would first publish the tail of the log to the new path. For example: (<code>/1/massifs/0000000000000123.log</code>).
+The log would be immediately available for continued growth.
+The historic configuration continues to be available under the <code>/0/</code> path.
+Depending on data retention and migration policies for your tenant, the historic configuration can verifiably be migrated to the new path without interrupting service or availability.</p>
+<p>This is achieved without impacting the verifiability of the contained data and without invalidating your previously cached copies taken from the earlier massif size configuration.
+If reconfigured, a log configuration description will also be published along side the massifs and seals.</p>
+<p>Simple binary file compare operations can show that the verifiable data for the new configuration is the same as in the original should you wish to assure yourself of this fact.</p>
+<p>The previous configuration path will no longer receive any additions.</p>
+<blockquote class="note callout">
+    <div><strong></strong> For the forseeable future (at least months) DataTrails does not anticipate needing to reconfigure the massif height.</div>
+  </blockquote>
+<h2 id="reading-a-specific-mmr-node-by-mmrindex">Reading a Specific MMR Node by mmrindex</h2>
+<p>The variable portion <em>for the first massif</em> contains exactly <em>16383</em> MMR <em>nodes</em>.
+Of those nodes, <em>8192</em> are the leaf entries in the Merkle tree corresponding to your events.</p>
+<p>Given a byte offset in the blob for the start of the MMR data, a query can check for the number of MMR nodes currently in it by doing <code>(blobSize - mmrDataStart)/32</code>.</p>
+<p>To read a specific MMR node, find the smallest <code>Last Node</code> in 
+<a href="/developers/developer-patterns/massif-blob-offset-tables">Massif Blob Pre-Calculated Offsets</a> that is greater than your <em>mmrIndex</em> and use that row as your massif index.</p>
+<p>Taking the massif index of 0 (row 0) use the first mmrIndex:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-9" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" aria-selected="true">Bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-9"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-9-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">LOGSTART</span><span class="o">=</span><span class="m">1048864</span>
+</span></span><span class="line"><span class="cl"><span class="nv">MMRINDEX</span><span class="o">=</span><span class="m">2376</span>
+</span></span><span class="line"><span class="cl">curl -s <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Range: bytes=</span><span class="k">$((</span><span class="nv">$LOGSTART</span><span class="o">+</span><span class="nv">$MMRINDEX</span><span class="o">*</span><span class="m">32</span><span class="k">))</span><span class="s2">-</span><span class="k">$((</span><span class="nv">$LOGSTART</span><span class="o">+</span><span class="nv">$MMRINDEX</span><span class="o">*</span><span class="m">32</span><span class="o">+</span><span class="m">31</span><span class="k">))</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-blob-type: BlockBlob&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;x-ms-version: 2019-12-12&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/<span class="nv">$PUBLIC_TENANT</span>/0/massifs/0000000000000000.log  <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> od -An -tx1 <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> tr -d <span class="s1">&#39; \\n&#39;</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+</span></span></code></pre></div></div></div>
+
+<p>You can confirm this on the merklelog 
+<a href="https://app.datatrails.ai/merklelogentry/20d6f57c-bce2-4be9-8e70-95ded25399b7/861dd529-3616-4ad2-b2a9-702da77b8588?public=true" target="_blank" rel="noopener">page</a> in the public tenant for this event. Look for the &ldquo;Merkle Leaf&rdquo; field.</p>
+<p>Optionally use 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">veracity</a> to confirm:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patternsnavigating-merklelogs-10" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patternsnavigating-merklelogs-10"><div id="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patternsnavigating-merklelogs-10-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data-url <span class="s2">&#34;https://app.datatrails.ai/verifiabledata&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-t tenant/<span class="nv">$PUBLIC_TENANT</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>node -i <span class="m">2376</span>
+</span></span></code></pre></div><p>Generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">3cab877bc730f7e3d652e74b5b9e9a3fad605001c29ebe481764d184c7773f95
+</span></span></code></pre></div></div></div>
+
+<p>The example javascript in 
+<a href="/developers/developer-patterns/massif-blob-offset-tables#the-algorithms-backing-the-table-generation">Massif Blob Pre-Calculated Offsets</a> can be used to accomplish this computationally.</p>
+<h2 id="leaf-nodes-created-by-hashing-event-data">Leaf Nodes Created by Hashing Event Data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0                                                        31
+</span></span><span class="line"><span class="cl">SHA256(BYTE(0x00) || BYTES(IDTIMESTAMP) || V3-SCHEMA(event))
+</span></span></code></pre></div><p>The V3 Schema defines how the content on your event is consistently converted to bytes prior to hashing.
+This works by passing the fields specified in the schema through the 
+<a href="https://en.wikipedia.org/wiki/Bencode" target="_blank" rel="noopener">bencode</a> encoding system.</p>
+<p>See our knowledge base 
+<a href="https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ" target="_blank" rel="noopener">article</a> for an example in javascript and the definition of the V3 fields.</p>
+<p>Note that this includes the <code>event_identity</code> and <code>tenant_identity</code> which are also included in the trieKey hash.</p>
+<p>The remaining item is conditioning the <code>IDTIMESTAMP</code> for hashing.
+If you have the event record from the Events API, the idtimestamp is found at <code>merklelog_entry.commit.idtimestamp</code>.
+It is a hex string and prefixed with <code>01</code> which is the epoch from the header.</p>
+<p>To condition the string value, strip the leading <code>01</code> and convert the remaining hex to binary.
+Then substitute those bytes, in presentation order, for idTimestamp above.</p>
+<p>The bytes for the hash are just <code>bytes.fromhex(&quot;019148fccdbf066400&quot;[2:])</code></p>
+<p>You can use the earlier python example to convert this format to a regular date time.</p>
+<h2 id="which-nodes">Which Nodes</h2>
+<p>Typically, verifiers would verify the inclusion of an event in the log.
+The inclusion is verified by selecting the sibling path needed to recreate the root hash starting from your leaf hash.
+Create the leaf hash using the original pre-image data of your event and the <em>commit</em> values assigned to it when it was included in the log.</p>
+<p>For example:</p>
+<ul>
+<li>The V3 canonical set of fields from your event (as described in our knowledge base 
+<a href="https://support.datatrails.ai/hc/en-gb/articles/18120936244370-How-to-independently-verify-Merkle-Log-Events-recorded-on-the-DataTrails-transparency-ledger#h_01HTYDD6ZH0FV2K95D61RQ61ZJ" target="_blank" rel="noopener">article</a>)</li>
+<li>The <code>merklelog_entry.commit.index</code> (the mmrIndex of the event in the log)</li>
+<li>The <code>merklelog_entry.commit.idtimestamp</code> uniquely placing the record of the log in time (according to our cloud service provider)</li>
+</ul>
+<p>Determining the sibling path will be a future article.
+First, set the scene by covering how the logical tree nodes map to storage.</p>
+<p>What is a sibling path?
+To understand this we need to dig into how DataTrails organizes the nodes in the Merkle log in storage and memory.</p>
+<h2 id="tree-layout-in-storage">Tree Layout in Storage</h2>
+<p>Merkle trees <em>prove</em> things by providing paths of hashes that lead to a single <em>common root</em> for all nodes in the tree.
+For an MMR, a single root can be produced by &ldquo;bagging the peaks&rdquo;.
+But the list of peaks, from which that single root is produced, is itself precisely determined by the size of the MMR.
+Having the peak list is equivalent to having a single root.
+And having a path that leads to a peak is equivalent to having a path to a single root
+The peak list is an accumulator state and a path to an accumulator is actually more useful.</p>
+<p>The formal details, and a very nice visualization of how the peaks combine, is available in this paper on 
+<a href="https://eprint.iacr.org/2015/718.pdf" target="_blank" rel="noopener">cryptographic, asynchronous, accumulators</a> (see Fig 4, page 12)</p>
+<p>The peaks are exactly the accumulator described there.</p>
+<p>All entries in a Merkle log each have a unique and <em>short</em> path of hashes<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>: , which when hashed together according to the data structures rules, will re-create the same root.
+If such a path does not exist, by definition the leaf is not included - it is not in the log.</p>
+<p>Where do those paths come from?
+They come from adjacent and ancestor nodes in the hierarchical tree.
+This means that when producing the path we need to access nodes throughout the tree to produce the proof.</p>
+<p>Using the &ldquo;canonical&rdquo; MMR log for illustration, we get this diagram.
+The vertical axis is labeled by height index, which is just height - 1.
+The connecting diagonal dashes above the &ldquo;tree line&rdquo; indicate nodes that belong to one massif but depend on peaks accumulated from earlier massifs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                          
+</span></span><span class="line"><span class="cl">                       14 
+</span></span><span class="line"><span class="cl">                          \\        affectionately called the alpine zone
+</span></span><span class="line"><span class="cl">                6           13             21   
+</span></span><span class="line"><span class="cl">                  \\            \\              \\
+</span></span><span class="line"><span class="cl">    h=2 1 |  2  |  5  |   9  |  12   |  17   | 20  | -- massif &#39;tree line&#39;
+</span></span><span class="line"><span class="cl">          |     |     |      |       |       |     |
+</span></span><span class="line"><span class="cl">        0 |0   1| 3  4| 7   8|10   11|15   16|18 19|
+</span></span></code></pre></div><p>The sibling <em>proof</em> path for the leaf with <code>mmrIndex</code> <code>7</code> would be [<code>8</code>, <code>12</code>, <code>6</code>], and the &ldquo;peak bagging&rdquo; algorithm may then be applied to get the root if that was desired.
+An inclusion proof against an accumulator entry both equivalent and also more durable, as it is permanently consistent with all future accumulator states.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">H(7 || 8) = 9
+</span></span><span class="line"><span class="cl">H(9 || 12) = 13
+</span></span><span class="line"><span class="cl">H(6 || 13) = 14
+</span></span></code></pre></div><p>14 is a peak in the MMR. The precise set of peaks are determined exclusively from the current mmr size which is 23 in this case. Showing a leaf has a path to a peak for the MMR is sufficient to prove its inclusion in the MMR.</p>
+<h2 id="visualizing-the-look-back-peak-stack">Visualizing the “Look Back” Peak Stack</h2>
+<p>A specific challenge for log implementations with very large data sets is answering &ldquo;how far back&rdquo; or &ldquo;how far forward&rdquo; may be seen?</p>
+<p>MMRs differ from classic binary Merkle trees in how, or even <em>if</em>, the incomplete sub-trees are combined into a common root.
+For an MMR, the common root is defined by an algorithm for combining the adjacent, incomplete sub-trees.
+Rather than by the more traditional, temporary, assignment of un-balanced siblings.
+Such un-balanced siblings would later have to be re-assigned (balanced) when there were sufficient leaves to merge the sub-trees.</p>
+<p>While a single root can be produced for an MMR, due to the properties of the accumulator construction, there is much less value in doing so.
+Typically, verification use cases are better served by paths to an accumulator.</p>
+<p>The linear and write once nature of this storage organization is what permits DataTrails to publish the log data immediately after events are added.</p>
+<p>The specific properties of Merkle Mountain Ranges lead to an efficiently computable and stable answer to the question of <em>&ldquo;Which other nodes do I need&rdquo;</em>.
+Such that we <em>know</em> categorically it is not needed to look <em>forward</em> of the current massif and it is precisely known which nodes are needed from the previous massifs.</p>
+<p>The &ldquo;free nodes&rdquo; in the alpine zone always require &ldquo;ancestors&rdquo; from previous nodes when producing inclusion proofs that pass through them, and when adding new nodes to the end of the log.
+But those ancestors are precisely the peaks forming the accumulator that attests to the log state and provide efficient, permanently useful, proofs of inclusion and consistency.</p>
+<p>The progression of the peak stack (accumulator) can be visualized like this. In this diagram we gather the dependent nodes into the massifs they belong too and carry forward the peak stack (accumulator) that fully authenticates the entire state of the MMR preceding the massif.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">      |[]   |[2]  |[6]   |[6,9]  |[14]   |[14,17]| peak stack
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">      |     |6    |      |13, 14 |       |21     | spurs
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">h=2 1 |  2  |  5  |   9  |  12   |  17   |  20   | &lt;-- massif height &#39;tree line&#39;
+</span></span><span class="line"><span class="cl">      |     |     |      |       |       |       |
+</span></span><span class="line"><span class="cl">    0 |0   1 3   4| 7   8|10   11|15   16|18   19|
+</span></span></code></pre></div><p><em>Note: height is 1 based, height indices are 0 based. So at h=2 we have height index 1.</em></p>
+<p>The log configuration parameter massif height is the &ldquo;tree line&rdquo;.
+The first leaf addition that causes &ldquo;break out&rdquo; is the last leaf of that particular massif.
+The &ldquo;break out nodes&rdquo; for the last leaf are stored in the same massif as the leaf.
+While the leaf count for each massif is fixed, the number of nodes is variable.
+The variance is deterministic given only the MMR size.</p>
+<p>The look-back nodes are called the <em>peak stack</em> because the operations we use to maintain it are stack like.
+Entries don&rsquo;t pop off, ever.
+Entries just happen to reference it in reverse order of addition when adding new leaves.</p>
+<p>The stability of the MMR data comes from the fact that the sub trees are not merged until a right sibling tree of equal height has been produced.
+Merging is accomplished by <em>appending</em> the new parent immediately after the right sibling.
+This means when merged, the sub trees do not change in content or organization, nodes are simply appended to commit them to the log.
+This results in the &ldquo;write-once&rdquo; and &ldquo;append only&rdquo; properties discussed in the 
+<a href="https://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" target="_blank" rel="noopener">crosby-wallach</a> 3.3 &ldquo;Storing the log on secondary storage&rdquo;</p>
+<h2 id="how-the-tree-spans-the-massifs">How the Tree Spans the Massifs</h2>
+<p>A worked example for a Merkle log whose height configuration parameter is set to 2.</p>
+<h3 id="massif-0">Massif 0</h3>
+<p>The peak stack size is established for a massif when it is created in its empty state. The size is efficiently calculable from the MMR Index at the start of the new massif. For the first massif the stack will be empty.</p>
+<p>When viewed horizontally, we start by denoting the empty stack like this.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">++
+</span></span><span class="line"><span class="cl">||
+</span></span><span class="line"><span class="cl">++
+</span></span></code></pre></div><p>Then, the leaves for the complete MMR of size 3 from our canonical example are added after the peak stack.</p>
+<p>This gives us the final form for massif 0 as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">++---+---+---+
+</span></span><span class="line"><span class="cl">|| 0 | 1 | 2 |
+</span></span><span class="line"><span class="cl">++---+-------+
+</span></span></code></pre></div><p>The massif has exactly 3 nodes</p>
+<p>The peak stack is empty, and the global tree looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  1    2  | --- massif tree line massif height index = 1
+</span></span><span class="line"><span class="cl">      / \\ |
+</span></span><span class="line"><span class="cl">     0   1| MMR INDICES
+</span></span><span class="line"><span class="cl">     -----|
+</span></span><span class="line"><span class="cl">       0  | MASSIF
+</span></span></code></pre></div><h3 id="massif-1">Massif 1</h3>
+<p>Once massif 1 has been constructed, the global tree would be:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2       6       --- max height index = 2
+</span></span><span class="line"><span class="cl">         \\
+</span></span><span class="line"><span class="cl">1    2  | 5   | --- massif tree line massif height index = 1
+</span></span><span class="line"><span class="cl">    / \\ |/  \\ |
+</span></span><span class="line"><span class="cl">   0   1|3   4| MMR INDICES
+</span></span><span class="line"><span class="cl">   -----|-----|
+</span></span><span class="line"><span class="cl">     0  |  1  | MASSIF
+</span></span></code></pre></div><p>The layout of massif 1 in storage is</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++---+---+---+---+
+</span></span><span class="line"><span class="cl">| 2 || 3 | 4 | 5 | 6 |
+</span></span><span class="line"><span class="cl">+---++---+-------+---+
+</span></span></code></pre></div><p>For massif <code>1</code>, the peak stack is <code>[2]</code>.
+When node <code>4</code> was added, the &ldquo;back fill nodes&rdquo; were added to &ldquo;complete the tree&rdquo; and were also stored in massif <code>1</code>.
+The &ldquo;break out&rdquo; nodes visually overhang the previous massif, but are stored in massif <code>1</code>.</p>
+<p>This layout is also known as a &ldquo;post order&rdquo; traversal of a binary tree.</p>
+<p>Note that the addition of node <code>6</code>, while backfilling for <code>4</code>, requires node <code>2</code> from the previous massif <code>0</code>.
+This is why it is carried forward in the peak stack.</p>
+<p>We can also see that is the <em>only</em> node that is required from massif <code>0</code> for <em>any</em> verification path in massif <code>1</code>.</p>
+<p>As the log grows, the accumulator (peak stack) moves on.
+However, historic verification paths can always be proven to exist in all future accumulators.
+Given a pair of signed accumulators that are inconsistent, the broken log is evident.</p>
+<p>The key point here is that, in massif <code>1</code>, when computing a verification path for nodes <code>3</code> or <code>4</code>, the only node that is required from massif <code>0</code> is available locally in the peak stack (in massif <code>1</code>).</p>
+<p>This means that should you lose interest in the leaf entries from massif <code>0</code>, the whole massif can be deleted without fear that it will impact the verifiability of subsequent items in the log.</p>
+<p>If you retain the seal from massif <code>0</code>, or if you can count on it being available from another trusted source, you only strictly need to retain leaves of interest and their verification paths.</p>
+<h3 id="massif-2">Massif 2</h3>
+<p>The global tree at the end of massif <code>2</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2       6
+</span></span><span class="line"><span class="cl">          \\
+</span></span><span class="line"><span class="cl">1    2  |  5  |  9  |
+</span></span><span class="line"><span class="cl">    / \\ |/  \\ | / \\ |
+</span></span><span class="line"><span class="cl">   0   1|3   4|7   8|
+</span></span><span class="line"><span class="cl">   -----|-----|-----|
+</span></span><span class="line"><span class="cl">     0  |  1  |  2  | MASSIF
+</span></span></code></pre></div><p>The layout for massif <code>2</code>, showing the peak stack is <code>[6]</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++---+---+---+
+</span></span><span class="line"><span class="cl">| 6 || 7 | 8 | 9 |
+</span></span><span class="line"><span class="cl">+---++---+-------+
+</span></span></code></pre></div><p>Note that <code>6</code> has replaced <code>2</code>.
+The <code>2</code> is not required for any verification path for elements added in massif <code>2</code> or beyond.</p>
+<h3 id="massif-3">massif 3</h3>
+<p>The global tree at the end of massif <code>3</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  3              14
+</span></span><span class="line"><span class="cl">                   \\
+</span></span><span class="line"><span class="cl">                    \\
+</span></span><span class="line"><span class="cl">                     \\
+</span></span><span class="line"><span class="cl">  2        6         13
+</span></span><span class="line"><span class="cl">            \\          \\
+</span></span><span class="line"><span class="cl">  1    2  |  5  |  9  | 12  |
+</span></span><span class="line"><span class="cl">      / \\ |/  \\ | / \\ | / \\ |
+</span></span><span class="line"><span class="cl">     0   1|3   4|7   8|10 11|
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|
+</span></span><span class="line"><span class="cl">     | 0  |  1  |  2  |  3  |
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|
+</span></span></code></pre></div><p>The peak stack is <code>[6, 9]</code>. Because both nodes <code>6</code> and <code>9</code> were needed to complete
+the MMR that includes leaf node <code>11</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---+---++----+----+----+----+----+
+</span></span><span class="line"><span class="cl">| 6 | 9 || 10 | 11 | 12 | 13 | 14 |
+</span></span><span class="line"><span class="cl">+---+---++----+----+----+----+----+
+</span></span></code></pre></div><h3 id="massif-4">Massif 4</h3>
+<p>The global tree at the end of massif <code>4</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  3              14
+</span></span><span class="line"><span class="cl">                   \\
+</span></span><span class="line"><span class="cl">                    \\
+</span></span><span class="line"><span class="cl">                     \\
+</span></span><span class="line"><span class="cl">  2        6         13
+</span></span><span class="line"><span class="cl">            \\          \\
+</span></span><span class="line"><span class="cl">  1    2  |  5  |  9  | 12  |  17  |
+</span></span><span class="line"><span class="cl">      / \\ |/  \\ | / \\ | / \\ | /  \\ |
+</span></span><span class="line"><span class="cl">     0   1|3   4|7   8|10 11|15  16|
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|------|
+</span></span><span class="line"><span class="cl">     | 0  |  1  |  2  |  3  |   4  |
+</span></span><span class="line"><span class="cl">     -----|-----|-----|-----|------|
+</span></span></code></pre></div><p>Note that this case is particularly interesting because it completes a full cycle from one perfect power-sized tree to the next.
+A fact of the MMR construction is the look back is never further than the most recent &lsquo;perfect&rsquo; tree completing massif.</p>
+<p>So the peak stack is <code>[14]</code>, discarding <code>6</code> and <code>9</code>, and the massif <code>4</code> layout is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">+---++----+----+----+
+</span></span><span class="line"><span class="cl">| 14|| 15 | 16 | 17 |
+</span></span><span class="line"><span class="cl">+---++----+----+----+
+</span></span></code></pre></div><h2 id="takeaways">Takeaways</h2>
+<ul>
+<li>Merkle logs are divided into massifs, each of which stores verification data for a fixed number of your events.</li>
+<li>Once verification data is written to the log, it never changes.</li>
+<li>The &ldquo;look back&rdquo; nodes needed to make each massif self contained are deterministic and are filled in when a new massif is started.</li>
+<li>The dynamically sized portions of the format are all computable, but we offer pre-calculated tables for convenience.</li>
+<li>
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">Open-source tooling</a> exists in multiple languages for navigating the format.</li>
+<li>Given a signed &ldquo;root&rdquo;, all entries in any copies of your log are irrefutably attested by DataTrails.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Merkle Mountain Ranges have seen extensive use in systems that need long term tamper evident storage, notably 
+<a href="https://zips.z.cash/zip-0221" target="_blank" rel="noopener">zcash</a>, 
+<a href="https://github.com/mimblewimble/grin/blob/master/doc/mmr.md" target="_blank" rel="noopener">mimblewimble</a>, and 
+<a href="https://zips.z.cash/zip-0221#additional-reading" target="_blank" rel="noopener">many others</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The <code>idtimestamp</code> value is 64 bits, of which the first 40 bits are a millisecond precision time value and the remainder is data used to guarantee uniqueness of the timestamp.
+DataTrails uses a variant of the 
+<a href="https://en.wikipedia.org/wiki/Snowflake_ID" target="_blank" rel="noopener">Snowflake ID</a> scheme.
+The DataTrails implementation can be found at 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/snowflakeid/nextid.go#L118" target="_blank" rel="noopener">nextid.go</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Such a path of hashes is commonly referred to as a &ldquo;proof&rdquo;, a &ldquo;witness&rdquo;, and an &ldquo;authentication path&rdquo;.
+A Merkle Tree is sometimes referred to as authenticated data structures or a verifiable data structure. For the purposes of this article, there is no meaningful difference. They are all the same thing. We stick to &ldquo;verification&rdquo; and &ldquo;verifiable data structure&rdquo; in this article.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+`}).add({id:15,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each DataTrails Tenancy represents an organization, and each DataTrails account represents an individual user.
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.</p>
@@ -25869,7 +28171,870 @@ Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code
 You will be sent to the identity provider you configured earlier to log-in, then redirected back to DataTrails.</p>
 </li>
 </ol>
-`}).add({id:15,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`}).add({id:16,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
+The algorithms to reproduce this are relatively simple.
+DataTrails provides 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source implementations</a>, but in many contexts it is simpler to use these pre-calculations.
+These tables can be made for any log configuration at any time, in part or in whole, without access to any specific log.</p>
+<p>This is a quick review of the log format.
+We explain this in more detail at 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a></p>
+<h2 id="each-log-is-comprised-of-many-blobs-each-containing-a-fixed-number-of-leaves">Each Log Is Comprised of Many Blobs, Each Containing a Fixed Number of Leaves</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    +----------+ +----------+ .. +----------+
+</span></span><span class="line"><span class="cl">    | massif 0 | | massif 1 |    | massif n
+</span></span><span class="line"><span class="cl">    +----------+ +----------+ .. +----------+
+</span></span></code></pre></div><p>New leaves are added to the last blob in the log.</p>
+<h2 id="each-individual-blob-has-a-fixed-size-portion-and-two-variably-sized-sections">Each Individual Blob Has a Fixed Size Portion and Two Variably Sized Sections</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span><span class="line"><span class="cl">    |  fixed  size      | computable size    |
+</span></span><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span><span class="line"><span class="cl">    | header | trieData |peak stack| mmrData |
+</span></span><span class="line"><span class="cl">    |--------.----------.----------.---------|
+</span></span></code></pre></div><h2 id="the-peak-stack-and-mmr-data-sizes-are-computable">The Peak Stack and MMR Data Sizes Are Computable</h2>
+<p>&hellip;but it is not always convenient to do so.</p>
+<p>Using <code>veracity</code>, the following command line can reproduce a canonical &ldquo;illustrative&rdquo; log from 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --height <span class="m">2</span> massifs --count <span class="m">6</span>
+</span></span></code></pre></div><p>generates:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                       14
+</span></span><span class="line"><span class="cl">                          \\
+</span></span><span class="line"><span class="cl">                6           13             21
+</span></span><span class="line"><span class="cl">                  \\            \\              \\
+</span></span><span class="line"><span class="cl">    h=2 1 |  2  |  5  |   9  |  12   |  17   | 20  |
+</span></span><span class="line"><span class="cl">          |     |     |      |       |       |     |
+</span></span><span class="line"><span class="cl">        0 |0   1| 3  4| 7   8|10   11|15   16|18 19| MMR INDICES
+</span></span><span class="line"><span class="cl">        0 |0   1| 2  3| 4   5|6     7|8     9|10 11| LEAF INDICES
+</span></span></code></pre></div><p>The following table <em>Stack Start</em> and <em>mmr Start</em> are byte offsets from the start of the file.
+<em>Stack Start</em> is the end of the fixed header information, the relevant parts of which are described in 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
+<p>The leaf values are indices into the trie fields (not considered further in this page) and the node values are indices into the array of 32-byte nodes starting at <em>mmr Start</em></p>
+<table>
+<thead>
+<tr>
+<th>Massif</th>
+<th>Stack Start</th>
+<th>mmr Start</th>
+<th>First leaf</th>
+<th>Last Leaf</th>
+<th>First Node</th>
+<th>Last Node</th>
+<th>Peak Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>544</td>
+<td>544</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>544</td>
+<td>576</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>6</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>544</td>
+<td>576</td>
+<td>4</td>
+<td>5</td>
+<td>7</td>
+<td>9</td>
+<td>[6]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>544</td>
+<td>608</td>
+<td>6</td>
+<td>7</td>
+<td>10</td>
+<td>14</td>
+<td>[6,9]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>544</td>
+<td>576</td>
+<td>8</td>
+<td>9</td>
+<td>15</td>
+<td>17</td>
+<td>[14]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>544</td>
+<td>608</td>
+<td>10</td>
+<td>11</td>
+<td>18</td>
+<td>21</td>
+<td>[14,17]</td>
+</tr>
+</tbody>
+</table>
+<p>It is fairly easy to validate the leaves and nodes by hand.
+Reproducing the Stack Start needs details from 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
+<h2 id="pre-computes-for-your-first-million-events">Pre-computes for Your First Million Events</h2>
+<p>DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$</p>
+<table>
+<thead>
+<tr>
+<th>Massif</th>
+<th>Stack Start</th>
+<th>mmr Start</th>
+<th>First leaf</th>
+<th>Last Leaf</th>
+<th>First Node</th>
+<th>Last Node</th>
+<th>Peak Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1048864</td>
+<td>1048864</td>
+<td>0</td>
+<td>8191</td>
+<td>0</td>
+<td>16382</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>8192</td>
+<td>16383</td>
+<td>16383</td>
+<td>32766</td>
+<td>[16382]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>16384</td>
+<td>24575</td>
+<td>32767</td>
+<td>49149</td>
+<td>[32766]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>24576</td>
+<td>32767</td>
+<td>49150</td>
+<td>65534</td>
+<td>[32766,49149]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>32768</td>
+<td>40959</td>
+<td>65535</td>
+<td>81917</td>
+<td>[65534]</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>40960</td>
+<td>49151</td>
+<td>81918</td>
+<td>98301</td>
+<td>[65534,81917]</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>49152</td>
+<td>57343</td>
+<td>98302</td>
+<td>114684</td>
+<td>[65534,98301]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>57344</td>
+<td>65535</td>
+<td>114685</td>
+<td>131070</td>
+<td>[65534,98301,114684]</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>65536</td>
+<td>73727</td>
+<td>131071</td>
+<td>147453</td>
+<td>[131070]</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>73728</td>
+<td>81919</td>
+<td>147454</td>
+<td>163837</td>
+<td>[131070,147453]</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>81920</td>
+<td>90111</td>
+<td>163838</td>
+<td>180220</td>
+<td>[131070,163837]</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>90112</td>
+<td>98303</td>
+<td>180221</td>
+<td>196605</td>
+<td>[131070,163837,180220]</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>98304</td>
+<td>106495</td>
+<td>196606</td>
+<td>212988</td>
+<td>[131070,196605]</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>106496</td>
+<td>114687</td>
+<td>212989</td>
+<td>229372</td>
+<td>[131070,196605,212988]</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>114688</td>
+<td>122879</td>
+<td>229373</td>
+<td>245755</td>
+<td>[131070,196605,229372]</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>122880</td>
+<td>131071</td>
+<td>245756</td>
+<td>262142</td>
+<td>[131070,196605,229372,245755]</td>
+</tr>
+<tr>
+<td>16</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>131072</td>
+<td>139263</td>
+<td>262143</td>
+<td>278525</td>
+<td>[262142]</td>
+</tr>
+<tr>
+<td>17</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>139264</td>
+<td>147455</td>
+<td>278526</td>
+<td>294909</td>
+<td>[262142,278525]</td>
+</tr>
+<tr>
+<td>18</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>147456</td>
+<td>155647</td>
+<td>294910</td>
+<td>311292</td>
+<td>[262142,294909]</td>
+</tr>
+<tr>
+<td>19</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>155648</td>
+<td>163839</td>
+<td>311293</td>
+<td>327677</td>
+<td>[262142,294909,311292]</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>163840</td>
+<td>172031</td>
+<td>327678</td>
+<td>344060</td>
+<td>[262142,327677]</td>
+</tr>
+<tr>
+<td>21</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>172032</td>
+<td>180223</td>
+<td>344061</td>
+<td>360444</td>
+<td>[262142,327677,344060]</td>
+</tr>
+<tr>
+<td>22</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>180224</td>
+<td>188415</td>
+<td>360445</td>
+<td>376827</td>
+<td>[262142,327677,360444]</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>188416</td>
+<td>196607</td>
+<td>376828</td>
+<td>393213</td>
+<td>[262142,327677,360444,376827]</td>
+</tr>
+<tr>
+<td>24</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>196608</td>
+<td>204799</td>
+<td>393214</td>
+<td>409596</td>
+<td>[262142,393213]</td>
+</tr>
+<tr>
+<td>25</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>204800</td>
+<td>212991</td>
+<td>409597</td>
+<td>425980</td>
+<td>[262142,393213,409596]</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>212992</td>
+<td>221183</td>
+<td>425981</td>
+<td>442363</td>
+<td>[262142,393213,425980]</td>
+</tr>
+<tr>
+<td>27</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>221184</td>
+<td>229375</td>
+<td>442364</td>
+<td>458748</td>
+<td>[262142,393213,425980,442363]</td>
+</tr>
+<tr>
+<td>28</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>229376</td>
+<td>237567</td>
+<td>458749</td>
+<td>475131</td>
+<td>[262142,393213,458748]</td>
+</tr>
+<tr>
+<td>29</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>237568</td>
+<td>245759</td>
+<td>475132</td>
+<td>491515</td>
+<td>[262142,393213,458748,475131]</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>245760</td>
+<td>253951</td>
+<td>491516</td>
+<td>507898</td>
+<td>[262142,393213,458748,491515]</td>
+</tr>
+<tr>
+<td>31</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>253952</td>
+<td>262143</td>
+<td>507899</td>
+<td>524286</td>
+<td>[262142,393213,458748,491515,507898]</td>
+</tr>
+<tr>
+<td>32</td>
+<td>1048864</td>
+<td>1048896</td>
+<td>262144</td>
+<td>270335</td>
+<td>524287</td>
+<td>540669</td>
+<td>[524286]</td>
+</tr>
+<tr>
+<td>33</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>270336</td>
+<td>278527</td>
+<td>540670</td>
+<td>557053</td>
+<td>[524286,540669]</td>
+</tr>
+<tr>
+<td>34</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>278528</td>
+<td>286719</td>
+<td>557054</td>
+<td>573436</td>
+<td>[524286,557053]</td>
+</tr>
+<tr>
+<td>35</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>286720</td>
+<td>294911</td>
+<td>573437</td>
+<td>589821</td>
+<td>[524286,557053,573436]</td>
+</tr>
+<tr>
+<td>36</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>294912</td>
+<td>303103</td>
+<td>589822</td>
+<td>606204</td>
+<td>[524286,589821]</td>
+</tr>
+<tr>
+<td>37</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>303104</td>
+<td>311295</td>
+<td>606205</td>
+<td>622588</td>
+<td>[524286,589821,606204]</td>
+</tr>
+<tr>
+<td>38</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>311296</td>
+<td>319487</td>
+<td>622589</td>
+<td>638971</td>
+<td>[524286,589821,622588]</td>
+</tr>
+<tr>
+<td>39</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>319488</td>
+<td>327679</td>
+<td>638972</td>
+<td>655357</td>
+<td>[524286,589821,622588,638971]</td>
+</tr>
+<tr>
+<td>40</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>327680</td>
+<td>335871</td>
+<td>655358</td>
+<td>671740</td>
+<td>[524286,655357]</td>
+</tr>
+<tr>
+<td>41</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>335872</td>
+<td>344063</td>
+<td>671741</td>
+<td>688124</td>
+<td>[524286,655357,671740]</td>
+</tr>
+<tr>
+<td>42</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>344064</td>
+<td>352255</td>
+<td>688125</td>
+<td>704507</td>
+<td>[524286,655357,688124]</td>
+</tr>
+<tr>
+<td>43</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>352256</td>
+<td>360447</td>
+<td>704508</td>
+<td>720892</td>
+<td>[524286,655357,688124,704507]</td>
+</tr>
+<tr>
+<td>44</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>360448</td>
+<td>368639</td>
+<td>720893</td>
+<td>737275</td>
+<td>[524286,655357,720892]</td>
+</tr>
+<tr>
+<td>45</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>368640</td>
+<td>376831</td>
+<td>737276</td>
+<td>753659</td>
+<td>[524286,655357,720892,737275]</td>
+</tr>
+<tr>
+<td>46</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>376832</td>
+<td>385023</td>
+<td>753660</td>
+<td>770042</td>
+<td>[524286,655357,720892,753659]</td>
+</tr>
+<tr>
+<td>47</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>385024</td>
+<td>393215</td>
+<td>770043</td>
+<td>786429</td>
+<td>[524286,655357,720892,753659,770042]</td>
+</tr>
+<tr>
+<td>48</td>
+<td>1048864</td>
+<td>1048928</td>
+<td>393216</td>
+<td>401407</td>
+<td>786430</td>
+<td>802812</td>
+<td>[524286,786429]</td>
+</tr>
+<tr>
+<td>49</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>401408</td>
+<td>409599</td>
+<td>802813</td>
+<td>819196</td>
+<td>[524286,786429,802812]</td>
+</tr>
+<tr>
+<td>50</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>409600</td>
+<td>417791</td>
+<td>819197</td>
+<td>835579</td>
+<td>[524286,786429,819196]</td>
+</tr>
+<tr>
+<td>51</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>417792</td>
+<td>425983</td>
+<td>835580</td>
+<td>851964</td>
+<td>[524286,786429,819196,835579]</td>
+</tr>
+<tr>
+<td>52</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>425984</td>
+<td>434175</td>
+<td>851965</td>
+<td>868347</td>
+<td>[524286,786429,851964]</td>
+</tr>
+<tr>
+<td>53</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>434176</td>
+<td>442367</td>
+<td>868348</td>
+<td>884731</td>
+<td>[524286,786429,851964,868347]</td>
+</tr>
+<tr>
+<td>54</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>442368</td>
+<td>450559</td>
+<td>884732</td>
+<td>901114</td>
+<td>[524286,786429,851964,884731]</td>
+</tr>
+<tr>
+<td>55</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>450560</td>
+<td>458751</td>
+<td>901115</td>
+<td>917500</td>
+<td>[524286,786429,851964,884731,901114]</td>
+</tr>
+<tr>
+<td>56</td>
+<td>1048864</td>
+<td>1048960</td>
+<td>458752</td>
+<td>466943</td>
+<td>917501</td>
+<td>933883</td>
+<td>[524286,786429,917500]</td>
+</tr>
+<tr>
+<td>57</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>466944</td>
+<td>475135</td>
+<td>933884</td>
+<td>950267</td>
+<td>[524286,786429,917500,933883]</td>
+</tr>
+<tr>
+<td>58</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>475136</td>
+<td>483327</td>
+<td>950268</td>
+<td>966650</td>
+<td>[524286,786429,917500,950267]</td>
+</tr>
+<tr>
+<td>59</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>483328</td>
+<td>491519</td>
+<td>966651</td>
+<td>983035</td>
+<td>[524286,786429,917500,950267,966650]</td>
+</tr>
+<tr>
+<td>60</td>
+<td>1048864</td>
+<td>1048992</td>
+<td>491520</td>
+<td>499711</td>
+<td>983036</td>
+<td>999418</td>
+<td>[524286,786429,917500,983035]</td>
+</tr>
+<tr>
+<td>61</td>
+<td>1048864</td>
+<td>1049024</td>
+<td>499712</td>
+<td>507903</td>
+<td>999419</td>
+<td>1015802</td>
+<td>[524286,786429,917500,983035,999418]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-algorithms-backing-the-table-generation">The Algorithms Backing the Table Generation</h2>
+<p>In combination with the format information at 
+<a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a> the pre-computed tables above can be generated using these examples using the DataTrails open source, go-lang based 
+<a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">veracity</a> tooling.</p>
+<ul class="nav nav-tabs" id="convert-idtimestamp" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#convert-idtimestamp-0" type="button" role="tab" aria-controls="convert-idtimestamp-0" aria-selected="true">Leaf Count and Massif Index</button>
+		</li>
+	  
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#convert-idtimestamp-1" type="button" role="tab" aria-controls="convert-idtimestamp-1" aria-selected="false">mmrIndex from leafIndex</button>
+		</li>
+		<li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#convert-idtimestamp-2" type="button" role="tab" aria-controls="convert-idtimestamp-2" aria-selected="false">Peak Stack Length</button>
+		</li></ul>
+<div class="tab-content" id="convert-idtimestamp"><div id="convert-idtimestamp-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="convert-idtimestamp-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">massifIndex</span><span class="p">(</span><span class="nx">mmrIndex</span><span class="p">,</span> <span class="nx">massifHeight</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">nl</span> <span class="o">=</span>  <span class="nb">Number</span><span class="p">(</span><span class="nx">leafCount</span><span class="p">(</span><span class="nx">mmrIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="nx">n</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="nx">massifHeight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">massifIndex</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">nl</span> <span class="o">/</span> <span class="nx">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">massifIndex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// returns the number of leaves in the largest mmr whose size is &lt;= the supplied size
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">leafCount</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">==</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">peakSize</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="mi">64</span><span class="nx">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">clz64</span><span class="p">(</span><span class="nx">mmrSize</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">peakMap</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(;</span> <span class="nx">peakSize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">peakMap</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span><span class="nx">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;=</span> <span class="nx">peakSize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pos</span> <span class="o">-=</span> <span class="nx">peakSize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">peakMap</span> <span class="o">|=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">peakSize</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">peakMap</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">clz64</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">===</span> <span class="s1">&#39;bigint&#39;</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">\`num must be bigint not </span><span class="si">\${</span><span class="k">typeof</span> <span class="nx">num</span><span class="si">}</span><span class="sb">\`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">num</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">.</span><span class="nx">asUintN</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">hi</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">&gt;&gt;</span> <span class="mi">32</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">lz</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">clz32</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">hi</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">lz</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nx">lz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">lo</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">((</span><span class="nx">num</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="mi">32</span><span class="nx">n</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">32</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">clz32</span><span class="p">(</span><span class="nx">lo</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+  <div id="convert-idtimestamp-1" class="tab-pane fade" role="tabpanel" aria-labelledby="convert-idtimestamp-1">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">treeIndex</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span> <span class="c1">// Assuming iLeaf can be very large, use BigInt for accuracy.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">);</span> <span class="c1">// Ensure iLeaf is treated as BigInt
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">log2Uint64</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">spurSumHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="o">+</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">const</span> <span class="nx">half</span> <span class="o">=</span> <span class="mi">1</span><span class="nx">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">1</span><span class="nx">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">i</span> <span class="o">-=</span> <span class="nx">half</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// spurSumHeight counts the interior &#39;spur&#39; nodes required for the given height
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">spurSumHeight</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">height</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">height</span><span class="p">);</span> <span class="c1">// Ensure height is treated as BigInt
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">height</span> <span class="o">===</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">height</span> <span class="o">-</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nx">i</span><span class="p">))</span> <span class="o">*</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">log2Uint64</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">num</span> <span class="o">===</span> <span class="s1">&#39;bigint&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span> <span class="c1">// log2(1) = 0 and log2(0) is undefined, handled as 0 for simplicity
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">let</span> <span class="nx">log</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">num</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">log</span> <span class="o">+=</span> <span class="mi">1</span><span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">log</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Similarly, handle log2(1) = 0 and log2(0) as 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">log2</span><span class="p">(</span><span class="nx">num</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
+  <div id="convert-idtimestamp-2" class="tab-pane fade" role="tabpanel" aria-labelledby="convert-idtimestamp-2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/** Calculate the size of a massifs peak stack by passing the massifIndex in place of iLeaf */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">leafMinusSpurSum</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="nx">iLeaf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">iLeaf</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">&gt;&gt;</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="nx">iLeaf</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">sum</span> <span class="o">-=</span> <span class="nx">iLeaf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">iLeaf</span> <span class="o">&gt;&gt;=</span> <span class="nx">BigInt</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div></div>
+
+`}).add({id:17,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the DataTrails team, a badge indicating that they have been verified will appear next to their domain name.
 
 
@@ -25981,7 +29146,7 @@ You will be sent to the identity provider you configured earlier to log-in, then
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`}).add({id:16,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`}).add({id:18,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
@@ -26358,7 +29523,7 @@ Use the curl command to run your JSON file! See instructions for
 </ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`}).add({id:17,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`}).add({id:19,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC only allows sharing between Tenant Administrators. The external Administrator must then apply an ABAC policy within their tenancy to give their own organization&rsquo;s Non-Administrators access to your Audit Trails, where appropriate.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -26860,7 +30025,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`}).add({id:18,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`}).add({id:20,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -27215,7 +30380,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`}).add({id:19,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`}).add({id:21,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -27572,7 +30737,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`}).add({id:20,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`}).add({id:22,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -28138,7 +31303,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`}).add({id:21,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`}).add({id:23,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -29194,7 +32359,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:22,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:24,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -31244,7 +34409,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:23,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`}).add({id:25,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -32365,7 +35530,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`}).add({id:24,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -32912,7 +36077,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`}).add({id:25,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -34224,7 +37389,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -36350,7 +39515,7 @@ For example:</p>
   </div>
 
 
-`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -38043,7 +41208,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -38960,7 +42125,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:29,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`}).add({id:31,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -39090,7 +42255,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -40235,7 +43400,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -41077,7 +44242,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -42212,7 +45377,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:33,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:35,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42274,7 +45439,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:34,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42396,7 +45561,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:35,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42498,7 +45663,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42547,7 +45712,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42657,7 +45822,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42691,7 +45856,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -42704,7 +45869,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -42713,11 +45878,14 @@ If this is not needed then do not wait for confirmation.</p>
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
       <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
+      <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
+      <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>
+      <a href="/developers/developer-patterns/massif-blob-offset-tables/">Massif Blob Offset Tables &rarr;</a><br>
       <a href="/developers/developer-patterns/document-profile/">Document Profile &rarr;</a><br>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`}).add({id:41,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`}).add({id:43,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -42835,7 +46003,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:42,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:44,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -42849,7 +46017,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -42863,7 +46031,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`}).add({id:44,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:46,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -42882,7 +46050,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:45,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:47,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -42898,7 +46066,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`}).add({id:46,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -42926,7 +46094,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`}).add({id:47,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>

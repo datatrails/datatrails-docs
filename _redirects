@@ -9,13 +9,14 @@
 /docs/overview/advanced-concepts/ /platform/overview/advanced-concepts/
 /docs/developer-patterns/containers-as-assets/ /developers/developer-patterns/containers-as-assets/
 /docs/user-patterns/state-machine/ /usecases/state-machine/
+/docs/developer-patterns/namespace/ /developers/developer-patterns/namespace/
 ../quickstart/creating-an-asset /platform/overview/creating-an-asset/
 ../quickstart/tutorial /platform/overview/creating-an-asset/
 /docs/rkvst-basics/creating-an-asset/ /platform/overview/creating-an-asset/
-/docs/developer-patterns/namespace/ /developers/developer-patterns/namespace/
 ../quickstart/creating-an-event-against-an-asset /platform/overview/creating-an-event-against-an-asset/
 /docs/rkvst-basics/creating-an-event-against-an-asset/ /platform/overview/creating-an-event-against-an-asset/
 /docs/beyond-the-basics/public-attestation/ /platform/overview/public-attestation/
+/docs/beyond-the-basics/navigating-merklelogs/ /developers/developer-patterns/navigating-merklelogs/
 /docs/overview/identity-and-access-management/ /platform/administration/identity-and-access-management/
 /docs/beyond-the-basics/verified-domain/ /platform/administration/verified-domain/
 ../quickstart/managing-access-to-an-asset-with-abac /platform/administration/sharing-access-inside-your-tenant/

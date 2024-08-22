@@ -1,9 +1,9 @@
 ---
 title: "Veracity"
 description: "Supporting independent verification of your events"
-lead: "Exploring the merkle log with the DataTrails Veracity"
-date: 2021-06-09T13:49:35+01:00
-lastmod: 2021-06-09T13:49:35+01:00
+lead: "Exploring DataTrails' merkle log with Veracity"
+date: 2024-08-22T19:35:35+01:00
+lastmod: 2024-08-22T19:35:35+01:00
 draft: false
 images: []
 menu:
@@ -37,13 +37,7 @@ you'd like to know more, please see the [Veracity Repo](https://github.com/datat
 ## Verifying Critical Event Data
 DataTrails captures events that matter to your business and lets you prove what happened at a later 
 date. Here are two walkthroughs showing how to perform the proof with Veracity for online and 
-offline data scenarios.
-
-{{< tabs name="event-verification" >}}
-{{{< tab name="Online" >}}
-#### Online Verification
-We're going to walk through an example of proving that a publicly attested event exists on the 
-live DataTrails merkle log.
+offline data scenarios. We're going to walk through an example of proving that a publicly attested event exists on the live DataTrails merkle log.
 
 #### Setup
 ```sh
@@ -135,13 +129,44 @@ the entry is not in the log. for tenant tenant/6ea5cd00-c711-3649-6914-7b125928b
 ```
 {{< /note >}}
 
-{{< /tab >}}}
-{{{< tab name="Offline" >}}
+#### Offline Verification
+Veracity can be used to verify the inclusion of an event in an offline backup of a DataTrails 
+merkle log. We can do this by supplying a `--data-local` argument instead of `--data-url`. First, 
+we'll need to download a copy of that log.
 
-Coming soon ...
+{{< note >}}
+**Note:** Massifs are how DataTrails break the merkle log down into manageable chunks that record
+up to a fixed number of events. Once that limit is reached, a new massif is started. `--data-local`
+accepts a single massif file or a directory. The event we're verifying is contained by the first 
+massif.
+{{< /note >}}
 
-{{< /tab >}}}
-{{< /tabs >}}
+```sh
+curl -H "x-ms-blob-type: BlockBlob" -H "x-ms-version: 2019-12-12" https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log -o mmr.log
+```
+
+We can now run the `verify-included` command again using our local log data and the output will be
+the same.
+
+```sh
+cat event.json | \
+    ./veracity \
+    --data-local mmr.log \
+    --tenant=$PUBLIC_TENANT_ID \
+    --loglevel=INFO \
+    verify-included
+```
+
+{{< note >}}
+**Note:** Proof paths shown in the output were complete at time of writing. As the log grows the
+proof path increases in length. See [this article](https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/) for a deep-dive into our merkle log.
+{{< /note >}}
+
+```sh
+verifying for tenant: tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
+verifying: 5772 2889 01917aeb9103048500 publicassets/046ad7b4-dc99-4f90-9511-d2fad2e72bed/events/fef3c753-52e5-406b-8e41-8a36a2cc4818
+OK|5772 2889|[c46a47677b043602dba8a9d1db3215207d1e2f4bdbb19bc07592602fa745b3b7, 18b5d6be487dc0b87d14cb7a389a6cf936aab2427dd26c1b230653f692964f06, a68a7678739a2e00431c25bf3d810b4f417830c3a95cfc692e771d6d54e37fa6, 907c561fd157a5a022aa4e42807bfca082c54d98531831847ad5414a1ad2b492, 9dfeaef9e86d6b857170245ec4cfc5d98fea11bba3937e211d134ab548eb743e, 04602adc424529275ce3415d55f31413743b67bf7e7fae03c90b08f1f5422264]
+```
 
 ## Exploring the Merkle Log
 

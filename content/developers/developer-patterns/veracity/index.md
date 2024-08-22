@@ -17,45 +17,45 @@ aliases:
 ---
 
 ## Overview
-Veracity is an open-source command line tool developed by DataTrails. It lets you explore the merkle 
-log and prove that your critical data is present and correct. By default it connects to the DataTrails 
-service to obtain the relevant merkle log for verification. The offline mode verifies event data
-against local copies of merkle logs demonstrating the decentralizability of the proof layer.
+Veracity is an open-source command line tool developed by DataTrails. With it, you can explore the 
+merkle log and prove the inclusion of your event data. By default it connects to the DataTrails 
+service to obtain a copy of the merkle log. Veracity can also work from copies of the merkle
+log on disk.
 
-In this tutorial we'll explore how you can use Veracity to:
+In this guide we'll explore how you can use Veracity to:
 1. Prove the inclusion of events that matter in the DataTrails merkle log with `verify-inclusion`
 2. Explore the DataTrails merkle log using the `node` command
 
-{{< note >}}
-**Note:** Veracity has a range of power-user commands that are beyond the scope of this tutorial. If
-you'd like to know more, please see the [Veracity Repo](https://github.com/datatrails/veracity?tab=readme-ov-file)
-{{< /note >}}
-
 ## Prerequisites
-- [Downloaded and installed Veracity](https://github.com/datatrails/veracity/releases)
+- Have downloaded and installed [Veracity](https://github.com/datatrails/veracity/releases) using the 
+instructions found [here](https://github.com/datatrails/veracity?tab=readme-ov-file#installation)
 
-## Verifying Critical Event Data
-DataTrails captures events that matter to your business and lets you prove what happened at a later 
-date. Here are two walkthroughs showing how to perform the proof with Veracity for online and 
-offline data scenarios. We're going to walk through an example of proving that a publicly attested event exists on the live DataTrails merkle log.
+## Verifying Event Data
+DataTrails records the events that matter to your business and lets you prove them at a later date. 
+This guide will show how to do this for both online and offline data scenarios. 
+
+For simplicity we'll walk through an example of proving that a publicly attested event exists on the 
+merkle log for the public tenant on DataTrails. If you want to try this with your own data, simply
+download a copy of your event from the DataTrails API and supply your tenant ID instead of the public
+one.
 
 #### Setup
+Lets set some variables that reference the public tenant in DataTrails and a public event that 
+we'd like to verify the inclusion of. 
+
 ```sh
 EVENT_ID=publicassets/046ad7b4-dc99-4f90-9511-d2fad2e72bed/events/fef3c753-52e5-406b-8e41-8a36a2cc4818
 DATATRAILS_URL=https://app.datatrails.ai
 TENANT_ID=tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
 ```
 
-We just set some variables that reference the public tenant in DataTrails and a public event that 
-we'd like to verify the inclusion of. 
-
 #### Loading the Event
 ```sh
 curl -sL $DATATRAILS_URL/archivist/v2/$EVENT_ID > event.json
 ```
 
-If you inspect the contents of `event.json` you will see something like this (some fields omitted
-for salience.)
+If you inspect the contents of `event.json` you will see something like this (with some fields omitted
+for brevity.)
 ```json
 {
   "identity": "publicassets/046ad7b4-dc99-4f90-9511-d2fad2e72bed/events/fef3c753-52e5-406b-8e41-8a36a2cc4818",
@@ -107,7 +107,8 @@ OK|5772 2889|[c46a47677b043602dba8a9d1db3215207d1e2f4bdbb19bc07592602fa745b3b7, 
 ```
 {{< note >}}
 ##### Detecting Tampering
-Try tampering with `event.json` and re-running `verify-inclusion` to observe the failure:
+Adversaries tampering with critical data is a serious risk, but DataTrails makes this straightforward
+to detect. Try tampering with `event.json` and re-running `verify-inclusion` to observe the failure:
 
 ```sh
 sed "s/Business Critical Action/Malicious Action/g" event.json | \
@@ -132,21 +133,22 @@ the entry is not in the log. for tenant tenant/6ea5cd00-c711-3649-6914-7b125928b
 #### Offline Verification
 Veracity can be used to verify the inclusion of an event in an offline backup of a DataTrails 
 merkle log. We can do this by supplying a `--data-local` argument instead of `--data-url`. First, 
-we'll need to download a copy of that log.
+we'll need to get a copy of the massif.
 
 {{< note >}}
-**Note:** Massifs are how DataTrails break the merkle log down into manageable chunks that record
-up to a fixed number of events. Once that limit is reached, a new massif is started. `--data-local`
-accepts a single massif file or a directory. The event we're verifying is contained by the first 
-massif.
+**Note:** DataTrails break the merkle log down into manageable chunks called massifs. Once each massif
+is full, a new one is started. The filenames are numbered (e.g. 0000000000000000.log, 0000000000000001.log) to indicate order. 
+
+The argument `--data-local` accepts a single massif file or a directory containing multiple. The event 
+we're verifying in this example is contained within the first massif.
 {{< /note >}}
 
 ```sh
 curl -H "x-ms-blob-type: BlockBlob" -H "x-ms-version: 2019-12-12" https://app.datatrails.ai/verifiabledata/merklelogs/v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log -o mmr.log
 ```
 
-We can now run the `verify-included` command again using our local log data and the output will be
-the same.
+When we run the `verify-included` command using our local copy of the massif, it will also verify
+successfully with the outputs matching. 
 
 ```sh
 cat event.json | \
@@ -159,7 +161,7 @@ cat event.json | \
 
 {{< note >}}
 **Note:** Proof paths shown in the output were complete at time of writing. As the log grows the
-proof path increases in length. See [this article](https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/) for a deep-dive into our merkle log.
+proof path increases in length. See [this article](developers/developer-patterns/navigating-merklelogs/) for a deep-dive into our merkle log.
 {{< /note >}}
 
 ```sh
@@ -170,8 +172,21 @@ OK|5772 2889|[c46a47677b043602dba8a9d1db3215207d1e2f4bdbb19bc07592602fa745b3b7, 
 
 ## Exploring the Merkle Log
 
-Coming soon ...
+The `node` command is a convenience function for retrieving the value of a node in the merkle log 
+without needing to download the entire massif. Lets use our example event from earlier, which lives 
+at index 5772 (this works with both `--data-local` and `--data-url`.)
 
-## Further Reading
+```sh
+veracity --data-url $DATATRAILS_URL/verifiabledata \
+    --tenant=$PUBLIC_TENANT_ID \
+    node --mmrindex 5772
+```
 
-Coming soon ...
+The value returned is the hash stored at that node: 
+
+```sh
+26c7061166187363dd156f4f5f1f517a39323af3c70d572de28c5206de160ec2
+```
+
+Leaf nodes in the merkle log contain the hash of the event data (plus some metadata, see [this article](/developers/developer-patterns/navigating-merklelogs/#leaf-nodes-created-by-hashing-event-data)) while
+intermediate nodes hash together the content of their left and right children.

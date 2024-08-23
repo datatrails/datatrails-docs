@@ -4027,7 +4027,7 @@ successfully with the outputs matching.</p>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Proof paths shown in the output were complete at time of writing. As the log grows the
 proof path increases in length. See 
-<a href="developers/developer-patterns/navigating-merklelogs/">this article</a> for a deep-dive into our merkle log.</div>
+<a href="/developers/developer-patterns/navigating-merklelogs/">this article</a> for a deep-dive into our merkle log.</div>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">verifying <span class="k">for</span> tenant: tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
 </span></span><span class="line"><span class="cl">verifying: <span class="m">5772</span> <span class="m">2889</span> 01917aeb9103048500 publicassets/046ad7b4-dc99-4f90-9511-d2fad2e72bed/events/fef3c753-52e5-406b-8e41-8a36a2cc4818
@@ -27217,7 +27217,7 @@ successfully with the outputs matching.</p>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Proof paths shown in the output were complete at time of writing. As the log grows the
 proof path increases in length. See 
-<a href="developers/developer-patterns/navigating-merklelogs/">this article</a> for a deep-dive into our merkle log.</div>
+<a href="/developers/developer-patterns/navigating-merklelogs/">this article</a> for a deep-dive into our merkle log.</div>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">verifying <span class="k">for</span> tenant: tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
 </span></span><span class="line"><span class="cl">verifying: <span class="m">5772</span> <span class="m">2889</span> 01917aeb9103048500 publicassets/046ad7b4-dc99-4f90-9511-d2fad2e72bed/events/fef3c753-52e5-406b-8e41-8a36a2cc4818

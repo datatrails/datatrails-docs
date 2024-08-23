@@ -1,5 +1,5 @@
 ---
-title: "Veracity"
+title: "Independently verifying DataTrails transparent merkle logs"
 description: "Supporting independent verification of your events"
 lead: "Exploring DataTrails' merkle log with Veracity"
 date: 2024-08-22T19:35:35+01:00
@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 110
+weight: 38
 toc: true
 aliases: 
   - /docs/developer-patterns/veracity/

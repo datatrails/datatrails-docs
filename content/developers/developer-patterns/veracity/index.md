@@ -40,7 +40,7 @@ download a copy of your event from the DataTrails API and supply your tenant ID 
 one.
 
 #### Setup
-Lets set some variables that reference the public tenant in DataTrails and a public event that 
+Let's set some variables that reference the public tenant in DataTrails and a public event that 
 we'd like to verify the inclusion of. 
 
 ```sh
@@ -126,7 +126,7 @@ verifying: 5772 2889 01917aeb9103048500 publicassets/046ad7b4-dc99-4f90-9511-d2f
 XX|5772 2889
 
 error: the entry is not in the log. for tenant tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
-the entry is not in the log. for tenant tenant/6ea5cd00-c711-3649-6914-7b125928bbb4
+...
 ```
 {{< /note >}}
 
@@ -139,8 +139,8 @@ we'll need to get a copy of the massif.
 **Note:** DataTrails break the merkle log down into manageable chunks called massifs. Once each massif
 is full, a new one is started. The filenames are numbered (e.g. 0000000000000000.log, 0000000000000001.log) to indicate order. 
 
-The argument `--data-local` accepts a single massif file or a directory containing multiple. The event 
-we're verifying in this example is contained within the first massif.
+The argument `--data-local` accepts either a single massif file or a directory containing multiple 
+massif files. The event we're verifying in this example is contained within the first massif.
 {{< /note >}}
 
 ```sh

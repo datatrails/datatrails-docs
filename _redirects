@@ -16,6 +16,7 @@
 /docs/rkvst-basics/creating-an-asset/ /platform/overview/creating-an-asset/
 ../quickstart/creating-an-event-against-an-asset /platform/overview/creating-an-event-against-an-asset/
 /docs/rkvst-basics/creating-an-event-against-an-asset/ /platform/overview/creating-an-event-against-an-asset/
+/docs/developer-patterns/veracity/ /developers/developer-patterns/veracity/
 /docs/beyond-the-basics/public-attestation/ /platform/overview/public-attestation/
 /docs/user-patterns/bill-of-materials/ /usecases/bill-of-materials/
 /docs/beyond-the-basics/navigating-merklelogs/ /developers/developer-patterns/navigating-merklelogs/

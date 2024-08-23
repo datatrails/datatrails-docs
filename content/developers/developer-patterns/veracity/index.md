@@ -161,7 +161,7 @@ cat event.json | \
 
 {{< note >}}
 **Note:** Proof paths shown in the output were complete at time of writing. As the log grows the
-proof path increases in length. See [this article](developers/developer-patterns/navigating-merklelogs/) for a deep-dive into our merkle log.
+proof path increases in length. See [this article](/developers/developer-patterns/navigating-merklelogs/) for a deep-dive into our merkle log.
 {{< /note >}}
 
 ```sh

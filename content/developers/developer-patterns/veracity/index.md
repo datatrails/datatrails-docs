@@ -23,7 +23,7 @@ service to obtain a copy of the merkle log. Veracity can also work from copies o
 log on disk.
 
 In this guide we'll explore how you can use Veracity to:
-1. Prove the inclusion of events that matter in the DataTrails merkle log with `verify-inclusion`
+1. Prove the inclusion of events that matter in the DataTrails merkle log with `verify-included`
 2. Explore the DataTrails merkle log using the `node` command
 
 ## Prerequisites
@@ -108,7 +108,7 @@ OK|5772 2889|[c46a47677b043602dba8a9d1db3215207d1e2f4bdbb19bc07592602fa745b3b7, 
 {{< note >}}
 ##### Detecting Tampering
 Adversaries tampering with critical data is a serious risk, but DataTrails makes this straightforward
-to detect. Try tampering with `event.json` and re-running `verify-inclusion` to observe the failure:
+to detect. Try tampering with `event.json` and re-running `verify-included` to observe the failure:
 
 ```sh
 sed "s/Business Critical Action/Malicious Action/g" event.json | \

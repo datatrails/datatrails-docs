@@ -3918,7 +3918,7 @@ service to obtain a copy of the merkle log. Veracity can also work from copies o
 log on disk.</p>
 <p>In this guide we&rsquo;ll explore how you can use Veracity to:</p>
 <ol>
-<li>Prove the inclusion of events that matter in the DataTrails merkle log with <code>verify-inclusion</code></li>
+<li>Prove the inclusion of events that matter in the DataTrails merkle log with <code>verify-included</code></li>
 <li>Explore the DataTrails merkle log using the <code>node</code> command</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -3988,7 +3988,7 @@ system integration. By supplying <code>--loglevel=INFO</code> we get some insigh
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <h5 id="detecting-tampering">Detecting Tampering</h5>
 <p>Adversaries tampering with critical data is a serious risk, but DataTrails makes this straightforward
-to detect. Try tampering with <code>event.json</code> and re-running <code>verify-inclusion</code> to observe the failure:</p>
+to detect. Try tampering with <code>event.json</code> and re-running <code>verify-included</code> to observe the failure:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sed <span class="s2">&#34;s/Business Critical Action/Malicious Action/g&#34;</span> event.json <span class="p">|</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    ./veracity <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-url <span class="nv">$DATATRAILS_URL</span>/verifiabledata <span class="se">\\
@@ -27108,7 +27108,7 @@ service to obtain a copy of the merkle log. Veracity can also work from copies o
 log on disk.</p>
 <p>In this guide we&rsquo;ll explore how you can use Veracity to:</p>
 <ol>
-<li>Prove the inclusion of events that matter in the DataTrails merkle log with <code>verify-inclusion</code></li>
+<li>Prove the inclusion of events that matter in the DataTrails merkle log with <code>verify-included</code></li>
 <li>Explore the DataTrails merkle log using the <code>node</code> command</li>
 </ol>
 <h2 id="prerequisites">Prerequisites</h2>
@@ -27178,7 +27178,7 @@ system integration. By supplying <code>--loglevel=INFO</code> we get some insigh
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <h5 id="detecting-tampering">Detecting Tampering</h5>
 <p>Adversaries tampering with critical data is a serious risk, but DataTrails makes this straightforward
-to detect. Try tampering with <code>event.json</code> and re-running <code>verify-inclusion</code> to observe the failure:</p>
+to detect. Try tampering with <code>event.json</code> and re-running <code>verify-included</code> to observe the failure:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sed <span class="s2">&#34;s/Business Critical Action/Malicious Action/g&#34;</span> event.json <span class="p">|</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    ./veracity <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --data-url <span class="nv">$DATATRAILS_URL</span>/verifiabledata <span class="se">\\

@@ -56,6 +56,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     ```bash
     python -m  venv venv && \
     source venv/bin/activate && \
+    trap deactivate EXIT && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
     ```
@@ -96,11 +97,27 @@ For the Quickstart, create a testing key which DataTrails will cryptographically
 Create any payload you wish to register on DataTrails.
 
 ```bash
-cat > payload.json <<EOF
+cat > /tmp/payload.json <<EOF
 {
     "author": "fred",
     "title": "my biography",
     "reviews": "mixed"
+}
+EOF
+```
+
+## Create Metadata
+
+[DataTrails Event Attributes](./../../api-reference/events-api/) can be associated with a SCITT Statement, enabling indexing.
+
+Create metadata with a dictionary of key:value pairs.
+
+```bash
+cat > /tmp/attributes.json <<EOF
+{
+  "hash": "abc123",
+  "project": 25,
+  "location": "Seattle, WA"
 }
 EOF
 ```
@@ -114,14 +131,15 @@ The payload may already be stored in another storage/package manager, which can 
 python scitt/create_hashed_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --payload-file payload.json \
+  --payload-file /tmp/payload.json \
   --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
   --subject $SUBJECT \
-  --output-file $SIGNED_STATEMENT_FILE
+  --output-file $SIGNED_STATEMENT_FILE \
+  --meta-map-file "/tmp/attributes.json"
 ```
 
-## Register the SCITT Statement on DataTrails
+## Register the SCITT Signed Statement on DataTrails
 
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 

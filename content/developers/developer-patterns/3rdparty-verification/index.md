@@ -23,51 +23,102 @@ The DataTrails ledger is a log that can be distributed.
 When a replicated copy of your merkle log is held by an independent party,
 it is impossible for DataTrails to modify your log to refute your claims.
 
-By maintaining an indpendent log replica, in part or in whole, two key benefits are realized:
+This article provides the information needed to address three scenarios:
 
-1. Detection of tampering: That it is instantly apparent if DataTrails removes or
-changes the attestation to an event in a log.
-1. Independence of proof: That after detecting a tamper, you are still able to
-prove "who said what when", given your knowlege of the event and your replicated
-section of the log.
+1. You want to detect if DataTrails improperly updates the log, and prove that to others.
+2. You want to be able to produce proof that an event is in your log after DataTrails has improperly updated their copy.
+3. You want fully independent verification of your events, without recourse to DataTrails.
 
-To get these benefits, a full replica is not necessary. DataTrails provides a merkle log for each tenant.
-Only the portions of the logs that attest to records that are still of interest
-need be retained. And only for the specific tenants of interest.
+Each of these can be accomplished using the veracity `replicate-logs` and
+`watch` commands to check the log operation and replicate some or all of your
+log data.
+
+To get the benefits implied by these scenarios, a full replica is not necessary.
+DataTrails provides a merkle log for each tenant.
+Only the portions of the logs that attest to records that are still of interest need be retained.
+And only for the specific tenants of interest.
+
+The first two points require replication and verification of at least the most recently updated log section.
+
+The second point requires retention of the local log sections verifying any event that is still of value.
+
+The last point, full independent *verification*,
+requires retention of the verifiable log data and the ability to reproduce the original event.
+
+Because you have a trusted local copy of the verifiable data, even after you
+detect a tamper, you can chose to rely on DataTrails storage of your event.
+
+When you fetch the event, if it can be verified against your local log data, you
+know that the DataTrails database remains correct, despite the impoperly updated
+log. If it does not, you know that both the DataTrails database and your tenants
+merkle log have been improperly updated. However, at this point, you can only
+verify your event if you can reproduce the event independently.
+
+All parties you have shared that event data with are also able to
+replicate and verify its inclusion in both your log and theirs.
+
 
 All log replicas are equaly trustworthy. All log replicas accompanied by a
 'seal' from DataTrails are irrefutable by DataTrails.
 With a full replica, a full-audit possible, where regular data corruption is
 detected, in either the replica or the original DataTrails copy.
 
-## Environment Configuration for veracity
+In this remainder of this article we provide examples covering how to use the
+`veracity` tool to achieve these ends.
 
 See [this article](/developers/developer-patterns/veracity/) for a general introduction to the `veracity` tool
+
+## Environment Configuration for veracity
 
 The `veracity replicate-logs` command provides a convenient and reliable way to
 create and maintain merkle log replicas for multiple tenants.
 
-We will re-use the configuration from that article
+We will use the following configuration
 
 ```bash
 # DataTrails Public Tenant
-export PUBLIC_TENANT="6ea5cd00-c711-3649-6914-7b125928bbb4"
+export PUBLIC_TENANT="tenant/6ea5cd00-c711-3649-6914-7b125928bbb4"
 
 # Synsation Demo Tenant
 # Replace to view your Tenant logs ane events
-export TENANT="6a009b40-eb55-4159-81f0-69024f89f53c"
+export TENANT="tenant/6a009b40-eb55-4159-81f0-69024f89f53c"
 ```
 
 To view *your* protected events, replace `TENANT` with your `Tenant ID`.
 
-## Replicating your first massif
+## Replicating the log for the public tenant
 
-To get a sense of how the basic commands work, in this example we ilustrate how
-to find a log, *any* log, that has grown, and then replicate the section of that
-log that the new records were added to. 
+To get a sense of how `replicate-logs` works we replicate the public tenant's log
 
 
-### First, find a tenant whose log has changed
+### Use replicate-logs to create a local, verified, replica of the DataTrails public tenant log
+
+{{< tabs >}}
+   {{< tab name="bash" >}}
+
+   ```bash
+   veracity --data-url https://app.datatrails.ai/verifiabledata \
+       --tenant $PUBLIC_TENANT \
+       replicate-logs --massif 0 \
+       --replicadir merklelogs
+   
+   find merklelogs -type f
+   ```
+   
+   This will generate output similar to
+   
+   ```
+   merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+   merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+   ```
+  {{< /tab >}}
+{{< /tabs >}}
+
+By default, all massifs up to and including the massif specified by `--massif
+<N>` are verified remotely and checked for consistency against the local
+replica. At the time of writing, the production public tenant is only on the first massif.
+
+## Finding tenants with log additions
 
 This command will describe the activity for all tenants that have recently added events to their merkle log:
 
@@ -75,7 +126,7 @@ This command will describe the activity for all tenants that have recently added
    {{< tab name="bash" >}}
 
    ```bash
-   veracity watch -z 1h --mode tenants
+   veracity watch
    ```
 
    This will generate output similar to:
@@ -92,21 +143,69 @@ This command will describe the activity for all tenants that have recently added
      }
    ]
    ```
-   There may be more than one entry listed, just pick any.
+
+   If instead you get
+
+   ```
+   error: no changes found
+   ```
+
+   It means there has been no activity in any tenant for the default watch horizon (how far back we look for changes)
+
+   To set an explicit, and in this example very large, horizon try the following
+
+   ```bash
+   veracity watch --horizon 10000h
+   ```
+
+
   {{< /tab >}}
 {{< /tabs >}}
 
-{{< note>}} If you get `error: no changes found` make the horizon bigger.{{< /note >}}
+## Replicating the logs for the tenants with activity
 
-You can get output for a specific tenant using the `-t` (`--tenant`) option:
+To automatically replicate the logs that changes are detected for pipe the output of `watch` into `replicate-logs`
 
-`veracity watch -z 10000h --mode tenants  -t $TENANT`
+{{< tabs >}}
+   {{< tab name="bash" >}}
+
+   ```bash
+   veracity watch \
+   | veracity \
+       replicate-logs --replicadir merklelogs
+   ```
+
+   This will replicate the logs for all tenants that have been active in the default time horizon
+
+  {{< /tab >}}
+{{< /tabs >}}
 
 
-The `-t` option supports a comma delimited list of tenant identities.
+{{< note>}} Take care with larger time horizons, you may run into issues with rate limiting.{{< /note >}}
 
-Various human friendly forms are possible `-z 1s` would be activity in the last second, `-z 1m` the last minute.
+## Replicating just the latest changes to your log
 
+By default, your full tenant log is replicated. The storage requirements are
+roughly 4mb per massif. And each massif has the verification data for about 16000 events.
+
+In many scenarios, you can achieve independent verifiability just by replicating
+the most recently extended massif.
+
+This is always suficient to detect a tamper. Provided you have 
+
+When a tamper or inconistency is detected you most recently verifie log data will not be changed.
+
+
+
+It's not necessary to keep a full replica of your log, if you are only interested in more recent items.
+
+## Protections 
+
+
+Detect that datatrails
+veracity --ancestors 0
+
+To detect if datatrails have improperly updated your log, y
 
 ## Using veracity to detect tamper
 

@@ -49,7 +49,7 @@ Because you have a trusted local copy of the verifiable data, even after you
 detect a tamper, you can chose to rely on DataTrails storage of your event.
 
 When you fetch the event, if it can be verified against your local log data, you
-know that the DataTrails database remains correct, despite the impoperly updated
+know that the DataTrails database remains correct, despite the improperly updated
 log. If it does not, you know that both the DataTrails database and your tenants
 merkle log have been improperly updated. However, at this point, you can only
 verify your event if you can reproduce the event independently.
@@ -57,8 +57,7 @@ verify your event if you can reproduce the event independently.
 All parties you have shared that event data with are also able to
 replicate and verify its inclusion in both your log and theirs.
 
-
-All log replicas are equaly trustworthy. All log replicas accompanied by a
+All log replicas are equally trustworthy. All log replicas accompanied by a
 'seal' from DataTrails are irrefutable by DataTrails.
 With a full replica, a full-audit possible, where regular data corruption is
 detected, in either the replica or the original DataTrails copy.
@@ -90,7 +89,6 @@ To view *your* protected events, replace `TENANT` with your `Tenant ID`.
 
 To get a sense of how `replicate-logs` works we replicate the public tenant's log
 
-
 ### Use replicate-logs to create a local, verified, replica of the DataTrails public tenant log
 
 {{< tabs >}}
@@ -104,13 +102,14 @@ To get a sense of how `replicate-logs` works we replicate the public tenant's lo
    
    find merklelogs -type f
    ```
-   
+  
    This will generate output similar to
-   
-   ```
+  
+   ```output
    merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
    merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
    ```
+  
   {{< /tab >}}
 {{< /tabs >}}
 
@@ -130,6 +129,7 @@ This command will describe the activity for all tenants that have recently added
    ```
 
    This will generate output similar to:
+
    ```output
    [
      {
@@ -146,7 +146,7 @@ This command will describe the activity for all tenants that have recently added
 
    If instead you get
 
-   ```
+   ```output
    error: no changes found
    ```
 
@@ -157,7 +157,6 @@ This command will describe the activity for all tenants that have recently added
    ```bash
    veracity watch --horizon 10000h
    ```
-
 
   {{< /tab >}}
 {{< /tabs >}}
@@ -180,7 +179,6 @@ To automatically replicate the logs that changes are detected for pipe the outpu
   {{< /tab >}}
 {{< /tabs >}}
 
-
 {{< note>}} Take care with larger time horizons, you may run into issues with rate limiting.{{< /note >}}
 
 ## Replicating just the latest changes to your log
@@ -191,16 +189,13 @@ roughly 4mb per massif. And each massif has the verification data for about 1600
 In many scenarios, you can achieve independent verifiability just by replicating
 the most recently extended massif.
 
-This is always suficient to detect a tamper. Provided you have 
+This is always sufficient to detect a tamper. Provided you have
 
-When a tamper or inconistency is detected you most recently verifie log data will not be changed.
-
-
+When a tamper or inconsistency is detected you most recently verified log data will not be changed.
 
 It's not necessary to keep a full replica of your log, if you are only interested in more recent items.
 
-## Protections 
-
+## Protections
 
 Detect that datatrails
 veracity --ancestors 0
@@ -209,9 +204,10 @@ To detect if datatrails have improperly updated your log, y
 
 ## Using veracity to detect tamper
 
-## Using veracity to achieve indpendence of proof
+## Using veracity to achieve independence of proof
 
 Same as Off line verification of the event
 
 ## Example automation using github action
 
+TBD

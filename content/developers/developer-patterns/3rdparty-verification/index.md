@@ -23,7 +23,12 @@ The DataTrails ledger is a log that can be distributed.
 When a replicated copy of your merkle log is held by an independent party,
 it is impossible for DataTrails to modify your log to refute your claims.
 
-This article provides the information needed to address three scenarios:
+A full replica is not necessary in many cases.
+DataTrails provides a merkle log for each tenant.
+Only the portions of the logs that attest to records that are still of interest need be retained.
+And only for the specific tenants of interest.
+
+This article provides the information needed to address three scenarios.
 
 1. You want to detect if DataTrails improperly updates the log, and prove that to others.
 2. You want to be able to produce proof that an event is in your log after DataTrails has improperly updated their copy.
@@ -33,16 +38,11 @@ Each of these can be accomplished using the veracity `replicate-logs` and
 `watch` commands to check the log operation and replicate some or all of your
 log data.
 
-To get the benefits implied by these scenarios, a full replica is not necessary.
-DataTrails provides a merkle log for each tenant.
-Only the portions of the logs that attest to records that are still of interest need be retained.
-And only for the specific tenants of interest.
+The first two goals require replication and verification of at least the most recently updated log section.
 
-The first two points require replication and verification of at least the most recently updated log section.
+The second goal requires retention of the local log sections verifying any event that is still of value.
 
-The second point requires retention of the local log sections verifying any event that is still of value.
-
-The last point, full independent *verification*,
+The last goal, full independent *verification*,
 requires retention of the verifiable log data and the ability to reproduce the original event.
 
 Because you have a trusted local copy of the verifiable data, even after you

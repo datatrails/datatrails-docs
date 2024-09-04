@@ -40,7 +40,7 @@ The last goal, full independent *verification*, requires retention of the verifi
 
 With a trusted local copy of the verifiable data, even after you detect a tamper, you can chose to rely on DataTrails storage of your event.
 
-When the event is fetched, if it can be verified against local log data, knowing that the DataTrails log remains correct.
+When the event is fetched, if it can be verified against local log data, you have proven that the DataTrails storage of your event remains correct.
 If it does not, know that both the DataTrails log and a tenants merkle log have been improperly updated.
 However, you can only verify the event if the event can be reproduced independently.
 

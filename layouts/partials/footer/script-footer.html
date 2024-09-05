@@ -51,6 +51,13 @@
 
 {{ $js := $slice | resources.Concat "main.js" -}}
 
+{{ if .Store.Get "hasMermaid" }}
+<script type="module" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs">
+  // can't do this as it requires enabling script-src 'unsafe-inline': 
+  // mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { sketch: true } });
+</script>
+{{ end }}
+
 {{ if eq (hugo.Environment) "development" -}}
   {{ if .Site.Params.options.bootStrapJs -}}
     <script src="{{ $bs.RelPermalink }}" defer></script>

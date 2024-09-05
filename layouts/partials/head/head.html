@@ -6,8 +6,18 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
-  <meta http-equiv="Permissions-Policy" content="autoplay 'self'; cookie 'self'">
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-GoUI0hA42/W90nTDE3+8IM59Pmj5d7MTNu1m0Qv4C+o=' 'sha256-eg7hiIPJDJy7WtCOgK4mlnMdUDYpX6h90ef9pORicds=' https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net;">
+  <!-- NOTICE:
+   To allow the font styles to be applied, we have to permit unsafe-inline for styles-src.
+
+   THe prefered nonce based technique for securing this requires server side support which we don't have available via gh pages.
+   This exposes us to malictious css injection attacks which can misslead users to enter sensitive information and then capture it.
+
+   Given the static docs nature of this site, this seems acceptable but far from ideal
+
+   We DO NOT allow unsafe-inline for scripts-src, this is a major security risk and should be avoided at all costs.
+   -->
+  <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/npm/mermaid/dist/; script-src 'self' 'sha256-GoUI0hA42/W90nTDE3+8IM59Pmj5d7MTNu1m0Qv4C+o=' 'sha256-eg7hiIPJDJy7WtCOgK4mlnMdUDYpX6h90ef9pORicds=' https://cdn.jsdelivr.net/npm/mermaid/dist/ https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net;">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data:;"> -->
   {{ block "head/resource-hints" . }}{{ partial "head/resource-hints.html" . }}{{ end }}
   {{ block "head/stylesheet" . }}{{ partial "head/stylesheet.html" . }}{{ end }}
   {{ block "head/seo" . }}{{ partial "head/seo.html" . }}{{ end }}

@@ -15,8 +15,8 @@ aliases:
   - /docs/api-reference/assets-api/
 ---
 {{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -32,25 +32,20 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 Define the asset parameters and store in `/path/to/jsonfile`:
 
-```json
+```bash
+cat > /tmp/asset.json <<EOF
 {
   "behaviours": ["RecordEvidence"],
   "attributes": {
-    "picture_from_yesterday": {
-      "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "cat.jpeg",
-      "arc_display_name": "Picture from yesterday",
-    },
     "arc_display_name": "My Cat",
     "arc_display_type": "Cat",
     "weight": "3.6kg"
   },
   "public": false
 }
+EOF
 ```
+
 {{< note >}}
 **Note:** The values for `arc_blob_hash_value` and `arc_blob_identity` are taken from the response of the Upload call of the [Blob API](https://docs.datatrails.ai/developers/api-reference/blobs-api/).
 {{< /note >}}
@@ -58,42 +53,39 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 Create the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
+    -d "@/tmp/asset.json" \
     https://app.datatrails.ai/archivist/v2/assets
 ```
 
-The response is:
+The response:
 
 ```json
 {
   "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "behaviours": ["RecordEvidence"],
-    "attributes": {
-        "arc_display_type": "Cat",
-        "weight": "3.6kg",
-        "picture_from_yesterday": {
-            "arc_blob_hash_alg": "SHA256",
-            "arc_file_name": "cat.jpeg",
-            "arc_display_name": "Picture from yesterday",
-            "arc_attribute_type": "arc_attachment",
-            "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        },
-        "arc_display_name": "My Cat"
-    },
-    "confirmation_status": "COMMITTED",
-    "tracked": "TRACKED",
-    "owner": "",
-    "at_time": "2024-05-30T12:26:37Z",
-    "proof_mechanism": "MERKLE_LOG",
-    "chain_id": "8275868384",
-    "public": false,
-    "tenant_identity": ""
-}    
-  ```
+  "behaviours": [
+    "RecordEvidence",
+    "AssetCreator",
+    "Builtin"
+  ],
+  "attributes": {
+    "arc_display_name": "My Cat",
+    "arc_display_type": "Cat",
+    "weight": "3.6kg"
+  },
+  "confirmation_status": "PENDING",
+  "tracked": "TRACKED",
+  "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "at_time": "2024-09-04T23:35:13Z",
+  "proof_mechanism": "MERKLE_LOG",
+  "chain_id": "xxxxxxxxxx",
+  "public": false,
+  "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
+```
+
 #### Updating an Asset Attribute
 
 To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat from the previous example.
@@ -114,10 +106,11 @@ See the [Events API reference](https://docs.datatrails.ai/developers/api-referen
     "public": false
 }    
 ```
+
 POST the Event to update the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
@@ -191,7 +184,8 @@ This link can be shared with anyone to give them read-only access to the Asset o
 To interact with the unauthenticated Public Interface for a Public Asset see the [Public Assets API Reference](../public-assets-api/). To update the Assets and Events as the creating Tenant on a Public Asset's authenticated Private Interface, you would still use the standard Assets and Events API as normal.
 
 #### Creating a Document Profile Asset
-This class of Asset conforms to the [Document Profile Developer Pattern](/developers/developer-patterns/document-profile/), which allows you to trace the lifecyle of a document.
+
+This class of Asset conforms to the [Document Profile Developer Pattern](/developers/developer-patterns/document-profile/), which allows you to trace the lifecycle of a document.
 
 Define the asset parameters and store in `/path/to/jsonfile`:
 
@@ -215,6 +209,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
     ]
 }
 ```
+
 {{< note >}}
 **Note**: Document Profile Assets must be set to `public` to be compatible with [Instaproof](/platform/overview/instaproof/) verification.
 {{< /note >}}
@@ -222,7 +217,7 @@ Define the asset parameters and store in `/path/to/jsonfile`:
 Create the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
@@ -275,9 +270,9 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 To fetch all Asset records, simply `GET` the Assets resource:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     https://app.datatrails.ai/archivist/v2/assets
+     https://app.datatrails.ai/archivist/v2/assets?page_size=5
 ```
 
 #### Fetch Specific Asset by Identity
@@ -285,7 +280,7 @@ curl -v -X GET \
 If you know the unique identity of the Asset record simply `GET` the resource:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
@@ -295,7 +290,7 @@ curl -v -X GET \
 If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply `GET` with the following query parameter:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
 ```
@@ -307,7 +302,7 @@ This will return the Asset record with the values it had on `2021-01-13T12:34:21
 To fetch all Assets with a specific name, GET the Assets resource and filter on `arc_display_name`:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
 ```
@@ -317,7 +312,7 @@ curl -g -v -X GET \
 To fetch all Assets of a specific type, `GET` the Assets resource and filter on `arc_display_type`:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
 ```
@@ -327,7 +322,7 @@ curl -g -v -X GET \
 To fetch all Assets that use a specific Proof Mechanism, `GET` the Assets resource and filter on `proof_mechanism`:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG"
 ```
@@ -337,7 +332,7 @@ curl -g -v -X GET \
 To fetch Simple Hash Events in the order needed for the [SIMPLEHASHV1 schema](https://github.com/datatrails/datatrails-simplehash-python), `GET` the Assets resource, specifying a specific Asset ID or using `assets/-/events` to fetch Events for all Assets:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
 ```
@@ -347,7 +342,7 @@ curl -g -v -X GET \
 To fetch all Assets with a field set to any value, `GET` the Assets resource and filter on most available fields. For example:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=*"
 ```
@@ -359,7 +354,7 @@ Returns all Assets which have `arc_display_name` that is not empty.
 To fetch all Assets with a field which is not set to any value, `GET` the Assets resource and filter on most available fields. For example:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name!=*"
 ```
@@ -371,7 +366,7 @@ Returns all Assets which do not have `arc_display_name` or in which `arc_display
 Fetch the Public URL of a Public Asset:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
 ```
@@ -417,7 +412,7 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 Untrack the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
@@ -471,7 +466,7 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 Track the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \

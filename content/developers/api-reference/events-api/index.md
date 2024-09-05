@@ -15,11 +15,12 @@ aliases:
   - /docs/api-reference/events-api/
 ---
 {{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
+
 ## Events API Examples
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
@@ -28,26 +29,35 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 **Note:** You will need to create an Asset first in order to submit Events against it.
 {{< /note >}}
 
+### Asset Reference
+
+Capture the Asset ID by which the events will be associated.
+See [Fetch All Assets](../assets-api/#fetch-all-assets)
+
+```bash
+ASSET_ID=<ASSET_ID>
+```
+
+{{< note >}}
+**Note:** DataTrails will be moving to an event centric design, removing the dependency to reference an Asset.
+{{< /note >}}
+
 ### Event Creation
 
-Define the Event parameters and store in `/path/to/jsonfile`:
+Define the Event parameters and store in `/tmp/event.json`:
 
-```json
+```bash
+cat > /tmp/event.json <<EOF
 {
   "operation": "Record",
   "behaviour": "RecordEvidence",
   "event_attributes": {
     "arc_display_type": "Safety Conformance",
     "Safety Rating": "90",
-    "inspector": "spacetime"
-  },
-  "timestamp_declared": "2019-11-27T14:44:19Z",
-  "principal_declared": {
-    "issuer": "idp.synsation.io/1234",
-    "subject": "phil.b",
-    "email": "phil.b@synsation.io"
+    "inspector": "Clouseau"
   }
 }
+EOF
 ```
 
 {{< note >}}
@@ -57,44 +67,56 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events | jq
 ```
 
-The response is:
+The response:
 
 ```json
 {
   "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "event_attributes": {
+    "inspector": "Clouseau",
+    "arc_display_type": "Safety Conformance",
+    "Safety Rating": "90"
+  },
+  "asset_attributes": {},
   "operation": "Record",
   "behaviour": "RecordEvidence",
-  "event_attributes": {
-    "arc_display_type": "Safety Conformance",
-    "Safety Rating": "90",
-    "inspector": "spacetime"
-  },
-  "timestamp_accepted": "2019-11-27T15:13:21Z",
-  "timestamp_declared": "2019-11-27T14:44:19Z",
-  "timestamp_committed": "2019-11-27T15:15:02Z",
+  "timestamp_declared": "2024-09-04T23:45:20Z",
+  "timestamp_accepted": "2024-09-04T23:45:20Z",
+  "timestamp_committed": "1970-01-01T00:00:00Z",
   "principal_declared": {
-    "issuer": "idp.synsation.io/1234",
-    "subject": "phil.b",
-    "email": "phil.b@synsation.io"
+    "issuer": "https://app.datatrails.ai/appidpv1",
+    "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "display_name": "my-integration",
+    "email": ""
   },
   "principal_accepted": {
-    "issuer": "job.idp.server/1234",
-    "subject": "bob@job"
+    "issuer": "https://app.datatrails.ai/appidpv1",
+    "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "display_name": "my-integration",
+    "email": ""
   },
-  "confirmation_status": "COMMITTED",
-  "block_number": 12,
-  "transaction_index": 5,
-  "transaction_id": "0x07569"
+  "confirmation_status": "PENDING",
+  "transaction_id": "",
+  "block_number": 0,
+  "transaction_index": 0,
+  "from": "",
+  "tenant_identity": "",
+  "merklelog_entry": {
+    "commit": null,
+    "confirm": null,
+    "unequivocal": null
+  }
 }
 ```
+
 ### Updating an Asset Attribute
 
 To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the [Assets API reference](https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation) example.
@@ -113,17 +135,18 @@ To update an Asset attribute, record an Event and enter the new value. Here we w
     "public": false
 }    
 ```
+
 POST the Event to update the Asset:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
-The response is:
+The response:
 
 ```json
 {
@@ -165,7 +188,7 @@ The response is:
         "unequivocal": null
     }
 }    
-  ```
+```
 
 ### Document Profile Event Creation
 
@@ -209,14 +232,14 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
-The response is:
+The response:
 
 ```json
 {
@@ -271,6 +294,7 @@ The response is:
     "tenant_identity": ""
 }
 ```
+
 #### Withdraw
 
 Define the Event parameters and store in `/path/to/jsonfile`:
@@ -292,14 +316,14 @@ Define the Event parameters and store in `/path/to/jsonfile`:
 Add the request to the Asset record by POSTing it to the resource:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
-The response is:
+The response:
 
 ```json
 {
@@ -401,14 +425,14 @@ The following example shows you usage with both the `event_attributes` and the `
 Add the request to the Asset Record by POSTing it to the resource:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/path/to/jsonfile" \
     https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
 ```
 
-You should see the response:
+The response:
 
 ```json
 {
@@ -481,7 +505,7 @@ If you do not know the Event’s identity you can fetch Event records using othe
 To fetch all Event records, simply `GET` the Events resources:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events"
 ```
@@ -491,7 +515,7 @@ curl -v -X GET \
 If you know the unique identity of the Asset record simply `GET` the resource:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events"
 ```
@@ -501,7 +525,7 @@ curl -v -X GET \
 If you know the unique identity of the Asset and Event record simply `GET` the resource:
 
 ```bash
-curl -v -X GET \
+curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivst/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -511,7 +535,7 @@ curl -v -X GET \
 To fetch all Events of a specific type, `GET` the Events resource and filter on `arc_display_type`:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release"
 ```
@@ -521,7 +545,7 @@ curl -g -v -X GET \
 To fetch all Events of a specific Asset attribute, `GET` the Events resource and filter on `asset_attributes` at the Asset level:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published"
 ```
@@ -531,7 +555,7 @@ curl -g -v -X GET \
 To fetch all Events with a field set to any value, `GET` the Events resource and filter on most available fields. For example:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*"
 ```
@@ -543,7 +567,7 @@ Returns all Events which have `arc_display_type` that is not empty.
 To fetch all Events with a field which is not set to any value, `GET` the Events resource and filter on most available fields. For example:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*"
 ```
@@ -556,7 +580,7 @@ To fetch all Events with a specified confirmation status or higher, `GET` the Ev
 For example:
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED"
 ```
@@ -564,7 +588,7 @@ curl -g -v -X GET \
 Returns all Events which have a `confirmation_status` level of COMMITTED, CONFIRMED or UNEQUIVOCAL. 
 
 ```bash
-curl -g -v -X GET \
+curl -g -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED"
 ```

@@ -1,6 +1,6 @@
 ---
-title: "Third party merkle log verification"
-description: "Supporting third party verification of a DataTrails merkle log"
+title: "Verified replication of the DataTrails transparency logs"
+description: "Supporting verified replication of DataTrails merkle logs"
 lead: "Trust in DataTrails is not required, instead easily maintain a verified replica of a merkle log"
 date: 2024-08-22T19:35:35+01:00
 lastmod: 2024-08-22T19:35:35+01:00
@@ -20,8 +20,8 @@ aliases:
 
 The DataTrails ledger is a log that can be distributed.
 When a replicated copy of a merkle log is held by an independent party, it is impossible for DataTrails to modify a log to refute claims.
-It is also impossible for any attacker to know they have accounted for all copies of the log, and if they miss just one copy they have failed.
-
+It is impossible for a malicious attacker, on the DataTrails ledger, to know they have successfuly changed all copies of the log, and if they miss just one copy they have failed.
+The independent party, can be, and may often be, the original DataTrails tenant.
 
 {{< note >}} If tamper detection is the requirement, it is not necessary to replicate any log data at all{{< /note >}}
 
@@ -48,13 +48,31 @@ Discarding un-interesting portions does not affect the indpendence or verifiabil
 
 {{< note >}}Simplistic tampering attacks, where the the verifiable data is then unable to "prove" the tampered elements, are equivelent to data corruption{{</ note >}}
 
-If the steps outlined in this article are performed for a tenant, then the tenants event data is Tamper Evident.
+## One command, once a week, to maintain a tamper evident log replica
+
+Running the following command once a week will make all tenant activity for that week Tamper Evident
+
+  {{< tabs >}}
+    {{< tab name="bash" >}}
+
+  ```bash
+  veracity watch --horizon 180h | \
+    veracity \
+    replicate-logs --replicadir merklelogs
+  ```
+
+    {{< /tab >}}
+  {{< /tabs >}}
+
+{{< note>}} Take care with larger time horizons, it may trigger issues with rate limiting.{{< /note >}}
 
 If a copy of the event data recorded by DataTrails is retained, or available at the time of dispute, then the tenants event data is Tamper Proof.
 
+The remainder of this article discusses what the commands `replicate-logs` and `watch` in more depth, covers how to replicate only selective tenants, and explains the significance of the replicated materials.
+
+
 ## How veracity supports these guarantees
 
-In this remainder of this article explains how to use `veracity` to maintain the replicated log data necessary to support these guarantees.
 
 See [Independently verifying DataTrails transparent merkle logs](/developers/developer-patterns/veracity/) for a general introduction to `veracity`.
 
@@ -85,11 +103,11 @@ sequenceDiagram
 ---
 
 
-The first two guarantees require replication and verification of at least the most recently updated massif.
-They further require that the replica is updated often enough not to miss massifs.
+The guarantees of *non-falsifiability* and *non-repudiation* require replication and verification of at least the most recently updated massif.
+They further require that the replica is updated often enough to caputre all massifs.
 As a massif, in the default tenant configuration, contains over 16,000 events, the frequency necessary to support this guarantee is both low, and completely determined by the specific tenant of interest.
 
-The second two guarantees require retention of any local massif that contains an event that is still of value.
+The guarantees of *provability* and *demonstrable completeness* require retention of any local massif that contains an event that is still of value.
 
 Saving the API response data when events are recored, or obtaining the event data using the DataTrails events API, is additionaly required in order to support a fully audit for data corruption.
 
@@ -97,6 +115,11 @@ With a trusted local copy of the verifiable data, even after a tamper is detecte
 
 When the event is fetched, if it can be verified against the replica, it proves that the DataTrails storage of the event remains correct.
 If it does not, it is proven that both the DataTrails log and a tenants merkle log have been improperly updated.
+
+DataTrails is a plaform for sharing *meta* data. And typically, a DataTrails event contains a commitment (a hash of) some other material: An AI Model Card, An SBOM, or an image or video. DataTrails does not handle the original material at all.
+
+So in the extreme case, where the DataTrails database, and or ledger, is corrupted, relying parties can instantly detect this. With detection, the relying party *knows* the original content could very well be trustworthy, and can justify more involved processes to re-aquire it.
+And, importantly, it is impossible for DataTrails to collude, or be co-erced, in away that provably refutes the content owner or relying parties claims.
 
 All parties that have shared that event data are also able to replicate and verify the event inclusion in all copies of the log.
 
@@ -152,6 +175,18 @@ flowchart
 
 ### Replicating the next open massif
 
+In this case, the local replica starts out only having Massifs 0 & 1. And 1
+happens to be complete.  On the next event recorded by DataTrails, a new remote
+massif, Massif 2, is created. More events may be recorded before the replica is
+updated. Each massif contains verification data for a little over 16,000 events.
+Provided the replication commands are run before Massif 2 is also filled, we are
+dealing with this case.
+
+The local Massif 1 is read because, before copying the remote Massif 2 into the local replica,
+its consistency against both the remote seal *and* the previous *local* massif, Massif 1, are checked.
+
+Once those checks are succesfuly made, the local replica gains its initial copy of Massif 2.
+
 ```mermaid
 flowchart
     V[Veracity]
@@ -181,8 +216,16 @@ flowchart
 
 ### Replicating, but leaving a gap
 
-The command `veracity replicate-logs --ancestors 0 --massifs 4` requests that massif 5 is verified and then replicated locally.
-By default, this would caus
+By default, veracity will fetch and verify all massifs, up to the requesteed, that follow on imediately after the most recent local massif.
+In this case, where we request `--massif 4` the default would be to fetch, verify and replicate Massifs 2, 3 & 4.
+
+By default, a full tenant log is replicated.
+The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16000 events.
+
+
+To provide a means to bound the size of the local replica and also to bound the amount of work, we provide the `--ancestors` option. This specifies a fixed limit on the number of massifs that will be fetched. In this example, the limit is `0`, meaning massif 4 is fetched and verified, and we leave a *gap* between the local massifs 2 & the new local massif 4. The gap means the consistency of the remote massif 4 is *not* checked against the local replica.
+
+The command `veracity replicate-logs --ancestors 0 --massif 4` requests that massif 4 is verified and then replicated locally, but prevents it from being verified for consistency against the current local replica.
 
 ```mermaid
 flowchart
@@ -216,11 +259,6 @@ flowchart
     style DM4 stroke-width:2px,stroke-dasharray: 5 5
 ```
 
-After this gap is created it can be filled by running
-
-The command `veracity replicate-logs --massifs 3`
-
-But this must be done explicitly, by default, the `repicate-logs` command only considers the local head for consistency purposes and will not automatically back fill gaps or re-verify.
 
 ## Environment Configuration for Veracity
 
@@ -239,44 +277,13 @@ export TENANT="tenant/6a009b40-eb55-4159-81f0-69024f89f53c"
 
 ## Replicating the Log for the Public Tenant
 
-To get a sense of how `replicate-logs` works replicate the public tenant's log
-
-- Use Replicate-Logs to Create a Local, Verified, Replica of the Datatrails Public Tenant Log
-
-  {{< tabs >}}
-    {{< tab name="bash" >}}
-
-  ```bash
-  veracity --data-url https://app.datatrails.ai/verifiabledata \
-      --tenant $PUBLIC_TENANT \
-      replicate-logs --massif 0 \
-      --replicadir merklelogs
-
-  find merklelogs -type f
-  ```
-
-  Generates output similar to:
-
-  ```output
-  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
-  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
-  ```
-
-    {{< /tab >}}
-  {{< /tabs >}}
-
-By default, all massifs up to and including the massif specified by `--massif <N>` are verified remotely and checked for consistency against the local replica (following the logical steps in the diagram above).
-At the time of writing, the production public tenant merkle log has not filled its first massif yet.
-
-## Finding Tenants With Log Additions
-
-`veracity watch` will describe the activity for all tenants that have been recently added events to their merkle log:
+If replication of a specific tenant is desired, then both the `watch` command and the `replicate-logs` command can be provided with a tennat, or list of tenants, to consider.
 
 {{< tabs >}}
    {{< tab name="bash" >}}
 
   ```bash
-  veracity watch
+  veracity --tenant $PUBLIC_TENANT watch
   ```
 
   Generates output similar to:
@@ -284,13 +291,13 @@ At the time of writing, the production public tenant merkle log has not filled i
   ```json
   [
     {
-      "massifindex": 0,
-      "tenant": "6a009b40-eb55-4159-81f0-69024f89f53c",
-      "idcommitted": "019176f5796d068500",
-      "idconfirmed": "019176f5796d068500",
-      "lastmodified": "2024-08-21T22:01:24Z",
-      "massif": "v1/mmrs/tenant/6a009b40-eb55-4159-81f0-69024f89f53c/0/massifs/0000000000000000.log",
-      "seal": "v1/mmrs/tenant/6a009b40-eb55-4159-81f0-69024f89f53c/0/massifseals/0000000000000000.sth"
+      "massifindex": 1,
+      "tenant": "tenant/6ea5cd00-c711-3649-6914-7b125928bbb4",
+      "idcommitted": "0191c424e62d04b300",
+      "idconfirmed": "0191c424e62d04b300",
+      "lastmodified": "2024-09-05T21:43:58Z",
+      "massif": "v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log",
+      "seal": "v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth"
     }
   ]
   ```
@@ -312,34 +319,53 @@ At the time of writing, the production public tenant merkle log has not filled i
   {{< /tab >}}
 {{< /tabs >}}
 
-## Replicating the Logs for the Tenants With Activity
-
-To automatically replicate the logs that changes are detected for, pipe the output of `watch` into `replicate-logs`
-
-- Replicate the logs for all tenants that have been active in the default time horizon
+The `watch` command is used to determine the `massifindex`, even when you are only interested in a single tenant.
+You then provide that index to the `replicate-logs` command using the `--massif` option:
 
   {{< tabs >}}
     {{< tab name="bash" >}}
 
   ```bash
-  veracity watch | \
-    veracity \
-    replicate-logs --replicadir merklelogs
+  veracity \
+      --tenant $PUBLIC_TENANT \
+      replicate-logs --massif 1 \
+      --replicadir merklelogs
+
+  find merklelogs -type f
+  ```
+
+  Generates output similar to:
+
+  ```output
+  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log
+  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+  merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth
   ```
 
     {{< /tab >}}
   {{< /tabs >}}
 
-{{< note>}} Take care with larger time horizons, it may trigger issues with rate limiting.{{< /note >}}
+By default, all massifs up to and including the massif specified by `--massif <N>` are verified remotely and checked for consistency against the local replica (following the logical steps in the diagram above).
 
-## Replicating Just the Latest Changes to Your Log
+The numbered `.log` files are the verifiable data for your log.
 
-By default, a full tenant log is replicated.
-The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16000 events.
+The `.sth` files are [COSE Sign1](https://datatracker.ietf.org/doc/html/rfc8152#section-4.2) binary format signed messages.
+Each `.sth` is associated with the identically numbered massif.
+The log root material in the `.sth` signature attests to the entire state of the log up to the end of the associated massif.
 
-In many scenarios, independent verification can be achieved by replicating the most recently extended massif.
+## Takeaways
 
-This is always sufficient to detect a tamper.
-When a tamper or inconsistency is detected the most recently verified log data will not be changed.
+To be sure mistaken, or malicious, acts on the DataTrails service can always be detected run this command about once a week:
 
-It's not necessary to keep a full replica of a log, if only interested in more recent items.
+* `veracity watch --horizon 180h | veracity replicate-logs --replicadir merklelogs`
+
+This process guarantees you can't be mis-repsented, any alternate version of events would be provably false.
+
+If you need to verify that DataTrails has correctly recorded your data in the first place, you need to check the event data recorded in our platform.
+
+If you want to guarantee you can always verify your original recorded event, you must keep a copy of the DataTrails event.
+
+You can chose to trust DataTrails copy, because, even in the most extreme cases, it is provable if DataTrails has been compromised.
+
+In scenarios where you are attesting to primary data that is held elsewhere, this is usualy more than sufficient.

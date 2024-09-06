@@ -44,78 +44,80 @@ ASSET_ID=<ASSET_ID>
 
 ### Event Creation
 
-Define the Event parameters and store in `/tmp/event.json`:
+- Define the Event parameters and store in `/tmp/event.json`:
 
-```bash
-cat > /tmp/event.json <<EOF
-{
-  "operation": "Record",
-  "behaviour": "RecordEvidence",
-  "event_attributes": {
-    "arc_display_type": "Safety Conformance",
-    "Safety Rating": "90",
-    "inspector": "Clouseau"
+  ```bash
+  cat > /tmp/event.json <<EOF
+  {
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+      "arc_display_type": "Safety Conformance",
+      "Safety Rating": "90",
+      "inspector": "Clouseau"
+    }
   }
-}
-EOF
-```
+  EOF
+  ```
 
 {{< note >}}
 **Note:** `RecordEvidence` is the primary, default behavior for creating Events.
 {{< /note >}}
 
-Add the request to the Asset record by POSTing it to the resource:
+- Add the request to the Asset record by POSTing it to the resource:
 
-```bash
-curl -X POST \
-    -H "@$HOME/.datatrails/bearer-token.txt" \
-    -H "Content-type: application/json" \
-    -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events | jq
-```
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -H "Content-type: application/json" \
+      -d "@/tmp/event.json" \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events | jq
+  ```
 
-The response:
+- The response:
 
-```json
-{
-  "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "event_attributes": {
-    "inspector": "Clouseau",
-    "arc_display_type": "Safety Conformance",
-    "Safety Rating": "90"
-  },
-  "asset_attributes": {},
-  "operation": "Record",
-  "behaviour": "RecordEvidence",
-  "timestamp_declared": "2024-09-04T23:45:20Z",
-  "timestamp_accepted": "2024-09-04T23:45:20Z",
-  "timestamp_committed": "1970-01-01T00:00:00Z",
-  "principal_declared": {
-    "issuer": "https://app.datatrails.ai/appidpv1",
-    "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "display_name": "my-integration",
-    "email": ""
-  },
-  "principal_accepted": {
-    "issuer": "https://app.datatrails.ai/appidpv1",
-    "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "display_name": "my-integration",
-    "email": ""
-  },
-  "confirmation_status": "PENDING",
-  "transaction_id": "",
-  "block_number": 0,
-  "transaction_index": 0,
-  "from": "",
-  "tenant_identity": "",
-  "merklelog_entry": {
-    "commit": null,
-    "confirm": null,
-    "unequivocal": null
+  ```json
+  {
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "event_attributes": {
+      "inspector": "Clouseau",
+      "arc_display_type": "Safety Conformance",
+      "Safety Rating": "90"
+    },
+    "asset_attributes": {},
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "timestamp_declared": "2024-09-04T23:45:20Z",
+    "timestamp_accepted": "2024-09-04T23:45:20Z",
+    "timestamp_committed": "1970-01-01T00:00:00Z",
+    "principal_declared": {
+      "issuer": "https://app.datatrails.ai/appidpv1",
+      "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "display_name": "my-integration",
+      "email": ""
+    },
+    "principal_accepted": {
+      "issuer": "https://app.datatrails.ai/appidpv1",
+      "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "display_name": "my-integration",
+      "email": ""
+    },
+    "confirmation_status": "PENDING",
+    "transaction_id": "",
+    "block_number": 0,
+    "transaction_index": 0,
+    "from": "",
+    "tenant_identity": "",
+    "merklelog_entry": {
+      "commit": null,
+      "confirm": null,
+      "unequivocal": null
+    }
   }
-}
-```
+  ```
+
+- To query the events jump to [Fetch Specific Events by Identity](#fetch-events-for-a-specific-asset)
 
 ### Updating an Asset Attribute
 
@@ -495,7 +497,7 @@ The response:
 Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:
 
 ```bash
-assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+assets/$ASSET_ID/events/$EVENT_ID
 ```
 
 If you do not know the Event’s identity you can fetch Event records using other information you do know.
@@ -517,7 +519,7 @@ If you know the unique identity of the Asset record simply `GET` the resource:
 ```bash
 curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events"
+     "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events?page_size=5"
 ```
 
 #### Fetch Specific Events by Identity

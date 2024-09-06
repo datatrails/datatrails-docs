@@ -51,12 +51,13 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
 1. Enter any `Display Name` you'd like
   {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
   {{< note >}}
-  **Note:** Optionally add any `Custom claims` at this step by clicking the `+ Add` button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). *Registered* claims are name/value pairs that are defined by the JWT standard, *Custom* claims are not defined and can have any name/value combination. . 
+  **Note:** Optionally add any `Custom claims` at this step by clicking the `+ Add` button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). *Registered* claims are name/value pairs that are defined by the JWT standard, *Custom* claims are not defined and can have any name/value combination.
 
-  Ensure the `Name` _does not start_ with `jit_` or `arc_` (DataTrails reserved names) or use any other well-known reserved claims.
+  Ensure the `Name` *does not start* with `jit_` or `arc_` (DataTrails reserved names) or use any other well-known reserved claims.
   
   See [here](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims) for more information on JWT Claims
   {{< /note >}}  
+
 1. Once complete, click `Confirm` to complete the custom integration
 1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
@@ -66,7 +67,7 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
 
 ### Grant Access Permissions to your Custom Integration
 
-In this section we will give your Custom Integration permission to access the Assets, their attributes, and Events that have been recorded in your tenancy. 
+In this section we will give your Custom Integration permission to access the Assets, their attributes, and Events that have been recorded in your tenancy.
 
 Integrations are secured by default, with no read or write permissions within your DataTrails Tenancy. This is is important because the alternative would be to allow read/write access to all Assets and Events by default which opens the risk that an application could be maliciously altered to make changes that would not be permitted by the Tenancy Administrator.
 

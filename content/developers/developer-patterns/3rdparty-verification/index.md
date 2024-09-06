@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 38
+weight: 45
 toc: true
 aliases: 
   - /docs/developer-patterns/3rdparty-verification/
@@ -27,10 +27,10 @@ The independent party, can be, and may often be, the original DataTrails tenant.
 
 This article describes how to achieve the following guarantees of verifiability independently of DataTrails:
 
-1. The guarantee of non-falsifiability: That event data can not be falsified.
-1. The guarantee of non-repudiation: That event data can not be removed.
-1. The guarantee of provability: That event data can be proven to be correct (creating these proofs does not require the original event data).
-1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete.
+1. **The guarantee of non-falsifiability**: Event data can not be falsified.
+1. **The guarantee of non-repudiation**: Event data can not be removed.
+1. **The guarantee of provability**: Event data can be proven to be correct (creating proofs does not require the original event data).
+1. **The guarantee of demonstrable completeness**: A series of events (trails), can be proven to be complete.
 
 In all of these guarantees, if DataTrails is compromised, a replica holder can independently prove if event data was modified, removed, inserted or re-ordered.
 
@@ -48,9 +48,11 @@ Discarding un-interesting portions does not affect the independence or verifiabi
 
 {{< note >}}Simplistic tampering attacks, where the the verifiable data is then unable to "prove" the tampered elements, are equivalent to data corruption{{</ note >}}
 
-## One Command, Once a Week, to Maintain a Tamper Evident Log Replica
+## Maintaining a Tamper Evident Log Replica
 
-Running the following command once a week will make all tenant activity for that week Tamper Evident
+Based on a window of assurance, a replica may be maintained with one command, once a week.
+
+- Running the following command once a week, will make all tenant activity for that week Tamper Evident.
 
   {{< tabs >}}
   {{< tab name="bash" >}}
@@ -64,11 +66,11 @@ Running the following command once a week will make all tenant activity for that
   {{< /tab >}}
   {{< /tabs >}}
 
-{{< note>}} Take care with larger time horizons, it may trigger issues with rate limiting.{{< /note >}}
+{{< note>}} Larger time horizons may trigger rate limiting{{< /note >}}
 
-If a copy of the event data recorded by DataTrails is retained, or available at the time of dispute, then the tenants event data is Tamper Proof.
+Maintaining a copy of the event data recorded by DataTrails renders the tenants event data as Tamper Proof as the copies may be compared for accuracy.
 
-The remainder of this article discusses what the commands `replicate-logs` and `watch` in more depth, covers how to replicate only selective tenants, and explains the significance of the replicated materials.
+The remainder of this article discusses the commands `replicate-logs` and `watch` in more depth, covering how to replicate selective tenants, explaining the significance of the replicated materials.
 
 ## How Veracity Supports These Guarantees
 
@@ -91,8 +93,8 @@ sequenceDiagram
     end
     participant D as DataTrails
 
-    v -->> V: Safely update my replica to massif X please
-    V ->> D: Fetch and verify the remote massifs and seals up to X
+    v -->> V: Safely update a replica to massif X, please
+    V ->> D: Fetch and verify remote massifs and seals up to X
     V ->> R: Check the verified remote data is consistent with the replica
     V ->> R: Update the replica with verified additions
     V -->> v: All OK!
@@ -109,30 +111,29 @@ The guarantees of *provability* and *demonstrable completeness* require retentio
 Saving the API response data when events are recoded, or obtaining the event data using the DataTrails events API, is additionally required in order to support a fully audit for data corruption.
 
 With a trusted local copy of the verifiable data, even after a tamper is detected, it is reasonable to rely on DataTrails storage of the event data.
-
 When the event is fetched, if it can be verified against the replica, it proves that the DataTrails storage of the event remains correct.
 If it does not, it is proven that both the DataTrails log and a tenants merkle log have been improperly updated.
 
 DataTrails is a platform for sharing *meta* data. And typically, a DataTrails event contains a commitment (a hash of) some other material: An AI Model Card, An SBOM, or an image or video. DataTrails does not handle the original material at all.
 
-In the extreme case, where the DataTrails database, and or ledger, is corrupted, relying parties can instantly detect this.
+In the extreme case, where the DataTrails ledger is corrupted, relying parties can instantly detect the inconsistency.
 With detection, the relying party *knows* the original content could very well be trustworthy, and can justify more involved processes to re-acquire it.
 And, importantly, it is impossible for DataTrails to collude, or be coerced, in away that provably refutes the content owner or relying parties claims.
-
 All parties that have shared that event data are also able to replicate and verify the event inclusion in all copies of the log.
 
 Each of these guarantees is accomplished using the `veracity` `replicate-logs` and `watch` commands to check the log operation and replicate some or all of log data.
 
-* `veracity watch` is used to give notice of which tenants have updates to their logs that need to be considered for replication.
-* `veracity replicate-logs` performs the activities in the diagram above. It can be directed to examine a specific tenant, or it can be provided with the output of `veracity watch`
+- `veracity watch` provides which tenants have log updates needing to be considered for replication.
+- `veracity replicate-logs` performs the activities in the diagram above.
+It can be directed to examine a specific tenant, or it can be provided with the output of `veracity watch`
 
 ### Updating the Currently Open Massif
 
 Every DataTrails log is a series of one or more massifs.
-The last, which we call the head, is where the verification data for new events are recorded.
+The last, called the head, is where the verification data for new events are recorded.
 Once the head is full, a new head automatically starts.
 
-This means there are 3 basic scenarios `veracity` copes with when updating a replica.
+There are 3 basic scenarios `veracity` copes with when updating a replica:
 
 1. Updating the currently open replicated massif with the new additions in the DataTrails open massif.
 1. Replicating the start of a new open massif from DataTrails.
@@ -170,12 +171,12 @@ flowchart
 
 ### Replicating the Next Open Massif
 
-In this case, the local replica starts out only having Massifs 0 & 1.
+The local replica starts out only having Massifs 0 & 1.
 And 1 happens to be complete.
 On the next event recorded by DataTrails, a new remote massif, Massif 2, is created.
 More events may be recorded before the replica is updated.
 Each massif contains verification data for a little over 16,000 events.
-Provided the replication commands are run before Massif 2 is also filled, we are dealing with this case.
+Provided the replication commands are run before Massif 2 is also filled.
 
 The local Massif 1 is read because, before copying the remote Massif 2 into the local replica, its consistency against both the remote seal *and* the previous *local* massif, Massif 1, are checked.
 
@@ -211,12 +212,12 @@ flowchart
 ### Replicating, but Leaving a Gap
 
 By default, veracity will fetch and verify all massifs, up to the requested, that follow on immediately after the most recent local massif.
-In this case, where we request `--massif 4` the default would be to fetch, verify and replicate Massifs 2, 3 & 4.
+In this case, where `--massif 4` is requested, the default would fetch, verify and replicate Massifs 2, 3 & 4.
 
 By default, a full tenant log is replicated.
-The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16000 events.
+The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16,000 events.
 
-To provide a means to bound the size of the local replica and also to bound the amount of work, we provide the `--ancestors` option.
+To provide a means to bound the size of the local replica and also to bound the amount of work, DataTrails provides an `--ancestors` option.
 This specifies a fixed limit on the number of massifs that will be fetched.
 In this example, the limit is `0`, meaning massif 4 is fetched and verified, and we leave a *gap* between the local massifs 2 & the new local massif 4.
 The gap means the consistency of the remote massif 4 is *not* checked against the local replica.
@@ -353,14 +354,23 @@ The log root material in the `.sth` signature attests to the entire state of the
 
 To be sure mistaken, or malicious, acts on the DataTrails service can always be detected run this command about once a week:
 
-* `veracity watch --horizon 180h | veracity replicate-logs --replicadir merklelogs`
+{{< tabs >}}
+{{< tab name="bash" >}}
 
-This process guarantees you can't be misrepresented, any alternate version of events would be provably false.
+```bash
+veracity watch --horizon 180h | \
+  veracity replicate-logs --replicadir merklelogs
+```
+
+{{< /tab >}}
+{{< /tabs >}}
+
+This process guarantees DataTrails logs can't be misrepresented, any alternate version of events would be provably false.
 
 If you need to verify that DataTrails has correctly recorded your data in the first place, you need to check the event data recorded in our platform.
 
 If you want to guarantee you can always verify your original recorded event, you must keep a copy of the DataTrails event.
 
-You can chose to trust DataTrails copy, because, even in the most extreme cases, it is provable if DataTrails has been compromised.
+You can choose to trust a DataTrails copy, because even in the most extreme cases, it is provable if DataTrails has been compromised.
 
 In scenarios where you are attesting to primary data that is held elsewhere, this is usually more than sufficient.

@@ -55,9 +55,14 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </blockquote>
 <h3 id="using-the-datatrails-app-to-create-an-integration-first-time-setup">Using the DataTrails App to Create an Integration (First-Time Setup)</h3>
 <ol>
-<li>As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a></li>
-<li>Navigate to <code>Integrations</code> on the sidebar</li>
-<li>This opens <code>Settings</code> with the <code>Integrations</code> tab automatically selected
+<li>
+<p>As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a></p>
+</li>
+<li>
+<p>Navigate to <code>Integrations</code> on the sidebar</p>
+</li>
+<li>
+<p>This opens <code>Settings</code> with the <code>Integrations</code> tab automatically selected
 
   
   <figure class="border-0">
@@ -80,9 +85,13 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
         </div>
     
     </div>
-  </div></li>
-<li>Click the <code>Custom</code> box to create a Custom Integration</li>
-<li>Enter any <code>Display Name</code> you&rsquo;d like
+  </div></p>
+</li>
+<li>
+<p>Click the <code>Custom</code> box to create a Custom Integration</p>
+</li>
+<li>
+<p>Enter any <code>Display Name</code> you&rsquo;d like
 
   
   <figure class="border-0">
@@ -107,14 +116,18 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
     </div>
   </div>
 <blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> Optionally add any <code>Custom claims</code> at this step by clicking the <code>+ Add</code> button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). <em>Registered</em> claims are name/value pairs that are defined by the JWT standard, <em>Custom</em> claims are not defined and can have any name/value combination. .</p>
+    <div><strong></strong> <p><strong>Note:</strong> Optionally add any <code>Custom claims</code> at this step by clicking the <code>+ Add</code> button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). <em>Registered</em> claims are name/value pairs that are defined by the JWT standard, <em>Custom</em> claims are not defined and can have any name/value combination.</p>
 <p>Ensure the <code>Name</code> <em>does not start</em> with <code>jit_</code> or <code>arc_</code> (DataTrails reserved names) or use any other well-known reserved claims.</p>
 <p>See 
 <a href="https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims" target="_blank" rel="noopener">here</a> for more information on JWT Claims</p>
 </div>
-  </blockquote></li>
-<li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
+  </blockquote></p>
+</li>
+<li>
+<p>Once complete, click <code>Confirm</code> to complete the custom integration</p>
+</li>
+<li>
+<p>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -140,7 +153,8 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
-  </blockquote></li>
+  </blockquote></p>
+</li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
 <p>In this section we will give your Custom Integration permission to access the Assets, their attributes, and Events that have been recorded in your tenancy.</p>
@@ -23245,9 +23259,14 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   </blockquote>
 <h3 id="using-the-datatrails-app-to-create-an-integration-first-time-setup">Using the DataTrails App to Create an Integration (First-Time Setup)</h3>
 <ol>
-<li>As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a></li>
-<li>Navigate to <code>Integrations</code> on the sidebar</li>
-<li>This opens <code>Settings</code> with the <code>Integrations</code> tab automatically selected
+<li>
+<p>As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a></p>
+</li>
+<li>
+<p>Navigate to <code>Integrations</code> on the sidebar</p>
+</li>
+<li>
+<p>This opens <code>Settings</code> with the <code>Integrations</code> tab automatically selected
 
   
   <figure class="border-0">
@@ -23270,9 +23289,13 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
         </div>
     
     </div>
-  </div></li>
-<li>Click the <code>Custom</code> box to create a Custom Integration</li>
-<li>Enter any <code>Display Name</code> you&rsquo;d like
+  </div></p>
+</li>
+<li>
+<p>Click the <code>Custom</code> box to create a Custom Integration</p>
+</li>
+<li>
+<p>Enter any <code>Display Name</code> you&rsquo;d like
 
   
   <figure class="border-0">
@@ -23297,14 +23320,18 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
     </div>
   </div>
 <blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> Optionally add any <code>Custom claims</code> at this step by clicking the <code>+ Add</code> button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). <em>Registered</em> claims are name/value pairs that are defined by the JWT standard, <em>Custom</em> claims are not defined and can have any name/value combination. .</p>
+    <div><strong></strong> <p><strong>Note:</strong> Optionally add any <code>Custom claims</code> at this step by clicking the <code>+ Add</code> button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). <em>Registered</em> claims are name/value pairs that are defined by the JWT standard, <em>Custom</em> claims are not defined and can have any name/value combination.</p>
 <p>Ensure the <code>Name</code> <em>does not start</em> with <code>jit_</code> or <code>arc_</code> (DataTrails reserved names) or use any other well-known reserved claims.</p>
 <p>See 
 <a href="https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims" target="_blank" rel="noopener">here</a> for more information on JWT Claims</p>
 </div>
-  </blockquote></li>
-<li>Once complete, click <code>Confirm</code> to complete the custom integration</li>
-<li>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
+  </blockquote></p>
+</li>
+<li>
+<p>Once complete, click <code>Confirm</code> to complete the custom integration</p>
+</li>
+<li>
+<p>You will then be presented with the <code>CLIENT_ID</code> and <code>SECRET</code> required by the archivist token endpoint
 
 
 <figure class="border-0">
@@ -23330,7 +23357,8 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
 </div>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> Save the <code>CLIENT_ID</code> and <code>SECRET</code> to a password manager or secret management service as the <code>SECRET</code> can <strong>not</strong> be viewed again. A new <code>SECRET</code> can be regenerated in the Integration configuration screen but this replaces and invalidates the previous <code>SECRET</code>.</div>
-  </blockquote></li>
+  </blockquote></p>
+</li>
 </ol>
 <h3 id="grant-access-permissions-to-your-custom-integration">Grant Access Permissions to your Custom Integration</h3>
 <p>In this section we will give your Custom Integration permission to access the Assets, their attributes, and Events that have been recorded in your tenancy.</p>

@@ -196,11 +196,12 @@ sequenceDiagram
 
 ---
 
-The guarantees of *non-falsifiability* and *non-repudiation* require replication and verification of at least the most recently updated massif.
-They further require that the replica is updated often enough to capture all massifs.
+For the guarantees of *non-falsifiability* and *non-repudiation* to be independent of Data Trails, replication and verification of at least the most recently updated massif is necessary.
+The replica must be updated often enough to capture all massifs.
 As a massif, in the default tenant configuration, contains over 16,000 events, the frequency necessary to support this guarantee is both low, and completely determined by the specific tenant of interest.
 
-The guarantees of *provability* and *demonstrable completeness* require retention of any local massif that contains an event that is still of value.
+Massifs verifying events that are no longer interesting can be safely discarded.
+Remembering that the order that events were recorded matches the order of data in the log, it is usually the case that all massifs before a certain point can be discarded together. 
 
 Saving the API response data when events are recored, or obtaining the Meta Data using the DataTrails events API, is additionaly required in order to support a full audit for data corruption.
 

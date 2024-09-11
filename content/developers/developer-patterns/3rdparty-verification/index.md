@@ -52,7 +52,7 @@ This is already a very robust process. For this process to fail, the following s
 1. The DataTrails SaaS database must be compromised.
 1. The DataTrails ledger must be compromised and re-built and re-signed.
 
-For use-cases where even this degree of trust in Data Trails is un-acceptable, the recipies in this article ensure the following guarantees are fully independent of Data Trails:
+Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails. Nonetheless, for use-cases where even this small degree of trust in Data Trails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of Data Trails:
 
 1. The guarantee of non-falsifiability: That event data can not be falsified.
 1. The guarantee of non-repudiation: That event data can not be removed.

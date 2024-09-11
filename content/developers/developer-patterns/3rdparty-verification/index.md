@@ -45,7 +45,7 @@ flowchart LR
     on verified **Data**`"]
 ```
 
-This is already a very robust process. For this process to fail, the following steps must be accomplished:
+This is already a very robust process. For this process to fail, the following steps must all be accomplished:
 
 1. The source of the Data, which may not be the Owner, must be compromised to substitute the malicious Data.
 1. Owner authentication of the Data, such as adding a signed digest in the Meta Data, must be compromised.

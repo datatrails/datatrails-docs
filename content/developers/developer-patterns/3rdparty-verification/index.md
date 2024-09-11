@@ -57,7 +57,7 @@ Executing such an attack successfully would require significant effort and infil
 1. The guarantee of non-falsifiability: That event data can not be falsified.
 1. The guarantee of non-repudiation: That event data can not be removed from the record (ie 'shredded' or deleted).
 1. The guarantee of provability: That event data can be proven to be correct (creating these proofs does not require the original event data).
-1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete.
+1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete with no gaps or omissions.
 
 
 These guarantees are "fail safe" against regular data corruption of the log data. In the event of individial log entry corruption, verification checks would fail for that entry.

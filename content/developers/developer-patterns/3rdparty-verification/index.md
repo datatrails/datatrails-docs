@@ -55,7 +55,7 @@ This is already a very robust process. For this process to fail, the following s
 Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails. Nonetheless, for use-cases where even this small degree of trust in Data Trails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of Data Trails:
 
 1. The guarantee of non-falsifiability: That event data can not be falsified.
-1. The guarantee of non-repudiation: That event data can not be removed.
+1. The guarantee of non-repudiation: That event data can not be removed from the record (ie 'shredded' or deleted).
 1. The guarantee of provability: That event data can be proven to be correct (creating these proofs does not require the original event data).
 1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete.
 

@@ -52,7 +52,8 @@ This is already a very robust process. For this process to fail, the following s
 1. The DataTrails SaaS database must be compromised.
 1. The DataTrails ledger must be compromised and re-built and re-signed.
 
-Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails. Nonetheless, for use-cases where even this small degree of trust in Data Trails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of Data Trails:
+Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails.
+Nonetheless, for use-cases where even this small degree of trust in Data Trails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of Data Trails:
 
 1. The guarantee of non-falsifiability: That event data can not be falsified.
 1. The guarantee of non-repudiation: That event data can not be removed from the record (ie 'shredded' or deleted).
@@ -60,17 +61,20 @@ Executing such an attack successfully would require significant effort and infil
 1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete with no gaps or omissions.
 
 
-These guarantees are "fail safe" against regular data corruption of the log data. In the event of individial log entry corruption, verification checks would fail for that entry.
+These guarantees are "fail safe" against regular data corruption of the log data.
+In the event of individial log entry corruption, verification checks would fail for that entry.
 
-To provide what is known as a "full audit" capability, checking that all **Meta Data** is exactly as was originally recorded, and to ensure safe continued operation is possible even if Data Trails is prevented from operating, A copy of the Meta Data must also be replicated.
-It may be discarded once the Meta Data represented ceases to be interesting.
+All modifications to the ledger which result in provable changes can be detected without a fully auditable replica.
+To provide what is known as a "full audit" capability, checking that all **Meta Data** is exactly as was originally recorded, A copy of the Meta Data must also be replicated.
+By maintaining a fully auditable replica, safe continued operation is possible even if Data Trails is prevented from operating.
+The log format makes it operationaly very simple to discard data that ceases to be interesting.
 
 {{< note >}}The *Meta Data* is returned to the Owner when the event is recorded and is available from the regular API endpoints to any other authorized party, and obtaining it is not covered in this article.{{< /note >}}
 
 If both the verifiable merkel log and the *Meta Data* are included in the process,
 operations can safely continue even in the event that Data Trails is prevented from operating.
 
-## Replication Recipies
+## Replication Recipes
 
 ## Environment Configuration for Veracity
 
@@ -167,10 +171,6 @@ The remainder of this article discusses what the commands `replicate-logs` and `
 DataTrail's log format makes it simple to retain only the portions (massifs) of the log that are interesting.
 Discarding un-interesting portions does not affect the indpendence or verifiability of the retained log.
 
-{{< note >}}Simplistic tampering attacks, where the the verifiable data is then unable to "prove" the tampered elements, are equivelent to data corruption{{</ note >}}
-
-
-
 See [Independently verifying DataTrails transparent merkle logs](/developers/developer-patterns/veracity/) for a general introduction to `veracity`.
 
 This diagram illustrates the logical flow when updating a local replica using veracity.
@@ -207,9 +207,10 @@ The guarantees of *provability* and *demonstrable completeness* require retentio
 
 Saving the API response data when events are recored, or obtaining the Meta Data using the DataTrails events API, is additionaly required in order to support a full audit for data corruption.
 
-With a trusted local copy of the verifiable log, even after a tamper is detected, it is reasonable to rely on DataTrails storage of the Meta Data.
-If that the Data Trails storage of the Meta Data is corrupted or tampered, the verification will "fail safe" against the local replicated log.
+When a a trusted local copy of the verifiable log is included in the "verify before use" process, it is reasonable to rely on DataTrails storage of the Meta Data.
+If the Data Trails storage of the Meta Data is changed, the verification will "fail safe" against the local replicated log because the changed data will not verify against the local replica.
 While this is a "false negative", it ensures safety in the face of accidental or malicious damange to the Data Trails storage systems without the burden of maintaing copies of the Meta Data recorded in DataTrails.
+Once the unsafe action is blocked, it is very use-case dependent what the appropriate next steps are. The common thread is that is *critical* that the action must be blocked in the first instance.
 
 When the Meta Data is fetched, if it can be verified against the log replica, it proves that the DataTrails storage remains correct.
 If it does not verify, it is proven that the Meta Data held by Data Trails is incorrect, though the *Data* being processed by the Consumer may still be correct and safe.

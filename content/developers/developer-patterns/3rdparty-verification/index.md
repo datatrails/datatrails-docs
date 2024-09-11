@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "developer-patterns"
-weight: 38
+weight: 45
 toc: true
 aliases: 
   - /docs/developer-patterns/3rdparty-verification/
@@ -18,11 +18,10 @@ aliases:
 
 ## Introduction
 
-Without the measures described in this article, it is still extremely challenging to compromise a transparancy solution based on DataTrails.
+Without the measures described in this article, it is still extremely challenging to compromise a transparency solution based on DataTrails.
 
 To do so, the systems of more than just Data Trails need to be compromised in very specific ways.
-To ilustrate this, consider this typical flow for how **Data** can be used in a transparent and tamper evident way with Data Trails.
-
+To illustrate this, consider this typical flow for how **Data** can be used in a transparent and tamper evident way with Data Trails.
 
 ```mermaid
 flowchart LR
@@ -55,19 +54,19 @@ This is already a very robust process. For this process to fail, the following s
 Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails.
 Nonetheless, for use-cases where even this small degree of trust in Data Trails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of Data Trails:
 
-1. The guarantee of non-falsifiability: That event data can not be falsified.
-1. The guarantee of non-repudiation: That event data can not be removed from the record (ie 'shredded' or deleted).
-1. The guarantee of provability: That event data held *here and now* can be proven to be identical to the data created *there and then* (creating these proofs does not require the original event data).
-1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete with no gaps or omissions.
+1. **The guarantee of non-falsifiability**: Event data can not be falsified.
+1. **The guarantee of non-repudiation**: Event data can not be removed from the record (ie 'shredded' or deleted).
+1. **The guarantee of provability**: Event data held *here and now* can be proven to be identical to the data created *there and then* (creating these proofs does not require the original event data).
+1. **The guarantee of demonstrable completeness**: Series of events (trails), can be proven to be complete with no gaps or omissions.
 
 These guarantees are "fail safe" against regular data corruption of the log data.
-In the event of individial log entry corruption, verification checks would fail for that entry.
+In the event of individual log entry corruption, verification checks would fail for that entry.
 
 All modifications to the ledger which result in provable changes can be detected without a fully auditable replica.
 By maintaining a fully auditable replica, continued verifiable operation is possible even if Data Trails is prevented from operating.
 To provide this capability, checking that all **Meta Data** is exactly as was originally recorded, A copy of the Meta Data must also be replicated.
-In cases where this capability is required, data retention remains managable and has completely predictable storage requirements.
-The log format makes it operationaly very simple to discard data that ceases to be interesting.
+In cases where this capability is required, data retention remains manageable and has completely predictable storage requirements.
+The log format makes it operational very simple to discard data that ceases to be interesting.
 
 {{< note >}}The *Meta Data* is returned to the Owner when the event is recorded and is available from the regular API endpoints to any other authorized party, and obtaining it is not covered in this article.{{< /note >}}
 
@@ -75,8 +74,7 @@ The log format makes it operationaly very simple to discard data that ceases to 
 
 ## Environment Configuration for Veracity
 
-
-The following recipies make use of these environment:
+The following recipes make use of these environment:
 
 ```bash
 # DataTrails Public Tenant
@@ -132,7 +130,8 @@ If a replica of all DataTrails tenants is required, run the previous command wit
     veracity \
     replicate-logs --replicadir merklelogs
   ```
-    {{< /tab >}}
+
+  {{< /tab >}}
   {{< /tabs >}}
 
 Having done this once, you should revert to using a horizon that is just a little longer than your update interval.
@@ -147,26 +146,25 @@ To restrict a replica to a specific set of tenants, specify those tenants to the
 A common requirement is the public attestation tenant and your own tenant, to accomplish this set $TENANT accordingly and run the following once a week.
 
   {{< tabs >}}
-    {{< tab name="bash" >}}
+  {{< tab name="bash" >}}
 
   ```bash
   veracity watch --horizon 180h --tenant "$PUBLIC_TENANT,$TENANT" | \
     veracity \
     replicate-logs --replicadir merklelogs
   ```
-    {{< /tab >}}
+
+  {{< /tab >}}
   {{< /tabs >}}
 
-
-Again, to initialise the replica, run the same command once but using an appropriately large `--horizon`
+Again, to initialize the replica, run the same command once but using an appropriately large `--horizon`
 
 The remainder of this article discusses what the commands `replicate-logs` and `watch` in more depth, covers how to replicate only selective tenants, and explains the significance of the replicated materials.
-
 
 ## How veracity supports these guarantees
 
 DataTrail's log format makes it simple to retain only the portions (massifs) of the log that are interesting.
-Discarding un-interesting portions does not affect the indpendence or verifiability of the retained log.
+Discarding un-interesting portions does not affect the independence or verifiability of the retained log.
 
 See [Independently verifying DataTrails transparent merkle logs](/developers/developer-patterns/veracity/) for a general introduction to `veracity`.
 
@@ -201,13 +199,13 @@ The replica must be updated often enough to capture all massifs.
 As a massif, in the default tenant configuration, contains over 16,000 events, the frequency necessary to support this guarantee is both low, and completely determined by the specific tenant of interest.
 
 Massifs verifying events that are no longer interesting can be safely discarded.
-Remembering that the order that events were recorded matches the order of data in the log, it is usually the case that all massifs before a certain point can be discarded together. 
+Remembering that the order that events were recorded matches the order of data in the log, it is usually the case that all massifs before a certain point can be discarded together.
 
-Saving the API response data when events are recored, or obtaining the Meta Data using the DataTrails events API, is additionaly required in order to support a full audit for data corruption.
+Saving the API response data when events are recoded, or obtaining the Meta Data using the DataTrails events API, is additionally required in order to support a full audit for data corruption.
 
 When a a trusted local copy of the verifiable log is included in the "verify before use" process, it is reasonable to rely on DataTrails storage of the Meta Data.
 If the Data Trails storage of the Meta Data is changed, the verification will "fail safe" against the local replicated log because the changed data will not verify against the local replica.
-While this is a "false negative", it ensures safety in the face of accidental or malicious damange to the Data Trails storage systems without the burden of maintaing copies of the Meta Data recorded in DataTrails.
+While this is a "false negative", it ensures safety in the face of accidental or malicious damage to the Data Trails storage systems without the burden of maintaining copies of the Meta Data recorded in DataTrails.
 Once the unsafe action is blocked, it is very use-case dependent what the appropriate next steps are. The common thread is that is *critical* that the action must be blocked in the first instance.
 
 When the Meta Data is fetched, if it can be verified against the log replica, it proves that the DataTrails storage remains correct.
@@ -347,7 +345,6 @@ flowchart
     style DM4 stroke-width:2px,stroke-dasharray: 5 5
 ```
 
-
 ## Replicating the Log for the Public Tenant
 
 For illustration, we take a more detailed look at using `watch` and `replicate-logs` to replicate the public tenant verifiable log data.
@@ -428,7 +425,7 @@ Each `.sth` is associated with the identically numbered massif.
 The log root material in the `.sth` signature attests to the entire state of the log up to the end of the associated massif.
 The details of consuming the binary format of the seal and verifying the signature are beyond the scope of this article.
 
-However, the implementation used by `veracity` can be found in the open source merkle log libarary maintained by Data Trails [go-datatrails-merklelog](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/rootsigverify.go)
+However, the implementation used by `veracity` can be found in the open source merkle log library maintained by Data Trails [go-datatrails-merklelog](https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/rootsigverify.go)
 
 ## Takeaways
 

@@ -23,26 +23,7 @@ Without the measures described in this article, it is still extremely challengin
 To do so, the systems of more than just DataTrails need to be compromised in very specific ways.
 To illustrate this, consider this typical flow for how **Data** can be used in a transparent and tamper evident way with DataTrails.
 
-```mermaid
-flowchart LR
-    C["`**Data** Owner`"] --> D["`DataTrails
-    receives **Metadata**`"]
-    C --> S["`Consumer
-    receives **Data**`"]
-    S --> R
-    R["`Consumer
-    fetches
-    **Metadata**`"] <--> D
-    R --> VMD["`Consumer
-    verifies
-    **Metadata**`"]
-    VMD --> VA["`Consumer
-    checks **Data** matches
-    the **Metadata**`"]
-    VA --> A["`Consumer
-    acts **safely**
-    on verified **Data**`"]
-```
+{{< img src="replicated-data.png" alt="Replicated Data" caption="<em>Replicated Transparency Logs</em>" class="border-0" >}}
 
 This is already a very robust process. For this process to fail, the following steps must all be accomplished:
 
@@ -242,27 +223,7 @@ Consistent simply means it is an append, and that the remote has not "dropped" a
 
 If there is any discrepancy in any of these checks, the current local data is left unchanged.
 
-```mermaid
-flowchart
-    V[Veracity]
-    DM0[Massif 0]
-    DM1[Massif 1]
-    LM0[Massif 0]
-    LM1[Massif 1]
-    V --> | READ | DM1 
-    V <--> | READ/WRITE | LM1
-    subgraph DataTrails
-        direction TB
-        DM0 ~~~ DM1
-    end
-    subgraph Replica
-        direction TB
-        LM0 ~~~ LM1
-    end
-    
-    style LM1 stroke-width:2px,stroke-dasharray: 5 5
-    style DM1 stroke-width:2px,stroke-dasharray: 5 5
-```
+{{< img src="replicated-veracity.png" alt="Replicating with Veracity" caption="<em>Replicating Transparency Logs with Veracity</em>" class="border-0" >}}
 
 ### Replicating the Next Open Massif
 
@@ -277,32 +238,7 @@ The local Massif 1 is read because, before copying the remote Massif 2 into the 
 
 Once those checks are successfully made, the local replica gains its initial copy of Massif 2.
 
-```mermaid
-flowchart
-    V[Veracity]
-    DM0[Massif 0]
-    DM1[Massif 1]
-    DM2[Massif 2]
-    LM0[Massif 0]
-    LM1[Massif 1]
-    LM2[Massif 2]
-    V --> | READ | DM2
-    V <--> | READ | LM1
-    V <--> | WRITE | LM2
-    subgraph DataTrails
-        direction TB
-        DM0 ~~~ DM1
-        DM1 ~~~ DM2
-    end
-    subgraph Replica
-        direction TB
-        LM0 ~~~ LM1
-        LM1 ~~~ LM2
-    end
-    
-    style LM2 stroke-width:2px,stroke-dasharray: 5 5
-    style DM2 stroke-width:2px,stroke-dasharray: 5 5
-```
+{{< img src="replicated-veracity-2.png" alt="Replicating Next Open Massif" caption="<em>Replicating The Next Open Massif with Veracity</em>" class="border-0" >}}
 
 ### Replicating, but Leaving a Gap
 
@@ -319,37 +255,8 @@ The gap means the consistency of the remote massif 4 is *not* checked against th
 
 The command `veracity replicate-logs --ancestors 0 --massif 4` requests that massif 4 is verified and then replicated locally, but prevents it from being verified for consistency against the current local replica.
 
-```mermaid
-flowchart
-    V[Veracity]
-    DM0[Massif 0]
-    DM1[Massif 1]
-    DM2[Massif 2]
-    DM3[Massif 3]
-    DM4[Massif 4]
-    LM0[Massif 0]
-    LM1[Massif 1]
-    LM2[Massif 2]
-    LM4[Massif 4]
-    V --> | READ | DM4
-    V <--> | WRITE | LM4
-    subgraph DataTrails
-        direction TB
-        DM0 ~~~ DM1
-        DM1 ~~~ DM2
-        DM2 ~~~ DM3
-        DM3 ~~~ DM4
-    end
-    subgraph Replica
-        direction TB
-        LM0 ~~~ LM1
-        LM1 ~~~ LM2
-        LM4
-    end
-    
-    style LM4 stroke-width:2px,stroke-dasharray: 5 5
-    style DM4 stroke-width:2px,stroke-dasharray: 5 5
-```
+{{< img src="replicated-veracity-gaps.png" alt="Replicating With Gaps" caption="<em>Replicating The With Gaps</em>" class="border-0" >}}
+
 
 ## Replicating the Log for the Public Tenant
 

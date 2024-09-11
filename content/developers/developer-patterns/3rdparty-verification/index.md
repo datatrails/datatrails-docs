@@ -60,19 +60,16 @@ Nonetheless, for use-cases where even this small degree of trust in Data Trails 
 1. The guarantee of provability: That event data held *here and now* can be proven to be identical to the data created *there and then* (creating these proofs does not require the original event data).
 1. The guarantee of demonstrable completeness: That series of events (trails), can be proven to be complete with no gaps or omissions.
 
-
 These guarantees are "fail safe" against regular data corruption of the log data.
 In the event of individial log entry corruption, verification checks would fail for that entry.
 
 All modifications to the ledger which result in provable changes can be detected without a fully auditable replica.
-To provide what is known as a "full audit" capability, checking that all **Meta Data** is exactly as was originally recorded, A copy of the Meta Data must also be replicated.
-By maintaining a fully auditable replica, safe continued operation is possible even if Data Trails is prevented from operating.
+By maintaining a fully auditable replica, continued verifiable operation is possible even if Data Trails is prevented from operating.
+To provide this capability, checking that all **Meta Data** is exactly as was originally recorded, A copy of the Meta Data must also be replicated.
+In cases where this capability is required, data retention remains managable and has completely predictable storage requirements.
 The log format makes it operationaly very simple to discard data that ceases to be interesting.
 
 {{< note >}}The *Meta Data* is returned to the Owner when the event is recorded and is available from the regular API endpoints to any other authorized party, and obtaining it is not covered in this article.{{< /note >}}
-
-If both the verifiable merkel log and the *Meta Data* are included in the process,
-operations can safely continue even in the event that Data Trails is prevented from operating.
 
 ## Replication Recipes
 

@@ -136,7 +136,7 @@ A common requirement is the public attestation tenant and your own tenant, to ac
   {{< tab name="bash" >}}
 
   ```bash
-  veracity watch --horizon 180h --tenant "$PUBLIC_TENANT,$TENANT" | \
+  veracity --tenant "$PUBLIC_TENANT,$TENANT" watch --horizon 180h | \
     veracity \
     replicate-logs --replicadir merklelogs
   ```
@@ -343,7 +343,7 @@ However, the implementation used by `veracity` can be found in the open source m
 ## Takeaways
 
 * To be sure mistaken, or malicious, changes to DataTrails data stores can always be detected run this command about once a week:
-`veracity watch --horizon 180h --tenant $TENANT | veracity replicate-logs --replicadir merklelogs`
+`veracity  --tenant $TENANT watch --horizon 180h | veracity replicate-logs --replicadir merklelogs`
 * This process guarantees you can't be misrepresented, any alternate version of events would be provably false.
 * To guarantee continued operation even if DataTrails is prevented from operating, a copy of the DataTrails metadata must be retained.
 * You can reasonably chose to trust DataTrails copy, because, even in the most extreme cases, it is "fail-safe" if DataTrails SaaS storage is compromised, when combined with a replicated verifiable merkle log.

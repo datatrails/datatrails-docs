@@ -257,7 +257,6 @@ The command `veracity replicate-logs --ancestors 0 --massif 4` requests that mas
 
 {{< img src="replicated-veracity-gaps.png" alt="Replicating With Gaps" caption="<em>Replicating The With Gaps</em>" class="border-0" >}}
 
-
 ## Replicating the Log for the Public Tenant
 
 For illustration, we take a more detailed look at using `watch` and `replicate-logs` to replicate the public tenant verifiable log data.

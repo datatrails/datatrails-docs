@@ -15,7 +15,7 @@ rssLimit = 10
   for = '/**'
   [server.headers.values]
     Strict-Transport-Security = 'max-age=31536000; includeSubDomains'
-    Content-Security-Policy = "script-src 'self' 'sha256-GoUI0hA42/W90nTDE3+8IM59Pmj5d7MTNu1m0Qv4C+o=' 'sha256-eg7hiIPJDJy7WtCOgK4mlnMdUDYpX6h90ef9pORicds=' https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net"
+    Content-Security-Policy = "script-src 'self' 'sha256-GoUI0hA42/W90nTDE3+8IM59Pmj5d7MTNu1m0Qv4C+o=' 'sha256-eg7hiIPJDJy7WtCOgK4mlnMdUDYpX6h90ef9pORicds=' https://cdn.jsdelivr.net https://www.googletagmanager.com/gtag/js js.hs-scripts.com https://js.hscollectedforms.net/collectedforms.js js.hs-analytics.net https://js.usemessages.com/conversations-embed.js https://js.hsadspixel.net/fb.js js.hs-banner.com https://www.google-analytics.com/analytics.js googleads.g.doubleclick.net"
     Referrer-Policy = 'no-referrer-when-downgrade'
     Permissions-Policy = 'autoplay "self"; cookie "self"'
     X-Content-Type-Options = 'nosniff'

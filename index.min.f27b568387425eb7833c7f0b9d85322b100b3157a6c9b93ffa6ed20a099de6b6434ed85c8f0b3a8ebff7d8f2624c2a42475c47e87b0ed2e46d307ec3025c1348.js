@@ -7115,7 +7115,336 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`},{id:21,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`},{id:21,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
+<p>Without the measures described in this article, it is still extremely challenging to compromise a transparency solution based on DataTrails.</p>
+<p>To do so, the systems of more than just DataTrails need to be compromised in very specific ways.
+To illustrate this, consider this typical flow for how <strong>Data</strong> can be used in a transparent and tamper evident way with DataTrails.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-data" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-data.png" width="6749" height="2328" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" alt="Replicated Data">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-data.png" width="6749" height="2328" alt="Replicated Data"></noscript>
+  <figcaption class="figure-caption"><em>Replicated Transparency Logs</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-data" tabindex="-1" aria-labelledby="replicated-data" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" width="6749" height="2328" alt="Replicated Data">
+      </div>
+  
+  </div>
+</div>
+<p>This is already a very robust process. For this process to fail, the following steps must all be accomplished:</p>
+<ol>
+<li>The source of the Data, which may not be the Owner, must be compromised to substitute the malicious Data.</li>
+<li>Owner authentication of the Data, such as adding a signed digest in the metadata, must be compromised.</li>
+<li>The DataTrails SaaS database must be compromised.</li>
+<li>The DataTrails ledger must be compromised and re-built and re-signed.</li>
+</ol>
+<p>Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails.
+Nonetheless, for use-cases where even this small degree of trust in DataTrails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of DataTrails:</p>
+<ol>
+<li><strong>The guarantee of non-falsifiability</strong>: Event data can not be falsified.</li>
+<li><strong>The guarantee of non-repudiation</strong>: Event data can not be removed from the record (ie &lsquo;shredded&rsquo; or deleted).</li>
+<li><strong>The guarantee of provability</strong>: Event data held <em>here and now</em> can be proven to be identical to the data created <em>there and then</em> (creating these proofs does not require the original event data).</li>
+<li><strong>The guarantee of demonstrable completeness</strong>: Series of events (trails), can be proven to be complete with no gaps or omissions.</li>
+</ol>
+<p>These guarantees are &ldquo;fail safe&rdquo; against regular data corruption of the log data.
+In the event of individual log entry corruption, verification checks would fail for that entry.</p>
+<p>All modifications to the ledger which result in provable changes can be detected without a fully auditable replica.
+By maintaining a fully auditable replica, continued verifiable operation is possible even if DataTrails is prevented from operating.
+To provide this capability, checking that all metadata is exactly as was originally recorded, A copy of the metadata must also be replicated.
+In cases where this capability is required, data retention remains manageable and has completely predictable storage requirements.
+The log format makes it operational very simple to discard data that ceases to be interesting.</p>
+<blockquote class="note callout">
+    <div><strong></strong> The metadata is returned to the Owner when the event is recorded and is available from the regular API endpoints to any other authorized party.
+Obtaining the returned metadata is not covered in this article.</div>
+  </blockquote>
+<h2 id="replication-recipes">Replication Recipes</h2>
+<h2 id="environment-configuration-for-veracity">Environment Configuration for Veracity</h2>
+<p>The following recipes make use of these environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># DataTrails Public Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PUBLIC_TENANT</span><span class="o">=</span><span class="s2">&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Synsation Demo Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace TENANT with your Tenant ID to view your Tenant logs and events</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TENANT</span><span class="o">=</span><span class="s2">&#34;tenant/6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span></code></pre></div><h2 id="maintaining-a-tamper-evident-log-replica">Maintaining a Tamper Evident Log Replica</h2>
+<p>Based on a window of assurance, a replica may be maintained with one command, once a week.</p>
+<p>A guarantee that actions are only taken on verified data can be achieved by running the following command once a week:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-1" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-1-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-1-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-1"><div id="tabset-developersdeveloper-patterns3rdparty-verification-1-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-1-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 180h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div><p>Run the following to see what was replicated:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">find merklelogs -type f
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth
+</span></span></code></pre></div></div></div>
+
+<p>A sensible value for <code>--horizon</code> is just a little (hours is more than enough) longer than the interval between updates.
+To <em>miss</em> an update for a tenant, more than 16,000 events would need to be recorded in the interval.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Larger time horizons may trigger rate limiting</div>
+  </blockquote>
+<h3 id="initializing-a-replica-for-all-tenants">Initializing a Replica for All Tenants</h3>
+<p>If a replica of all DataTrails tenants is required, run the previous command with a very long horizon.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-2" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-2-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-2-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-2"><div id="tabset-developersdeveloper-patterns3rdparty-verification-2-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-2-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 90000h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div></div></div>
+
+<p>Having done this once, you should revert to using a horizon that is just a little longer than your update interval.</p>
+<h3 id="limiting-the-replica-to-specific-tenants">Limiting the Replica to Specific Tenants</h3>
+<p>The previous command will replicate the logs of all tenants.
+This requires about 3.5 megabytes per 16,000 events.</p>
+<p>To restrict a replica to a specific set of tenants, specify those tenants to the <code>watch</code> command.</p>
+<p>A common requirement is the public attestation tenant and your own tenant, to accomplish this set <code>$TENANT</code> accordingly and run the following once a week.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-3" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-3-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-3-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-3"><div id="tabset-developersdeveloper-patterns3rdparty-verification-3-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-3-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --tenant <span class="s2">&#34;</span><span class="nv">$PUBLIC_TENANT</span><span class="s2">,</span><span class="nv">$TENANT</span><span class="s2">&#34;</span> watch --horizon 180h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div></div></div>
+
+<p>To initialize the replica, run the same command once but using an appropriately large <code>--horizon</code></p>
+<p>The remainder of this article discusses the commands <code>replicate-logs</code> and <code>watch</code> in more depth, covering how to replicate selective tenants, explaining the significance of the replicated materials.</p>
+<h2 id="how-veracity-supports-integrity-and-inclusion-protection">How Veracity Supports Integrity and Inclusion Protection</h2>
+<p>DataTrail&rsquo;s log format makes it simple to retain only the portions (massifs) of the log that are interesting.
+Discarding un-interesting portions does not affect the independence or verifiability of the retained log.</p>
+<p>See 
+<a href="/developers/developer-patterns/veracity/">Independently verifying DataTrails transparent merkle logs</a> for a general introduction to <code>veracity</code>.</p>
+<p>This diagram illustrates the logical flow when updating a local replica using veracity.</p>
+<hr>
+<div class="mermaid">
+  ---
+config:
+    theme: classic
+---
+sequenceDiagram
+    actor v as Verifier
+    box Runs locally to the verifier
+    participant V as Veracity
+    participant R as Replica
+    end
+    participant D as DataTrails
+
+    v -->> V: Safely update my replica to massif X please
+    V ->> D: Fetch and verify the remote massifs and seals up to X
+    V ->> R: Check the verified remote data is consistent with the replica
+    V ->> R: Update the replica with verified additions
+    V -->> v: All OK!
+</div>
+
+<hr>
+<p>For the guarantees of <em>non-falsifiability</em> and <em>non-repudiation</em> to be independent of DataTrails, replication and verification of at least the most recently updated massif is necessary.
+The replica must be updated often enough to capture all massifs.
+As a massif, in the default tenant configuration, contains over 16,000 events, the frequency necessary to support this guarantee is both low, and completely determined by the specific tenant of interest.</p>
+<p>Massifs verifying events that are no longer interesting can be safely discarded.
+Remembering that the order that events were recorded matches the order of data in the log, it is usually the case that all massifs before a certain point can be discarded together.</p>
+<p>Saving the API response data when events are recoded, or obtaining the metadata using the DataTrails events API is additionally required in order to support a full audit for data corruption.</p>
+<p>When a a trusted local copy of the verifiable log is included in the &ldquo;verify before use&rdquo; process, it is reasonable to rely on DataTrails storage of the metadata.
+If the DataTrails storage of the metadata is changed, the verification will &ldquo;fail safe&rdquo; against the local replicated log because the changed data will not verify against the local replica.
+While this is a &ldquo;false negative&rdquo;, it ensures safety in the face of accidental or malicious damage to the DataTrails storage systems without the burden of maintaining copies of the metadata recorded in DataTrails.
+Once the unsafe action is blocked, it is very use-case dependent what the appropriate next steps are. The common thread is that is <em>critical</em> that the action must be blocked in the first instance.</p>
+<p>When the metadata is fetched, if it can be verified against the log replica, it proves that the DataTrails storage remains correct.
+If it does not verify, it is proven that the metadata held by DataTrails is incorrect, though the <em>Data</em> being processed by the Consumer may still be correct and safe.</p>
+<p>The <code>veracity</code> <code>replicate-logs</code> and <code>watch</code> are used to maintain the replica of the verifiable log.</p>
+<ul>
+<li><code>veracity watch</code> is used to give notice of which tenants have updates to their logs that need to be considered for replication.</li>
+<li><code>veracity replicate-logs</code> performs the activities in the diagram above. It can be directed to examine a specific tenant, or it can be provided with the output of <code>veracity watch</code></li>
+</ul>
+<h3 id="updating-the-currently-open-massif">Updating the Currently Open Massif</h3>
+<p>Every DataTrails log is a series of one or more massifs.
+The last, called the head, is where verification data for new events are recorded.
+Once the head is full, a new head automatically starts.</p>
+<p>This means there are 3 basic scenarios <code>veracity</code> copes with when updating a replica.</p>
+<ol>
+<li>Updating the currently open replicated massif with the new additions in the DataTrails open massif.</li>
+<li>Replicating the start of a new open massif from DataTrails.</li>
+<li>Replicating a limited number of new massifs from DataTrails, performing local consistency checks only if the replicated massifs follow the latest local massif.</li>
+</ol>
+<p>The first is the simplest to understand. In the diagram below the dashed boxes correspond to the open massifs.</p>
+<p>The local replica of the open massif will always be equal or less in size than the remote.
+Once veracity verifies the remote copy is consistent with the remote seal, it will then check the new data copied from the remote is consistent with its local copy of the open massif.
+Consistent simply means it is an append, and that the remote has not &ldquo;dropped&rdquo; anything that it contained the last time it was replicated.</p>
+<p>If there is any discrepancy in any of these checks, the current local data is left unchanged.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity.png" width="4286" height="2143" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" alt="Replicating with Veracity">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity.png" width="4286" height="2143" alt="Replicating with Veracity"></noscript>
+  <figcaption class="figure-caption"><em>Replicating Transparency Logs with Veracity</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity" tabindex="-1" aria-labelledby="replicated-veracity" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" width="4286" height="2143" alt="Replicating with Veracity">
+      </div>
+  
+  </div>
+</div>
+<h3 id="replicating-the-next-open-massif">Replicating the Next Open Massif</h3>
+<p>The local replica starts out only having Massifs 0 &amp; 1.
+And 1 happens to be complete.
+On the next event recorded by DataTrails, a new remote massif, Massif 2, is created.
+More events may be recorded before the replica is updated.
+Each massif contains verification data for a little over 16,000 events.
+Provided the replication commands are run before Massif 2 is also filled, we are dealing with this case.</p>
+<p>The local Massif 1 is read because, before copying the remote Massif 2 into the local replica, its consistency against both the remote seal <em>and</em> the previous <em>local</em> massif, Massif 1, are checked.</p>
+<p>Once those checks are successfully made, the local replica gains its initial copy of Massif 2.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity-2" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2.png" width="4286" height="2735" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" alt="Replicating Next Open Massif">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2.png" width="4286" height="2735" alt="Replicating Next Open Massif"></noscript>
+  <figcaption class="figure-caption"><em>Replicating The Next Open Massif with Veracity</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity-2" tabindex="-1" aria-labelledby="replicated-veracity-2" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" width="4286" height="2735" alt="Replicating Next Open Massif">
+      </div>
+  
+  </div>
+</div>
+<h3 id="replicating-but-leaving-a-gap">Replicating, but Leaving a Gap</h3>
+<p>By default, veracity will fetch and verify all massifs, up to the requested, that follow on immediately after the most recent local massif.
+In this case, where we request <code>--massif 4</code> the default would be to fetch, verify and replicate Massifs 2, 3 &amp; 4.</p>
+<p>By default, a full tenant log is replicated.
+The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16,000 events.</p>
+<p>To provide a means to bound the size of the local replica and also to bound the amount of work, we provide the <code>--ancestors</code> option.
+This specifies a fixed limit on the number of massifs that will be fetched.
+In this example, the limit is <code>0</code>, meaning massif 4 is fetched and verified, and we leave a <em>gap</em> between the local massifs 2 &amp; the new local massif 4.
+The gap means the consistency of the remote massif 4 is <em>not</em> checked against the local replica.</p>
+<p>The command <code>veracity replicate-logs --ancestors 0 --massif 4</code> requests that massif 4 is verified and then replicated locally, but prevents it from being verified for consistency against the current local replica.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity-gaps" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps.png" width="4286" height="2848" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" alt="Replicating With Gaps">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps.png" width="4286" height="2848" alt="Replicating With Gaps"></noscript>
+  <figcaption class="figure-caption"><em>Replicating The With Gaps</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity-gaps" tabindex="-1" aria-labelledby="replicated-veracity-gaps" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" width="4286" height="2848" alt="Replicating With Gaps">
+      </div>
+  
+  </div>
+</div>
+<h2 id="replicating-the-log-for-the-public-tenant">Replicating the Log for the Public Tenant</h2>
+<p>For illustration, we take a more detailed look at using <code>watch</code> and <code>replicate-logs</code> to replicate the public tenant verifiable log data.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-4" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-4-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-4-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-4"><div id="tabset-developersdeveloper-patterns3rdparty-verification-4-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-4-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --tenant <span class="nv">$PUBLIC_TENANT</span> watch
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;massifindex&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;idcommitted&#34;</span><span class="p">:</span> <span class="s2">&#34;0191c424e62d04b300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;idconfirmed&#34;</span><span class="p">:</span> <span class="s2">&#34;0191c424e62d04b300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lastmodified&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-09-05T21:43:58Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;massif&#34;</span><span class="p">:</span> <span class="s2">&#34;v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;seal&#34;</span><span class="p">:</span> <span class="s2">&#34;v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>If instead you get:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">error: no changes found
+</span></span></code></pre></div><p>There has been no activity in any tenant for the default watch horizon (how far back we look for changes).</p>
+<p>To set an explicit, and in this example very large, horizon try the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 10000h
+</span></span></code></pre></div></div></div>
+
+<p>The <code>watch</code> command is used to determine the <code>massifindex</code>, even when you are only interested in a single tenant.
+You then provide that index to the <code>replicate-logs</code> command using the <code>--massif</code> option:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-5" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-5-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-5-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-5"><div id="tabset-developersdeveloper-patterns3rdparty-verification-5-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-5-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --tenant <span class="nv">$PUBLIC_TENANT</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    replicate-logs --massif <span class="m">1</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --replicadir merklelogs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">find merklelogs -type f
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth
+</span></span></code></pre></div></div></div>
+
+<p>By default, all massifs up to and including the massif specified by <code>--massif &lt;N&gt;</code> are verified remotely and checked for consistency against the local replica (following the logical steps in the diagram above).</p>
+<p>The numbered <code>.log</code> files are the verifiable data for your log.</p>
+<p>The <code>.sth</code> files are 
+<a href="https://datatracker.ietf.org/doc/html/rfc8152#section-4.2" target="_blank" rel="noopener">COSE Sign1</a> binary format signed messages.
+Each <code>.sth</code> is associated with the identically numbered massif.
+The log root material in the <code>.sth</code> signature attests to the entire state of the log up to the end of the associated massif.
+The details of consuming the binary format of the seal and verifying the signature are beyond the scope of this article.</p>
+<p>However, the implementation used by <code>veracity</code> can be found in the open source merkle log library maintained by DataTrails 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/rootsigverify.go" target="_blank" rel="noopener">go-datatrails-merklelog</a></p>
+<h2 id="takeaways">Takeaways</h2>
+<ul>
+<li>To be sure mistaken, or malicious, changes to DataTrails data stores can always be detected run this command about once a week:
+<code>veracity  --tenant $TENANT watch --horizon 180h | veracity replicate-logs --replicadir merklelogs</code></li>
+<li>This process guarantees you can&rsquo;t be misrepresented, any alternate version of events would be provably false.</li>
+<li>To guarantee continued operation even if DataTrails is prevented from operating, a copy of the DataTrails metadata must be retained.</li>
+<li>You can reasonably chose to trust DataTrails copy, because, even in the most extreme cases, it is &ldquo;fail-safe&rdquo; if DataTrails SaaS storage is compromised, when combined with a replicated verifiable merkle log.</li>
+</ul>
+`},{id:22,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -7470,7 +7799,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`},{id:22,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`},{id:23,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -7827,7 +8156,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`},{id:23,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`},{id:24,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -8393,7 +8722,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`},{id:24,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`},{id:25,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -8762,6 +9091,16 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Human-readable display name for this Application.</td>
                                     
                                   
+                                  <tr>
+                                    <th>roles</th>
+                                    <td>array</td>
+                                    
+                                      
+                                      
+                                      
+                                      <td></td>
+                                    
+                                  
                                 </tbody>
                               </table>
                             
@@ -8849,6 +9188,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
                                   
                                 
                                 <tr>
@@ -9076,6 +9425,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   
                                 
                                 <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                                <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
@@ -9233,6 +9592,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
                                   
                                 
                                 <tr>
@@ -9394,6 +9763,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   
                                 
                                 <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                                <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
@@ -9449,7 +9828,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:25,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -11499,7 +11878,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -12620,7 +12999,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -13167,7 +13546,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -14479,7 +14858,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -16605,7 +16984,7 @@ For example:</p>
   </div>
 
 
-`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -18298,7 +18677,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -19215,7 +19594,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`},{id:33,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -19345,7 +19724,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20490,7 +20869,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -21332,7 +21711,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -22467,7 +22846,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22529,7 +22908,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22651,7 +23030,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22753,7 +23132,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22802,7 +23181,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22912,7 +23291,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22946,7 +23325,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22959,7 +23338,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -22975,7 +23354,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`},{id:44,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`},{id:45,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -23093,7 +23472,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:45,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`},{id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -23107,7 +23486,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`},{id:46,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -23121,7 +23500,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`},{id:47,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -23140,7 +23519,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`},{id:48,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -23156,7 +23535,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`},{id:49,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`},{id:50,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -23184,7 +23563,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`},{id:50,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
@@ -30319,7 +30698,336 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`}).add({id:21,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`}).add({id:21,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
+<p>Without the measures described in this article, it is still extremely challenging to compromise a transparency solution based on DataTrails.</p>
+<p>To do so, the systems of more than just DataTrails need to be compromised in very specific ways.
+To illustrate this, consider this typical flow for how <strong>Data</strong> can be used in a transparent and tamper evident way with DataTrails.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-data" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-data.png" width="6749" height="2328" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" alt="Replicated Data">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-data.png" width="6749" height="2328" alt="Replicated Data"></noscript>
+  <figcaption class="figure-caption"><em>Replicated Transparency Logs</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-data" tabindex="-1" aria-labelledby="replicated-data" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-data_hud8dc02b70fbaff4c5bba1cdaa917d28f_1735747_200x0_resize_box_3.png 200w" width="6749" height="2328" alt="Replicated Data">
+      </div>
+  
+  </div>
+</div>
+<p>This is already a very robust process. For this process to fail, the following steps must all be accomplished:</p>
+<ol>
+<li>The source of the Data, which may not be the Owner, must be compromised to substitute the malicious Data.</li>
+<li>Owner authentication of the Data, such as adding a signed digest in the metadata, must be compromised.</li>
+<li>The DataTrails SaaS database must be compromised.</li>
+<li>The DataTrails ledger must be compromised and re-built and re-signed.</li>
+</ol>
+<p>Executing such an attack successfully would require significant effort and infiltration of both the Data source and DataTrails.
+Nonetheless, for use-cases where even this small degree of trust in DataTrails is un-acceptable, the recipes in this article ensure the following guarantees are fully independent of DataTrails:</p>
+<ol>
+<li><strong>The guarantee of non-falsifiability</strong>: Event data can not be falsified.</li>
+<li><strong>The guarantee of non-repudiation</strong>: Event data can not be removed from the record (ie &lsquo;shredded&rsquo; or deleted).</li>
+<li><strong>The guarantee of provability</strong>: Event data held <em>here and now</em> can be proven to be identical to the data created <em>there and then</em> (creating these proofs does not require the original event data).</li>
+<li><strong>The guarantee of demonstrable completeness</strong>: Series of events (trails), can be proven to be complete with no gaps or omissions.</li>
+</ol>
+<p>These guarantees are &ldquo;fail safe&rdquo; against regular data corruption of the log data.
+In the event of individual log entry corruption, verification checks would fail for that entry.</p>
+<p>All modifications to the ledger which result in provable changes can be detected without a fully auditable replica.
+By maintaining a fully auditable replica, continued verifiable operation is possible even if DataTrails is prevented from operating.
+To provide this capability, checking that all metadata is exactly as was originally recorded, A copy of the metadata must also be replicated.
+In cases where this capability is required, data retention remains manageable and has completely predictable storage requirements.
+The log format makes it operational very simple to discard data that ceases to be interesting.</p>
+<blockquote class="note callout">
+    <div><strong></strong> The metadata is returned to the Owner when the event is recorded and is available from the regular API endpoints to any other authorized party.
+Obtaining the returned metadata is not covered in this article.</div>
+  </blockquote>
+<h2 id="replication-recipes">Replication Recipes</h2>
+<h2 id="environment-configuration-for-veracity">Environment Configuration for Veracity</h2>
+<p>The following recipes make use of these environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># DataTrails Public Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PUBLIC_TENANT</span><span class="o">=</span><span class="s2">&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Synsation Demo Tenant</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace TENANT with your Tenant ID to view your Tenant logs and events</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TENANT</span><span class="o">=</span><span class="s2">&#34;tenant/6a009b40-eb55-4159-81f0-69024f89f53c&#34;</span>
+</span></span></code></pre></div><h2 id="maintaining-a-tamper-evident-log-replica">Maintaining a Tamper Evident Log Replica</h2>
+<p>Based on a window of assurance, a replica may be maintained with one command, once a week.</p>
+<p>A guarantee that actions are only taken on verified data can be achieved by running the following command once a week:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-1" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-1-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-1-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-1"><div id="tabset-developersdeveloper-patterns3rdparty-verification-1-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-1-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 180h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div><p>Run the following to see what was replicated:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">find merklelogs -type f
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth
+</span></span></code></pre></div></div></div>
+
+<p>A sensible value for <code>--horizon</code> is just a little (hours is more than enough) longer than the interval between updates.
+To <em>miss</em> an update for a tenant, more than 16,000 events would need to be recorded in the interval.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Larger time horizons may trigger rate limiting</div>
+  </blockquote>
+<h3 id="initializing-a-replica-for-all-tenants">Initializing a Replica for All Tenants</h3>
+<p>If a replica of all DataTrails tenants is required, run the previous command with a very long horizon.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-2" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-2-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-2-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-2"><div id="tabset-developersdeveloper-patterns3rdparty-verification-2-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-2-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 90000h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div></div></div>
+
+<p>Having done this once, you should revert to using a horizon that is just a little longer than your update interval.</p>
+<h3 id="limiting-the-replica-to-specific-tenants">Limiting the Replica to Specific Tenants</h3>
+<p>The previous command will replicate the logs of all tenants.
+This requires about 3.5 megabytes per 16,000 events.</p>
+<p>To restrict a replica to a specific set of tenants, specify those tenants to the <code>watch</code> command.</p>
+<p>A common requirement is the public attestation tenant and your own tenant, to accomplish this set <code>$TENANT</code> accordingly and run the following once a week.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-3" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-3-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-3-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-3"><div id="tabset-developersdeveloper-patterns3rdparty-verification-3-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-3-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --tenant <span class="s2">&#34;</span><span class="nv">$PUBLIC_TENANT</span><span class="s2">,</span><span class="nv">$TENANT</span><span class="s2">&#34;</span> watch --horizon 180h <span class="p">|</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  replicate-logs --replicadir merklelogs
+</span></span></code></pre></div></div></div>
+
+<p>To initialize the replica, run the same command once but using an appropriately large <code>--horizon</code></p>
+<p>The remainder of this article discusses the commands <code>replicate-logs</code> and <code>watch</code> in more depth, covering how to replicate selective tenants, explaining the significance of the replicated materials.</p>
+<h2 id="how-veracity-supports-integrity-and-inclusion-protection">How Veracity Supports Integrity and Inclusion Protection</h2>
+<p>DataTrail&rsquo;s log format makes it simple to retain only the portions (massifs) of the log that are interesting.
+Discarding un-interesting portions does not affect the independence or verifiability of the retained log.</p>
+<p>See 
+<a href="/developers/developer-patterns/veracity/">Independently verifying DataTrails transparent merkle logs</a> for a general introduction to <code>veracity</code>.</p>
+<p>This diagram illustrates the logical flow when updating a local replica using veracity.</p>
+<hr>
+<div class="mermaid">
+  ---
+config:
+    theme: classic
+---
+sequenceDiagram
+    actor v as Verifier
+    box Runs locally to the verifier
+    participant V as Veracity
+    participant R as Replica
+    end
+    participant D as DataTrails
+
+    v -->> V: Safely update my replica to massif X please
+    V ->> D: Fetch and verify the remote massifs and seals up to X
+    V ->> R: Check the verified remote data is consistent with the replica
+    V ->> R: Update the replica with verified additions
+    V -->> v: All OK!
+</div>
+
+<hr>
+<p>For the guarantees of <em>non-falsifiability</em> and <em>non-repudiation</em> to be independent of DataTrails, replication and verification of at least the most recently updated massif is necessary.
+The replica must be updated often enough to capture all massifs.
+As a massif, in the default tenant configuration, contains over 16,000 events, the frequency necessary to support this guarantee is both low, and completely determined by the specific tenant of interest.</p>
+<p>Massifs verifying events that are no longer interesting can be safely discarded.
+Remembering that the order that events were recorded matches the order of data in the log, it is usually the case that all massifs before a certain point can be discarded together.</p>
+<p>Saving the API response data when events are recoded, or obtaining the metadata using the DataTrails events API is additionally required in order to support a full audit for data corruption.</p>
+<p>When a a trusted local copy of the verifiable log is included in the &ldquo;verify before use&rdquo; process, it is reasonable to rely on DataTrails storage of the metadata.
+If the DataTrails storage of the metadata is changed, the verification will &ldquo;fail safe&rdquo; against the local replicated log because the changed data will not verify against the local replica.
+While this is a &ldquo;false negative&rdquo;, it ensures safety in the face of accidental or malicious damage to the DataTrails storage systems without the burden of maintaining copies of the metadata recorded in DataTrails.
+Once the unsafe action is blocked, it is very use-case dependent what the appropriate next steps are. The common thread is that is <em>critical</em> that the action must be blocked in the first instance.</p>
+<p>When the metadata is fetched, if it can be verified against the log replica, it proves that the DataTrails storage remains correct.
+If it does not verify, it is proven that the metadata held by DataTrails is incorrect, though the <em>Data</em> being processed by the Consumer may still be correct and safe.</p>
+<p>The <code>veracity</code> <code>replicate-logs</code> and <code>watch</code> are used to maintain the replica of the verifiable log.</p>
+<ul>
+<li><code>veracity watch</code> is used to give notice of which tenants have updates to their logs that need to be considered for replication.</li>
+<li><code>veracity replicate-logs</code> performs the activities in the diagram above. It can be directed to examine a specific tenant, or it can be provided with the output of <code>veracity watch</code></li>
+</ul>
+<h3 id="updating-the-currently-open-massif">Updating the Currently Open Massif</h3>
+<p>Every DataTrails log is a series of one or more massifs.
+The last, called the head, is where verification data for new events are recorded.
+Once the head is full, a new head automatically starts.</p>
+<p>This means there are 3 basic scenarios <code>veracity</code> copes with when updating a replica.</p>
+<ol>
+<li>Updating the currently open replicated massif with the new additions in the DataTrails open massif.</li>
+<li>Replicating the start of a new open massif from DataTrails.</li>
+<li>Replicating a limited number of new massifs from DataTrails, performing local consistency checks only if the replicated massifs follow the latest local massif.</li>
+</ol>
+<p>The first is the simplest to understand. In the diagram below the dashed boxes correspond to the open massifs.</p>
+<p>The local replica of the open massif will always be equal or less in size than the remote.
+Once veracity verifies the remote copy is consistent with the remote seal, it will then check the new data copied from the remote is consistent with its local copy of the open massif.
+Consistent simply means it is an append, and that the remote has not &ldquo;dropped&rdquo; anything that it contained the last time it was replicated.</p>
+<p>If there is any discrepancy in any of these checks, the current local data is left unchanged.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity.png" width="4286" height="2143" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" alt="Replicating with Veracity">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity.png" width="4286" height="2143" alt="Replicating with Veracity"></noscript>
+  <figcaption class="figure-caption"><em>Replicating Transparency Logs with Veracity</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity" tabindex="-1" aria-labelledby="replicated-veracity" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity_hu0ec4b8cf04f1f64d8e03526eaf7d3627_1899025_200x0_resize_box_3.png 200w" width="4286" height="2143" alt="Replicating with Veracity">
+      </div>
+  
+  </div>
+</div>
+<h3 id="replicating-the-next-open-massif">Replicating the Next Open Massif</h3>
+<p>The local replica starts out only having Massifs 0 &amp; 1.
+And 1 happens to be complete.
+On the next event recorded by DataTrails, a new remote massif, Massif 2, is created.
+More events may be recorded before the replica is updated.
+Each massif contains verification data for a little over 16,000 events.
+Provided the replication commands are run before Massif 2 is also filled, we are dealing with this case.</p>
+<p>The local Massif 1 is read because, before copying the remote Massif 2 into the local replica, its consistency against both the remote seal <em>and</em> the previous <em>local</em> massif, Massif 1, are checked.</p>
+<p>Once those checks are successfully made, the local replica gains its initial copy of Massif 2.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity-2" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2.png" width="4286" height="2735" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" alt="Replicating Next Open Massif">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2.png" width="4286" height="2735" alt="Replicating Next Open Massif"></noscript>
+  <figcaption class="figure-caption"><em>Replicating The Next Open Massif with Veracity</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity-2" tabindex="-1" aria-labelledby="replicated-veracity-2" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-2_hu627a57ac4dfe17745a2cc64fabadb49e_2377823_200x0_resize_box_3.png 200w" width="4286" height="2735" alt="Replicating Next Open Massif">
+      </div>
+  
+  </div>
+</div>
+<h3 id="replicating-but-leaving-a-gap">Replicating, but Leaving a Gap</h3>
+<p>By default, veracity will fetch and verify all massifs, up to the requested, that follow on immediately after the most recent local massif.
+In this case, where we request <code>--massif 4</code> the default would be to fetch, verify and replicate Massifs 2, 3 &amp; 4.</p>
+<p>By default, a full tenant log is replicated.
+The storage requirements are roughly 4mb per massif, and each massif has the verification data for about 16,000 events.</p>
+<p>To provide a means to bound the size of the local replica and also to bound the amount of work, we provide the <code>--ancestors</code> option.
+This specifies a fixed limit on the number of massifs that will be fetched.
+In this example, the limit is <code>0</code>, meaning massif 4 is fetched and verified, and we leave a <em>gap</em> between the local massifs 2 &amp; the new local massif 4.
+The gap means the consistency of the remote massif 4 is <em>not</em> checked against the local replica.</p>
+<p>The command <code>veracity replicate-logs --ancestors 0 --massif 4</code> requests that massif 4 is verified and then replicated locally, but prevents it from being verified for consistency against the current local replica.</p>
+
+
+<figure class="border-0">
+  
+  <input type="image" data-bs-toggle="modal" data-bs-target="#replicated-veracity-gaps" img class="img-fluid responsive" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps.png" width="4286" height="2848" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" alt="Replicating With Gaps">
+  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps.png" width="4286" height="2848" alt="Replicating With Gaps"></noscript>
+  <figcaption class="figure-caption"><em>Replicating The With Gaps</em></figcaption>
+</figure>
+
+
+
+
+
+<div class="modal fade" id="replicated-veracity-gaps" tabindex="-1" aria-labelledby="replicated-veracity-gaps" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    
+      <div class="modal-body">
+        
+        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/replicated-veracity-gaps_huf5faa485887d84e403246fecae05a9e2_2502040_200x0_resize_box_3.png 200w" width="4286" height="2848" alt="Replicating With Gaps">
+      </div>
+  
+  </div>
+</div>
+<h2 id="replicating-the-log-for-the-public-tenant">Replicating the Log for the Public Tenant</h2>
+<p>For illustration, we take a more detailed look at using <code>watch</code> and <code>replicate-logs</code> to replicate the public tenant verifiable log data.</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-4" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-4-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-4-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-4"><div id="tabset-developersdeveloper-patterns3rdparty-verification-4-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-4-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity --tenant <span class="nv">$PUBLIC_TENANT</span> watch
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;massifindex&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/6ea5cd00-c711-3649-6914-7b125928bbb4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;idcommitted&#34;</span><span class="p">:</span> <span class="s2">&#34;0191c424e62d04b300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;idconfirmed&#34;</span><span class="p">:</span> <span class="s2">&#34;0191c424e62d04b300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;lastmodified&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-09-05T21:43:58Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;massif&#34;</span><span class="p">:</span> <span class="s2">&#34;v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;seal&#34;</span><span class="p">:</span> <span class="s2">&#34;v1/mmrs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>If instead you get:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">error: no changes found
+</span></span></code></pre></div><p>There has been no activity in any tenant for the default watch horizon (how far back we look for changes).</p>
+<p>To set an explicit, and in this example very large, horizon try the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity watch --horizon 10000h
+</span></span></code></pre></div></div></div>
+
+<p>The <code>watch</code> command is used to determine the <code>massifindex</code>, even when you are only interested in a single tenant.
+You then provide that index to the <code>replicate-logs</code> command using the <code>--massif</code> option:</p>
+<ul class="nav nav-tabs" id="tabset-developersdeveloper-patterns3rdparty-verification-5" role="tablist"><li class="nav-item">
+			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#tabset-developersdeveloper-patterns3rdparty-verification-5-0" type="button" role="tab" aria-controls="tabset-developersdeveloper-patterns3rdparty-verification-5-0" aria-selected="true">bash</button>
+		</li>
+	  </ul>
+<div class="tab-content" id="tabset-developersdeveloper-patterns3rdparty-verification-5"><div id="tabset-developersdeveloper-patterns3rdparty-verification-5-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tabset-developersdeveloper-patterns3rdparty-verification-5-0">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">veracity <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --tenant <span class="nv">$PUBLIC_TENANT</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    replicate-logs --massif <span class="m">1</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --replicadir merklelogs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">find merklelogs -type f
+</span></span></code></pre></div><p>Generates output similar to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000001.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifs/0000000000000000.log
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000000.sth
+</span></span><span class="line"><span class="cl">merklelogs/tenant/6ea5cd00-c711-3649-6914-7b125928bbb4/0/massifseals/0000000000000001.sth
+</span></span></code></pre></div></div></div>
+
+<p>By default, all massifs up to and including the massif specified by <code>--massif &lt;N&gt;</code> are verified remotely and checked for consistency against the local replica (following the logical steps in the diagram above).</p>
+<p>The numbered <code>.log</code> files are the verifiable data for your log.</p>
+<p>The <code>.sth</code> files are 
+<a href="https://datatracker.ietf.org/doc/html/rfc8152#section-4.2" target="_blank" rel="noopener">COSE Sign1</a> binary format signed messages.
+Each <code>.sth</code> is associated with the identically numbered massif.
+The log root material in the <code>.sth</code> signature attests to the entire state of the log up to the end of the associated massif.
+The details of consuming the binary format of the seal and verifying the signature are beyond the scope of this article.</p>
+<p>However, the implementation used by <code>veracity</code> can be found in the open source merkle log library maintained by DataTrails 
+<a href="https://github.com/datatrails/go-datatrails-merklelog/blob/main/massifs/rootsigverify.go" target="_blank" rel="noopener">go-datatrails-merklelog</a></p>
+<h2 id="takeaways">Takeaways</h2>
+<ul>
+<li>To be sure mistaken, or malicious, changes to DataTrails data stores can always be detected run this command about once a week:
+<code>veracity  --tenant $TENANT watch --horizon 180h | veracity replicate-logs --replicadir merklelogs</code></li>
+<li>This process guarantees you can&rsquo;t be misrepresented, any alternate version of events would be provably false.</li>
+<li>To guarantee continued operation even if DataTrails is prevented from operating, a copy of the DataTrails metadata must be retained.</li>
+<li>You can reasonably chose to trust DataTrails copy, because, even in the most extreme cases, it is &ldquo;fail-safe&rdquo; if DataTrails SaaS storage is compromised, when combined with a replicated verifiable merkle log.</li>
+</ul>
+`}).add({id:22,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -30674,7 +31382,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`}).add({id:22,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`}).add({id:23,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -31031,7 +31739,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`}).add({id:23,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`}).add({id:24,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -31597,7 +32305,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`}).add({id:24,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`}).add({id:25,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -31966,6 +32674,16 @@ If you are looking for a simple way to test our API you might prefer our
                                       <td>Human-readable display name for this Application.</td>
                                     
                                   
+                                  <tr>
+                                    <th>roles</th>
+                                    <td>array</td>
+                                    
+                                      
+                                      
+                                      
+                                      <td></td>
+                                    
+                                  
                                 </tbody>
                               </table>
                             
@@ -32053,6 +32771,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
                                   
                                 
                                 <tr>
@@ -32280,6 +33008,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   
                                 
                                 <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                                <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
@@ -32437,6 +33175,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   <td>string</td>
                                   
                                     <td>Resource name for the application</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
                                   
                                 
                                 <tr>
@@ -32598,6 +33346,16 @@ If you are looking for a simple way to test our API you might prefer our
                                   
                                 
                                 <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                                <tr>
                                   <th>tenant_id</th>
                                   <td>string</td>
                                   
@@ -32653,7 +33411,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:25,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -34703,7 +35461,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -35824,7 +36582,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -36371,7 +37129,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -37683,7 +38441,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -39809,7 +40567,7 @@ For example:</p>
   </div>
 
 
-`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -41502,7 +42260,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -42419,7 +43177,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`}).add({id:33,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -42549,7 +43307,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -43694,7 +44452,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -44536,7 +45294,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -45671,7 +46429,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:36,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -45733,7 +46491,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -45855,7 +46613,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -45957,7 +46715,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46006,7 +46764,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46116,7 +46874,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46150,7 +46908,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46163,7 +46921,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -46179,7 +46937,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`}).add({id:44,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`}).add({id:45,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -46297,7 +47055,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:45,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -46311,7 +47069,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
-`}).add({id:46,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -46325,7 +47083,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`}).add({id:47,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -46344,7 +47102,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:48,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -46360,7 +47118,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`}).add({id:49,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:50,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -46388,7 +47146,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`}).add({id:50,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:51,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>

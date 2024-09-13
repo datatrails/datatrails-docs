@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: SCITT Statements (Preview)"
 description: "Getting Started with SCITT: creating a collection of statements  (Preview)"
-lead: "How to push a collection of Statements using SCITT APIs"
+lead: "How to push a collection of Statements and meta-data using SCITT APIs"
 date: 2021-06-09T13:49:35+01:00
 lastmod: 2021-06-09T13:49:35+01:00
 draft: false
@@ -28,7 +28,8 @@ This includes previously registered statements, and newly registered statements 
 This quickstart will:
 
 1. create, or use an existing a key to sign a collection of statements about an artifact
-1. create and register a statement for an artifact
+1. create metadata for the statement, enabling subsequent querying
+1. create and register a signed statement for an artifact
 1. query a collection of statements about the artifact
 
 ## Prerequisites
@@ -56,6 +57,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     ```bash
     python -m  venv venv && \
     source venv/bin/activate && \
+    trap deactivate EXIT && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
     ```
@@ -75,7 +77,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # File representing the transparent statement, which includes the signed statement and the registration receipt
     TRANSPARENT_STATEMENT_FILE="transparent-statement.cbor"
 
-    # Subject is a property used to correlate a collection of statements about an artifact
+    # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
     ```
 
@@ -96,11 +98,28 @@ For the Quickstart, create a testing key which DataTrails will cryptographically
 Create any payload you wish to register on DataTrails.
 
 ```bash
-cat > payload.json <<EOF
+cat > /tmp/payload.json <<EOF
 {
     "author": "fred",
     "title": "my biography",
     "reviews": "mixed"
+}
+EOF
+```
+
+## Create Metadata
+
+[DataTrails Event Attributes](./../../api-reference/events-api/) can be associated with a SCITT Statement, enabling indexing.
+
+Create metadata with a dictionary of `key:value` pairs.
+
+```bash
+HASH=$(sha256sum "/tmp/payload.json" | cut -d ' ' -f 1)
+cat > /tmp/attributes.json <<EOF
+{
+  "payload_hash": "$HASH",
+  "project": 25,
+  "location": "Seattle, WA"
 }
 EOF
 ```
@@ -114,14 +133,15 @@ The payload may already be stored in another storage/package manager, which can 
 python scitt/create_hashed_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --payload-file payload.json \
+  --payload-file "/tmp/payload.json" \
   --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
   --subject $SUBJECT \
-  --output-file $SIGNED_STATEMENT_FILE
+  --output-file $SIGNED_STATEMENT_FILE \
+  --meta-map-file "/tmp/attributes.json"
 ```
 
-## Register the SCITT Statement on DataTrails
+## Register the SCITT Signed Statement on DataTrails
 
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 
@@ -154,8 +174,7 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```bash
-    curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
+    curl https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
     ```
 
 {{< note >}}
@@ -167,8 +186,7 @@ Coming soon: Filter on specific content types, such as what SBOMs have been regi
 The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.
 
-There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers & metadata.
+There are no limits to the types of additional statements that may be registered, which may include new information related to an AI Model, new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
 
 For more information:
 

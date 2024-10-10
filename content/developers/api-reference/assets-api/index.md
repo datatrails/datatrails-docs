@@ -37,8 +37,8 @@ cat > /tmp/asset.json <<EOF
 {
   "behaviours": ["RecordEvidence"],
   "attributes": {
-    "arc_display_name": "My Cat",
     "arc_display_type": "Cat",
+    "arc_display_name": "My Cat",
     "weight": "3.6kg"
   },
   "public": false
@@ -46,9 +46,6 @@ cat > /tmp/asset.json <<EOF
 EOF
 ```
 
-{{< note >}}
-**Note:** The values for `arc_blob_hash_value` and `arc_blob_identity` are taken from the response of the Upload call of the [Blob API](https://docs.datatrails.ai/developers/api-reference/blobs-api/).
-{{< /note >}}
 
 Create the Asset:
 
@@ -71,8 +68,8 @@ The response:
     "Builtin"
   ],
   "attributes": {
-    "arc_display_name": "My Cat",
     "arc_display_type": "Cat",
+    "arc_display_name": "My Cat",
     "weight": "3.6kg"
   },
   "confirmation_status": "PENDING",
@@ -159,7 +156,7 @@ The response is:
         "unequivocal": null
     }
 }    
-  ```
+```
 
 #### Creating a Public Asset
 

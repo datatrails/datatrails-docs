@@ -46,7 +46,6 @@ cat > /tmp/asset.json <<EOF
 EOF
 ```
 
-
 Create the Asset:
 
 ```bash

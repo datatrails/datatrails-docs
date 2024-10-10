@@ -16,7 +16,7 @@ aliases:
 ---
 {{< note >}}
 **Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -27,6 +27,8 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 {{< note >}}
 **Note:** You will need to create an Asset first in order to submit Events against it.
+The dependency on Assets is being deprecated.
+In a future release, Events will be created indecently from Assets.
 {{< /note >}}
 
 ### Asset Reference
@@ -71,7 +73,8 @@ ASSET_ID=<ASSET_ID>
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events | jq
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+      | jq
   ```
 
 - The response:
@@ -587,7 +590,7 @@ curl -g -X GET \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED"
 ```
 
-Returns all Events which have a `confirmation_status` level of COMMITTED, CONFIRMED or UNEQUIVOCAL. 
+Returns all Events which have a `confirmation_status` level of COMMITTED, CONFIRMED or UNEQUIVOCAL.
 
 ```bash
 curl -g -X GET \
@@ -595,7 +598,7 @@ curl -g -X GET \
      "https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED"
 ```
 
-Returns all Events which have a `confirmation_status` level of CONFIRMED or UNEQUIVOCAL. 
+Returns all Events which have a `confirmation_status` level of CONFIRMED or UNEQUIVOCAL.
 
 ## Events OpenAPI Docs
 

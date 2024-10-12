@@ -127,6 +127,7 @@ ASSET_ID=<ASSET_ID>
 To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the [Assets API reference](https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation) example.
 
 ```json
+cat > /tmp/event.json <<EOF
 {
     "operation": "Record",
     "behaviour": "RecordEvidence",
@@ -139,6 +140,7 @@ To update an Asset attribute, record an Event and enter the new value. Here we w
     },
     "public": false
 }    
+EOF
 ```
 
 POST the Event to update the Asset:
@@ -147,8 +149,8 @@ POST the Event to update the Asset:
 curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
 ```
 
 The response:
@@ -204,6 +206,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
 Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
+cat > /tmp/event.json <<EOF
 {
     "behaviour": "RecordEvidence",
     "operation": "Record",
@@ -232,6 +235,7 @@ Define the Event parameters and store in `/path/to/jsonfile`:
         ]
     }
 }
+EOF
 ```
 
 Add the request to the Asset record by POSTing it to the resource:
@@ -240,8 +244,8 @@ Add the request to the Asset record by POSTing it to the resource:
 curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
 ```
 
 The response:
@@ -305,6 +309,7 @@ The response:
 Define the Event parameters and store in `/path/to/jsonfile`:
 
 ```json
+cat > /tmp/event.json <<EOF
 {
     "behaviour": "RecordEvidence",
     "operation": "Record",
@@ -316,6 +321,7 @@ Define the Event parameters and store in `/path/to/jsonfile`:
         "arc_display_type":"Withdraw"
     }
 }
+EOF
 ```
 
 Add the request to the Asset record by POSTing it to the resource:
@@ -324,8 +330,8 @@ Add the request to the Asset record by POSTing it to the resource:
 curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
 ```
 
 The response:
@@ -384,6 +390,7 @@ Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_atta
 The following example shows you usage with both the `event_attributes` and the `asset_attributes`:
 
 ```json
+cat > /tmp/event.json <<EOF
 {
   "operation": "Record",
   "behaviour": "RecordEvidence",
@@ -425,6 +432,7 @@ The following example shows you usage with both the `event_attributes` and the `
     "email": "phil.b@synsation.io"
   },
 }
+EOF
 ```
 
 Add the request to the Asset Record by POSTing it to the resource:
@@ -433,8 +441,8 @@ Add the request to the Asset Record by POSTing it to the resource:
 curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
 ```
 
 The response:

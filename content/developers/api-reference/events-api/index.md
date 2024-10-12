@@ -41,7 +41,7 @@ ASSET_ID=<ASSET_ID>
 ```
 
 {{< note >}}
-**Note:** DataTrails will be moving to an event centric design, removing the dependency to reference an Asset.
+**Note:** DataTrails will soon be moving to an event centric design, removing the need to create and reference Assets to hold your Event collections.
 {{< /note >}}
 
 ### Event Creation

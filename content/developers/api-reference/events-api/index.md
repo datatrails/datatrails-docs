@@ -37,7 +37,7 @@ Capture the Asset ID by which the events will be associated.
 See [Fetch All Assets](../assets-api/#fetch-all-assets)
 
 ```bash
-ASSET_ID=<ASSET_ID>
+ASSET_UUID=<ASSET_UUID>
 ```
 
 {{< note >}}
@@ -73,7 +73,7 @@ ASSET_ID=<ASSET_ID>
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events \
       | jq
   ```
 
@@ -150,7 +150,7 @@ curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
 ```
 
 The response:
@@ -245,7 +245,7 @@ curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
 ```
 
 The response:
@@ -331,7 +331,7 @@ curl -X POST \
     -H "@datatrails-bearer.txt" \
     -H "Content-type: application/json" \
     -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
 ```
 
 The response:
@@ -442,7 +442,7 @@ curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
 ```
 
 The response:
@@ -508,7 +508,7 @@ The response:
 Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:
 
 ```bash
-assets/$ASSET_ID/events/$EVENT_ID
+assets/$ASSET_UUID/events/$EVENT_ID
 ```
 
 If you do not know the Event’s identity you can fetch Event records using other information you do know.
@@ -530,7 +530,7 @@ If you know the unique identity of the Asset record simply `GET` the resource:
 ```bash
 curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events?page_size=5"
+     "https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events?page_size=5"
 ```
 
 #### Fetch Specific Events by Identity
@@ -540,7 +540,7 @@ If you know the unique identity of the Asset and Event record simply `GET` the r
 ```bash
 curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivst/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+     "https://app.datatrails.ai/archivst/v2/assets/$ASSET_UUID/events/<EVENT_UUID>"
 ```
 
 #### Fetch Event by Type

@@ -28,7 +28,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 {{< note >}}
 **Note:** You will need to create an Asset first in order to submit Events against it.
 The dependency on Assets is being deprecated.
-In a future release, Events will be created indecently from Assets.
+In a future release, Events will be created independently from Assets.
 {{< /note >}}
 
 ### Asset Reference

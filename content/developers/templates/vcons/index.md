@@ -58,7 +58,7 @@ The following example highlights a typical DataTrails Event, based on a vCon:
 Default within DataTrails to categorize events.
 `arc_display_type` is also the default means to [configure permissions](https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/) for which type of events a client my view/edit.
 
-For the purposes of permissions, this property is a duplicate of the [vcon_operation](#vcon_operation)
+For simplicity in configuring permissions, this property is a duplicate of the [vcon_operation](#vcon_operation) but could vary in advanced scenarios.
 
 ### vcon_operation (REQUIRED)
 

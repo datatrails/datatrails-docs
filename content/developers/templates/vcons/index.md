@@ -64,7 +64,7 @@ For simplicity in configuring permissions, this property is a duplicate of the [
 
 A DataTrails Event should be created for each completed vCon operation.
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
-The lifecycle events of a vCon will likely evolve as a standard.
+The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the `vcon_operation` (`string`) is the placeholder.
 
 ### payload_hash_alg (REQUIRED)

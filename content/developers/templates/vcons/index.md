@@ -56,7 +56,7 @@ The following example highlights a typical DataTrails Event, based on a vCon:
 ### arc_display_type (REQUIRED)
 
 Default within DataTrails to categorize events.
-`arc_display_type` is also the default means to [configure permissions](https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/) for which type of events a client my view/edit.
+`arc_display_type` is also the default means to [configure permissions](https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/) for which type of events a client may view and/or edit.
 
 For the purposes of permissions, this property is a duplicate of the [vcon_operation](#vcon_operation)
 
@@ -69,7 +69,7 @@ For now, the `vcon_operation` (`string`) is the placeholder.
 
 ### payload_hash_alg (REQUIRED)
 
-The hash algorithm used to has the vCon.
+The hash algorithm used to hash the vCon.
 Currently, this is `SHA-256`, but should be sourced by the vCon object to support agility.
 
 ### payload_preimage_content_type (REQUIRED)
@@ -81,12 +81,12 @@ There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-conta
 
 ### payload_hash_value (REQUIRED)
 
-The hash of the vCon as its recorded on DataTrails.
+The hash of the vCon as it's recorded on DataTrails.
 
 ### vcon_pipeline (OPTIONAL)
 
 vCons are processed by workflow pipelines that run multiple steps.
-In the [conserver model](https://www.conserver.io/), these are called chains which run one ore more links.
+In the [conserver model](https://www.conserver.io/), these are called chains which run one or more links.
 For each chain, a vCon is complete and written to the SCITT Ledger to protect its integrity and inclusion.
 For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
 This property may prove to be redundant to the [vcon_operation](#vcon_operation).
@@ -119,4 +119,4 @@ For example: (`DataTrails-User-Agent:oss/conserverlink/0.1.0`)
 Diagnostics and tracking of the Partner making requests.
 This header is independent of the [DataTrails-User-Agent](#datatrails-user-agent), as multiple services may be running the same codebase, such as the [vCon Conserver](https://github.com/vcon-dev/vcon-server/)
 
-For example: (`DataTrails-Partner-ID:synsation.io"`
+For example: (`DataTrails-Partner-ID:synsation.io`)

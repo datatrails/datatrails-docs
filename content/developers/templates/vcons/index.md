@@ -58,13 +58,13 @@ The following example highlights a typical DataTrails Event, based on a vCon:
 Default within DataTrails to categorize events.
 `arc_display_type` is also the default means to [configure permissions](https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/) for which type of events a client may view and/or edit.
 
-For the purposes of permissions, this property is a duplicate of the [vcon_operation](#vcon_operation)
+For simplicity in configuring permissions, this property is a duplicate of the [vcon_operation](#vcon_operation) but could vary in advanced scenarios.
 
 ### vcon_operation (REQUIRED)
 
 A DataTrails Event should be created for each completed vCon operation.
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
-The lifecycle events of a vCon will likely evolve as a standard.
+The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the `vcon_operation` (`string`) is the placeholder.
 
 ### payload_hash_alg (REQUIRED)

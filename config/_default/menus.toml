@@ -42,6 +42,11 @@
   identifier = "yaml-reference"
   url = "/developers/yaml-reference/"
 
+[[developers]]
+  name = "templates"
+  weight = 15
+  identifier = "templates"
+  url = "/developers/templates/"
 
 
 [[platform]]

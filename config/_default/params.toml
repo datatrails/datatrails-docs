@@ -4,7 +4,7 @@
 title = "DataTrails"
 titleSeparator = "-"
 titleAddition = "Provenance as a Service to boost confidence in digital decisions."
-description = "DataTrails provides Provenance as a Service to attest trustworthiness of assets, and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.ai)."
+description = "DataTrails provides Provenance as a Service to attest trustworthiness of data and boost confidence in digital decisions.  Find out more on our [website](https://datatrails.ai)."
 
 ## Open Graph + Twitter Cards
 images = ["RKVST_WhtLogo_CMYK.svg"]

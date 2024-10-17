@@ -15,23 +15,34 @@ aliases:
   - /docs/overview/advanced-concepts/
 ---
 
-## Assets and Events
+## Events
 
-The core tenets of the DataTrails platform are *Assets* and *Events*. These are the records that represent the collective 'Golden Thread' of evidence contributed by all stakeholders about a particular thing. 
+The principal objects in the DataTrails platform are *Events*. These are the records that represent the collective 'Golden Thread' of evidence contributed by all stakeholders about a particular thing. 
 
-Assets can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, it can be recorded as a DataTrails Asset. 
+That 'thing' really can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it. If there are _moments that matter_ they can be committed to the immutable audit log.
 
-Events are a way to provide updates to Assets, building a historical view of the Asset, what has happened and how it got into its current state. These updates in events can be changes to the thing itself, custody of the thing, or even an observation of an interaction with the thing.<br>
-Any interaction with the thing can be significant, from user logins to unexpected restarts or ad-hoc observations. Keeping a record of these Events can build up a picture of how an Asset came to be in its current state and provides crucial insight to future maintenance staff, auditors, and security remediation teams.
-
-Knowing the current state of an Asset isn't enough: sure, it has software version 3.0 now but when was that installed? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that asset can be answered. 
-
-DataTrails Assets are essentially very simple: a collection of *attributes* that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
-
-DataTrails is not opinionated about Asset content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.
+What defines a moment that matters? It's all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger. Simply looking and knowing the current state of things isn't enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered. 
 
 DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
-*The only way to change an Asset attribute is through an Event that records Who Did What When to make that change.*
+*Events cannot be modified once published! No shredding, tampering or backdating is possible without leaving an undeniable trace in the log.*
+
+### Event Attributes
+
+DataTrails Events are essentially very simple: a collection of *attributes* that describe the Event expressed as a  JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
+
+DataTrails is not opinionated about Event content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.
+
+### Asset Container
+
+{{< note >}}
+**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
+
+The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
+
+To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
+{{< /note >}}
+
+Events are registered into collections called _Assets_. These Assets might represent an individual thing, a class of things, or something more abstract like 'all Events for this day'. Some care should be taken in designing the scheme for this as it will aid in simplifying sharing policies.
 
 A simple Asset might look like this:
 
@@ -75,10 +86,9 @@ A simple Asset might look like this:
       "at_time": "2021-06-25T12:40:03Z",
 
       // Storage and integrity properties - managed by the system
-      "confirmation_status": "COMMITTED",
+      "confirmation_status": "CONFIRMED",
       "tracked": "TRACKED",
       "owner": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "storage_integrity": "LEDGER"
     }
 ```
 
@@ -279,31 +289,41 @@ Revoking access can therefore be achieved in a number of ways, any of which may 
 
 ## Attachments and Blobs
 {{< note >}}
-**Note:** DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.
+**Note:** DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work and share data in the ways you already share data. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.
+
+However, in many cases binary files, images and such can form part of that metadata trail. For such cases, DataTrails supports the uploading of Blobs which are then protected by the immutable log with the same strength and integrity as other Event attributes.
 {{< /note >}}
 
 Attachments in DataTrails enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.
 
-Adding an attachment to an Asset or Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:
+Adding an attachment to an Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:
 
 * a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection
 * a PDF of a safety conformance report to support a maintenance event
 * a software manifest to support an update
 * an x-ray image
 
-Attaching rich evidence to an Asset or Event is a two step process:
+Attaching rich evidence to an Event is a two step process:
 
 1. First a Binary Large OBject (BLOB) is uploaded
-1. Then a reference to that blob is attached to the Event or Asset.
+1. Then a reference to that blob is attached to the Event.
 
 To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`. To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
+
+{{< note >}}
+**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
+
+The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
+
+To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
+{{< /note >}}
 
 For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](/developers/api-reference/blobs-api/) and [the Attachments API Reference](/developers/api-reference/attachments-api/)
 
 ### The Primary Image
 
-Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: `arc_primary_image`.
-If an asset has an attachment attribute named `arc_primary_image`, then this will be used by the SaaS user interface and other tools to represent the asset.
+Attachments on Assets and Events are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: `arc_primary_image`.
+If an Asset has an attachment attribute named `arc_primary_image`, then this will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.
 
 {{< note >}}
 **Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
@@ -315,33 +335,9 @@ If an asset has an attachment attribute named `arc_primary_image`, then this wil
 
 ## Geolocation
 
-DataTrails supports 2 different main concepts of geolocation, and it's important to choose the correct one for your use case.
-* *Locations* on Assets, which enable grouping of Assets based on some common management ("All these devices live in the Basingstoke factory")
-* *GIS coordinates* on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset ("This was scanned in London, and later sold in Manchester")
+DataTrails supports *GIS coordinates* on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset ("This was scanned in London, and later sold in Manchester"):
 
-Essentially Locations give you groupings:
-{{< img src="locations_grouping.png" alt="Rectangle" caption="<em>Grouping Assets by location</em>" class="border-0" >}}
-
-Whereas Event coordinates give you tracking:
 {{< img src="gis_tracking.png" alt="Rectangle" caption="<em>Tracking Assets with GIS coordinates</em>" class="border-0" >}}
-
-### Asset Locations
-
-{{< caution >}}
-**Caution:** It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.
-{{< /caution >}}
-
-Assets in DataTrails can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the DataTrails UI.
-
-This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.
-
-Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.
-
-{{< note >}}
-**Note:** If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be better and more scalable to use your own custom attribute to link Assets.
-{{< /note >}}
-
-### GIS Coordinates on Events
 
 If you're wanting to track the movement of an Asset, or record an audit trail of _where_ a particular Event happens, you can add `arc_gis_lat` and `arc_gis_lng` attributes to the `event_attributes`.
 
@@ -362,66 +358,6 @@ For example:
 ```
 
 Once applied the GIS coordinates on Events are immutable.
-
-## Compliance Policies
-{{< note >}}
-**Note:** Creation and editing of Compliance Policies is only supported through the API.
-{{< /note >}}
-Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play, every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An Asset that is safe in one context may not be in another.
-
-By maintaining a complete traceable record of Who Did What When to a Thing, DataTrails makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.
-
-All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset records, piece together the important parts, and analyze the meaning.
-
-But what if the same information could be used for real-time decision-making that might avert an incident? This is where DataTrails’ “compliance posture” APIs come in. These take the thinking and processing burden off the client by providing a single, simple API call to answer the complex question: “given all you know about this asset, should I trust it right now?”. Additionally, and crucially for sensitive use cases, the yes or no answer comes with a detailed defensible reason why which can be inspected by relevant stakeholders during or after the event.
-
-When put all together, this enables high quality decision making based on the best available data, even giving confidence to automated or AI systems to play a full part in operations. Assets can be checked as part of access control logic, prior to accepting data or commands from them, accepting a shipment, or anything else that is important to your business. Crucially, each stakeholder is able to define their own view on Compliance, meaning they can each apply their own unique lens and business concerns to the same evidence base.
-
-### Compliance Policy Configuration
-
-In order to make these trust decisions, DataTrails can be configured with Compliance Policies to check Assets against. These policies specify things like tolerance for vulnerability windows, maintenance SLAs, or detecting unusual values for attributes. For example:
-
-* “Assets must be patched within 40 days of vulnerability notification”
-* “Maintenance calls must be answered within 72 hours”
-* "rad level must be less than 7"
-
-Policies can also declare relative tolerances,  such as:
-
-* "No shipping transfer should be more than 10% longer than the average time"
-* "The reported weight of this container should be within 1 standard deviation of the historic mean"
-
-Individual assets either pass or fail, and organizations can calculate their overall security/compliance posture based on what proportion of their assets are breaching their policy set. Compliance signals can also be used to identify where risk lies in an organization and help to prioritize remedial activities.
-
-#### Types of Compliance Policy
-
-As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:
-
-* **COMPLIANCE RICHNESS**: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.  
-For example, "Weight attribute must be less than 1000 kg"
-* **COMPLIANCE SINCE**: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.  
-For example, "Time since last Maintenance must be less than 72 hours"
-* **COMPLIANCE CURRENT OUTSTANDING**: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.  
-For example, checking there are no outstanding "Maintenance Request" Events that are not addressed by an associated "Maintenance Performed" Event.
-* **COMPLIANCE_PERIOD_OUTSTANDING**: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.  
-For example, a policy checking that the time between "Maintenance Request" and  "Maintenance Performed" Events does not exceed the maximum 72 hours.
-* **COMPLIANCE_DYNAMIC_TOLERANCE**: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.  
-For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.
-
-{{< note >}}
-**Note:** To correlate Events, define the attribute `arc_correlation_value` in the Event attributes and set it to the same value on each pair of Events that are to be associated.
-{{< /note >}}
-
-## Perspectives
-
-In the Asset example above there is an `at_time` property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with DataTrails it is possible to go back in time and ask the question "what would that asset have looked like to me had I looked at it last week/last year/before the incident?". Using its high integrity record of Asset lineage, DataTrails can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.
-
-To do this, simply add `at_time=TIMESTAMP` to your query. For example, to check the state an Asset was in at 15:30 UTC on 23rd June:
-
-```bash
-curl -H "Authorization: Bearer $(cat .auth_token)" -H "Content-Type: application/json" https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-06-23T15:30:00Z | jq 
-```
-
-Compliance calls can be similarly modified to answer questions like "had I asked this question at the time, what would the answer have been?" or "had the AI asked this question, would it have made a better decision?". This can be done by adding a `compliant_at` timestamp to the compliance request.
 
 ## That's it
 

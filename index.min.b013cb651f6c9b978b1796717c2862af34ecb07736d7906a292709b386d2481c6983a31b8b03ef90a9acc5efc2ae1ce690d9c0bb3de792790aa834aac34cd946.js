@@ -79,7 +79,7 @@ Subject is used to align with the
 <p>Diagnostics and tracking for the source of the request.
 Typically set to the code or service.
 For example: (<code>DataTrails-User-Agent:oss/conserverlink/0.1.0</code>)</p>
-<h3 id="partner_id-required">Partner_ID (REQUIRED)</h3>
+<h3 id="datatrails-partner-id-required">DataTrails-Partner-ID (REQUIRED)</h3>
 <p>Diagnostics and tracking of the Partner making requests.
 This header is independent of the 
 <a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 
@@ -23793,7 +23793,7 @@ Subject is used to align with the
 <p>Diagnostics and tracking for the source of the request.
 Typically set to the code or service.
 For example: (<code>DataTrails-User-Agent:oss/conserverlink/0.1.0</code>)</p>
-<h3 id="partner_id-required">Partner_ID (REQUIRED)</h3>
+<h3 id="datatrails-partner-id-required">DataTrails-Partner-ID (REQUIRED)</h3>
 <p>Diagnostics and tracking of the Partner making requests.
 This header is independent of the 
 <a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 

@@ -18,24 +18,35 @@ aliases:
 
 ## Tenancies
 
-A Tenancy is an Organization's private area within DataTrails, containing [Asset](./#assets) and [Event](./#events) data that build over time to create an Audit Trail. The user who created the Tenancy is the Administrator and has full administrative control over everything in that Tenancy. An Administrator can also create granular [Access Policies](./#access-policies) which allow data from their Tenancy to be shared to other Tenancies; for example, Organization A would share Asset data from their Tenancy to Organization B's Tenancy.
+A Tenancy is an Organization's private area within DataTrails, containing [Event](./#events) data that build over time to create Audit Trails. The user who created the Tenancy is by default the Administrator and has full control over everything in that Tenancy. An Administrator can also create granular [Access Policies](./#access-policies) which allow Event metadata from their Tenancy to be shared to other Tenancies; for example, Organization A would share supply chain data from their Tenancy to Organization B's Tenancy.
 
-Administrators may invite other user accounts into their Tenancy. The invited user needs to have signed up for DataTrails with the same email address as the invite, they will then be added to the Tenancy as a Non-Administrator. Non-Administrators start off with no permissions but can be given specific permissions (including being upgraded to an Administrator) by any existing Administrator in that Tenancy.
-
-## Assets
-
-Assets are central to DataTrails. Each Asset Record represents ***a thing***; this could be a file, a physical object, a smart device, or even a business process.
-
-A DataTrails Asset has a collection of attributes that describes its current state and, when combined with a complete life history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document will have the attributes of author, title and a content hash and will have a history of different versions and release dates. A Shipping Container as an Asset might have the attributes of height, width and depth, and have a handling history of movements through ports.
-These are examples of completely different ***things*** that can have a Data Trails Audit Trail.
-
-Each Asset has a fixed identity across all stakeholders, ensuring that all relevant parties are collaborating on the same object and see the same history of the Asset at any given time when shared through [Access Policies](./#access-policies).
+Administrators may invite other users into their Tenancy. The invited user will start off with no permissions and can then be given specific access rights (including being upgraded to an Administrator) by any existing Administrator in that Tenancy. For more details on this, see [Identity and Access Management](/platform/administration/identity-and-access-management/)
 
 ## Events
 
-Events are things that happen during an Asset's lifecycle. Each Event Record contributes to the ['Golden Thread'](./#the-golden-thread) of the audit trail by enriching the Asset's history. Events can be used to add or update Asset information if they change the Asset's state, but they also have their own attributes to add process detail and rich evidence.
+The fundamental purpose of DataTrails, like any transparency service, is to record and prove the origins and authenticity of the data that fuels the modern enterprise. This is achieved through the registration of immutable _Events_ on the platform.
 
-Events can never be deleted or modified. Events provide details on Asset attributes, such as updating the weight of a shipment, and/or details about the event itself, such as a recording a new document version.
+Events are attestations: individual pieces of evidence recorded as observations or claims about a thing from qualified witnesses. Each Event Record contributes to the ['Golden Thread'](./#the-golden-thread) of the Audit Trail by building a rich picture of history.
+
+Events can never be deleted or modified by anyone, not even administrators of the DataTrails platform. Once asserted, they cannot be shredded, tampered, or backdated.
+
+## Assets
+
+{{< note >}}
+**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
+
+The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
+
+To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`. This will ensure best performance and minimal code changes to take advantage of the newer API.
+{{< /note >}}
+
+Asset Records represents ***a thing***: this could be a file; a physical object; a smart device; or even a business process. Simply an Asset is just the subject that the Events are talking about.
+
+A DataTrails Asset acts as a container for Events which share a topic or have a similar relationship. when combined with a complete history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document Asset will trace the evolution of authors, versions and release dates. Modeling a Shipping Container as an Asset might have a handling history of movements through ports. Or the Asset could be something more abstract like all Events from a given day.
+
+These are examples of completely different ***things*** that can have a Data Trails Audit Trail.
+
+Each Asset has a fixed identity across all stakeholders, ensuring that all relevant parties are collaborating on the same object and see the same history of the Asset at any given time when shared through [Access Policies](./#access-policies).
 
 ## Proving Provenance
 
@@ -63,18 +74,20 @@ To make the whole history and individual events `UNEQUIVOCAL`, the root hash of
 
 ## Access Policies
 
-Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the management of those Assets without compromising security and private information. To ensure stakeholders can access only the Assets and attributes relevant to them, transactions are private by default, unless the Asset was created as a [Public Asset](./#the-public-view). An Administrator defines how many of the Asset's attributes the Access Policy permits a user to see so that they only see what they need to complete a task.
+Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the Audit Trail without compromising security and personal private information. To ensure stakeholders can access only the information relevant to them, Events are private by default, unless posted to a [Public Asset](./#the-public-view). Tenant Administrators define how much of the Audit Trail a user or partner can see so that they only see what they need to complete a task.
+
+Like any high end transparency service, DataTrails operates a 'once see always seen' system, so while you remain completely in control of what Audit Trail data you share with your partners, it cannot be deleted or modified later. 
 
 An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.
 
 ## The Public View
 
-Every Asset has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Other Assets, such as those that meet the requirements of the [Document Profile](/developers/developer-patterns/document-profile/), have a [Public View](/platform/overview/public-attestation/) which is visible to everyone.
+Every Audit Trail has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Additionally some Trails, such as those that meet the requirements of the [Document Profile](/developers/developer-patterns/document-profile/), have a [Public View](/platform/overview/public-attestation/) which is visible to everyone.
 The purpose of this view is to allow anyone to verify that the document that they are using is genuine and has not been altered. When the document Audit Trail is combined with [Instaproof](/platform/overview/instaproof/) a user of your data can easily find out which version of a document they have and confirm that it is genuine.
 
 ## The Golden Thread
 
-Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence makes up the Data Trails Audit Trail.
+Putting all these concepts together it is possible to create a Golden Thread of evidence that makes up the Data Trails Audit Trail.
 This has many use cases relating to content authenticity but can also be applied to supply chain integrity and standards compliance, or fact anything where stakeholders need transparency and trust.
 
 {{< img src="TheGoldenThread.png" alt="Rectangle" caption="<em>The Golden Thread</em>" class="border-0" >}}

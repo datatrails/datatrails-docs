@@ -114,7 +114,7 @@ Diagnostics and tracking for the source of the request.
 Typically set to the code or service.
 For example: (`DataTrails-User-Agent:oss/conserverlink/0.1.0`)
 
-### Partner_ID (REQUIRED)
+### DataTrails-Partner-ID (REQUIRED)
 
 Diagnostics and tracking of the Partner making requests.
 This header is independent of the [DataTrails-User-Agent](#datatrails-user-agent), as multiple services may be running the same codebase, such as the [vCon Conserver](https://github.com/vcon-dev/vcon-server/)

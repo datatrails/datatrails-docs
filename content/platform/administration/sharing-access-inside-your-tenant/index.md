@@ -37,7 +37,9 @@ By default, no Non-Administrators will see any existing Trails or Events unless 
 
 ## Creating an ABAC Policy
 {{< note >}}
-**Note:** Access polices are applied to the Trail and are themselves transparent. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal` to let people know if their access has changed. This prevents 'log black-out' attacks.
+**Note:** Access policies are applied to the Trail and are themselves transparent.
+When a policy is created or updated, an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal` to let people know if their access has changed.
+This prevents 'log black-out' attacks.
 
 {{< /note >}}
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.

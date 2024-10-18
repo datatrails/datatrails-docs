@@ -87,7 +87,7 @@ The purpose of this view is to allow anyone to verify that the document that the
 
 ## The Golden Thread
 
-Putting all these concepts together it is possible to create a Golden Thread of evidence that makes up the Data Trails Audit Trail.
+Putting all these concepts together, it is possible to create a Golden Thread of evidence that makes up the Data Trails Audit Trail.
 This has many use cases relating to content authenticity but can also be applied to supply chain integrity and standards compliance, or fact anything where stakeholders need transparency and trust.
 
 {{< img src="TheGoldenThread.png" alt="Rectangle" caption="<em>The Golden Thread</em>" class="border-0" >}}

@@ -21,15 +21,15 @@ aliases:
 **Caution:** You will only have access to the `Access Policies` screen if you are an Administrator in your organization.
 {{< /caution >}}
 
-Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.
+Attribute-Based Access Control (ABAC) policies can be used to control access Audit Trails and Events within a single organization.
 
 Specifically, ABAC policies are created by Administrators to share information with Non-Administrators in the same Tenancy.
 
 ABAC policies can be granular, with users only allowed to see single attributes at a time.
 
-It is possible to control policies based on types of Assets, their location, and whether Users can read or write any information in an Asset.
+It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type and location (eg: "all models trained in Gondwalaland")
 
-By default, no Non-Administrators will see any existing Assets and Events unless an Administrator explicitly creates an ABAC policy to allow it.
+By default, new users will not see any existing Trails or Events until an Administrator explicitly creates an ABAC policy to allow them.
 
 {{< note >}}
 **Note:** To create an ABAC policy, first [add users to your tenancy](/platform/administration/identity-and-access-management/#how-do-i-add-users-to-my-organization).
@@ -37,7 +37,10 @@ By default, no Non-Administrators will see any existing Assets and Events unless
 
 ## Creating an ABAC Policy
 {{< note >}}
-**Note:** Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal`.
+**Note:** Access policies are applied to the Trail and are themselves transparent.
+When a policy is created or updated, an Event will be recorded in the audit trail of matching Assets from the Actor `Archivist Internal` to let people know if their access has changed.
+This prevents 'log black-out' attacks.
+
 {{< /note >}}
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.
 
@@ -86,12 +89,12 @@ Create an empty file, in later steps we will add the correct JSON.
 When adding a policy, you will see this form:
 {{< img src="PolicyForm.png" alt="Rectangle" caption="<em>Policy Web Form</em>" class="border-0" >}}
 
-Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type `Shipping Container`.
+Here you can apply policy filters to apply to specific Trails or groups of Trails. In this case, we shall apply the policy to any Asset with the type `Shipping Container`.
 
 {{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to categorize Assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:
+Filters can use `and` or `or` to define scope. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:
 
 ```json
 "attributes.arc_home_location_identity!=*"
@@ -124,10 +127,10 @@ Following our Shipping Container example, this is how we would set our Asset fil
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. Enter the desired `Permissions` to set user's Asset and Event attribute access
+1. Enter the desired `Permissions` to set user's access
 {{< tabs name="permissions_abac" >}}
 {{{< tab name="UI" >}}
-We select the `Permissions` Tab to set Users' Asset and Event attribute access policy.
+We select the `Permissions` Tab to set Users' access policy.
 {{< img src="PolicyABACForm.png" alt="Rectangle" caption="<em>Default view of Policy Permissions</em>" class="border-0" >}}
 
 In this example, the `User` actor is identified by email. Type the relevant email address and hit enter; you may also see a dropdown list of users within your tenancy.

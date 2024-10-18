@@ -76,7 +76,7 @@ To make the whole history and individual events `UNEQUIVOCAL`, the root hash of
 
 Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the Audit Trail without compromising security and personal private information. To ensure stakeholders can access only the information relevant to them, Events are private by default, unless posted to a [Public Asset](./#the-public-view). Tenant Administrators define how much of the Audit Trail a user or partner can see so that they only see what they need to complete a task.
 
-Like any high end transparency service, DataTrails operates a 'once see always seen' system, so while you remain completely in control of what Audit Trail data you share with your partners, it cannot be deleted or modified later. 
+Like any high end transparency service, DataTrails operates a 'once seen always seen' system, so while you remain completely in control of what Audit Trail data you share with your partners, it cannot be deleted or modified later. 
 
 An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.
 

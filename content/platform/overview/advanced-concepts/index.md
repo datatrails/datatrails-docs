@@ -28,7 +28,7 @@ DataTrails ensures complete and tamper-proof lineage and provenance for all Asse
 
 ### Event Attributes
 
-DataTrails Events are essentially very simple: a collection of *attributes* that describe the Event expressed as a  JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
+DataTrails Events are essentially very simple: a collection of *attributes* that describe the Event expressed as a JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
 
 DataTrails is not opinionated about Event content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.
 

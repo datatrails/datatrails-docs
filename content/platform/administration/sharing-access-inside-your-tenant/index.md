@@ -29,7 +29,7 @@ ABAC policies can be granular, with users only allowed to see single attributes 
 
 It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type and location (eg: "all models trained in Gondwalaland")
 
-By default, no Non-Administrators will see any existing Trails or Events unless an Administrator explicitly creates an ABAC policy to allow it.
+By default, new users will not see any existing Trails or Events until an Administrator explicitly creates an ABAC policy to allow them.
 
 {{< note >}}
 **Note:** To create an ABAC policy, first [add users to your tenancy](/platform/administration/identity-and-access-management/#how-do-i-add-users-to-my-organization).

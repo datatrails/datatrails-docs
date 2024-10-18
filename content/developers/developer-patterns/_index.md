@@ -18,7 +18,6 @@ aliases:
       <p>You will find articles on common developer tasks and concept guides that are relevant to developers.</p>
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
-      <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
       <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>

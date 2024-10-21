@@ -21,32 +21,37 @@ Each DataTrails Tenancy represents an organization, and each DataTrails account 
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.
 
-### How do I add users to my organization?
+### Managing Users in your Tenant
 
-DataTrails Invites make it easy to add users to your tenancy.
+You can manage the users in your tenant from the 'Users' tab on the 'Settings' page (accessed from
+the sidebar.)
 
-As an [administrator](/platform/overview/core-concepts/#tenancies), create an invite and send it to the email address of the user you wish to add.
+{{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings > Users'</em>" class="border-0" >}}
 
-When the invitee signs up for their DataTrails account using the invited email address, they will be automatically added to your Tenancy.
+Here you'll find two panels:
+- Manage Users: 
+  - Manage the roles of existing users
+  - Deactivate users who should no longer have access
+  - Re-activate users to grant them access again
+- Manage Invites:
+  - Invite new users to your tenant via email
+  - Delete invites you no longer want to be redeemed
 
-{{< tabs name="invite_user_IAM" >}}
-{{{< tab name="UI" >}}
-On the Sidebar, select `Settings`.
-{{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings'</em>" class="border-0" >}}
+Lets walk through those functions now!
 
-Choose the `USERS` tab, then click `INVITE NEW USER`.
-{{< img src="InviteButton.png" alt="Rectangle" caption="<em>Invite New User</em>" class="border-0" >}}
+#### How do I add users to my organization?
+You add users to your organization by inviting them via email. This is only possible for administrators, 
+i.e. users with the 'Owner' role. Click the 'Invite User' button to open
+the invite window. Here you can enter the email address of the invitee, and if desired, customise
+a message to be shown in the email.
 
-Fill in the desired email and custom message. To finish, select `SEND INVITE`.
-{{< img src="InviteForm.png" alt="Rectangle" caption="<em>Enter Desired Details</em>" class="border-0" >}}
+{{< img src="InviteUser.png" alt="Rectangle" caption="<em>Send an Invite</em>" class="border-0" >}}
 
-{{< /tab >}}
-{{< tab name="YAML" >}}
-This action is not yet available in the YAML Runner. Check out our UI or curl command options!
-{{< /tab >}}
-{{< tab name="CURL" >}}
-Fill in your desired details and run the command to send the invite.
+Once the user recieves and redeems this email (using the email address to which it was sent) they
+will show up in this list and can be managed.
 
+{{< note >}}
+**Note:** Inviting users can be accomplished with the REST API too:
 ```bash
 curl -v -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
@@ -55,9 +60,41 @@ curl -v -X POST \
     "https://app.datatrails.ai/archivist/iam/v1/invites"
 ```
 
-See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) here.
-{{< /tab >}}
-{{< /tabs >}}
+See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
+{{< /note >}}
+
+#### How do I delete an outstanding invite?
+Once accepted by an invitee, invites are automatically deleted. However, if you wish to delete an 
+outstanding invite, follow these steps:
+
+1. Click the trash icon in the row of the invite you wish to delete
+{{< img src="ManageInvites.png" alt="Rectangle" caption="<em>Managing invites</em>" class="border-0" >}}
+2. Confirm that you want to delete the invite in question
+{{< img src="DeleteInvite.png" alt="Rectangle" caption="<em>Deleting an invite</em>" class="border-0" >}}
+
+#### How do I modify a user's access to my tenant?
+There are two ways to modify a user's access to your tenant: Modify their roles or wether they are
+active. You can modify a user by clicking their row in the 'Manage Users' table.
+
+Note:
+- You cannot deactivate or demote yourself
+- In order to manage deactivated users, tick the 'Show Deactivated' checkbox in the top-right
+
+1. Click the user's row in the table
+2. The following pop-up will appear
+{{< img src="ManageUser.png" alt="Rectangle" caption="<em>Managing a user</em>" class="border-0" >}}
+3. To deactivate the user, uncheck the 'Active' checkbox. This will prevent this user
+   from any subsequent logins into the system.
+   {{< note >}}
+   **Note:** De-activating a user removes all roles
+   {{< /note >}}
+4. To give this user the 'Owner' role, check the 'Owner' checkbox. This role makes the user an 
+   administrator, giving them the ability to perform any action within the system and see all data.
+
+To re-activate a user, you'll need to check the 'Show Deactivated' checkbox in the top-right corner
+and then follow the same steps as for deactivating a user, but checking the 'Active' checkbox.
+{{< img src="ManageDeactivatedUsers.png" alt="Rectangle" caption="<em>Managing all users</em>" class="border-0" >}}
+
 
 ### Can I name my tenancy?
 
@@ -65,12 +102,9 @@ See instructions for [creating your `BEARER_TOKEN_FILE`](/developers/developer-p
 
 There are two ways to name your DataTrails Tenancy. The first way is to add a `Tenant Display Name`. This name will be displayed only within your own Tenancy, and will not be visible to outside organizations. The display name makes it easy to identify which Tenancy you're currently working in and to switch between Tenancies if you are part of multiple Tenancies.
 
-To set your `Tenant Display Name`:
-
-1. On the Sidebar, select `Settings`
-{{< img src="Settings.png" alt="Rectangle" caption="<em>Select 'Settings'</em>" class="border-0" >}}
-1. Add your desired name, then click `CHANGE DISPLAY NAME`
-{{< img src="TenantDisplay.png" alt="Rectangle" caption="<em>Change Display Name</em>" class="border-0" >}}
+To set your `Tenant Display Name`, navigate to 'Settings' from the sidebar and ensure you're on the 
+'General' tab. Add your desired name, then click `Change Display Name`.
+{{< img src="TenantName.png" alt="Rectangle" caption="<em>Change Display Name</em>" class="border-0" >}}
 
 #### Verified Domain
 

@@ -83,7 +83,3 @@ curl -v -X POST \
 ## Members OpenAPI Docs
 
 Coming soon ...
-
-<!-- {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/membersv1.swagger.json" >}}<br>
-
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/membershipsv1.swagger.json" >}} -->

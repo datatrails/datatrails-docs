@@ -46,8 +46,9 @@ curl -v -X GET \
 
 ### Promoting a member of your tenant
 
-You can manage the roles of a user (i.e. promoting or demoting them by way of the 'OWNER' role) by
-PATCHing their record. With the identity of a member in your tenant to hand, submit this request
+You can manage the roles of a user (i.e. promoting or demoting them with the 'OWNER' role) by
+PATCHing their membership record. 
+With the identity of the tenant member record corresponding to the user in question, submit this request
 to set their roles to a list containing only 'OWNER'. To demote the member, simply send an empty
 list.
 

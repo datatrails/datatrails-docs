@@ -51,7 +51,7 @@ These are the available values for "**?service=**":
 * blobs
 * compliance_policies
 * locations
-* tenancies/users
+* members
 
 
 ## Caps OpenAPI Docs

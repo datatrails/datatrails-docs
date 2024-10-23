@@ -24,6 +24,7 @@ aliases:
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
       <a href="/developers/api-reference/locations-api/">Locations API &rarr;</a><br>
+      <a href="/developers/api-reference/members-api/">Members API &rarr;</a></p>
       <a href="/developers/api-reference/public-assets-api/">Public Assets API &rarr;</a><br>
       <a href="/developers/api-reference/tenancies-api/">Tenancies API &rarr;</a><br>
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>

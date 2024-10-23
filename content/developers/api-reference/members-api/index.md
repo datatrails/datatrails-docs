@@ -62,7 +62,7 @@ curl -v -X PATCH \
 
 ### Deactivating a member of your tenant
 
-When a user should no longer have access to your tenant, you can deactivate them progamatically 
+When a user should no longer have access to your tenant, you can deactivate them programatically 
 using the following API call:
 
 ```bash

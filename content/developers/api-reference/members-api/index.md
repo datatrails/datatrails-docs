@@ -44,7 +44,7 @@ curl -v -X GET \
      https://app.datatrails.ai/archivist/iam/v1/members?member_state=MEMBER_STATE_BOTH
 ```
 
-### Promoting a member of your tenant
+### Promoting a user to 'OWNER' role in a tenancy
 
 You can manage the roles of a user (i.e. promoting or demoting them with the 'OWNER' role) by
 PATCHing their membership record. 

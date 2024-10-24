@@ -43,11 +43,11 @@ The following example highlights a typical DataTrails Event, based on a vCon:
     "payload_hash_alg": "SHA-256",
     "payload_preimage_content_type": "application/json",
     "payload_hash_value": "e5e20exxxxxxxxxx78383479f9de138cf71b98b740fd5d7ee3xxxxxxxxxxde05",
+    "subject": "vcon://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "timestamp_declared": "2024-05-07T16:33:29.004994",
     "vcon_operation": "vcon_create",
     "vcon_pipeline": "create-pipeline",
     "vcon_pipeline_version": "1.0.0",
-    "vcon_updated_at": "2024-05-07T16:33:29.004994",
-    "subject": "vcon://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "vcon_draft_version": "00"
   }
 }
@@ -95,14 +95,16 @@ This property may prove to be redundant to the [vcon_operation](#vcon_operation)
 
 The version of the [vcon_pipeline](#vcon_pipeline).
 
-### vcon_updated_at (REQUIRED)
-
-See [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at)
-
 ### subject (REQUIRED)
 
 The [vCon unique identifier](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid).
 Subject is used to align with the [SCITT Protected Header](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:)
+
+### timestamp_declared (REQUIRED)
+
+Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at), capturing the datetime the vCon was updated.
+As vCon processing may take time, and the processing of various steps (Conserver links & chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
+All entries related to the same vCon version (`updated_at` | `hash`), should likely be considered equal in timing.
 
 ## User Agent Headers
 

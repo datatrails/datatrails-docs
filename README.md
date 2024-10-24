@@ -2,7 +2,7 @@
 
 This is the Home of the DataTrails Documentation.
 
-DataTrails provides Provenance as a Service to attest trustworthiness of Assets and boost confidence in digital decisions.  Find out more on our [website](https://DataTrails.ai).
+DataTrails provides Provenance as a Service to attest trustworthiness of data and boost confidence in digital decisions.  Find out more on our [website](https://DataTrails.ai).
 
 ## Contributing
 

@@ -30,5 +30,3 @@ Knowing what state an asset is in, whether or not it is compliant with organizat
 **Verify and confirm security data:** For digital Assets, a lot of the effort spent on lifecycle management will be spent on software and firmware management. DataTrails's 'Witness Statement' approach to creating Asset histories enables statements of _intent_ to be recorded alongside _ground truths_. For example, a claimed software update next to a digitally signed platform attestation proving that it was done.
 
 **Access Policies:** Always try to avoid proliferating Access Policies and make as few as possible with clear user populations and access rights. Generally, all parties will need read access to all the Events in the Asset history but it may be convenient to restrict Event write access to mirror real-world approvers and actors. 
-
-**Compliance Policies:** If a device has a mandatory maintenance schedule (security updates, sensor calibration) then this can be monitored and recorded using a compliance policy.

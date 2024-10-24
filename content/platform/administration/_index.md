@@ -19,7 +19,5 @@ toc: true
       <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
-      <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
-      <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>

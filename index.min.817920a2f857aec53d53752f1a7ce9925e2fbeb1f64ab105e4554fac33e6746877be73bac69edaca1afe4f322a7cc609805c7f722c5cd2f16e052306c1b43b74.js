@@ -85,16 +85,26 @@ This header is independent of the
 <a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 
 <a href="https://github.com/vcon-dev/vcon-server/" target="_blank" rel="noopener">vCon Conserver</a></p>
 <p>For example: (<code>DataTrails-Partner-ID:synsation.io</code>)</p>
-`},{id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service that continuously proves Who Did What When to all data types.</p>
-<p>DataTrails enables enterprises to build trust in data such as documents, images and sound files by ensuring that you know the origin and history of the data that you are using.
-This can also be applied to multi-party Assets such as software and physical items allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
-<p>DataTrails permanently records evidence into an <strong>Immutable Audit Trail</strong> to bring the right level of trust in data for faster, confident decisions with lower business risk by combining:</p>
-<p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.</p>
+`},{id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service to prove the origins and trustworthiness of the data that powers your applications.</p>
+<p>DataTrails enables enterprises to build trust in data such as documents, images and AI models by ensuring that you know the origin and history of the data that you are using.
+This can also be applied to multi-party data such as software and supply chain artifacts allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
+<p>DataTrails permanently records evidence into an <strong>Immutable Audit Trail</strong> to bring a superior level of trust in data for faster, confident decisions with lower business risk by combining:</p>
+<ul>
+<li>
+<p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute detailed sharing policies for provenance metadata.</p>
+</li>
+<li>
 <p><strong>Authenticated Provenance</strong> - Deliver full traceability on all internal and external data sources to speed and assure digital decisions.</p>
-<p><strong>Continuous Accountability</strong> - Instantly auditable evidence “Proves Who Did What When” for any shared Asset to delight your GRC team.</p>
+</li>
+<li>
+<p><strong>Continuous Accountability</strong> - Instantly auditable evidence “Proves Who Did What When” for any shared data to speed audit and root cause investigations.</p>
+</li>
+<li>
 <p><strong>Persistent Integrity</strong> - Create a complete, unbroken, and permanent record of shared Event transactions, delivering continuous assurance for faster digital decisions.</p>
-<p>DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of a piece of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.<br>
-Users of the data can see a full picture of the data’s origin and history and by understanding <em>Who Did What When</em>, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.
+</li>
+</ul>
+<p>DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.</p>
+<p>Users of the data can see a full picture of the data’s origin and history and by understanding <em>Who Did What When</em>, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.
 
 
 <figure class="border-0">
@@ -486,20 +496,27 @@ Also note the environment variables below have been namespaced for DataTrails, a
 </ol>
 `},{id:3,href:"https://docs.datatrails.ai/platform/overview/core-concepts/",title:"Core Concepts",description:"DataTrails Core Concepts",content:`<h2 id="tenancies">Tenancies</h2>
 <p>A Tenancy is an Organization&rsquo;s private area within DataTrails, containing 
-<a href="./#assets">Asset</a> and 
-<a href="./#events">Event</a> data that build over time to create an Audit Trail. The user who created the Tenancy is the Administrator and has full administrative control over everything in that Tenancy. An Administrator can also create granular 
-<a href="./#access-policies">Access Policies</a> which allow data from their Tenancy to be shared to other Tenancies; for example, Organization A would share Asset data from their Tenancy to Organization B&rsquo;s Tenancy.</p>
-<p>Administrators may invite other user accounts into their Tenancy. The invited user needs to have signed up for DataTrails with the same email address as the invite, they will then be added to the Tenancy as a Non-Administrator. Non-Administrators start off with no permissions but can be given specific permissions (including being upgraded to an Administrator) by any existing Administrator in that Tenancy.</p>
+<a href="./#events">Event</a> data that build over time to create Audit Trails. The user who created the Tenancy is by default the Administrator and has full control over everything in that Tenancy. An Administrator can also create granular 
+<a href="./#access-policies">Access Policies</a> which allow Event metadata from their Tenancy to be shared to other Tenancies; for example, Organization A would share supply chain data from their Tenancy to Organization B&rsquo;s Tenancy.</p>
+<p>Administrators may invite other users into their Tenancy. The invited user will start off with no permissions and can then be given specific access rights (including being upgraded to an Administrator) by any existing Administrator in that Tenancy. For more details on this, see 
+<a href="/platform/administration/identity-and-access-management/">Identity and Access Management</a></p>
+<h2 id="events">Events</h2>
+<p>The fundamental purpose of DataTrails, like any transparency service, is to record and prove the origins and authenticity of the data that fuels the modern enterprise. This is achieved through the registration of immutable <em>Events</em> on the platform.</p>
+<p>Events are attestations: individual pieces of evidence recorded as observations or claims about a thing from qualified witnesses. Each Event Record contributes to the 
+<a href="./#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of the Audit Trail by building a rich picture of history.</p>
+<p>Events can never be deleted or modified by anyone, not even administrators of the DataTrails platform. Once asserted, they cannot be shredded, tampered, or backdated.</p>
 <h2 id="assets">Assets</h2>
-<p>Assets are central to DataTrails. Each Asset Record represents <em><strong>a thing</strong></em>; this could be a file, a physical object, a smart device, or even a business process.</p>
-<p>A DataTrails Asset has a collection of attributes that describes its current state and, when combined with a complete life history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document will have the attributes of author, title and a content hash and will have a history of different versions and release dates. A Shipping Container as an Asset might have the attributes of height, width and depth, and have a handling history of movements through ports.
-These are examples of completely different <em><strong>things</strong></em> that can have a Data Trails Audit Trail.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API.</p>
+</div>
+  </blockquote>
+<p>Asset Records represents <em><strong>a thing</strong></em>: this could be a file; a physical object; a smart device; or even a business process. Simply an Asset is just the subject that the Events are talking about.</p>
+<p>A DataTrails Asset acts as a container for Events which share a topic or have a similar relationship. when combined with a complete history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document Asset will trace the evolution of authors, versions and release dates. Modeling a Shipping Container as an Asset might have a handling history of movements through ports. Or the Asset could be something more abstract like all Events from a given day.</p>
+<p>These are examples of completely different <em><strong>things</strong></em> that can have a Data Trails Audit Trail.</p>
 <p>Each Asset has a fixed identity across all stakeholders, ensuring that all relevant parties are collaborating on the same object and see the same history of the Asset at any given time when shared through 
 <a href="./#access-policies">Access Policies</a>.</p>
-<h2 id="events">Events</h2>
-<p>Events are things that happen during an Asset&rsquo;s lifecycle. Each Event Record contributes to the 
-<a href="./#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of the audit trail by enriching the Asset&rsquo;s history. Events can be used to add or update Asset information if they change the Asset&rsquo;s state, but they also have their own attributes to add process detail and rich evidence.</p>
-<p>Events can never be deleted or modified. Events provide details on Asset attributes, such as updating the weight of a shipment, and/or details about the event itself, such as a recording a new document version.</p>
 <h2 id="proving-provenance">Proving Provenance</h2>
 <p>Artifacts and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to knowing the information is secure and trustworthy.</p>
 <p>DataTrails attestations are committed to immutable storage that is underpinned by cryptographically verifiable Merkle Mountain Range data structures for long term verifiability, even when offline.</p>
@@ -535,17 +552,18 @@ These are examples of completely different <em><strong>things</strong></em> that
 <p>By adding all Tenancies to the Merkle Mountain Range (MMR) and signing the root, Events move to the <code>CONFIRMED</code> stage. The signature on the root at once holds DataTrails to account <em>and</em> prevents forks and the Sybil attack mentioned above. Even so, a tiny chance of tampering remains: in principle, multiple MMRs could be signed, creating multiple versions of history.</p>
 <p>To make the whole history and individual events <code>UNEQUIVOCAL</code>, the root hash of the Committed MMR is periodically broadcast so that it is clear that there is one, and only one, version of history to underpin your data authenticity.</p>
 <h2 id="access-policies">Access Policies</h2>
-<p>Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the management of those Assets without compromising security and private information. To ensure stakeholders can access only the Assets and attributes relevant to them, transactions are private by default, unless the Asset was created as a 
-<a href="./#the-public-view">Public Asset</a>. An Administrator defines how many of the Asset&rsquo;s attributes the Access Policy permits a user to see so that they only see what they need to complete a task.</p>
+<p>Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the Audit Trail without compromising security and personal private information. To ensure stakeholders can access only the information relevant to them, Events are private by default, unless posted to a 
+<a href="./#the-public-view">Public Asset</a>. Tenant Administrators define how much of the Audit Trail a user or partner can see so that they only see what they need to complete a task.</p>
+<p>Like any high end transparency service, DataTrails operates a &lsquo;once seen always seen&rsquo; system, so while you remain completely in control of what Audit Trail data you share with your partners, it cannot be deleted or modified later.</p>
 <p>An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.</p>
 <h2 id="the-public-view">The Public View</h2>
-<p>Every Asset has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Other Assets, such as those that meet the requirements of the 
+<p>Every Audit Trail has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Additionally some Trails, such as those that meet the requirements of the 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a>, have a 
 <a href="/platform/overview/public-attestation/">Public View</a> which is visible to everyone.
 The purpose of this view is to allow anyone to verify that the document that they are using is genuine and has not been altered. When the document Audit Trail is combined with 
 <a href="/platform/overview/instaproof/">Instaproof</a> a user of your data can easily find out which version of a document they have and confirm that it is genuine.</p>
 <h2 id="the-golden-thread">The Golden Thread</h2>
-<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence makes up the Data Trails Audit Trail.
+<p>Putting all these concepts together, it is possible to create a Golden Thread of evidence that makes up the Data Trails Audit Trail.
 This has many use cases relating to content authenticity but can also be applied to supply chain integrity and standards compliance, or fact anything where stakeholders need transparency and trust.</p>
 
 
@@ -570,16 +588,23 @@ This has many use cases relating to content authenticity but can also be applied
   
   </div>
 </div>
-`},{id:4,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="assets-and-events">Assets and Events</h2>
-<p>The core tenets of the DataTrails platform are <em>Assets</em> and <em>Events</em>. These are the records that represent the collective &lsquo;Golden Thread&rsquo; of evidence contributed by all stakeholders about a particular thing.</p>
-<p>Assets can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, it can be recorded as a DataTrails Asset.</p>
-<p>Events are a way to provide updates to Assets, building a historical view of the Asset, what has happened and how it got into its current state. These updates in events can be changes to the thing itself, custody of the thing, or even an observation of an interaction with the thing.<br>
-Any interaction with the thing can be significant, from user logins to unexpected restarts or ad-hoc observations. Keeping a record of these Events can build up a picture of how an Asset came to be in its current state and provides crucial insight to future maintenance staff, auditors, and security remediation teams.</p>
-<p>Knowing the current state of an Asset isn&rsquo;t enough: sure, it has software version 3.0 now but when was that installed? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that asset can be answered.</p>
-<p>DataTrails Assets are essentially very simple: a collection of <em>attributes</em> that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.</p>
-<p>DataTrails is not opinionated about Asset content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.</p>
+`},{id:4,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="events">Events</h2>
+<p>The principal objects in the DataTrails platform are <em>Events</em>. These are the records that represent the collective &lsquo;Golden Thread&rsquo; of evidence contributed by all stakeholders about a particular thing.</p>
+<p>That &rsquo;thing&rsquo; really can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it. If there are <em>moments that matter</em> they can be committed to the immutable audit log.</p>
+<p>What defines a moment that matters? It&rsquo;s all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger. Simply looking and knowing the current state of things isn&rsquo;t enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered.</p>
 <p>DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
-<em>The only way to change an Asset attribute is through an Event that records Who Did What When to make that change.</em></p>
+<em>Events cannot be modified once published! No shredding, tampering or backdating is possible without leaving an undeniable trace in the log.</em></p>
+<h3 id="event-attributes">Event Attributes</h3>
+<p>DataTrails Events are essentially very simple: a collection of <em>attributes</em> that describe the Event expressed as a JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.</p>
+<p>DataTrails is not opinionated about Event content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.</p>
+<h3 id="asset-container">Asset Container</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.</p>
+</div>
+  </blockquote>
+<p>Events are registered into collections called <em>Assets</em>. These Assets might represent an individual thing, a class of things, or something more abstract like &lsquo;all Events for this day&rsquo;. Some care should be taken in designing the scheme for this as it will aid in simplifying sharing policies.</p>
 <p>A simple Asset might look like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// Fixed global identity for this Asset
@@ -620,10 +645,9 @@ Any interaction with the thing can be significant, from user logins to unexpecte
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-25T12:40:03Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// Storage and integrity properties - managed by the system
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;LEDGER&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easy traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.</div>
@@ -792,28 +816,36 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
   </blockquote>
 <h2 id="attachments-and-blobs">Attachments and Blobs</h2>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.</div>
+    <div><strong></strong> <p><strong>Note:</strong> DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work and share data in the ways you already share data. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.</p>
+<p>However, in many cases binary files, images and such can form part of that metadata trail. For such cases, DataTrails supports the uploading of Blobs which are then protected by the immutable log with the same strength and integrity as other Event attributes.</p>
+</div>
   </blockquote>
 <p>Attachments in DataTrails enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.</p>
-<p>Adding an attachment to an Asset or Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:</p>
+<p>Adding an attachment to an Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:</p>
 <ul>
 <li>a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection</li>
 <li>a PDF of a safety conformance report to support a maintenance event</li>
 <li>a software manifest to support an update</li>
 <li>an x-ray image</li>
 </ul>
-<p>Attaching rich evidence to an Asset or Event is a two step process:</p>
+<p>Attaching rich evidence to an Event is a two step process:</p>
 <ol>
 <li>First a Binary Large OBject (BLOB) is uploaded</li>
-<li>Then a reference to that blob is attached to the Event or Asset.</li>
+<li>Then a reference to that blob is attached to the Event.</li>
 </ol>
 <p>To add attachments to an Event, simply specify an attribute in the <code>event_attributes</code> of the POST request with a dictionary including the blob information and with <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code>. To add or update an attachment on an Asset, put the attachment attribute in the <code>asset_attributes</code> of the request instead.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.</p>
+</div>
+  </blockquote>
 <p>For more detailed information on Attachments and how to implement them, please refer to 
 <a href="/developers/api-reference/blobs-api/">the Blobs API Reference</a> and 
 <a href="/developers/api-reference/attachments-api/">the Attachments API Reference</a></p>
 <h3 id="the-primary-image">The Primary Image</h3>
-<p>Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: <code>arc_primary_image</code>.
-If an asset has an attachment attribute named <code>arc_primary_image</code>, then this will be used by the SaaS user interface and other tools to represent the asset.</p>
+<p>Attachments on Assets and Events are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: <code>arc_primary_image</code>.
+If an Asset has an attachment attribute named <code>arc_primary_image</code>, then this will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.</div>
   </blockquote>
@@ -821,36 +853,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
     <div><strong></strong> <strong>Note:</strong> While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.</div>
   </blockquote>
 <h2 id="geolocation">Geolocation</h2>
-<p>DataTrails supports 2 different main concepts of geolocation, and it&rsquo;s important to choose the correct one for your use case.</p>
-<ul>
-<li><em>Locations</em> on Assets, which enable grouping of Assets based on some common management (&ldquo;All these devices live in the Basingstoke factory&rdquo;)</li>
-<li><em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;)</li>
-</ul>
-<p>Essentially Locations give you groupings:
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#locations_grouping" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1896" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1896" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Grouping Assets by location</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="locations_grouping" tabindex="-1" aria-labelledby="locations_grouping" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" width="3596" height="1896" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>Whereas Event coordinates give you tracking:
+<p>DataTrails supports <em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;):</p>
 
 
 <figure class="border-0">
@@ -873,18 +876,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
       </div>
   
   </div>
-</div></p>
-<h3 id="asset-locations">Asset Locations</h3>
-<blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.</div>
-  </blockquote>
-<p>Assets in DataTrails can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the DataTrails UI.</p>
-<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
-<p>Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be better and more scalable to use your own custom attribute to link Assets.</div>
-  </blockquote>
-<h3 id="gis-coordinates-on-events">GIS Coordinates on Events</h3>
+</div>
 <p>If you&rsquo;re wanting to track the movement of an Asset, or record an audit trail of <em>where</em> a particular Event happens, you can add <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes to the <code>event_attributes</code>.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="p">{</span>
@@ -899,50 +891,6 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><p>Once applied the GIS coordinates on Events are immutable.</p>
-<h2 id="compliance-policies">Compliance Policies</h2>
-<p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Creation and editing of Compliance Policies is only supported through the API.</div>
-  </blockquote>
-Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play, every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An Asset that is safe in one context may not be in another.</p>
-<p>By maintaining a complete traceable record of Who Did What When to a Thing, DataTrails makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.</p>
-<p>All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset records, piece together the important parts, and analyze the meaning.</p>
-<p>But what if the same information could be used for real-time decision-making that might avert an incident? This is where DataTrails’ “compliance posture” APIs come in. These take the thinking and processing burden off the client by providing a single, simple API call to answer the complex question: “given all you know about this asset, should I trust it right now?”. Additionally, and crucially for sensitive use cases, the yes or no answer comes with a detailed defensible reason why which can be inspected by relevant stakeholders during or after the event.</p>
-<p>When put all together, this enables high quality decision making based on the best available data, even giving confidence to automated or AI systems to play a full part in operations. Assets can be checked as part of access control logic, prior to accepting data or commands from them, accepting a shipment, or anything else that is important to your business. Crucially, each stakeholder is able to define their own view on Compliance, meaning they can each apply their own unique lens and business concerns to the same evidence base.</p>
-<h3 id="compliance-policy-configuration">Compliance Policy Configuration</h3>
-<p>In order to make these trust decisions, DataTrails can be configured with Compliance Policies to check Assets against. These policies specify things like tolerance for vulnerability windows, maintenance SLAs, or detecting unusual values for attributes. For example:</p>
-<ul>
-<li>“Assets must be patched within 40 days of vulnerability notification”</li>
-<li>“Maintenance calls must be answered within 72 hours”</li>
-<li>&ldquo;rad level must be less than 7&rdquo;</li>
-</ul>
-<p>Policies can also declare relative tolerances,  such as:</p>
-<ul>
-<li>&ldquo;No shipping transfer should be more than 10% longer than the average time&rdquo;</li>
-<li>&ldquo;The reported weight of this container should be within 1 standard deviation of the historic mean&rdquo;</li>
-</ul>
-<p>Individual assets either pass or fail, and organizations can calculate their overall security/compliance posture based on what proportion of their assets are breaching their policy set. Compliance signals can also be used to identify where risk lies in an organization and help to prioritize remedial activities.</p>
-<h4 id="types-of-compliance-policy">Types of Compliance Policy</h4>
-<p>As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:</p>
-<ul>
-<li><strong>COMPLIANCE RICHNESS</strong>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br>
-For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</li>
-<li><strong>COMPLIANCE SINCE</strong>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br>
-For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</li>
-<li><strong>COMPLIANCE CURRENT OUTSTANDING</strong>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br>
-For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</li>
-<li><strong>COMPLIANCE_PERIOD_OUTSTANDING</strong>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br>
-For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</li>
-<li><strong>COMPLIANCE_DYNAMIC_TOLERANCE</strong>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br>
-For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</li>
-</ul>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</div>
-  </blockquote>
-<h2 id="perspectives">Perspectives</h2>
-<p>In the Asset example above there is an <code>at_time</code> property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with DataTrails it is possible to go back in time and ask the question &ldquo;what would that asset have looked like to me had I looked at it last week/last year/before the incident?&rdquo;. Using its high integrity record of Asset lineage, DataTrails can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.</p>
-<p>To do this, simply add <code>at_time=TIMESTAMP</code> to your query. For example, to check the state an Asset was in at 15:30 UTC on 23rd June:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer </span><span class="k">$(</span>cat .auth_token<span class="k">)</span><span class="s2">&#34;</span> -H <span class="s2">&#34;Content-Type: application/json&#34;</span> https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time<span class="o">=</span>2021-06-23T15:30:00Z <span class="p">|</span> jq 
-</span></span></code></pre></div><p>Compliance calls can be similarly modified to answer questions like &ldquo;had I asked this question at the time, what would the answer have been?&rdquo; or &ldquo;had the AI asked this question, would it have made a better decision?&rdquo;. This can be done by adding a <code>compliant_at</code> timestamp to the compliance request.</p>
 <h2 id="thats-it">That&rsquo;s it</h2>
 <p>These are all the basics of DataTrails. With this knowledge you can now 
 <a href="/developers/api-reference/">jump straight into the API</a> or try other topics on the 
@@ -6326,18 +6274,20 @@ Reproducing the Stack Start needs details from
 </span></span></code></pre></div>`},{id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
-<p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
+<p>Attribute-Based Access Control (ABAC) policies can be used to control access Audit Trails and Events within a single organization.</p>
 <p>Specifically, ABAC policies are created by Administrators to share information with Non-Administrators in the same Tenancy.</p>
 <p>ABAC policies can be granular, with users only allowed to see single attributes at a time.</p>
-<p>It is possible to control policies based on types of Assets, their location, and whether Users can read or write any information in an Asset.</p>
-<p>By default, no Non-Administrators will see any existing Assets and Events unless an Administrator explicitly creates an ABAC policy to allow it.</p>
+<p>It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type and location (eg: &ldquo;all models trained in Gondwalaland&rdquo;)</p>
+<p>By default, new users will not see any existing Trails or Events until an Administrator explicitly creates an ABAC policy to allow them.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To create an ABAC policy, first 
 <a href="/platform/administration/identity-and-access-management/#how-do-i-add-users-to-my-organization">add users to your tenancy</a>.</div>
   </blockquote>
 <h2 id="creating-an-abac-policy">Creating an ABAC Policy</h2>
 <p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor <code>Archivist Internal</code>.</div>
+    <div><strong></strong> <strong>Note:</strong> Access policies are applied to the Trail and are themselves transparent.
+When a policy is created or updated, an Event will be recorded in the audit trail of matching Assets from the Actor <code>Archivist Internal</code> to let people know if their access has changed.
+This prevents &rsquo;log black-out&rsquo; attacks.</div>
   </blockquote>
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.</p>
 <p>We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create <code>Inspect</code> Events.</p>
@@ -6435,7 +6385,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </code></pre>
   </div>
 </div>
-<p>Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type <code>Shipping Container</code>.</p>
+<p>Here you can apply policy filters to apply to specific Trails or groups of Trails. In this case, we shall apply the policy to any Asset with the type <code>Shipping Container</code>.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACFilter" img class="img-fluid responsive" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter.png" width="850" height="484" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_200x0_resize_box_3.png 200w" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter.png" width="850" height="484" alt="Rectangle"></noscript>
@@ -6452,7 +6402,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </div>
 </div>
   <div id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1">
-<p>Filters can use <code>and</code> or <code>or</code> to categorize Assets. You may also use filters on attribute values, such as <code>=</code> and <code>!=</code> for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:</p>
+<p>Filters can use <code>and</code> or <code>or</code> to define scope. You may also use filters on attribute values, such as <code>=</code> and <code>!=</code> for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;attributes.arc_home_location_identity!=*&#34;</span>
 </span></span></code></pre></div><p>The <code>*</code> is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.</p>
 <p>Following our Shipping Container example, this is how we would set our Asset filters:</p>
@@ -6479,7 +6429,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </p>
 </li>
 <li>
-<p>Enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access
+<p>Enter the desired <code>Permissions</code> to set user&rsquo;s access
 <ul class="nav nav-tabs" id="permissions_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -6488,7 +6438,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_abac-1" type="button" role="tab" aria-controls="permissions_abac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="permissions_abac"><div id="permissions_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_abac-0">
-<p>We select the <code>Permissions</code> Tab to set Users&rsquo; Asset and Event attribute access policy.</p>
+<p>We select the <code>Permissions</code> Tab to set Users&rsquo; access policy.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACForm" img class="img-fluid responsive" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm.png" width="683" height="815" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_500x0_resize_box_3.png 500w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_500x0_resize_box_3.png 500w" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm.png" width="683" height="815" alt="Rectangle"></noscript>
@@ -23601,8 +23551,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
-      <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
-      <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
 `},{id:48,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
@@ -23697,8 +23645,8 @@ If you are looking for a simple way to test our API you might prefer our
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
-    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering the first Event of your audit trail.</p>
-    <p>The Administration section will show you how to manage your Tenancy and control access to your Assets.
+    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the main concepts and take you through registering the first Events of your Audit Trail.</p>
+    <p>The Administration section will show you how to manage your Tenancy and control access to the Events you create.
     <p> Check out the sub-sections below for more information!</p>
   </div>
 </div>
@@ -23708,7 +23656,7 @@ If you are looking for a simple way to test our API you might prefer our
     <a href="/platform/overview/introduction/">Overview &rarr;</a><br>
     Core concepts and tasks<br>
     <a href="/platform/administration/identity-and-access-management/">Administration &rarr;</a><br>
-    Create users, set access rights and share Assets
+    Create users, set access rights and share Events
     </div>
   </div>
 </section>
@@ -23799,16 +23747,26 @@ This header is independent of the
 <a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 
 <a href="https://github.com/vcon-dev/vcon-server/" target="_blank" rel="noopener">vCon Conserver</a></p>
 <p>For example: (<code>DataTrails-Partner-ID:synsation.io</code>)</p>
-`}).add({id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service that continuously proves Who Did What When to all data types.</p>
-<p>DataTrails enables enterprises to build trust in data such as documents, images and sound files by ensuring that you know the origin and history of the data that you are using.
-This can also be applied to multi-party Assets such as software and physical items allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
-<p>DataTrails permanently records evidence into an <strong>Immutable Audit Trail</strong> to bring the right level of trust in data for faster, confident decisions with lower business risk by combining:</p>
-<p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute complex data sharing policies.</p>
+`}).add({id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service to prove the origins and trustworthiness of the data that powers your applications.</p>
+<p>DataTrails enables enterprises to build trust in data such as documents, images and AI models by ensuring that you know the origin and history of the data that you are using.
+This can also be applied to multi-party data such as software and supply chain artifacts allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
+<p>DataTrails permanently records evidence into an <strong>Immutable Audit Trail</strong> to bring a superior level of trust in data for faster, confident decisions with lower business risk by combining:</p>
+<ul>
+<li>
+<p><strong>Metadata Governance</strong> - Empower the right people in organizations to set, enforce, and execute detailed sharing policies for provenance metadata.</p>
+</li>
+<li>
 <p><strong>Authenticated Provenance</strong> - Deliver full traceability on all internal and external data sources to speed and assure digital decisions.</p>
-<p><strong>Continuous Accountability</strong> - Instantly auditable evidence “Proves Who Did What When” for any shared Asset to delight your GRC team.</p>
+</li>
+<li>
+<p><strong>Continuous Accountability</strong> - Instantly auditable evidence “Proves Who Did What When” for any shared data to speed audit and root cause investigations.</p>
+</li>
+<li>
 <p><strong>Persistent Integrity</strong> - Create a complete, unbroken, and permanent record of shared Event transactions, delivering continuous assurance for faster digital decisions.</p>
-<p>DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of a piece of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.<br>
-Users of the data can see a full picture of the data’s origin and history and by understanding <em>Who Did What When</em>, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.
+</li>
+</ul>
+<p>DataTrails delivers assured metadata in a single line of code in a way that makes recording and auditing the full lifecycle of data simple. Any authorized participant (including a user, a software agent or an endpoint device) can register the Events that they are involved in.</p>
+<p>Users of the data can see a full picture of the data’s origin and history and by understanding <em>Who Did What When</em>, human actors and software/AI systems can make stronger real-time judgments about the trustworthiness of your data.
 
 
 <figure class="border-0">
@@ -24200,20 +24158,27 @@ Also note the environment variables below have been namespaced for DataTrails, a
 </ol>
 `}).add({id:3,href:"https://docs.datatrails.ai/platform/overview/core-concepts/",title:"Core Concepts",description:"DataTrails Core Concepts",content:`<h2 id="tenancies">Tenancies</h2>
 <p>A Tenancy is an Organization&rsquo;s private area within DataTrails, containing 
-<a href="./#assets">Asset</a> and 
-<a href="./#events">Event</a> data that build over time to create an Audit Trail. The user who created the Tenancy is the Administrator and has full administrative control over everything in that Tenancy. An Administrator can also create granular 
-<a href="./#access-policies">Access Policies</a> which allow data from their Tenancy to be shared to other Tenancies; for example, Organization A would share Asset data from their Tenancy to Organization B&rsquo;s Tenancy.</p>
-<p>Administrators may invite other user accounts into their Tenancy. The invited user needs to have signed up for DataTrails with the same email address as the invite, they will then be added to the Tenancy as a Non-Administrator. Non-Administrators start off with no permissions but can be given specific permissions (including being upgraded to an Administrator) by any existing Administrator in that Tenancy.</p>
+<a href="./#events">Event</a> data that build over time to create Audit Trails. The user who created the Tenancy is by default the Administrator and has full control over everything in that Tenancy. An Administrator can also create granular 
+<a href="./#access-policies">Access Policies</a> which allow Event metadata from their Tenancy to be shared to other Tenancies; for example, Organization A would share supply chain data from their Tenancy to Organization B&rsquo;s Tenancy.</p>
+<p>Administrators may invite other users into their Tenancy. The invited user will start off with no permissions and can then be given specific access rights (including being upgraded to an Administrator) by any existing Administrator in that Tenancy. For more details on this, see 
+<a href="/platform/administration/identity-and-access-management/">Identity and Access Management</a></p>
+<h2 id="events">Events</h2>
+<p>The fundamental purpose of DataTrails, like any transparency service, is to record and prove the origins and authenticity of the data that fuels the modern enterprise. This is achieved through the registration of immutable <em>Events</em> on the platform.</p>
+<p>Events are attestations: individual pieces of evidence recorded as observations or claims about a thing from qualified witnesses. Each Event Record contributes to the 
+<a href="./#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of the Audit Trail by building a rich picture of history.</p>
+<p>Events can never be deleted or modified by anyone, not even administrators of the DataTrails platform. Once asserted, they cannot be shredded, tampered, or backdated.</p>
 <h2 id="assets">Assets</h2>
-<p>Assets are central to DataTrails. Each Asset Record represents <em><strong>a thing</strong></em>; this could be a file, a physical object, a smart device, or even a business process.</p>
-<p>A DataTrails Asset has a collection of attributes that describes its current state and, when combined with a complete life history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document will have the attributes of author, title and a content hash and will have a history of different versions and release dates. A Shipping Container as an Asset might have the attributes of height, width and depth, and have a handling history of movements through ports.
-These are examples of completely different <em><strong>things</strong></em> that can have a Data Trails Audit Trail.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API.</p>
+</div>
+  </blockquote>
+<p>Asset Records represents <em><strong>a thing</strong></em>: this could be a file; a physical object; a smart device; or even a business process. Simply an Asset is just the subject that the Events are talking about.</p>
+<p>A DataTrails Asset acts as a container for Events which share a topic or have a similar relationship. when combined with a complete history of Events that brought it to that state, we have an immutable Audit Trail. DataTrails Asset attributes track anything deemed important. For example, a Document Asset will trace the evolution of authors, versions and release dates. Modeling a Shipping Container as an Asset might have a handling history of movements through ports. Or the Asset could be something more abstract like all Events from a given day.</p>
+<p>These are examples of completely different <em><strong>things</strong></em> that can have a Data Trails Audit Trail.</p>
 <p>Each Asset has a fixed identity across all stakeholders, ensuring that all relevant parties are collaborating on the same object and see the same history of the Asset at any given time when shared through 
 <a href="./#access-policies">Access Policies</a>.</p>
-<h2 id="events">Events</h2>
-<p>Events are things that happen during an Asset&rsquo;s lifecycle. Each Event Record contributes to the 
-<a href="./#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of the audit trail by enriching the Asset&rsquo;s history. Events can be used to add or update Asset information if they change the Asset&rsquo;s state, but they also have their own attributes to add process detail and rich evidence.</p>
-<p>Events can never be deleted or modified. Events provide details on Asset attributes, such as updating the weight of a shipment, and/or details about the event itself, such as a recording a new document version.</p>
 <h2 id="proving-provenance">Proving Provenance</h2>
 <p>Artifacts and Events are core to the DataTrails platform, and being able to quickly demonstrate proof that these artifacts have not been tampered is key to knowing the information is secure and trustworthy.</p>
 <p>DataTrails attestations are committed to immutable storage that is underpinned by cryptographically verifiable Merkle Mountain Range data structures for long term verifiability, even when offline.</p>
@@ -24249,17 +24214,18 @@ These are examples of completely different <em><strong>things</strong></em> that
 <p>By adding all Tenancies to the Merkle Mountain Range (MMR) and signing the root, Events move to the <code>CONFIRMED</code> stage. The signature on the root at once holds DataTrails to account <em>and</em> prevents forks and the Sybil attack mentioned above. Even so, a tiny chance of tampering remains: in principle, multiple MMRs could be signed, creating multiple versions of history.</p>
 <p>To make the whole history and individual events <code>UNEQUIVOCAL</code>, the root hash of the Committed MMR is periodically broadcast so that it is clear that there is one, and only one, version of history to underpin your data authenticity.</p>
 <h2 id="access-policies">Access Policies</h2>
-<p>Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the management of those Assets without compromising security and private information. To ensure stakeholders can access only the Assets and attributes relevant to them, transactions are private by default, unless the Asset was created as a 
-<a href="./#the-public-view">Public Asset</a>. An Administrator defines how many of the Asset&rsquo;s attributes the Access Policy permits a user to see so that they only see what they need to complete a task.</p>
+<p>Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history for any Asset. It is important that every participant be able to see and contribute to the Audit Trail without compromising security and personal private information. To ensure stakeholders can access only the information relevant to them, Events are private by default, unless posted to a 
+<a href="./#the-public-view">Public Asset</a>. Tenant Administrators define how much of the Audit Trail a user or partner can see so that they only see what they need to complete a task.</p>
+<p>Like any high end transparency service, DataTrails operates a &lsquo;once seen always seen&rsquo; system, so while you remain completely in control of what Audit Trail data you share with your partners, it cannot be deleted or modified later.</p>
 <p>An Attribute-Based Access Control (ABAC) policy is used to share with Non-Administrators within a Tenancy. An Organization-Based Access Control (OBAC) policy is used to share with the Administrators of another Tenancy. The Administrator of the external Tenancy may then use an ABAC policy to grant permissions to the relevant Non-Administrators of their Tenancy. In both cases, attribute-specific read and write access can be granted using fine-grained controls.</p>
 <h2 id="the-public-view">The Public View</h2>
-<p>Every Asset has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Other Assets, such as those that meet the requirements of the 
+<p>Every Audit Trail has a private view which is only visible to Tenancy Administrators and those who are given access through an Access Policy. Additionally some Trails, such as those that meet the requirements of the 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a>, have a 
 <a href="/platform/overview/public-attestation/">Public View</a> which is visible to everyone.
 The purpose of this view is to allow anyone to verify that the document that they are using is genuine and has not been altered. When the document Audit Trail is combined with 
 <a href="/platform/overview/instaproof/">Instaproof</a> a user of your data can easily find out which version of a document they have and confirm that it is genuine.</p>
 <h2 id="the-golden-thread">The Golden Thread</h2>
-<p>Using the four concepts of Tenancy, Assets, Events and Access Policies it is possible to create a Golden Thread of evidence makes up the Data Trails Audit Trail.
+<p>Putting all these concepts together, it is possible to create a Golden Thread of evidence that makes up the Data Trails Audit Trail.
 This has many use cases relating to content authenticity but can also be applied to supply chain integrity and standards compliance, or fact anything where stakeholders need transparency and trust.</p>
 
 
@@ -24284,16 +24250,23 @@ This has many use cases relating to content authenticity but can also be applied
   
   </div>
 </div>
-`}).add({id:4,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="assets-and-events">Assets and Events</h2>
-<p>The core tenets of the DataTrails platform are <em>Assets</em> and <em>Events</em>. These are the records that represent the collective &lsquo;Golden Thread&rsquo; of evidence contributed by all stakeholders about a particular thing.</p>
-<p>Assets can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, it can be recorded as a DataTrails Asset.</p>
-<p>Events are a way to provide updates to Assets, building a historical view of the Asset, what has happened and how it got into its current state. These updates in events can be changes to the thing itself, custody of the thing, or even an observation of an interaction with the thing.<br>
-Any interaction with the thing can be significant, from user logins to unexpected restarts or ad-hoc observations. Keeping a record of these Events can build up a picture of how an Asset came to be in its current state and provides crucial insight to future maintenance staff, auditors, and security remediation teams.</p>
-<p>Knowing the current state of an Asset isn&rsquo;t enough: sure, it has software version 3.0 now but when was that installed? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that asset can be answered.</p>
-<p>DataTrails Assets are essentially very simple: a collection of <em>attributes</em> that describe the Asset expressed as a standard JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.</p>
-<p>DataTrails is not opinionated about Asset content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.</p>
+`}).add({id:4,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="events">Events</h2>
+<p>The principal objects in the DataTrails platform are <em>Events</em>. These are the records that represent the collective &lsquo;Golden Thread&rsquo; of evidence contributed by all stakeholders about a particular thing.</p>
+<p>That &rsquo;thing&rsquo; really can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it. If there are <em>moments that matter</em> they can be committed to the immutable audit log.</p>
+<p>What defines a moment that matters? It&rsquo;s all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger. Simply looking and knowing the current state of things isn&rsquo;t enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered.</p>
 <p>DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
-<em>The only way to change an Asset attribute is through an Event that records Who Did What When to make that change.</em></p>
+<em>Events cannot be modified once published! No shredding, tampering or backdating is possible without leaving an undeniable trace in the log.</em></p>
+<h3 id="event-attributes">Event Attributes</h3>
+<p>DataTrails Events are essentially very simple: a collection of <em>attributes</em> that describe the Event expressed as a JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.</p>
+<p>DataTrails is not opinionated about Event content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.</p>
+<h3 id="asset-container">Asset Container</h3>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.</p>
+</div>
+  </blockquote>
+<p>Events are registered into collections called <em>Assets</em>. These Assets might represent an individual thing, a class of things, or something more abstract like &lsquo;all Events for this day&rsquo;. Some care should be taken in designing the scheme for this as it will aid in simplifying sharing policies.</p>
 <p>A simple Asset might look like this:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">   <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="c1">// Fixed global identity for this Asset
@@ -24334,10 +24307,9 @@ Any interaction with the thing can be significant, from user logins to unexpecte
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2021-06-25T12:40:03Z&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// Storage and integrity properties - managed by the system
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;CONFIRMED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;LEDGER&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easy traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.</div>
@@ -24506,28 +24478,36 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
   </blockquote>
 <h2 id="attachments-and-blobs">Attachments and Blobs</h2>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.</div>
+    <div><strong></strong> <p><strong>Note:</strong> DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work and share data in the ways you already share data. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.</p>
+<p>However, in many cases binary files, images and such can form part of that metadata trail. For such cases, DataTrails supports the uploading of Blobs which are then protected by the immutable log with the same strength and integrity as other Event attributes.</p>
+</div>
   </blockquote>
 <p>Attachments in DataTrails enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.</p>
-<p>Adding an attachment to an Asset or Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:</p>
+<p>Adding an attachment to an Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:</p>
 <ul>
 <li>a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection</li>
 <li>a PDF of a safety conformance report to support a maintenance event</li>
 <li>a software manifest to support an update</li>
 <li>an x-ray image</li>
 </ul>
-<p>Attaching rich evidence to an Asset or Event is a two step process:</p>
+<p>Attaching rich evidence to an Event is a two step process:</p>
 <ol>
 <li>First a Binary Large OBject (BLOB) is uploaded</li>
-<li>Then a reference to that blob is attached to the Event or Asset.</li>
+<li>Then a reference to that blob is attached to the Event.</li>
 </ol>
 <p>To add attachments to an Event, simply specify an attribute in the <code>event_attributes</code> of the POST request with a dictionary including the blob information and with <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code>. To add or update an attachment on an Asset, put the attachment attribute in the <code>asset_attributes</code> of the request instead.</p>
+<blockquote class="note callout">
+    <div><strong></strong> <p><strong>Note:</strong> Assets will soon be deprecated for a more flexible and powerful concept of <em>Trails</em>.</p>
+<p>The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of <em>what happened when</em> or <em>who said what about what</em>.</p>
+<p>To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable <code>asset_attributes</code>. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.</p>
+</div>
+  </blockquote>
 <p>For more detailed information on Attachments and how to implement them, please refer to 
 <a href="/developers/api-reference/blobs-api/">the Blobs API Reference</a> and 
 <a href="/developers/api-reference/attachments-api/">the Attachments API Reference</a></p>
 <h3 id="the-primary-image">The Primary Image</h3>
-<p>Attachments on Assets are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: <code>arc_primary_image</code>.
-If an asset has an attachment attribute named <code>arc_primary_image</code>, then this will be used by the SaaS user interface and other tools to represent the asset.</p>
+<p>Attachments on Assets and Events are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: <code>arc_primary_image</code>.
+If an Asset has an attachment attribute named <code>arc_primary_image</code>, then this will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.</div>
   </blockquote>
@@ -24535,36 +24515,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
     <div><strong></strong> <strong>Note:</strong> While Attachments are generally expected to be unique, the same attachment can be applied to multiple assets, such as the case of a process manual PDF.</div>
   </blockquote>
 <h2 id="geolocation">Geolocation</h2>
-<p>DataTrails supports 2 different main concepts of geolocation, and it&rsquo;s important to choose the correct one for your use case.</p>
-<ul>
-<li><em>Locations</em> on Assets, which enable grouping of Assets based on some common management (&ldquo;All these devices live in the Basingstoke factory&rdquo;)</li>
-<li><em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;)</li>
-</ul>
-<p>Essentially Locations give you groupings:
-
-
-<figure class="border-0">
-  
-  <input type="image" data-bs-toggle="modal" data-bs-target="#locations_grouping" img class="img-fluid responsive" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1896" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" src="/platform/overview/advanced-concepts/locations_grouping.png" width="3596" height="1896" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Grouping Assets by location</em></figcaption>
-</figure>
-
-
-
-
-
-<div class="modal fade" id="locations_grouping" tabindex="-1" aria-labelledby="locations_grouping" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    
-      <div class="modal-body">
-        
-        <img class="img-fluid lazyload responsive" data-sizes="auto" src="/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/overview/advanced-concepts/locations_grouping_hu875013484c590c001bdf8577c68a6105_661938_200x0_resize_box_3.png 200w" width="3596" height="1896" alt="Rectangle">
-      </div>
-  
-  </div>
-</div></p>
-<p>Whereas Event coordinates give you tracking:
+<p>DataTrails supports <em>GIS coordinates</em> on Events, which enable recording of exactly where an event took place, and when analyzed together can show the movement of an Asset (&ldquo;This was scanned in London, and later sold in Manchester&rdquo;):</p>
 
 
 <figure class="border-0">
@@ -24587,18 +24538,7 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
       </div>
   
   </div>
-</div></p>
-<h3 id="asset-locations">Asset Locations</h3>
-<blockquote class="caution callout">
-    <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead.</div>
-  </blockquote>
-<p>Assets in DataTrails can be arranged into locations, which allows virtual assets (eg digital twins) to be grouped together in a physical context (eg a single plant location). Locations have full 6-digit decimal latitude and longitude components along with full address details allowing high-precision placement on any map renderer or GIS software you wish to link them to. It is not required for assets to be associated with a location, but it is a useful way to group assets in the same physical location and provides for numerous convenience functions in the DataTrails UI.</p>
-<p>This enables users of the system to quickly identify the answers to questions such as “how many PLCs in the Greyslake plant need to be updated?”, or “who was the last person to touch any device in the Cape Town facility?”. Locations support custom attributes which can be defined and used for any purpose by the user. This enables storage of a mailing address, phone number, or contact details of the site manager, for example.</p>
-<p>Locations are editable and deletable as much as you want. Their references are stored on the DLT but the actual objects are not.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> If your use case does not concern physical sites like factory plant locations or offices it is still possible to use locations to logically group related Assets together. However, in this instance it is likely to be better and more scalable to use your own custom attribute to link Assets.</div>
-  </blockquote>
-<h3 id="gis-coordinates-on-events">GIS Coordinates on Events</h3>
+</div>
 <p>If you&rsquo;re wanting to track the movement of an Asset, or record an audit trail of <em>where</em> a particular Event happens, you can add <code>arc_gis_lat</code> and <code>arc_gis_lng</code> attributes to the <code>event_attributes</code>.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="p">{</span>
@@ -24613,50 +24553,6 @@ If an asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><p>Once applied the GIS coordinates on Events are immutable.</p>
-<h2 id="compliance-policies">Compliance Policies</h2>
-<p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Creation and editing of Compliance Policies is only supported through the API.</div>
-  </blockquote>
-Trust is subjective. Compliance is a judgement call. No matter what security technology you have in play, every trust decision you make will depend on the circumstances: who is accessing what; where they’re coming from; how sensitive an operation they’re attempting; the consequences of getting it wrong. An Asset that is safe in one context may not be in another.</p>
-<p>By maintaining a complete traceable record of Who Did What When to a Thing, DataTrails makes it possible for any authorized stakeholder to quickly and easily verify that critical processes have been followed and recorded correctly.  And if they weren’t, the record makes it easy to discover where things went wrong and what to fix. For instance, missed or late maintenance rounds can be detected simply by spotting gaps in the maintenance record; cyber vulnerable devices can be found by comparing ideal baselines with patching records; out-of-order process execution and handling violations are visible to all; and back-dating is automatically detectable.</p>
-<p>All of this is very valuable in audit and RCA situations after an incident, where there is time to collect together Asset records, piece together the important parts, and analyze the meaning.</p>
-<p>But what if the same information could be used for real-time decision-making that might avert an incident? This is where DataTrails’ “compliance posture” APIs come in. These take the thinking and processing burden off the client by providing a single, simple API call to answer the complex question: “given all you know about this asset, should I trust it right now?”. Additionally, and crucially for sensitive use cases, the yes or no answer comes with a detailed defensible reason why which can be inspected by relevant stakeholders during or after the event.</p>
-<p>When put all together, this enables high quality decision making based on the best available data, even giving confidence to automated or AI systems to play a full part in operations. Assets can be checked as part of access control logic, prior to accepting data or commands from them, accepting a shipment, or anything else that is important to your business. Crucially, each stakeholder is able to define their own view on Compliance, meaning they can each apply their own unique lens and business concerns to the same evidence base.</p>
-<h3 id="compliance-policy-configuration">Compliance Policy Configuration</h3>
-<p>In order to make these trust decisions, DataTrails can be configured with Compliance Policies to check Assets against. These policies specify things like tolerance for vulnerability windows, maintenance SLAs, or detecting unusual values for attributes. For example:</p>
-<ul>
-<li>“Assets must be patched within 40 days of vulnerability notification”</li>
-<li>“Maintenance calls must be answered within 72 hours”</li>
-<li>&ldquo;rad level must be less than 7&rdquo;</li>
-</ul>
-<p>Policies can also declare relative tolerances,  such as:</p>
-<ul>
-<li>&ldquo;No shipping transfer should be more than 10% longer than the average time&rdquo;</li>
-<li>&ldquo;The reported weight of this container should be within 1 standard deviation of the historic mean&rdquo;</li>
-</ul>
-<p>Individual assets either pass or fail, and organizations can calculate their overall security/compliance posture based on what proportion of their assets are breaching their policy set. Compliance signals can also be used to identify where risk lies in an organization and help to prioritize remedial activities.</p>
-<h4 id="types-of-compliance-policy">Types of Compliance Policy</h4>
-<p>As with Assets and Events, Compliance Policies are very flexible and can be configured to answer a wide range of business problems. The following categories of policy are supported:</p>
-<ul>
-<li><strong>COMPLIANCE RICHNESS</strong>: This Compliance Policy checks whether a specific attribute of an Asset is within acceptable bounds.<br>
-For example, &ldquo;Weight attribute must be less than 1000 kg&rdquo;</li>
-<li><strong>COMPLIANCE SINCE</strong>: This Compliance Policy checks if the time since the last occurrence of a specific Event Type has elapsed a specified threshold.<br>
-For example, &ldquo;Time since last Maintenance must be less than 72 hours&rdquo;</li>
-<li><strong>COMPLIANCE CURRENT OUTSTANDING</strong>: This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding event.<br>
-For example, checking there are no outstanding &ldquo;Maintenance Request&rdquo; Events that are not addressed by an associated &ldquo;Maintenance Performed&rdquo; Event.</li>
-<li><strong>COMPLIANCE_PERIOD_OUTSTANDING</strong>: This Compliance Policy will only pass if the time between a pair of correlated events did not exceed the defined threshold.<br>
-For example, a policy checking that the time between &ldquo;Maintenance Request&rdquo; and  &ldquo;Maintenance Performed&rdquo; Events does not exceed the maximum 72 hours.</li>
-<li><strong>COMPLIANCE_DYNAMIC_TOLERANCE</strong>: This Compliance Policy will only pass if the time between a pair of correlated events or the value of an attribute does not exceed the a variability from the usually observed values.<br>
-For example, a policy checking that maintenance times are not considerably longer than normal, or the weight of a container is not much less than the typical average.</li>
-</ul>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</div>
-  </blockquote>
-<h2 id="perspectives">Perspectives</h2>
-<p>In the Asset example above there is an <code>at_time</code> property, which reflects a date and time at which these attributes and values were contemporary. Usually this will just be the current system time, but with DataTrails it is possible to go back in time and ask the question &ldquo;what would that asset have looked like to me had I looked at it last week/last year/before the incident?&rdquo;. Using its high integrity record of Asset lineage, DataTrails can give clear and faithful answers to those questions with no fear of backdating, forgery, or repudiation getting in the way.</p>
-<p>To do this, simply add <code>at_time=TIMESTAMP</code> to your query. For example, to check the state an Asset was in at 15:30 UTC on 23rd June:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;Authorization: Bearer </span><span class="k">$(</span>cat .auth_token<span class="k">)</span><span class="s2">&#34;</span> -H <span class="s2">&#34;Content-Type: application/json&#34;</span> https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time<span class="o">=</span>2021-06-23T15:30:00Z <span class="p">|</span> jq 
-</span></span></code></pre></div><p>Compliance calls can be similarly modified to answer questions like &ldquo;had I asked this question at the time, what would the answer have been?&rdquo; or &ldquo;had the AI asked this question, would it have made a better decision?&rdquo;. This can be done by adding a <code>compliant_at</code> timestamp to the compliance request.</p>
 <h2 id="thats-it">That&rsquo;s it</h2>
 <p>These are all the basics of DataTrails. With this knowledge you can now 
 <a href="/developers/api-reference/">jump straight into the API</a> or try other topics on the 
@@ -30040,18 +29936,20 @@ Reproducing the Stack Start needs details from
 </span></span></code></pre></div>`}).add({id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
-<p>Attribute-Based Access Control (ABAC) policies can be used to control access to Assets, their attributes, and Events within a single organization.</p>
+<p>Attribute-Based Access Control (ABAC) policies can be used to control access Audit Trails and Events within a single organization.</p>
 <p>Specifically, ABAC policies are created by Administrators to share information with Non-Administrators in the same Tenancy.</p>
 <p>ABAC policies can be granular, with users only allowed to see single attributes at a time.</p>
-<p>It is possible to control policies based on types of Assets, their location, and whether Users can read or write any information in an Asset.</p>
-<p>By default, no Non-Administrators will see any existing Assets and Events unless an Administrator explicitly creates an ABAC policy to allow it.</p>
+<p>It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type and location (eg: &ldquo;all models trained in Gondwalaland&rdquo;)</p>
+<p>By default, new users will not see any existing Trails or Events until an Administrator explicitly creates an ABAC policy to allow them.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To create an ABAC policy, first 
 <a href="/platform/administration/identity-and-access-management/#how-do-i-add-users-to-my-organization">add users to your tenancy</a>.</div>
   </blockquote>
 <h2 id="creating-an-abac-policy">Creating an ABAC Policy</h2>
 <p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Access polices are applied to the Asset. This means that when a policy is created or updated an Event will be recorded in the audit trail of matching Assets from the Actor <code>Archivist Internal</code>.</div>
+    <div><strong></strong> <strong>Note:</strong> Access policies are applied to the Trail and are themselves transparent.
+When a policy is created or updated, an Event will be recorded in the audit trail of matching Assets from the Actor <code>Archivist Internal</code> to let people know if their access has changed.
+This prevents &rsquo;log black-out&rsquo; attacks.</div>
   </blockquote>
 Consider the Shipping Container Asset we created. There may be many people within an organization who need access to specific attributes of the container.</p>
 <p>We shall create a policy for someone who needs to share some standard dimensions of the Shipping Container, inspect the cargo, and create <code>Inspect</code> Events.</p>
@@ -30149,7 +30047,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </code></pre>
   </div>
 </div>
-<p>Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset with the type <code>Shipping Container</code>.</p>
+<p>Here you can apply policy filters to apply to specific Trails or groups of Trails. In this case, we shall apply the policy to any Asset with the type <code>Shipping Container</code>.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACFilter" img class="img-fluid responsive" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter.png" width="850" height="484" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_200x0_resize_box_3.png 200w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter_hu3b9fa15cfd2e2518690390d8f7214101_39639_200x0_resize_box_3.png 200w" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACFilter.png" width="850" height="484" alt="Rectangle"></noscript>
@@ -30166,7 +30064,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </div>
 </div>
   <div id="asset_filters_abac-1" class="tab-pane fade" role="tabpanel" aria-labelledby="asset_filters_abac-1">
-<p>Filters can use <code>and</code> or <code>or</code> to categorize Assets. You may also use filters on attribute values, such as <code>=</code> and <code>!=</code> for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:</p>
+<p>Filters can use <code>and</code> or <code>or</code> to define scope. You may also use filters on attribute values, such as <code>=</code> and <code>!=</code> for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;attributes.arc_home_location_identity!=*&#34;</span>
 </span></span></code></pre></div><p>The <code>*</code> is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.</p>
 <p>Following our Shipping Container example, this is how we would set our Asset filters:</p>
@@ -30193,7 +30091,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 </p>
 </li>
 <li>
-<p>Enter the desired <code>Permissions</code> to set user&rsquo;s Asset and Event attribute access
+<p>Enter the desired <code>Permissions</code> to set user&rsquo;s access
 <ul class="nav nav-tabs" id="permissions_abac" role="tablist"><li class="nav-item">
 			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#permissions_abac-0" type="button" role="tab" aria-controls="permissions_abac-0" aria-selected="true">UI</button>
 		</li>
@@ -30202,7 +30100,7 @@ Here you will see any existing policies and can select <code>Create Policy</code
 			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#permissions_abac-1" type="button" role="tab" aria-controls="permissions_abac-1" aria-selected="false">JSON</button>
 		</li></ul>
 <div class="tab-content" id="permissions_abac"><div id="permissions_abac-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="permissions_abac-0">
-<p>We select the <code>Permissions</code> Tab to set Users&rsquo; Asset and Event attribute access policy.</p>
+<p>We select the <code>Permissions</code> Tab to set Users&rsquo; access policy.</p>
 <figure class="border-0">
   <input type="image" data-bs-toggle="modal" data-bs-target="#PolicyABACForm" img class="img-fluid responsive" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm.png" width="683" height="815" data-sizes="auto" data-srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_500x0_resize_box_3.png 500w" alt="Rectangle">
   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm_hu4f59108ecde9025e1f924f370b340530_63498_500x0_resize_box_3.png 500w" src="/platform/administration/sharing-access-inside-your-tenant/PolicyABACForm.png" width="683" height="815" alt="Rectangle"></noscript>
@@ -47315,8 +47213,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/sharing-access-inside-your-tenant/">Managing Internal Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/sharing-assets-outside-your-tenant/">Managing External Access to Your Tenant &rarr;</a><br>
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
-      <a href="/platform/administration/compliance-policies/">Compliance Policies &rarr;</a><br>
-      <a href="/platform/administration/grouping-assets-by-location/">Grouping Assets by Location &rarr;</a></p>
     </div>
 </div>
 `}).add({id:48,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
@@ -47411,8 +47307,8 @@ If you are looking for a simple way to test our API you might prefer our
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
-    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the basic (and not so basic) concepts and take you through creating your first Asset and registering the first Event of your audit trail.</p>
-    <p>The Administration section will show you how to manage your Tenancy and control access to your Assets.
+    <p>The foundations of understanding the DataTrails platform are explained in the Overview. This will introduce the main concepts and take you through registering the first Events of your Audit Trail.</p>
+    <p>The Administration section will show you how to manage your Tenancy and control access to the Events you create.
     <p> Check out the sub-sections below for more information!</p>
   </div>
 </div>
@@ -47422,7 +47318,7 @@ If you are looking for a simple way to test our API you might prefer our
     <a href="/platform/overview/introduction/">Overview &rarr;</a><br>
     Core concepts and tasks<br>
     <a href="/platform/administration/identity-and-access-management/">Administration &rarr;</a><br>
-    Create users, set access rights and share Assets
+    Create users, set access rights and share Events
     </div>
   </div>
 </section>

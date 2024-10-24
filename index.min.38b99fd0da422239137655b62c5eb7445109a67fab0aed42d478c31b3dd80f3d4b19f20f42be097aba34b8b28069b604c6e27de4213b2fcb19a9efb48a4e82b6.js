@@ -895,260 +895,7 @@ If an Asset has an attachment attribute named <code>arc_primary_image</code>, th
 <p>These are all the basics of DataTrails. With this knowledge you can now 
 <a href="/developers/api-reference/">jump straight into the API</a> or try other topics on the 
 <a href="/platform/overview/introduction">DataTrails Platform</a>.</p>
-`},{id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using DataTrails to Represent Containers",content:`<h2 id="represent-containers-using-datatrails">Represent Containers Using DataTrails</h2>
-<p>DataTrails Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.</p>
-<h2 id="create-a-container-asset">Create a Container Asset</h2>
-<p>A Container Asset is not a special type of asset, it is a label that is given to an Asset that has been created to represent a container. For more detail on the Asset creation process, please see our 
-<a href="/platform/overview/creating-an-asset/">DataTrails Overview guide</a>.<br>For this example, we will create a simple asset that we will call <code>Shipping Container</code>. Note that with DataTrails, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.</p>
-<ul class="nav nav-tabs" id="shipping_container_asset" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#shipping_container_asset-0" type="button" role="tab" aria-controls="shipping_container_asset-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-1" type="button" role="tab" aria-controls="shipping_container_asset-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-2" type="button" role="tab" aria-controls="shipping_container_asset-2" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="shipping_container_asset"><div id="shipping_container_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="shipping_container_asset-0">
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#ShippingContainer" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/ShippingContainer.png" width="851" height="521" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/ShippingContainer.png" width="851" height="521" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Create the Shipping Container</em></figcaption>
-</figure>
-<div class="modal fade" id="ShippingContainer" tabindex="-1" aria-labelledby="ShippingContainer" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;521&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
-</code></pre>
-  </div>
-</div>
-</div>
-  <div id="shipping_container_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create a shipping container asset.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div></div>
-  <div id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v2/assets <span class="p">|</span> jq
-</span></span></code></pre></div><p>If errors occur, see 
-<a href="../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation">Troubleshooting Token Generation</a></p>
-</div></div>
-
-<h2 id="associate-an-item-or-container-with-another-container">Associate an Item or Container with Another Container</h2>
-<p>Now that we have created a <code>Shipping Container</code> Asset, we can create another Asset to represent an item or a box of items that are to be shipped in the Shipping Container. To do this, we will create another Asset and add a custom <code>Asset Attribute</code> that links it to our Shipping Container. For example, let&rsquo;s create an Asset to represent a box that is being transported within the Shipping Container.</p>
-<p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> For this example, we used the custom attribute <code>within_container</code>, but you could use any key to associate the Assets that does not contain the reserved <code>arc_</code> prefix.</div>
-  </blockquote>
-<ul class="nav nav-tabs" id="box_asset" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#box_asset-0" type="button" role="tab" aria-controls="box_asset-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-1" type="button" role="tab" aria-controls="box_asset-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-2" type="button" role="tab" aria-controls="box_asset-2" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="box_asset"><div id="box_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="box_asset-0">
-</br>
-<ol>
-<li>
-<p>Set the <code>Name</code> and <code>Type</code></p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#BoxAsset" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/BoxAsset.png" width="849" height="520" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/BoxAsset.png" width="849" height="520" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Create the Box</em></figcaption>
- </figure>
- <div class="modal fade" id="BoxAsset" tabindex="-1" aria-labelledby="BoxAsset" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w&quot; width=&quot;849&quot; height=&quot;520&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-<li>
-<p>Click <code>Advanced Options</code></p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#WithinContainer" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/WithinContainer.png" width="838" height="541" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/WithinContainer.png" width="838" height="541" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Add an Extended Attribute</em></figcaption>
- </figure>
- <div class="modal fade" id="WithinContainer" tabindex="-1" aria-labelledby="WithinContainer" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w&quot; width=&quot;838&quot; height=&quot;541&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-<li>
-<p>Click <code>ADD ATTRIBUTE</code> to set <code>Extended Attributes</code></p>
-</li>
-<li>
-<p>Add Attribute = <code>within_container</code> and Value = <code>Shipping Container</code></p>
-</li>
-<li>
-<p>Click <code>REGISTER ASSET</code> to complete the association of the box within the container</p>
-</li>
-<li>
-<p>Repeat the above a few times, editing the <code>Name</code> to add several boxes within the <code>Shipping Container</code></p>
-</li>
-</ol>
-</div>
-  <div id="box_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create a box asset and associate with Shipping Container.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Box </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
-</div>
-  <div id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset-box.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Box-1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Box&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;within_container&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset-box.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v2/assets <span class="p">|</span> jq
-</span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
-<p>If errors occur, see 
-<a href="../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation">Troubleshooting Token Generation</a></p>
-</div></div>
-</p>
-<p>The <code>Box(es)</code> have been recorded as being within the <code>Shipping Container</code>.</p>
-<h2 id="list-all-assets-associated-with-a-container">List All Assets Associated With a Container</h2>
-<p>To retrieve all Assets associated with a container, you can run a query with a filter that will identify which Assets have the attribute <code>within_container</code> set to the desired value. To list all Assets inside of <code>Shipping Container</code>:</p>
-<ul class="nav nav-tabs" id="list_contents" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#list_contents-0" type="button" role="tab" aria-controls="list_contents-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-1" type="button" role="tab" aria-controls="list_contents-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-2" type="button" role="tab" aria-controls="list_contents-2" aria-selected="false">CURL</button>
-		</li></ul>
-<div class="tab-content" id="list_contents"><div id="list_contents-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="list_contents-0">
-</br>
-<ol>
-<li>
-<p>Select <code>Audit/Filter</code> in the navigation to filter Assets and Events within your tenancy</p>
-</li>
-<li>
-<p>Select <code>ADD FILTER</code></p>
-</li>
-<li>
-<p>Select <code>Asset Attribute</code>, set the name to <code>within_container</code> and the value to <code>Shipping Container</code></p>
-</li>
-<li>
-<p>Select <code>APPLY FILTERS</code> to view the subset of Assets created</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#AssetFilter" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/AssetFilter.png" width="1546" height="532" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/AssetFilter.png" width="1546" height="532" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Filter Assets and Events</em></figcaption>
- </figure>
- <div class="modal fade" id="AssetFilter" tabindex="-1" aria-labelledby="AssetFilter" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w&quot; width=&quot;1546&quot; height=&quot;532&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-</ol>
-</div>
-  <div id="list_contents-1" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_LIST</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List all assets within Shipping Container.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span></code></pre></div></div>
-  <div id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
-</span></span></code></pre></div></div></div>
-
-`},{id:6,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
+`},{id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
 <p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
 <p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -1167,7 +914,7 @@ If an Asset has an attachment attribute named <code>arc_primary_image</code>, th
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
 </span></span></code></pre></div><p>See 
 <a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
-`},{id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
+`},{id:6,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
 <p>Each Asset will have a history of any actions performed upon it by any actor.</p>
 <p>You may share Assets and their history with specific stakeholders using 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">permission sharing</a>. DataTrails also enables you to publicly attest the provenance of your Assets. To learn how, see 
@@ -1578,7 +1325,7 @@ Here we see all details entered: The extended attributes and a history of Events
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
 </li>
 </ol>
-`},{id:8,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
+`},{id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
@@ -1948,7 +1695,7 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`},{id:9,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
+`},{id:8,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <p>As it builds on the standard DataTrails asset the same processes are used for 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">Permissioned Sharing</a> and 
 <a href="/platform/overview/public-attestation/">Public Attestation</a>.</p>
@@ -2408,7 +2155,7 @@ The Trust data:</p>
 </div>
   </blockquote>
 <p>The first Event in the Event History will always be the Document Registration. In the next section, we will cover how to create your own Events for your Document.</p>
-`},{id:10,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
+`},{id:9,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="profile-attribute-namespace">Profile Attribute Namespace</h5>
 <p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
@@ -2572,7 +2319,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 </tr>
 </tbody>
 </table>
-`},{id:11,href:"https://docs.datatrails.ai/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
+`},{id:10,href:"https://docs.datatrails.ai/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
 <p>If you need to update your registered Document Profile Asset you can record this as an Event. The 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
 <p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
@@ -2999,7 +2746,7 @@ The Overview tab shows the details of the Event including the version and docume
 </p>
 </li>
 </ol>
-`},{id:12,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
+`},{id:11,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
 <p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that enable the recording of an immutable and verifiable Software Bill of Materials (SBOM).</p>
 <p>The 
 <a href="https://www.ntia.gov/sites/default/files/publications/sbom_faq_-_20201116_0.pdf" target="_blank" rel="noopener">NTIA</a> describes a SBOM as &ldquo;<em>a formal record containing the details and supply chain relationships of various components used in building software.</em>&rdquo;</p>
@@ -3737,7 +3484,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </tr>
 </tbody>
 </table>
-`},{id:13,href:"https://docs.datatrails.ai/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof allows anonymous access to the Audit Trail of a file. providing data provenance and authenticity with a simple drag-and-drop.</p>
+`},{id:12,href:"https://docs.datatrails.ai/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof allows anonymous access to the Audit Trail of a file. providing data provenance and authenticity with a simple drag-and-drop.</p>
 <p>Instaproof will search amongst the 
 <a href="/platform/overview/public-attestation/">Publicly Attested</a> assets that have been registered with the Document Profile and return a list of all assets that have a matching hash value.</p>
 <p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See 
@@ -3960,7 +3707,7 @@ Includes the current version, the organization, and Verified Domain badge, if ap
 <p><strong>Type</strong> - For Document Profile Events this will always be &lsquo;Publish&rsquo;</p>
 <p><strong>Document changes</strong> - The version and document hash for new version Events. There is no data here for custom Events.</p>
 <p>The <strong>Event attributes</strong> and <strong>Asset attributes</strong> tabs contain information about any custom attributes that were added or modified as part this Event.</p>
-`},{id:14,href:"https://docs.datatrails.ai/developers/developer-patterns/veracity/",title:"Independently verifying DataTrails transparent merkle logs",description:"Supporting independent verification of your events",content:`<h2 id="overview">Overview</h2>
+`},{id:13,href:"https://docs.datatrails.ai/developers/developer-patterns/veracity/",title:"Independently verifying DataTrails transparent merkle logs",description:"Supporting independent verification of your events",content:`<h2 id="overview">Overview</h2>
 <p>Veracity is an open-source command line tool developed by DataTrails. With it, you can explore the
 merkle log and prove the inclusion of your event data. By default it connects to the DataTrails
 service to obtain a copy of the merkle log. Veracity can also work from copies of the merkle
@@ -4093,7 +3840,7 @@ at index 5772 (this works with both <code>--data-local</code> and <code>--data-u
 </span></span></code></pre></div><p>Leaf nodes in the merkle log contain the hash of the event data (plus some metadata, see 
 <a href="/developers/developer-patterns/navigating-merklelogs/#leaf-nodes-created-by-hashing-event-data">this article</a>) while
 intermediate nodes hash together the content of their left and right children.</p>
-`},{id:15,href:"https://docs.datatrails.ai/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<h2 id="transparency-through-public-attestation">Transparency through Public Attestation</h2>
+`},{id:14,href:"https://docs.datatrails.ai/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<h2 id="transparency-through-public-attestation">Transparency through Public Attestation</h2>
 <p>Not everything needs to be kept secret.</p>
 <p>Using the example of an image in a news report, the publisher needs everyone to be able to see the image but at the same time the viewers of the image want to know that it is genuine while the owner of the image will want to be credited. There needs to be a way for consumers of data to anonymously verify the data that they are consuming is genuine and also where it came from.</p>
 <p>Public attestation allows you to 
@@ -4347,7 +4094,7 @@ Set the toggle next to <code>Attest Publicly</code> to <code>ON</code>.</p>
 </p>
 </li>
 </ol>
-`},{id:16,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
+`},{id:15,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
 <p>DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
 &ldquo;Verifiable data&rdquo; is synonymous with <em>log</em> or <em>transparency log</em>.
 Once verifiable data is written to the log it is never changed.
@@ -5065,7 +4812,7 @@ A Merkle Tree is sometimes referred to as authenticated data structures or a ver
 </li>
 </ol>
 </div>
-`},{id:17,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+`},{id:16,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each DataTrails Tenancy represents an organization, and each DataTrails account represents an individual user.
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.</p>
@@ -5296,7 +5043,7 @@ Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code
 You will be sent to the identity provider you configured earlier to log-in, then redirected back to DataTrails.</p>
 </li>
 </ol>
-`},{id:18,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
+`},{id:17,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
 The algorithms to reproduce this are relatively simple.
 DataTrails provides 
 <a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source implementations</a>, but in many contexts it is simpler to use these pre-calculations.
@@ -6159,7 +5906,7 @@ Reproducing the Stack Start needs details from
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-`},{id:19,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`},{id:18,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the DataTrails team, a badge indicating that they have been verified will appear next to their domain name.
 
 
@@ -6271,7 +6018,7 @@ Reproducing the Stack Start needs details from
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`},{id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`},{id:19,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access Audit Trails and Events within a single organization.</p>
@@ -6650,7 +6397,7 @@ Use the curl command to run your JSON file! See instructions for
 </ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`},{id:21,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`},{id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC only allows sharing between Tenant Administrators. The external Administrator must then apply an ABAC policy within their tenancy to give their own organization&rsquo;s Non-Administrators access to your Audit Trails, where appropriate.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -7152,7 +6899,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`},{id:22,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
+`},{id:21,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
 <p>Without the measures described in this article, it is still extremely challenging to compromise a transparency solution based on DataTrails.</p>
 <p>To do so, the systems of more than just DataTrails need to be compromised in very specific ways.
 To illustrate this, consider this typical flow for how <strong>Data</strong> can be used in a transparent and tamper evident way with DataTrails.</p>
@@ -7481,7 +7228,7 @@ The details of consuming the binary format of the seal and verifying the signatu
 <li>To guarantee continued operation even if DataTrails is prevented from operating, a copy of the DataTrails metadata must be retained.</li>
 <li>You can reasonably chose to trust DataTrails copy, because, even in the most extreme cases, it is &ldquo;fail-safe&rdquo; if DataTrails SaaS storage is compromised, when combined with a replicated verifiable merkle log.</li>
 </ul>
-`},{id:23,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`},{id:22,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -7836,7 +7583,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`},{id:24,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`},{id:23,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -8193,7 +7940,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`},{id:25,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`},{id:24,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -8759,7 +8506,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`},{id:25,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -9871,7 +9618,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -11907,7 +11654,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -13028,7 +12775,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -13575,7 +13322,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -14887,7 +14634,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -17053,7 +16800,7 @@ For example:</p>
   </div>
 
 
-`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -18746,7 +18493,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -19663,7 +19410,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:34,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`},{id:33,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -19793,7 +19540,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20938,7 +20685,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -21780,7 +21527,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:37,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -22915,7 +22662,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -22977,7 +22724,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23099,7 +22846,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23201,7 +22948,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23250,7 +22997,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23360,7 +23107,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23394,7 +23141,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -23407,14 +23154,13 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:45,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
       <p>You will find articles on common developer tasks and concept guides that are relevant to developers.</p>
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
-      <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
       <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>
@@ -23423,7 +23169,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`},{id:46,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`},{id:45,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -23541,7 +23287,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:47,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`},{id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -23553,7 +23299,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
     </div>
 </div>
-`},{id:48,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
+`},{id:47,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Templates</h1>
       <p>A collection of templates for various scenarios.
@@ -23564,7 +23310,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/templates/scitt/">Creating SCITT Entries on the DataTrails Platform &rarr;</a><br>
     </div>
 </div>
-`},{id:49,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -23578,7 +23324,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`},{id:50,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -23597,7 +23343,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`},{id:51,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:50,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -23613,7 +23359,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`},{id:52,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`},{id:51,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -23641,7 +23387,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`},{id:53,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:52,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
@@ -24557,260 +24303,7 @@ If an Asset has an attachment attribute named <code>arc_primary_image</code>, th
 <p>These are all the basics of DataTrails. With this knowledge you can now 
 <a href="/developers/api-reference/">jump straight into the API</a> or try other topics on the 
 <a href="/platform/overview/introduction">DataTrails Platform</a>.</p>
-`}).add({id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/",title:"Containers as Assets",description:"Using DataTrails to Represent Containers",content:`<h2 id="represent-containers-using-datatrails">Represent Containers Using DataTrails</h2>
-<p>DataTrails Assets can be used to track the status, contents, location, and other key attributes of containers over time. This can also be done for containers within containers. For example, you may wish to track bags inside boxes that are inside a shipping container being transported on a train.</p>
-<h2 id="create-a-container-asset">Create a Container Asset</h2>
-<p>A Container Asset is not a special type of asset, it is a label that is given to an Asset that has been created to represent a container. For more detail on the Asset creation process, please see our 
-<a href="/platform/overview/creating-an-asset/">DataTrails Overview guide</a>.<br>For this example, we will create a simple asset that we will call <code>Shipping Container</code>. Note that with DataTrails, we could also record more complex attributes such as size of the container, weight, location, or any other important details. For now, we will create a minimal Asset that includes the name and type.</p>
-<ul class="nav nav-tabs" id="shipping_container_asset" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#shipping_container_asset-0" type="button" role="tab" aria-controls="shipping_container_asset-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-1" type="button" role="tab" aria-controls="shipping_container_asset-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#shipping_container_asset-2" type="button" role="tab" aria-controls="shipping_container_asset-2" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="shipping_container_asset"><div id="shipping_container_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="shipping_container_asset-0">
-<figure class="border-0">
-  <input type="image" data-bs-toggle="modal" data-bs-target="#ShippingContainer" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/ShippingContainer.png" width="851" height="521" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w" alt="Rectangle">
-  <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/ShippingContainer.png" width="851" height="521" alt="Rectangle"></noscript>
-  <figcaption class="figure-caption"><em>Create the Shipping Container</em></figcaption>
-</figure>
-<div class="modal fade" id="ShippingContainer" tabindex="-1" aria-labelledby="ShippingContainer" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-<pre><code>  &lt;div class=&quot;modal-body&quot;&gt;
-    
-    &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/ShippingContainer_hu5b6cd979a82f9ff826c2a060cf9601ff_37299_200x0_resize_box_3.png 200w&quot; width=&quot;851&quot; height=&quot;521&quot; alt=&quot;Rectangle&quot;&gt;
-  &lt;/div&gt;
-</code></pre>
-  </div>
-</div>
-</div>
-  <div id="shipping_container_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create a shipping container asset.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div></div>
-  <div id="shipping_container_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="shipping_container_asset-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v2/assets <span class="p">|</span> jq
-</span></span></code></pre></div><p>If errors occur, see 
-<a href="../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation">Troubleshooting Token Generation</a></p>
-</div></div>
-
-<h2 id="associate-an-item-or-container-with-another-container">Associate an Item or Container with Another Container</h2>
-<p>Now that we have created a <code>Shipping Container</code> Asset, we can create another Asset to represent an item or a box of items that are to be shipped in the Shipping Container. To do this, we will create another Asset and add a custom <code>Asset Attribute</code> that links it to our Shipping Container. For example, let&rsquo;s create an Asset to represent a box that is being transported within the Shipping Container.</p>
-<p><blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> For this example, we used the custom attribute <code>within_container</code>, but you could use any key to associate the Assets that does not contain the reserved <code>arc_</code> prefix.</div>
-  </blockquote>
-<ul class="nav nav-tabs" id="box_asset" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#box_asset-0" type="button" role="tab" aria-controls="box_asset-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-1" type="button" role="tab" aria-controls="box_asset-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#box_asset-2" type="button" role="tab" aria-controls="box_asset-2" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="box_asset"><div id="box_asset-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="box_asset-0">
-</br>
-<ol>
-<li>
-<p>Set the <code>Name</code> and <code>Type</code></p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#BoxAsset" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/BoxAsset.png" width="849" height="520" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/BoxAsset.png" width="849" height="520" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Create the Box</em></figcaption>
- </figure>
- <div class="modal fade" id="BoxAsset" tabindex="-1" aria-labelledby="BoxAsset" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/BoxAsset_hu3a64a0774a5935d8e4e67b90e8919f56_34891_200x0_resize_box_3.png 200w&quot; width=&quot;849&quot; height=&quot;520&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-<li>
-<p>Click <code>Advanced Options</code></p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#WithinContainer" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/WithinContainer.png" width="838" height="541" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/WithinContainer.png" width="838" height="541" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Add an Extended Attribute</em></figcaption>
- </figure>
- <div class="modal fade" id="WithinContainer" tabindex="-1" aria-labelledby="WithinContainer" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/WithinContainer_hu6fc945a625afbad1ac15a05b498dbd2b_61296_200x0_resize_box_3.png 200w&quot; width=&quot;838&quot; height=&quot;541&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-<li>
-<p>Click <code>ADD ATTRIBUTE</code> to set <code>Extended Attributes</code></p>
-</li>
-<li>
-<p>Add Attribute = <code>within_container</code> and Value = <code>Shipping Container</code></p>
-</li>
-<li>
-<p>Click <code>REGISTER ASSET</code> to complete the association of the box within the container</p>
-</li>
-<li>
-<p>Repeat the above a few times, editing the <code>Name</code> to add several boxes within the <code>Shipping Container</code></p>
-</li>
-</ol>
-</div>
-  <div id="box_asset-1" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_CREATE_IF_NOT_EXISTS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create a box asset and associate with Shipping Container.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">Box </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">selector</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">arc_display_name</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">behaviours</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">RecordEvidence</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attributes</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Box-1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Box</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">confirm</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
-</div>
-  <div id="box_asset-2" class="tab-pane fade" role="tabpanel" aria-labelledby="box_asset-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">asset-box.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;RecordEvidence&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Box-1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Box&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;within_container&#34;</span><span class="p">:</span> <span class="s2">&#34;Shipping Container&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>Use <code>curl</code> to <code>POST</code> the asset, viewing the result with <code>jq</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -d <span class="s2">&#34;@asset-box.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v2/assets <span class="p">|</span> jq
-</span></span></code></pre></div><p>Repeat the above a few times, editing the <code>arc_display_name</code> to add several boxes within the <code>Shipping Container</code></p>
-<p>If errors occur, see 
-<a href="../getting-access-tokens-using-app-registrations/#troubleshooting-token-generation">Troubleshooting Token Generation</a></p>
-</div></div>
-</p>
-<p>The <code>Box(es)</code> have been recorded as being within the <code>Shipping Container</code>.</p>
-<h2 id="list-all-assets-associated-with-a-container">List All Assets Associated With a Container</h2>
-<p>To retrieve all Assets associated with a container, you can run a query with a filter that will identify which Assets have the attribute <code>within_container</code> set to the desired value. To list all Assets inside of <code>Shipping Container</code>:</p>
-<ul class="nav nav-tabs" id="list_contents" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#list_contents-0" type="button" role="tab" aria-controls="list_contents-0" aria-selected="true">UI</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-1" type="button" role="tab" aria-controls="list_contents-1" aria-selected="false">YAML</button>
-		</li>
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#list_contents-2" type="button" role="tab" aria-controls="list_contents-2" aria-selected="false">CURL</button>
-		</li></ul>
-<div class="tab-content" id="list_contents"><div id="list_contents-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="list_contents-0">
-</br>
-<ol>
-<li>
-<p>Select <code>Audit/Filter</code> in the navigation to filter Assets and Events within your tenancy</p>
-</li>
-<li>
-<p>Select <code>ADD FILTER</code></p>
-</li>
-<li>
-<p>Select <code>Asset Attribute</code>, set the name to <code>within_container</code> and the value to <code>Shipping Container</code></p>
-</li>
-<li>
-<p>Select <code>APPLY FILTERS</code> to view the subset of Assets created</p>
- <figure class="border-0">
-   <input type="image" data-bs-toggle="modal" data-bs-target="#AssetFilter" img class="img-fluid responsive" src="/developers/developer-patterns/containers-as-assets/AssetFilter.png" width="1546" height="532" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w" alt="Rectangle">
-   <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/containers-as-assets/AssetFilter.png" width="1546" height="532" alt="Rectangle"></noscript>
-   <figcaption class="figure-caption"><em>Filter Assets and Events</em></figcaption>
- </figure>
- <div class="modal fade" id="AssetFilter" tabindex="-1" aria-labelledby="AssetFilter" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
-<pre><code>   &lt;div class=&quot;modal-body&quot;&gt;
-
-     &lt;img class=&quot;img-fluid lazyload responsive&quot; data-sizes=&quot;auto&quot; src=&quot;/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_100x0_resize_box_3.png&quot; data-srcset=&quot;https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/containers-as-assets/AssetFilter_hufd97a220f23c4289bd144ff97611c52c_65435_200x0_resize_box_3.png 200w&quot; width=&quot;1546&quot; height=&quot;532&quot; alt=&quot;Rectangle&quot;&gt;
-   &lt;/div&gt;
-</code></pre>
-   </div>
- </div>
-</li>
-</ol>
-</div>
-  <div id="list_contents-1" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-1">
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">ASSETS_LIST</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">List all assets within Shipping Container.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">within_container</span><span class="p">:</span><span class="w"> </span><span class="l">Shipping Container</span><span class="w">
-</span></span></span></code></pre></div></div>
-  <div id="list_contents-2" class="tab-pane fade" role="tabpanel" aria-labelledby="list_contents-2">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets?attributes.within_container=Shipping%20Container&#34;</span> <span class="p">|</span> jq
-</span></span></code></pre></div></div></div>
-
-`}).add({id:6,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
+`}).add({id:5,href:"https://docs.datatrails.ai/developers/developer-patterns/namespace/",title:"Namespace",description:"Using Namespace in an DataTrails Tenancy",content:`<p>Namespace is a tool that can be used to prevent unwanted interactions when multiple users are performing testing in the same Tenancy. Using two separate namespaces prevents collisions that may cause undesirable results by allowing multiple users to interact with the same Assets and Events without interrupting each other.</p>
 <p>Namespace can be added as an attribute within the files you are testing, or as a variable in your Bash environment.</p>
 <p>To add namespace as an attribute to your files, use the <code>arc_namespace</code> key. For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -24829,7 +24322,7 @@ If an Asset has an attachment attribute named <code>arc_primary_image</code>, th
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> <span class="nb">export</span> <span class="nv">TEST_NAMESPACE</span><span class="o">=</span>date
 </span></span></code></pre></div><p>See 
 <a href="https://github.com/datatrails/datatrails-samples/blob/main/DEVELOPERS.md#test_namespace" target="_blank" rel="noopener">TEST_NAMESPACE</a> in our GitHub repository for more information. <code>TEST_NAMESPACE</code> can also be added to your Bash profile to be automatically picked up when testing.</p>
-`}).add({id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
+`}).add({id:6,href:"https://docs.datatrails.ai/platform/overview/creating-an-asset/",title:"Creating an Asset",description:"Creating your first Asset",content:`<p>An Asset can be anything: a file (a document, an image, a sound file etc.), a software application, a shipping container, or even a physical product. It can be any digital or physical object with an associated name, description, and attributes.</p>
 <p>Each Asset will have a history of any actions performed upon it by any actor.</p>
 <p>You may share Assets and their history with specific stakeholders using 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">permission sharing</a>. DataTrails also enables you to publicly attest the provenance of your Assets. To learn how, see 
@@ -25240,7 +24733,7 @@ Here we see all details entered: The extended attributes and a history of Events
 The first Event will always be the Asset Creation. In the next section, we will cover how to create your own Events for your Asset.</p>
 </li>
 </ol>
-`}).add({id:8,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
+`}).add({id:7,href:"https://docs.datatrails.ai/platform/overview/creating-an-event-against-an-asset/",title:"Creating an Event Against an Asset",description:"Creating your first Event",content:`<p>If you wish to begin tracking your Asset history and build an immutable Audit Trail, you need to create Events.</p>
 <p>Asset Creation is the first Event. The more Events recorded against an Asset, the richer and deeper its history becomes.</p>
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
@@ -25610,7 +25103,7 @@ Please see the
 </li>
 </ol>
 <p>In the next section we look at a specific type of Asset, the Document Profile Asset.</p>
-`}).add({id:9,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
+`}).add({id:8,href:"https://docs.datatrails.ai/platform/overview/registering-a-document-profile-asset/",title:"Registering a Document Profile Asset",description:"Register document profile asset",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <p>As it builds on the standard DataTrails asset the same processes are used for 
 <a href="/platform/administration/managing-access-to-an-asset-with-abac/">Permissioned Sharing</a> and 
 <a href="/platform/overview/public-attestation/">Public Attestation</a>.</p>
@@ -26070,7 +25563,7 @@ The Trust data:</p>
 </div>
   </blockquote>
 <p>The first Event in the Event History will always be the Document Registration. In the next section, we will cover how to create your own Events for your Document.</p>
-`}).add({id:10,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
+`}).add({id:9,href:"https://docs.datatrails.ai/developers/developer-patterns/document-profile/",title:"Document Profile",description:"Tracing the Lifecycle of a Document with DataTrails",content:`<p>The DataTrails document profile is a set of suggested Asset and Event attributes that allow you to trace the lifecycle of a document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <h5 id="profile-attribute-namespace">Profile Attribute Namespace</h5>
 <p>The <code>document_</code> prefix is used to designate attributes that are part of the profile. Some of these are interpreted by DataTrails and others are guidelines.</p></div>
@@ -26234,7 +25727,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 </tr>
 </tbody>
 </table>
-`}).add({id:11,href:"https://docs.datatrails.ai/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
+`}).add({id:10,href:"https://docs.datatrails.ai/platform/overview/registering-an-event-against-a-document-profile-asset/",title:"Registering an Event Against a Document Profile Asset",description:"",content:`<p>It is rare for a document to remain unchanged during it&rsquo;s lifetime. Some documents are expected to go though many versions (e.g product documentation) while others (e.g. an employment contract) change much less frequently.</p>
 <p>If you need to update your registered Document Profile Asset you can record this as an Event. The 
 <a href="/developers/developer-patterns/document-profile/">Document Profile</a> defines two types of Event; Publish and Withdraw.</p>
 <p>Document Registration is the first Event with each new version being recorded as a Publish Event.</p>
@@ -26661,7 +26154,7 @@ The Overview tab shows the details of the Event including the version and docume
 </p>
 </li>
 </ol>
-`}).add({id:12,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
+`}).add({id:11,href:"https://docs.datatrails.ai/developers/developer-patterns/software-package-profile/",title:"Software Package Profile",description:"Sharing and Distributing a Software Bill of Materials with DataTrails",content:`<h2 id="overview">Overview</h2>
 <p>The DataTrails Software Package profile is a set of suggested Asset and Event attributes that enable the recording of an immutable and verifiable Software Bill of Materials (SBOM).</p>
 <p>The 
 <a href="https://www.ntia.gov/sites/default/files/publications/sbom_faq_-_20201116_0.pdf" target="_blank" rel="noopener">NTIA</a> describes a SBOM as &ldquo;<em>a formal record containing the details and supply chain relationships of various components used in building software.</em>&rdquo;</p>
@@ -27399,7 +26892,7 @@ The first is to disclose knowledge of a vulnerability and the second is to updat
 </tr>
 </tbody>
 </table>
-`}).add({id:13,href:"https://docs.datatrails.ai/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof allows anonymous access to the Audit Trail of a file. providing data provenance and authenticity with a simple drag-and-drop.</p>
+`}).add({id:12,href:"https://docs.datatrails.ai/platform/overview/instaproof/",title:"Instaproof",description:"A Guide to Instaproof",content:`<p>Instaproof allows anonymous access to the Audit Trail of a file. providing data provenance and authenticity with a simple drag-and-drop.</p>
 <p>Instaproof will search amongst the 
 <a href="/platform/overview/public-attestation/">Publicly Attested</a> assets that have been registered with the Document Profile and return a list of all assets that have a matching hash value.</p>
 <p>The initial version of a document is registered as a document profile asset. New versions of the document are published as events against that asset. See 
@@ -27622,7 +27115,7 @@ Includes the current version, the organization, and Verified Domain badge, if ap
 <p><strong>Type</strong> - For Document Profile Events this will always be &lsquo;Publish&rsquo;</p>
 <p><strong>Document changes</strong> - The version and document hash for new version Events. There is no data here for custom Events.</p>
 <p>The <strong>Event attributes</strong> and <strong>Asset attributes</strong> tabs contain information about any custom attributes that were added or modified as part this Event.</p>
-`}).add({id:14,href:"https://docs.datatrails.ai/developers/developer-patterns/veracity/",title:"Independently verifying DataTrails transparent merkle logs",description:"Supporting independent verification of your events",content:`<h2 id="overview">Overview</h2>
+`}).add({id:13,href:"https://docs.datatrails.ai/developers/developer-patterns/veracity/",title:"Independently verifying DataTrails transparent merkle logs",description:"Supporting independent verification of your events",content:`<h2 id="overview">Overview</h2>
 <p>Veracity is an open-source command line tool developed by DataTrails. With it, you can explore the
 merkle log and prove the inclusion of your event data. By default it connects to the DataTrails
 service to obtain a copy of the merkle log. Veracity can also work from copies of the merkle
@@ -27755,7 +27248,7 @@ at index 5772 (this works with both <code>--data-local</code> and <code>--data-u
 </span></span></code></pre></div><p>Leaf nodes in the merkle log contain the hash of the event data (plus some metadata, see 
 <a href="/developers/developer-patterns/navigating-merklelogs/#leaf-nodes-created-by-hashing-event-data">this article</a>) while
 intermediate nodes hash together the content of their left and right children.</p>
-`}).add({id:15,href:"https://docs.datatrails.ai/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<h2 id="transparency-through-public-attestation">Transparency through Public Attestation</h2>
+`}).add({id:14,href:"https://docs.datatrails.ai/platform/overview/public-attestation/",title:"Public Attestation",description:"Public Assets vs Permissioned Assets",content:`<h2 id="transparency-through-public-attestation">Transparency through Public Attestation</h2>
 <p>Not everything needs to be kept secret.</p>
 <p>Using the example of an image in a news report, the publisher needs everyone to be able to see the image but at the same time the viewers of the image want to know that it is genuine while the owner of the image will want to be credited. There needs to be a way for consumers of data to anonymously verify the data that they are consuming is genuine and also where it came from.</p>
 <p>Public attestation allows you to 
@@ -28009,7 +27502,7 @@ Set the toggle next to <code>Attest Publicly</code> to <code>ON</code>.</p>
 </p>
 </li>
 </ol>
-`}).add({id:16,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
+`}).add({id:15,href:"https://docs.datatrails.ai/developers/developer-patterns/navigating-merklelogs/",title:"Navigating the Merkle Log",description:"Describes the serialization format of the DataTrails verifiable data structure",content:`<p>This article explains how to navigate the Merkle Log, using the DataTrails Merkle Mountain Range implementation.</p>
 <p>DataTrails publishes the data necessary for immediately verifying events to highly available commodity cloud storage.
 &ldquo;Verifiable data&rdquo; is synonymous with <em>log</em> or <em>transparency log</em>.
 Once verifiable data is written to the log it is never changed.
@@ -28727,7 +28220,7 @@ A Merkle Tree is sometimes referred to as authenticated data structures or a ver
 </li>
 </ol>
 </div>
-`}).add({id:17,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
+`}).add({id:16,href:"https://docs.datatrails.ai/platform/administration/identity-and-access-management/",title:"Identity and Access Management",description:"DataTrails IAM Concepts",content:`<h2 id="tenancies-and-accounts">Tenancies and Accounts</h2>
 <p>Each DataTrails Tenancy represents an organization, and each DataTrails account represents an individual user.
 There may be multiple accounts within a Tenancy if there are several members within an organization.
 Additionally, an individual user can be part of multiple Tenancies.</p>
@@ -28958,7 +28451,7 @@ Enter your SSO configuration, then select <code>SAVE ENTERPRISE SSO CONFIG</code
 You will be sent to the identity provider you configured earlier to log-in, then redirected back to DataTrails.</p>
 </li>
 </ol>
-`}).add({id:18,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
+`}).add({id:17,href:"https://docs.datatrails.ai/developers/developer-patterns/massif-blob-offset-tables/",title:"Massif blob pre-calculated offsets",description:"Provides pre calculated tables for navigating raw Merkle logs",content:`<p>This page provides lookup tables for navigating the dynamic, but computable, offsets into the Merkle log binary format.
 The algorithms to reproduce this are relatively simple.
 DataTrails provides 
 <a href="https://github.com/datatrails/veracity/" target="_blank" rel="noopener">open-source implementations</a>, but in many contexts it is simpler to use these pre-calculations.
@@ -29821,7 +29314,7 @@ Reproducing the Stack Start needs details from
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></div></div>
 
-`}).add({id:19,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
+`}).add({id:18,href:"https://docs.datatrails.ai/platform/administration/verified-domain/",title:"Verified Domain",description:"Domain Verification and Why It's Important",content:`<h2 id="what-is-domain-verification">What is domain verification?</h2>
 <p>Domain verification assures that actors claiming to be part of an organization are authorized to share information on their behalf. If an organization&rsquo;s Tenancy has been verified by the DataTrails team, a badge indicating that they have been verified will appear next to their domain name.
 
 
@@ -29933,7 +29426,7 @@ Reproducing the Stack Start needs details from
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     https://app.datatrails.ai/archivist/v1/tenancies/<span class="o">{</span>uuid<span class="o">}</span>:publicinfo
-</span></span></code></pre></div>`}).add({id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
+</span></span></code></pre></div>`}).add({id:19,href:"https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/",title:"Managing Internal Access to Your Tenant",description:"Sharing Access to Audit Trails within your Tenant",content:`<blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> You will only have access to the <code>Access Policies</code> screen if you are an Administrator in your organization.</div>
   </blockquote>
 <p>Attribute-Based Access Control (ABAC) policies can be used to control access Audit Trails and Events within a single organization.</p>
@@ -30312,7 +29805,7 @@ Use the curl command to run your JSON file! See instructions for
 </ol>
 <p>We can see that Mandy can only view the Attributes specified in the policy.</p>
 <p>Our Administrator, Jill, can see every detail associated with the Asset.</p>
-`}).add({id:21,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
+`}).add({id:20,href:"https://docs.datatrails.ai/platform/administration/sharing-access-outside-your-tenant/",title:"Managing External Access to Your Tenant",description:"Sharing Assets With Organization-Based Access Control (OBAC)",content:`<p>Organization-Based Access Control (OBAC) policies allow you, as a tenant administrator, to share access to audit trails from your tenancy with an administrator of another tenant. This permissioned sharing allows you to grant access, whether read/write or read-only, to people outside of your organization.</p>
 <p>OBAC policies have a lot in common with Attribute-Based Access Control (ABAC) policies; they apply the same controls with two different classes of actor. Where they differ is that OBAC only allows sharing between Tenant Administrators. The external Administrator must then apply an ABAC policy within their tenancy to give their own organization&rsquo;s Non-Administrators access to your Audit Trails, where appropriate.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> To enable sharing of assets with those outside your tenancy, you must be an Administrator in your organization AND have completed an exchange of subject identifiers, as outlined below.</div>
@@ -30814,7 +30307,7 @@ By comparison, our Administrator, Jill, can see the full details of the Asset:
 <a href="/developers/api-reference/iam-policies-api/">IAM Policies API Reference</a>.</p>
 </li>
 </ol>
-`}).add({id:22,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
+`}).add({id:21,href:"https://docs.datatrails.ai/developers/developer-patterns/3rdparty-verification/",title:"Verified Replication of the Datatrails Transparency Logs",description:"Supporting verified replication of DataTrails merkle logs",content:`<h2 id="introduction">Introduction</h2>
 <p>Without the measures described in this article, it is still extremely challenging to compromise a transparency solution based on DataTrails.</p>
 <p>To do so, the systems of more than just DataTrails need to be compromised in very specific ways.
 To illustrate this, consider this typical flow for how <strong>Data</strong> can be used in a transparent and tamper evident way with DataTrails.</p>
@@ -31143,7 +30636,7 @@ The details of consuming the binary format of the seal and verifying the signatu
 <li>To guarantee continued operation even if DataTrails is prevented from operating, a copy of the DataTrails metadata must be retained.</li>
 <li>You can reasonably chose to trust DataTrails copy, because, even in the most extreme cases, it is &ldquo;fail-safe&rdquo; if DataTrails SaaS storage is compromised, when combined with a replicated verifiable merkle log.</li>
 </ul>
-`}).add({id:23,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
+`}).add({id:22,href:"https://docs.datatrails.ai/platform/administration/dropbox-integration/",title:"Dropbox Integration",description:"Integrating with Dropbox",content:`<h2 id="the-dropbox-integration">The Dropbox Integration</h2>
 <p>Connecting your DataTrails tenancy to your Dropbox account will allow you to automatically record and maintain the provenance metadata of your files in an immutable Audit Trail.</p>
 <p>DataTrails uses transparent and auditable distributed ledger technology to maintain an immutable trail of provenance metadata independent of, but in concert with, the original file in Dropbox.
 The original data never enters the DataTrails system and remains on Dropbox.
@@ -31498,7 +30991,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`}).add({id:24,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
+`}).add({id:23,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
 <p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
 <p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
 <p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
@@ -31855,7 +31348,7 @@ An example response for a non-compliant Asset</p>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`}).add({id:25,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+</span></span></code></pre></div>`}).add({id:24,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -32421,7 +31914,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`}).add({id:25,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -33533,7 +33026,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -35569,7 +35062,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
+`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -36690,7 +36183,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 </p>
-`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
+`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -37237,7 +36730,7 @@ For information on Attachments and how to implement them, please refer to
   </div>
 
 
-`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
+`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -38549,7 +38042,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
+`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API",description:"Events API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -40715,7 +40208,7 @@ For example:</p>
   </div>
 
 
-`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -42408,7 +41901,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -43325,7 +42818,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:34,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`}).add({id:33,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -43455,7 +42948,7 @@ By using the content-type parameter, verifiers can filter to specific types, fil
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -44600,7 +44093,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -45442,7 +44935,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:37,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -46577,7 +46070,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:37,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46639,7 +46132,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:38,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46761,7 +46254,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46863,7 +46356,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -46912,7 +46405,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -47022,7 +46515,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -47056,7 +46549,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -47069,14 +46562,13 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:45,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
       <p>You will find articles on common developer tasks and concept guides that are relevant to developers.</p>
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">Getting Access Tokens using App Registrations &rarr;</a><br>
-      <a href="/developers/developer-patterns/containers-as-assets/">Containers as Assets &rarr;</a><br>
       <a href="/developers/developer-patterns/namespace/">Namespace &rarr;</a><br>
       <a href="/developers/developer-patterns/verifying-with-simple-hash/">Verifying Assets and Events with Simple Hash &rarr;</a><br>
       <a href="/developers/developer-patterns/navigating-merklelogs/">Navigating the Merkle Logs &rarr;</a><br>
@@ -47085,7 +46577,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`}).add({id:46,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`}).add({id:45,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -47203,7 +46695,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:47,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:46,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -47215,7 +46707,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
     </div>
 </div>
-`}).add({id:48,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:47,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Templates</h1>
       <p>A collection of templates for various scenarios.
@@ -47226,7 +46718,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/templates/scitt/">Creating SCITT Entries on the DataTrails Platform &rarr;</a><br>
     </div>
 </div>
-`}).add({id:49,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -47240,7 +46732,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`}).add({id:50,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -47259,7 +46751,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:51,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:50,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -47275,7 +46767,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`}).add({id:52,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:51,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -47303,7 +46795,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`}).add({id:53,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:52,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>

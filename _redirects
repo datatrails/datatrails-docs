@@ -9,7 +9,6 @@
 /docs/user-patterns/state-machine/ /usecases/sc-state-machine/
 /usecases/state-machine/ /usecases/sc-state-machine/
 /docs/overview/advanced-concepts/ /platform/overview/advanced-concepts/
-/docs/developer-patterns/containers-as-assets/ /developers/developer-patterns/containers-as-assets/
 /docs/developer-patterns/namespace/ /developers/developer-patterns/namespace/
 ../quickstart/creating-an-asset /platform/overview/creating-an-asset/
 ../quickstart/tutorial /platform/overview/creating-an-asset/

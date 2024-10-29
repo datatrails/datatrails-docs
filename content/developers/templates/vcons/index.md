@@ -176,6 +176,75 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the `vcon_operation` (`string`) is the placeholder.
 
+## Verifying vCons
+
+DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
+
+We'll also explore specific vCon scenarios, such as consent and revocation validation.
+
+### Retrieving All vCon Events
+
+For each important operation performed on a vCon, a DataTrails Event (SCITT Signed Statement) should be recorded.
+
+To align with SCITT semantics, the vcon_uuid is set to the DataTrails `subject` event attribute. (`event_attributes.subject`)
+
+To query the history of DataTrails Events for a given vCon, use the following:
+
+- For bash/curl commands, configure the `.datatrails/bearer-token.txt` using the DataTrails [Creating Access Tokens](https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/) developer docs.
+- Query the collection of DataTrails Events, using the `subject` attribute.
+  Set the `VCON` env variable to the `vcon_uuid`
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON" \
+     | jq
+   ```
+
+- Verify Inclusions of a Specific vCon Hash
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   VCON_HASH="eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d"
+  curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload_hash_value=$VCON_HASH" \
+     | jq
+   ```
+
+- Query Events for a Specific vCon for a Specific Operation
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   VCON_OPERATION="vcon_created"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.vcon_operation=$VCON_OPERATION" \
+     | jq
+   ```
+
+- Query All Events for a Specific Operations
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON_OPERATION="vcon_created"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.vcon_operation=$VCON_OPERATION" \
+     | jq
+   ```
+
+- Limit Events Created by a Specific DataTrails Identity
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   PRINCIPAL="b5cfacfd-b918-4338-ad61-f4947477f874"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&principal_declared.issuer=https://app.datatrails.ai/appidpv1&principal_declared.subject=$PRINCIPAL" \
+     | jq
+   ```
+
 ### More Info:
 
 - [DataTrails Quickstart: SCITT Statements (Preview)](../../developer-patterns/scitt-api/)

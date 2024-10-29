@@ -16,42 +16,53 @@ aliases:
 vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
 Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.
 
-{{< caution >}}
-[IETF SCITT](https://datatracker.ietf.org/wg/scitt/about/) is currently in draft and subject to change.
-The following template provides DataTrails Event APIs, enabling production SLA for securing vCons.
-{{< /caution >}}
-{{< caution >}}
-[IETF vCon](https://datatracker.ietf.org/wg/vcon/about/) is currently in draft and subject to change.
-The following template references the specific draft version the template applies to.
-[vCon Draft 00](https://datatracker.ietf.org/doc/draft-vcon-vcon-container/00/)
-{{< /caution >}}
+## Version
+
+Template Version `0.2.0`
 
 The following provides a template for how to secure a vCon on DataTrails.
 
-### vCon Event Example
+## vCon Event Example
 
-The following example highlights a typical DataTrails Event, based on a vCon:
-
-[Events API](../../api-reference/events-api/)
+The following example highlights a typical [DataTrails Event](../../api-reference/events-api/), based on a vCon:
 
 ```json
 {
   "operation": "Record",
   "behaviour": "RecordEvidence",
   "event_attributes": {
-    "arc_display_type": "vcon_create",
+    "arc_display_type": "vcon_created",
+    "conserver_link": "DataTrails",
+    "conserver_link_name":  "datatrails_created",
+    "conserver_link_version": "0.2.0",
     "payload_hash_alg": "SHA-256",
-    "payload_preimage_content_type": "application/json",
-    "payload_hash_value": "e5e20exxxxxxxxxx78383479f9de138cf71b98b740fd5d7ee3xxxxxxxxxxde05",
+    "payload_preimage_content_type": "application/vcon+json",
+    "payload": "5cdc3d525e...bfac2e948f31b61",
+    "subject": "vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af",
+    "timestamp_declared": "2024-05-07T16:33:29.004994",
     "vcon_operation": "vcon_create",
-    "vcon_pipeline": "create-pipeline",
-    "vcon_pipeline_version": "1.0.0",
-    "vcon_updated_at": "2024-05-07T16:33:29.004994",
-    "subject": "vcon://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "vcon_draft_version": "00"
   }
 }
 ```
+
+### DataTrails Event to SCITT Mapping
+
+The following DataTrails Event attributes map to a SCITT Signed Statement:
+
+| DataTrails Attribute | SCITT |
+| -                    | -    |
+| `arc_display_type` | |
+| `conserver_link` | `metamap.conserver_link` |
+| `conserver_link_name` | `metamap.conserver_link_name` |
+| `conserver_link_version` | `metamap.conserver_link_version` |
+| `payload` | `protected-header.payload` |
+| `payload_hash_alg` | `protected-header.payload_hash_alg` |
+| `payload_pre_image_content_type` | `protected-header.payload_pre_image_content_type` |
+| `subject` | `protected-header.cwt-claims.subject` |
+| `timestamp_declared` | `metamap.timestamp_declared`|
+| `vcon_draft_version` | `metamap.vcon_draft_version` |
+| `vcon_operation` | `metamap.vcon_operation` |
 
 ### arc_display_type (REQUIRED)
 
@@ -60,12 +71,80 @@ Default within DataTrails to categorize events.
 
 For simplicity in configuring permissions, this property is a duplicate of the [vcon_operation](#vcon_operation) but could vary in advanced scenarios.
 
-### vcon_operation (REQUIRED)
+### conserver_link (OPTIONAL)
 
-A DataTrails Event should be created for each completed vCon operation.
-For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
-The defined lifecycle events of a vCon will likely evolve with the standard.
-For now, the `vcon_operation` (`string`) is the placeholder.
+The link `type` as named under the conserver links folder.
+
+While optional, this value is useful for tracing and debugging, knowing the source of the statement, long after troubleshooting or auditing may be needed.
+
+For the [DataTrails Conserver Link](https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails), this value would be `DataTrails`
+
+### conserver_link_name (OPTIONAL)
+
+vCons are processed by workflow pipelines that run multiple steps.
+In the [conserver model](https://www.conserver.io/), these are called chains which run one or more links.
+The `conserver_link_name` is the link as instanced and executed, different from the `conserver_link` which is the type name, that may be instanced 1 or more times.
+
+Based on the conserver link implementation, this value is likely sourced from a [conserver configuration](https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails#configuration):
+For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
+This property may prove to be redundant to the [vcon_operation](#vcon_operation), however it's proven helpful for tracing and debugging as the `vcon_operation` will likely turn into a standard set of lifetime values, while configuration will be unique to each instance.
+
+```yaml
+links:
+  datatrails-created:
+    module: links.datatrails
+    options:
+      api_url: "https://app.datatrails.ai/archivist/v2"
+      vcon_operation: "vcon_created"
+      auth:
+        type: "OIDC-client-credentials"
+        token_endpoint: "https://app.datatrails.ai/archivist/iam/v1/appidp/token"
+        client_id: "<your_client_id>"
+        client_secret: "<your_client_secret>"
+  datatrails_consent_revoked:
+    module: links.datatrails
+    options:
+      api_url: "https://app.datatrails.ai/archivist/v2"
+      vcon_operation: "vcon_consent_revoked"
+      auth:
+        type: "OIDC-client-credentials"
+        token_endpoint: "https://app.datatrails.ai/archivist/iam/v1/appidp/token"
+        client_id: "<your_client_id>"
+        client_secret: "<your_client_secret>"
+
+chains:
+  create_chain:
+    links:
+      - datatrails_created
+    ingress_lists:
+      - create_ingress
+    egress_lists:
+      - default_egress
+    enabled: 1
+  consent_revoked_chain:
+    links:
+      - datatrails_consent_revoked
+    ingress_lists:
+      - consent_ingress
+    egress_lists:
+      - default_egress
+    enabled: 1
+```
+
+In the above configuration, depending on whether the `create_chain` or the `consent_revoked_chain` chain was instanced, `conserver_link_name` would equal: `datatrails_created` or `datatrails_consent_revoked`.
+In both instances, the `conserver_link` would be `DataTrails`.
+
+### conserver_link_version (OPTIONAL)
+
+The version of the `conserver_link`.
+This template applies to version `0.2.0`
+
+### payload (REQUIRED)
+
+The hash of the vCon as it's recorded on DataTrails.
+Setting the `payload_hash_alg` indicates the payload is a hash of content in `payload_preimage_content_type` format, using the `payload_hash_alg` algorithm.
+
+`payload`, `payload_hash_alg` and `payload_preimage_content_type` originate from the IETF Draft: [COSE Hash Envelope](https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/).
 
 ### payload_hash_alg (REQUIRED)
 
@@ -79,44 +158,95 @@ The property name comes from [draft-ietf-cose-hash-envelope](https://datatracker
 [Section 5.3.1 of vCon 00](https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1) specifies `application/vcon`.
 There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7), and discussion for using `application/vcon+json`
 
-### payload_hash_value (REQUIRED)
-
-The hash of the vCon as it's recorded on DataTrails.
-
-### vcon_pipeline (OPTIONAL)
-
-vCons are processed by workflow pipelines that run multiple steps.
-In the [conserver model](https://www.conserver.io/), these are called chains which run one or more links.
-For each chain, a vCon is complete and written to the SCITT Ledger to protect its integrity and inclusion.
-For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
-This property may prove to be redundant to the [vcon_operation](#vcon_operation).
-
-### vcon_pipeline_version (OPTIONAL)
-
-The version of the [vcon_pipeline](#vcon_pipeline).
-
-### vcon_updated_at (REQUIRED)
-
-See [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at)
-
 ### subject (REQUIRED)
 
 The [vCon unique identifier](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid).
 Subject is used to align with the [SCITT Protected Header](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:)
 
-## User Agent Headers
+### timestamp_declared (REQUIRED)
 
-When submitting requests to DataTrails, the following header parameters are required for tracking, independent of authorization.
+Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at), capturing the datetime the vCon was updated.
+As vCon processing may take time, and the processing of various steps (Conserver links & chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
+All entries related to the same vCon version (`updated_at` | `hash`), should likely be considered equal in timing.
 
-### DataTrails-User-Agent (REQUIRED)
+### vcon_operation (REQUIRED)
 
-Diagnostics and tracking for the source of the request.
-Typically set to the code or service.
-For example: (`DataTrails-User-Agent:oss/conserverlink/0.1.0`)
+A DataTrails Event should be created for each completed vCon operation.
+For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
+The defined lifecycle events of a vCon will likely evolve with the standard.
+For now, the `vcon_operation` (`string`) is the placeholder.
 
-### DataTrails-Partner-ID (REQUIRED)
+## Verifying vCons
 
-Diagnostics and tracking of the Partner making requests.
-This header is independent of the [DataTrails-User-Agent](#datatrails-user-agent), as multiple services may be running the same codebase, such as the [vCon Conserver](https://github.com/vcon-dev/vcon-server/)
+DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
 
-For example: (`DataTrails-Partner-ID:synsation.io`)
+We'll also explore specific vCon scenarios, such as consent and revocation validation.
+
+### Retrieving All vCon Events
+
+For each important operation performed on a vCon, a DataTrails Event (SCITT Signed Statement) should be recorded.
+
+To align with SCITT semantics, the vcon_uuid is set to the DataTrails `subject` event attribute. (`event_attributes.subject`)
+
+To query the history of DataTrails Events for a given vCon, use the following:
+
+- For bash/curl commands, configure the `.datatrails/bearer-token.txt` using the DataTrails [Creating Access Tokens](https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/) developer docs.
+- Query the collection of DataTrails Events, using the `subject` attribute.
+  Set the `VCON` env variable to the `vcon_uuid`
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON" \
+     | jq
+   ```
+
+- Verify Inclusions of a Specific vCon Hash
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   VCON_HASH="eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d"
+  curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload_hash_value=$VCON_HASH" \
+     | jq
+   ```
+
+- Query Events for a Specific vCon for a Specific Operation
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   VCON_OPERATION="vcon_created"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.vcon_operation=$VCON_OPERATION" \
+     | jq
+   ```
+
+- Query All Events for a Specific Operations
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON_OPERATION="vcon_created"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.vcon_operation=$VCON_OPERATION" \
+     | jq
+   ```
+
+- Limit Events Created by a Specific DataTrails Identity
+
+   ```bash
+   DATATRAILS_EVENTS_URL="https://app.datatrails.ai/archivist/v2/assets/-/events"
+   VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
+   PRINCIPAL="b5cfacfd-b918-4338-ad61-f4947477f874"
+   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&principal_declared.issuer=https://app.datatrails.ai/appidpv1&principal_declared.subject=$PRINCIPAL" \
+     | jq
+   ```
+
+### More Info:
+
+- [DataTrails Quickstart: SCITT Statements (Preview)](../../developer-patterns/scitt-api/)
+- [SCITT.io](https://scitt.io)
+- [vCons and Conserver.io](https://www.conserver.io/)

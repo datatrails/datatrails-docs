@@ -1,47 +1,154 @@
 var suggestions=document.getElementById("suggestions"),userinput=document.getElementById("userinput");document.addEventListener("keydown",inputFocus);function inputFocus(e){e.keyCode===191&&(e.preventDefault(),userinput.focus()),e.keyCode===27&&(userinput.blur(),suggestions.classList.add("d-none"))}document.addEventListener("click",function(e){var t=suggestions.contains(e.target);t||suggestions.classList.add("d-none")}),document.addEventListener("keydown",suggestionFocus);function suggestionFocus(e){const s=suggestions.querySelectorAll("a"),o=[...s],t=o.indexOf(document.activeElement);let n=0;e.keyCode===38?(e.preventDefault(),n=t>0?t-1:0,s[n].focus()):e.keyCode===40&&(e.preventDefault(),n=t+1<o.length?t+1:t,s[n].focus())}(function(){var e=new FlexSearch.Document({tokenize:"forward",cache:100,document:{id:"id",store:["href","title","description"],index:["title","description","content"]}}),o=[{id:0,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
 Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
-<p><blockquote class="caution callout">
-    <div><strong></strong> <a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">IETF SCITT</a> is currently in draft and subject to change.
-The following template provides DataTrails Event APIs, enabling production SLA for securing vCons.</div>
-  </blockquote>
-<blockquote class="caution callout">
-    <div><strong></strong> <a href="https://datatracker.ietf.org/wg/vcon/about/" target="_blank" rel="noopener">IETF vCon</a> is currently in draft and subject to change.
-The following template references the specific draft version the template applies to.
-
-<a href="https://datatracker.ietf.org/doc/draft-vcon-vcon-container/00/" target="_blank" rel="noopener">vCon Draft 00</a></div>
-  </blockquote></p>
+<h2 id="version">Version</h2>
+<p>Template Version <code>0.2.0</code></p>
 <p>The following provides a template for how to secure a vCon on DataTrails.</p>
-<h3 id="vcon-event-example">vCon Event Example</h3>
-<p>The following example highlights a typical DataTrails Event, based on a vCon:</p>
-<p>
-<a href="../../api-reference/events-api/">Events API</a></p>
+<h2 id="vcon-event-example">vCon Event Example</h2>
+<p>The following example highlights a typical 
+<a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_created&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;DataTrails&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;datatrails_created&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA-256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;e5e20exxxxxxxxxx78383479f9de138cf71b98b740fd5d7ee3xxxxxxxxxxde05&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vcon+json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="s2">&#34;5cdc3d525e...bfac2e948f31b61&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_pipeline&#34;</span><span class="p">:</span> <span class="s2">&#34;create-pipeline&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_pipeline_version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_updated_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="arc_display_type-required">arc_display_type (REQUIRED)</h3>
+</span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
+<p>The following DataTrails Event attributes map to a SCITT Signed Statement:</p>
+<table>
+<thead>
+<tr>
+<th>DataTrails Attribute</th>
+<th>SCITT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arc_display_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>conserver_link</code></td>
+<td><code>metamap.conserver_link</code></td>
+</tr>
+<tr>
+<td><code>conserver_link_name</code></td>
+<td><code>metamap.conserver_link_name</code></td>
+</tr>
+<tr>
+<td><code>conserver_link_version</code></td>
+<td><code>metamap.conserver_link_version</code></td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td><code>protected-header.payload</code></td>
+</tr>
+<tr>
+<td><code>payload_hash_alg</code></td>
+<td><code>protected-header.payload_hash_alg</code></td>
+</tr>
+<tr>
+<td><code>payload_pre_image_content_type</code></td>
+<td><code>protected-header.payload_pre_image_content_type</code></td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>protected-header.cwt-claims.subject</code></td>
+</tr>
+<tr>
+<td><code>timestamp_declared</code></td>
+<td><code>metamap.timestamp_declared</code></td>
+</tr>
+<tr>
+<td><code>vcon_draft_version</code></td>
+<td><code>metamap.vcon_draft_version</code></td>
+</tr>
+<tr>
+<td><code>vcon_operation</code></td>
+<td><code>metamap.vcon_operation</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arc_display_type-required">arc_display_type (REQUIRED)</h3>
 <p>Default within DataTrails to categorize events.
 <code>arc_display_type</code> is also the default means to 
 <a href="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/" target="_blank" rel="noopener">configure permissions</a> for which type of events a client may view and/or edit.</p>
 <p>For simplicity in configuring permissions, this property is a duplicate of the 
 <a href="#vcon_operation">vcon_operation</a> but could vary in advanced scenarios.</p>
-<h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
-<p>A DataTrails Event should be created for each completed vCon operation.
-For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
-The defined lifecycle events of a vCon will likely evolve with the standard.
-For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
+<p>The link <code>type</code> as named under the conserver links folder.</p>
+<p>While optional, this value is useful for tracing and debugging, knowing the source of the statement, long after troubleshooting or auditing may be needed.</p>
+<p>For the 
+<a href="https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails" target="_blank" rel="noopener">DataTrails Conserver Link</a>, this value would be <code>DataTrails</code></p>
+<h3 id="conserver_link_name-optional">conserver_link_name (OPTIONAL)</h3>
+<p>vCons are processed by workflow pipelines that run multiple steps.
+In the 
+<a href="https://www.conserver.io/" target="_blank" rel="noopener">conserver model</a>, these are called chains which run one or more links.
+The <code>conserver_link_name</code> is the link as instanced and executed, different from the <code>conserver_link</code> which is the type name, that may be instanced 1 or more times.</p>
+<p>Based on the conserver link implementation, this value is likely sourced from a 
+<a href="https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails#configuration" target="_blank" rel="noopener">conserver configuration</a>:
+For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
+This property may prove to be redundant to the 
+<a href="#vcon_operation">vcon_operation</a>, however it&rsquo;s proven helpful for tracing and debugging as the <code>vcon_operation</code> will likely turn into a standard set of lifetime values, while configuration will be unique to each instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails-created</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_created&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">token_endpoint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/iam/v1/appidp/token&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_id&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_secret&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails_consent_revoked</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_consent_revoked&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">token_endpoint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/iam/v1/appidp/token&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_id&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_secret&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">chains</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">create_chain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">datatrails_created</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ingress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">create_ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">egress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">default_egress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">consent_revoked_chain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">datatrails_consent_revoked</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ingress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">consent_ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">egress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">default_egress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span></code></pre></div><p>In the above configuration, depending on whether the <code>create_chain</code> or the <code>consent_revoked_chain</code> chain was instanced, <code>conserver_link_name</code> would equal: <code>datatrails_created</code> or <code>datatrails_consent_revoked</code>.
+In both instances, the <code>conserver_link</code> would be <code>DataTrails</code>.</p>
+<h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
+<p>The version of the <code>conserver_link</code>.
+This template applies to version <code>0.2.0</code></p>
+<h3 id="payload-required">payload (REQUIRED)</h3>
+<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.
+Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
+<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
 <h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
 <p>The hash algorithm used to hash the vCon.
 Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
@@ -52,39 +159,87 @@ Currently, this is <code>SHA-256</code>, but should be sourced by the vCon objec
 <a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
 There is 
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
-<h3 id="payload_hash_value-required">payload_hash_value (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.</p>
-<h3 id="vcon_pipeline-optional">vcon_pipeline (OPTIONAL)</h3>
-<p>vCons are processed by workflow pipelines that run multiple steps.
-In the 
-<a href="https://www.conserver.io/" target="_blank" rel="noopener">conserver model</a>, these are called chains which run one or more links.
-For each chain, a vCon is complete and written to the SCITT Ledger to protect its integrity and inclusion.
-For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
-This property may prove to be redundant to the 
-<a href="#vcon_operation">vcon_operation</a>.</p>
-<h3 id="vcon_pipeline_version-optional">vcon_pipeline_version (OPTIONAL)</h3>
-<p>The version of the 
-<a href="#vcon_pipeline">vcon_pipeline</a>.</p>
-<h3 id="vcon_updated_at-required">vcon_updated_at (REQUIRED)</h3>
-<p>See 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
 <p>The 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
 Subject is used to align with the 
 <a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
-<h2 id="user-agent-headers">User Agent Headers</h2>
-<p>When submitting requests to DataTrails, the following header parameters are required for tracking, independent of authorization.</p>
-<h3 id="datatrails-user-agent-required">DataTrails-User-Agent (REQUIRED)</h3>
-<p>Diagnostics and tracking for the source of the request.
-Typically set to the code or service.
-For example: (<code>DataTrails-User-Agent:oss/conserverlink/0.1.0</code>)</p>
-<h3 id="datatrails-partner-id-required">DataTrails-Partner-ID (REQUIRED)</h3>
-<p>Diagnostics and tracking of the Partner making requests.
-This header is independent of the 
-<a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 
-<a href="https://github.com/vcon-dev/vcon-server/" target="_blank" rel="noopener">vCon Conserver</a></p>
-<p>For example: (<code>DataTrails-Partner-ID:synsation.io</code>)</p>
+<h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
+<p>Set to 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
+All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
+<h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
+<p>A DataTrails Event should be created for each completed vCon operation.
+For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
+The defined lifecycle events of a vCon will likely evolve with the standard.
+For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h2 id="verifying-vcons">Verifying vCons</h2>
+<p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
+<p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>
+<h3 id="retrieving-all-vcon-events">Retrieving All vCon Events</h3>
+<p>For each important operation performed on a vCon, a DataTrails Event (SCITT Signed Statement) should be recorded.</p>
+<p>To align with SCITT semantics, the vcon_uuid is set to the DataTrails <code>subject</code> event attribute. (<code>event_attributes.subject</code>)</p>
+<p>To query the history of DataTrails Events for a given vCon, use the following:</p>
+<ul>
+<li>
+<p>For bash/curl commands, configure the <code>.datatrails/bearer-token.txt</code> using the DataTrails 
+<a href="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/" target="_blank" rel="noopener">Creating Access Tokens</a> developer docs.</p>
+</li>
+<li>
+<p>Query the collection of DataTrails Events, using the <code>subject</code> attribute.
+Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Verify Inclusions of a Specific vCon Hash</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_HASH</span><span class="o">=</span><span class="s2">&#34;eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload_hash_value=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Query Events for a Specific vCon for a Specific Operation</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_OPERATION</span><span class="o">=</span><span class="s2">&#34;vcon_created&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.vcon_operation=</span><span class="nv">$VCON_OPERATION</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Query All Events for a Specific Operations</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_OPERATION</span><span class="o">=</span><span class="s2">&#34;vcon_created&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.vcon_operation=</span><span class="nv">$VCON_OPERATION</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Limit Events Created by a Specific DataTrails Identity</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PRINCIPAL</span><span class="o">=</span><span class="s2">&#34;b5cfacfd-b918-4338-ad61-f4947477f874&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;principal_declared.issuer=https://app.datatrails.ai/appidpv1&amp;principal_declared.subject=</span><span class="nv">$PRINCIPAL</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="more-info">More Info:</h3>
+<ul>
+<li>
+<a href="../../developer-patterns/scitt-api/">DataTrails Quickstart: SCITT Statements (Preview)</a></li>
+<li>
+<a href="https://scitt.io" target="_blank" rel="noopener">SCITT.io</a></li>
+<li>
+<a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
+</ul>
 `},{id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service to prove the origins and trustworthiness of the data that powers your applications.</p>
 <p>DataTrails enables enterprises to build trust in data such as documents, images and AI models by ensuring that you know the origin and history of the data that you are using.
 This can also be applied to multi-party data such as software and supply chain artifacts allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>
@@ -23408,48 +23563,155 @@ If you are looking for a simple way to test our API you might prefer our
 </section>
 `}];console.log("[developers platform]"),e.add({id:0,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
 Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
-<p><blockquote class="caution callout">
-    <div><strong></strong> <a href="https://datatracker.ietf.org/wg/scitt/about/" target="_blank" rel="noopener">IETF SCITT</a> is currently in draft and subject to change.
-The following template provides DataTrails Event APIs, enabling production SLA for securing vCons.</div>
-  </blockquote>
-<blockquote class="caution callout">
-    <div><strong></strong> <a href="https://datatracker.ietf.org/wg/vcon/about/" target="_blank" rel="noopener">IETF vCon</a> is currently in draft and subject to change.
-The following template references the specific draft version the template applies to.
-
-<a href="https://datatracker.ietf.org/doc/draft-vcon-vcon-container/00/" target="_blank" rel="noopener">vCon Draft 00</a></div>
-  </blockquote></p>
+<h2 id="version">Version</h2>
+<p>Template Version <code>0.2.0</code></p>
 <p>The following provides a template for how to secure a vCon on DataTrails.</p>
-<h3 id="vcon-event-example">vCon Event Example</h3>
-<p>The following example highlights a typical DataTrails Event, based on a vCon:</p>
-<p>
-<a href="../../api-reference/events-api/">Events API</a></p>
+<h2 id="vcon-event-example">vCon Event Example</h2>
+<p>The following example highlights a typical 
+<a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_created&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;DataTrails&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;datatrails_created&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA-256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/json&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;e5e20exxxxxxxxxx78383479f9de138cf71b98b740fd5d7ee3xxxxxxxxxxde05&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vcon+json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="s2">&#34;5cdc3d525e...bfac2e948f31b61&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_pipeline&#34;</span><span class="p">:</span> <span class="s2">&#34;create-pipeline&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_pipeline_version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_updated_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="arc_display_type-required">arc_display_type (REQUIRED)</h3>
+</span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
+<p>The following DataTrails Event attributes map to a SCITT Signed Statement:</p>
+<table>
+<thead>
+<tr>
+<th>DataTrails Attribute</th>
+<th>SCITT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arc_display_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>conserver_link</code></td>
+<td><code>metamap.conserver_link</code></td>
+</tr>
+<tr>
+<td><code>conserver_link_name</code></td>
+<td><code>metamap.conserver_link_name</code></td>
+</tr>
+<tr>
+<td><code>conserver_link_version</code></td>
+<td><code>metamap.conserver_link_version</code></td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td><code>protected-header.payload</code></td>
+</tr>
+<tr>
+<td><code>payload_hash_alg</code></td>
+<td><code>protected-header.payload_hash_alg</code></td>
+</tr>
+<tr>
+<td><code>payload_pre_image_content_type</code></td>
+<td><code>protected-header.payload_pre_image_content_type</code></td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><code>protected-header.cwt-claims.subject</code></td>
+</tr>
+<tr>
+<td><code>timestamp_declared</code></td>
+<td><code>metamap.timestamp_declared</code></td>
+</tr>
+<tr>
+<td><code>vcon_draft_version</code></td>
+<td><code>metamap.vcon_draft_version</code></td>
+</tr>
+<tr>
+<td><code>vcon_operation</code></td>
+<td><code>metamap.vcon_operation</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arc_display_type-required">arc_display_type (REQUIRED)</h3>
 <p>Default within DataTrails to categorize events.
 <code>arc_display_type</code> is also the default means to 
 <a href="https://docs.datatrails.ai/platform/administration/sharing-access-inside-your-tenant/" target="_blank" rel="noopener">configure permissions</a> for which type of events a client may view and/or edit.</p>
 <p>For simplicity in configuring permissions, this property is a duplicate of the 
 <a href="#vcon_operation">vcon_operation</a> but could vary in advanced scenarios.</p>
-<h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
-<p>A DataTrails Event should be created for each completed vCon operation.
-For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
-The defined lifecycle events of a vCon will likely evolve with the standard.
-For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
+<p>The link <code>type</code> as named under the conserver links folder.</p>
+<p>While optional, this value is useful for tracing and debugging, knowing the source of the statement, long after troubleshooting or auditing may be needed.</p>
+<p>For the 
+<a href="https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails" target="_blank" rel="noopener">DataTrails Conserver Link</a>, this value would be <code>DataTrails</code></p>
+<h3 id="conserver_link_name-optional">conserver_link_name (OPTIONAL)</h3>
+<p>vCons are processed by workflow pipelines that run multiple steps.
+In the 
+<a href="https://www.conserver.io/" target="_blank" rel="noopener">conserver model</a>, these are called chains which run one or more links.
+The <code>conserver_link_name</code> is the link as instanced and executed, different from the <code>conserver_link</code> which is the type name, that may be instanced 1 or more times.</p>
+<p>Based on the conserver link implementation, this value is likely sourced from a 
+<a href="https://github.com/vcon-dev/vcon-server/tree/main/server/links/datatrails#configuration" target="_blank" rel="noopener">conserver configuration</a>:
+For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
+This property may prove to be redundant to the 
+<a href="#vcon_operation">vcon_operation</a>, however it&rsquo;s proven helpful for tracing and debugging as the <code>vcon_operation</code> will likely turn into a standard set of lifetime values, while configuration will be unique to each instance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails-created</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_created&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">token_endpoint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/iam/v1/appidp/token&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_id&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_secret&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails_consent_revoked</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_consent_revoked&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">token_endpoint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/iam/v1/appidp/token&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_id&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&lt;your_client_secret&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">chains</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">create_chain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">datatrails_created</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ingress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">create_ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">egress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">default_egress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">consent_revoked_chain</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">links</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">datatrails_consent_revoked</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ingress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">consent_ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">egress_lists</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">default_egress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span></code></pre></div><p>In the above configuration, depending on whether the <code>create_chain</code> or the <code>consent_revoked_chain</code> chain was instanced, <code>conserver_link_name</code> would equal: <code>datatrails_created</code> or <code>datatrails_consent_revoked</code>.
+In both instances, the <code>conserver_link</code> would be <code>DataTrails</code>.</p>
+<h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
+<p>The version of the <code>conserver_link</code>.
+This template applies to version <code>0.2.0</code></p>
+<h3 id="payload-required">payload (REQUIRED)</h3>
+<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.
+Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
+<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
 <h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
 <p>The hash algorithm used to hash the vCon.
 Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
@@ -23460,39 +23722,87 @@ Currently, this is <code>SHA-256</code>, but should be sourced by the vCon objec
 <a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
 There is 
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
-<h3 id="payload_hash_value-required">payload_hash_value (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.</p>
-<h3 id="vcon_pipeline-optional">vcon_pipeline (OPTIONAL)</h3>
-<p>vCons are processed by workflow pipelines that run multiple steps.
-In the 
-<a href="https://www.conserver.io/" target="_blank" rel="noopener">conserver model</a>, these are called chains which run one or more links.
-For each chain, a vCon is complete and written to the SCITT Ledger to protect its integrity and inclusion.
-For debugging purposes, the vCon pipeline may wish to store the name of the pipeline.
-This property may prove to be redundant to the 
-<a href="#vcon_operation">vcon_operation</a>.</p>
-<h3 id="vcon_pipeline_version-optional">vcon_pipeline_version (OPTIONAL)</h3>
-<p>The version of the 
-<a href="#vcon_pipeline">vcon_pipeline</a>.</p>
-<h3 id="vcon_updated_at-required">vcon_updated_at (REQUIRED)</h3>
-<p>See 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
 <p>The 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
 Subject is used to align with the 
 <a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
-<h2 id="user-agent-headers">User Agent Headers</h2>
-<p>When submitting requests to DataTrails, the following header parameters are required for tracking, independent of authorization.</p>
-<h3 id="datatrails-user-agent-required">DataTrails-User-Agent (REQUIRED)</h3>
-<p>Diagnostics and tracking for the source of the request.
-Typically set to the code or service.
-For example: (<code>DataTrails-User-Agent:oss/conserverlink/0.1.0</code>)</p>
-<h3 id="datatrails-partner-id-required">DataTrails-Partner-ID (REQUIRED)</h3>
-<p>Diagnostics and tracking of the Partner making requests.
-This header is independent of the 
-<a href="#datatrails-user-agent">DataTrails-User-Agent</a>, as multiple services may be running the same codebase, such as the 
-<a href="https://github.com/vcon-dev/vcon-server/" target="_blank" rel="noopener">vCon Conserver</a></p>
-<p>For example: (<code>DataTrails-Partner-ID:synsation.io</code>)</p>
+<h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
+<p>Set to 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
+All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
+<h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
+<p>A DataTrails Event should be created for each completed vCon operation.
+For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
+The defined lifecycle events of a vCon will likely evolve with the standard.
+For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h2 id="verifying-vcons">Verifying vCons</h2>
+<p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
+<p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>
+<h3 id="retrieving-all-vcon-events">Retrieving All vCon Events</h3>
+<p>For each important operation performed on a vCon, a DataTrails Event (SCITT Signed Statement) should be recorded.</p>
+<p>To align with SCITT semantics, the vcon_uuid is set to the DataTrails <code>subject</code> event attribute. (<code>event_attributes.subject</code>)</p>
+<p>To query the history of DataTrails Events for a given vCon, use the following:</p>
+<ul>
+<li>
+<p>For bash/curl commands, configure the <code>.datatrails/bearer-token.txt</code> using the DataTrails 
+<a href="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/" target="_blank" rel="noopener">Creating Access Tokens</a> developer docs.</p>
+</li>
+<li>
+<p>Query the collection of DataTrails Events, using the <code>subject</code> attribute.
+Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Verify Inclusions of a Specific vCon Hash</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_HASH</span><span class="o">=</span><span class="s2">&#34;eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload_hash_value=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Query Events for a Specific vCon for a Specific Operation</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_OPERATION</span><span class="o">=</span><span class="s2">&#34;vcon_created&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.vcon_operation=</span><span class="nv">$VCON_OPERATION</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Query All Events for a Specific Operations</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON_OPERATION</span><span class="o">=</span><span class="s2">&#34;vcon_created&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.vcon_operation=</span><span class="nv">$VCON_OPERATION</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>Limit Events Created by a Specific DataTrails Identity</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">DATATRAILS_EVENTS_URL</span><span class="o">=</span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PRINCIPAL</span><span class="o">=</span><span class="s2">&#34;b5cfacfd-b918-4338-ad61-f4947477f874&#34;</span>
+</span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;principal_declared.issuer=https://app.datatrails.ai/appidpv1&amp;principal_declared.subject=</span><span class="nv">$PRINCIPAL</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="more-info">More Info:</h3>
+<ul>
+<li>
+<a href="../../developer-patterns/scitt-api/">DataTrails Quickstart: SCITT Statements (Preview)</a></li>
+<li>
+<a href="https://scitt.io" target="_blank" rel="noopener">SCITT.io</a></li>
+<li>
+<a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
+</ul>
 `}).add({id:1,href:"https://docs.datatrails.ai/platform/overview/introduction/",title:"Introduction",description:"Welcome to DataTrails",content:`<p>DataTrails provides Provenance as a Service to prove the origins and trustworthiness of the data that powers your applications.</p>
 <p>DataTrails enables enterprises to build trust in data such as documents, images and AI models by ensuring that you know the origin and history of the data that you are using.
 This can also be applied to multi-party data such as software and supply chain artifacts allowing you to make sure that processes are fit for purpose to comply with IT controls, corporate policies, and government regulations.</p>

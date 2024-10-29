@@ -180,6 +180,11 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the `vcon_operation` (`string`) is the placeholder.
 
+### vcon_draft_version (REQUIRED)
+
+IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/)
+
 ## Verifying vCons
 
 DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.

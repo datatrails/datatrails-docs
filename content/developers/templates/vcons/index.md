@@ -1,5 +1,5 @@
 ---
-title: "vCon Template"
+title: "DataTrails Event vCon Template"
 description: "Creating DataTrails Events for vCons"
 lead: "Securing vCons with DataTrails Events"
 date: 2021-06-09T13:49:35+01:00
@@ -20,9 +20,9 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 
 Template Version `0.2.0`
 
-The following provides a template for how to secure a vCon on DataTrails.
-
 ## vCon Event Example
+
+The following provides a template for how to secure a vCon on DataTrails.
 
 The following example highlights a typical [DataTrails Event](../../api-reference/events-api/), based on a vCon:
 
@@ -41,7 +41,7 @@ The following example highlights a typical [DataTrails Event](../../api-referenc
     "subject": "vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af",
     "timestamp_declared": "2024-05-07T16:33:29.004994",
     "vcon_operation": "vcon_create",
-    "vcon_draft_version": "00"
+    "vcon_draft_version": "01"
   }
 }
 ```
@@ -141,7 +141,7 @@ This template applies to version `0.2.0`
 
 ### payload (REQUIRED)
 
-The hash of the vCon as it's recorded on DataTrails.
+The hash of the vCon as it's recorded on the SCITT Transparency Service.
 Setting the `payload_hash_alg` indicates the payload is a hash of content in `payload_preimage_content_type` format, using the `payload_hash_alg` algorithm.
 
 `payload`, `payload_hash_alg` and `payload_preimage_content_type` originate from the IETF Draft: [COSE Hash Envelope](https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/).
@@ -155,17 +155,21 @@ Currently, this is `SHA-256`, but should be sourced by the vCon object to suppor
 
 The property name comes from [draft-ietf-cose-hash-envelope](https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/), representing the `content-type` of the vCon, prior to hashing.
 
-[Section 5.3.1 of vCon 00](https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1) specifies `application/vcon`.
+[Section 5.3.1 of vCon 01](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1) specifies `application/vcon`.
 There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7), and discussion for using `application/vcon+json`
 
 ### subject (REQUIRED)
 
-The [vCon unique identifier](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid).
+The [vCon unique identifier (uuid)](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2).
+
+### subject (REQUIRED)
+
+The [vCon unique identifier (uuid)](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2).
 Subject is used to align with the [SCITT Protected Header](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:)
 
 ### timestamp_declared (REQUIRED)
 
-Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at), capturing the datetime the vCon was updated.
+Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4), capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links & chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (`updated_at` | `hash`), should likely be considered equal in timing.
 

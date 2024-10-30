@@ -5,10 +5,49 @@ Recording the current state of a vCon on a SCITT Transparency Service secures th
 <a href="https://datatracker.ietf.org/group/scitt/documents/" target="_blank" rel="noopener">IETF standards</a> for managing the compliance and auditability of goods and services across end-to-end supply chains.
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
 <p>The following provides a template for securing a vCon with a SCITT Signed Statement.</p>
-<h3 id="vcon-signed-statement-example">vCon Signed Statement Example</h3>
+<h2 id="version">Version</h2>
+<p>Template Version <code>0.2.0</code></p>
+<h2 id="vcon-signed-statement-example">vCon Signed Statement Example</h2>
 <p>The following example highlights a typical SCITT Signed Statement, based on a vCon:</p>
-<p>
-<a href="../../api-reference/events-api/">Events API</a></p>
+<blockquote class="caution callout">
+    <div><strong></strong> <p>
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a> and 
+<a href="https://github.com/SteveLasker/draft-lasker-meta-map" target="_blank" rel="noopener">COSE Meta-Map</a> have not yet been assigned COSE Header labels.</p>
+<p>The following 
+<a href="https://www.iana.org/assignments/cose/cose.xhtml#header-parameters" target="_blank" rel="noopener">private labels</a> are being used until allocation has been made:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Label</th>
+<th>Value Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>payload_hash_alg</code></td>
+<td><code>-6800</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>payload_location</code></td>
+<td><code>-6801</code></td>
+<td><code>tstr</code></td>
+</tr>
+<tr>
+<td><code>payload_preimage_content_type</code></td>
+<td><code>-6802</code></td>
+<td><code>int</code> / <code>tstr</code></td>
+</tr>
+<tr>
+<td><code>meta-map</code></td>
+<td><code>-6804</code></td>
+<td><code>{ * tstr=&gt; tstr }</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+  </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Signed_Statement</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Receipt</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl">
@@ -22,13 +61,12 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="n">Protected_Header</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&amp;</span><span class="p">(</span><span class="n">CWT_Claims</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">CWT_Claims</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">alg</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_hash_alg</span><span class="p">:</span> <span class="n">TBD_1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_preimage_content_type</span><span class="p">:</span> <span class="n">TBD_2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span> <span class="o">/</span> <span class="n">uint</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_location</span><span class="p">:</span> <span class="n">TBD_3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_hash_alg</span><span class="p">:</span> <span class="o">-</span><span class="mi">6800</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_preimage_content_type</span><span class="p">:</span> <span class="o">-</span><span class="mi">6802</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span> <span class="o">/</span> <span class="n">uint</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_location</span><span class="p">:</span> <span class="o">-</span><span class="mi">6801</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">kid</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">bstr</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5t</span><span class="p">:</span> <span class="mi">34</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_CertHash</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">meta</span><span class="o">-</span><span class="n">map</span><span class="p">:</span> <span class="n">TBD_4</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">meta</span><span class="o">-</span><span class="n">map</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">meta</span><span class="o">-</span><span class="n">map</span><span class="p">:</span> <span class="o">-</span><span class="mi">6804</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">meta</span><span class="o">-</span><span class="n">map</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -43,18 +81,39 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">Unprotected_Header</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">receipts</span><span class="p">:</span> <span class="mi">394</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="o">+</span> <span class="n">Receipt</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="metamap-keyvalue-pairs">metamap key/value pairs</h3>
-<p>The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of any PII information being maintained.</p>
+</span></span></code></pre></div><h2 id="cose-headers">COSE Headers</h2>
+<p>The following maps vCon properties to SCITT COSE Header properties.</p>
+<h3 id="payload-required">payload (REQUIRED)</h3>
+<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
+Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
+<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
+<h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
+<p>The hash algorithm used to hash the vCon.
+Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
+<h3 id="payload_preimage_content_type-required">payload_preimage_content_type (REQUIRED)</h3>
+<p>The property name comes from 
+<a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
+<p>
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 01</a> specifies <code>application/vcon</code>.
+There is 
+<a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
+<h3 id="subject-required">subject (REQUIRED)</h3>
+<p>The 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
+<h2 id="meta-map-keyvalue-pairs">meta-map key/value pairs</h2>
+<p>The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of personally identifiable information (PII) being maintained.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;scitt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;scitt_created&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
 <p>The link <code>type</code> as named under the conserver links folder.</p>
@@ -115,29 +174,9 @@ In both instances, the <code>conserver_link</code> would be <code>scitt</code>.<
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
 This template applies to version <code>0.2.0</code></p>
-<h3 id="payload-required">payload (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
-Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
-<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
-<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
-<h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
-<p>The hash algorithm used to hash the vCon.
-Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
-<h3 id="payload_preimage_content_type-required">payload_preimage_content_type (REQUIRED)</h3>
-<p>The property name comes from 
-<a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
-<p>
-<a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
-There is 
-<a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
-<h3 id="subject-required">subject (REQUIRED)</h3>
-<p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
-Subject is used to align with the 
-<a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
 <h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
@@ -145,6 +184,10 @@ All entries related to the same vCon version (<code>updated_at</code> | <code>ha
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
+<p>IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
 These changes are being proposed to the SCITT Reference API (SCRAPI).</p>
@@ -212,12 +255,12 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 <li>
 <a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
 </ul>
-`},{id:1,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
+`},{id:1,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"DataTrails Event vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
 Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
 <h2 id="version">Version</h2>
 <p>Template Version <code>0.2.0</code></p>
-<p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <h2 id="vcon-event-example">vCon Event Example</h2>
+<p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <p>The following example highlights a typical 
 <a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -234,7 +277,7 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
@@ -359,7 +402,7 @@ In both instances, the <code>conserver_link</code> would be <code>DataTrails</co
 <p>The version of the <code>conserver_link</code>.
 This template applies to version <code>0.2.0</code></p>
 <h3 id="payload-required">payload (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.
+<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
 Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
 <p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
@@ -370,17 +413,20 @@ Currently, this is <code>SHA-256</code>, but should be sourced by the vCon objec
 <p>The property name comes from 
 <a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
 <p>
-<a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 01</a> specifies <code>application/vcon</code>.
 There is 
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
 <p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
+<h3 id="subject-required-1">subject (REQUIRED)</h3>
+<p>The 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.
 Subject is used to align with the 
 <a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
 <h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
@@ -388,6 +434,10 @@ All entries related to the same vCon version (<code>updated_at</code> | <code>ha
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
+<p>IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
 <p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>
@@ -23782,10 +23832,49 @@ Recording the current state of a vCon on a SCITT Transparency Service secures th
 <a href="https://datatracker.ietf.org/group/scitt/documents/" target="_blank" rel="noopener">IETF standards</a> for managing the compliance and auditability of goods and services across end-to-end supply chains.
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
 <p>The following provides a template for securing a vCon with a SCITT Signed Statement.</p>
-<h3 id="vcon-signed-statement-example">vCon Signed Statement Example</h3>
+<h2 id="version">Version</h2>
+<p>Template Version <code>0.2.0</code></p>
+<h2 id="vcon-signed-statement-example">vCon Signed Statement Example</h2>
 <p>The following example highlights a typical SCITT Signed Statement, based on a vCon:</p>
-<p>
-<a href="../../api-reference/events-api/">Events API</a></p>
+<blockquote class="caution callout">
+    <div><strong></strong> <p>
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a> and 
+<a href="https://github.com/SteveLasker/draft-lasker-meta-map" target="_blank" rel="noopener">COSE Meta-Map</a> have not yet been assigned COSE Header labels.</p>
+<p>The following 
+<a href="https://www.iana.org/assignments/cose/cose.xhtml#header-parameters" target="_blank" rel="noopener">private labels</a> are being used until allocation has been made:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Label</th>
+<th>Value Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>payload_hash_alg</code></td>
+<td><code>-6800</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>payload_location</code></td>
+<td><code>-6801</code></td>
+<td><code>tstr</code></td>
+</tr>
+<tr>
+<td><code>payload_preimage_content_type</code></td>
+<td><code>-6802</code></td>
+<td><code>int</code> / <code>tstr</code></td>
+</tr>
+<tr>
+<td><code>meta-map</code></td>
+<td><code>-6804</code></td>
+<td><code>{ * tstr=&gt; tstr }</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+  </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Signed_Statement</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Receipt</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl">
@@ -23799,13 +23888,12 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="n">Protected_Header</span> <span class="o">=</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="o">&amp;</span><span class="p">(</span><span class="n">CWT_Claims</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">CWT_Claims</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">alg</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_hash_alg</span><span class="p">:</span> <span class="n">TBD_1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_preimage_content_type</span><span class="p">:</span> <span class="n">TBD_2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span> <span class="o">/</span> <span class="n">uint</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_location</span><span class="p">:</span> <span class="n">TBD_3</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_hash_alg</span><span class="p">:</span> <span class="o">-</span><span class="mi">6800</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ne">int</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_preimage_content_type</span><span class="p">:</span> <span class="o">-</span><span class="mi">6802</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span> <span class="o">/</span> <span class="n">uint</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">payload_location</span><span class="p">:</span> <span class="o">-</span><span class="mi">6801</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">tstr</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">kid</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">bstr</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5t</span><span class="p">:</span> <span class="mi">34</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_CertHash</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
-</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">meta</span><span class="o">-</span><span class="n">map</span><span class="p">:</span> <span class="n">TBD_4</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">meta</span><span class="o">-</span><span class="n">map</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">meta</span><span class="o">-</span><span class="n">map</span><span class="p">:</span> <span class="o">-</span><span class="mi">6804</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">meta</span><span class="o">-</span><span class="n">map</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -23820,18 +23908,39 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">Unprotected_Header</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">receipts</span><span class="p">:</span> <span class="mi">394</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="o">+</span> <span class="n">Receipt</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="metamap-keyvalue-pairs">metamap key/value pairs</h3>
-<p>The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of any PII information being maintained.</p>
+</span></span></code></pre></div><h2 id="cose-headers">COSE Headers</h2>
+<p>The following maps vCon properties to SCITT COSE Header properties.</p>
+<h3 id="payload-required">payload (REQUIRED)</h3>
+<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
+Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
+<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
+<h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
+<p>The hash algorithm used to hash the vCon.
+Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
+<h3 id="payload_preimage_content_type-required">payload_preimage_content_type (REQUIRED)</h3>
+<p>The property name comes from 
+<a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
+<p>
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 01</a> specifies <code>application/vcon</code>.
+There is 
+<a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
+<h3 id="subject-required">subject (REQUIRED)</h3>
+<p>The 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
+<h2 id="meta-map-keyvalue-pairs">meta-map key/value pairs</h2>
+<p>The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of personally identifiable information (PII) being maintained.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;scitt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;scitt_created&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
 <p>The link <code>type</code> as named under the conserver links folder.</p>
@@ -23892,29 +24001,9 @@ In both instances, the <code>conserver_link</code> would be <code>scitt</code>.<
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
 This template applies to version <code>0.2.0</code></p>
-<h3 id="payload-required">payload (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
-Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
-<p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
-<a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
-<h3 id="payload_hash_alg-required">payload_hash_alg (REQUIRED)</h3>
-<p>The hash algorithm used to hash the vCon.
-Currently, this is <code>SHA-256</code>, but should be sourced by the vCon object to support agility.</p>
-<h3 id="payload_preimage_content_type-required">payload_preimage_content_type (REQUIRED)</h3>
-<p>The property name comes from 
-<a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
-<p>
-<a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
-There is 
-<a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
-<h3 id="subject-required">subject (REQUIRED)</h3>
-<p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
-Subject is used to align with the 
-<a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
 <h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
@@ -23922,6 +24011,10 @@ All entries related to the same vCon version (<code>updated_at</code> | <code>ha
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
+<p>IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
 These changes are being proposed to the SCITT Reference API (SCRAPI).</p>
@@ -23989,12 +24082,12 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 <li>
 <a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
 </ul>
-`}).add({id:1,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
+`}).add({id:1,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"DataTrails Event vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
 Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
 <h2 id="version">Version</h2>
 <p>Template Version <code>0.2.0</code></p>
-<p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <h2 id="vcon-event-example">vCon Event Example</h2>
+<p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <p>The following example highlights a typical 
 <a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -24011,7 +24104,7 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;00&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
@@ -24136,7 +24229,7 @@ In both instances, the <code>conserver_link</code> would be <code>DataTrails</co
 <p>The version of the <code>conserver_link</code>.
 This template applies to version <code>0.2.0</code></p>
 <h3 id="payload-required">payload (REQUIRED)</h3>
-<p>The hash of the vCon as it&rsquo;s recorded on DataTrails.
+<p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
 Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
 <p><code>payload</code>, <code>payload_hash_alg</code> and <code>payload_preimage_content_type</code> originate from the IETF Draft: 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/" target="_blank" rel="noopener">COSE Hash Envelope</a>.</p>
@@ -24147,17 +24240,20 @@ Currently, this is <code>SHA-256</code>, but should be sourced by the vCon objec
 <p>The property name comes from 
 <a href="https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/" target="_blank" rel="noopener">draft-ietf-cose-hash-envelope</a>, representing the <code>content-type</code> of the vCon, prior to hashing.</p>
 <p>
-<a href="https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 00</a> specifies <code>application/vcon</code>.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1" target="_blank" rel="noopener">Section 5.3.1 of vCon 01</a> specifies <code>application/vcon</code>.
 There is 
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
 <p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid" target="_blank" rel="noopener">vCon unique identifier</a>.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
+<h3 id="subject-required-1">subject (REQUIRED)</h3>
+<p>The 
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.
 Subject is used to align with the 
 <a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
+<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links &amp; chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (<code>updated_at</code> | <code>hash</code>), should likely be considered equal in timing.</p>
 <h3 id="vcon_operation-required">vcon_operation (REQUIRED)</h3>
@@ -24165,6 +24261,10 @@ All entries related to the same vCon version (<code>updated_at</code> | <code>ha
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
+<h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
+<p>IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
 <p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>

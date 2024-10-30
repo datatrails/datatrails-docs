@@ -29,6 +29,7 @@ the App Registrations REST API.
 DataTrails authentication uses the industry-standard OIDC Client Credentials Flow.
 
 The high level steps are:
+
 1. Create an Integration in the UI
 1. Define access permissions for the Integration in the UI
 1. Request an Access Token using the API
@@ -47,9 +48,9 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
 
 1. As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>
 1. Navigate to `Integrations` on the sidebar
-1. This opens `Settings` with the `Integrations` tab automatically selected
-  {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
+1. This opens the `Integrations` tab
 1. Click the `Custom` box to create a Custom Integration
+  {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
 1. Enter a `Display Name` to help you identify this Custom Integration in future
   {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
   {{< note >}}

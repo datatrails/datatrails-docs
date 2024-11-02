@@ -54,11 +54,18 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 1. Create a Python Virtual Environment for the sample scripts and install the dependencies
 
     ```bash
-    python -m  venv venv && \
+    python -m venv venv && \
     source venv/bin/activate && \
+    trap deactivate EXIT && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
     ```
+
+      - **Note: If you receive errors**, delete the `venv` directory and try again:
+
+        ```bash
+        rm -r -f venv/
+        ```
 
 1. To ease copying and pasting commands, update any variables to fit your environment
 
@@ -67,16 +74,22 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     ISSUER="sample.synsation.io"
 
     # signing key to sign the SCITT Statements
-    SIGNING_KEY="my-signing-key.pem"
+    SIGNING_KEY="/tmp/my-signing-key.pem"
 
     # File representing the signed statement to be registered
-    SIGNED_STATEMENT_FILE="signed-statement.cbor"
+    SIGNED_STATEMENT_FILE="/tmp/signed-statement.cbor"
 
     # File representing the transparent statement, which includes the signed statement and the registration receipt
-    TRANSPARENT_STATEMENT_FILE="transparent-statement.cbor"
+    TRANSPARENT_STATEMENT_FILE="/tmp/transparent-statement.cbor"
 
-    # Subject is a property used to correlate a collection of statements about an artifact
+    # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
+    
+    # Sub Directory for SCITT scripts
+    SCRIPTS="datatrails_scitt_samples/scripts/"
+
+    # For local script execution, help Python find the modules
+    export PYTHONPATH="${PYTHONPATH}:$SCRIPTS"
     ```
 
 ## Create a Signing Key
@@ -96,11 +109,30 @@ For the Quickstart, create a testing key which DataTrails will cryptographically
 Create any payload you wish to register on DataTrails.
 
 ```bash
-cat > payload.json <<EOF
+cat > /tmp/payload.json <<EOF
 {
     "author": "fred",
     "title": "my biography",
     "reviews": "mixed"
+}
+EOF
+```
+
+## Create Metadata
+
+[DataTrails Event Attributes](./../../api-reference/events-api/) can be associated with a SCITT Statement, enabling indexing and retrieval.
+
+Create metadata with a dictionary of `key:value` pairs.
+
+```bash
+HASH=$(sha256sum "/tmp/payload.json" | cut -d ' ' -f 1)
+cat > /tmp/metadata.json <<EOF
+{
+  "payload_hash": "$HASH",
+  "timestamp_declared": "2024-11-01T12:24:42.012345",
+  "sample_version": "0.1.1",
+  "project": 25,
+  "location": "Seattle, WA"
 }
 EOF
 ```
@@ -110,23 +142,38 @@ EOF
 Create a COSE Signed Statement, hashing the content of the `payload.json` file.
 The payload may already be stored in another storage/package manager, which can be referenced with the `--location-hint` parameter.
 
+<!-- 
 ```bash
-python scitt/create_hashed_signed_statement.py \
+python ${SCRIPTS}create_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --payload-file payload.json \
+  --metadata-file "/tmp/metadata.json" \
+  --output-file $SIGNED_STATEMENT_FILE \
+  --payload-file /tmp/payload.json \
   --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
-  --subject $SUBJECT \
-  --output-file $SIGNED_STATEMENT_FILE
+  --subject $SUBJECT
+```
+-->
+
+```bash
+python ${SCRIPTS}create_hashed_signed_statement.py \
+  --content-type "application/json" \
+  --issuer $ISSUER \
+  --metadata-file "/tmp/metadata.json" \
+  --output-file $SIGNED_STATEMENT_FILE \
+  --payload-file /tmp/payload.json \
+  --payload-location "https://storage.example/$SUBJECT" \
+  --signing-key-file $SIGNING_KEY \
+  --subject $SUBJECT
 ```
 
-## Register the SCITT Statement on DataTrails
+## Register the SCITT Signed Statement on DataTrails
 
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 
     ```bash
-    python scitt/register_signed_statement.py \
+    python ${SCRIPTS}register_signed_statement.py \
       --signed-statement-file signed-statement.cbor \
       --output-file $TRANSPARENT_STATEMENT_FILE \
       --log-level INFO
@@ -135,16 +182,19 @@ python scitt/create_hashed_signed_statement.py \
 1. View the Transparent Statement, as a result of registering the Signed Statement
 
     ```bash
-    python scitt/dump_cbor.py \
+    python datatrails_scitt_samples/dump_cbor.py \
       --input transparent-statement.cbor
     ```
 
+<!-- 
+TODO: Update with MMR verification
 1. Verify the signature of the receipt
 
     ```bash
-    python scitt/verify_receipt_signature.py \
+    python ${SCRIPTS}/verify_receipt_signature.py \
       --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
     ```
+-->
 
 ## Retrieve Statements for the Artifact
 
@@ -154,21 +204,16 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```bash
-    curl -H @$HOME/.datatrails/bearer-token.txt \
-      https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=$SUBJECT | jq
+    curl "https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=${SUBJECT}&page_size=5" \
+      | jq
     ```
-
-{{< note >}}
-Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.
-{{< /note >}}
 
 ## Summary
 
 The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.
 
-There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers & metadata.
+There are no limits to the types of additional statements that may be registered, which may include new information related to an AI Model, new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
 
 For more information:
 

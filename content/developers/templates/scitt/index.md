@@ -45,6 +45,8 @@ The following [private labels](https://www.iana.org/assignments/cose/cose.xhtml#
 
 {{< /caution >}}
 
+**CDDL**:
+
 ```cddl
 Signed_Statement = #6.18(COSE_Sign1)
 Receipt = #6.18(COSE_Sign1)
@@ -82,6 +84,31 @@ Unprotected_Header = {
   ? &(x5chain: 33) => COSE_X509
   ? &(receipts: 394)  => [+ Receipt]
   * int => any
+}
+```
+
+**EDN**:
+
+```edn
+{                               / Protected                     /
+   16: 'application/hash+cose'  / type                          /
+    1: -7, (ECDSA w/ SHA-256)   / Algorithm                     /
+    4: h'50685f55...50523255',  / Key identifier                /
+-6800:-16 (SHA-256)             / payload-hash-alg              /
+-6801: 'application/vcon+json', / payload_preimage_content_type /
+-6802: 'vcon.service/2aefa…af9',/ Statement Location            /
+-6804:[                          meta-map (* tstr => tstr)      /
+        0: 'conserver_link":         'scitt',
+        0: 'conserver_link_name":    'scitt_created',
+        0: 'conserver_link_version": '0.2.0',
+        0: 'timestamp_declared":     '2024-05-07T16:33:29.004994',
+        0: 'vcon_operation":         'vcon_create',
+        0: 'vcon_draft_version":     '01',
+      ]
+   15: {                        / CWT Claims                    /
+     1: 'example.com',          / Issuer                        /
+     2: 'vcon://2aefa…af9’,     / Subject                       /
+       }
 }
 ```
 
@@ -247,7 +274,7 @@ To query the history of SCITT Signed Statements for a given vCon, use the follow
    VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
    VCON_HASH="eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d"
   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
-     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload_hash_value=$VCON_HASH" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload=$VCON_HASH" \
      | jq
    ```
 

@@ -90,25 +90,25 @@ Unprotected_Header = {
 **EDN**:
 
 ```edn
-{                              / Protected                       /
-  16: 'application/hash+cose'  / type                            /
-   1: -7, (ECDSA w/ SHA-256)   / Algorithm                       /
-   4: h'50685f55...50523255',  / Key identifier                  /
--6800,-16 (SHA-256)             / payload-hash-alg               /
--6801: 'application/vcon+json', / payload_preimage_content_type  /
--6802: 'vcon.service/2aefa…af9',/ Statement Location             /
--6804:[                          meta-map (* tstr => tstr)       /
-    0: 'conserver_link":         'scitt',
-    0: 'conserver_link_name":    'scitt_created',
-    0: 'conserver_link_version": '0.2.0',
-    0: 'timestamp_declared":     '2024-05-07T16:33:29.004994',
-    0: 'vcon_operation":         'vcon_create',
-    0: 'vcon_draft_version":     '01',
-    ]
-  15: {                        / CWT Claims                 /
-    1: 'example.com',          / Issuer                     /
-    2: 'vcon://2aefa…af9’,     / Subject                    /
-    }
+{                               / Protected                     /
+   16: 'application/hash+cose'  / type                          /
+    1: -7, (ECDSA w/ SHA-256)   / Algorithm                     /
+    4: h'50685f55...50523255',  / Key identifier                /
+-6800:-16 (SHA-256)             / payload-hash-alg              /
+-6801: 'application/vcon+json', / payload_preimage_content_type /
+-6802: 'vcon.service/2aefa…af9',/ Statement Location            /
+-6804:[                          meta-map (* tstr => tstr)      /
+        0: 'conserver_link":         'scitt',
+        0: 'conserver_link_name":    'scitt_created',
+        0: 'conserver_link_version": '0.2.0',
+        0: 'timestamp_declared":     '2024-05-07T16:33:29.004994',
+        0: 'vcon_operation":         'vcon_create',
+        0: 'vcon_draft_version":     '01',
+      ]
+   15: {                        / CWT Claims                    /
+     1: 'example.com',          / Issuer                        /
+     2: 'vcon://2aefa…af9’,     / Subject                       /
+       }
 }
 ```
 

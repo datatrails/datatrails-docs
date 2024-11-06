@@ -48,6 +48,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </table>
 </div>
   </blockquote>
+<p><strong>CDDL</strong>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Signed_Statement</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Receipt</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl">
@@ -84,6 +85,27 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">receipts</span><span class="p">:</span> <span class="mi">394</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="o">+</span> <span class="n">Receipt</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>EDN</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-edn" data-lang="edn"><span class="line"><span class="cl"><span class="p">{</span>                               <span class="nb">/ </span><span class="nv">Protected</span>                     <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">16</span><span class="err">:</span> <span class="ss">&#39;application/hash+cose</span><span class="o">&#39;</span>  <span class="nb">/ </span><span class="nv">type</span>                          <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="err">:</span> <span class="mi">-7</span>, <span class="p">(</span><span class="nf">ECDSA</span> <span class="nv">w/</span> <span class="nv">SHA-256</span><span class="p">)</span>   <span class="nb">/ </span><span class="nv">Algorithm</span>                     <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="err">:</span> <span class="nv">h</span><span class="ss">&#39;50685f55...50523255</span><span class="o">&#39;</span>,  <span class="nb">/ </span><span class="nv">Key</span> <span class="nv">identifier</span>                <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6800</span><span class="ss">:-16</span> <span class="p">(</span><span class="nf">SHA-256</span><span class="p">)</span>             <span class="nb">/ </span><span class="nv">payload-hash-alg</span>              <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6801</span><span class="err">:</span> <span class="ss">&#39;application/vcon+json</span><span class="o">&#39;</span>, <span class="nb">/ </span><span class="nv">payload_preimage_content_type</span> <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6802</span><span class="err">:</span> <span class="ss">&#39;vcon.service/2aefa</span><span class="err">…</span><span class="nv">af9</span><span class="o">&#39;</span>,<span class="nb">/ </span><span class="nv">Statement</span> <span class="nv">Location</span>            <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6804</span><span class="err">:</span><span class="p">[</span>                          <span class="nv">meta-map</span> <span class="p">(</span><span class="nb">* </span><span class="nv">tstr</span> <span class="nv">=&gt;</span> <span class="nv">tstr</span><span class="p">)</span>      <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link</span><span class="s">&#34;:         &#39;scitt&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;conserver_link_name&#34;</span><span class="err">:</span>    <span class="ss">&#39;scitt_created</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.2.0&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">15</span><span class="err">:</span> <span class="p">{</span>                        <span class="nb">/ </span><span class="nv">CWT</span> <span class="nv">Claims</span>                    <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">     <span class="mi">1</span><span class="err">:</span> <span class="ss">&#39;example.com</span><span class="o">&#39;</span>,          <span class="nb">/ </span><span class="nv">Issuer</span>                        <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">     <span class="mi">2</span><span class="err">:</span> <span class="ss">&#39;vcon://2aefa</span><span class="err">…</span><span class="nv">af9</span><span class="err">’</span>,     <span class="nb">/ </span><span class="nv">Subject</span>                       <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="cose-headers">COSE Headers</h2>
 <p>The following maps vCon properties to SCITT COSE Header properties.</p>
@@ -216,7 +238,7 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 </span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">VCON_HASH</span><span class="o">=</span><span class="s2">&#34;eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d&#34;</span>
 </span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload_hash_value=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 <li>
@@ -23987,6 +24009,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </table>
 </div>
   </blockquote>
+<p><strong>CDDL</strong>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">Signed_Statement</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl"><span class="n">Receipt</span> <span class="o">=</span> <span class="c1">#6.18(COSE_Sign1)</span>
 </span></span><span class="line"><span class="cl">
@@ -24023,6 +24046,27 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">x5chain</span><span class="p">:</span> <span class="mi">33</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">COSE_X509</span>
 </span></span><span class="line"><span class="cl">  <span class="err">?</span> <span class="o">&amp;</span><span class="p">(</span><span class="n">receipts</span><span class="p">:</span> <span class="mi">394</span><span class="p">)</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="o">+</span> <span class="n">Receipt</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="o">*</span> <span class="ne">int</span> <span class="o">=&gt;</span> <span class="n">any</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>EDN</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-edn" data-lang="edn"><span class="line"><span class="cl"><span class="p">{</span>                               <span class="nb">/ </span><span class="nv">Protected</span>                     <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">16</span><span class="err">:</span> <span class="ss">&#39;application/hash+cose</span><span class="o">&#39;</span>  <span class="nb">/ </span><span class="nv">type</span>                          <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">1</span><span class="err">:</span> <span class="mi">-7</span>, <span class="p">(</span><span class="nf">ECDSA</span> <span class="nv">w/</span> <span class="nv">SHA-256</span><span class="p">)</span>   <span class="nb">/ </span><span class="nv">Algorithm</span>                     <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">4</span><span class="err">:</span> <span class="nv">h</span><span class="ss">&#39;50685f55...50523255</span><span class="o">&#39;</span>,  <span class="nb">/ </span><span class="nv">Key</span> <span class="nv">identifier</span>                <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6800</span><span class="ss">:-16</span> <span class="p">(</span><span class="nf">SHA-256</span><span class="p">)</span>             <span class="nb">/ </span><span class="nv">payload-hash-alg</span>              <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6801</span><span class="err">:</span> <span class="ss">&#39;application/vcon+json</span><span class="o">&#39;</span>, <span class="nb">/ </span><span class="nv">payload_preimage_content_type</span> <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6802</span><span class="err">:</span> <span class="ss">&#39;vcon.service/2aefa</span><span class="err">…</span><span class="nv">af9</span><span class="o">&#39;</span>,<span class="nb">/ </span><span class="nv">Statement</span> <span class="nv">Location</span>            <span class="nv">/</span>
+</span></span><span class="line"><span class="cl"><span class="mi">-6804</span><span class="err">:</span><span class="p">[</span>                          <span class="nv">meta-map</span> <span class="p">(</span><span class="nb">* </span><span class="nv">tstr</span> <span class="nv">=&gt;</span> <span class="nv">tstr</span><span class="p">)</span>      <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link</span><span class="s">&#34;:         &#39;scitt&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;conserver_link_name&#34;</span><span class="err">:</span>    <span class="ss">&#39;scitt_created</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.2.0&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">15</span><span class="err">:</span> <span class="p">{</span>                        <span class="nb">/ </span><span class="nv">CWT</span> <span class="nv">Claims</span>                    <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">     <span class="mi">1</span><span class="err">:</span> <span class="ss">&#39;example.com</span><span class="o">&#39;</span>,          <span class="nb">/ </span><span class="nv">Issuer</span>                        <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">     <span class="mi">2</span><span class="err">:</span> <span class="ss">&#39;vcon://2aefa</span><span class="err">…</span><span class="nv">af9</span><span class="err">’</span>,     <span class="nb">/ </span><span class="nv">Subject</span>                       <span class="nv">/</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="cose-headers">COSE Headers</h2>
 <p>The following maps vCon properties to SCITT COSE Header properties.</p>
@@ -24155,7 +24199,7 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 </span></span><span class="line"><span class="cl"><span class="nv">VCON</span><span class="o">=</span><span class="s2">&#34;bbba043b-d1aa-4691-8739-ac3ddd0303af&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">VCON_HASH</span><span class="o">=</span><span class="s2">&#34;eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d&#34;</span>
 </span></span><span class="line"><span class="cl">curl -g -X GET -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload_hash_value=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;</span><span class="nv">$DATATRAILS_EVENTS_URL</span><span class="s2">?event_attributes.subject=vcon://</span><span class="nv">$VCON</span><span class="s2">&amp;event_attributes.payload_hash_alg=SHA-256&amp;event_attributes.payload=</span><span class="nv">$VCON_HASH</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 <li>

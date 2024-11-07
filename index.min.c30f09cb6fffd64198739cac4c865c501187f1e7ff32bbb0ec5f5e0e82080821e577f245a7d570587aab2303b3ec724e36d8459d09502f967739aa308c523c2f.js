@@ -603,8 +603,8 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   
   <figure class="border-0">
     
-    <input type="image" data-bs-toggle="modal" data-bs-target="#IntegrationsTab" img class="img-fluid responsive" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="970" height="434" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" alt="Rectangle">
-    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="970" height="434" alt="Rectangle"></noscript>
+    <input type="image" data-bs-toggle="modal" data-bs-target="#IntegrationsTab" img class="img-fluid responsive" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="1559" height="704" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" alt="Rectangle">
+    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="1559" height="704" alt="Rectangle"></noscript>
     <figcaption class="figure-caption"><em>Navigate to Settings, then Integration</em></figcaption>
   </figure>
   
@@ -617,7 +617,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
       
         <div class="modal-body">
           
-          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" width="970" height="434" alt="Rectangle">
+          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" width="1559" height="704" alt="Rectangle">
         </div>
     
     </div>
@@ -22108,7 +22108,735 @@ using the following API call:</p>
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/<span class="o">{</span>member_identity<span class="o">}</span>:activate
 </span></span></code></pre></div><h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
-<p>Coming soon &hellip;</p>
+<p>
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API for managing the users in your tenant</p>
+    </div>
+      <div class="accordion" id='Members_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API1' aria-expanded="true" aria-controls='collapseMembers_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API1' class="accordion-collapse collapse" aria-labelledby='headerMembers_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members</span></h4>
+                      </div>
+                      <h5>List all members</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Lists all members in the tenant the session is authorized for</p>
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API1' aria-expanded="true" aria-controls='collapserequestMembers_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "members": [
+    {
+      "active": true,
+      "display_name": "User One",
+      "email": "user.one@datatrails.test",
+      "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+      "roles": [
+        "OWNER"
+      ]
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>members</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Describes a user in your tenant</td>
+                                  
+                                
+                                <tr>
+                                  <th>page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results</td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API2' aria-expanded="true" aria-controls='collapseMembers_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API2' class="accordion-collapse collapse" aria-labelledby='headerMembers_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}</span></h4>
+                      </div>
+                      <h5>Update a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Update a specific member</p>
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API2' aria-expanded="true" aria-controls='collapserequestMembers_API2'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API2' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API3' aria-expanded="true" aria-controls='collapseMembers_API3'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:activate</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API3' class="accordion-collapse collapse" aria-labelledby='headerMembers_API3' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:activate</span></h4>
+                      </div>
+                      <h5>Re-activate a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Re-activates a de-activated member</p>
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API3' aria-expanded="true" aria-controls='collapserequestMembers_API3'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API3' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API4' aria-expanded="true" aria-controls='collapseMembers_API4'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:deactivate</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API4' class="accordion-collapse collapse" aria-labelledby='headerMembers_API4' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:deactivate</span></h4>
+                      </div>
+                      <h5>De-activate a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: De-activates a de-activated member</p>
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API4' aria-expanded="true" aria-controls='collapserequestMembers_API4'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API4' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API for viewing your tenant memberships</p>
+    </div>
+      <div class="accordion" id='Memberships_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMemberships_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMemberships_API1' aria-expanded="true" aria-controls='collapseMemberships_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/memberships/archivist/iam/v1/memberships</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMemberships_API1' class="accordion-collapse collapse" aria-labelledby='headerMemberships_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/memberships/archivist/iam/v1/memberships</span></h4>
+                      </div>
+                      <h5>List memberships</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: List all active memberships for the current user</p>
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMemberships_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMemberships_API1' aria-expanded="true" aria-controls='collapserequestMemberships_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMemberships_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseMemberships_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "memberships": [
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "members/01234567-c357-470d-912a-3abc9528dd21",
+      "tenant_id": "tenancies/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "members/76543210-c357-470d-912a-3abc9528dd21",
+      "tenant_id": "tenancies/12149552-f258-430d-922b-4bcd8413ee30"
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>memberships</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>A users membership to a tenant.</td>
+                                  
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+
 `},{id:38,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
@@ -24564,8 +25292,8 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
   
   <figure class="border-0">
     
-    <input type="image" data-bs-toggle="modal" data-bs-target="#IntegrationsTab" img class="img-fluid responsive" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="970" height="434" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" alt="Rectangle">
-    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="970" height="434" alt="Rectangle"></noscript>
+    <input type="image" data-bs-toggle="modal" data-bs-target="#IntegrationsTab" img class="img-fluid responsive" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="1559" height="704" data-sizes="auto" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" alt="Rectangle">
+    <noscript><img class="img-fluid" sizes="100vw" srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab.png" width="1559" height="704" alt="Rectangle"></noscript>
     <figcaption class="figure-caption"><em>Navigate to Settings, then Integration</em></figcaption>
   </figure>
   
@@ -24578,7 +25306,7 @@ If <code>Settings</code> or <code>Integrations</code> does not appear in the nav
       
         <div class="modal-body">
           
-          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu5f6dcc81bd87c1e760b318731c24e1b9_73883_200x0_resize_box_3.png 200w" width="970" height="434" alt="Rectangle">
+          <img class="img-fluid lazyload responsive" data-sizes="auto" src="/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_100x0_resize_box_3.png" data-srcset="https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_900x0_resize_box_3.png 900w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_800x0_resize_box_3.png 800w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_500x0_resize_box_3.png 500w,https://docs.datatrails.ai/developers/developer-patterns/getting-access-tokens-using-app-registrations/IntegrationsTab_hu6a89627324f0962c743b944006456031_181244_200x0_resize_box_3.png 200w" width="1559" height="704" alt="Rectangle">
         </div>
     
     </div>
@@ -46069,7 +46797,735 @@ using the following API call:</p>
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/<span class="o">{</span>member_identity<span class="o">}</span>:activate
 </span></span></code></pre></div><h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
-<p>Coming soon &hellip;</p>
+<p>
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API for managing the users in your tenant</p>
+    </div>
+      <div class="accordion" id='Members_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API1' aria-expanded="true" aria-controls='collapseMembers_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API1' class="accordion-collapse collapse" aria-labelledby='headerMembers_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members</span></h4>
+                      </div>
+                      <h5>List all members</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Lists all members in the tenant the session is authorized for</p>
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API1' aria-expanded="true" aria-controls='collapserequestMembers_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "members": [
+    {
+      "active": true,
+      "display_name": "User One",
+      "email": "user.one@datatrails.test",
+      "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+      "roles": [
+        "OWNER"
+      ]
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>members</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>Describes a user in your tenant</td>
+                                  
+                                
+                                <tr>
+                                  <th>page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results</td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API2' aria-expanded="true" aria-controls='collapseMembers_API2'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API2' class="accordion-collapse collapse" aria-labelledby='headerMembers_API2' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}</span></h4>
+                      </div>
+                      <h5>Update a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Update a specific member</p>
+
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API2' aria-expanded="true" aria-controls='collapserequestMembers_API2'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API2' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API3' aria-expanded="true" aria-controls='collapseMembers_API3'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:activate</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API3' class="accordion-collapse collapse" aria-labelledby='headerMembers_API3' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:activate</span></h4>
+                      </div>
+                      <h5>Re-activate a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: Re-activates a de-activated member</p>
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API3' aria-expanded="true" aria-controls='collapserequestMembers_API3'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API3' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMembers_API4'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMembers_API4' aria-expanded="true" aria-controls='collapseMembers_API4'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:deactivate</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMembers_API4' class="accordion-collapse collapse" aria-labelledby='headerMembers_API4' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/iam/v1/members/archivist/iam/v1/members/{member_uuid}:deactivate</span></h4>
+                      </div>
+                      <h5>De-activate a member</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: De-activates a de-activated member</p>
+
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMembers_API4'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMembers_API4' aria-expanded="true" aria-controls='collapserequestMembers_API4'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMembers_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseMembers_API4' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "active": true,
+  "display_name": "User One",
+  "email": "user.one@datatrails.test",
+  "identity": "members/08838336-c357-460d-902a-3aba9528dd22",
+  "roles": [
+    "OWNER"
+  ]
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>active</th>
+                                  <td>boolean</td>
+                                  
+                                    <td>Whether or not the this membership is active</td>
+                                  
+                                
+                                <tr>
+                                  <th>display_name</th>
+                                  <td>string</td>
+                                  
+                                    <td>Display name for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>email</th>
+                                  <td>string</td>
+                                  
+                                    <td>Email address for this member</td>
+                                  
+                                
+                                <tr>
+                                  <th>identity</th>
+                                  <td>string</td>
+                                  
+                                    <td>Unique identifier for this member (i.e. this user within the tenant)</td>
+                                  
+                                
+                                <tr>
+                                  <th>roles</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td></td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+<br></p>
+
+ 
+ 
+  
+  
+  <div class="$openapi-spec-content">
+    <div class="description">
+      <p>API for viewing your tenant memberships</p>
+    </div>
+      <div class="accordion" id='Memberships_API0'></div>
+      
+        
+          
+          
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id='headerMemberships_API1'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseMemberships_API1' aria-expanded="true" aria-controls='collapseMemberships_API1'>
+                        <div class="overflow-hidden text-nowrap">
+                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/iam/v1/memberships/archivist/iam/v1/memberships</span>
+                        </div>
+                      </button>
+                  </h3>
+                  <div id='collapseMemberships_API1' class="accordion-collapse collapse" aria-labelledby='headerMemberships_API1' data-parent="#accordion">
+                  <div class="accordion-body">
+                    <div style="width: 100%;">
+                      <div class="overflow-auto">
+                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/iam/v1/memberships/archivist/iam/v1/memberships</span></h4>
+                      </div>
+                      <h5>List memberships</h5>
+                      <p><a href=""></a></p>
+                      <p>Description: List all active memberships for the current user</p>
+
+                      
+                        
+                      
+                        
+                      
+
+                      
+                        
+                          
+                            
+                            
+                            
+                            <div class="accordion-item">
+                              <h3 class="accordion-header" id='headerresponseMemberships_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseMemberships_API1' aria-expanded="true" aria-controls='collapserequestMemberships_API1'>
+                                    <span>Example Response</span>
+                                  </button>
+                              </h3>
+                              <div id='collapseresponseMemberships_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseMemberships_API1' data-parent="#accordion">
+                                <div class="accordion-body">
+                                  <div style="width: 100%;">
+                                    <pre><code>{
+  "memberships": [
+    {
+      "display_name": "Bobs Tenancy",
+      "identity": "members/01234567-c357-470d-912a-3abc9528dd21",
+      "tenant_id": "tenancies/01038663-c357-470d-912a-3abc9528dd21"
+    },
+    {
+      "display_name": "Alices Tenancy",
+      "identity": "members/76543210-c357-470d-912a-3abc9528dd21",
+      "tenant_id": "tenancies/12149552-f258-430d-922b-4bcd8413ee30"
+    }
+  ],
+  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR"
+}</code></pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Response Parameter</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                
+                                <tr>
+                                  <th>memberships</th>
+                                  <td>array</td>
+                                  
+                                    
+                                    
+                                    
+                                    <td>A users membership to a tenant.</td>
+                                  
+                                
+                                <tr>
+                                  <th>next_page_token</th>
+                                  <td>string</td>
+                                  
+                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
+                                  
+                                
+                              </tbody>
+                            </table>
+                          
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Responses</th>
+                            <th scope="col">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                            <tr><th>200</th><td>A successful response.</td>
+                          
+                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
+                          
+                            <tr><th>403</th><td>Returned when the user does not have permission to access this endpoint.</td>
+                          
+                            <tr><th>404</th><td>Returned when the requested resource does not exist.</td>
+                          
+                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
+                          
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+      
+    
+
+
+
+  </div>
+
+
 `}).add({id:38,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 

@@ -22107,7 +22107,10 @@ using the following API call:</p>
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/<span class="o">{</span>member_identity<span class="o">}</span>:activate
-</span></span></code></pre></div><h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
+</span></span></code></pre></div><blockquote class="note callout">
+    <div><strong></strong> User roles are stripped when a user is deactivated, so upon reactivation the user will only have basic user rights. If required once reactivated, follow the steps above to promote this user to &lsquo;Owner&rsquo; role.</div>
+  </blockquote>
+<h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
 <p>
  
  
@@ -46796,7 +46799,10 @@ using the following API call:</p>
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/iam/v1/<span class="o">{</span>member_identity<span class="o">}</span>:activate
-</span></span></code></pre></div><h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
+</span></span></code></pre></div><blockquote class="note callout">
+    <div><strong></strong> User roles are stripped when a user is deactivated, so upon reactivation the user will only have basic user rights. If required once reactivated, follow the steps above to promote this user to &lsquo;Owner&rsquo; role.</div>
+  </blockquote>
+<h2 id="members-openapi-docs">Members OpenAPI Docs</h2>
 <p>
  
  

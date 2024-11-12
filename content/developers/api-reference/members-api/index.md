@@ -81,6 +81,10 @@ curl -v -X POST \
     https://app.datatrails.ai/archivist/iam/v1/{member_identity}:activate
 ```
 
+{{< note >}}
+User roles are stripped when a user is deactivated, so upon reactivation the user will only have basic user rights. If required once reactivated, follow the steps above to promote this user to 'Owner' role.
+{{< /note >}}
+
 ## Members OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/membersv1.swagger.json" >}}<br>

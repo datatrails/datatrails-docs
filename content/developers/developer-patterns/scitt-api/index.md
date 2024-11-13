@@ -174,7 +174,7 @@ python ${SCRIPTS}create_hashed_signed_statement.py \
 
     ```bash
     python ${SCRIPTS}register_signed_statement.py \
-      --signed-statement-file signed-statement.cbor \
+      --signed-statement-file $SIGNED_STATEMENT_FILE \
       --output-file $TRANSPARENT_STATEMENT_FILE \
       --log-level INFO
     ```
@@ -183,7 +183,7 @@ python ${SCRIPTS}create_hashed_signed_statement.py \
 
     ```bash
     python datatrails_scitt_samples/dump_cbor.py \
-      --input transparent-statement.cbor
+      --input $TRANSPARENT_STATEMENT_FILE
     ```
 
 <!-- 
@@ -204,7 +204,8 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```bash
-    curl "https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject=${SUBJECT}&page_size=5" \
+    PARAMS="event_attributes.subject=${SUBJECT}&page_size=3"
+    curl "https://app.datatrails.ai/archivist/v2/publicassets/-/events?${PARAMS}" \
       | jq
     ```
 

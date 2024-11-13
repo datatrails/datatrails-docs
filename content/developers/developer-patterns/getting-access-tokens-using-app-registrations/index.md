@@ -16,9 +16,12 @@ aliases:
   - /docs/rkvst-basics/getting-access-tokens-using-app-registrations/
 ---
 
-Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done using either the `Settings` or `Integrations` menus in the DataTrails UI or by using the App Registrations API directly.
+Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done from the `Integrations` page in the DataTrails UI (reachable
+from the `Settings` page or the `Integrations` shortcut in the sidebar.) You can also do this via 
+the App Registrations REST API.
+
 {{< note >}}
-**Note:** App Registration is the old name for a Custom Integration.
+**Note:** App Registration is the internal name for a Custom Integration.
 {{< /note >}}
 
 `Custom Integrations` have a `CLIENT_ID` and a `SECRET`, these are used to authenticate with DataTrails IAM endpoints using [JSON Web Tokens](https://jwt.io/introduction/) (JWT).
@@ -37,7 +40,7 @@ The high level steps are:
 If you have already saved a `CLIENT_ID` and a `SECRET`, with the correct [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
 
 {{< note >}}
-**Note:** Creating App Registrations requires Tenancy **Administrator** privileges.  
+**Note:** Creating App Registrations requires **Owner** privileges.  
 If `Settings` or `Integrations` does not appear in the navigation, see your DataTrails Administrator for access.
 {{< /note >}}
 
@@ -45,10 +48,10 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
 
 1. As an Administrator, open the <a href="https://app.datatrails.ai/" target="_blank">DataTrails App</a>
 1. Navigate to `Integrations` on the sidebar
-1. This opens `Settings` with the `Integrations` tab automatically selected
-  {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
+1. This opens the `Integrations` tab
 1. Click the `Custom` box to create a Custom Integration
-1. Enter any `Display Name` you'd like
+  {{< img src="IntegrationsTab.png" alt="Rectangle" caption="<em>Navigate to Settings, then Integration</em>" class="border-0" >}}
+1. Enter a `Display Name` to help you identify this Custom Integration in future
   {{< img src="Confirm.png" alt="Rectangle" caption="<em>Completed Web Registration</em>" class="border-0" >}}
   {{< note >}}
   **Note:** Optionally add any `Custom claims` at this step by clicking the `+ Add` button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). *Registered* claims are name/value pairs that are defined by the JWT standard, *Custom* claims are not defined and can have any name/value combination.
@@ -57,7 +60,8 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
   
   See [here](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims) for more information on JWT Claims
   {{< /note >}}  
-
+1. If this Custom Integration should have administrator privileges, assign it the `Owner` role by 
+   checking that option. If you do this, ensure the client credentials are securely protected.
 1. Once complete, click `Confirm` to complete the custom integration
 1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}

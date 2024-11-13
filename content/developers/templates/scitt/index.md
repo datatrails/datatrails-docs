@@ -23,11 +23,29 @@ SCITT supports the ongoing verification of goods and services where the authenti
 
 The following provides a template for securing a vCon with a SCITT Signed Statement.
 
-### vCon Signed Statement Example
+## Version
+
+Template Version `0.2.0`
+
+## vCon Signed Statement Example
 
 The following example highlights a typical SCITT Signed Statement, based on a vCon:
 
-[Events API](../../api-reference/events-api/)
+{{< caution >}}
+[COSE Hash Envelope](https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/) and [COSE Meta-Map](https://github.com/SteveLasker/draft-lasker-meta-map) have not yet been assigned COSE Header labels.
+
+The following [private labels](https://www.iana.org/assignments/cose/cose.xhtml#header-parameters) are being used until allocation has been made:
+
+| Name | Label | Value Type |
+| - | - | - |
+| `payload_hash_alg`              | `-6800` | `int`               |
+| `payload_location`              | `-6801` | `tstr`              |
+| `payload_preimage_content_type` | `-6802` | `int` / `tstr`      |
+| `meta-map`                      | `-6804` | `{ * tstr=> tstr }` |
+
+{{< /caution >}}
+
+**CDDL**:
 
 ```cddl
 Signed_Statement = #6.18(COSE_Sign1)
@@ -43,13 +61,12 @@ COSE_Sign1 = [
 Protected_Header = {
   &(CWT_Claims: 15) => CWT_Claims
   ? &(alg: 1) => int
-  ? &(payload_hash_alg: TBD_1) => int
-  ? &(payload_preimage_content_type: TBD_2) => tstr / uint
-  ? &(payload_location: TBD_3) => tstr
+  ? &(payload_hash_alg: -6800) => int
+  ? &(payload_preimage_content_type: -6802) => tstr / uint
+  ? &(payload_location: -6801) => tstr
   ? &(kid: 4) => bstr
   ? &(x5t: 34) => COSE_CertHash
-  ? &(x5chain: 33) => COSE_X509
-  ? &(meta-map: TBD_4) => meta-map
+  ? &(meta-map: -6804) => meta-map
   * int => any
 }
 
@@ -64,14 +81,67 @@ meta-map = {
 }
 
 Unprotected_Header = {
+  ? &(x5chain: 33) => COSE_X509
   ? &(receipts: 394)  => [+ Receipt]
   * int => any
 }
 ```
 
-### metamap key/value pairs
+**EDN**:
 
-The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of any PII information being maintained.
+```edn
+{                               / Protected                     /
+   16: 'application/hash+cose'  / type                          /
+    1: -7, (ECDSA w/ SHA-256)   / Algorithm                     /
+    4: h'50685f55...50523255',  / Key identifier                /
+-6800:-16 (SHA-256)             / payload-hash-alg              /
+-6801: 'application/vcon+json', / payload_preimage_content_type /
+-6802: 'vcon.service/2aefa…af9',/ Statement Location            /
+-6804:[                          meta-map (* tstr => tstr)      /
+        0: 'conserver_link":         'scitt',
+        0: 'conserver_link_name":    'scitt_created',
+        0: 'conserver_link_version": '0.2.0',
+        0: 'timestamp_declared":     '2024-05-07T16:33:29.004994',
+        0: 'vcon_operation":         'vcon_create',
+        0: 'vcon_draft_version":     '01',
+      ]
+   15: {                        / CWT Claims                    /
+     1: 'example.com',          / Issuer                        /
+     2: 'vcon://2aefa…af9’,     / Subject                       /
+       }
+}
+```
+
+## COSE Headers
+
+The following maps vCon properties to SCITT COSE Header properties.
+
+### payload (REQUIRED)
+
+The hash of the vCon as it's recorded on the SCITT Transparency Service.
+Setting the `payload_hash_alg` indicates the payload is a hash of content in `payload_preimage_content_type` format, using the `payload_hash_alg` algorithm.
+
+`payload`, `payload_hash_alg` and `payload_preimage_content_type` originate from the IETF Draft: [COSE Hash Envelope](https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/).
+
+### payload_hash_alg (REQUIRED)
+
+The hash algorithm used to hash the vCon.
+Currently, this is `SHA-256`, but should be sourced by the vCon object to support agility.
+
+### payload_preimage_content_type (REQUIRED)
+
+The property name comes from [draft-ietf-cose-hash-envelope](https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/), representing the `content-type` of the vCon, prior to hashing.
+
+[Section 5.3.1 of vCon 01](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-5.3.1) specifies `application/vcon`.
+There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7), and discussion for using `application/vcon+json`
+
+### subject (REQUIRED)
+
+The [vCon unique identifier (uuid)](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2).
+
+## meta-map key/value pairs
+
+The following values are added to the Protected Header meta-map, providing enough information to validate the inclusion and integrity protection of a vCon, providing audit and debugging insight, without risk of personally identifiable information (PII) being maintained.
 
 ```json
 {
@@ -80,7 +150,7 @@ The following values are added to the Protected Header meta-map, providing enoug
   "conserver_link_version": "0.2.0",
   "timestamp_declared": "2024-05-07T16:33:29.004994",
   "vcon_operation": "vcon_create",
-  "vcon_draft_version": "00"
+  "vcon_draft_version": "01"
 }
 ```
 
@@ -152,33 +222,9 @@ In both instances, the `conserver_link` would be `scitt`.
 The version of the `conserver_link`.
 This template applies to version `0.2.0`
 
-### payload (REQUIRED)
-
-The hash of the vCon as it's recorded on the SCITT Transparency Service.
-Setting the `payload_hash_alg` indicates the payload is a hash of content in `payload_preimage_content_type` format, using the `payload_hash_alg` algorithm.
-
-`payload`, `payload_hash_alg` and `payload_preimage_content_type` originate from the IETF Draft: [COSE Hash Envelope](https://datatracker.ietf.org/doc/draft-ietf-cose-hash-envelope/).
-
-### payload_hash_alg (REQUIRED)
-
-The hash algorithm used to hash the vCon.
-Currently, this is `SHA-256`, but should be sourced by the vCon object to support agility.
-
-### payload_preimage_content_type (REQUIRED)
-
-The property name comes from [draft-ietf-cose-hash-envelope](https://datatracker.ietf.org/doc/draft-steele-cose-hash-envelope/), representing the `content-type` of the vCon, prior to hashing.
-
-[Section 5.3.1 of vCon 00](https://www.ietf.org/archive/id/draft-vcon-vcon-container-00.html#section-5.3.1) specifies `application/vcon`.
-There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7), and discussion for using `application/vcon+json`
-
-### subject (REQUIRED)
-
-The [vCon unique identifier](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-uuid).
-Subject is used to align with the [SCITT Protected Header](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:)
-
 ### timestamp_declared (REQUIRED)
 
-Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-00.html#name-updated_at), capturing the datetime the vCon was updated.
+Set to [vCon updated_at](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4), capturing the datetime the vCon was updated.
 As vCon processing may take time, and the processing of various steps (Conserver links & chains), may create out of order entries to the ledger, capturing the updated time creates consistency across a set of independent operations.
 All entries related to the same vCon version (`updated_at` | `hash`), should likely be considered equal in timing.
 
@@ -188,6 +234,11 @@ A SCITT Signed Statement should be created for each completed vCon operation.
 For every creation and update to a vCon, a SCITT Statement would seal the vCon, recording it on the ledger for inclusion and verification.
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the `vcon_operation` (`string`) is the placeholder.
+
+### vcon_draft_version (REQUIRED)
+
+IETF Draft version, providing interoperable stability within a draft version.
+This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/)
 
 ## Verifying vCons
 
@@ -223,7 +274,7 @@ To query the history of SCITT Signed Statements for a given vCon, use the follow
    VCON="bbba043b-d1aa-4691-8739-ac3ddd0303af"
    VCON_HASH="eae12ce2ae12c7b1280921236857d2dc1332babd311ae0fbcab620bdb148fd0d"
   curl -g -X GET -H "@$HOME/.datatrails/bearer-token.txt" \
-     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload_hash_value=$VCON_HASH" \
+     "$DATATRAILS_EVENTS_URL?event_attributes.subject=vcon://$VCON&event_attributes.payload_hash_alg=SHA-256&event_attributes.payload=$VCON_HASH" \
      | jq
    ```
 

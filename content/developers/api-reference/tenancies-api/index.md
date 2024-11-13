@@ -71,5 +71,3 @@ curl -v -X PATCH \
 ## Tenancies OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tenanciesv1.swagger.json" >}}<br>
-
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/usersv1.swagger.json" >}}

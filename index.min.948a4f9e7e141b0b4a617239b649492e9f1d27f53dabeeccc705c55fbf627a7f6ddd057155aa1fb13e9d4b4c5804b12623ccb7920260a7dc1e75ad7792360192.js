@@ -19980,27 +19980,40 @@ This includes previously registered statements, and newly registered statements 
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">trap</span> deactivate EXIT <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Note: If you receive errors</strong>, delete the <code>venv</code> directory and try again:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -r -f venv/
 </span></span></code></pre></div></li>
+</ul>
+</li>
 <li>
 <p>To ease copying and pasting commands, update any variables to fit your environment</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># your identity</span>
 </span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;/tmp/my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/transparent-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sub Directory for SCITT scripts</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SCRIPTS</span><span class="o">=</span><span class="s2">&#34;datatrails_scitt_samples/scripts/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For local script execution, help Python find the modules</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:</span><span class="nv">$SCRIPTS</span><span class="s2">&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -20012,62 +20025,91 @@ This includes previously registered statements, and newly registered statements 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
 <p>Create any payload you wish to register on DataTrails.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><h2 id="create-metadata">Create Metadata</h2>
+<p>
+<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval.</p>
+<p>Create metadata with a dictionary of <code>key:value</code> pairs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">HASH</span><span class="o">=</span><span class="k">$(</span>sha256sum <span class="s2">&#34;/tmp/payload.json&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">cat &gt; /tmp/metadata.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;payload_hash&#34;: &#34;$HASH&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;timestamp_declared&#34;: &#34;2024-11-01T12:24:42.012345&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;sample_version&#34;: &#34;0.1.1&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;project&#34;: 25,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;location&#34;: &#34;Seattle, WA&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
 <p>Create a COSE Signed Statement, hashing the content of the <code>payload.json</code> file.
 The payload may already be stored in another storage/package manager, which can be referenced with the <code>--location-hint</code> parameter.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_hashed_signed_statement.py <span class="se">\\
+<!-- 
+\`\`\`bash
+python \${SCRIPTS}create_signed_statement.py \\
+  --content-type "application/json" \\
+  --issuer $ISSUER \\
+  --metadata-file "/tmp/metadata.json" \\
+  --output-file $SIGNED_STATEMENT_FILE \\
+  --payload-file /tmp/payload.json \\
+  --payload-location "https://storage.example/$SUBJECT" \\
+  --signing-key-file $SIGNING_KEY \\
+  --subject $SUBJECT
+\`\`\`
+-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>create_hashed_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;/tmp/metadata.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file /tmp/payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
-</span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span>
+</span></span></code></pre></div><h2 id="register-the-scitt-signed-statement-on-datatrails">Register the SCITT Signed Statement on DataTrails</h2>
 <ol>
 <li>
 <p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/register_signed_statement.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file signed-statement.cbor <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>register_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
 </span></span></code></pre></div></li>
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input transparent-statement.cbor
-</span></span></code></pre></div></li>
-<li>
-<p>Verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/verify_receipt_signature.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python datatrails_scitt_samples/dump_cbor.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 </ol>
+<!-- 
+TODO: Update with MMR verification
+1. Verify the signature of the receipt
+
+    \`\`\`bash
+    python \${SCRIPTS}/verify_receipt_signature.py \\
+      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
+    \`\`\`
+-->
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
 <p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
 By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
 <ol>
 <li>
 <p>Query DataTrails for the collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject<span class="o">=</span><span class="nv">$SUBJECT</span> <span class="p">|</span> jq
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PARAMS</span><span class="o">=</span><span class="s2">&#34;event_attributes.subject=</span><span class="si">\${</span><span class="nv">SUBJECT</span><span class="si">}</span><span class="s2">&amp;page_size=3&#34;</span>
+</span></span><span class="line"><span class="cl">curl <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?</span><span class="si">\${</span><span class="nv">PARAMS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
-<blockquote class="note callout">
-    <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
-  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
-<p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers &amp; metadata.</p>
+<p>There are no limits to the types of additional statements that may be registered, which may include new information related to an AI Model, new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.</p>
 <p>For more information:</p>
 <!-- - [DataTrails SCITT API Reference](TBD) -->
 <ul>
@@ -22871,280 +22913,11 @@ within the product, but its possible to retrieve and modify some configs program
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span></h4>
-                      </div>
-                      <h5>Fetch the current list of tenant root user principals</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Fetch the current list of tenant root user principals.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>root_principals</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to update the root principals.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span></h4>
-                      </div>
-                      <h5>Update the list of tenant root user principals</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Replace the list of tenant root user principals.  Note that you are not able to remove yourself from the list.</p>
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestTenancies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
-                                    <span>Example Request</span>
-                                  </button>
-                              </h3>
-                              <div id='collapserequestTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestTenancies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <table class="table table-striped table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Description</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                  <tr>
-                                    <th>root_principals</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                    
-                                  
-                                </tbody>
-                              </table>
-                            
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>root_principals</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.  Including, but not limited to, attempting to remove yourself as a root uesr principal.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to update the root principals.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
-                        <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
+                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -23163,12 +22936,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -23274,14 +23047,14 @@ within the product, but its possible to retrieve and modify some configs program
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
+                  <h3 class="accordion-header" id='headerTenancies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API4' data-parent="#accordion">
+                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -23304,12 +23077,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API4' aria-expanded="true" aria-controls='collapserequestTenancies_API4'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API4' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -23421,291 +23194,14 @@ within the product, but its possible to retrieve and modify some configs program
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/users</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API5' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/users</span></h4>
-                      </div>
-                      <h5>List Users</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of Users active in or invited to the tenant.</p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API5' aria-expanded="true" aria-controls='collapserequestTenancies_API5'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API5' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "users": [
-    {
-      "email": "frank123@example.com",
-      "identity": "users/87d349ed-44d7-43e1-9a83-5f2406dee5bd",
-      "issuer": "frank@example.com",
-      "subject": "franky123",
-      "user_status": "ACTIVE"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                                <tr>
-                                  <th>users</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>User Data</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the users.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified users don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/users/{user_uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API6' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/users/{user_uuid}</span></h4>
-                      </div>
-                      <h5>Deletes User</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Deletes a User from the tenancy.</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API6'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API6' aria-expanded="true" aria-controls='collapserequestTenancies_API6'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API6' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "email": "frank123@example.com",
-  "identity": "users/87d349ed-44d7-43e1-9a83-5f2406dee5bd",
-  "issuer": "frank@example.com",
-  "subject": "franky123",
-  "user_status": "ACTIVE"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>displayName</th>
-                                  <td>string</td>
-                                  
-                                    <td>display name for the user</td>
-                                  
-                                
-                                <tr>
-                                  <th>email</th>
-                                  <td>string</td>
-                                  
-                                    <td>User email.</td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td>user identity <code>{UUID}</code></td>
-                                  
-                                
-                                <tr>
-                                  <th>issuer</th>
-                                  <td>string</td>
-                                  
-                                    <td>optional issuer of the principal identity. Where the issuer is not provided the subject is treated as a free string</td>
-                                  
-                                
-                                <tr>
-                                  <th>subject</th>
-                                  <td>string</td>
-                                  
-                                    <td>unique identifier of the principal (within issuer context)</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API7'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
+                  <h3 class="accordion-header" id='headerTenancies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API7' data-parent="#accordion">
+                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -23726,12 +23222,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API7'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API7' aria-expanded="true" aria-controls='collapserequestTenancies_API7'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API7' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -23799,152 +23295,6 @@ within the product, but its possible to retrieve and modify some configs program
   </div>
 
 <br></p>
-
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>Simple API for User Management</p>
-    </div>
-      <div class="accordion" id='UserManagement_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/archivist/v1/users/tenants</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/archivist/v1/users/tenants</span></h4>
-                      </div>
-                      <h5>List User Tenants</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of tenancies the user has access to.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "tenants": [
-    {
-      "display_name": "Bobs Tenancy",
-      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
-    },
-    {
-      "display_name": "Alices Tenancy",
-      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                                <tr>
-                                  <th>tenants</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Tenant information for a user.</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-
 `},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
@@ -44672,27 +44022,40 @@ This includes previously registered statements, and newly registered statements 
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m  venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">trap</span> deactivate EXIT <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install -r requirements.txt
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Note: If you receive errors</strong>, delete the <code>venv</code> directory and try again:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -r -f venv/
 </span></span></code></pre></div></li>
+</ul>
+</li>
 <li>
 <p>To ease copying and pasting commands, update any variables to fit your environment</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># your identity</span>
 </span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;/tmp/my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/transparent-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Subject is a property used to correlate a collection of statements about an artifact</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sub Directory for SCITT scripts</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SCRIPTS</span><span class="o">=</span><span class="s2">&#34;datatrails_scitt_samples/scripts/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For local script execution, help Python find the modules</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:</span><span class="nv">$SCRIPTS</span><span class="s2">&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -44704,62 +44067,91 @@ This includes previously registered statements, and newly registered statements 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
 <p>Create any payload you wish to register on DataTrails.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;reviews&#34;: &#34;mixed&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><h2 id="create-metadata">Create Metadata</h2>
+<p>
+<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval.</p>
+<p>Create metadata with a dictionary of <code>key:value</code> pairs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">HASH</span><span class="o">=</span><span class="k">$(</span>sha256sum <span class="s2">&#34;/tmp/payload.json&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">cat &gt; /tmp/metadata.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;payload_hash&#34;: &#34;$HASH&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;timestamp_declared&#34;: &#34;2024-11-01T12:24:42.012345&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;sample_version&#34;: &#34;0.1.1&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;project&#34;: 25,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;location&#34;: &#34;Seattle, WA&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
 <p>Create a COSE Signed Statement, hashing the content of the <code>payload.json</code> file.
 The payload may already be stored in another storage/package manager, which can be referenced with the <code>--location-hint</code> parameter.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/create_hashed_signed_statement.py <span class="se">\\
+<!-- 
+\`\`\`bash
+python \${SCRIPTS}create_signed_statement.py \\
+  --content-type "application/json" \\
+  --issuer $ISSUER \\
+  --metadata-file "/tmp/metadata.json" \\
+  --output-file $SIGNED_STATEMENT_FILE \\
+  --payload-file /tmp/payload.json \\
+  --payload-location "https://storage.example/$SUBJECT" \\
+  --signing-key-file $SIGNING_KEY \\
+  --subject $SUBJECT
+\`\`\`
+-->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>create_hashed_signed_statement.py <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;/tmp/metadata.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file /tmp/payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span>
-</span></span></code></pre></div><h2 id="register-the-scitt-statement-on-datatrails">Register the SCITT Statement on DataTrails</h2>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span>
+</span></span></code></pre></div><h2 id="register-the-scitt-signed-statement-on-datatrails">Register the SCITT Signed Statement on DataTrails</h2>
 <ol>
 <li>
 <p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/register_signed_statement.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file signed-statement.cbor <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>register_signed_statement.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
 </span></span></code></pre></div></li>
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/dump_cbor.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input transparent-statement.cbor
-</span></span></code></pre></div></li>
-<li>
-<p>Verify the signature of the receipt</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python scitt/verify_receipt_signature.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python datatrails_scitt_samples/dump_cbor.py <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
 </ol>
+<!-- 
+TODO: Update with MMR verification
+1. Verify the signature of the receipt
+
+    \`\`\`bash
+    python \${SCRIPTS}/verify_receipt_signature.py \\
+      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
+    \`\`\`
+-->
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
 <p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
 By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
 <ol>
 <li>
 <p>Query DataTrails for the collection of statements</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H @<span class="nv">$HOME</span>/.datatrails/bearer-token.txt <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/publicassets/-/events?event_attributes.subject<span class="o">=</span><span class="nv">$SUBJECT</span> <span class="p">|</span> jq
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PARAMS</span><span class="o">=</span><span class="s2">&#34;event_attributes.subject=</span><span class="si">\${</span><span class="nv">SUBJECT</span><span class="si">}</span><span class="s2">&amp;page_size=3&#34;</span>
+</span></span><span class="line"><span class="cl">curl <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?</span><span class="si">\${</span><span class="nv">PARAMS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ol>
-<blockquote class="note callout">
-    <div><strong></strong> Coming soon: Filter on specific content types, such as what SBOMs have been registered, or which issuers have made statements.</div>
-  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
-<p>There are no limits to the types of additional statements that may be registered, which may include new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.
-By using the content-type parameter, verifiers can filter to specific types, filter statements by the issuer, or other headers &amp; metadata.</p>
+<p>There are no limits to the types of additional statements that may be registered, which may include new information related to an AI Model, new vulnerability information, notifications of new versions, end of life (EOL) notifications, or more.</p>
 <p>For more information:</p>
 <!-- - [DataTrails SCITT API Reference](TBD) -->
 <ul>
@@ -47563,280 +46955,11 @@ within the product, but its possible to retrieve and modify some configs program
                   <h3 class="accordion-header" id='headerTenancies_API1'>
                       <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API1' aria-expanded="true" aria-controls='collapseTenancies_API1'>
                         <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span></h4>
-                      </div>
-                      <h5>Fetch the current list of tenant root user principals</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Fetch the current list of tenant root user principals.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>root_principals</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to update the root principals.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">patch</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/root_principals</span></h4>
-                      </div>
-                      <h5>Update the list of tenant root user principals</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Replace the list of tenant root user principals.  Note that you are not able to remove yourself from the list.</p>
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestTenancies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
-                                    <span>Example Request</span>
-                                  </button>
-                              </h3>
-                              <div id='collapserequestTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestTenancies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <table class="table table-striped table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Description</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                  <tr>
-                                    <th>root_principals</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                    
-                                  
-                                </tbody>
-                              </table>
-                            
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "root_principals": [
-    {
-      "display_name": "Bob Smith",
-      "email": "bob@job",
-      "issuer": "job.idp.server/1234",
-      "subject": "08838336-c357-460d-902a-3aba9528dd22"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>root_principals</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>The principal description assured by the configured Identity  Provider. All values are according to OIDC id token claims and  standard claims.  See https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.  Including, but not limited to, attempting to remove yourself as a root uesr principal.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to update the root principals.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
-                        <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
+                  <div id='collapseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API1' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -47855,12 +46978,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API1'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API1' aria-expanded="true" aria-controls='collapserequestTenancies_API1'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API1' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -47966,14 +47089,14 @@ within the product, but its possible to retrieve and modify some configs program
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API4' aria-expanded="true" aria-controls='collapseTenancies_API4'>
+                  <h3 class="accordion-header" id='headerTenancies_API2'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API2' aria-expanded="true" aria-controls='collapseTenancies_API2'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">patch</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/self</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API4' data-parent="#accordion">
+                  <div id='collapseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API2' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -47996,12 +47119,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API4' aria-expanded="true" aria-controls='collapserequestTenancies_API4'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API2'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API2' aria-expanded="true" aria-controls='collapserequestTenancies_API2'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API4' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API2' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -48113,291 +47236,14 @@ within the product, but its possible to retrieve and modify some configs program
           
           
                 <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API5'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API5' aria-expanded="true" aria-controls='collapseTenancies_API5'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/users</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API5' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/users</span></h4>
-                      </div>
-                      <h5>List Users</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of Users active in or invited to the tenant.</p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API5'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API5' aria-expanded="true" aria-controls='collapserequestTenancies_API5'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API5' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API5' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "users": [
-    {
-      "email": "frank123@example.com",
-      "identity": "users/87d349ed-44d7-43e1-9a83-5f2406dee5bd",
-      "issuer": "frank@example.com",
-      "subject": "franky123",
-      "user_status": "ACTIVE"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                                <tr>
-                                  <th>users</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>User Data</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the users.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified users don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API6'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API6' aria-expanded="true" aria-controls='collapseTenancies_API6'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/users/{user_uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API6' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/tenancies/archivist/v1/tenancies/users/{user_uuid}</span></h4>
-                      </div>
-                      <h5>Deletes User</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Deletes a User from the tenancy.</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API6'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API6' aria-expanded="true" aria-controls='collapserequestTenancies_API6'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseTenancies_API6' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API6' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "email": "frank123@example.com",
-  "identity": "users/87d349ed-44d7-43e1-9a83-5f2406dee5bd",
-  "issuer": "frank@example.com",
-  "subject": "franky123",
-  "user_status": "ACTIVE"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>displayName</th>
-                                  <td>string</td>
-                                  
-                                    <td>display name for the user</td>
-                                  
-                                
-                                <tr>
-                                  <th>email</th>
-                                  <td>string</td>
-                                  
-                                    <td>User email.</td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td>user identity <code>{UUID}</code></td>
-                                  
-                                
-                                <tr>
-                                  <th>issuer</th>
-                                  <td>string</td>
-                                  
-                                    <td>optional issuer of the principal identity. Where the issuer is not provided the subject is treated as a free string</td>
-                                  
-                                
-                                <tr>
-                                  <th>subject</th>
-                                  <td>string</td>
-                                  
-                                    <td>unique identifier of the principal (within issuer context)</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerTenancies_API7'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API7' aria-expanded="true" aria-controls='collapseTenancies_API7'>
+                  <h3 class="accordion-header" id='headerTenancies_API3'>
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseTenancies_API3' aria-expanded="true" aria-controls='collapseTenancies_API3'>
                         <div class="overflow-hidden text-nowrap">
                           <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/tenancies/archivist/v1/tenancies/{uuid}:publicinfo</span>
                         </div>
                       </button>
                   </h3>
-                  <div id='collapseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API7' data-parent="#accordion">
+                  <div id='collapseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerTenancies_API3' data-parent="#accordion">
                   <div class="accordion-body">
                     <div style="width: 100%;">
                       <div class="overflow-auto">
@@ -48418,12 +47264,12 @@ within the product, but its possible to retrieve and modify some configs program
                             
                             
                             <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseTenancies_API7'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API7' aria-expanded="true" aria-controls='collapserequestTenancies_API7'>
+                              <h3 class="accordion-header" id='headerresponseTenancies_API3'>
+                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseTenancies_API3' aria-expanded="true" aria-controls='collapserequestTenancies_API3'>
                                     <span>Example Response</span>
                                   </button>
                               </h3>
-                              <div id='collapseresponseTenancies_API7' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API7' data-parent="#accordion">
+                              <div id='collapseresponseTenancies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseTenancies_API3' data-parent="#accordion">
                                 <div class="accordion-body">
                                   <div style="width: 100%;">
                                     <pre><code>{
@@ -48491,152 +47337,6 @@ within the product, but its possible to retrieve and modify some configs program
   </div>
 
 <br></p>
-
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>Simple API for User Management</p>
-    </div>
-      <div class="accordion" id='UserManagement_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerUserManagement_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseUserManagement_API1' aria-expanded="true" aria-controls='collapseUserManagement_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/users/archivist/v1/users/tenants</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerUserManagement_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/users/archivist/v1/users/tenants</span></h4>
-                      </div>
-                      <h5>List User Tenants</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Returns a list of tenancies the user has access to.</p>
-
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseUserManagement_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseUserManagement_API1' aria-expanded="true" aria-controls='collapserequestUserManagement_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseUserManagement_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseUserManagement_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "page_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InN0dW50aWR",
-  "tenants": [
-    {
-      "display_name": "Bobs Tenancy",
-      "identity": "tenant/01038663-c357-470d-912a-3abc9528dd21"
-    },
-    {
-      "display_name": "Alices Tenancy",
-      "identity": "tenant/12149552-f258-430d-922b-4bcd8413ee30"
-    }
-  ]
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                                <tr>
-                                  <th>tenants</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Tenant information for a user.</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>400</th><td>Returned when the request is badly formed.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to read the user.</td>
-                          
-                            <tr><th>404</th><td>Returned when the identified user don&rsquo;t exist.</td>
-                          
-                            <tr><th>500</th><td>Returned when the underlying storage system returns an error.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-
 `}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>

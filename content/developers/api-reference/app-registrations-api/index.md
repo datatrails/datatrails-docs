@@ -26,33 +26,30 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 The App Registrations API enables you to create and manage application identities with access to your DataTrails Tenancy.
 
 {{< note >}}
-**Note:** App Registrations are called Custom Integrations in the DataTrail application UI.
+**Note:** App Registrations are called Custom Integrations in the DataTrails UI and user documentation.
 {{< /note >}}
 
 It supports the OpenID Connect Client Credentials Flow, which means that for each application you register, a `CLIENT_ID` and `SECRET` are generated and returned.
 
 These credentials are then used to request an access token from `https://app.datatrails.ai/archivist/iam/v1/appidp/token`, which is used for API authentication to DataTrails.
 
-Each App Registration is created with Non-Administrator privileges by default.
+Each App Registration is created with no privileges by default. To provide your credentials with access to the Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions.
 
-To provide your credentials with access to the Assets and Events in your Tenancy, it is best practice to create an [ABAC policy](../iam-policies-api/) with specific, declared permissions.
-
-If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.datatrails.ai/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).<br>This would be necessary if you want to carry out Tenancy administration via the API.
+If you wish to give your credentials Administrator privileges to access everything in your Tenancy, you would use the `client-id` as the subject and `https://app.datatrails.ai/appidpv1` as the issuer in the `Settings` screen or by using the [Administrators Endpoint in the Tenancies API](../tenancies-api/).<br>This would be necessary if you want to carry out Tenancy administration via the API, but it comes with risks: access to these credentials must be very carefully guarded.
 
 {{< note >}}
 **Note:** For more information on App Registrations and access tokens, visit [DataTrails Developer Patterns](/developers/developer-patterns/getting-access-tokens-using-app-registrations/).
 {{< /note >}}
 
-### Creating an Application
+### Creating an App Registration
 
-Create a JSON file with the parameters of your new application. Below is an example:
+Create a JSON file with the parameters of your new app registration. Below is an example that associates the credential with the specific application that will use it:
 
 ```json
 {
-    "display_name": "TrafficLight101",
+    "display_name": "Build Server 01",
     "custom_claims": {
-      "serial_number": "TL1000000101",
-      "has_cyclist_light": "true"
+      "toolchain_id": "Jenkins"
     }
 }
 ```
@@ -74,7 +71,7 @@ The client secret ***must*** be taken note of at this point, as it will be redac
 ```json
 {
     "identity": "applications/d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
-    "display_name": "TrafficLight101",
+    "display_name": "Build Server 01",
     "client_id": "d1fb6c87-faa9-4d56-b2fd-a5b70a9af065",
     "tenant_id": "tenant/53e6bed7-6f4c-4a37-8c4f-cf889f2b1aa6",
     "credentials": [
@@ -85,8 +82,7 @@ The client secret ***must*** be taken note of at this point, as it will be redac
         }
     ],
     "custom_claims": {
-        "serial_number": "TL1000000101",
-        "has_cyclist_light": "true"
+        "toolchain_id": "Jenkins"
     }
 }
 ```
@@ -97,7 +93,7 @@ The client secret ***must*** be taken note of at this point, as it will be redac
 
 #### Authenticating with your Application
 
-Now that you've created an application, you get a token.
+Now that you've created an application, you can get a token.
 
 Replace `${CLIENT_ID}` with the Application ID, and `${SECRET}` with your secret from the App Registration.
 
@@ -157,7 +153,7 @@ Create a JSON file containing the details you wish to update. Partial updating o
 ```json
 {
     "custom_claims": {
-      "has_cyclist_light": "false"
+      "toolchain_id": "Gitlab"
     }
 }
 ```
@@ -190,7 +186,7 @@ Example response:
         }
     ],
     "custom_claims": {
-        "has_cyclist_light": "false"
+        "toolchain_id": "Gitlab"
     }
 }
 ```

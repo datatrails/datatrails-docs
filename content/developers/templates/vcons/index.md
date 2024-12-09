@@ -41,7 +41,8 @@ The following example highlights a typical [DataTrails Event](../../api-referenc
     "subject": "vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af",
     "timestamp_declared": "2024-05-07T16:33:29.004994",
     "vcon_operation": "vcon_create",
-    "vcon_draft_version": "01"
+    "vcon_draft_version": "01",
+    "scitt_draft_version": "10"
   }
 }
 ```
@@ -63,6 +64,7 @@ The following DataTrails Event attributes map to a SCITT Signed Statement:
 | `timestamp_declared` | `metamap.timestamp_declared`|
 | `vcon_draft_version` | `metamap.vcon_draft_version` |
 | `vcon_operation` | `metamap.vcon_operation` |
+| `scitt_draft_version` | `metamap.scitt_draft_version` |
 
 ### arc_display_type (REQUIRED)
 
@@ -182,8 +184,13 @@ For now, the `vcon_operation` (`string`) is the placeholder.
 
 ### vcon_draft_version (REQUIRED)
 
-IETF Draft version, providing interoperable stability within a draft version.
+IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/)
+
+### scitt_draft_version (REQUIRED)
+
+IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/)
 
 ## Verifying vCons
 

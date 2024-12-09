@@ -104,6 +104,7 @@ Unprotected_Header = {
         0: 'timestamp_declared":     '2024-05-07T16:33:29.004994',
         0: 'vcon_operation":         'vcon_create',
         0: 'vcon_draft_version":     '01',
+        0: 'scitt_draft_version":     '10'
       ]
    15: {                        / CWT Claims                    /
      1: 'example.com',          / Issuer                        /
@@ -150,7 +151,8 @@ The following values are added to the Protected Header meta-map, providing enoug
   "conserver_link_version": "0.2.0",
   "timestamp_declared": "2024-05-07T16:33:29.004994",
   "vcon_operation": "vcon_create",
-  "vcon_draft_version": "01"
+  "vcon_draft_version": "01",
+  "scitt_draft_version": "10"
 }
 ```
 
@@ -237,8 +239,13 @@ For now, the `vcon_operation` (`string`) is the placeholder.
 
 ### vcon_draft_version (REQUIRED)
 
-IETF Draft version, providing interoperable stability within a draft version.
+IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/)
+
+### scitt_draft_version (REQUIRED)
+
+IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with [draft version 01](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/)
 
 ## Verifying vCons
 

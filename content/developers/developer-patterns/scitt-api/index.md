@@ -74,22 +74,19 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     ISSUER="sample.synsation.io"
 
     # signing key to sign the SCITT Statements
-    SIGNING_KEY="/tmp/my-signing-key.pem"
+    SIGNING_KEY="my-signing-key.pem"
 
     # File representing the signed statement to be registered
-    SIGNED_STATEMENT_FILE="/tmp/signed-statement.cbor"
+    SIGNED_STATEMENT_FILE="signed-statement.cbor"
 
     # File representing the transparent statement, which includes the signed statement and the registration receipt
-    TRANSPARENT_STATEMENT_FILE="/tmp/transparent-statement.cbor"
+    TRANSPARENT_STATEMENT_FILE="transparent-statement.cbor"
 
     # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
-    
-    # Sub Directory for SCITT scripts
-    SCRIPTS="datatrails_scitt_samples/scripts/"
 
-    # For local script execution, help Python find the modules
-    export PYTHONPATH="${PYTHONPATH}:$SCRIPTS"
+    # File to store the verifiable event data in
+    VERIFIABLE_EVENT_FILE="event.json"
     ```
 
 ## Create a Signing Key
@@ -109,7 +106,7 @@ For the Quickstart, create a testing key which DataTrails will cryptographically
 Create any payload you wish to register on DataTrails.
 
 ```bash
-cat > /tmp/payload.json <<EOF
+cat > payload.json <<EOF
 {
     "author": "fred",
     "title": "my biography",
@@ -120,13 +117,13 @@ EOF
 
 ## Create Metadata
 
-[DataTrails Event Attributes](./../../api-reference/events-api/) can be associated with a SCITT Statement, enabling indexing and retrieval.
+[DataTrails Event Attributes](./../../api-reference/events-api/) can be associated with a SCITT Statement, enabling indexing and retrieval in future releases.
 
 Create metadata with a dictionary of `key:value` pairs.
 
 ```bash
-HASH=$(sha256sum "/tmp/payload.json" | cut -d ' ' -f 1)
-cat > /tmp/metadata.json <<EOF
+HASH=$(shasum "payload.json" | cut -d ' ' -f 1)
+cat > metadata.json <<EOF
 {
   "payload_hash": "$HASH",
   "timestamp_declared": "2024-11-01T12:24:42.012345",
@@ -147,9 +144,9 @@ The payload may already be stored in another storage/package manager, which can 
 python ${SCRIPTS}create_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --metadata-file "/tmp/metadata.json" \
+  --metadata-file "metadata.json" \
   --output-file $SIGNED_STATEMENT_FILE \
-  --payload-file /tmp/payload.json \
+  --payload-file payload.json \
   --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
   --subject $SUBJECT
@@ -157,12 +154,12 @@ python ${SCRIPTS}create_signed_statement.py \
 -->
 
 ```bash
-python ${SCRIPTS}create_hashed_signed_statement.py \
+python -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
   --content-type "application/json" \
   --issuer $ISSUER \
-  --metadata-file "/tmp/metadata.json" \
+  --metadata-file "metadata.json" \
   --output-file $SIGNED_STATEMENT_FILE \
-  --payload-file /tmp/payload.json \
+  --payload-file payload.json \
   --payload-location "https://storage.example/$SUBJECT" \
   --signing-key-file $SIGNING_KEY \
   --subject $SUBJECT
@@ -173,28 +170,34 @@ python ${SCRIPTS}create_hashed_signed_statement.py \
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 
     ```bash
-    python ${SCRIPTS}register_signed_statement.py \
-      --signed-statement-file $SIGNED_STATEMENT_FILE \
+    python -m datatrails_scitt_samples.scripts.register_signed_statement \
+      --signed-statement-file signed-statement.cbor \
       --output-file $TRANSPARENT_STATEMENT_FILE \
       --log-level INFO
+    ```
+
+    Find and copy the leaf hash from the output. It will look like this:
+    ```
+    INFO:register-statement:Leaf Hash: 30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db
     ```
 
 1. View the Transparent Statement, as a result of registering the Signed Statement
 
     ```bash
-    python datatrails_scitt_samples/dump_cbor.py \
-      --input $TRANSPARENT_STATEMENT_FILE
+    python -m datatrails_scitt_samples.dump_cbor \
+      --input transparent-statement.cbor
     ```
 
-<!-- 
-TODO: Update with MMR verification
-1. Verify the signature of the receipt
+1. Verify the the receipt
 
     ```bash
-    python ${SCRIPTS}/verify_receipt_signature.py \
-      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
+    python -m datatrails_scitt_samples.scripts.verify_receipt \
+      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE \
+      --leaf $LEAF
     ```
--->
+
+    Following the example above $LEAF should be:
+    `30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db`
 
 ## Retrieve Statements for the Artifact
 
@@ -204,10 +207,16 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```bash
-    PARAMS="event_attributes.subject=${SUBJECT}&page_size=3"
+    PARAMS="event_attributes.subject=${SUBJECT}&page_size=1"
     curl "https://app.datatrails.ai/archivist/v2/publicassets/-/events?${PARAMS}" \
       | jq
     ```
+
+    The events are listed starting with the most recently added.
+
+{{< note >}}
+Coming soon: Filter on specific values, conveyed in the protected header. For example content types, such as what SBOMs have been registered, which issuers have made statements, or custom key value pairs.
+{{< /note >}}
 
 ## Summary
 

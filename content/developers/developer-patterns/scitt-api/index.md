@@ -224,7 +224,7 @@ By querying the series of statements, consumers can verify who did what and when
 1. Query DataTrails for the collection of statements
 
     ```bash
-    PARAMS="event_attributes.subject=${SUBJECT}&page_size=1"
+    PARAMS="event_attributes.subject=${SUBJECT}&page_size=3"
     curl "https://app.datatrails.ai/archivist/v2/publicassets/-/events?${PARAMS}" \
       | jq
     ```

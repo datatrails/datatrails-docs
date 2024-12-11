@@ -94,7 +94,6 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 These defaults will place files in your current working directory. For session persistence, consider replacing the file paths with absolute paths. For example `SIGNING_KEY="$HOME/.datatrails/my-signing-key.pem"`
 {{< /note >}}
 
-
 ## Create a Signing Key
 
 {{< note >}}

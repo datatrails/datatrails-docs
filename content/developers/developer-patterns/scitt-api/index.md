@@ -224,7 +224,8 @@ By querying the series of statements, consumers can verify who did what and when
     The events are listed starting with the most recently added.
 
 {{< note >}}
-Coming soon: Filter on specific values, conveyed in the protected header. For example content types, such as what SBOMs have been registered, which issuers have made statements, or custom key value pairs.
+Coming soon: Filter on specific values conveyed in the protected header.
+For example, content types, such as what SBOMs have been registered, which issuers have made statements or custom key-value pairs.
 {{< /note >}}
 
 ## Summary

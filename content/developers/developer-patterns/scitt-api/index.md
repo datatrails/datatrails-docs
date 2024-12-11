@@ -85,8 +85,9 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
 
-    # File to store the verifiable event data in
-    VERIFIABLE_EVENT_FILE="event.json"
+    # A command which produces a hash, eg sha256sum on linux, or shasum on macos
+    # The specific algorithm is not important for these examples
+    HASH_COMMAND=sha256sum
     ```
 
 ## Create a Signing Key
@@ -122,7 +123,7 @@ EOF
 Create metadata with a dictionary of `key:value` pairs.
 
 ```bash
-HASH=$(shasum "payload.json" | cut -d ' ' -f 1)
+HASH=$($HASH_COMMAND "payload.json" | cut -d ' ' -f 1)
 cat > metadata.json <<EOF
 {
   "payload_hash": "$HASH",
@@ -176,16 +177,20 @@ python -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
       --log-level INFO
     ```
 
-    Find and copy the leaf hash from the output. It will look like this:
+    The last line of the output will include the leaf entry that commits the statement to the merkle log.
+    It will look like
     ```
-    INFO:register-statement:Leaf Hash: 30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db
+    {"entryid": "assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9",
+     "leaf": "30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db"}
     ```
+
+    Add the `--log-level DEBUG` flag to help diagnose any issues.
 
 1. View the Transparent Statement, as a result of registering the Signed Statement
 
     ```bash
     python -m datatrails_scitt_samples.dump_cbor \
-      --input transparent-statement.cbor
+      --input $TRANSPARENT_STATEMENT_FILE
     ```
 
 1. Verify the the receipt

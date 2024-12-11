@@ -54,7 +54,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 1. Create a Python Virtual Environment for the sample scripts and install the dependencies
 
     ```bash
-    python -m venv venv && \
+    python3 -m venv venv && \
     source venv/bin/activate && \
     trap deactivate EXIT && \
     pip install --upgrade pip && \
@@ -89,6 +89,11 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     # The specific algorithm is not important for these examples
     HASH_COMMAND=sha256sum
     ```
+
+{{< note >}}
+These defaults will place files in your current working directory. Consider replacing the file paths with absoloute paths to your platforms temporary location. Eg `SIGNING_KEY="/tmp/my-signing-key.pem"`
+{{< /note >}}
+
 
 ## Create a Signing Key
 
@@ -142,7 +147,7 @@ The payload may already be stored in another storage/package manager, which can 
 
 <!-- 
 ```bash
-python ${SCRIPTS}create_signed_statement.py \
+python3 ${SCRIPTS}create_signed_statement.py \
   --content-type "application/json" \
   --issuer $ISSUER \
   --metadata-file "metadata.json" \
@@ -155,7 +160,7 @@ python ${SCRIPTS}create_signed_statement.py \
 -->
 
 ```bash
-python -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
+python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
   --content-type "application/json" \
   --issuer $ISSUER \
   --metadata-file "metadata.json" \
@@ -171,8 +176,8 @@ python -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
 
     ```bash
-    python -m datatrails_scitt_samples.scripts.register_signed_statement \
-      --signed-statement-file signed-statement.cbor \
+    python3 -m datatrails_scitt_samples.scripts.register_signed_statement \
+      --signed-statement-file $SIGNED_STATEMENT_FILE \
       --output-file $TRANSPARENT_STATEMENT_FILE \
       --log-level INFO
     ```
@@ -189,14 +194,14 @@ python -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
 1. View the Transparent Statement, as a result of registering the Signed Statement
 
     ```bash
-    python -m datatrails_scitt_samples.dump_cbor \
+    python3 -m datatrails_scitt_samples.dump_cbor \
       --input $TRANSPARENT_STATEMENT_FILE
     ```
 
 1. Verify the the receipt
 
     ```bash
-    python -m datatrails_scitt_samples.scripts.verify_receipt \
+    python3 -m datatrails_scitt_samples.scripts.verify_receipt \
       --transparent-statement-file $TRANSPARENT_STATEMENT_FILE \
       --leaf $LEAF
     ```

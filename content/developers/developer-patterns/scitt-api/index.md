@@ -84,17 +84,7 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 
     # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
-
-    # A command which produces a hash, eg sha256sum on linux, or shasum on macos
-    # The specific algorithm is not important for these examples
-    HASH_COMMAND=sha256sum
     ```
-
-{{< note >}}
-These defaults will place files in your current working directory.
-For session persistence, consider replacing the file paths with absolute paths.
-For example `SIGNING_KEY="$HOME/.datatrails/my-signing-key.pem"`
-{{< /note >}}
 
 ## Create a Signing Key
 
@@ -129,10 +119,8 @@ EOF
 Create metadata with a dictionary of `key:value` pairs.
 
 ```bash
-HASH=$($HASH_COMMAND "payload.json" | cut -d ' ' -f 1)
 cat > metadata.json <<EOF
 {
-  "payload_hash": "$HASH",
   "timestamp_declared": "2024-11-01T12:24:42.012345",
   "sample_version": "0.1.1",
   "project": 25,
@@ -145,20 +133,6 @@ EOF
 
 Create a COSE Signed Statement, hashing the content of the `payload.json` file.
 The payload may already be stored in another storage/package manager, which can be referenced with the `--location-hint` parameter.
-
-<!-- 
-```bash
-python3 ${SCRIPTS}create_signed_statement.py \
-  --content-type "application/json" \
-  --issuer $ISSUER \
-  --metadata-file "metadata.json" \
-  --output-file $SIGNED_STATEMENT_FILE \
-  --payload-file payload.json \
-  --payload-location "https://storage.example/$SUBJECT" \
-  --signing-key-file $SIGNING_KEY \
-  --subject $SUBJECT
-```
--->
 
 ```bash
 python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
@@ -185,14 +159,13 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
 
     The last line of the output will include the leaf entry that commits the statement to the merkle log.
     It will look like
-    ```
+
+    ```json
     {
       "entryid": "assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9",
       "leaf": "30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db"
      }
     ```
-
-    Add the `--log-level DEBUG` flag to help diagnose any issues.
 
 1. View the Transparent Statement, as a result of registering the Signed Statement
 
@@ -214,7 +187,6 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
     ```output
     30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db
     ```
-
 
 ## Retrieve Statements for the Artifact
 

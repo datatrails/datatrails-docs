@@ -207,8 +207,12 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
       --leaf $LEAF
     ```
 
-    Following the example above $LEAF should be:
-    `30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db`
+    Following the example above, $LEAF should be:
+
+    ```output
+    30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db
+    ```
+
 
 ## Retrieve Statements for the Artifact
 

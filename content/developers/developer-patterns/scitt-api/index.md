@@ -40,14 +40,7 @@ This quickstart will:
 
 ### DataTrails Sample Code
 
-The Quickstart uses existing samples and scripts to focus on the SCITT APIs.
-
-Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-scitt-samples) repository to copy those files to your environment.
-
-  ```bash
-  git clone https://github.com/datatrails/datatrails-scitt-samples.git && \
-  cd datatrails-scitt-samples
-  ```
+The Quickstart uses the PyPi [DataTrails SCITT Examples](https://pypi.org/project/datatrails-scitt-samples/).
 
 ## Environment Configuration
 
@@ -57,15 +50,8 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
     python -m venv venv && \
     source venv/bin/activate && \
     trap deactivate EXIT && \
-    pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install --upgrade pip 
     ```
-
-      - **Note: If you receive errors**, delete the `venv` directory and try again:
-
-        ```bash
-        rm -r -f venv/
-        ```
 
 1. To ease copying and pasting commands, update any variables to fit your environment
 
@@ -84,12 +70,6 @@ Clone the [DataTrails SCITT Examples](https://github.com/datatrails/datatrails-s
 
     # Property used to correlate a collection of statements about an artifact
     SUBJECT="my-product-id"
-    
-    # Sub Directory for SCITT scripts
-    SCRIPTS="datatrails_scitt_samples/scripts/"
-
-    # For local script execution, help Python find the modules
-    export PYTHONPATH="${PYTHONPATH}:$SCRIPTS"
     ```
 
 ## Create a Signing Key
@@ -108,14 +88,8 @@ For the Quickstart, create a testing key which DataTrails will cryptographically
 
 Create any payload you wish to register on DataTrails.
 
-```bash
-cat > /tmp/payload.json <<EOF
-{
-    "author": "fred",
-    "title": "my biography",
-    "reviews": "mixed"
-}
-EOF
+```json
+statement = {"author": "fred", "title": "my biography", "reviews": "mixed"}
 ```
 
 ## Create Metadata
@@ -137,10 +111,26 @@ cat > /tmp/metadata.json <<EOF
 EOF
 ```
 
+## Import Python Packages
+
+```python
+from datatrails_scitt_samples.statement_creation import (
+    cose_key_ec2_p256,
+    create_hashed_signed_statement,
+    create_hashed_statement,
+)
+```
+
 ## Create a COSE Signed Statement
 
 Create a COSE Signed Statement, hashing the content of the `payload.json` file.
 The payload may already be stored in another storage/package manager, which can be referenced with the `--location-hint` parameter.
+
+1. Setup parameters to create a Hashed Signed Statement
+
+  ```python
+  payload_contents = json.dumps(/tmp/payload.json)
+  ```
 
 <!-- 
 ```bash
@@ -157,15 +147,15 @@ python ${SCRIPTS}create_signed_statement.py \
 -->
 
 ```bash
-python ${SCRIPTS}create_hashed_signed_statement.py \
-  --content-type "application/json" \
-  --issuer $ISSUER \
-  --metadata-file "/tmp/metadata.json" \
-  --output-file $SIGNED_STATEMENT_FILE \
-  --payload-file /tmp/payload.json \
-  --payload-location "https://storage.example/$SUBJECT" \
-  --signing-key-file $SIGNING_KEY \
-  --subject $SUBJECT
+create_hashed_signed_statement
+    --content-type "application/json" \
+    --issuer $ISSUER \
+    --metadata-file "/tmp/metadata.json" \
+    --output-file $SIGNED_STATEMENT_FILE \
+    --payload-file /tmp/payload.json \
+    --payload-location "https://storage.example/$SUBJECT" \
+    --signing-key-file $SIGNING_KEY \
+    --subject $SUBJECT
 ```
 
 ## Register the SCITT Signed Statement on DataTrails

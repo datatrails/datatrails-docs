@@ -101,6 +101,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;scitt_draft_version</span><span class="err">&#34;:</span>     <span class="ss">&#39;10</span><span class="o">&#39;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">]</span>
 </span></span><span class="line"><span class="cl">   <span class="mi">15</span><span class="err">:</span> <span class="p">{</span>                        <span class="nb">/ </span><span class="nv">CWT</span> <span class="nv">Claims</span>                    <span class="nv">/</span>
 </span></span><span class="line"><span class="cl">     <span class="mi">1</span><span class="err">:</span> <span class="ss">&#39;example.com</span><span class="o">&#39;</span>,          <span class="nb">/ </span><span class="nv">Issuer</span>                        <span class="nv">/</span>
@@ -135,7 +136,8 @@ There is
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scitt_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;10&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
 <p>The link <code>type</code> as named under the conserver links folder.</p>
@@ -207,9 +209,13 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
 <h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
-<p>IETF Draft version, providing interoperable stability within a draft version.
+<p>IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
+<h3 id="scitt_draft_version-required">scitt_draft_version (REQUIRED)</h3>
+<p>IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
 These changes are being proposed to the SCITT Reference API (SCRAPI).</p>
@@ -299,7 +305,8 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;scitt_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;10&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
@@ -355,6 +362,10 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 <tr>
 <td><code>vcon_operation</code></td>
 <td><code>metamap.vcon_operation</code></td>
+</tr>
+<tr>
+<td><code>scitt_draft_version</code></td>
+<td><code>metamap.scitt_draft_version</code></td>
 </tr>
 </tbody>
 </table>
@@ -457,9 +468,13 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
 <h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
-<p>IETF Draft version, providing interoperable stability within a draft version.
+<p>IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
+<h3 id="scitt_draft_version-required">scitt_draft_version (REQUIRED)</h3>
+<p>IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
 <p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>
@@ -24143,6 +24158,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;scitt_draft_version</span><span class="err">&#34;:</span>     <span class="ss">&#39;10</span><span class="o">&#39;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">]</span>
 </span></span><span class="line"><span class="cl">   <span class="mi">15</span><span class="err">:</span> <span class="p">{</span>                        <span class="nb">/ </span><span class="nv">CWT</span> <span class="nv">Claims</span>                    <span class="nv">/</span>
 </span></span><span class="line"><span class="cl">     <span class="mi">1</span><span class="err">:</span> <span class="ss">&#39;example.com</span><span class="o">&#39;</span>,          <span class="nb">/ </span><span class="nv">Issuer</span>                        <span class="nv">/</span>
@@ -24177,7 +24193,8 @@ There is
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scitt_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;10&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="conserver_link-optional">conserver_link (OPTIONAL)</h3>
 <p>The link <code>type</code> as named under the conserver links folder.</p>
@@ -24249,9 +24266,13 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
 <h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
-<p>IETF Draft version, providing interoperable stability within a draft version.
+<p>IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
+<h3 id="scitt_draft_version-required">scitt_draft_version (REQUIRED)</h3>
+<p>IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.
 These changes are being proposed to the SCITT Reference API (SCRAPI).</p>
@@ -24341,7 +24362,8 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon://bbba043b-xxxx-xxxx-xxxx-ac3ddd0303af&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;scitt_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;10&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="datatrails-event-to-scitt-mapping">DataTrails Event to SCITT Mapping</h3>
@@ -24397,6 +24419,10 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 <tr>
 <td><code>vcon_operation</code></td>
 <td><code>metamap.vcon_operation</code></td>
+</tr>
+<tr>
+<td><code>scitt_draft_version</code></td>
+<td><code>metamap.scitt_draft_version</code></td>
 </tr>
 </tbody>
 </table>
@@ -24499,9 +24525,13 @@ For every creation and update to a vCon, a SCITT Statement would seal the vCon, 
 The defined lifecycle events of a vCon will likely evolve with the standard.
 For now, the <code>vcon_operation</code> (<code>string</code>) is the placeholder.</p>
 <h3 id="vcon_draft_version-required">vcon_draft_version (REQUIRED)</h3>
-<p>IETF Draft version, providing interoperable stability within a draft version.
+<p>IETF vCon Draft version, providing interoperable stability within a draft version.
 This document is aligned with 
 <a href="https://datatracker.ietf.org/doc/draft-ietf-vcon-vcon-container/history/" target="_blank" rel="noopener">draft version 01</a></p>
+<h3 id="scitt_draft_version-required">scitt_draft_version (REQUIRED)</h3>
+<p>IETF SCITT Draft version, providing interoperable stability within a draft version.
+This document is aligned with 
+<a href="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/history/" target="_blank" rel="noopener">draft version 01</a></p>
 <h2 id="verifying-vcons">Verifying vCons</h2>
 <p>DataTrails provides several APIs for verifying the integrity and inclusion of changes to a vCons history.</p>
 <p>We&rsquo;ll also explore specific vCon scenarios, such as consent and revocation validation.</p>

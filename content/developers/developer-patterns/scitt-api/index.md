@@ -186,8 +186,10 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
     The last line of the output will include the leaf entry that commits the statement to the merkle log.
     It will look like
     ```
-    {"entryid": "assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9",
-     "leaf": "30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db"}
+    {
+      "entryid": "assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9",
+      "leaf": "30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db"
+     }
     ```
 
     Add the `--log-level DEBUG` flag to help diagnose any issues.

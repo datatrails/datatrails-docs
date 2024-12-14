@@ -205,7 +205,6 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
     ERROR:verify-receipt:failed to parse leaf hash
     ```
 
-
 ## Retrieve Statements for the Artifact
 
 The power of SCITT is the ability to retrieve the history of statements made for a given artifact.

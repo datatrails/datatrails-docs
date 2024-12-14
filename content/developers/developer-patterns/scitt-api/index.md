@@ -149,12 +149,14 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
 ## Register the SCITT Signed Statement on DataTrails
 
 1. Submit the Signed Statement to DataTrails, using the credentials in the `DATATRAILS_CLIENT_ID` and `DATATRAILS_CLIENT_SECRET`.
+   The `LEAF` is captured on a successful execution for verification.
 
     ```bash
-    python3 -m datatrails_scitt_samples.scripts.register_signed_statement \
-      --signed-statement-file $SIGNED_STATEMENT_FILE \
-      --output-file $TRANSPARENT_STATEMENT_FILE \
-      --log-level INFO
+    RESPONSE=$(python3 -m datatrails_scitt_samples.scripts.register_signed_statement \
+          --signed-statement-file $SIGNED_STATEMENT_FILE \
+          --output-file $TRANSPARENT_STATEMENT_FILE \
+          --log-level INFO)
+    echo $RESPONSE
     ```
 
     The last line of the output will include the leaf entry that commits the statement to the merkle log.
@@ -179,14 +181,30 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
     ```bash
     python3 -m datatrails_scitt_samples.scripts.verify_receipt \
       --transparent-statement-file $TRANSPARENT_STATEMENT_FILE \
-      --leaf $LEAF
+      --leaf $(jq -r .leaf <<<"$RESPONSE")
     ```
 
-    Following the example above, $LEAF should be:
+    The verification should pass with:
 
     ```output
-    30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db
+    verification passed
     ```
+
+1. Simulate a failed verification, by altering the `.leaf` value
+
+    ```bash
+
+    python3 -m datatrails_scitt_samples.scripts.verify_receipt \
+      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE \
+      --leaf $(jq -r .leaf <<<"$RESPONSE")"-foo"
+    ```
+
+    The verification should fail with:
+
+    ```output
+    ERROR:verify-receipt:failed to parse leaf hash
+    ```
+
 
 ## Retrieve Statements for the Artifact
 

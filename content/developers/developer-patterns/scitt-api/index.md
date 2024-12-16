@@ -187,23 +187,29 @@ python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement \
     The verification should pass with:
 
     ```output
-    verification passed
+    verification succeeded
     ```
 
 1. Simulate a failed verification, by altering the `.leaf` value
+
+    As all entries in a log are unique, if you use the leaf value from the example above verbatim, it will *fail* to verify
 
     ```bash
 
     python3 -m datatrails_scitt_samples.scripts.verify_receipt \
       --transparent-statement-file $TRANSPARENT_STATEMENT_FILE \
-      --leaf $(jq -r .leaf <<<"$RESPONSE")"-foo"
+      --leaf "30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db"
     ```
 
     The verification should fail with:
 
     ```output
-    ERROR:verify-receipt:failed to parse leaf hash
+    verification failed
     ```
+
+    A more representative example, which includes computing the leaf hash from the event details, can be found in the [tests for the verification script](https://github.com/datatrails/datatrails-scitt-samples/blob/main/tests/test_verify_receipt.py#L52)
+
+
 
 ## Retrieve Statements for the Artifact
 

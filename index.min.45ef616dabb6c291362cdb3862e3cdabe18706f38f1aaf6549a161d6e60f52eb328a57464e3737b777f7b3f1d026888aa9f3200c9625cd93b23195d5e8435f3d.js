@@ -19995,7 +19995,7 @@ This includes previously registered statements, and newly registered statements 
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">trap</span> deactivate EXIT <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
@@ -20013,22 +20013,16 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;/tmp/my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/signed-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Sub Directory for SCITT scripts</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SCRIPTS</span><span class="o">=</span><span class="s2">&#34;datatrails_scitt_samples/scripts/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># For local script execution, help Python find the modules</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:</span><span class="nv">$SCRIPTS</span><span class="s2">&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -20040,7 +20034,7 @@ This includes previously registered statements, and newly registered statements 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
 <p>Create any payload you wish to register on DataTrails.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/payload.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
@@ -20049,12 +20043,10 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><h2 id="create-metadata">Create Metadata</h2>
 <p>
-<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval.</p>
+<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval in future releases.</p>
 <p>Create metadata with a dictionary of <code>key:value</code> pairs.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">HASH</span><span class="o">=</span><span class="k">$(</span>sha256sum <span class="s2">&#34;/tmp/payload.json&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 1<span class="k">)</span>
-</span></span><span class="line"><span class="cl">cat &gt; /tmp/metadata.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; metadata.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;payload_hash&#34;: &#34;$HASH&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;timestamp_declared&#34;: &#34;2024-11-01T12:24:42.012345&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;sample_version&#34;: &#34;0.1.1&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;project&#34;: 25,
@@ -20064,52 +20056,58 @@ This includes previously registered statements, and newly registered statements 
 </span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
 <p>Create a COSE Signed Statement, hashing the content of the <code>payload.json</code> file.
 The payload may already be stored in another storage/package manager, which can be referenced with the <code>--location-hint</code> parameter.</p>
-<!-- 
-\`\`\`bash
-python \${SCRIPTS}create_signed_statement.py \\
-  --content-type "application/json" \\
-  --issuer $ISSUER \\
-  --metadata-file "/tmp/metadata.json" \\
-  --output-file $SIGNED_STATEMENT_FILE \\
-  --payload-file /tmp/payload.json \\
-  --payload-location "https://storage.example/$SUBJECT" \\
-  --signing-key-file $SIGNING_KEY \\
-  --subject $SUBJECT
-\`\`\`
--->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>create_hashed_signed_statement.py <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;/tmp/metadata.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;metadata.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file /tmp/payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span>
 </span></span></code></pre></div><h2 id="register-the-scitt-signed-statement-on-datatrails">Register the SCITT Signed Statement on DataTrails</h2>
 <ol>
 <li>
-<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>register_signed_statement.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.
+The <code>LEAF</code> is captured on a successful execution for verification.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>python3 -m datatrails_scitt_samples.scripts.register_signed_statement <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --log-level INFO<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
+</span></span></code></pre></div><p>The last line of the output will include the leaf entry that commits the statement to the merkle log.
+It will look like</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;entryid&#34;</span><span class="p">:</span> <span class="s2">&#34;assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;leaf&#34;</span><span class="p">:</span> <span class="s2">&#34;30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python datatrails_scitt_samples/dump_cbor.py <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.dump_cbor <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
+<li>
+<p>Verify the the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.verify_receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --leaf <span class="k">$(</span>jq -r .leaf <span class="o">&lt;&lt;&lt;</span><span class="s2">&#34;</span><span class="nv">$RESPONSE</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span></code></pre></div><p>The verification should pass with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">verification succeeded
+</span></span></code></pre></div></li>
+<li>
+<p>Simulate a failed verification, by altering the <code>.leaf</code> value</p>
+<p>As all entries in a log are unique, if you use the leaf value from the example above verbatim, it will <em>fail</em> to verify</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.verify_receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --leaf <span class="s2">&#34;30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db&#34;</span>
+</span></span></code></pre></div><p>The verification should fail with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">verification failed
+</span></span></code></pre></div><p>A more representative example, which includes computing the leaf hash from the event details, can be found in the 
+<a href="https://github.com/datatrails/datatrails-scitt-samples/blob/main/tests/test_verify_receipt.py#L52" target="_blank" rel="noopener">tests for the verification script</a></p>
+</li>
 </ol>
-<!-- 
-TODO: Update with MMR verification
-1. Verify the signature of the receipt
-
-    \`\`\`bash
-    python \${SCRIPTS}/verify_receipt_signature.py \\
-      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
-    \`\`\`
--->
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
 <p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
 By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
@@ -20119,8 +20117,13 @@ By querying the series of statements, consumers can verify who did what and when
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PARAMS</span><span class="o">=</span><span class="s2">&#34;event_attributes.subject=</span><span class="si">\${</span><span class="nv">SUBJECT</span><span class="si">}</span><span class="s2">&amp;page_size=3&#34;</span>
 </span></span><span class="line"><span class="cl">curl <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?</span><span class="si">\${</span><span class="nv">PARAMS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>The events are listed starting with the most recently added.</p>
+</li>
 </ol>
+<blockquote class="note callout">
+    <div><strong></strong> Coming soon: Filter on specific values conveyed in the protected header.
+For example, content types, such as what SBOMs have been registered, which issuers have made statements or custom key-value pairs.</div>
+  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>
@@ -44052,7 +44055,7 @@ This includes previously registered statements, and newly registered statements 
 <ol>
 <li>
 <p>Create a Python Virtual Environment for the sample scripts and install the dependencies</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m venv venv <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">source</span> venv/bin/activate <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="nb">trap</span> deactivate EXIT <span class="o">&amp;&amp;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>pip install --upgrade pip <span class="o">&amp;&amp;</span> <span class="se">\\
@@ -44070,22 +44073,16 @@ This includes previously registered statements, and newly registered statements 
 </span></span><span class="line"><span class="cl"><span class="nv">ISSUER</span><span class="o">=</span><span class="s2">&#34;sample.synsation.io&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># signing key to sign the SCITT Statements</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;/tmp/my-signing-key.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNING_KEY</span><span class="o">=</span><span class="s2">&#34;my-signing-key.pem&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the signed statement to be registered</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/signed-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGNED_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;signed-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># File representing the transparent statement, which includes the signed statement and the registration receipt</span>
-</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;/tmp/transparent-statement.cbor&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRANSPARENT_STATEMENT_FILE</span><span class="o">=</span><span class="s2">&#34;transparent-statement.cbor&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Property used to correlate a collection of statements about an artifact</span>
 </span></span><span class="line"><span class="cl"><span class="nv">SUBJECT</span><span class="o">=</span><span class="s2">&#34;my-product-id&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Sub Directory for SCITT scripts</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SCRIPTS</span><span class="o">=</span><span class="s2">&#34;datatrails_scitt_samples/scripts/&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># For local script execution, help Python find the modules</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">\${</span><span class="nv">PYTHONPATH</span><span class="si">}</span><span class="s2">:</span><span class="nv">$SCRIPTS</span><span class="s2">&#34;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h2 id="create-a-signing-key">Create a Signing Key</h2>
@@ -44097,7 +44094,7 @@ This includes previously registered statements, and newly registered statements 
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openssl ecparam -name prime256v1 -genkey -out <span class="nv">$SIGNING_KEY</span>
 </span></span></code></pre></div><h2 id="generate-a-payload">Generate a Payload</h2>
 <p>Create any payload you wish to register on DataTrails.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/payload.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; payload.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;author&#34;: &#34;fred&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;title&#34;: &#34;my biography&#34;,
@@ -44106,12 +44103,10 @@ This includes previously registered statements, and newly registered statements 
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><h2 id="create-metadata">Create Metadata</h2>
 <p>
-<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval.</p>
+<a href="./../../api-reference/events-api/">DataTrails Event Attributes</a> can be associated with a SCITT Statement, enabling indexing and retrieval in future releases.</p>
 <p>Create metadata with a dictionary of <code>key:value</code> pairs.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">HASH</span><span class="o">=</span><span class="k">$(</span>sha256sum <span class="s2">&#34;/tmp/payload.json&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39; &#39;</span> -f 1<span class="k">)</span>
-</span></span><span class="line"><span class="cl">cat &gt; /tmp/metadata.json <span class="s">&lt;&lt;EOF
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; metadata.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;payload_hash&#34;: &#34;$HASH&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;timestamp_declared&#34;: &#34;2024-11-01T12:24:42.012345&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;sample_version&#34;: &#34;0.1.1&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;project&#34;: 25,
@@ -44121,52 +44116,58 @@ This includes previously registered statements, and newly registered statements 
 </span></span></code></pre></div><h2 id="create-a-cose-signed-statement">Create a COSE Signed Statement</h2>
 <p>Create a COSE Signed Statement, hashing the content of the <code>payload.json</code> file.
 The payload may already be stored in another storage/package manager, which can be referenced with the <code>--location-hint</code> parameter.</p>
-<!-- 
-\`\`\`bash
-python \${SCRIPTS}create_signed_statement.py \\
-  --content-type "application/json" \\
-  --issuer $ISSUER \\
-  --metadata-file "/tmp/metadata.json" \\
-  --output-file $SIGNED_STATEMENT_FILE \\
-  --payload-file /tmp/payload.json \\
-  --payload-location "https://storage.example/$SUBJECT" \\
-  --signing-key-file $SIGNING_KEY \\
-  --subject $SUBJECT
-\`\`\`
--->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>create_hashed_signed_statement.py <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.create_hashed_signed_statement <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --content-type <span class="s2">&#34;application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --issuer <span class="nv">$ISSUER</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;/tmp/metadata.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --metadata-file <span class="s2">&#34;metadata.json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file /tmp/payload.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-file payload.json <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --payload-location <span class="s2">&#34;https://storage.example/</span><span class="nv">$SUBJECT</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signing-key-file <span class="nv">$SIGNING_KEY</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --subject <span class="nv">$SUBJECT</span>
 </span></span></code></pre></div><h2 id="register-the-scitt-signed-statement-on-datatrails">Register the SCITT Signed Statement on DataTrails</h2>
 <ol>
 <li>
-<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python <span class="si">\${</span><span class="nv">SCRIPTS</span><span class="si">}</span>register_signed_statement.py <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --log-level INFO
+<p>Submit the Signed Statement to DataTrails, using the credentials in the <code>DATATRAILS_CLIENT_ID</code> and <code>DATATRAILS_CLIENT_SECRET</code>.
+The <code>LEAF</code> is captured on a successful execution for verification.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>python3 -m datatrails_scitt_samples.scripts.register_signed_statement <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --signed-statement-file <span class="nv">$SIGNED_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --output-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --log-level INFO<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$RESPONSE</span>
+</span></span></code></pre></div><p>The last line of the output will include the leaf entry that commits the statement to the merkle log.
+It will look like</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;entryid&#34;</span><span class="p">:</span> <span class="s2">&#34;assets_b9d32c32-8ab3-4b59-8de8-bd6393167450_events_7dd2a825-495e-4fc9-b572-5872a268c8a9&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;leaf&#34;</span><span class="p">:</span> <span class="s2">&#34;30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db&#34;</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
 <p>View the Transparent Statement, as a result of registering the Signed Statement</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python datatrails_scitt_samples/dump_cbor.py <span class="se">\\
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.dump_cbor <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --input <span class="nv">$TRANSPARENT_STATEMENT_FILE</span>
 </span></span></code></pre></div></li>
+<li>
+<p>Verify the the receipt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.verify_receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --leaf <span class="k">$(</span>jq -r .leaf <span class="o">&lt;&lt;&lt;</span><span class="s2">&#34;</span><span class="nv">$RESPONSE</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span></code></pre></div><p>The verification should pass with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">verification succeeded
+</span></span></code></pre></div></li>
+<li>
+<p>Simulate a failed verification, by altering the <code>.leaf</code> value</p>
+<p>As all entries in a log are unique, if you use the leaf value from the example above verbatim, it will <em>fail</em> to verify</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 -m datatrails_scitt_samples.scripts.verify_receipt <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --transparent-statement-file <span class="nv">$TRANSPARENT_STATEMENT_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --leaf <span class="s2">&#34;30f5650fbe3355ca892094a3fbe88e5fa3a9ae47fe3d0bbace348181eb2b76db&#34;</span>
+</span></span></code></pre></div><p>The verification should fail with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">verification failed
+</span></span></code></pre></div><p>A more representative example, which includes computing the leaf hash from the event details, can be found in the 
+<a href="https://github.com/datatrails/datatrails-scitt-samples/blob/main/tests/test_verify_receipt.py#L52" target="_blank" rel="noopener">tests for the verification script</a></p>
+</li>
 </ol>
-<!-- 
-TODO: Update with MMR verification
-1. Verify the signature of the receipt
-
-    \`\`\`bash
-    python \${SCRIPTS}/verify_receipt_signature.py \\
-      --transparent-statement-file $TRANSPARENT_STATEMENT_FILE
-    \`\`\`
--->
 <h2 id="retrieve-statements-for-the-artifact">Retrieve Statements for the Artifact</h2>
 <p>The power of SCITT is the ability to retrieve the history of statements made for a given artifact.
 By querying the series of statements, consumers can verify who did what and when for a given artifact.</p>
@@ -44176,8 +44177,13 @@ By querying the series of statements, consumers can verify who did what and when
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PARAMS</span><span class="o">=</span><span class="s2">&#34;event_attributes.subject=</span><span class="si">\${</span><span class="nv">SUBJECT</span><span class="si">}</span><span class="s2">&amp;page_size=3&#34;</span>
 </span></span><span class="line"><span class="cl">curl <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/publicassets/-/events?</span><span class="si">\${</span><span class="nv">PARAMS</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
-</span></span></code></pre></div></li>
+</span></span></code></pre></div><p>The events are listed starting with the most recently added.</p>
+</li>
 </ol>
+<blockquote class="note callout">
+    <div><strong></strong> Coming soon: Filter on specific values conveyed in the protected header.
+For example, content types, such as what SBOMs have been registered, which issuers have made statements or custom key-value pairs.</div>
+  </blockquote>
 <h2 id="summary">Summary</h2>
 <p>The quickstart created a collection of statements for a given artifact.
 Over time, as new information is available, authors can publish new statements which verifiers and consumers can benefit from, making decisions specific to their environment.</p>

@@ -23,7 +23,7 @@ Asset Creation is the first Event. The more Events recorded against an Asset, th
 Events track key moments of an Asset's lifecycle; details of Who Did What When to an Asset.
 
 {{< note >}}
-**Note:** Before creating an Event, follow [this guide](/platform/overview/creating-an-asset/) to create your first Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.
+**Note:** Before creating an Event, follow [this guide](/platform/overview/creating-an-asset/) to create your first Asset.
 {{< /note >}}
 
 ## Creating Events

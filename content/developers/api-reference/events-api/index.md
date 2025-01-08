@@ -122,81 +122,6 @@ ASSET_UUID=<ASSET_UUID>
 
 - To query the events jump to [Fetch Specific Events by Identity](#fetch-events-for-a-specific-asset)
 
-### Updating an Asset Attribute
-
-To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the [Assets API reference](https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation) example.
-
-```json
-cat > /tmp/event.json <<EOF
-{
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-       "arc_display_type": "groom",
-       "additional_checks": "weigh the cat"
-    },
-    "asset_attributes": {   
-       "weight": "3.5kg"
-    },
-    "public": false
-}    
-EOF
-```
-
-POST the Event to update the Asset:
-
-```bash
-curl -X POST \
-    -H "@$HOME/.datatrails/bearer-token.txt" \
-    -H "Content-type: application/json" \
-    -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
-```
-
-The response:
-
-```json
-{
-    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "event_attributes": {
-        "arc_display_type": "groom",
-        "additional_checks": "weigh the cat"
-    },
-    "asset_attributes": {
-        "weight": "3.5kg"
-    },
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "timestamp_declared": "2024-05-30T12:28:50Z",
-    "timestamp_accepted": "2024-05-30T12:28:50Z",
-    "timestamp_committed": "1970-01-01T00:00:00Z",
-    "principal_declared": {
-        "issuer": "https://app.datatrails.ai/appidpv1",
-        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "display_name": "Custom Integration",
-        "email": ""
-    },
-    "principal_accepted": {
-        "issuer": "https://app.datatrails.ai/appidpv1",
-        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "display_name": "Custom Integration",
-        "email": ""
-    },
-    "confirmation_status": "PENDING",
-    "transaction_id": "",
-    "block_number": 0,
-    "transaction_index": 0,
-    "from": "",
-    "tenant_identity": "",
-    "merklelog_entry": {
-        "commit": null,
-        "confirm": null,
-        "unequivocal": null
-    }
-}    
-```
-
 ### Document Profile Event Creation
 
 There are two [Document Profile Events](/developers/developer-patterns/document-profile/) that are available as part of the document lifecycle. These are to `publish` a new version and to `withdraw` the document from use.
@@ -220,7 +145,7 @@ cat > /tmp/event.json <<EOF
         "arc_description":"Publish version 2 of Test Document",
         "arc_display_type":"Publish",
         "document_version_authors": [
-                        {
+            {
                 "display_name": "George",
                 "email": "george@rainbow.tv"
             },
@@ -385,9 +310,9 @@ blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
 
-Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.
+Once you've uploaded your file, you can use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to your Event.
 
-The following example shows you usage with both the `event_attributes` and the `asset_attributes`:
+For example:
 
 ```json
 cat > /tmp/event.json <<EOF
@@ -413,16 +338,6 @@ cat > /tmp/event.json <<EOF
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "photo.jpg",
       "arc_display_name": "arc_primary_image",
-    },
-  },
-  "asset_attributes": {
-    "latest_conformance_report": {
-      "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "safety_conformance.pdf",
-      "arc_display_name": "Latest Conformance Report",
     },
   },
   "timestamp_declared": "2019-11-27T14:44:19Z",
@@ -472,16 +387,6 @@ The response:
       "arc_blob_hash_alg": "SHA256",
       "arc_file_name": "safety_conformance.pdf",
       "arc_display_name": "Conformance Report",
-    },
-  },
-  "asset_attributes": {
-    "latest_conformance_report": {
-      "arc_attribute_type": "arc_attachment",
-      "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "safety_conformance.pdf",
-      "arc_display_name": "Latest Conformance Report",
     },
   },
   "timestamp_accepted": "2019-11-27T15:13:21Z",

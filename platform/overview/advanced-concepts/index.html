@@ -66,21 +66,21 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nt>&#34;display_name&#34;</span><span class=p>:</span> <span class=s2>&#34;Sample Policy&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>      <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;An Access Policy created for DataTrails user docs&#34;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>      <span class=c1>// Filters define which Assets this Policy applies to
+</span></span><span class=line><span class=cl>      <span class=c1>// Filters define which Assets (sets of Events) this Policy applies to
 </span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=s2>&#34;filters&#34;</span><span class=p>:</span> <span class=p>[</span>
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
-</span></span><span class=line><span class=cl>          <span class=c1>// Any Crate, Box, or Bag ...
+</span></span><span class=line><span class=cl>          <span class=c1>// Any image, video, or whitepaper...
 </span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Crate&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Box&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Bag&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Image&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Video&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.arc_display_type=Whitepaper&#34;</span>
 </span></span><span class=line><span class=cl>          <span class=p>]</span>
 </span></span><span class=line><span class=cl>        <span class=p>},</span>
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
-</span></span><span class=line><span class=cl>          <span class=c1>// ... whose registered handler is either Fred or Margaret
+</span></span><span class=line><span class=cl>          <span class=c1>// ... which is marked either CONFIDENTIAL or SECRET
 </span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.handler=Fred&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.handler=Margaret&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.classification=CONFIDENTIAL&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;attributes.classification=SECRET&#34;</span>
 </span></span><span class=line><span class=cl>          <span class=p>]</span>
 </span></span><span class=line><span class=cl>        <span class=p>}</span>
 </span></span><span class=line><span class=cl>      <span class=p>],</span>
@@ -99,31 +99,27 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span><span class=line><span class=cl>            <span class=p>{</span> <span class=nt>&#34;or&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;email=bill@synsation.com&#34;</span> <span class=p>]</span> <span class=p>}</span> 
 </span></span><span class=line><span class=cl>          <span class=p>],</span>
 </span></span><span class=line><span class=cl>          
-</span></span><span class=line><span class=cl>          <span class=c1>// Limit the APIs they can call
-</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;behaviours&#34;</span><span class=p>:</span> <span class=p>[</span> <span class=s2>&#34;RecordEvidence&#34;</span> <span class=p>],</span>
-</span></span><span class=line><span class=cl>          
 </span></span><span class=line><span class=cl>          <span class=c1>// Select which Asset attributes these users can see
 </span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;asset_attributes_read&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Height&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>            <span class=s2>&#34;arc_display_name&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>            <span class=s2>&#34;arc_display_type&#34;</span>
 </span></span><span class=line><span class=cl>          <span class=p>],</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>          <span class=c1>// Select which Asset attributes these users can modify
-</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Height&#34;</span>
-</span></span><span class=line><span class=cl>          <span class=p>],</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=c1>// Note modifying Asset attributes in this way is deprecated
+</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=c1>// and not recommended
+</span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;asset_attributes_write&#34;</span><span class=p>:</span> <span class=p>[],</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>          <span class=c1>// Select which Events from the Asset history these users can see
+</span></span><span class=line><span class=cl>          <span class=c1>// Select which types of Events these users can see
 </span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;event_arc_display_type_read&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Measure&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Open&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Seal&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Pre-release&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Watermark&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Approve&#34;</span>
 </span></span><span class=line><span class=cl>          <span class=p>],</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>          <span class=c1>// Select which Events these users can contribute to the history
+</span></span><span class=line><span class=cl>          <span class=c1>// Select which types of Events these users can contribute to the Trail
 </span></span></span><span class=line><span class=cl><span class=c1></span>          <span class=nt>&#34;event_arc_display_type_write&#34;</span><span class=p>:</span> <span class=p>[</span>
-</span></span><span class=line><span class=cl>            <span class=s2>&#34;Measure&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;Approve&#34;</span>
 </span></span><span class=line><span class=cl>          <span class=p>],</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>          <span class=c1>// Note the include_attributes field is deprecated
@@ -152,4 +148,4 @@ If an Asset has an attachment attribute named <code>arc_primary_image</code>, th
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span></code></pre></div><p>Once applied the GIS coordinates on Events are immutable.</p><h2 id=thats-it>That&rsquo;s it<a href=#thats-it class=anchor aria-hidden=true>#</a></h2><p>These are all the basics of DataTrails. With this knowledge you can now
 <a href=https://docs.datatrails.ai/developers/api-reference/>jump straight into the API</a> or try other topics on the
-<a href=https://docs.datatrails.ai/platform/overview/introduction>DataTrails Platform</a>.</p><p class=edit-page></p><div class="docs-navigation d-flex justify-content-between"><a href=https://docs.datatrails.ai/platform/overview/core-concepts/><div class="card my-1"><div class="card-body py-2">&larr; Core Concepts</div></div></a><a class=ms-auto href=https://docs.datatrails.ai/platform/overview/creating-an-asset/><div class="card my-1"><div class="card-body py-2">Creating an Asset &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div><div class="col-lg-8 order-first text-lg-end"><ul class=list-inline><li>Can't find what you're looking for? Search our <a href=https://support.datatrails.ai>Support Knowledgebase</a> or <a href=mailto:support@datatrails.ai>email Support</a></li></ul></div></div></div></footer><script src=https://docs.datatrails.ai/js/bootstrap.min.b4d48dd4d57c29a63a0ea5455b6d5b16f032e551e190ca88c04a0e5dd6b64b01657b3e1f44ff6e670ab72166686b0572f94c18d2f8d14c1a01aaf5f8e28fb345.js integrity="sha512-tNSN1NV8KaY6DqVFW21bFvAy5VHhkMqIwEoOXda2SwFlez4fRP9uZwq3IWZoawVy+UwY0vjRTBoBqvX44o+zRQ==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/js/highlight.min.9f2343bf41a83c327df632236d3b94b6e437d801529a03646f4322daedd07c0455162b232c7cf5bb1b1b7e0d6072ff0dac4ed8afc550127d165a9c482c3ec27c.js integrity="sha512-nyNDv0GoPDJ99jIjbTuUtuQ32AFSmgNkb0Mi2u3QfARVFisjLHz1uxsbfg1gcv8NrE7Yr8VQEn0WWpxILD7CfA==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/main.min.5a11cd173e56732b0a703e2f8ecf68ea541e5db0cfb67389769e34602825b7b2517cd5043ac8da49638c3e5edbeb2706e035cf5a1ab50f79ddff45ab24f6122c.js integrity="sha512-WhHNFz5WcysKcD4vjs9o6lQeXbDPtnOJdp40YCglt7JRfNUEOsjaSWOMPl7b6ycG4DXPWhq1D3nd/0WrJPYSLA==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/index.min.47f77a224153f81f709ff4c10fc6c0deb5be701d37fa3d8cb5864529927319e566355e57e38c165828a782dd51c258d3c9b8fb9e1ae2a67810e52d6e37d84b1e.js integrity="sha512-R/d6IkFT+B9wn/TBD8bA3rW+cB03+j2MtYZFKZJzGeVmNV5X44wWWCingt1RwljTybj7nhripngQ5S1uN9hLHg==" crossorigin=anonymous defer></script></body></html>
+<a href=https://docs.datatrails.ai/platform/overview/introduction>DataTrails Platform</a>.</p><p class=edit-page></p><div class="docs-navigation d-flex justify-content-between"><a href=https://docs.datatrails.ai/platform/overview/core-concepts/><div class="card my-1"><div class="card-body py-2">&larr; Core Concepts</div></div></a><a class=ms-auto href=https://docs.datatrails.ai/platform/overview/creating-an-asset/><div class="card my-1"><div class="card-body py-2">Creating an Asset &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div><div class="col-lg-8 order-first text-lg-end"><ul class=list-inline><li>Can't find what you're looking for? Search our <a href=https://support.datatrails.ai>Support Knowledgebase</a> or <a href=mailto:support@datatrails.ai>email Support</a></li></ul></div></div></div></footer><script src=https://docs.datatrails.ai/js/bootstrap.min.b4d48dd4d57c29a63a0ea5455b6d5b16f032e551e190ca88c04a0e5dd6b64b01657b3e1f44ff6e670ab72166686b0572f94c18d2f8d14c1a01aaf5f8e28fb345.js integrity="sha512-tNSN1NV8KaY6DqVFW21bFvAy5VHhkMqIwEoOXda2SwFlez4fRP9uZwq3IWZoawVy+UwY0vjRTBoBqvX44o+zRQ==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/js/highlight.min.9f2343bf41a83c327df632236d3b94b6e437d801529a03646f4322daedd07c0455162b232c7cf5bb1b1b7e0d6072ff0dac4ed8afc550127d165a9c482c3ec27c.js integrity="sha512-nyNDv0GoPDJ99jIjbTuUtuQ32AFSmgNkb0Mi2u3QfARVFisjLHz1uxsbfg1gcv8NrE7Yr8VQEn0WWpxILD7CfA==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/main.min.5a11cd173e56732b0a703e2f8ecf68ea541e5db0cfb67389769e34602825b7b2517cd5043ac8da49638c3e5edbeb2706e035cf5a1ab50f79ddff45ab24f6122c.js integrity="sha512-WhHNFz5WcysKcD4vjs9o6lQeXbDPtnOJdp40YCglt7JRfNUEOsjaSWOMPl7b6ycG4DXPWhq1D3nd/0WrJPYSLA==" crossorigin=anonymous defer></script><script src=https://docs.datatrails.ai/index.min.c5feedc1f90ed3c08e82698f65589811a5076e3c7cfc67e565d8e3cd7e57625d7e413434cac3d30393611519f630b49b09224420b94ee4c06cbff751f1dddc17.js integrity="sha512-xf7twfkO08COgmmPZViYEaUHbjx8/GflZdjjzX5XYl1+QTQ0ysPTA5NhFRn2MLSbCSJEILlO5MBsv/dR8d3cFw==" crossorigin=anonymous defer></script></body></html>

@@ -1301,21 +1301,21 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Sample Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;An Access Policy created for DataTrails user docs&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="c1">// Filters define which Assets this Policy applies to
+</span></span><span class="line"><span class="cl">      <span class="c1">// Filters define which Assets (sets of Events) this Policy applies to
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="s2">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="c1">// Any Crate, Box, or Bag ...
+</span></span><span class="line"><span class="cl">          <span class="c1">// Any image, video, or whitepaper...
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Crate&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Box&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Bag&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Video&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Whitepaper&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="c1">// ... whose registered handler is either Fred or Margaret
+</span></span><span class="line"><span class="cl">          <span class="c1">// ... which is marked either CONFIDENTIAL or SECRET
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.handler=Fred&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.handler=Margaret&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.classification=CONFIDENTIAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.classification=SECRET&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
@@ -1334,31 +1334,27 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span> 
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">          
-</span></span><span class="line"><span class="cl">          <span class="c1">// Limit the APIs they can call
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">          
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Height&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_type&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can modify
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Height&#34;</span>
-</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="c1">// Note modifying Asset attributes in this way is deprecated
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="c1">// and not recommended
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="c1">// Select which Events from the Asset history these users can see
+</span></span><span class="line"><span class="cl">          <span class="c1">// Select which types of Events these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Measure&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Open&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Seal&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Pre-release&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Watermark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Approve&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="c1">// Select which Events these users can contribute to the history
+</span></span><span class="line"><span class="cl">          <span class="c1">// Select which types of Events these users can contribute to the Trail
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Measure&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Approve&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Note the include_attributes field is deprecated
@@ -1910,7 +1906,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before creating an Event, follow 
-<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
+<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset.</div>
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
@@ -2908,7 +2904,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before registering an Event, follow 
-<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
+<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document.</div>
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
@@ -10360,68 +10356,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="updating-an-asset-attribute">Updating an Asset Attribute</h4>
-<p>To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat from the previous example.</p>
-<p>See the 
-<a href="https://docs.datatrails.ai/developers/api-reference/events-api/" target="_blank" rel="noopener">Events API reference</a> for more information about Events.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span></code></pre></div><p>POST the Event to update the Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
-</span></span></code></pre></div><p>The response is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
 </span></span></code></pre></div><h4 id="creating-a-public-asset">Creating a Public Asset</h4>
 <blockquote class="warning callout">
     <div><strong></strong> <strong>Warning</strong>: Assets can only be made public at Asset creation and cannot be made private afterwards.</div>
@@ -10455,7 +10389,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span><span class="s2">&#34;anything you like&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -10489,11 +10422,10 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
@@ -10601,7 +10533,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -15419,70 +15351,7 @@ See
 <a href="#fetch-events-for-a-specific-asset">Fetch Specific Events by Identity</a></p>
 </li>
 </ul>
-<h3 id="updating-an-asset-attribute">Updating an Asset Attribute</h3>
-<p>To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the 
-<a href="https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation" target="_blank" rel="noopener">Assets API reference</a> example.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>POST the Event to update the Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_UUID</span>/events
-</span></span></code></pre></div><p>The response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span></code></pre></div><h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
+<h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
 <p>There are two 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
 <h4 id="publish">Publish</h4>
@@ -15501,7 +15370,7 @@ See
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
@@ -15637,8 +15506,8 @@ See
 <p>This attachment uuid is generically referred to as:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><p>Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.</p>
-<p>Once you&rsquo;ve uploaded your file, you can use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.</p>
-<p>The following example shows you usage with both the <code>event_attributes</code> and the <code>asset_attributes</code>:</p>
+<p>Once you&rsquo;ve uploaded your file, you can use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to your Event.</p>
+<p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
@@ -15662,16 +15531,6 @@ See
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
@@ -15713,16 +15572,6 @@ See
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:13:21Z&#34;</span><span class="p">,</span>
@@ -17521,13 +17370,9 @@ If you are looking for a simple way to test our API you might prefer our
 <p>The following example shows how you can mix the <code>user_attributes</code> keyword for ABAC and <code>subjects</code> keyword for OBAC.</p>
 <p>Define the access_policies parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Friendly name of the policy&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Description of the policy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Printer management policy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Restrict who can register &#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Valve&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Pump&#34;</span>
@@ -17539,7 +17384,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;access_permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_type&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[</span><span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
@@ -17581,7 +17426,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;access_permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_type&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[</span><span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
@@ -25503,21 +25348,21 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Sample Policy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;An Access Policy created for DataTrails user docs&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="c1">// Filters define which Assets this Policy applies to
+</span></span><span class="line"><span class="cl">      <span class="c1">// Filters define which Assets (sets of Events) this Policy applies to
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="s2">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="c1">// Any Crate, Box, or Bag ...
+</span></span><span class="line"><span class="cl">          <span class="c1">// Any image, video, or whitepaper...
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Crate&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Box&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Bag&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Video&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Whitepaper&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="c1">// ... whose registered handler is either Fred or Margaret
+</span></span><span class="line"><span class="cl">          <span class="c1">// ... which is marked either CONFIDENTIAL or SECRET
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.handler=Fred&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.handler=Margaret&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.classification=CONFIDENTIAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.classification=SECRET&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
@@ -25536,31 +25381,27 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 </span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span> 
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">          
-</span></span><span class="line"><span class="cl">          <span class="c1">// Limit the APIs they can call
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">          
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Height&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_type&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can modify
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Height&#34;</span>
-</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="c1">// Note modifying Asset attributes in this way is deprecated
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="c1">// and not recommended
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:</span> <span class="p">[],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="c1">// Select which Events from the Asset history these users can see
+</span></span><span class="line"><span class="cl">          <span class="c1">// Select which types of Events these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Measure&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Open&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Seal&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Pre-release&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Watermark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Approve&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">          <span class="c1">// Select which Events these users can contribute to the history
+</span></span><span class="line"><span class="cl">          <span class="c1">// Select which types of Events these users can contribute to the Trail
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Measure&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Approve&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Note the include_attributes field is deprecated
@@ -26112,7 +25953,7 @@ The first Event will always be the Asset Creation. In the next section, we will 
 <p>Events track key moments of an Asset&rsquo;s lifecycle; details of Who Did What When to an Asset.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before creating an Event, follow 
-<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
+<a href="/platform/overview/creating-an-asset/">this guide</a> to create your first Asset.</div>
   </blockquote>
 <h2 id="creating-events">Creating Events</h2>
 <ol>
@@ -27110,7 +26951,7 @@ Withdrawal is optional and it is usually the final event in the document lifecyc
 <p>These Events track key moments of an Document&rsquo;s lifecycle; details of Who Did What When to each version of the document.</p>
 <blockquote class="note callout">
     <div><strong></strong> <strong>Note:</strong> Before registering an Event, follow 
-<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document Asset. You will need to wait for the Asset to reach COMMITTED state before attempting to record an Event.</div>
+<a href="/platform/overview/registering-a-document-profile-asset/">this guide</a> to register your first Document.</div>
   </blockquote>
 <h2 id="registering-events">Registering Events</h2>
 <ol>
@@ -34562,68 +34403,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="updating-an-asset-attribute">Updating an Asset Attribute</h4>
-<p>To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat from the previous example.</p>
-<p>See the 
-<a href="https://docs.datatrails.ai/developers/api-reference/events-api/" target="_blank" rel="noopener">Events API reference</a> for more information about Events.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span></code></pre></div><p>POST the Event to update the Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
-</span></span></code></pre></div><p>The response is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
 </span></span></code></pre></div><h4 id="creating-a-public-asset">Creating a Public Asset</h4>
 <blockquote class="warning callout">
     <div><strong></strong> <strong>Warning</strong>: Assets can only be made public at Asset creation and cannot be made private afterwards.</div>
@@ -34657,7 +34436,6 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_status&#34;</span><span class="p">:</span><span class="s2">&#34;Published&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;some_custom_attribute&#34;</span><span class="p">:</span><span class="s2">&#34;anything you like&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Builtin&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;RecordEvidence&#34;</span>
@@ -34691,11 +34469,10 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Test Document Profile Asset&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;sha256&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tracked&#34;</span><span class="p">:</span> <span class="s2">&#34;TRACKED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;owner&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;at_time&#34;</span><span class="p">:</span> <span class="s2">&#34;2023-09-27T11:32:22Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage_integrity&#34;</span><span class="p">:</span> <span class="s2">&#34;TENANT_STORAGE&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;chain_id&#34;</span><span class="p">:</span> <span class="s2">&#34;8275868384&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
@@ -34803,7 +34580,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -39621,70 +39398,7 @@ See
 <a href="#fetch-events-for-a-specific-asset">Fetch Specific Events by Identity</a></p>
 </li>
 </ul>
-<h3 id="updating-an-asset-attribute">Updating an Asset Attribute</h3>
-<p>To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat Asset created in the 
-<a href="https://docs.datatrails.ai/developers/api-reference/assets-api/#asset-record-creation" target="_blank" rel="noopener">Assets API reference</a> example.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>   
-</span></span><span class="line"><span class="cl">       <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;public&#34;</span><span class="p">:</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div><p>POST the Event to update the Asset:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_UUID</span>/events
-</span></span></code></pre></div><p>The response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;groom&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;additional_checks&#34;</span><span class="p">:</span> <span class="s2">&#34;weigh the cat&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;weight&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5kg&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-30T12:28:50Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;1970-01-01T00:00:00Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Custom Integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>    
-</span></span></code></pre></div><h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
+<h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
 <p>There are two 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
 <h4 id="publish">Publish</h4>
@@ -39703,7 +39417,7 @@ See
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span><span class="s2">&#34;Publish version 2 of Test Document&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span><span class="s2">&#34;Publish&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;document_version_authors&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;George&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;george@rainbow.tv&#34;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">},</span>
@@ -39839,8 +39553,8 @@ See
 <p>This attachment uuid is generically referred to as:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 </span></span></code></pre></div><p>Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.</p>
-<p>Once you&rsquo;ve uploaded your file, you can use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to either your Asset or Event.</p>
-<p>The following example shows you usage with both the <code>event_attributes</code> and the <code>asset_attributes</code>:</p>
+<p>Once you&rsquo;ve uploaded your file, you can use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to your Event.</p>
+<p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
@@ -39864,16 +39578,6 @@ See
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
@@ -39915,16 +39619,6 @@ See
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;latest_conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Latest Conformance Report&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:13:21Z&#34;</span><span class="p">,</span>
@@ -41723,13 +41417,9 @@ If you are looking for a simple way to test our API you might prefer our
 <p>The following example shows how you can mix the <code>user_attributes</code> keyword for ABAC and <code>subjects</code> keyword for OBAC.</p>
 <p>Define the access_policies parameters and store in <code>/path/to/jsonfile</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Friendly name of the policy&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Description of the policy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Printer management policy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Restrict who can register &#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;filters&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]},</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Valve&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;attributes.arc_display_type=Pump&#34;</span>
@@ -41741,7 +41431,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;access_permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_type&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[</span><span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>
@@ -41783,7 +41473,7 @@ If you are looking for a simple way to test our API you might prefer our
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;access_permissions&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_type&#34;</span> <span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[</span><span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;asset_attributes_write&#34;</span><span class="p">:[],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;behaviours&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;RecordEvidence&#34;</span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_read&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_type&#34;</span><span class="p">,</span> <span class="s2">&#34;toner_colour&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">            <span class="nt">&#34;event_arc_display_type_write&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;toner_replacement&#34;</span><span class="p">],</span>

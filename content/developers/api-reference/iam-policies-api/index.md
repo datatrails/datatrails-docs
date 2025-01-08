@@ -54,13 +54,9 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
 
 ```json
 {
-    "display_name": "Friendly name of the policy",
-    "description": "Description of the policy",
+    "display_name": "Printer management policy",
+    "description": "Restrict who can register ",
     "filters": [
-        { "or": [
-            "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-            "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc"
-        ]},
         { "or": [
             "attributes.arc_display_type=Valve",
             "attributes.arc_display_type=Pump"
@@ -72,7 +68,7 @@ Define the access_policies parameters and store in `/path/to/jsonfile`:
     "access_permissions": [
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
-            "asset_attributes_write":["toner_colour"],
+            "asset_attributes_write":[],
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],
@@ -122,7 +118,7 @@ The response is:
     "access_permissions": [
         {
             "asset_attributes_read": [ "toner_colour", "toner_type" ],
-            "asset_attributes_write":["toner_colour"],
+            "asset_attributes_write":[],
             "behaviours": [ "RecordEvidence" ],
             "event_arc_display_type_read": ["toner_type", "toner_colour"],
             "event_arc_display_type_write": ["toner_replacement"],

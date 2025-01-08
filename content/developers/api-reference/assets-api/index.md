@@ -82,81 +82,6 @@ The response:
 }
 ```
 
-#### Updating an Asset Attribute
-
-To update an Asset attribute, record an Event and enter the new value. Here we will update the weight of the cat from the previous example.
-
-See the [Events API reference](https://docs.datatrails.ai/developers/api-reference/events-api/) for more information about Events.
-
-```json
-{
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-       "arc_display_type": "groom",
-       "additional_checks": "weigh the cat"
-    },
-    "asset_attributes": {   
-       "weight": "3.5kg"
-    },
-    "public": false
-}    
-```
-
-POST the Event to update the Asset:
-
-```bash
-curl -X POST \
-    -H "@$HOME/.datatrails/bearer-token.txt" \
-    -H "Content-type: application/json" \
-    -d "@/path/to/jsonfile" \
-    https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
-```
-
-The response is:
-
-```json
-{
-    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "event_attributes": {
-        "arc_display_type": "groom",
-        "additional_checks": "weigh the cat"
-    },
-    "asset_attributes": {
-        "weight": "3.5kg"
-    },
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "timestamp_declared": "2024-05-30T12:28:50Z",
-    "timestamp_accepted": "2024-05-30T12:28:50Z",
-    "timestamp_committed": "1970-01-01T00:00:00Z",
-    "principal_declared": {
-        "issuer": "https://app.datatrails.ai/appidpv1",
-        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "display_name": "Custom Integration",
-        "email": ""
-    },
-    "principal_accepted": {
-        "issuer": "https://app.datatrails.ai/appidpv1",
-        "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "display_name": "Custom Integration",
-        "email": ""
-    },
-    "confirmation_status": "PENDING",
-    "transaction_id": "",
-    "block_number": 0,
-    "transaction_index": 0,
-    "from": "",
-    "tenant_identity": "",
-    "merklelog_entry": {
-        "commit": null,
-        "confirm": null,
-        "unequivocal": null
-    }
-}    
-```
-
 #### Creating a Public Asset
 
 {{< warning >}}
@@ -198,7 +123,6 @@ Define the asset parameters and store in `/path/to/jsonfile`:
         "document_status":"Published",
         "some_custom_attribute":"anything you like"
     },
-    "chain_id":"",
     "behaviours": [
         "Builtin",
         "RecordEvidence"
@@ -240,11 +164,10 @@ The response is:
         "arc_display_name": "Test Document Profile Asset",
         "document_hash_alg": "sha256"
     },
-    "confirmation_status": "PENDING",
+    "confirmation_status": "STORED",
     "tracked": "TRACKED",
     "owner": "",
     "at_time": "2023-09-27T11:32:22Z",
-    "storage_integrity": "TENANT_STORAGE",
     "chain_id": "8275868384",
     "public": false,
     "tenant_identity": ""
@@ -437,7 +360,7 @@ The response is:
     "issuer": "job.idp.server/1234",
     "subject": "bob@job"
   },
-  "confirmation_status": "PENDING",
+  "confirmation_status": "STORED",
   "transaction_id": "",
   "block_number": 0,
   "transaction_index": 0,

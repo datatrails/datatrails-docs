@@ -14,20 +14,20 @@ toc: true
 aliases: 
   - /docs/api-reference/asset-events-api/
 ---
-DataTrails provides two mechanisms for persisting provenance information.
+DataTrails provides two mechanisms for persisting provenance metadata.
 
-1. Asset based Events: where a series of Events are grounded in a specific Asset.
-1. Non-Asset based Events (Event Centric): where events can be correlated across a series of pre-defined trails, providing more flexibility.
+1. [Asset based Events](/developers/api-reference/asset-events-api): where a series of Events are grounded in a specific Asset.
+1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined trails.
 
-The Events centric implementation is the future focus of the DataTrails platform as they provide the capabilities of Asset based events, with more flexibility performance and scalability.
+The Asset-free Events implementation is the future focus of the DataTrails platform providing the capabilities of Asset based events, with broader flexibility performance and scalability.
+Asset-free Events are currently in preview, inviting early developer feedback.
 {{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
+**Note:** If you are looking for a simple way to test DataTrails APIs you might prefer the [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 
-## Events API Examples
+## Asset-Events API Examples
 
 Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 

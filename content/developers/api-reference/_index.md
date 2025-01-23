@@ -17,6 +17,7 @@ aliases:
       <p> Check out the articles below for more information!</p><br>
       <p><a href="/developers/api-reference/app-registrations-api/">App Registrations API Registrations &rarr;</a><br>
       <a href="/developers/api-reference/assets-api/">Assets API &rarr;</a><br>
+      <a href="/developers/api-reference/asset-events-api/">Asset-Events API &rarr;</a><br>
       <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
       <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
       <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>

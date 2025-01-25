@@ -16,12 +16,12 @@ aliases:
 ---
 {{< note >}}
 **Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.io) section of the web UI. 
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.io) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 
-The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to the ledger.
+The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Events.
 
 The steps include:
 

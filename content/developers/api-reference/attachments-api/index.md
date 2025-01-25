@@ -21,7 +21,7 @@ If you are looking for a simple way to test our API you might prefer our [Postma
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 
-The Attachments API enables you to attach and query Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to your evidence ledger.
+The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images that are attached to the ledger.
 
 The steps include:
 

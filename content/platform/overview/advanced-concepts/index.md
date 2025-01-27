@@ -125,7 +125,7 @@ This one-time manual process helps to underpin trust and security in your DataTr
 ### Public Attestations
 
 While a strict, 1-to-1 relationship might be desirable for some use cases, it is also possible that a recorded asset and associated events are recorded in a more widely accessible way.
-With the use of our _Public_ setting for an asset, you can create an access policy which enables anyone to view that asset record.
+With the use of the _Public_ setting for an asset, you can create an access policy which enables anyone to view that asset record.
 A viewer of that asset does not have to be registered with DataTrails, and can anonymously use our [Instaproof](/platform/overview/instaproof) service to check the thing they have against the public record in DataTrails.
 
 {{< note >}}

@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 112
+weight: 123
 toc: true
 aliases: 
   - /docs/api-reference/public-assets-api/

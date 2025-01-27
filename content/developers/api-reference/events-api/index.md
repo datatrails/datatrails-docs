@@ -99,12 +99,20 @@ Replace the `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` below, using the event-id fro
 
 ```bash
 EVENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
 
+Query the /events API to retrieve the recorded event:
+
+```bash
 curl -X GET \
      -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivst/v1/events/$EVENT_ID?page_size=5" | jq
+     "https://app.datatrails.ai/archivst/v1/events/$EVENT_ID" | jq
 ```
 
 ## Events OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/events.swagger.json" >}}
+
+## Integrity Protecting Content
+
+Integrity protected content can be hashed within an Event using the [Attachments API](/developers/api-reference/attachments-api/).

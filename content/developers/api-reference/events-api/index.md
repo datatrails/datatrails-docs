@@ -14,25 +14,32 @@ toc: true
 aliases: 
   - /docs/api-reference/events-api/
 ---
-DataTrails provides two mechanisms for persisting provenance metadata.
+DataTrails provides two mechanisms for persisting provenance metadata:
 
 1. [Asset based Events](/developers/api-reference/asset-events-api): where a series of Events are grounded in a specific Asset.
 1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined trails.
 
 The Asset-free Events implementation is the future focus of the DataTrails platform providing the capabilities of Asset based events, with broader flexibility, performance and scalability.
 Asset-free Events are currently in preview, inviting early developer feedback.
+
+The transition to Asset-free Events involves removing the dependency to anchoring Events in an Asset and shifting from mutable Asset Attributes to immutable Event Attributes.
+To minimize the impact, prior to switching to Asset-free Events, it is recommended to use Event Attributes, rather than Asset Attributes.
+
+{{< note >}}
+**Note:** For more information on Assets and Asset creation, visit [Core Concepts](/platform/overview/core-concepts/#assets) and the [Creating an Asset](/platform/overview/creating-an-asset/) guide.
+{{< /note >}}
+
+## Events API Examples
+
 {{< note >}}
 **Note:** If you are looking for a simple way to test DataTrails APIs you might prefer the [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
 
-## Events API Examples
-
-Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-
 ### Event Creation
 
+- Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 - Define the Event parameters and store in `/tmp/event.json`:
 
   ```bash
@@ -95,19 +102,19 @@ Querying across event attributes and trails are coming in a future preview.
 
 #### Fetch Events by Identity
 
-Replace the `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
+- Replace the `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
 
-```bash
-EVENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
+  ```bash
+  EVENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  ```
 
-Query the /events API to retrieve the recorded event:
+- Query the /events API to retrieve the recorded event:
 
-```bash
-curl -X GET \
-     -H "@$HOME/.datatrails/bearer-token.txt" \
-     "https://app.datatrails.ai/archivst/v1/events/$EVENT_ID" | jq
-```
+  ```bash
+  curl -X GET \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      "https://app.datatrails.ai/archivst/v1/events/$EVENT_ID" | jq
+  ```
 
 ## Events OpenAPI Docs
 

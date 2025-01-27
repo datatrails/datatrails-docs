@@ -104,8 +104,6 @@ For more detailed information on Events, and how to implement them, please refer
 
 ## Access Policies
 
-<TODO: STEVE EDITS CONTINUE FROM HERE>
-
 Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared lineage.
 It is important that every participant be able to see and contribute to the management of Events without compromising security, commercial, or private personal information.
 For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.
@@ -277,51 +275,28 @@ Any change in OBAC access policies *including revoking OBAC access to a value ch
 This ensures continued fair access to the historic evidence base for all legitimate participants whilst also maintaining control of future operations with the Asset owner.
 {{< /note >}}
 
-## Attachments and Blobs
-{{< note >}}
-**Note:** DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work and share data in the ways you already share data.
-Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.
+## Attachments & Content Integrity Protection
 
-However, in many cases binary files, images and such can form part of that metadata trail.
-For such cases, DataTrails supports the uploading of Blobs which are then protected by the immutable log with the same strength and integrity as other Event attributes.
-{{< /note >}}
+Creating provenance of artifacts may involve integrity protecting content.
+The content may be the subject Artifact, such as a document, an image, media file, an AI Model, or a Virtualized Conversation (vCon).
+Or, the content may be supporting evidence to an artifact, such as a Bill of Materials, a security scan result, an x-ray image of a critical pipeline or an AI Model Card.
 
-Attachments in DataTrails enable images, PDFs and other binary data to be attached to Assets and Events.
-This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.
+In these scenarios, the intent is to record integrity protection of the content to the DataTrails immutable audit log.
+In most cases, the content is already stored in an existing content storage system, and shouldn't be duplicated or moved to another location, disrupting the existing workflow.
 
-Adding an attachment to an Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes.
-For example:
+Integrity protecting content with DataTrails is achieved by storying cryptographic hashes of the content on the  immutable audit log.
+By storing cryptographic hashes, the integrity of the content is protected without having to duplicate the content, and avoiding persisting any Personally Identifiable Information that may require removal or redaction.
 
-* a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection
-* a PDF of a safety conformance report to support a maintenance event
-* a software manifest to support an update
-* an x-ray image
+In other cases where new storage is needed, DataTrails provides a [Blobs API](/developers/api-reference/blobs-api/) to upload content, which can then be associated with an event through the [Attachments API](/developers/api-reference/attachments-api/).
 
-Attaching rich evidence to an Event is a two step process:
+Whether DataTrails Blob storage is used, or existing storage is used, storing cryptographic hashes of the content is achieved by creating Event Attributes for the Hash Algorithm, Content Type and the hash of the content.
+For more information, see the the DataTrails [Templates](/developers/templates/) section.
 
-1. First a Binary Large OBject (BLOB) is uploaded
-1. Then a reference to that blob is attached to the Event.
+### Asset/Event Primary Image
 
-To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`.
-To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
-
-{{< note >}}
-**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
-
-The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
-
-To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`.
-This will ensure best performance and minimal code changes to take advantage of the newer API.
-Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
-{{< /note >}}
-
-For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](/developers/api-reference/blobs-api/) and [the Attachments API Reference](/developers/api-reference/attachments-api/)
-
-### The Primary Image
-
-Attachments on Assets and Events are named in their arc_display_name property, so that they can be searched and indexed.
+Attachments on Assets and Events are named in the `arc_display_name` property, so that they can be searched and indexed.
 Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: `arc_primary_image`.
-If an Asset has an attachment attribute named `arc_primary_image`, then this will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.
+If an Asset has an attachment attribute named `arc_primary_image`, it will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.
 
 {{< note >}}
 **Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.

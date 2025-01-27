@@ -92,22 +92,6 @@ The signature on the root holds DataTrails to account _and_ prevents forks and t
 
 To make the whole history and individual events `UNEQUIVOCAL`, the root hash of the Committed MMR is periodically broadcast so that it is clear that there is one, and only one, version of history to underpin your data authenticity.
 
-## Attachments & Content Integrity Protection
-
-Creating provenance of artifacts may involve integrity protecting content.
-The content may be the subject Artifact, such as a document, an image, media file, an AI Model, or a Virtualized Conversation (vCon).
-Or, the content may be supporting evidence to an artifact, such as a Bill of Materials, a security scan result or an AI Model Card.
-
-In these scenarios, the intent is to record integrity protection of the content to the DataTrails immutable audit log.
-In most cases, the content is already stored in an existing content storage system, and shouldn't be duplicated to yet another location.
-Integrity protecting content with DataTrails is achieved by storying cryptographic hashes of the content on the  immutable audit log.
-By storing cryptographic hashes, the integrity of the content is protected without having to duplicate the content, and avoiding persisting any Personally Identifiable Information that may require removal or redaction.
-
-In other cases where new storage is needed, DataTrails provides a [Blobs API](/developers/api-reference/blobs-api/) to upload content, which can then be associated with an event through the [Attachments API](/developers/api-reference/attachments-api/).
-
-Whether DataTrails Blob storage is used, or existing storage is used, storing cryptographic hashes of the content is achieved by creating Event Attributes for the Hash Algorithm, Content Type and the hash of the content.
-For more information, see the the DataTrails [Templates](/developers/templates/) section.
-
 ## Access Policies
 
 Sharing the right amount of information with the consumers of your data is critical to creating a trustworthy shared history of information.

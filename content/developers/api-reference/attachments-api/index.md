@@ -96,7 +96,7 @@ The DataTrails platform evaluates `arc_attribute_type` within the attribute prop
 
   ```json
   {
-    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/4eaa5fe6-a88f-4228-89c5-bdc3f4351066",
+    "identity": "assets/xxxxxxxx...xxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "event_attributes": {
       "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",

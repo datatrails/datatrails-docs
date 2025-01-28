@@ -289,7 +289,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets?page_size=5
+      https://app.datatrails.ai/archivist/v2/assets?page_size=5 \
+      | jq
   ```
 
 #### Fetch Specific Asset by Identity
@@ -297,10 +298,10 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 - If you know the unique identity of the Asset record `GET` the resource:
 
   ```bash
-  ASSET_ID=<asset-id>
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID \
+      | jq
   ```
 
 #### Fetch Specific Asset at Given Point in Time by Identity
@@ -308,10 +309,10 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 - If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply `GET` with the following query parameter:
 
   ```bash
-  ASSET_ID=<asset-id>
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID?at_time=2021-01-13T12:34:21Z"
+      "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID?at_time=2021-01-13T12:34:21Z" \
+      | jq
   ```
 
   This will return the Asset record with the values it had on `2021-01-13T12:34:21Z`.
@@ -323,7 +324,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003"
+      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=tcl.ccj.003" \
+      | jq
   ```
 
 #### Fetch Assets by Type
@@ -333,7 +335,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_type=Traffic%20light"
+      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_type=Traffic%20light" \
+      | jq
   ```
 
 #### Fetch Assets by Proof Mechanism
@@ -343,7 +346,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG"
+      "https://app.datatrails.ai/archivist/v2/assets?proof_mechanism=MERKLE_LOG&page_size=5" \
+      | jq
   ```
 
 #### Fetch Events Ordered for SIMPLEHASHV1 Schema
@@ -353,7 +357,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1"
+      "https://app.datatrails.ai/archivist/v2/assets/-/events?order_by=SIMPLEHASHV1&page_size=5" \
+      | jq
   ```
 
 #### Fetch Assets by Filtering for Presence of a Field
@@ -363,7 +368,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=*"
+      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name=*&page_size=5" \
+      | jq
   ```
 
   Returns all Assets which have `arc_display_name` that is not empty.
@@ -375,7 +381,8 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name!=*"
+      "https://app.datatrails.ai/archivist/v2/assets?attributes.arc_display_name!=*&page_size=5" \
+      | jq
   ```
 
   Returns all Assets which do not have `arc_display_name` or in which `arc_display_name` is empty.
@@ -387,14 +394,15 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
   ```bash
   curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID:publicurl \
+      | jq
   ```
 
   The response:
 
   ```json
   {
-    "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxxxxxx"
   }
   ```
 
@@ -403,15 +411,17 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 - Fetch the Public URL of an Event on a Public Asset:
 
   ```bash
+  curl -g -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:publicurl
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events/$EVENT_ID:publicurl \
+      | jq
   ```
 
   The response:
 
   ```json
   {
-    "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    "publicurl":"https://app.datatrails.ai/archivist/publicassets/xxxx/events/xxxx"
   }
   ```
 
@@ -424,13 +434,15 @@ While deleting Assets is not possible, it is possible to hide them from default 
 Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly.
 Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
-- Define the Event parameters and store in `/path/to/jsonfile`:
+- Define the Event attributes:
 
-  ```json
+  ```bash
+  cat > /tmp/event.json <<EOF
   {
     "operation": "StopTracking",
     "behaviour": "Builtin"
   }
+  EOF
   ```
 
 - Untrack the Asset:
@@ -439,8 +451,9 @@ Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-
   curl -X POST \
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
-      -d "@/path/to/jsonfile" \
-      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+      -d "@/tmp/event.json" \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+      | jq
   ```
 
   The response:
@@ -479,13 +492,15 @@ Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-
 It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity.
 Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
-- Define the Event parameters and store in `/path/to/jsonfile`:
+- Define the Event attributes:
 
-  ```json
+  ```bash
+  cat > /tmp/event.json <<EOF
   {
     "operation": "StartTracking",
     "behaviour": "Builtin"
   }
+  EOF
   ```
 
 - Track the Asset:
@@ -494,8 +509,9 @@ Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-
   curl -X POST \
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
-      -d "@/path/to/jsonfile" \
-      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events
+      -d "@/tmp/event.json" \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+      | jq
   ```
 
   The response:

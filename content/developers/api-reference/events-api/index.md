@@ -102,10 +102,10 @@ Querying across event attributes and trails are coming in a future preview.
 
 #### Fetch Events by Identity
 
-- Replace the `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
+- Replace the `<event-id>` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
 
   ```bash
-  EVENT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  EVENT_ID=<event-id>
   ```
 
 - Query the /events API to retrieve the recorded event:

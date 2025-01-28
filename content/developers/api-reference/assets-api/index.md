@@ -40,7 +40,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 ### Asset Record Creation
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-- Define the asset parameters and store in `/path/to/jsonfile`:
+- Define the asset parameters, stored in `/tmp/asset.json`:
 
   ```bash
   cat > /tmp/asset.json <<EOF
@@ -64,6 +64,77 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
       -H "Content-type: application/json" \
       -d "@/tmp/asset.json" \
       https://app.datatrails.ai/archivist/v2/assets
+  ```
+
+  The response:
+
+  ```json
+  {
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "behaviours": [
+      "RecordEvidence",
+      "AssetCreator",
+      "Builtin"
+    ],
+    "attributes": {
+      "arc_display_type": "Cat",
+      "arc_display_name": "My Cat",
+      "weight": "3.6kg"
+    },
+    "confirmation_status": "PENDING",
+    "tracked": "TRACKED",
+    "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "at_time": "2024-09-04T23:35:13Z",
+    "proof_mechanism": "MERKLE_LOG",
+    "chain_id": "xxxxxxxxxx",
+    "public": false,
+    "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }
+  ```
+
+### Assets With a Primary Image
+
+An Asset can have a primary image, displayed in the DataTrails Application.
+The image must first be uploaded with the [Blobs API](/developers/api-reference/blobs-api/), with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.
+
+- Define the asset parameters, with the image information from the uploaded Blob:
+
+  ```bash
+  BLOB_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  BLOB_FILE=file.jpg
+  BLOB_HASH=xxxxxxxxxxxxxxx
+  ```
+
+  ```bash
+  cat > /tmp/asset.json <<EOF
+  {
+    "behaviours": ["RecordEvidence"],
+    "attributes": {
+      "arc_display_type": "Cat",
+      "arc_display_name": "My Cat",
+      "weight": "3.6kg",
+      "arc_primary_image": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_blob_hash_value": "$BLOB_HASH",
+        "arc_blob_identity": "blobs/$BLOB_ID",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_file_name": "$BLOB_FILE"
+      },
+    "public": false
+    }
+  }
+  EOF
+  ```
+
+- Create the Asset With a Primary Image:
+
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -H "Content-type: application/json" \
+      -d "@/tmp/asset.json" \
+      https://app.datatrails.ai/archivist/v2/assets \
+      | jq
   ```
 
   The response:

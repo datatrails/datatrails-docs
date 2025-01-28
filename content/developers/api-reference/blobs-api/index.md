@@ -36,7 +36,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 Upload the blob stored at /path/to/file:
 
 ```bash
-curl -v -X POST \
+curl -X POST \
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     -F "file=@/path/to/file" \
@@ -68,8 +68,7 @@ The response is:
 Retrieve a specific Blob:
 
 ```bash
-curl -v \
-    -H "@$HOME/.datatrails/bearer-token.txt" \
+curl -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "content_type=image/jpg" \
     --output "/path/to/file" \
     https://app.datatrails.ai/archivist/v1/blobs/08838336-c357-460d-902a-3aba9528dd22

@@ -113,7 +113,7 @@ Querying across event attributes and trails are coming in a future preview.
   ```bash
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivst/v1/events/$EVENT_ID" | jq
+      "https://app.datatrails.ai/archivist/v1/events/$EVENT_ID" | jq
   ```
 
 ## Events OpenAPI Docs

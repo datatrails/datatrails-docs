@@ -35,20 +35,28 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 ### Upload a Blob
 
+- Download a file, or select another file for upload:
+
+  ```bash
+  curl https://app.datatrails.ai/archivist/v2/attachments/publicassets/208c5282-750e-4302-86f8-eb751de89005/events/4161673f-efa4-4391-bf06-347edd53024e/dae5a430-7d2e-4b88-b753-c09bdcc48c33 \
+    -o cat.jpg
+  ```
+
 - Identify the file to upload:
 
   ```bash
-  BLOB=./myfile.jpg
+  BLOB_FILE=./cat.jpg
   ```
 
 - Upload the blob stored at /path/to/file:
 
   ```bash
-  curl -v -X POST \
+  curl -X POST \
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "content_type=image/jpg" \
-      -F "file=@$BLOB" \
-      https://app.datatrails.ai/archivist/v1/blobs
+      -F "file=@$BLOB_FILE" \
+      https://app.datatrails.ai/archivist/v1/blobs \
+      | jq
   ```
 
   The response:
@@ -72,36 +80,20 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 ### Retrieve a Blob
 
-- Retrieve a specific Blob:
+- Capture the Blob identity from the above POST:
 
   ```bash
-  curl -v \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
+  BLOB_ID=<blob-id>
+  ```
+
+- Retrieve a specific Blob, downloading the `cat.jpg` file:
+
+  ```bash
+  curl -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "content_type=image/jpg" \
-      --output "/path/to/file" \
+      --output "$BLOB_FILE" \
       https://app.datatrails.ai/archivist/v1/blobs/$BLOB_ID
   ```
-
-  The response is:
-
-  ```json
-  {
-    "hash": {
-      "alg": "SHA256",
-      "value": "xxxxxxxxxxxxxxxxxxxxxxx"  },
-    "identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "issuer": "local",
-    "mime_type": "image/jpeg",
-    "size": 81254,
-    "subject": "user@datatrails.ai",
-    "tenantid": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "timestamp_accepted": "2023-02-06T16:04:31Z",
-    "scanned_status": "NOT_SCANNED",
-    "scanned_bad_reason": "",
-    "scanned_timestamp": ""
-  }
-  ```
-
 
 ## Blobs OpenAPI Docs
 

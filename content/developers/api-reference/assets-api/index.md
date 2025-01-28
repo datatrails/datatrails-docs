@@ -40,7 +40,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 ### Asset Record Creation
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-- Define the asset parameters, stored in `/tmp/asset.json`:
+- Define the asset:
 
   ```bash
   cat > /tmp/asset.json <<EOF
@@ -57,76 +57,6 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
   ```
 
 - Create the Asset:
-
-  ```bash
-  curl -X POST \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
-      -H "Content-type: application/json" \
-      -d "@/tmp/asset.json" \
-      https://app.datatrails.ai/archivist/v2/assets
-  ```
-
-  The response:
-
-  ```json
-  {
-    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "behaviours": [
-      "RecordEvidence",
-      "AssetCreator",
-      "Builtin"
-    ],
-    "attributes": {
-      "arc_display_type": "Cat",
-      "arc_display_name": "My Cat",
-      "weight": "3.6kg"
-    },
-    "confirmation_status": "PENDING",
-    "tracked": "TRACKED",
-    "owner": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "at_time": "2024-09-04T23:35:13Z",
-    "proof_mechanism": "MERKLE_LOG",
-    "chain_id": "xxxxxxxxxx",
-    "public": false,
-    "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  }
-  ```
-
-### Assets With a Primary Image
-
-An Asset can have a primary image, displayed in the DataTrails Application.
-The image must first be uploaded with the [Blobs API](/developers/api-reference/blobs-api/), with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.
-
-- Define the asset parameters, with the image information from the uploaded Blob:
-
-  ```bash
-  BLOB_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-  BLOB_FILE=file.jpg
-  BLOB_HASH=xxxxxxxxxxxxxxx
-  ```
-
-  ```bash
-  cat > /tmp/asset.json <<EOF
-  {
-    "behaviours": ["RecordEvidence"],
-    "attributes": {
-      "arc_display_type": "Cat",
-      "arc_display_name": "My Cat",
-      "weight": "3.6kg",
-      "arc_primary_image": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "$BLOB_HASH",
-        "arc_blob_identity": "blobs/$BLOB_ID",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "$BLOB_FILE"
-      },
-    "public": false
-    }
-  }
-  EOF
-  ```
-
-- Create the Asset With a Primary Image:
 
   ```bash
   curl -X POST \
@@ -163,13 +93,94 @@ The image must first be uploaded with the [Blobs API](/developers/api-reference/
   }
   ```
 
+### Assets With a Primary Image
+
+An Asset can have a primary image, displayed in the DataTrails Application.
+The image must first be uploaded with the [Blobs API](/developers/api-reference/blobs-api/), with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.
+
+- Define the asset parameters, with the image information from the uploaded Blob:
+
+  ```bash
+  BLOB_ID=<blob-id>
+  BLOB_FILE=file.jpg
+  BLOB_HASH=<hash>
+  ```
+
+  ```bash
+  cat > /tmp/asset.json <<EOF
+  {
+    "behaviours": ["RecordEvidence"],
+    "attributes": {
+      "arc_display_type": "Cat",
+      "arc_display_name": "My Cat",
+      "weight": "3.6kg",
+      "arc_primary_image": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_blob_identity": "blobs/$BLOB_ID",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_blob_hash_value": "$BLOB_HASH",
+        "arc_display_name": "arc_primary_image",
+        "arc_file_name": "cat.jpeg"
+      }
+    },
+    "public": false
+  }
+  EOF
+  ```
+
+- Create the Asset With a Primary Image:
+
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -H "Content-type: application/json" \
+      -d "@/tmp/asset.json" \
+      https://app.datatrails.ai/archivist/v2/assets \
+      | jq
+  ```
+
+  The response:
+
+  ```json
+  {
+    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "behaviours": [
+      "RecordEvidence",
+      "AssetCreator",
+      "Builtin"
+    ],
+    "attributes": {
+      "arc_display_type": "Cat",
+      "arc_primary_image": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_blob_hash_value": "xxxxxxxxxxxx",
+        "arc_display_name": "arc_primary_image",
+        "arc_file_name": "cat.jpeg"
+      },
+      "arc_display_name": "My Cat",
+      "weight": "3.6kg"
+    },
+    "confirmation_status": "PENDING",
+    "tracked": "TRACKED",
+    "owner": "yyyyyyyyyy",
+    "at_time": "2025-01-28T21:58:34Z",
+    "proof_mechanism": "MERKLE_LOG",
+    "chain_id": "123456",
+    "public": false,
+    "tenant_identity": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  }
+  ```
+
 #### Creating a Public Asset
 
 {{< warning >}}
 **Warning**: Assets can only be made public at Asset creation and cannot be made private afterwards.
 {{< /warning >}}
 
-In most cases it is appropriate to create a standard Asset. These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](/platform/administration/sharing-access-outside-your-tenant/) or the [IAM Policies API Reference](../iam-policies-api/).
+In most cases it is appropriate to create a standard Asset.
+These Assets can only be shared externally using Access Policies as described in [Sharing Assets with OBAC](/platform/administration/sharing-access-outside-your-tenant/) or the [IAM Policies API Reference](../iam-policies-api/).
 
 However, it is also possible to create a Public Asset which can be shared with a read-only public url; similar to the link sharing you may have seen in file sharing services like Google Drive or DropBox.
 
@@ -177,28 +188,31 @@ Public Assets can be used for Public Attestation, where you may wish to publicly
 
 For example, the vulnerability reports against an OpenSource software package, or perhaps the maintenance records for a public building.
 
-Creating a Public Asset just requires flipping the `public` value in the above request to `true`. From then on, **only** the creating Tenancy may update the Asset and Events on a Public Asset through their private, signed-in interface.
+Creating a Public Asset just requires flipping the `public` value in the above request to `true`.
+From then on, **only** the creating Tenancy may update the Asset and Events on a Public Asset through their private, signed-in interface.
 
 All Public Assets are then given a read-only public URL that can be retrieved using [Fetch a Public Asset's URL](./#fetch-a-public-assets-url), any Events added to that Public Asset will also get their own unique Public URL that can be retrieved with [Fetch a Public Asset's Event URL](./#fetch-a-public-assets-event-url).
 
 This link can be shared with anyone to give them read-only access to the Asset or Event without the need to sign in.
 
-To interact with the unauthenticated Public Interface for a Public Asset see the [Public Assets API Reference](../public-assets-api/). To update the Assets and Events as the creating Tenant on a Public Asset's authenticated Private Interface, you would still use the standard Assets and Events API as normal.
+To interact with the unauthenticated Public Interface for a Public Asset see the [Public Assets API Reference](../public-assets-api/).
+To update the Assets and Events as the creating Tenant on a Public Asset's authenticated Private Interface, you would still use the standard Assets and Events API as normal.
 
 #### Creating a Document Profile Asset
 
 This class of Asset conforms to the [Document Profile Developer Pattern](/developers/developer-patterns/document-profile/), which allows you to trace the lifecycle of a document.
 
-- Define the asset parameters and store in `/path/to/jsonfile`:
+- Define the asset:
 
-  ```json
+  ```bash
+  cat > /tmp/asset.json <<EOF
   {
       "attributes": {
           "arc_description":"Test Document",
           "arc_display_type":"Marketing glossy",
           "arc_display_name":"Test Document Profile Asset",
           "arc_profile":"Document",
-          "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "document_hash_value":"xxxxxxxxxxxxxxxxxxxx",
           "document_hash_alg":"sha256",
           "document_version":"1",
           "document_status":"Published",
@@ -207,8 +221,10 @@ This class of Asset conforms to the [Document Profile Developer Pattern](/develo
       "behaviours": [
           "Builtin",
           "RecordEvidence"
-      ]
+      ],
+      "public": true
   }
+  EOF
   ```
 
   {{< note >}}
@@ -219,10 +235,11 @@ This class of Asset conforms to the [Document Profile Developer Pattern](/develo
 
   ```bash
   curl -X POST \
-      -H "@datatrails-bearer.txt" \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
-      -d "@/path/to/jsonfile" \
-      https://app.datatrails.ai/archivist/v2/assets
+      -d "@/tmp/asset.json" \
+      https://app.datatrails.ai/archivist/v2/assets \
+      | jq
   ```
 
   The response is:
@@ -241,7 +258,7 @@ This class of Asset conforms to the [Document Profile Developer Pattern](/develo
           "document_status": "Published",
           "arc_description": "Test Document",
           "arc_display_type": "Marketing glossy",
-          "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "arc_display_name": "Test Document Profile Asset",
           "document_hash_alg": "sha256"
       },
@@ -280,9 +297,10 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 - If you know the unique identity of the Asset record `GET` the resource:
 
   ```bash
+  ASSET_ID=<asset-id>
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID
   ```
 
 #### Fetch Specific Asset at Given Point in Time by Identity
@@ -290,9 +308,10 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 - If you know the unique identity of an Asset record and want to show its state at any given point in the past, simply `GET` with the following query parameter:
 
   ```bash
+  ASSET_ID=<asset-id>
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx?at_time=2021-01-13T12:34:21Z"
+      "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID?at_time=2021-01-13T12:34:21Z"
   ```
 
   This will return the Asset record with the values it had on `2021-01-13T12:34:21Z`.
@@ -339,7 +358,7 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 
 #### Fetch Assets by Filtering for Presence of a Field
 
-- To fetch all Assets with a field set to any value, `GET` the Assets resource and filter on most available fields. For example:
+- To fetch all Assets with a field set to any value, `GET` the Assets resource and filter on most available fields.
 
   ```bash
   curl -g -X GET \
@@ -351,7 +370,7 @@ If you do not know the Asset’s identity you can fetch Asset records using othe
 
 #### Fetch Assets Which are Missing a Field
 
-- To fetch all Assets with a field which is not set to any value, `GET` the Assets resource and filter on most available fields. For example:
+- To fetch all Assets with a field which is not set to any value, `GET` the Assets resource and filter on most available fields.
 
   ```bash
   curl -g -X GET \
@@ -402,7 +421,8 @@ While deleting Assets is not possible, it is possible to hide them from default 
 
 #### Untracking an Asset
 
-Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly. Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Untracking is actually an Event in the Asset lifecycle, so it is necessary to know the Asset identity and POST to it directly.
+Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 - Define the Event parameters and store in `/path/to/jsonfile`:
 
@@ -456,7 +476,8 @@ Untracking is actually an Event in the Asset lifecycle, so it is necessary to kn
 
 #### (Re-)Tracking an Asset
 
-It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity. Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+It is possible to reverse an untracking Event by tracking the Asset again, assuming you know the Asset identity.
+Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 - Define the Event parameters and store in `/path/to/jsonfile`:
 

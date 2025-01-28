@@ -16,8 +16,8 @@ aliases:
 ---
 DataTrails provides two mechanisms for persisting provenance metadata:
 
-1. [Asset based Events](/developers/api-reference/asset-events-api): where a series of Events are grounded in a specific Asset.
-1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined trails.
+1. [Asset based Events](/developers/api-reference/asset-events-api): where a series of Events are grounded to a specific Asset.
+1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined Trails.
 
 The Asset-free Events implementation is the future focus of the DataTrails platform providing the capabilities of Asset based events, with broader flexibility, performance and scalability.
 Asset-free Events are currently in preview, inviting early developer feedback.

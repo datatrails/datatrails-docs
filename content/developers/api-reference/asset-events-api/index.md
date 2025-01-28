@@ -16,8 +16,8 @@ aliases:
 ---
 DataTrails provides two mechanisms for persisting provenance metadata:
 
-1. [Asset based Events](/developers/api-reference/asset-events-api) (this API): where a series of Events are grounded in a specific Asset.
-1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined trails.
+1. [Asset based Events](/developers/api-reference/asset-events-api) (this API): where a series of Events are grounded to a specific Asset.
+1. [Asset-free Events](/developers/api-reference/events-api) (preview) : where events can be correlated across pre-defined Trails.
 
 The Asset-free Events implementation is the future focus of the DataTrails platform providing the capabilities of Asset based events, with broader flexibility, performance and scalability.
 Asset-free Events are currently in preview, inviting early developer feedback.
@@ -46,12 +46,12 @@ In a future release, Events will be created independently from Assets.
 ### Asset Reference
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-
-- Capture the Asset ID by which the events will be associated.
-See [Fetch All Assets](../assets-api/#fetch-all-assets)
+- Capture the Asset ID by which the events will be associated.  
+  (eg: `ASSET_ID=01234567-890-1234-5678-901234567890`)  
+  Find the ASSET_ID with [Fetch All Assets](/developers/api-reference/assets-api/#fetch-all-assets)
 
   ```bash
-  ASSET_UUID=<ASSET_UUID>
+  ASSET_ID=<asset-id>
   ```
 
 {{< note >}}
@@ -60,7 +60,7 @@ See [Fetch All Assets](../assets-api/#fetch-all-assets)
 
 ### Event Creation
 
-- Define the Event parameters and store in `/tmp/event.json`:
+- Define the Event parameters:
 
   ```bash
   cat > /tmp/event.json <<EOF
@@ -87,7 +87,7 @@ See [Fetch All Assets](../assets-api/#fetch-all-assets)
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
       | jq
   ```
 
@@ -142,7 +142,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
 
 #### Publish
 
-- Define the Event parameters and store in `/path/to/jsonfile`:
+- Define the Event parameters:
 
   ```json
   cat > /tmp/event.json <<EOF
@@ -150,7 +150,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
       "behaviour": "RecordEvidence",
       "operation": "Record",
       "asset_attributes": {
-          "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "document_hash_value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
           "document_hash_alg":"sha256",
           "document_status": "Published",
           "document_version":"2"
@@ -184,7 +184,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
       -H "@datatrails-bearer.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
   ```
 
   The response:
@@ -214,7 +214,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
       "asset_attributes": {
           "document_status": "Published",
           "document_version": "2",
-          "document_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "document_hash_value": "xxxxxxxxxxxxxxxxxxxxx",
           "document_hash_alg": "sha256"
       },
       "operation": "Record",
@@ -245,7 +245,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
 
 #### Withdraw
 
-- Define the Event parameters and store in `/path/to/jsonfile`:
+- Define the Event parameters:
 
   ```json
   cat > /tmp/event.json <<EOF
@@ -270,7 +270,7 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
       -H "@datatrails-bearer.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
   ```
 
   The response:
@@ -369,7 +369,7 @@ Each attachment has an associated hash value and the name of the hash algorithm 
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "Content-type: application/json" \
       -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events
   ```
 
   The response:
@@ -425,7 +425,7 @@ Each attachment has an associated hash value and the name of the hash algorithm 
 Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:
 
 ```bash
-assets/$ASSET_UUID/events/$EVENT_ID
+assets/$ASSET_ID/events/$EVENT_ID
 ```
 
 If you do not know the Event’s identity you can fetch Event records using other information you do know.
@@ -447,7 +447,7 @@ If you do not know the Event’s identity you can fetch Event records using othe
   ```bash
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v2/assets/$ASSET_UUID/events?page_size=5"
+      "https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events?page_size=5"
   ```
 
 #### Fetch Specific Events by Identity
@@ -457,7 +457,7 @@ If you do not know the Event’s identity you can fetch Event records using othe
   ```bash
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivst/v2/assets/$ASSET_UUID/events/<EVENT_UUID>"
+      "https://app.datatrails.ai/archivst/v2/assets/$ASSET_ID/events/<EVENT_UUID>"
   ```
 
 #### Fetch Event by Type

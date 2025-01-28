@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 114
+weight: 125
 toc: true
 aliases: 
   - /docs/api-reference/tenancies-api/

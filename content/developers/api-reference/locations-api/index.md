@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 111
+weight: 119
 toc: true
 aliases: 
   - /docs/api-reference/locations-api/

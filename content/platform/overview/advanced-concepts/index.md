@@ -169,21 +169,21 @@ A simple Access Policy may look like this:
       "display_name": "Sample Policy",
       "description": "An Access Policy created for DataTrails user docs"
 
-      // Filters define which Assets this Policy applies to
+      // Filters define which Assets (sets of Events) this Policy applies to
       "filters": [
         {
-          // Any Crate, Box, or Bag ...
+          // Any image, video, or whitepaper...
           "or": [
-            "attributes.arc_display_type=Crate",
-            "attributes.arc_display_type=Box",
-            "attributes.arc_display_type=Bag"
+            "attributes.arc_display_type=Image",
+            "attributes.arc_display_type=Video",
+            "attributes.arc_display_type=Whitepaper"
           ]
         },
         {
-          // ... whose registered handler is either Fred or Margaret
+          // ... which is marked either CONFIDENTIAL or SECRET
           "or": [
-            "attributes.handler=Fred",
-            "attributes.handler=Margaret"
+            "attributes.classification=CONFIDENTIAL",
+            "attributes.classification=SECRET"
           ]
         }
       ],
@@ -202,31 +202,27 @@ A simple Access Policy may look like this:
             { "or": [ "email=bill@synsation.com" ] } 
           ],
           
-          // Limit the APIs they can call
-          "behaviours": [ "RecordEvidence" ],
-          
           // Select which Asset attributes these users can see
           "asset_attributes_read": [
-            "Height",
             "arc_display_name",
             "arc_display_type"
           ],
 
           // Select which Asset attributes these users can modify
-          "asset_attributes_write": [
-            "Height"
-          ],
+          // Note modifying Asset attributes in this way is deprecated
+          // and not recommended
+          "asset_attributes_write": [],
 
-          // Select which Events from the Asset history these users can see
+          // Select which types of Events these users can see
           "event_arc_display_type_read": [
-            "Measure",
-            "Open",
-            "Seal"
+            "Pre-release",
+            "Watermark",
+            "Approve"
           ],
 
-          // Select which Events these users can contribute to the history
+          // Select which types of Events these users can contribute to the Trail
           "event_arc_display_type_write": [
-            "Measure"
+            "Approve"
           ],
 
           // Note the include_attributes field is deprecated

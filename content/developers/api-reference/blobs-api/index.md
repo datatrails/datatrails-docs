@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 104
+weight: 109
 toc: true
 aliases: 
   - /docs/api-reference/blobs-api/
@@ -79,7 +79,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
       -H "@$HOME/.datatrails/bearer-token.txt" \
       -H "content_type=image/jpg" \
       --output "/path/to/file" \
-      https://app.datatrails.ai/archivist/v1/blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      https://app.datatrails.ai/archivist/v1/blobs/$BLOB_ID
   ```
 
   The response is:
@@ -101,6 +101,7 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
     "scanned_timestamp": ""
   }
   ```
+
 
 ## Blobs OpenAPI Docs
 

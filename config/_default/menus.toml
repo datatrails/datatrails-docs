@@ -47,6 +47,11 @@
   weight = 15
   identifier = "templates"
   url = "/developers/templates/"
+[[developers]]
+  name = "integrations"
+  weight = 18
+  identifier = "integrations"
+  url = "/developers/integrations/"
 
 
 [[platform]]

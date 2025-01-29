@@ -130,6 +130,70 @@ error: the entry is not in the log. for tenant tenant/6ea5cd00-c711-3649-6914-7b
 ```
 {{< /note >}}
 
+#### Prove inclusion of V1 Event
+
+Create an event following the sample for [V1 Events](/developers/api-reference/events-events-api) and store resulting event identity in environmental variable.
+
+```sh
+V1EVENT_ID=events/01944ace-7b69-7a93-833d-7f71edd34841
+```
+
+Fetch the event from API and ensure that the `confirmation_status` is set to `CONFIRMED` in response.
+
+```sh
+curl -sL -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivst/v1/$V1EVENT_ID"
+```
+which should return:
+
+```sh
+{
+  "identity": "events/01944ace-7b69-7a93-833d-7f71edd34841",
+  "attributes": {
+    "inspector": "Clouseau",
+    "arc_display_type": "Safety Conformance",
+    "Safety Rating": "90"
+  },
+  "trails": [
+    "Safety Conformance",
+    "Clouseau"
+  ],
+  "origin_tenant": "tenant/d20182b2-bf9c-42c5-95ec-5607a6cbc095",
+  "created_by": "1321545b-49b1-4a82-8766-029b6c1bcd63",
+  "created_at": 1736421833577,
+  "confirmation_status": "CONFIRMED",
+  "merklelog_commit": {
+    "index": "18",
+    "idtimestamp": "019493684860036200"
+  }
+}
+```
+to verify inclusion of that event Veracity can be used in the same way as described in the secion above. Save event data to a file:
+```sh
+curl -sL -X GET \
+     -H "@$HOME/.datatrails/bearer-token.txt" \
+     "https://app.datatrails.ai/archivst/v1/$V1EVENT_ID" > eventv1.json
+```
+and call Veracity providing event data as input:
+
+```sh
+cat eventv1.json | veracity \
+    --data-url $DATATRAILS_URL/verifiabledata \
+    --loglevel=INFO \
+    verify-included
+```
+
+```sh
+...
+verifying for tenant: tenant/d20182b2-bf9c-42c5-95ec-5607a6cbc095
+verifying: 5772 2889 01917aeb9103048500 events/01944ace-7b69-7a93-833d-7f71edd34841
+OK|18 10|[d56b6b51225b02f84ebea9a94c1d15211304ec476cfdadbce046dc492bcdc2b8, 9d65b7f8a056390d7fe923f8325d1e87e0aa96b8471e9c904327d6312ccb1ca0]
+...
+```
+
+this time we do not provide `--tenant` option as this event is a permissioned event and veracity will use tenant from event data.
+
 #### Offline Verification
 Veracity can be used to verify the inclusion of an event in an offline backup of a DataTrails 
 merkle log. We can do this by supplying a `--data-local` argument instead of `--data-url`. First, 

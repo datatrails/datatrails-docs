@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 114
+weight: 121
 toc: true
 aliases: 
   - /docs/api-reference/members-api/
@@ -87,6 +87,6 @@ User roles are stripped when a user is deactivated, so upon reactivation the use
 
 ## Members OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/membersv1.swagger.json" >}}<br>
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/membersv1.swagger.json" >}}<br>
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/membershipsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/membershipsv1.swagger.json" >}}

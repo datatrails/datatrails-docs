@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 114
+weight: 125
 toc: true
 aliases: 
   - /docs/api-reference/tenancies-api/
@@ -26,4 +26,4 @@ within the product, but its possible to retrieve and modify some configs program
 
 ## Tenancies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/tenanciesv1.swagger.json" >}}<br>
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/tenanciesv1.swagger.json" >}}<br>

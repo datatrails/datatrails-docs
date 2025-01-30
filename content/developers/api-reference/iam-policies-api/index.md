@@ -9,7 +9,7 @@ images: []
 menu:
   developers:
     parent: "api-reference"
-weight: 108
+weight: 115
 toc: true
 aliases: 
   - /docs/api-reference/iam-policies-api/
@@ -476,6 +476,6 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
 
 ## IAM Policies OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/accesspoliciesv1.swagger.json" >}}<br>
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/accesspoliciesv1.swagger.json" >}}<br>
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/iamassetsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/iamassetsv1.swagger.json" >}}

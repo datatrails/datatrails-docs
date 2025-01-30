@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 109
+weight: 117
 toc: true
 aliases: 
   - /docs/api-reference/iam-subjects-api/
@@ -206,4 +206,4 @@ The response is:
 
 ## IAM Subjects OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/subjectsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/subjectsv1.swagger.json" >}}

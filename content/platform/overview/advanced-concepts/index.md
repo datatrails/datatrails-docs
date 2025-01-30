@@ -17,90 +17,54 @@ aliases:
 
 ## Events
 
-The principal objects in the DataTrails platform are *Events*. These are the records that represent the collective 'Golden Thread' of evidence contributed by all stakeholders about a particular thing. 
+The principal objects in the DataTrails platform are *Events*.
+These are the records that represent the collective ['Golden Thread'](/platform/overview/core-concepts/#the-golden-thread) of evidence contributed by all stakeholders about a particular thing.
 
-That 'thing' really can represent anything: a file, a piece of data, a physical thing or even a business process. As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it. If there are _moments that matter_ they can be committed to the immutable audit log.
+That 'thing' really can represent anything: a file, a piece of data, a physical thing or even a business process.
+As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it.
+If there are _moments that matter_ they can be committed to the immutable audit log.
 
-What defines a moment that matters? It's all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger. Simply looking and knowing the current state of things isn't enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered. 
+What defines a moment that matters? It's all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger.
+Simply looking and knowing the current state of things isn't enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered.
 
 DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
 *Events cannot be modified once published! No shredding, tampering or backdating is possible without leaving an undeniable trace in the log.*
 
 ### Event Attributes
 
-DataTrails Events are essentially very simple: a collection of *attributes* that describe the Event expressed as a JSON document. The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
+DataTrails Events are essentially very simple: a collection of *attributes* that describe the Event.
+The power of the system comes from the fact that those attributes come with complete traceable provenance and are guaranteed to appear the same to every stakeholder, creating a single source of truth for shared business processes.
 
-DataTrails is not opinionated about Event content, meaning that attributes can trace anything deemed important to participants. Much like #hashtags on social media platforms, they can be invented by anyone at any time, but once an attribute has been seen once it will be fully traced from that point on.
+DataTrails is not opinionated about Event content, meaning attributes can trace anything deemed important to participants.
+Much like #hashtags on social media platforms, Event Attributes can be invented by anyone at any time, but once an attribute has been recorded, it will be fully traced from that point on.
 
 ### Asset Container
 
 {{< note >}}
-**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
+**Note:** Assets will soon be deprecated for a more flexible and powerful concept of *Trails*.
 
-The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
+The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of *what happened when* or *who said what about what*.
 
-To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
+To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`.
+This will ensure best performance and minimal code changes to take advantage of the newer API.
+Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
 {{< /note >}}
 
-Events are registered into collections called _Assets_. These Assets might represent an individual thing, a class of things, or something more abstract like 'all Events for this day'. Some care should be taken in designing the scheme for this as it will aid in simplifying sharing policies.
+In the current platform, Events are registered into collections called _Assets_.
+[Assets](/developers/api-reference/assets-api/) may represent an individual thing, a class of things, or something more abstract like 'all Events for this day'.
+As Assets are retired, Events can still be correlated by Trails or Event Attributes.
 
-A simple Asset might look like this:
+Some care should be taken in designing the scheme for this as it will aid in simplifying sharing policies.
 
-```json
-   {
-      // Fixed global identity for this Asset
-      "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-
-      // The set of tracked and traced attributes
-      "attributes": {
-        // arc_* are understood and processed by DataTrails
-        "arc_display_type": "Top Trump",
-        "arc_display_name": "Opel Kadett Rallye 1900",
-        "arc_description": "Opel Kadett Rallye 1900 Top Trump card",
-        "arc_serial_number": "5a",
-        "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-
-        // attribute with "arc_attribute_type": "arc_attachment" is a reference to a BLOB attached to the Asset
-        "arc_primary_image": {
-          "arc_attribute_type": "arc_attachment",
-          "arc_blob_hash_value": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-          "arc_blob_identity": "blobs/1754b920-cf20-4d7e-9d36-9ed7d479744d",
-          "arc_blob_hash_alg": "SHA256",
-          "arc_file_name": "somepic.jpeg",
-          "arc_display_name": "arc_primary_image",
-          },
-        
-        // All others are user-defined attributes
-        "bhp": "145",
-        "top_speed": "190",
-        "weight": "860",
-        "engine_capacity": "1980"
-      },
-
-      // Behaviours define the set of APIs that can be used to interact with the Asset
-      "behaviours": [
-        "RecordEvidence"
-      ],
-
-      // Date and time at which these attributes were contemporary
-      "at_time": "2021-06-25T12:40:03Z",
-
-      // Storage and integrity properties - managed by the system
-      "confirmation_status": "CONFIRMED",
-      "tracked": "TRACKED",
-      "owner": "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    }
-```
-
-{{< note >}}
-**Note:** The Asset Identity is fixed and constant for the life of the Asset and across all stakeholders. This ensures easy traceability and assurance that all stakeholders are collaborating on the same object and see the same complete history of Events.
-{{< /note >}}
+See the [Templates](/developers/templates/) section for domain specific examples.
 
 ### Deleting Assets (untracking)
 
-An essential value of storing evidence in DataTrails is that data is always available to stakeholders and cannot be shredded or manipulated later. Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
+An essential value of storing evidence in DataTrails is that data is always available to stakeholders and cannot be shredded or manipulated later.
+Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
 
-To accommodate this need DataTrails separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting). When for any reason it becomes desirable to remove an Asset, the Asset owner can make it _untracked_ so that it does not appear in lists or searches.
+To accommodate this need DataTrails separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting).
+When for any reason it becomes desirable to remove an Asset, the Asset owner can make it _untracked_ so that it does not appear in lists or searches.
 
 {{< caution >}}
 **Caution:** Untracking an Asset does not remove it or its Event history from the system; all stakeholders who previously had access to the record will continue to have access to the Event history, _including_ the untracking event, if they look for it.
@@ -108,34 +72,47 @@ To accommodate this need DataTrails separates the Asset estate into 2 classes: t
 
 ### Timestamps on Events
 
-Lifecycle events in DataTrails give stakeholders a shared view of “Who did What When to an Asset". The “What” and the "Asset" are quite straightforward, but the “When” and “Who” can be more nuanced.
+Lifecycle events in DataTrails give stakeholders a shared view of “Who did What When to an Artifact".
+The “What” is quite straightforward, but the "Artifact", “When” and “Who” can be more nuanced.
+The Artifact may be referenced by a Trail (preview) or an Event Attribute.
 
 Once committed to the DataTrails system, each lifecycle Event record carries 3 separate timestamps:
 
-* `timestamp_declared` - an optional user-supplied value that tells when an Event happened. This is useful for cases where the client system is off-line for a period but the user still wishes to record the accurate time and order of activities (eg inspection rounds in an air-gapped facility). If unspecified, the system sets timestamp_declared equal to timestamp_accepted (see below).
-* `timestamp_accepted` - the time the event was actually received on the DataTrails REST interface. Set by the system, cannot be changed by the client.
-* `timestamp_committed` - the time the event was confirmed distributed to all DLT nodes in the value chain. Set by the system, cannot be changed by the client.
+* `timestamp_declared` - an optional user-supplied value that tells when an Event happened.
+This is useful for cases where the client system is off-line for a period but the user still wishes to record the accurate time and order of activities (eg inspection rounds in an air-gapped facility).
+If unspecified, the system sets timestamp_declared equal to timestamp_accepted (see below).
+* `timestamp_accepted` - the time the event was actually received on the DataTrails REST interface.
+Set by the system, cannot be changed by the client.
+* `timestamp_committed` - the time the event was confirmed distributed to all nodes in the value chain.
+Set by the system, cannot be changed by the client.
 
-Having these 3 fields enables users of DataTrails to accurately reflect what is claimed, whilst also preventing tampering and backdating of entries.
+Having these 3 fields enables users of DataTrails to accurately reflect what is claimed, while preventing tampering and backdating of entries.
 
 ### User Principals on Events
 
-Just as with the "When", the "Who" of “Who Did What When to an Asset" is potentially complicated if, for example, an application or gateway is acting on behalf of some other real-world user.
+Just as with the "When", the "Who" of “Who Did What When to an Artifact" is potentially complicated. 
+For example, an application or gateway may be acting on behalf of some other real-world user.
 
 Once committed to the DataTrails system, each lifecycle Event record carries 2 separate user identities:
 
-* `principal_declared` - an optional user-supplied value that tells who performed an Event. This is useful for cases where the user principal/credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
-* `principal_accepted` - the actual user principal information belonging to the credential used to access the DataTrails REST interface. Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
+* `principal_declared` - an optional user-supplied value that tells who performed an Event.
+This is useful for cases where the user principal/credential used to authorize the Event does not accurately or usefully reflect the real-world agent (eg a multi-user application with device-based credentials).
+* `principal_accepted` - the actual user principal information belonging to the credential used to access the DataTrails REST interface.
+Set by the system and retrieved from the authorizing IDP, cannot be changed by the client.
 
 For more detailed information on Events, and how to implement them, please refer to the [Events API Reference](/developers/api-reference/events-api/).
 
 ## Access Policies
 
-Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared history for Assets. It is important that every participant be able to see and contribute to the management of Assets without compromising security, commercial, or private personal information. For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.
+Sharing the right amount of information with your value chain partners is critical to creating a trustworthy shared lineage.
+It is important that every participant be able to see and contribute to the management of Events without compromising security, commercial, or private personal information.
+For example, competing vendors should not see each other’s information, but both should be able to freely collaborate with their mutual customer or industry regulator.
 
 In other scenarios, it is desirable to share basic maintenance information with a vendor or external maintenance company, whilst restricting critical operating information such as run cycles and cyber SLAs to a much smaller group.
 
-DataTrails Access Policies are the method through which this access is defined, allowing Asset owners to collaborate with just the right partners at the right time, sharing as much or as little access to Assets as the needs of the value chain partners dictate. All transactions are private by default, meaning that only the Asset owner can see and update Asset histories until a sharing policy has been set up. This ensures ready compliance with important regimes such as GDPR and antitrust regulations, as well as allowing safe and ready collaboration with a large and diverse range of value chain partners in the DataTrails network when required.
+DataTrails Access Policies are the method through which this access is defined, allowing Asset owners to collaborate with just the right partners at the right time, sharing as much or as little access to Assets as the needs of the value chain partners dictate.
+All transactions are private by default, meaning that only the Asset owner can see and update Asset histories until a sharing policy has been set up.
+This ensures ready compliance with important regimes such as GDPR and antitrust regulations, as well as allowing safe and ready collaboration with a large and diverse range of value chain partners in the DataTrails network when required.
 
 {{< note >}}
 **Note:** To collaborate with a value chain partner you first need to enroll them as a partner in your DataTrails Tenancy by exchanging your public DataTrails Subject Identity with each other, a little like making a new LinkedIn connection or Facebook friend.
@@ -145,10 +122,13 @@ This one-time manual process helps to underpin trust and security in your DataTr
 
 ### Public Attestations
 
-While a strict, 1-to-1 relationship might be desirable for some use cases, it is also possible that a recorded asset and associated events are recorded in a more widely accessible way. With the use of our _Public_ setting for an asset, you can create an access policy which enables anyone to view that asset record. A viewer of that asset does not have to be registered with DataTrails, and can anonymously use our [Instaproof](/platform/overview/instaproof) service to check the thing they have against the public record in DataTrails.
+While a strict, 1-to-1 relationship might be desirable for some use cases, it is also possible that a recorded asset and associated events are recorded in a more widely accessible way.
+With the use of the _Public_ setting for an asset, you can create an access policy which enables anyone to view that asset record.
+A viewer of that asset does not have to be registered with DataTrails, and can anonymously use our [Instaproof](/platform/overview/instaproof) service to check the thing they have against the public record in DataTrails.
 
 {{< note >}}
-**Note:** Instaproof uses the hash of a file, piece of data or digital artifact to check for associated records with that hash value. This enables users to quickly check if the thing they have is the correct, unaltered version they are expecting.
+**Note:** Instaproof uses the hash of a file, piece of data or digital artifact to check for associated records with that hash value.
+This enables users to quickly check if the thing they have is the correct, unaltered version they are expecting.
 {{< /note >}}
 
 ### Considerations
@@ -158,14 +138,18 @@ Every situation is different, and the DataTrails Access Policy system is flexibl
 
 * Aim for fewest possible number of policies: This makes it much easier to review and manage access rights.
 * Balance complex, highly-specific policies with simple, broad ones: Remember rights granted by policy are additive.
-* A single Access Policy can contain several permission groups, so it is possible to define a single filter to cover a particular population of Assets, then apply different rights to different sets of users and partner organizations. This is often a simpler way to manage access than to create separate Access Policies for each set of users.
-* Remember attributes can change: ABAC policies are applied at time of access request, not at time of creation, so changing attributes on an asset may change which access policies apply to it. This is one of the primary advantages to an ABAC system, but needs to be kept in mind when designing access control processes.
+* A single Access Policy can contain several permission groups, so it is possible to define a single filter to cover a particular population of Assets, then apply different rights to different sets of users and partner organizations.
+This is often a simpler way to manage access than to create separate Access Policies for each set of users.
+* Remember attributes can change: ABAC policies are applied at time of access request, not at time of creation, so changing attributes on an asset may change which access policies apply to it.
+This is one of the primary advantages to an ABAC system, but needs to be kept in mind when designing access control processes.
 
-### Access Policy configuration
+### Access Policy Configuration
 
-DataTrails employs a principle called Attribute-Based Access Control (ABAC) for users within an organization who are given [internal access to your tenant](/platform/administration/sharing-access-inside-your-tenant/). A related concept called Organization-Based Access Control (OBAC) is provided to mediate data sharing between value chain participants who will share [external access to their tenants](/platform/administration/sharing-access-outside-your-tenant/).
+DataTrails employs a principle called Attribute-Based Access Control (ABAC) for users within an organization who are given [internal access to your tenant](/platform/administration/sharing-access-inside-your-tenant/).
+A related concept called Organization-Based Access Control (OBAC) is provided to mediate data sharing between value chain participants who will share [external access to their tenants](/platform/administration/sharing-access-outside-your-tenant/).
 
-Rather than applying a specific fixed policy to each Asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied. This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems.
+Rather than applying a specific fixed policy to each Asset, or grouping them into rigid hierarchies, Access Policies are defined in terms of the observable properties (or attributes) of Assets and users, and if both match, the policy is applied.
+This enables much greater flexibility and expressivity than traditional hierarchical or role-based methods, whilst at the same time reducing complexity in defining sharing in large-scale systems.
 
 DataTrails Access Policies comprise of 2 main parts:
 
@@ -249,7 +233,9 @@ A simple Access Policy may look like this:
 ```
 
 {{< note >}}
-**Note:** Observe that there are 2 lists in the `filters` which concern different attributes. The effect of this is to say that an Asset matches the filters if it matches _at least one_ entry from _every list_. Or in other words, inner lists are `OR`, while outer lists are `AND`.
+**Note:** Observe that there are 2 lists in the `filters` which concern different attributes.
+The effect of this is to say that an Asset matches the filters if it matches _at least one_ entry from _every list_.
+Or in other words, inner lists are `OR`, while outer lists are `AND`.
 
 For example:
 
@@ -280,46 +266,33 @@ Revoking access can therefore be achieved in a number of ways, any of which may 
 * Turn off the user’s login at the IDP
 
 {{< note >}}
-**Note:** As with any fair decentralized system it is not possible to 'unsee' information. Any change in OBAC access policies *including revoking OBAC access to a value chain partner* only applies to new information contributed _after_ the policy change. This ensures continued fair access to the historic evidence base for all legitimate participants whilst also maintaining control of future operations with the Asset owner.
+**Note:** As with any fair decentralized system it is not possible to 'unsee' information.
+Any change in OBAC access policies *including revoking OBAC access to a value chain partner* only applies to new information contributed _after_ the policy change.
+This ensures continued fair access to the historic evidence base for all legitimate participants whilst also maintaining control of future operations with the Asset owner.
 {{< /note >}}
 
-## Attachments and Blobs
-{{< note >}}
-**Note:** DataTrails intends to be a store of metadata for your data that is independent of that data, allowing you to continue to work in the places where you already work and share data in the ways you already share data. Where it is possible, DataTrails recommends keeping your data in the places that it is already kept, rather than creating a duplicate copy in your ledger.
+## Attachments & Content Integrity Protection
 
-However, in many cases binary files, images and such can form part of that metadata trail. For such cases, DataTrails supports the uploading of Blobs which are then protected by the immutable log with the same strength and integrity as other Event attributes.
-{{< /note >}}
+Creating provenance of artifacts may involve integrity protecting content.
+The content may be the subject Artifact, such as a document, an image, media file, an AI Model, or a Virtualized Conversation (vCon).
+Or, the content may be supporting evidence to an artifact, such as a Bill of Materials, a security scan result, an x-ray image of a critical pipeline or an AI Model Card.
 
-Attachments in DataTrails enable images, PDFs and other binary data to be attached to Assets and Events. This brings added richness to the evidence base and facilitates high fidelity collaboration between stakeholders.
+In these scenarios, the intent is to record integrity protection of the content to the DataTrails immutable audit log.
+In most cases, the content is already stored in an existing content storage system, and shouldn't be duplicated or moved to another location, disrupting the existing workflow.
 
-Adding an attachment to an Event enables recording of characteristics or evidence that are very difficult to capture in the rigid structured JSON data of Attributes. For example:
+Integrity protecting content with DataTrails is achieved by storying cryptographic hashes of the content on the  immutable audit log.
+By storing cryptographic hashes, the integrity of the content is protected without having to duplicate the content, and avoiding persisting any Personally Identifiable Information that may require removal or redaction.
 
-* a photograph of the physical state of a device such as alignment of components or wear on tamper seals at the time of a particular inspection
-* a PDF of a safety conformance report to support a maintenance event
-* a software manifest to support an update
-* an x-ray image
+In other cases where new storage is needed, DataTrails provides a [Blobs API](/developers/api-reference/blobs-api/) to upload content, which can then be associated with an event through the [Attachments API](/developers/api-reference/attachments-api/).
 
-Attaching rich evidence to an Event is a two step process:
+Whether DataTrails Blob storage is used, or existing storage is used, storing cryptographic hashes of the content is achieved by creating Event Attributes for the Hash Algorithm, Content Type and the hash of the content.
+For more information, see the the DataTrails [Templates](/developers/templates/) section.
 
-1. First a Binary Large OBject (BLOB) is uploaded
-1. Then a reference to that blob is attached to the Event.
+### Asset/Event Primary Image
 
-To add attachments to an Event, simply specify an attribute in the `event_attributes` of the POST request with a dictionary including the blob information and with `"arc_attribute_type": "arc_attachment"`. To add or update an attachment on an Asset, put the attachment attribute in the `asset_attributes` of the request instead.
-
-{{< note >}}
-**Note:** Assets will soon be deprecated for a more flexible and powerful concept of _Trails_.
-
-The change is subtle, but where Assets only allow Events to be registered against a single thing or theme, Trails will enable Events to be free of any such restriction leading to more natural expression of _what happened when_ or _who said what about what_.
-
-To prepare for this change, when writing code integrations be sure to focus on Event attributes and not mutable `asset_attributes`. This will ensure best performance and minimal code changes to take advantage of the newer API. Trails will still support simple properties like types, descriptions and thumbnails for search and grouping purposes.
-{{< /note >}}
-
-For more detailed information on Attachments and how to implement them, please refer to [the Blobs API Reference](/developers/api-reference/blobs-api/) and [the Attachments API Reference](/developers/api-reference/attachments-api/)
-
-### The Primary Image
-
-Attachments on Assets and Events are named in their arc_display_name property, so that they can be searched and indexed. Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: `arc_primary_image`.
-If an Asset has an attachment attribute named `arc_primary_image`, then this will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.
+Attachments on Assets and Events are named in the `arc_display_name` property, so that they can be searched and indexed.
+Names are arbitrary and may be defined according to the needs of the application, but one name is reserved and interpreted by the DataTrails services: `arc_primary_image`.
+If an Asset has an attachment attribute named `arc_primary_image`, it will be used by the DataTrails web user interface and other tools as a thumbnail to represent the Asset or Event being viewed.
 
 {{< note >}}
 **Note:** Blobs and Attachments cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
@@ -355,6 +328,7 @@ For example:
 
 Once applied the GIS coordinates on Events are immutable.
 
-## That's it
+## That's It
 
-These are all the basics of DataTrails. With this knowledge you can now [jump straight into the API](/developers/api-reference/) or try other topics on the [DataTrails Platform](/platform/overview/introduction).
+These are all the basics of DataTrails.
+With this knowledge you can now [jump straight into the API](/developers/api-reference/) or try other topics on the [DataTrails Platform](/platform/overview/introduction).

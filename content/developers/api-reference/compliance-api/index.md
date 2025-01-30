@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 106
+weight: 111
 toc: true
 aliases: 
   - /docs/api-reference/compliance-api/
@@ -271,6 +271,6 @@ The response is:
 
 ## Compliance OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/complianceassetsv1.swagger.json" >}}<br>
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/complianceassetsv1.swagger.json" >}}<br>
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/compliancepoliciesv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/compliancepoliciesv1.swagger.json" >}}

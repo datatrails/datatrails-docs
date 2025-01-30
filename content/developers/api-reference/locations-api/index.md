@@ -9,7 +9,7 @@ images: []
 menu: 
   developers:
     parent: "api-reference"
-weight: 111
+weight: 119
 toc: true
 aliases: 
   - /docs/api-reference/locations-api/
@@ -134,4 +134,4 @@ Each of these calls returns a list of matching Asset records in the form:
 
 ## Locations OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/locationsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/locationsv2.swagger.json" >}}

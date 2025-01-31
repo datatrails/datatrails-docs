@@ -55,4 +55,4 @@ These are the available values for "**?service=**":
 
 
 ## Caps OpenAPI Docs
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/capsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/capsv1.swagger.json" >}}

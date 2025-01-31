@@ -274,5 +274,5 @@ To integrity protect content located external to the DataTrails platform, exclud
 
 ## Attachment OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/attachmentsv2.swagger.json" >}}
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/publicattachmentsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/attachmentsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/publicattachmentsv2.swagger.json" >}}

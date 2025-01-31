@@ -97,4 +97,4 @@ Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-u
 
 ## Blobs OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/blobsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/blobsv1.swagger.json" >}}

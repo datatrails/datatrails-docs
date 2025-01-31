@@ -229,4 +229,4 @@ curl -X DELETE \
 
 ## App Registrations OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/appregistrationsv1.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/appregistrationsv1.swagger.json" >}}

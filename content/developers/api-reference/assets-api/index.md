@@ -547,4 +547,4 @@ Here we assume we are working with an Asset with identity `assets/xxxxxxxx-xxxx-
 
 ## Asset OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/assetsv2.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/assetsv2.swagger.json" >}}

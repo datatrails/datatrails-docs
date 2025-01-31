@@ -118,7 +118,7 @@ Querying across event attributes and trails are coming in a future preview.
 
 ## Events OpenAPI Docs
 
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/master/doc/events.swagger.json" >}}
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/events.swagger.json" >}}
 
 ## Integrity Protecting Content
 

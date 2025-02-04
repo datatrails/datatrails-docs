@@ -146,8 +146,7 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
         "arc_display_name": "Conformance Report"
       },
       "arc_display_type": "Safety Conformance"
-    },
-    ...
+    }
   ```
 
 ### Retrieve a Specific Attachment on an Asset

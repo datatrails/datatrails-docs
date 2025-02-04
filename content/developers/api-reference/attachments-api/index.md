@@ -58,7 +58,9 @@ For example:
         "arc_file_name": "conformance.pdf",
         "arc_display_name": "Conformance Report"
       }
-    }
+    },
+    "..."
+  }
 ```
 
 The name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event.

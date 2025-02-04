@@ -136,6 +136,82 @@ In a future release, Events will be created independently from Assets.
 
 - To query the events jump to [Fetch Specific Events by Identity](#fetch-events-for-a-specific-asset)
 
+### DataTrails Reserved Attributes
+
+The DataTrails platform as reserved attributes starting with `arc_`.
+Asset-Events have the following reserved attributes:
+
+- **`arc_display_type`**: The value used to display in the DataTrails Application.
+- **`arc_primary_image`**: A attribute containing a dictionary of references to a Blob, used to display in the DataTrails Application.
+- **`arc_attribute_type`**: When set within a nested attribute, the value of `"arc_attachment"` identifies a reference to a [DataTrails Blob](/developers/api-reference/blobs-api/)
+- **`arc_display_name"`**: When set to `"arc_primary_image"`, the blob is displayed in the DataTrails application.
+- **`arc_blob_hash_value`**: When `arc_attribute_type` = `"arc_attachment"`, the value must equal the hash value within the associated `arc_blob_identity`.
+- **`arc_blob_identity`**: A reference to a [Blob](/developers/api-reference/blobs-api/)
+- **`arc_blob_hash_alg`**: The algorithm of the `arc_blob_hash_value` (eg: "SHA256")
+- **`arc_file_name`**: When `arc_attribute_type` = `"arc_attachment"`, the file name of the blob.
+
+### Event Primary Image
+
+Asset-Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associate a primary image in the DataTrails Application.
+
+#### Primary Image Variables
+
+- To associate an existing Blob, set the `BLOB_ID`, `BLOB_HASH` value and `BLOB_FILE` from the [Blobs API](/developers/api-reference/blobs-api/):
+
+  {{< note >}}
+  NOTE: The `ASSET_ID` dependency will be removed with [Non-asset based Events (preview)](/developers/api-reference/events-api/)
+  {{< /note >}}
+
+  ```bash
+  ASSET_ID=<asset-id>
+  BLOB_ID=<blob-id>
+  BLOB_FILE=<file.ext>
+  BLOB_HASH=<hash-value>
+  ```
+
+  Example:
+
+  ASSET_ID=assets/a1234567-8901  
+  BLOB_ID=blobs/b1234567-8901  
+  BLOB_FILE=conformance.pdf  
+  BLOB_HASH=h1234567  
+
+- Associate a Blob as the Event Primary Image:
+
+  ```json
+  cat > /tmp/event.json <<EOF
+  {
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+      "arc_primary_image": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_display_name": "arc_primary_image",
+        "arc_blob_hash_value": "$BLOB_HASH",
+        "arc_blob_identity": "$BLOB_ID",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_file_name": "$BLOB_FILE"
+      }
+    }
+  }
+  EOF
+  ```
+
+- POST the Event Primary Image:
+
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -H "Content-type: application/json" \
+      -d "@/tmp/event.json" \
+      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+      | jq
+  ```
+
+### Adding Attachments
+
+To associate an Attachment with an Asset-Event, see the [Attachments API](/developers/api-reference/attachments-api/)
+
 ### Document Profile Event Creation
 
 There are two [Document Profile Events](/developers/developer-patterns/document-profile/) that are available as part of the document lifecycle. These are to `publish` a new version and to `withdraw` the document from use.
@@ -311,115 +387,6 @@ There are two [Document Profile Events](/developers/developer-patterns/document-
       "transaction_index": 0,
       "from": "",
       "tenant_identity": ""
-  }
-  ```
-
-### Adding Attachments
-
-The following assumes that an attachment has already been uploaded to DataTrails using the [Blob API](../blobs-api).
-
-This attachment uuid is generically referred to as:
-
-```bash
-blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.
-
-- After uploading the content, use the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to the Event.
-
-  ```json
-  cat > /tmp/event.json <<EOF
-  {
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-      "arc_display_type": "Safety Conformance",
-      "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
-      "arc_evidence": "DVA Conformance Report attached",
-      "conformance_report": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "$BLOB_HASH",
-        "arc_blob_identity": "blobs/$BLOB_ID",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "safety_conformance.pdf",
-        "arc_display_name": "Conformance Report"
-      },
-      "arc_primary_image": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "$BLOB_HASH",
-        "arc_blob_identity": "blobs/$BLOB_ID",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "photo.jpg",
-        "arc_display_name": "arc_primary_image"
-      }
-    },
-    "timestamp_declared": "2019-11-27T14:44:19Z",
-    "principal_declared": {
-      "issuer": "idp.synsation.io/1234",
-      "subject": "phil.b",
-      "email": "phil.b@synsation.io"
-    }
-  }
-  EOF
-  ```
-
-- Add the request to the Asset Record by POSTing it to the resource:
-
-  ```bash
-  curl -X POST \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
-      -H "Content-type: application/json" \
-      -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
-      | jq
-  ```
-
-  The response:
-
-  ```json
-  {
-    "identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-      "arc_display_type": "Safety Conformance",
-      "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
-      "arc_evidence": "DVA Conformance Report attached",
-      "conformance_report": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "safety_conformance.pdf",
-        "arc_display_name": "Conformance Report",
-      },
-      "arc_primary_image": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "safety_conformance.pdf",
-        "arc_display_name": "Conformance Report",
-      },
-    },
-    "timestamp_accepted": "2019-11-27T15:13:21Z",
-    "timestamp_declared": "2019-11-27T14:44:19Z",
-    "timestamp_committed": "2019-11-27T15:15:02Z",
-    "principal_declared": {
-      "issuer": "idp.synsation.io/1234",
-      "subject": "phil.b",
-      "email": "phil.b@synsation.io"
-    },
-    "principal_accepted": {
-      "issuer": "job.idp.server/1234",
-      "subject": "bob@job"
-    },
-    "confirmation_status": "COMMITTED",
-    "block_number": 12,
-    "transaction_index": 5,
-    "transaction_id": "0x07569"
   }
   ```
 

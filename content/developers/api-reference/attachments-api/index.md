@@ -30,34 +30,72 @@ The steps include:
 1. Attaching the blob to an [Asset](/developers/api-reference/assets-api/) or an [Event](/developers/api-reference/events-api/)
 1. Querying the Attachment, through an Asset or an Event
 
+### Asset-Event Attachments
+
+Assets support attachments by creating an [Asset-Event](/developers/api-reference/asset-events-api/) with nested `arc_` attributes.
+
+- `"arc_attribute_type": "arc_attachment"`
+- `"arc_blob_identity": "blobs/b1234567-8901"`
+- `"arc_blob_hash_alg": "SHA256"`
+- `"arc_blob_hash_value": "h1234567"`
+- `"arc_file_name": "conformance.pdf"`
+- `"arc_display_name": "Conformance Report"`
+
+For example:
+
+```json
+  {
+    "identity": "assets/a1234567-8901/events/e1234567-8901",
+    "asset_identity": "assets/a1234567-8901",
+    "event_attributes": {
+      "arc_description": "Conformance approved for version 1.6",
+      "arc_display_type": "Conformance Report",
+      "conformance_report": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_blob_identity": "blobs/b1234567-8901",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_blob_hash_value": "h1234567",
+        "arc_file_name": "conformance.pdf",
+        "arc_display_name": "Conformance Report"
+      }
+    },
+    ...
+```
+
+The name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event.
+The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to reference a DataTrails Blob based attachment.
+
 ## Attachment API Examples
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 - Upload the content of the Attachment using the [Blobs API](/developers/api-reference/blobs-api/).
 
-### Event Attachments
+### Attachment Variables
 
-- To associate an existing Blob, set the `Asset_ID`, `BLOB_HASH` value and `BLOB_FILE`:
+- To associate an existing Blob, set the `ASSET_ID`, `BLOB_ID`, `BLOB_HASH` value and `BLOB_FILE` from the [Blobs API](/developers/api-reference/blobs-api/):
 
   {{< note >}}
-  NOTE: The `ASSET_ID` dependency will be removed with Non-asset based Events
+  NOTE: The `ASSET_ID` dependency will be removed with [Non-asset based Events (preview)](/developers/api-reference/events-api/)
   {{< /note >}}
 
   ```bash
   ASSET_ID=<asset-id>
   BLOB_ID=<blob-id>
-  BLOB_FILE=file.jpg
+  BLOB_FILE=<file.ext>
   BLOB_HASH=<hash-value>
   ```
 
-### Asset Attachments
+  Example:
 
-Set the `"arc_attribute_type": "arc_attachment"` key-value pair within a dictionary of blob information to add the attachment to the Event.
-The name of the attribute (`"conformance_report"` in the following example), can be any value.
-The DataTrails platform evaluates `arc_attribute_type` within the attribute properties to understand it references a DataTrails Blob based attachment.
+  ASSET_ID=assets/a1234567-8901  
+  BLOB_ID=blobs/b1234567-8901  
+  BLOB_FILE=conformance.pdf  
+  BLOB_HASH=h1234567  
 
-- Create the event payload, referencing the Blob as an integrity protected Attachment:
+### Create an Asset-Event Attachment
+
+- Create an event, referencing the Blob as an integrity protected Attachment:
 
   ```bash
   cat > /tmp/event.json <<EOF
@@ -66,12 +104,11 @@ The DataTrails platform evaluates `arc_attribute_type` within the attribute prop
     "behaviour": "RecordEvidence",
     "event_attributes": {
       "arc_display_type": "Safety Conformance",
-      "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
-      "arc_evidence": "DVA Conformance Report attached",
+      "arc_description": "Safety conformance approved for version 1.6.",
       "conformance_report": {
         "arc_attribute_type": "arc_attachment",
         "arc_blob_hash_value": "$BLOB_HASH",
-        "arc_blob_identity": "blobs/$BLOB_ID",
+        "arc_blob_identity": "$BLOB_ID",
         "arc_blob_hash_alg": "SHA256",
         "arc_file_name": "$BLOB_FILE",
         "arc_display_name": "Conformance Report"
@@ -88,7 +125,7 @@ The DataTrails platform evaluates `arc_attribute_type` within the attribute prop
     -H "@$HOME/.datatrails/bearer-token.txt" \
     -H "Content-type: application/json" \
     -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+    https://app.datatrails.ai/archivist/v2/$ASSET_ID/events \
     | jq
   ```
 
@@ -96,88 +133,21 @@ The DataTrails platform evaluates `arc_attribute_type` within the attribute prop
 
   ```json
   {
-    "identity": "assets/xxxxxxxx...xxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "asset_identity": "assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "identity": "assets/a1234567-8901/events/e1234567-8901",
+    "asset_identity": "assets/a1234567-8901",
     "event_attributes": {
-      "arc_description": "Safety conformance approved for version 1.6. See attached conformance report",
-      "arc_evidence": "DVA Conformance Report attached",
-      "arc_display_type": "Safety Conformance",
+      "arc_description": "Safety conformance approved for version 1.6.",
       "conformance_report": {
-        "arc_blob_identity": "blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "file.jpg",
-        "arc_display_name": "Conformance Report",
         "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "xxxxxxxxx"
-      }
-    },
-    "asset_attributes": {},
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "timestamp_declared": "2025-01-28T01:50:14Z",
-    "timestamp_accepted": "2025-01-28T01:50:14Z",
-    "timestamp_committed": "2025-01-28T01:50:16Z",
-    "principal_declared": {
-      "issuer": "https://app.datatrails.ai/appidpv1",
-      "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "display_name": "my-integration",
-      "email": ""
-    },
-    "principal_accepted": {
-      "issuer": "https://app.datatrails.ai/appidpv1",
-      "subject": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "display_name": "my-integration",
-      "email": ""
-    },
-    "confirmation_status": "PENDING",
-    "transaction_id": "",
-    "block_number": 0,
-    "transaction_index": 0,
-    "from": "",
-    "tenant_identity": "",
-    "merklelog_entry": {
-      "commit": null,
-      "confirm": null,
-      "unequivocal": null
-    }
-  }
-  ```
-
-### Event Primary Image
-
-Events can use the same Blobs API to associate a primary image in the DataTrails Application.
-The same, or different blobs can be an attribute attachment and/or the primary image.
-
-- Associate a Blob as the Event Primary Image:
-
-  ```json
-  cat > /tmp/event.json <<EOF
-  {
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-      "arc_primary_image": {
-        "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "$BLOB_HASH",
-        "arc_blob_identity": "blobs/$BLOB_ID",
+        "arc_blob_hash_value": "h1234567",
+        "arc_blob_identity": "blobs/b1234567-8901",
         "arc_blob_hash_alg": "SHA256",
-        "arc_file_name": "$BLOB_FILE",
-        "arc_display_name": "arc_primary_image"
-      }
-    }
-  }
-  EOF
-  ```
-
-- POST the Event Primary Image:
-
-  ```bash
-  curl -X POST \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
-      -H "Content-type: application/json" \
-      -d "@/tmp/event.json" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
-      | jq
+        "arc_file_name": "cat.jpg",
+        "arc_display_name": "Conformance Report"
+      },
+      "arc_display_type": "Safety Conformance"
+    },
+    ...
   ```
 
 ### Retrieve a Specific Attachment on an Asset

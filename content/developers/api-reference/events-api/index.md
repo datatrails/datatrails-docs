@@ -91,6 +91,75 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
   }
   ```
 
+### DataTrails Reserved Attributes
+
+The DataTrails platform as reserved attributes starting with `arc_`.
+Asset-Events have the following reserved attributes:
+
+- **`arc_display_type`**: The value used to display in the DataTrails Application.
+- **`arc_primary_image`**: A attribute containing a dictionary of references to a Blob, used to display in the DataTrails Application.
+- **`arc_attribute_type`**: When set within a nested attribute, the value of `"arc_attachment"` identifies a reference to a [DataTrails Blob](/developers/api-reference/blobs-api/)
+- **`arc_display_name"`**: When set to `"arc_primary_image"`, the blob is displayed in the DataTrails application.
+- **`arc_blob_hash_value`**: When `arc_attribute_type` = `"arc_attachment"`, the value must equal the hash value within the associated `arc_blob_identity`.
+- **`arc_blob_identity`**: A reference to a [Blob](/developers/api-reference/blobs-api/)
+- **`arc_blob_hash_alg`**: The algorithm of the `arc_blob_hash_value` (eg: "SHA256")
+- **`arc_file_name`**: When `arc_attribute_type` = `"arc_attachment"`, the file name of the blob.
+
+### Event Primary Image
+
+Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associate a primary image in the DataTrails Application.
+
+#### Primary Image Variables
+
+- To associate an existing Blob, set the `BLOB_ID`, `BLOB_HASH` value and `BLOB_FILE` from the [Blobs API](/developers/api-reference/blobs-api/):
+
+  ```bash
+  BLOB_ID=<blob-id>
+  BLOB_FILE=<file.ext>
+  BLOB_HASH=<hash-value>
+  ```
+
+  Example:
+
+  BLOB_ID=blobs/b1234567-8901  
+  BLOB_FILE=conformance.pdf  
+  BLOB_HASH=h1234567  
+
+- Associate a Blob as the Event Primary Image:
+
+  ```json
+  cat > /tmp/event.json <<EOF
+  {
+    "trails": ["Safety Conformance", "Clouseau"],
+    "attributes": {
+      "arc_primary_image": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_display_name": "arc_primary_image",
+        "arc_blob_hash_value": "$BLOB_HASH",
+        "arc_blob_identity": "$BLOB_ID",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_file_name": "$BLOB_FILE"
+      }
+    }
+  }
+  EOF
+  ```
+
+- POST the Event Primary Image:
+
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -H "Content-type: application/json" \
+      -d "@/tmp/event.json" \
+      https://app.datatrails.ai/archivist/v1/events \
+      | jq
+  ```
+
+### Adding Attachments
+
+To associate an Attachment with an Event, see the [Attachments API](/developers/api-reference/attachments-api/)
+
 ### Event Record Retrieval
 
 Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: `events/<event-id>`

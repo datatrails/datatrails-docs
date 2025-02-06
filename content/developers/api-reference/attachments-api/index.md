@@ -32,12 +32,12 @@ The steps include:
 
 ### Asset-Event Attachments
 
-Assets support attachments by creating an [Asset-Event](/developers/api-reference/asset-events-api/) with nested `arc_` attributes.
+Assets support attachments by creating an [Asset-Event](/developers/api-reference/asset-events-api/) with nested `arc_` [Reserved Attributes](/glossary/reserved-attributes/).
 
 - `"arc_attribute_type": "arc_attachment"`
-- `"arc_blob_identity": "blobs/b1234567-8901"`
+- `"arc_blob_identity": "blobs/b1234567-890b"`
 - `"arc_blob_hash_alg": "SHA256"`
-- `"arc_blob_hash_value": "h1234567"`
+- `"arc_blob_hash_value": "h1234567h"`
 - `"arc_file_name": "conformance.pdf"`
 - `"arc_display_name": "Conformance Report"`
 
@@ -45,18 +45,26 @@ For example:
 
 ```json
   {
-    "identity": "assets/a1234567-8901/events/e1234567-8901",
-    "asset_identity": "assets/a1234567-8901",
+    "identity": "assets/a1234567-890a/events/e1234567-890e",
+    "asset_identity": "assets/a1234567-890a",
     "event_attributes": {
       "arc_description": "Conformance approved for version 1.6",
       "arc_display_type": "Conformance Report",
       "conformance_report": {
         "arc_attribute_type": "arc_attachment",
-        "arc_blob_identity": "blobs/b1234567-8901",
+        "arc_blob_identity": "blobs/b1234567-890b",
         "arc_blob_hash_alg": "SHA256",
-        "arc_blob_hash_value": "h1234567",
+        "arc_blob_hash_value": "h1234567h",
         "arc_file_name": "conformance.pdf",
         "arc_display_name": "Conformance Report"
+      },
+      "security_report": {
+        "arc_attribute_type": "arc_attachment",
+        "arc_blob_identity": "blobs/b890123-456b",
+        "arc_blob_hash_alg": "SHA256",
+        "arc_blob_hash_value": "h8901234h",
+        "arc_file_name": "security-report.pdf",
+        "arc_display_name": "Security Report"
       }
     },
     "..."
@@ -89,10 +97,10 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
 
   Example:
 
-  ASSET_ID=assets/a1234567-8901  
-  BLOB_ID=blobs/b1234567-8901  
+  ASSET_ID=assets/a1234567-890a  
+  BLOB_ID=blobs/b1234567-890b  
   BLOB_FILE=conformance.pdf  
-  BLOB_HASH=h1234567  
+  BLOB_HASH=h1234567h  
 
 ### Create an Asset-Event Attachment
 
@@ -134,14 +142,14 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
 
   ```json
   {
-    "identity": "assets/a1234567-8901/events/e1234567-8901",
-    "asset_identity": "assets/a1234567-8901",
+    "identity": "assets/a1234567-890a/events/e1234567-890e",
+    "asset_identity": "assets/a1234567-890a",
     "event_attributes": {
       "arc_description": "Safety conformance approved for version 1.6.",
       "conformance_report": {
         "arc_attribute_type": "arc_attachment",
-        "arc_blob_hash_value": "h1234567",
-        "arc_blob_identity": "blobs/b1234567-8901",
+        "arc_blob_hash_value": "h1234567h",
+        "arc_blob_identity": "blobs/b1234567-890b",
         "arc_blob_hash_alg": "SHA256",
         "arc_file_name": "cat.jpg",
         "arc_display_name": "Conformance Report"

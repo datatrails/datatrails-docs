@@ -93,17 +93,10 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 ### DataTrails Reserved Attributes
 
-The DataTrails platform as reserved attributes starting with `arc_`.
-Asset-Events have the following reserved attributes:
+### DataTrails Reserved Attributes
 
-- **`arc_display_type`**: The value used to display in the DataTrails Application.
-- **`arc_primary_image`**: A attribute containing a dictionary of references to a Blob, used to display in the DataTrails Application.
-- **`arc_attribute_type`**: When set within a nested attribute, the value of `"arc_attachment"` identifies a reference to a [DataTrails Blob](/developers/api-reference/blobs-api/)
-- **`arc_display_name"`**: When set to `"arc_primary_image"`, the blob is displayed in the DataTrails application.
-- **`arc_blob_hash_value`**: When `arc_attribute_type` = `"arc_attachment"`, the value must equal the hash value within the associated `arc_blob_identity`.
-- **`arc_blob_identity`**: A reference to a [Blob](/developers/api-reference/blobs-api/)
-- **`arc_blob_hash_alg`**: The algorithm of the `arc_blob_hash_value` (eg: "SHA256")
-- **`arc_file_name`**: When `arc_attribute_type` = `"arc_attachment"`, the file name of the blob.
+The DataTrails platform has reserved attributes starting with `arc_` to perform specific capabilities.
+See [Reserved Attributes](/glossary/reserved-attributes/) for more info.
 
 ### Event Primary Image
 
@@ -121,9 +114,9 @@ Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associat
 
   Example:
 
-  BLOB_ID=blobs/b1234567-8901  
+  BLOB_ID=blobs/b1234567-890b  
   BLOB_FILE=conformance.pdf  
-  BLOB_HASH=h1234567  
+  BLOB_HASH=h1234567h  
 
 - Associate a Blob as the Event Primary Image:
 

@@ -108,10 +108,10 @@ The image must first be uploaded with the [Blobs API](/developers/api-reference/
 
   Example:
 
-  ASSET_ID=assets/a1234567-8901  
-  BLOB_ID=blobs/b1234567-8901  
+  ASSET_ID=assets/a1234567-890a  
+  BLOB_ID=blobs/b1234567-890b  
   BLOB_FILE=cat.jpg  
-  BLOB_HASH=h1234567  
+  BLOB_HASH=h1234567h  
 
   ```bash
   cat > /tmp/asset.json <<EOF

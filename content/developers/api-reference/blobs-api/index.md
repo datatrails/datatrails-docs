@@ -14,26 +14,20 @@ toc: true
 aliases: 
   - /docs/api-reference/blobs-api/
 ---
-{{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
-
-Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
-{{< /note >}}
-
-## Blob API Examples
-
-The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.
+The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, [attaching](/developers/api-reference/attachments-api/) them to [Assets](/developers/api-reference/assets-api/) and [Events (preview)](/developers/api-reference/events-api/).
 
 {{< note >}}
-**Note:** Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
+**Note:** Blobs cannot be searched or listed as a collection using the blobs resource.
+BLobs must be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
 Take note of the Blob ID returned in the API response, it will be needed for use with Assets and Events.<br>
 For information on Attachments and how to implement them, please refer to [the Events API Reference](../events-api/#adding-attachments).
 {{< /note >}}
 
-Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+## Blob API Examples
 
-### Sample Attachment
+- Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+
+### Reference a Sample File
 
 An attachment can be any type of file, from media files to code files.
 The sample uses Fyodor (cat.jpg), but the `BLOB_FILE` can be replaced with any content you desire:
@@ -53,7 +47,7 @@ The sample uses Fyodor (cat.jpg), but the `BLOB_FILE` can be replaced with any c
   BLOB_FILE=./cat.jpg
   ```
 
-- Upload the blob stored at /path/to/file:
+- Upload the blob:
 
   ```bash
   curl -X POST \
@@ -70,12 +64,12 @@ The sample uses Fyodor (cat.jpg), but the `BLOB_FILE` can be replaced with any c
   {
     "hash": {
       "alg": "SHA256",
-      "value": "h123456"
+      "value": "h1234567h"
     },
-    "identity": "blobs/b123467-8901",
+    "identity": "blobs/b123467-890b",
     "mime_type": "image/jpeg",
     "size": 21779,
-    "tenantid": "t1234567-8901-xxxx-xxxx-xxxxxxxxxxxx",
+    "tenantid": "t1234567-890t",
     "timestamp_accepted": "2025-01-27T23:45:29Z"
   }
   ```
@@ -83,11 +77,11 @@ The sample uses Fyodor (cat.jpg), but the `BLOB_FILE` can be replaced with any c
 ### Retrieve a Blob
 
 - Capture the Blob identity from the above POST.  
-  Note, the `<blob-id>` combines `blobs/` and the ID  
-  example:`"identity": "blobs/b123467-8901"` becomes `BLOB_ID=blobs/b123467-8901`:
+  Note, the `<blob-id>` combines `blobs/` and the value.  
+  example:`"identity": "blobs/b123467-890b"` becomes `BLOB_ID=blobs/b123467-890b`:
 
   ```bash
-  BLOB_ID=<blob-id>
+  BLOB_ID=blobs/<blob-id>
   ```
 
 - Retrieve a specific Blob, downloading the `cat.jpg` file:
@@ -102,22 +96,9 @@ The sample uses Fyodor (cat.jpg), but the `BLOB_FILE` can be replaced with any c
 ### Finding Blobs
 
 The Blobs API does not support a discovery or query API that lists all possible blobs.
-Blobs are discovered through their usage within the DataTrails platform, such as the [Attachments API](/developers/api-reference/attachments-api/) or the primary image of an Asset or Event.
-Through the Attachments API, capture the value of the `"arc_blob_identity"`, nested below a named attribute with an `"arc_attribute_type": "arc_attachment"`:
+Blobs are discovered through their usage within the DataTrails platform, such as the [Attachments API](/developers/api-reference/attachments-api/) or the [Asset Primary Image](/developers/api-reference/assets-api/#primary-image), [Asset-event Primary Image](/developers/api-reference/asset-events-api/#asset-event-primary-image), or the [Event (preview) Primary Image](/developers/api-reference/events-api/#event-primary-image).
 
-```json
-{
-  "event_attributes": {
-    "conformance_report": {
-      "arc_attribute_type": "arc_attachment",
-      "arc_blob_identity": "blobs/b123456-7890",
-      "arc_blob_hash_value": "h123456",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "Conformance.pdf"
-    }
-  }
-}
-```
+Through the above APIs, capture the value of the `"arc_blob_identity"`, nested below a named attribute with an `"arc_attribute_type": "arc_attachment"`, then use the [Attachments API](/developers/api-reference/attachments-api/) to get metadata about the attachment.
 
 ## Blobs OpenAPI Docs
 

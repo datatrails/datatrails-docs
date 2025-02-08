@@ -141,7 +141,7 @@ In a future release, Events will be created independently from Assets.
 The DataTrails platform has reserved attributes starting with `arc_` to perform specific capabilities.
 See [Reserved Attributes](/glossary/reserved-attributes/) for more info.
 
-### Event Primary Image
+### Asset-Event Primary Image
 
 Asset-Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associate a primary image in the DataTrails Application.
 

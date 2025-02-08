@@ -14,17 +14,14 @@ toc: true
 aliases: 
   - /docs/api-reference/attachments-api/
 ---
-{{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.io) section of the web UI.
+The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.
 
-Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
+{{< note >}}
+Attachments apply to [Asset-Events](/developers/api-reference/asset-events-api/), and Asset-free [Events](/developers/api-reference/events-api/) (preview).
+There are subtle differences that are documented below.
 {{< /note >}}
 
-The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.
-Events can also have a primary image associated with the event, providing feedback within the DataTrails application.
-
-The steps include:
+The steps to make an attachment include:
 
 1. Uploading content to the DataTrails [Blobs API](/developers/api-reference/blobs-api/).
 1. Attaching the blob to an [Asset](/developers/api-reference/assets-api/) or an [Event](/developers/api-reference/events-api/)
@@ -32,7 +29,7 @@ The steps include:
 
 ### Asset-Event Attachments
 
-Assets support attachments by creating an [Asset-Event](/developers/api-reference/asset-events-api/) with nested `arc_` [Reserved Attributes](/glossary/reserved-attributes/).
+Assets support attachments by creating an [Asset-Event](/developers/api-reference/asset-events-api/) with nested `arc_` [reserved attributes](/glossary/reserved-attributes/).
 
 - `"arc_attribute_type": "arc_attachment"`
 - `"arc_blob_identity": "blobs/b1234567-890b"`
@@ -41,7 +38,7 @@ Assets support attachments by creating an [Asset-Event](/developers/api-referenc
 - `"arc_file_name": "conformance.pdf"`
 - `"arc_display_name": "Conformance Report"`
 
-For example:
+Example of an Asset-event with two attachments:
 
 ```json
   {
@@ -71,36 +68,40 @@ For example:
   }
 ```
 
-The name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event.
-The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to reference a DataTrails Blob based attachment.
+The name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event, such as the additional `"security_report"` attachment.
 
-## Attachment API Examples
+The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to reference a DataTrails [Blob](/developers/api-reference/blobs-api/) based attachment.
+
+## Asset-Event Attachment API Examples
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
 
 - Upload the content of the Attachment using the [Blobs API](/developers/api-reference/blobs-api/).
 
-### Attachment Variables
+### Asset-Event Attachment Variables
 
 - To associate an existing Blob, set the `ASSET_ID`, `BLOB_ID`, `BLOB_HASH` value and `BLOB_FILE` from the [Blobs API](/developers/api-reference/blobs-api/):
 
   {{< note >}}
-  NOTE: The `ASSET_ID` dependency will be removed with [Non-asset based Events (preview)](/developers/api-reference/events-api/)
+  The `BLOB_HASH` is required, as it creates integrity protection between the content uploaded through the Blobs API, and the integrity protected reference of the Attachment.
+  Storing the hash in the attachment assures any tampering of the blob storage, including tampering within the DataTrails platform, would be evident.
+  
+  When retrieving the blob, the hash retrieved should be compared to the hash of the Attachment API to assure the content has not been tampered with.
   {{< /note >}}
 
   ```bash
   ASSET_ID=<asset-id>
   BLOB_ID=<blob-id>
-  BLOB_FILE=<file.ext>
   BLOB_HASH=<hash-value>
+  BLOB_FILE=conformance.pdf
   ```
 
   Example:
 
   ASSET_ID=assets/a1234567-890a  
   BLOB_ID=blobs/b1234567-890b  
-  BLOB_FILE=conformance.pdf  
   BLOB_HASH=h1234567h  
+  BLOB_FILE=conformance.pdf
 
 ### Create an Asset-Event Attachment
 
@@ -155,14 +156,16 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
         "arc_display_name": "Conformance Report"
       },
       "arc_display_type": "Safety Conformance"
-    }
+    },
+    "..."
+  }
   ```
 
 ### Retrieve a Specific Attachment on an Asset
 
 ```bash
 curl -H "@$HOME/.datatrails/bearer-token.txt" \
-    https://app.datatrails.ai/archivist/v2/attachments/assets/$ASSET_ID/$ATTACHMENT_ID
+    https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$ATTACHMENT_ID
 ```
 
 ### Retrieve a Specific Attachment on an Event

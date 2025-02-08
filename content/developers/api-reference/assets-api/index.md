@@ -93,7 +93,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
   }
   ```
 
-### Assets With a Primary Image
+### Primary Image
 
 An Asset can have a primary image, displayed in the DataTrails Application.
 The image must first be uploaded with the [Blobs API](/developers/api-reference/blobs-api/), with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.
